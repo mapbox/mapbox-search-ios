@@ -1,4 +1,4 @@
-binary "https://api.mapbox.com/downloads/v2/carthage/search-sdk/MapboxSearch.json" == 1.0.0-beta.6
-binary "https://api.mapbox.com/downloads/v2/carthage/search-sdk/MapboxSearchUI.json" == 1.0.0-beta.6
-binary "https://api.mapbox.com/downloads/v2/carthage/mapbox-common/MapboxCommon.json" ~> 13.0.0
 binary "https://api.mapbox.com/downloads/v2/carthage/mapbox-events-ios/MapboxMobileEvents.json" ~> 1.0.0
+binary "https://api.mapbox.com/downloads/v2/carthage/mapbox-common/MapboxCommon.json" ~> 14.2.0
+binary "https://api.mapbox.com/downloads/v2/carthage/search-sdk/MapboxSearch.json" == 1.0.0-beta.7
+binary "https://api.mapbox.com/downloads/v2/carthage/search-sdk/MapboxSearchUI.json" == 1.0.0-beta.7

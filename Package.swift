@@ -7,8 +7,8 @@ import Foundation
 
 let registry = SDKRegistry()
 
-let (searchVersion, searchVersionHash) = ("1.0.0-beta.6", "27b630300a2647fc33da3208b63321b4c1cef7478ab531aabaea605998ce536c")
-let (searchUIVersion, searchUIVersionHash) = ("1.0.0-beta.6", "a273c17b9c778d5f5617933bf93575719c2c914c99209a73bf3c110826f54fdc")
+let (searchVersion, searchVersionHash) = ("1.0.0-beta.7","0da83edf494485c09644a68a53a6902b919dc3e18ba2dbd3614cfeea8d7c3e9f")
+let (searchUIVersion, searchUIVersionHash) = ("1.0.0-beta.7","96f8c6cc267742d02dbaee3c516d96df617cafbe01ab751fb28772e0eb4556ef")
 
 
 let package = Package(
