@@ -20,8 +20,8 @@ let package = Package(
         .library(
             name: "MapboxSearch",
             targets: [
-                "MapboxSearchDependencies",
-                "MapboxSearch"
+                "MapboxSearch",
+                "Dependencies"
             ]
         ),
         .library(
@@ -40,7 +40,7 @@ let package = Package(
                  from: "13.0.0"),
     ],
     targets: [
-        .target(name: "MapboxSearchDependencies",
+        .target(name: "Dependencies",
                 dependencies: [
                     "MapboxMobileEvents",
                     "MapboxCommon"
