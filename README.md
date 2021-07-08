@@ -1,9 +1,10 @@
 # Mapbox Search SDK binaries for iOS
 
 Public dependency manager manifests for Search SDK by Mapbox
-[Documentation](https://docs.mapbox.com/ios/search/guides/)
-[API Reference](https://docs.mapbox.com/ios/search/api-reference/)
-[Examples](https://docs.mapbox.com/ios/search/examples/)
+
+* [Documentation](https://docs.mapbox.com/ios/search/guides/)
+* [API Reference](https://docs.mapbox.com/ios/search/api-reference/)
+* [Examples](https://docs.mapbox.com/ios/search/examples/)
 
 ## Requirements
 
