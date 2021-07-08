@@ -7,9 +7,12 @@ import Foundation
 
 let registry = SDKRegistry()
 
-let (searchVersion, searchVersionHash) = ("1.0.0-beta.7","0da83edf494485c09644a68a53a6902b919dc3e18ba2dbd3614cfeea8d7c3e9f")
-let (searchUIVersion, searchUIVersionHash) = ("1.0.0-beta.7","96f8c6cc267742d02dbaee3c516d96df617cafbe01ab751fb28772e0eb4556ef")
+let version = "1.0.0-beta.7"
+let searchVersionHash = "0da83edf494485c09644a68a53a6902b919dc3e18ba2dbd3614cfeea8d7c3e9f"
+let searchUIVersionHash = "96f8c6cc267742d02dbaee3c516d96df617cafbe01ab751fb28772e0eb4556ef"
 
+let mapboxMobileEventsVersion: Version = "1.0.0"
+let mapboxCommonVersion: Version = "14.2.0"
 
 let package = Package(
     name: "MapboxSearch",
@@ -34,10 +37,10 @@ let package = Package(
     dependencies: [
         .package(name: "MapboxMobileEvents",
                  url: "https://github.com/mapbox/mapbox-events-ios",
-                 from: "1.0.0"),
+                 from: mapboxMobileEventsVersion),
         .package(name: "MapboxCommon",
                  url: "git@github.com:mapbox/mapbox-common-ios.git",
-                 from: "13.0.0"),
+                 from: mapboxCommonVersion),
     ],
     targets: [
         .target(name: "Dependencies",
@@ -45,9 +48,9 @@ let package = Package(
                     "MapboxMobileEvents",
                     "MapboxCommon"
                 ]),
-        registry.mapboxSearchTarget(version: searchVersion,
+        registry.mapboxSearchTarget(version: version,
                                     checksum: searchVersionHash),
-        registry.mapboxSearchUITarget(version: searchUIVersion,
+        registry.mapboxSearchUITarget(version: version,
                                       checksum: searchUIVersionHash)
     ],
     cxxLanguageStandard: .cxx14
