@@ -23,7 +23,7 @@ Public dependency manager manifests for Search SDK by Mapbox
 There are few steps to integrate SDK with SPM:
 
 1. (!) Generate Mapbox private access token with `DOWNLOADS:READ` permission scope and write it down to the `~/.netrc` file for `mapbox` user and `api.mapbox.com` domain  
-[Read more](https://docs.mapbox.com/ios/beta/maps/guides/install/#configure-credentials)
+[Read more](https://docs.mapbox.com/ios/search/guides/install/#configure-credentials)
 
 2. Add repository link to the Packages list
     * Xcode:
@@ -42,7 +42,7 @@ There are few steps to integrate SDK with SPM:
 ### CocoaPods
 
 1. (!) Generate Mapbox private access token with `DOWNLOADS:READ` permission scope and write it down to the `~/.netrc` file for `mapbox` user and `api.mapbox.com` domain  
-[Read more](https://docs.mapbox.com/ios/beta/maps/guides/install/#configure-credentials)
+[Read more](https://docs.mapbox.com/ios/search/guides/install/#configure-credentials)
 2. Add pods to your Podfile:
 
 ```ruby
