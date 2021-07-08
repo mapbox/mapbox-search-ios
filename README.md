@@ -55,7 +55,7 @@ CocoaPods supports XCFrameworks since 1.10 version and enables `~/.netrc` suppor
 ### Carthage
 
 1. (!) Generate Mapbox private access token with `DOWNLOADS:READ` permission scope and write it down to the `~/.netrc` file for `mapbox` user and `api.mapbox.com` domain  
-[Read more](https://docs.mapbox.com/ios/beta/maps/guides/install/#configure-credentials)
+[Read more](https://docs.mapbox.com/ios/search/guides/install/#configure-credentials)
 2. Add next line to Cartfile:
 
 ```ruby
