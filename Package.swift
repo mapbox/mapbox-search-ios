@@ -7,9 +7,9 @@ import Foundation
 
 let registry = SDKRegistry()
 
-let version = "1.0.0-beta.8.2"
-let searchVersionHash = "2a9d0dbb588aafff8c56aee3090b4aa207b098a43c3a0382ce604ba2227b18a7"
-let searchUIVersionHash = "764d252ab3e34f5f85d8ff95c5b39b29d6df5373965c8f257a73ae1f6ef41d5a"
+let version = "1.0.0-beta.9"
+let searchVersionHash = "67107b0a9b8018a5242248806b51d4f1e079c4774d973266be8d302c5c2a742e"
+let searchUIVersionHash = "a75f356a839b43cc19e4cabcb1d30417382f59894eeae4c9beafea732bc25209"
 
 let mapboxMobileEventsVersion: Version = "1.0.0"
 let mapboxCommonVersion: Version = "16.0.0"
