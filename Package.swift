@@ -36,10 +36,10 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "MapboxMobileEvents",
-                 url: "https://github.com/mapbox/mapbox-events-ios",
+                 url: "https://github.com/mapbox/mapbox-events-ios.git",
                  from: mapboxMobileEventsVersion),
         .package(name: "MapboxCommon",
-                 url: "git@github.com:mapbox/mapbox-common-ios.git",
+                 url: "https://github.com/mapbox/mapbox-common-ios.git",
                  from: mapboxCommonVersion),
     ],
     targets: [
