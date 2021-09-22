@@ -7,12 +7,12 @@ import Foundation
 
 let registry = SDKRegistry()
 
-let version = "1.0.0-beta.13"
-let searchVersionHash = "7f70cc7aa4089bd42cbd4a4dc7f4dd0ef01825007b6ee4c1b6e8e3d2898d44ac"
-let searchUIVersionHash = "6dcef49f3f1d0f028ce839d302f0beea63302f7750167929a1592b52af07faf7"
+let version = "1.0.0-beta.14"
+let searchVersionHash = "cc8d3d834c4f35289410d6d83c42a96e738f1ea93a4560a60701e88bce316aad"
+let searchUIVersionHash = "b49d96c927a1bb8b5332bf887c1b42879be869f6f3ce23b2f04f2173cf3047aa"
 
 let mapboxMobileEventsVersion: Version = "1.0.0"
-let mapboxCommonVersion: Version = "18.0.0"
+let mapboxCommonVersion: Version = "19.0.0"
 
 let package = Package(
     name: "MapboxSearch",
