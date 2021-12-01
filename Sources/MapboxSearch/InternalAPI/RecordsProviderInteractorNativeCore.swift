@@ -1,0 +1,50 @@
+class RecordsProviderInteractorNativeCore: RecordsProviderInteractor {
+    private(set) var providerIdentifier: String
+    private var userRecordsLayer: CoreUserRecordsLayerProtocol
+    
+    init(userRecordsLayer: CoreUserRecordsLayerProtocol, registeredIdentifier: String) {
+        self.providerIdentifier = registeredIdentifier
+        self.userRecordsLayer = userRecordsLayer
+    }
+    
+    func add(record: IndexableRecord) {
+        do {
+            try userRecordsLayer.add(for: record.coreUserRecord())
+        } catch {
+            _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
+        }
+    }
+    
+    func update(record: IndexableRecord) {
+        do {
+            try userRecordsLayer.update(for: record.coreUserRecord())
+        } catch {
+            _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
+        }
+    }
+    
+    func delete(identifier: String) {
+        do {
+            try userRecordsLayer.remove(forId: identifier)
+        } catch {
+            _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
+        }
+    }
+    
+    func deleteAll() {
+        do {
+            try userRecordsLayer.clear()
+        } catch {
+            _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
+        }
+    }
+    
+    func contains(identifier: String) -> Bool {
+        do {
+            return try userRecordsLayer.contains(forId: identifier)
+        } catch {
+            _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
+            return false
+        }
+    }
+}

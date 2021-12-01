@@ -1,0 +1,36 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+        "type": "Feature",
+        "bbox": [27.3732800003033, 53.7921290053172, 27.7904989887967, 53.970920997488],
+        "geometry": {
+            "coordinates": [27.56184, 53.90225],
+            "type": "Point"
+        },
+        "properties": {
+            "feature_name": "Minsk",
+            "matching_name": "Minsk",
+            "description": "Belarus",
+            "place_name": "Minsk, Belarus",
+            "id": "place.9038333669154200",
+            "place_type": ["region", "place"],
+            "context": [{
+                "layer": "country.13685961050877970",
+                "name": "Belarus"
+            }],
+            "language": "en",
+            "maki": "marker",
+            "internal_id": "Y2OAgKLU9Mz8PAA=.Y2OAgOTEotzUPAA=.TYzBDcJADASp5d5UwJM_NSDHthKLix3ZvkeEaIRqOXFIZH8zu9r3aeRZ0Jqm7-VSrlzBW5RzcZ7FtKubaDy6IIl0weyq01YB-dBuFolGPNpqCFVyH6Qs8zKZL2Y0DBA5R_zhrm2d2H97WL8_rw8=",
+            "external_ids": {
+                "carmen": "place.9038333669154200",
+                "federated": "carmen.place.9038333669154200"
+            },
+            "metadata": {
+                "iso_3166_1": "by"
+            }
+        }
+    }],
+    "attribution": "© 2021 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service. (https://www.mapbox.com/about/maps/)",
+    "version": "15:216d3cc47dcf3573b3401d72dc61ac5546f60ed5",
+    "response_uuid": "946aa9d5-b24b-4a01-afed-0ca787b3247e"
+}

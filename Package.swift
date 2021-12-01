@@ -1,65 +1,69 @@
 // swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
-
 import PackageDescription
 import Foundation
 
 let registry = SDKRegistry()
-
-let version = "1.0.0-beta.17"
-let searchVersionHash = "cf32ebe7a16a63e6479e970e7e4b371eff4b22129d3af6f635a0f988b06a06ca"
-let searchUIVersionHash = "399b023227430d664c645b3dd493d5e0922566ea3c3c0e00260e8e1ee89f7449"
-
-let mapboxMobileEventsVersion: Version = "1.0.0"
-let mapboxCommonVersion: Version = "20.1.0"
+let (coreSearchVersion, coreSearchVersionHash) = ("0.44.0", "71325d87780fff90c308cac62be26e501b93427b66aa55edfc5a9bce01828c52")
 
 let package = Package(
     name: "MapboxSearch",
-    platforms: [
-        .iOS(.v11)
-    ],
+    defaultLocalization: "en",
+    platforms: [.iOS(.v11), .macOS(.v10_15)],
     products: [
+        // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "MapboxSearch",
-            targets: [
-                "MapboxSearch",
-                "Dependencies"
-            ]
+            targets: ["MapboxSearch"]
         ),
-        .library(
-            name: "MapboxSearchUI",
-            targets: [
-                "MapboxSearchUI"
-            ]
-        ),
+        .library(name: "MapboxSearchUI",
+                 targets: ["MapboxSearchUI"])
     ],
     dependencies: [
-        .package(name: "MapboxMobileEvents",
-                 url: "https://github.com/mapbox/mapbox-events-ios.git",
-                 from: mapboxMobileEventsVersion),
-        .package(name: "MapboxCommon",
-                 url: "https://github.com/mapbox/mapbox-common-ios.git",
-                 from: mapboxCommonVersion),
+        // Dependencies declare other packages that this package depends on.
+        // .package(url: /* package url */, from: "1.0.0"),
+        .package(name: "MapboxMobileEvents", url: "https://github.com/mapbox/mapbox-events-ios.git", from: "1.0.0"),
+        .package(name: "MapboxCommon", url: "https://github.com/mapbox/mapbox-common-ios.git", from: "20.0.0"),
+        .package(url: "https://github.com/mattgallagher/CwlPreconditionTesting.git", from: "2.0.0")
     ],
     targets: [
-        .target(name: "Dependencies",
-                dependencies: [
-                    "MapboxMobileEvents",
-                    "MapboxCommon"
-                ]),
-        registry.mapboxSearchTarget(version: version,
-                                    checksum: searchVersionHash),
-        registry.mapboxSearchUITarget(version: version,
-                                      checksum: searchUIVersionHash)
+        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
+        // Targets can depend on other targets in this package, and on products in packages this package depends on.
+        .target(
+            name: "MapboxSearch",
+            dependencies: [
+                "MapboxCoreSearch",
+                "MapboxMobileEvents",
+                "MapboxCommon",
+            ],
+            exclude: ["Info.plist"],
+            linkerSettings: [.linkedLibrary("c++")]
+        ),
+        .target(
+            name: "MapboxSearchUI",
+            dependencies: ["MapboxSearch"],
+            exclude: ["Info.plist", "Resources-Info.plist"]
+        ),
+        
+        registry.mapboxCoreSearchTarget(version: coreSearchVersion,
+                                        checksum: coreSearchVersionHash),
+        .testTarget(
+            name: "MapboxSearchTests",
+            dependencies: [
+                "MapboxSearch",
+                "MapboxSearchUI",
+                "CwlPreconditionTesting",
+            ],
+            exclude: ["Info.plist"]
+        ),
     ],
     cxxLanguageStandard: .cxx14
 )
 
-
 struct SDKRegistry {
     let host = "api.mapbox.com"
-
+    
     func binaryTarget(name: String, version: String, path: String, filename: String, checksum: String) -> Target {
         var url = "https://\(host)/downloads/v2/\(path)/releases/ios/packages/\(version)/\(filename)"
         
@@ -86,18 +90,11 @@ struct SDKRegistry {
 }
 
 extension SDKRegistry {
-    func mapboxSearchTarget(version: String, checksum: String) -> Target {
-        return binaryTarget(name: "MapboxSearch",
+    func mapboxCoreSearchTarget(version: String, checksum: String) -> Target {
+        return binaryTarget(name: "MapboxCoreSearch",
                             version: version,
-                            path: "search-sdk",
-                            filename: "MapboxSearch.zip",
-                            checksum: checksum)
-    }
-    func mapboxSearchUITarget(version: String, checksum: String) -> Target {
-        return binaryTarget(name: "MapboxSearchUI",
-                            version: version,
-                            path: "search-sdk",
-                            filename: "MapboxSearchUI.zip",
+                            path: "search-core-sdk",
+                            filename: "MapboxCoreSearch.xcframework.zip",
                             checksum: checksum)
     }
 }

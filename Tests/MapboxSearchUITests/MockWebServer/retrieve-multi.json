@@ -1,0 +1,335 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          17.9397053,
+          40.6609533
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "Brindisi Airport",
+        "matching_name": "BDS",
+        "description": "72100 Brindisi, Italy",
+        "place_name": "Brindisi Airport, 72100 Brindisi, Italy",
+        "id": "llh0NHkB4uJJx0YUj4K8",
+        "place_type": [
+          "poi"
+        ],
+        "context": [
+          {
+            "layer": "postcode",
+            "name": "72100"
+          },
+          {
+            "layer": "place",
+            "name": "Brindisi"
+          },
+          {
+            "layer": "country",
+            "name": "Italy"
+          }
+        ],
+        "maki": "marker",
+        "poi_category": [
+          "airport"
+        ],
+        "internal_id": "Y2aAgIL8TAA=.42eAgMSCTN2C_Ezd4tSisszkVAA=.U2aAgLT80qLiwtLEolQ9k2QzU3PjpMQkC4PEpFTLRPNEo7TkxFRTAA==",
+        "external_ids": {
+          "mbx_poi": "4d8d71f0af18e8680194c62e0bf0508c3a30ff0318e727cfc048b442f42b9a3d",
+          "foursquare": "4c6573bab80abe9a7a2fcae5",
+          "iata": "BDS",
+          "osm": "n4267684571",
+          "federated": "poi.4d8d71f0af18e8680194c62e0bf0508c3a30ff0318e727cfc048b442f42b9a3d"
+        },
+        "mapbox_id": "CkIKQDRkOGQ3MWYwYWYxOGU4NjgwMTk0YzYyZTBiZjA1MDhjM2EzMGZmMDMxOGU3MjdjZmMwNDhiNDQyZjQyYjlhM2Q=",
+        "metadata": {
+          "primary_photo": [],
+          "iso_3166_1": "IT",
+          "iso_3166_2": "IT-75"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -73.1257601607238,
+          41.1636285025977
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "Sikorsky Memorial Airport",
+        "matching_name": "BDR",
+        "description": "Stratford, Connecticut 06615, United States of America",
+        "place_name": "Sikorsky Memorial Airport, Stratford, Connecticut 06615, United States of America",
+        "id": "SiJUNHkB4uJJx0YUGP2T",
+        "place_type": [
+          "poi"
+        ],
+        "context": [
+          {
+            "layer": "postcode",
+            "name": "06615"
+          },
+          {
+            "layer": "neighborhood",
+            "name": "Lordship"
+          },
+          {
+            "layer": "place",
+            "name": "Stratford"
+          },
+          {
+            "layer": "region",
+            "name": "Connecticut"
+          },
+          {
+            "layer": "country",
+            "name": "United States of America"
+          }
+        ],
+        "maki": "marker",
+        "poi_category": [
+          "airport"
+        ],
+        "internal_id": "Y2aAgIL8TAA=.42eAgMSCTN2C_Ezd4tSisszkVAA=.U2aAgLT80qLiwtLEolQ9k1RDcyPjRIMUI6MUY2OTxGQD0yQDS0tzAA==",
+        "external_ids": {
+          "federated": "poi.4d173c02a241ff107acc2841607a67346adf3f4e757d3fa0bfc5f49d8187aa63",
+          "mbx_poi": "4d173c02a241ff107acc2841607a67346adf3f4e757d3fa0bfc5f49d8187aa63",
+          "osm": "w113879418",
+          "foursquare": "4e1723a0d22d334ac05b0997",
+          "iata": "BDR"
+        },
+        "mapbox_id": "CkIKQDRkMTczYzAyYTI0MWZmMTA3YWNjMjg0MTYwN2E2NzM0NmFkZjNmNGU3NTdkM2ZhMGJmYzVmNDlkODE4N2FhNjM=",
+        "metadata": {
+          "primary_photo": [],
+          "iso_3166_1": "US",
+          "iso_3166_2": "US-CT"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -105.454958621621,
+          45.4693906001881
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "Broadus Airport",
+        "matching_name": "BDX",
+        "description": "Broadus, Montana 59317, United States of America",
+        "place_name": "Broadus Airport, Broadus, Montana 59317, United States of America",
+        "id": "fAVCNHkB4uJJx0YUX5gs",
+        "place_type": [
+          "poi"
+        ],
+        "context": [
+          {
+            "layer": "postcode",
+            "name": "59317"
+          },
+          {
+            "layer": "place",
+            "name": "Broadus"
+          },
+          {
+            "layer": "region",
+            "name": "Montana"
+          },
+          {
+            "layer": "country",
+            "name": "United States of America"
+          }
+        ],
+        "maki": "marker",
+        "poi_category": [
+          "airport"
+        ],
+        "internal_id": "Y2aAgIL8TAA=.42eAgMSCTN2C_Ezd4tSisszkVAA=.42CAgMzEkkQ9J5cIAA==",
+        "external_ids": {
+          "federated": "poi.ad4f95fbca57ea3eeb4f9e47698cce7337454f7a52d35ecaad0cdffc9aeace8a",
+          "iata": "BDX",
+          "mbx_poi": "ad4f95fbca57ea3eeb4f9e47698cce7337454f7a52d35ecaad0cdffc9aeace8a",
+          "osm": "w243994274"
+        },
+        "mapbox_id": "CkIKQGFkNGY5NWZiY2E1N2VhM2VlYjRmOWU0NzY5OGNjZTczMzc0NTRmN2E1MmQzNWVjYWFkMGNkZmZjOWFlYWNlOGE=",
+        "metadata": {
+          "primary_photo": [],
+          "iso_3166_1": "US",
+          "iso_3166_2": "US-MT"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -92.7138313,
+          35.1372063
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "Morrilton Municipal Airport",
+        "matching_name": "BDQ",
+        "description": "Morrilton, Arkansas 72110, United States of America",
+        "place_name": "Morrilton Municipal Airport, Morrilton, Arkansas 72110, United States of America",
+        "id": "Rvc5NHkB4uJJx0YU1mWo",
+        "place_type": [
+          "poi"
+        ],
+        "context": [
+          {
+            "layer": "postcode",
+            "name": "72110"
+          },
+          {
+            "layer": "place",
+            "name": "Morrilton"
+          },
+          {
+            "layer": "region",
+            "name": "Arkansas"
+          },
+          {
+            "layer": "country",
+            "name": "United States of America"
+          }
+        ],
+        "maki": "marker",
+        "poi_category": [
+          "airport"
+        ],
+        "internal_id": "Y2aAgIL8TAA=.42eAgMSCTN2C_Ezd4tSisszkVAA=.42OAgPziXL08YzMLSyNDQwtzAA==",
+        "external_ids": {
+          "mbx_poi": "5d7360fc75d3f5e34cb7e0a98fe618a2bd0899b0491ccac1cd656b07089bd3d0",
+          "osm": "n368921187",
+          "federated": "poi.5d7360fc75d3f5e34cb7e0a98fe618a2bd0899b0491ccac1cd656b07089bd3d0"
+        },
+        "mapbox_id": "CkIKQDVkNzM2MGZjNzVkM2Y1ZTM0Y2I3ZTBhOThmZTYxOGEyYmQwODk5YjA0OTFjY2FjMWNkNjU2YjA3MDg5YmQzZDA=",
+        "metadata": {
+          "primary_photo": [],
+          "iso_3166_1": "US",
+          "iso_3166_2": "US-AR"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -124.40883597957,
+          43.0865993008017
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "Bandon State Airport",
+        "matching_name": "BDY",
+        "description": "Bandon, Oregon 97411, United States of America",
+        "place_name": "Bandon State Airport, Bandon, Oregon 97411, United States of America",
+        "id": "FV13NHkB4uJJx0YUlX3W",
+        "place_type": [
+          "poi"
+        ],
+        "context": [
+          {
+            "layer": "postcode",
+            "name": "97411"
+          },
+          {
+            "layer": "place",
+            "name": "Bandon"
+          },
+          {
+            "layer": "region",
+            "name": "Oregon"
+          },
+          {
+            "layer": "country",
+            "name": "United States of America"
+          }
+        ],
+        "maki": "marker",
+        "poi_category": [
+          "airport"
+        ],
+        "internal_id": "Y2aAgIL8TAA=.42eAgMSCTN2C_Ezd4tSisszkVAA=.42CAgMzEkkQ9J5dIAA==",
+        "external_ids": {
+          "iata": "BDY",
+          "osm": "w108241459",
+          "mbx_poi": "3653c128f40555b8516030e8397df3f11c15a35dc307561b94f17435e0d2b25e",
+          "federated": "poi.3653c128f40555b8516030e8397df3f11c15a35dc307561b94f17435e0d2b25e"
+        },
+        "mapbox_id": "CkIKQDM2NTNjMTI4ZjQwNTU1Yjg1MTYwMzBlODM5N2RmM2YxMWMxNWEzNWRjMzA3NTYxYjk0ZjE3NDM1ZTBkMmIyNWU=",
+        "metadata": {
+          "primary_photo": [],
+          "iso_3166_1": "US",
+          "iso_3166_2": "US-OR"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          18.5382023285985,
+          69.0595295262088
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "Bardufoss Air Station",
+        "matching_name": "BDU",
+        "description": "9325 Bardufoss, Norway",
+        "place_name": "Bardufoss Air Station, 9325 Bardufoss, Norway",
+        "id": "0Pg6NHkB4uJJx0YU0vVI",
+        "place_type": [
+          "poi"
+        ],
+        "context": [
+          {
+            "layer": "postcode",
+            "name": "9325"
+          },
+          {
+            "layer": "place",
+            "name": "Bardufoss"
+          },
+          {
+            "layer": "country",
+            "name": "Norway"
+          }
+        ],
+        "maki": "marker",
+        "poi_category": [
+          "airport"
+        ],
+        "internal_id": "Y2aAgIL8TAA=.42eAgMSCTN2C_Ezd4tSisszkVAA=.42CAgMzEkkQ9J5dQAA==",
+        "external_ids": {
+          "mbx_poi": "f682915336ad96307947560a9193c258d9c4f5ab3d1ed82e292fc672a04171d5",
+          "osm": "w263489770",
+          "federated": "poi.f682915336ad96307947560a9193c258d9c4f5ab3d1ed82e292fc672a04171d5",
+          "iata": "BDU"
+        },
+        "mapbox_id": "CkIKQGY2ODI5MTUzMzZhZDk2MzA3OTQ3NTYwYTkxOTNjMjU4ZDljNGY1YWIzZDFlZDgyZTI5MmZjNjcyYTA0MTcxZDU=",
+        "metadata": {
+          "primary_photo": [],
+          "iso_3166_1": "NO",
+          "iso_3166_2": "NO-19"
+        }
+      }
+    }
+  ],
+  "attribution": "© 2021 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service. (https://www.mapbox.com/about/maps/)",
+  "version": "36:6997b51e79cfe34dc4cd2ae596dd4e35245eeafd",
+  "response_uuid": "3cfead0d-53c2-4764-a6f4-e44acfc4991d"
+}

@@ -1,0 +1,9 @@
+{
+    "markdownlint.config": {
+        "MD024": { "siblings_only": true }
+    },
+    "cSpell.words": [
+        "bindgen",
+        "routable"
+    ]
+}
