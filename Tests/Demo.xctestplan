@@ -1,0 +1,71 @@
+{
+  "configurations" : [
+    {
+      "id" : "E3D1A9DD-4BD1-48EF-B27F-368A69D5E534",
+      "name" : "SBS, San Francisco",
+      "options" : {
+        "locationScenario" : {
+          "identifier" : "San Francisco, CA, USA",
+          "referenceType" : "built-in"
+        }
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:MapboxSearch.xcodeproj",
+          "identifier" : "3A0D7E4B233522D4006D81BB",
+          "name" : "MapboxSearch"
+        }
+      ]
+    },
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "-com.mapbox.mapboxsearch.enableSBS YES"
+      }
+    ],
+    "language" : "en",
+    "region" : "US",
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:MapboxSearch.xcodeproj",
+      "identifier" : "FEBC00B7243C6CC2000B268B",
+      "name" : "Demo"
+    }
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "MockServerTestCase"
+      ],
+      "target" : {
+        "containerPath" : "container:MapboxSearch.xcodeproj",
+        "identifier" : "F9C557272670C88E00BE8B94",
+        "name" : "MapboxSearchIntegrationTests"
+      }
+    },
+    {
+      "skippedTests" : [
+        "MockServerTestCase"
+      ],
+      "target" : {
+        "containerPath" : "container:MapboxSearch.xcodeproj",
+        "identifier" : "3A0D7E54233522D4006D81BB",
+        "name" : "MapboxSearchTests"
+      }
+    },
+    {
+      "skippedTests" : [
+        "BaseTestCase",
+        "MockServerTestCase"
+      ],
+      "target" : {
+        "containerPath" : "container:MapboxSearch.xcodeproj",
+        "identifier" : "F9190D582453126600C169AB",
+        "name" : "MapboxSearchUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

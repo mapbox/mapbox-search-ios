@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SearchTextField" customModule="MapboxSearchUI">
+            <rect key="frame" x="0.0" y="0.0" width="399" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search magnifying glass" translatesAutoresizingMaskIntoConstraints="NO" id="JFg-Rz-Nyd">
+                    <rect key="frame" x="20" y="10" width="24" height="24"/>
+                    <color key="tintColor" name="mapbox inactive segment text"/>
+                </imageView>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where to?" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="KWd-fj-j3Z">
+                    <rect key="frame" x="51" y="12" width="328" height="20"/>
+                    <color key="textColor" name="mapbox text"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                    <connections>
+                        <action selector="textFieldTextDidChanged" destination="iN0-l3-epB" eventType="editingChanged" id="FZu-As-U8l"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="MdV-qy-g6E"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="mapbox searchbar background"/>
+            <constraints>
+                <constraint firstItem="KWd-fj-j3Z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="2Pd-m8-ir6"/>
+                <constraint firstItem="KWd-fj-j3Z" firstAttribute="leading" secondItem="JFg-Rz-Nyd" secondAttribute="trailing" constant="7" id="JpZ-LX-hvD"/>
+                <constraint firstItem="JFg-Rz-Nyd" firstAttribute="centerY" secondItem="KWd-fj-j3Z" secondAttribute="centerY" id="TRw-c2-Pvo"/>
+                <constraint firstItem="KWd-fj-j3Z" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="d0t-fa-j4P"/>
+                <constraint firstAttribute="leadingMargin" secondItem="JFg-Rz-Nyd" secondAttribute="leading" id="mSv-0H-dS9"/>
+                <constraint firstAttribute="bottom" secondItem="KWd-fj-j3Z" secondAttribute="bottom" constant="12" id="xIy-NP-6tG"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="iconView" destination="JFg-Rz-Nyd" id="mSe-lG-cGq"/>
+                <outlet property="textField" destination="KWd-fj-j3Z" id="Im6-8K-J3E"/>
+            </connections>
+            <point key="canvasLocation" x="125.59999999999999" y="448.87556221889059"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="search magnifying glass" width="24" height="24"/>
+        <namedColor name="mapbox inactive segment text">
+            <color red="0.73725490196078436" green="0.73725490196078436" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="mapbox searchbar background">
+            <color red="0.93725490196078431" green="0.93725490196078431" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="mapbox text">
+            <color red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

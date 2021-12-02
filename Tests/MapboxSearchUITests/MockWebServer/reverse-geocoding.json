@@ -1,0 +1,197 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -2.91216,
+          56.471951
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "8 Gardyne Road",
+        "matching_name": "8 Gardyne Road",
+        "description": "Dundee, DD5 1NY, United Kingdom",
+        "place_name": "8 Gardyne Road, Dundee, DD5 1NY, United Kingdom",
+        "id": "address.7904697635945710",
+        "place_type": [
+          "address"
+        ],
+        "context": [
+          {
+            "layer": "postcode.10500921436554030",
+            "name": "DD5 1NY"
+          },
+          {
+            "layer": "neighborhood.14287763655614230",
+            "name": "Douglas"
+          },
+          {
+            "layer": "place.7486806591409290",
+            "name": "Dundee"
+          },
+          {
+            "layer": "district.11402878734082280",
+            "name": "Dundee"
+          },
+          {
+            "layer": "region.7192604431156640",
+            "name": "Scotland"
+          },
+          {
+            "layer": "country.12405201072814600",
+            "name": "United Kingdom"
+          }
+        ],
+        "language": "en",
+        "maki": "marker",
+        "internal_id": "Y2eAgMSUlKLU4mIA.Y2OAgOTEotzUPAA=.Vc2xCgIxDAZgH-Xo7OIgiPOBg-CgODhJrgm9Qi-RNh0O8fV8LlN1uWz5_pD_vfrN03mprHl2e3flqITdMXJAmdzaZQpR2JKLF03AaIaxaI5eTfvKSGT2SOBpAVLUC36t33ab080wiYcUtTXZxhTDOEgeRbCdSQ0JigWAmKkUswNknJm6swD-gzvXaaBs4a79gKlVuNcH",
+        "external_ids": {
+          "federated": "carmen.address.7904697635945710",
+          "carmen": "address.7904697635945710"
+        },
+        "accuracy": "point",
+        "address_number": "8",
+        "metadata": {
+          "iso_3166_1": "gb",
+          "iso_3166_2": "GB-SCT"
+        },
+        "routable_points": [
+          {
+            "name": "Address",
+            "coordinates": [
+              -2.91137,
+              56.471524
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -2.911949362394472,
+          56.47260987035335
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "Gardyne Theatre",
+        "matching_name": "Gardyne Theatre",
+        "description": "Gardyne Road, Dundee, DD5 1NY, United Kingdom",
+        "place_name": "Gardyne Theatre, Gardyne Road, Dundee, DD5 1NY, United Kingdom",
+        "id": "K8IZNHkB4uJJx0YUh2cZ",
+        "place_type": [
+          "poi"
+        ],
+        "context": [
+          {
+            "layer": "address",
+            "name": "Gardyne Road"
+          },
+          {
+            "layer": "street",
+            "name": "gardyne road"
+          },
+          {
+            "layer": "postcode",
+            "name": "DD5 1NY"
+          },
+          {
+            "layer": "neighborhood",
+            "name": "Douglas"
+          },
+          {
+            "layer": "place",
+            "name": "Dundee"
+          },
+          {
+            "layer": "country",
+            "name": "United Kingdom"
+          }
+        ],
+        "maki": "marker",
+        "poi_category": [
+          "arts center",
+          "art",
+          "entertainment"
+        ],
+        "internal_id": "Y2aAgIL8TAA=.42eAgMSCTN2C_Ezd4tSisszkVAA=.U2aAgLT80qLiwtLEolQ9k9QUS2ODlBQTM0sD82TDJBNDo2Qjw6RkAA==",
+        "external_ids": {
+          "federated": "poi.7b0931b6f5cbdcf7255b255b755c41a49a7702c473f15d374919b8e3b8f9cff2",
+          "foursquare": "4ed930dd46907c1b412c21bc",
+          "mbx_poi": "7b0931b6f5cbdcf7255b255b755c41a49a7702c473f15d374919b8e3b8f9cff2"
+        },
+        "mapbox_id": "CkIKQDdiMDkzMWI2ZjVjYmRjZjcyNTViMjU1Yjc1NWM0MWE0OWE3NzAyYzQ3M2YxNWQzNzQ5MTliOGUzYjhmOWNmZjI=",
+        "metadata": {
+          "primary_photo": [],
+          "iso_3166_1": "GB",
+          "iso_3166_2": "GB-SCT"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -2.9119317163286027,
+          56.47283603832641
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "Dundee College",
+        "matching_name": "Dundee College",
+        "description": "Dundee, DD5 1NY, United Kingdom",
+        "place_name": "Dundee College, Dundee, DD5 1NY, United Kingdom",
+        "id": "j1x2NHkB4uJJx0YU8Gk5",
+        "place_type": [
+          "poi"
+        ],
+        "context": [
+          {
+            "layer": "postcode",
+            "name": "DD5 1NY"
+          },
+          {
+            "layer": "neighborhood",
+            "name": "Douglas"
+          },
+          {
+            "layer": "place",
+            "name": "Dundee"
+          },
+          {
+            "layer": "country",
+            "name": "United Kingdom"
+          }
+        ],
+        "maki": "marker",
+        "poi_category": [
+          "university building",
+          "theater",
+          "entertainment",
+          "nightlife"
+        ],
+        "internal_id": "Y2aAgIL8TAA=.42eAgMSCTN2C_Ezd4tSisszkVAA=.U2aAgLT80qLiwtLEolQ9UwPzxLS0VONUkyQDc1PjFNNEszRTU_MkAA==",
+        "external_ids": {
+          "federated": "poi.50c272a560fcf49680653336e394bec1f3fb6c5c71faf564927695a08259b28d",
+          "mbx_poi": "50c272a560fcf49680653336e394bec1f3fb6c5c71faf564927695a08259b28d",
+          "foursquare": "507affe3e4b0753d5a6f557b"
+        },
+        "mapbox_id": "CkIKQDUwYzI3MmE1NjBmY2Y0OTY4MDY1MzMzNmUzOTRiZWMxZjNmYjZjNWM3MWZhZjU2NDkyNzY5NWEwODI1OWIyOGQ=",
+        "metadata": {
+          "primary_photo": [],
+          "iso_3166_1": "GB",
+          "iso_3166_2": "GB-SCT"
+        }
+      }
+    }
+  ],
+  "attribution": "© 2021 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service. (https://www.mapbox.com/about/maps/)",
+  "version": "36:6997b51e79cfe34dc4cd2ae596dd4e35245eeafd",
+  "response_uuid": "1a3ef611-45b8-43e1-8ef5-dc8ca12fbb44"
+}
