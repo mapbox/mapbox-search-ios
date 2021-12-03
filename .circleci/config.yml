@@ -162,7 +162,7 @@ jobs:
           key: gem-cache-v1-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-      - run: git remote set-url origin https://x-access-token:$(mbx-ci github writer token)@github.com/mapbox/mapbox-search-ios.git
+      - run: git remote set-url origin https://x-access-token:$(mbx-ci github writer token)@github.com/mapbox/search-ios.git
       - run: make release-docs
 
   documentation-pr:
@@ -283,7 +283,7 @@ jobs:
       #    command: scripts/trigger_metrics.sh
       # - run:
       #       name: Check Carthage integration
-      #       command: echo 'github "mapbox/mapbox-search-ios" "develop"' > Cartfile; carthage update --use-netrc --use-xcframeworks
+      #       command: echo 'github "mapbox/search-ios" "main"' > Cartfile; carthage update --use-netrc --use-xcframeworks
       - run:
           name: Build and upload Demo application
           command: bundle exec fastlane beta
