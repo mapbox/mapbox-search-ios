@@ -6,10 +6,10 @@ public class ConstantCategoryDataProvider: CategoryDataProvider {
     /// Only first 4 categories would be used.
     ///
     /// Default values would be added if necessary.
-    public var categorySlots: [Category]
+    public var categorySlots: [SearchCategory]
 
     /// Provide custom vertical list of categories
-    public var categoryList: [Category]
+    public var categoryList: [SearchCategory]
     
     /// Make a constant categories provider
     /// - Parameters:
@@ -17,7 +17,7 @@ public class ConstantCategoryDataProvider: CategoryDataProvider {
     ///   Passing less-than-required number of categories would follow in appending default categories
     ///   - list: Custom category collection for vertical list. Passing `nil` would follow to default list.
     ///   There is no required minimal number of categories.
-    public init(slots: [Category]?, list: [Category]? = nil) {
+    public init(slots: [SearchCategory]?, list: [SearchCategory]? = nil) {
         let defaults = DefaultCategoryDataProvider()
         
         self.categoryList = list ?? defaults.categoryList

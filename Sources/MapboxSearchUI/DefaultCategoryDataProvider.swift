@@ -6,12 +6,12 @@ public class DefaultCategoryDataProvider: CategoryDataProvider {
     public static let minCategoriesCount = 4
     
     /// Horizontal categories.
-    public var categorySlots: [Category] {
+    public var categorySlots: [SearchCategory] {
         [.gas, .parking, .food, .cafe]
     }
     
     /// Vertical list of categories.
-    public var categoryList: [Category] = CategoriesProvider.shared.categories
+    public var categoryList: [SearchCategory] = CategoriesProvider.shared.categories
     
     /// Make your default categories provider.
     public init() { }

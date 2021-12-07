@@ -30,7 +30,7 @@ class HotCategoryButton: UIControl {
         categoryButton.adjustsImageSizeForAccessibilityContentSizeCategory = true
     }
 
-    var category: Category = .empty {
+    var category: SearchCategory = .empty {
         didSet {
             updateUI()
         }

@@ -31,7 +31,7 @@ let searchController = MapboxSearchController(accessToken: "YOUR_TOKEN")
 
 To control data flow, implement ``SearchControllerDelegate`` and assign ``MapboxSearchController/delegate``. That protocol has next required methods:
 1. ``SearchControllerDelegate/searchResultSelected(_:)`` method to return representable `SearchResult` object that match input query.
-2. ``SearchControllerDelegate/categorySearchResultsReceived(results:)`` returns a collection of `SearchResult` object matches with requested category name.
+2. ``SearchControllerDelegate/categorySearchResultsReceived(category:results:)`` returns a collection of `SearchResult` object matches with requested category name.
 3. ``SearchControllerDelegate/userFavoriteSelected(_:)`` returns `FavoriteRecord` representing user-provided record.
 
 #### Presentation 
