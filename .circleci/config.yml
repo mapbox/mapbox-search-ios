@@ -86,7 +86,7 @@ workflows:
           filters:
             branches:
               only:
-                - develop
+                - main
 
 jobs:
   pre-check:
