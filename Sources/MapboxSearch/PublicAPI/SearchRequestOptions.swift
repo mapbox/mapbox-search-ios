@@ -12,7 +12,7 @@ public struct SearchRequestOptions: Codable {
     
     let proximityCodable: CLLocationCoordinate2DCodable?
     
-    init(query: String, proximity: CLLocationCoordinate2D?) {
+    public init(query: String, proximity: CLLocationCoordinate2D?) {
         self.query = query
         self.proximityCodable = proximity.map(CLLocationCoordinate2DCodable.init)
     }

@@ -17,7 +17,7 @@ class CategoriesTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(category: Category, configuration: Configuration) {
+    func configure(category: SearchCategory, configuration: Configuration) {
         backgroundColor = configuration.style.primaryBackgroundColor
         textLabel?.textColor = configuration.style.primaryTextColor
         

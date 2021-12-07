@@ -77,7 +77,7 @@ class MapRootController: UIViewController {
 }
 
 extension MapRootController: SearchControllerDelegate {
-    func categorySearchResultsReceived(results: [SearchResult]) {
+    func categorySearchResultsReceived(category: SearchCategory, results: [SearchResult]) {
         let annotations = results.map { searchResult -> MKPointAnnotation in
             let annotation = MKPointAnnotation()
             annotation.coordinate = searchResult.coordinate

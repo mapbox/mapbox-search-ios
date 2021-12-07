@@ -3,7 +3,7 @@ import Foundation
 /// CategoriesProvider contains a list of all available categories.
 public class CategoriesProvider {
     /// List of all available categories.
-    public let categories: [Category]
+    public let categories: [SearchCategory]
     
     /// Shared instance of ``CategoriesProvider``
     public static let shared = CategoriesProvider()

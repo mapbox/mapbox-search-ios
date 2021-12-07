@@ -1,11 +1,11 @@
 import UIKit
 
 protocol CategoriesTableViewSourceDelegate: AnyObject {
-    func userSelectedCategory(_ category: Category)
+    func userSelectedCategory(_ category: SearchCategory)
 }
 
 class CategoriesTableViewSource: NSObject, UITableViewDataSource, UITableViewDelegate {
-    var categories: [Category] {
+    var categories: [SearchCategory] {
         didSet {
             tableView?.reloadData()
         }

@@ -105,7 +105,7 @@ class SearchCategoriesRootView: UIView {
 }
 
 extension SearchCategoriesRootView: CategoriesTableViewSourceDelegate {
-    func userSelectedCategory(_ category: Category) {
+    func userSelectedCategory(_ category: SearchCategory) {
         delegate?.userSelectedCategory(category)
     }
 }

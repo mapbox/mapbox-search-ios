@@ -6,6 +6,17 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.18] - 2021-12-06
+
+### Internal
+
+- `scripts/release_binary_manifest` reworked as `scripts/release_notes`
+
+### Breaking changes
+
+- `Category` renamed into `SearchCategory`
+- Delegate method `SearchControllerDelegate.categorySearchResultsReceived(results:)` added extra parameter `categorySearchResultsReceived(category:results:)`
+
 ## [1.0.0-beta.17] - 2021-11-29
 
 ### Internal

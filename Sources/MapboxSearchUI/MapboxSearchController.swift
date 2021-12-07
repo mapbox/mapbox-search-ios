@@ -9,7 +9,7 @@ public protocol SearchControllerDelegate: AnyObject {
     func searchResultSelected(_ searchResult: SearchResult)
     
     /// Collection of results received as a response for a category search request.
-    func categorySearchResultsReceived(results: [SearchResult])
+    func categorySearchResultsReceived(category: SearchCategory, results: [SearchResult])
     
     /// Customer selected record from the Favorites UI tab
     func userFavoriteSelected(_ userFavorite: FavoriteRecord)
@@ -567,13 +567,13 @@ extension MapboxSearchController: SearchCategoriesRootViewDelegate {
         updateSearchState(.createFavorite)
     }
     
-    func userSelectedCategory(_ category: Category) {
+    func userSelectedCategory(_ category: SearchCategory) {
         let categoryName = categorySearchEngine.supportSBS ? category.canonicalId : category.legacyName
         
         categorySearchEngine.search(categoryName: categoryName, options: categorySearchOptions) { results in
             switch results {
             case .success(let items):
-                self.delegate?.categorySearchResultsReceived(results: items)
+                self.delegate?.categorySearchResultsReceived(category: category, results: items)
             case .failure(let searchError):
                 print("Failed search; error=\(searchError)")
                 self.presentSearchError(searchError)
