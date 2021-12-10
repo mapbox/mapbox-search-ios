@@ -1,0 +1,922 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Internal API/Logger.swift",
+      "line": 3,
+      "symbol": "LogCategory",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Internal API/Logger.swift",
+      "line": 4,
+      "symbol": "LogCategory.default",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Internal API/Logger.swift",
+      "line": 5,
+      "symbol": "LogCategory.userRecords",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Internal API/Logger.swift",
+      "line": 6,
+      "symbol": "LogCategory.telemetry",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Internal API/Logger.swift",
+      "line": 24,
+      "symbol": "_Logger",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Internal API/Logger.swift",
+      "line": 27,
+      "symbol": "_Logger.searchSDK",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Internal API/Logger.swift",
+      "line": 29,
+      "symbol": "_Logger.level",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Internal API/Logger.swift",
+      "line": 43,
+      "symbol": "_Logger.level(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Internal API/Logger.swift",
+      "line": 48,
+      "symbol": "_Logger.set(level:for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Internal API/Logger.swift",
+      "line": 112,
+      "symbol": "LoggerLevel.debug",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Internal API/Logger.swift",
+      "line": 113,
+      "symbol": "LoggerLevel.info",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Internal API/Logger.swift",
+      "line": 114,
+      "symbol": "LoggerLevel.warning",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Internal API/Logger.swift",
+      "line": 115,
+      "symbol": "LoggerLevel.error",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Internal API/Logger.swift",
+      "line": 116,
+      "symbol": "LoggerLevel.disabled",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/AbstractSearchEngine.swift",
+      "line": 22,
+      "symbol": "AbstractSearchEngine.supportSBS",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/AbstractSearchEngine.swift",
+      "line": 26,
+      "symbol": "AbstractSearchEngine.feedbackManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/AbstractSearchEngine.swift",
+      "line": 27,
+      "symbol": "AbstractSearchEngine.eventsManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Address.swift",
+      "line": 40,
+      "symbol": "Address.postalAddress",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/BoundingBox.swift",
+      "line": 7,
+      "symbol": "BoundingBox.southWest",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/BoundingBox.swift",
+      "line": 11,
+      "symbol": "BoundingBox.northEast",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/BoundingBox.swift",
+      "line": 19,
+      "symbol": "BoundingBox.init(from:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/BoundingBox.swift",
+      "line": 36,
+      "symbol": "BoundingBox.init(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/BoundingBox.swift",
+      "line": 41,
+      "symbol": "BoundingBox.contains(_:ignoreBoundary:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/DefaultLocationProvider.swift",
+      "line": 95,
+      "symbol": "DefaultLocationProvider.currentLocation()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Errors/AddOfflineRegionError.swift",
+      "line": 3,
+      "symbol": "AddOfflineRegionError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Errors/AddOfflineRegionError.swift",
+      "line": 4,
+      "symbol": "AddOfflineRegionError.addOfflineRegionFailure(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Errors/SearchError.swift",
+      "line": 4,
+      "symbol": "mapboxSearchErrorDomain",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Errors/SearchError.swift",
+      "line": 11,
+      "symbol": "SearchError.generic(code:domain:message:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Errors/SearchError.swift",
+      "line": 13,
+      "symbol": "SearchError.incorrectEventTemplate",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Errors/SearchError.swift",
+      "line": 14,
+      "symbol": "SearchError.incorrectSearchResultForFeedback",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Errors/SearchError.swift",
+      "line": 15,
+      "symbol": "SearchError.searchRequestFailed(reason:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Errors/SearchError.swift",
+      "line": 16,
+      "symbol": "SearchError.categorySearchRequestFailed(reason:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Errors/SearchError.swift",
+      "line": 17,
+      "symbol": "SearchError.failedToRegisterDataProvider(reason:dataProvider:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Errors/SearchError.swift",
+      "line": 18,
+      "symbol": "SearchError.responseProcessingFailed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Errors/SearchError.swift",
+      "line": 19,
+      "symbol": "SearchError.resultResolutionFailed(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Errors/SearchError.swift",
+      "line": 20,
+      "symbol": "SearchError.dataResolverNotFound(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Errors/SearchError.swift",
+      "line": 21,
+      "symbol": "SearchError.reverseGeocodingFailed(reason:options:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/FavoriteRecord.swift",
+      "line": 5,
+      "symbol": "FavoriteRecord.dataLayerIdentifier",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/FavoriteRecord.swift",
+      "line": 27,
+      "symbol": "FavoriteRecord.icon",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/HistoryRecord.swift",
+      "line": 5,
+      "symbol": "HistoryRecord.dataLayerIdentifier",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/HistoryRecord.swift",
+      "line": 11,
+      "symbol": "HistoryRecord.HistoryType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/HistoryRecord.swift",
+      "line": 12,
+      "symbol": "HistoryRecord.HistoryType.result",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/HistoryRecord.swift",
+      "line": 13,
+      "symbol": "HistoryRecord.HistoryType.query",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/HistoryRecord.swift",
+      "line": 14,
+      "symbol": "HistoryRecord.HistoryType.category",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/HistoryRecord.swift",
+      "line": 33,
+      "symbol": "HistoryRecord.timestamp",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/HistoryRecord.swift",
+      "line": 34,
+      "symbol": "HistoryRecord.historyType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/HistoryRecord.swift",
+      "line": 70,
+      "symbol": "HistoryRecord.init(historyType:searchResult:timestamp:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/IndexableDataResolver.swift",
+      "line": 1,
+      "symbol": "IndexableDataResolver",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/LocalDataProviders.swift",
+      "line": 5,
+      "symbol": "LocalDataProvider.updateNotificationName",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/LocalDataProviders.swift",
+      "line": 19,
+      "symbol": "LocalDataProvider.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/LocationProvider.swift",
+      "line": 7,
+      "symbol": "LocationProvider.currentLocation()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/LocationProvider.swift",
+      "line": 13,
+      "symbol": "PointLocationProvider.coordinate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/LocationProvider.swift",
+      "line": 17,
+      "symbol": "PointLocationProvider.init(coordinate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/LocationProvider.swift",
+      "line": 21,
+      "symbol": "PointLocationProvider.currentLocation()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/NavigationOptions.swift",
+      "line": 13,
+      "symbol": "SearchNavigationOptions.ETAType.none",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/OpenHours.swift",
+      "line": 3,
+      "symbol": "OpenHours",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/OpenHours.swift",
+      "line": 4,
+      "symbol": "OpenHours.alwaysOpened",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/OpenHours.swift",
+      "line": 5,
+      "symbol": "OpenHours.temporarilyClosed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/OpenHours.swift",
+      "line": 6,
+      "symbol": "OpenHours.permanentlyClosed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/OpenHours.swift",
+      "line": 7,
+      "symbol": "OpenHours.scheduled(periods:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/RecordsProviderInteractor.swift",
+      "line": 4,
+      "symbol": "RecordsProviderInteractor.providerIdentifier",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/RecordsProviderInteractor.swift",
+      "line": 6,
+      "symbol": "RecordsProviderInteractor.add(record:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/RecordsProviderInteractor.swift",
+      "line": 7,
+      "symbol": "RecordsProviderInteractor.update(record:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/RecordsProviderInteractor.swift",
+      "line": 8,
+      "symbol": "RecordsProviderInteractor.delete(identifier:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/RecordsProviderInteractor.swift",
+      "line": 9,
+      "symbol": "RecordsProviderInteractor.deleteAll()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/RecordsProviderInteractor.swift",
+      "line": 11,
+      "symbol": "RecordsProviderInteractor.contains(identifier:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/RoutablePoint.swift",
+      "line": 4,
+      "symbol": "RoutablePoint",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/RoutablePoint.swift",
+      "line": 5,
+      "symbol": "RoutablePoint.point",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/RoutablePoint.swift",
+      "line": 9,
+      "symbol": "RoutablePoint.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Search Results/SearchCategorySuggestion.swift",
+      "line": 3,
+      "symbol": "SearchCategorySuggestion",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Search Results/SearchQuerySuggestion.swift",
+      "line": 3,
+      "symbol": "SearchQuerySuggestion",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Search Results/SearchResultMetadata.swift",
+      "line": 10,
+      "symbol": "SearchResultMetadata.SizedImage.url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Search Results/SearchResultMetadata.swift",
+      "line": 11,
+      "symbol": "SearchResultMetadata.SizedImage.size",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Search Results/SearchResultMetadata.swift",
+      "line": 43,
+      "symbol": "SearchResultMetadata.otherImages",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Search Results/SearchResultMetadata.swift",
+      "line": 44,
+      "symbol": "SearchResultMetadata.phone",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Search Results/SearchResultMetadata.swift",
+      "line": 45,
+      "symbol": "SearchResultMetadata.website",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Search Results/SearchResultMetadata.swift",
+      "line": 46,
+      "symbol": "SearchResultMetadata.reviewCount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Search Results/SearchResultMetadata.swift",
+      "line": 47,
+      "symbol": "SearchResultMetadata.averageRating",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Search Results/SearchResultMetadata.swift",
+      "line": 49,
+      "symbol": "SearchResultMetadata.openHours",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Search Results/SearchResultMetadata.swift",
+      "line": 67,
+      "symbol": "SearchResultMetadata.subscript(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.subscript",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Search Results/SearchResultSuggestion.swift",
+      "line": 3,
+      "symbol": "SearchResultSuggestion.dataLayerIdentifier",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Search Results/SearchSuggestion.swift",
+      "line": 16,
+      "symbol": "SearchSuggestion.descriptionText",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Search Results/SearchSuggestion.swift",
+      "line": 21,
+      "symbol": "SearchSuggestion.iconName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Search Results/SearchSuggestion.swift",
+      "line": 23,
+      "symbol": "SearchSuggestion.suggestionType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Search Results/SearchSuggestion.swift",
+      "line": 25,
+      "symbol": "SearchSuggestion.searchRequest",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchAddressType.swift",
+      "line": 3,
+      "symbol": "SearchAddressType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchAddressType.swift",
+      "line": 4,
+      "symbol": "SearchAddressType.address",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchAddressType.swift",
+      "line": 5,
+      "symbol": "SearchAddressType.place",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchAddressType.swift",
+      "line": 6,
+      "symbol": "SearchAddressType.street",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchAddressType.swift",
+      "line": 7,
+      "symbol": "SearchAddressType.postcode",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchAddressType.swift",
+      "line": 8,
+      "symbol": "SearchAddressType.country",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchAddressType.swift",
+      "line": 9,
+      "symbol": "SearchAddressType.region",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchAddressType.swift",
+      "line": 10,
+      "symbol": "SearchAddressType.district",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchAddressType.swift",
+      "line": 11,
+      "symbol": "SearchAddressType.locality",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchAddressType.swift",
+      "line": 12,
+      "symbol": "SearchAddressType.neighborhood",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 104,
+      "symbol": "SearchEngine.OfflineMode",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 105,
+      "symbol": "SearchEngine.OfflineMode.enabled",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 106,
+      "symbol": "SearchEngine.OfflineMode.disabled",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 109,
+      "symbol": "SearchEngine.offline",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 155,
+      "symbol": "SearchEngine.OfflineRegion",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 160,
+      "symbol": "SearchEngine.OfflineRegion.init(url:maps:boundary:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchNavigationProfile.swift",
+      "line": 3,
+      "symbol": "SearchNavigationProfile",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchNavigationProfile.swift",
+      "line": 4,
+      "symbol": "SearchNavigationProfile.driving",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchNavigationProfile.swift",
+      "line": 5,
+      "symbol": "SearchNavigationProfile.cycling",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchNavigationProfile.swift",
+      "line": 6,
+      "symbol": "SearchNavigationProfile.walking",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchNavigationProfile.swift",
+      "line": 8,
+      "symbol": "SearchNavigationProfile.custom(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchResponseInfo.swift",
+      "line": 9,
+      "symbol": "SearchResponseInfo.suggestion",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchResultType.swift",
+      "line": 6,
+      "symbol": "SearchResultType.address(subtypes:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchResultType.swift",
+      "line": 7,
+      "symbol": "SearchResultType.POI",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchResultType.swift",
+      "line": 9,
+      "symbol": "SearchResultType.addressSubtypes",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchSuggestType.swift",
+      "line": 3,
+      "symbol": "SearchSuggestType.address(subtypes:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchSuggestType.swift",
+      "line": 4,
+      "symbol": "SearchSuggestType.POI",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchSuggestType.swift",
+      "line": 5,
+      "symbol": "SearchSuggestType.category",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchSuggestType.swift",
+      "line": 6,
+      "symbol": "SearchSuggestType.query",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/SearchSuggestType.swift",
+      "line": 8,
+      "symbol": "SearchSuggestType.addressSubtypes",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/ServiceProvider.swift",
+      "line": 20,
+      "symbol": "FavoritesProvider",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/ServiceProvider.swift",
+      "line": 21,
+      "symbol": "HistoryProvider",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/ServiceProvider.swift",
+      "line": 25,
+      "symbol": "ServiceProvider.customBaseURL",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Telemetry/EventsManager.swift",
+      "line": 4,
+      "symbol": "EventsManager",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Telemetry/EventsManager.swift",
+      "line": 82,
+      "symbol": "EventsManager",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Telemetry/EventsManager.swift",
+      "line": 83,
+      "symbol": "EventsManager.eventsManager(_:didEncounterError:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Telemetry/EventsManager.swift",
+      "line": 86,
+      "symbol": "EventsManager.eventsManager(_:didSend:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Telemetry/FeedbackEvent.swift",
+      "line": 9,
+      "symbol": "FeedbackEvent.Reason",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Telemetry/FeedbackEvent.swift",
+      "line": 10,
+      "symbol": "FeedbackEvent.Reason.name",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Telemetry/FeedbackEvent.swift",
+      "line": 11,
+      "symbol": "FeedbackEvent.Reason.address",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Telemetry/FeedbackEvent.swift",
+      "line": 12,
+      "symbol": "FeedbackEvent.Reason.location",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Telemetry/FeedbackEvent.swift",
+      "line": 13,
+      "symbol": "FeedbackEvent.Reason.missingResult",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Telemetry/FeedbackEvent.swift",
+      "line": 14,
+      "symbol": "FeedbackEvent.Reason.other",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Telemetry/FeedbackManager.swift",
+      "line": 8,
+      "symbol": "FeedbackManager",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Telemetry/FeedbackManager.swift",
+      "line": 185,
+      "symbol": "FeedbackManager",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/Public API/Telemetry/RawFeedbackEvent.swift",
+      "line": 21,
+      "symbol": "RawFeedbackEvent.subscript(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.subscript",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/distiller/project"
+}

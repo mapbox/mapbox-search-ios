@@ -1,0 +1,327 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/Category.swift",
+      "line": 22,
+      "symbol": "Category.gas",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/Category.swift",
+      "line": 23,
+      "symbol": "Category.parking",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/Category.swift",
+      "line": 24,
+      "symbol": "Category.food",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/Category.swift",
+      "line": 25,
+      "symbol": "Category.cafe",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/Maki+Extensions.swift",
+      "line": 5,
+      "symbol": "Maki.xcassetName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 4,
+      "symbol": "MapboxPanelController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 5,
+      "symbol": "MapboxPanelController.State",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 6,
+      "symbol": "MapboxPanelController.State.opened",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 7,
+      "symbol": "MapboxPanelController.State.collapsed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 10,
+      "symbol": "MapboxPanelController.Configuration",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 16,
+      "symbol": "MapboxPanelController.Configuration.default",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 21,
+      "symbol": "MapboxPanelController.state",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 23,
+      "symbol": "MapboxPanelController.setState(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 49,
+      "symbol": "MapboxPanelController.init(rootViewController:configuration:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 79,
+      "symbol": "MapboxPanelController.loadView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 106,
+      "symbol": "MapboxPanelController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 114,
+      "symbol": "MapboxPanelController.viewDidLayoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 122,
+      "symbol": "MapboxPanelController.willMove(toParent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 163,
+      "symbol": "MapboxPanelController.dampingRatio",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 239,
+      "symbol": "MapboxPanelController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 242,
+      "symbol": "MapboxPanelController.gestureRecognizerShouldBegin(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 5,
+      "symbol": "SearchControllerDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 6,
+      "symbol": "SearchControllerDelegate.searchResultSelected(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 8,
+      "symbol": "SearchControllerDelegate.categorySearchResultsReceived(results:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 9,
+      "symbol": "SearchControllerDelegate.userFavoriteSelected(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 11,
+      "symbol": "SearchControllerDelegate.shouldCollapseForSelection(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 14,
+      "symbol": "SearchControllerDelegate",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 15,
+      "symbol": "SearchControllerDelegate.shouldCollapseForSelection(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 20,
+      "symbol": "MapboxSearchController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 63,
+      "symbol": "MapboxSearchController.favoritesProvider",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 64,
+      "symbol": "MapboxSearchController.historyProvider",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 66,
+      "symbol": "MapboxSearchController.categorySearchEngine",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 67,
+      "symbol": "MapboxSearchController.searchEngine",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 69,
+      "symbol": "MapboxSearchController.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 131,
+      "symbol": "MapboxSearchController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 152,
+      "symbol": "MapboxSearchController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 157,
+      "symbol": "MapboxSearchController.viewDidDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 279,
+      "symbol": "MapboxSearchController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 317,
+      "symbol": "MapboxSearchController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 318,
+      "symbol": "MapboxSearchController.searchQueryDidChanged(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 322,
+      "symbol": "MapboxSearchController.searchTextFieldBeginEditing()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 330,
+      "symbol": "MapboxSearchController.cancelSearch()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/Reachability.swift",
+      "line": 13,
+      "symbol": "Notification.Name.ReachabilityStatusChanged",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/SearchTextField.swift",
+      "line": 46,
+      "symbol": "SearchTextField.textFieldDidBeginEditing(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/SearchTextField.swift",
+      "line": 50,
+      "symbol": "SearchTextField.textFieldDidEndEditing(_:reason:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/MapboxSearch/MapboxSearchUI/SearchTextField.swift",
+      "line": 54,
+      "symbol": "SearchTextField.textFieldShouldReturn(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/odnairy/code/mapbox-search-ios"
+}

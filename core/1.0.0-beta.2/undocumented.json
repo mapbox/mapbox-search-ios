@@ -1,0 +1,1783 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Internal API/CoreResponseProvider.swift",
+      "line": 6,
+      "symbol": "CoreResponseProvider.searchRequest",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Address.swift",
+      "line": 6,
+      "symbol": "Address.houseNumber",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Address.swift",
+      "line": 7,
+      "symbol": "Address.street",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Address.swift",
+      "line": 8,
+      "symbol": "Address.neighborhood",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Address.swift",
+      "line": 9,
+      "symbol": "Address.locality",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Address.swift",
+      "line": 10,
+      "symbol": "Address.postcode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Address.swift",
+      "line": 11,
+      "symbol": "Address.place",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Address.swift",
+      "line": 12,
+      "symbol": "Address.district",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Address.swift",
+      "line": 13,
+      "symbol": "Address.region",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Address.swift",
+      "line": 14,
+      "symbol": "Address.country",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Address.swift",
+      "line": 16,
+      "symbol": "Address.postalAddress",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/BoundingBox.swift",
+      "line": 7,
+      "symbol": "BoundingBox.southWest",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/BoundingBox.swift",
+      "line": 11,
+      "symbol": "BoundingBox.northEast",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/BoundingBox.swift",
+      "line": 19,
+      "symbol": "BoundingBox.init(from:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/BoundingBox.swift",
+      "line": 36,
+      "symbol": "BoundingBox.init(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/BoundingBox.swift",
+      "line": 41,
+      "symbol": "BoundingBox.contains(_:ignoreBoundary:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/CategorySearchEngine.swift",
+      "line": 14,
+      "symbol": "CategorySearchEngine.Configuration.autocomplete",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/DefaultLocationProvider.swift",
+      "line": 90,
+      "symbol": "DefaultLocationProvider.currentLocation()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/FavoriteRecord.swift",
+      "line": 5,
+      "symbol": "FavoriteRecord.dataLayerIdentifier",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/FavoriteRecord.swift",
+      "line": 27,
+      "symbol": "FavoriteRecord.icon",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/HistoryRecord.swift",
+      "line": 5,
+      "symbol": "HistoryRecord.dataLayerIdentifier",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/HistoryRecord.swift",
+      "line": 11,
+      "symbol": "HistoryRecord.HistoryType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/HistoryRecord.swift",
+      "line": 12,
+      "symbol": "HistoryRecord.HistoryType.result",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/HistoryRecord.swift",
+      "line": 13,
+      "symbol": "HistoryRecord.HistoryType.query",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/HistoryRecord.swift",
+      "line": 14,
+      "symbol": "HistoryRecord.HistoryType.category",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/HistoryRecord.swift",
+      "line": 33,
+      "symbol": "HistoryRecord.timestamp",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/HistoryRecord.swift",
+      "line": 34,
+      "symbol": "HistoryRecord.historyType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/IndexableDataResolver.swift",
+      "line": 1,
+      "symbol": "IndexableDataResolver",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/LocalDataProviders.swift",
+      "line": 5,
+      "symbol": "LocalDataProvider.updateNotificationName",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/LocalDataProviders.swift",
+      "line": 19,
+      "symbol": "LocalDataProvider.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/LocationProvider.swift",
+      "line": 7,
+      "symbol": "LocationProvider.currentLocation()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/LocationProvider.swift",
+      "line": 13,
+      "symbol": "PointLocationProvider.coordinate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/LocationProvider.swift",
+      "line": 17,
+      "symbol": "PointLocationProvider.init(coordinate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/LocationProvider.swift",
+      "line": 21,
+      "symbol": "PointLocationProvider.currentLocation()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 6,
+      "symbol": "Maki.aerialway",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 7,
+      "symbol": "Maki.airfield",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 8,
+      "symbol": "Maki.airport",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 9,
+      "symbol": "Maki.alcoholShop",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 10,
+      "symbol": "Maki.americanFootball",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 11,
+      "symbol": "Maki.amusementPark",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 12,
+      "symbol": "Maki.aquarium",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 13,
+      "symbol": "Maki.artGallery",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 14,
+      "symbol": "Maki.attraction",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 15,
+      "symbol": "Maki.bakery",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 16,
+      "symbol": "Maki.bank",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 17,
+      "symbol": "Maki.bankJp",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 18,
+      "symbol": "Maki.bar",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 19,
+      "symbol": "Maki.barrier",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 20,
+      "symbol": "Maki.baseball",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 21,
+      "symbol": "Maki.basketball",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 22,
+      "symbol": "Maki.bbq",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 23,
+      "symbol": "Maki.beach",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 24,
+      "symbol": "Maki.beer",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 25,
+      "symbol": "Maki.bicycle",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 26,
+      "symbol": "Maki.bicycleShare",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 27,
+      "symbol": "Maki.bloodBank",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 28,
+      "symbol": "Maki.bowlingAlley",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 29,
+      "symbol": "Maki.bridge",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 30,
+      "symbol": "Maki.building",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 31,
+      "symbol": "Maki.buildingAlt1",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 32,
+      "symbol": "Maki.bus",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 33,
+      "symbol": "Maki.cafe",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 34,
+      "symbol": "Maki.campsite",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 35,
+      "symbol": "Maki.car",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 36,
+      "symbol": "Maki.carRental",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 37,
+      "symbol": "Maki.carRepair",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 38,
+      "symbol": "Maki.casino",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 39,
+      "symbol": "Maki.castle",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 40,
+      "symbol": "Maki.castleJp",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 41,
+      "symbol": "Maki.cemetery",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 42,
+      "symbol": "Maki.cemeteryJp",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 43,
+      "symbol": "Maki.chargingStation",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 44,
+      "symbol": "Maki.cinema",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 45,
+      "symbol": "Maki.circle",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 46,
+      "symbol": "Maki.circleStroked",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 47,
+      "symbol": "Maki.city",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 48,
+      "symbol": "Maki.clothingStore",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 49,
+      "symbol": "Maki.college",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 50,
+      "symbol": "Maki.collegeJp",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 51,
+      "symbol": "Maki.commercial",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 52,
+      "symbol": "Maki.communicationsTower",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 53,
+      "symbol": "Maki.confectionery",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 54,
+      "symbol": "Maki.convenience",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 55,
+      "symbol": "Maki.cricket",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 56,
+      "symbol": "Maki.cross",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 57,
+      "symbol": "Maki.dam",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 58,
+      "symbol": "Maki.danger",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 59,
+      "symbol": "Maki.defibrillator",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 60,
+      "symbol": "Maki.dentist",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 61,
+      "symbol": "Maki.doctor",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 62,
+      "symbol": "Maki.dogPark",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 63,
+      "symbol": "Maki.drinkingWater",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 64,
+      "symbol": "Maki.embassy",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 65,
+      "symbol": "Maki.emergencyPhone",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 66,
+      "symbol": "Maki.entrance",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 67,
+      "symbol": "Maki.entranceAlt1",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 68,
+      "symbol": "Maki.farm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 69,
+      "symbol": "Maki.fastFood",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 70,
+      "symbol": "Maki.fence",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 71,
+      "symbol": "Maki.ferry",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 72,
+      "symbol": "Maki.fireStation",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 73,
+      "symbol": "Maki.fireStationJp",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 74,
+      "symbol": "Maki.fitnessCentre",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 75,
+      "symbol": "Maki.florist",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 76,
+      "symbol": "Maki.fuel",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 77,
+      "symbol": "Maki.furniture",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 78,
+      "symbol": "Maki.gaming",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 79,
+      "symbol": "Maki.garden",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 80,
+      "symbol": "Maki.gardenCentre",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 81,
+      "symbol": "Maki.gift",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 82,
+      "symbol": "Maki.globe",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 83,
+      "symbol": "Maki.golf",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 84,
+      "symbol": "Maki.grocery",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 85,
+      "symbol": "Maki.hairdresser",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 86,
+      "symbol": "Maki.harbor",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 87,
+      "symbol": "Maki.hardware",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 88,
+      "symbol": "Maki.heart",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 89,
+      "symbol": "Maki.heliport",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 90,
+      "symbol": "Maki.home",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 91,
+      "symbol": "Maki.horseRiding",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 92,
+      "symbol": "Maki.hospital",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 93,
+      "symbol": "Maki.hospitalJp",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 94,
+      "symbol": "Maki.iceCream",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 95,
+      "symbol": "Maki.industry",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 96,
+      "symbol": "Maki.information",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 97,
+      "symbol": "Maki.jewelryStore",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 98,
+      "symbol": "Maki.karaoke",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 99,
+      "symbol": "Maki.landmark",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 100,
+      "symbol": "Maki.landmarkJp",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 101,
+      "symbol": "Maki.landuse",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 102,
+      "symbol": "Maki.laundry",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 103,
+      "symbol": "Maki.library",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 104,
+      "symbol": "Maki.lighthouse",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 105,
+      "symbol": "Maki.lodging",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 106,
+      "symbol": "Maki.logging",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 107,
+      "symbol": "Maki.marker",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 108,
+      "symbol": "Maki.markerStroked",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 109,
+      "symbol": "Maki.mobilePhone",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 110,
+      "symbol": "Maki.monument",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 111,
+      "symbol": "Maki.mountain",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 112,
+      "symbol": "Maki.museum",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 113,
+      "symbol": "Maki.music",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 114,
+      "symbol": "Maki.natural",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 115,
+      "symbol": "Maki.optician",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 116,
+      "symbol": "Maki.paint",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 117,
+      "symbol": "Maki.park",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 118,
+      "symbol": "Maki.parkAlt1",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 119,
+      "symbol": "Maki.parking",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 120,
+      "symbol": "Maki.parkingGarage",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 121,
+      "symbol": "Maki.pharmacy",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 122,
+      "symbol": "Maki.picnicSite",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 123,
+      "symbol": "Maki.pitch",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 124,
+      "symbol": "Maki.placeOfWorship",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 125,
+      "symbol": "Maki.playground",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 126,
+      "symbol": "Maki.police",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 127,
+      "symbol": "Maki.policeJp",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 128,
+      "symbol": "Maki.post",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 129,
+      "symbol": "Maki.postJp",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 130,
+      "symbol": "Maki.prison",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 131,
+      "symbol": "Maki.rail",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 132,
+      "symbol": "Maki.railLight",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 133,
+      "symbol": "Maki.railMetro",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 134,
+      "symbol": "Maki.rangerStation",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 135,
+      "symbol": "Maki.recycling",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 136,
+      "symbol": "Maki.religiousBuddhist",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 137,
+      "symbol": "Maki.religiousChristian",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 138,
+      "symbol": "Maki.religiousJewish",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 139,
+      "symbol": "Maki.religiousMuslim",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 140,
+      "symbol": "Maki.religiousShinto",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 141,
+      "symbol": "Maki.residentialCommunity",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 142,
+      "symbol": "Maki.restaurant",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 143,
+      "symbol": "Maki.restaurantNoodle",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 144,
+      "symbol": "Maki.restaurantPizza",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 145,
+      "symbol": "Maki.restaurantSeafood",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 146,
+      "symbol": "Maki.roadblock",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 147,
+      "symbol": "Maki.rocket",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 148,
+      "symbol": "Maki.school",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 149,
+      "symbol": "Maki.schoolJp",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 150,
+      "symbol": "Maki.scooter",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 151,
+      "symbol": "Maki.shelter",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 152,
+      "symbol": "Maki.shoe",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 153,
+      "symbol": "Maki.shop",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 154,
+      "symbol": "Maki.skateboard",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 155,
+      "symbol": "Maki.skiing",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 156,
+      "symbol": "Maki.slaughterhouse",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 157,
+      "symbol": "Maki.slipway",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 158,
+      "symbol": "Maki.snowmobile",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 159,
+      "symbol": "Maki.soccer",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 160,
+      "symbol": "Maki.square",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 161,
+      "symbol": "Maki.squareStroked",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 162,
+      "symbol": "Maki.stadium",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 163,
+      "symbol": "Maki.star",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 164,
+      "symbol": "Maki.starStroked",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 165,
+      "symbol": "Maki.suitcase",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 166,
+      "symbol": "Maki.sushi",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 167,
+      "symbol": "Maki.swimming",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 168,
+      "symbol": "Maki.tableTennis",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 169,
+      "symbol": "Maki.teahouse",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 170,
+      "symbol": "Maki.telephone",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 171,
+      "symbol": "Maki.tennis",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 172,
+      "symbol": "Maki.theatre",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 173,
+      "symbol": "Maki.toilet",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 174,
+      "symbol": "Maki.town",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 175,
+      "symbol": "Maki.townHall",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 176,
+      "symbol": "Maki.triangle",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 177,
+      "symbol": "Maki.triangleStroked",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 178,
+      "symbol": "Maki.veterinary",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 179,
+      "symbol": "Maki.viewpoint",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 180,
+      "symbol": "Maki.village",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 181,
+      "symbol": "Maki.volcano",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 182,
+      "symbol": "Maki.volleyball",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 183,
+      "symbol": "Maki.warehouse",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 184,
+      "symbol": "Maki.wasteBasket",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 185,
+      "symbol": "Maki.watch",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 186,
+      "symbol": "Maki.water",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 187,
+      "symbol": "Maki.waterfall",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 188,
+      "symbol": "Maki.watermill",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 189,
+      "symbol": "Maki.wetland",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 190,
+      "symbol": "Maki.wheelchair",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 191,
+      "symbol": "Maki.windmill",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Maki.swift",
+      "line": 192,
+      "symbol": "Maki.zoo",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/RecordsProviderInteractor.swift",
+      "line": 4,
+      "symbol": "RecordsProviderInteractor.providerIdentifier",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/RecordsProviderInteractor.swift",
+      "line": 6,
+      "symbol": "RecordsProviderInteractor.add(record:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/RecordsProviderInteractor.swift",
+      "line": 7,
+      "symbol": "RecordsProviderInteractor.update(record:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/RecordsProviderInteractor.swift",
+      "line": 8,
+      "symbol": "RecordsProviderInteractor.delete(identifier:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/RecordsProviderInteractor.swift",
+      "line": 9,
+      "symbol": "RecordsProviderInteractor.deleteAll()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/RecordsProviderInteractor.swift",
+      "line": 11,
+      "symbol": "RecordsProviderInteractor.contains(identifier:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Search Results/SearchResultSuggestion.swift",
+      "line": 3,
+      "symbol": "SearchResultSuggestion.dataLayerIdentifier",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Search Results/SearchSuggestion.swift",
+      "line": 14,
+      "symbol": "SearchSuggestion.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Search Results/SearchSuggestion.swift",
+      "line": 16,
+      "symbol": "SearchSuggestion.descriptionText",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Search Results/SearchSuggestion.swift",
+      "line": 18,
+      "symbol": "SearchSuggestion.iconName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Search Results/SearchSuggestion.swift",
+      "line": 20,
+      "symbol": "SearchSuggestion.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/Search Results/SearchSuggestion.swift",
+      "line": 22,
+      "symbol": "SearchSuggestion.searchRequest",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 101,
+      "symbol": "SearchEngine.Configuration.autocomplete",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 153,
+      "symbol": "SearchEngine.QueryType.country",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 154,
+      "symbol": "SearchEngine.QueryType.region",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 155,
+      "symbol": "SearchEngine.QueryType.postcode",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 156,
+      "symbol": "SearchEngine.QueryType.district",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 157,
+      "symbol": "SearchEngine.QueryType.place",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 158,
+      "symbol": "SearchEngine.QueryType.locality",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 159,
+      "symbol": "SearchEngine.QueryType.neighborhood",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 160,
+      "symbol": "SearchEngine.QueryType.address",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 161,
+      "symbol": "SearchEngine.QueryType.poi",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 210,
+      "symbol": "SearchEngine.ReverseGeocodingOptions.types",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchEngine.swift",
+      "line": 212,
+      "symbol": "SearchEngine.ReverseGeocodingOptions.init(point:mode:limit:types:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchError.swift",
+      "line": 3,
+      "symbol": "mapboxSearchErrorDomain",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchError.swift",
+      "line": 7,
+      "symbol": "SearchError.requestFailed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchError.swift",
+      "line": 8,
+      "symbol": "SearchError.resultResolutionFailed(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchError.swift",
+      "line": 9,
+      "symbol": "SearchError.generic(code:domain:message:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchResultType.swift",
+      "line": 3,
+      "symbol": "SearchResultType.address",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/SearchResultType.swift",
+      "line": 4,
+      "symbol": "SearchResultType.POI",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/ServiceProvider.swift",
+      "line": 20,
+      "symbol": "FavoritesProvider",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/ServiceProvider.swift",
+      "line": 21,
+      "symbol": "HistoryProvider",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/odnairy/code/mapbox-search-ios/Sources/MapboxSearch/Public API/ServiceProvider.swift",
+      "line": 25,
+      "symbol": "ServiceProvider.customBaseURL",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/odnairy/code/mapbox-search-ios"
+}

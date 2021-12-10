@@ -1,0 +1,19 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Offline/Cancelable.swift",
+      "line": 6,
+      "symbol": "Cancelable.cancel()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/SearchRequestOptions.swift",
+      "line": 15,
+      "symbol": "SearchRequestOptions.init(query:proximity:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/distiller/project"
+}

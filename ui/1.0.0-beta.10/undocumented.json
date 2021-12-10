@@ -1,0 +1,495 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/CategoriesProvider.swift",
+      "line": 8,
+      "symbol": "CategoriesProvider.shared",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 45,
+      "symbol": "Category.gas",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 47,
+      "symbol": "Category.parking",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 49,
+      "symbol": "Category.food",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 51,
+      "symbol": "Category.cafe",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 55,
+      "symbol": "Category.restaurant",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 57,
+      "symbol": "Category.bar",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 59,
+      "symbol": "Category.coffeeShop",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 61,
+      "symbol": "Category.hotel",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 63,
+      "symbol": "Category.gasStation",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 65,
+      "symbol": "Category.chargingStation",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 67,
+      "symbol": "Category.busStation",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 69,
+      "symbol": "Category.railwayStation",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 71,
+      "symbol": "Category.shoppingMall",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 73,
+      "symbol": "Category.grocery",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 75,
+      "symbol": "Category.clothingStore",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 77,
+      "symbol": "Category.pharmacy",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 79,
+      "symbol": "Category.museum",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 81,
+      "symbol": "Category.park",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 83,
+      "symbol": "Category.cinema",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 85,
+      "symbol": "Category.fitnessCentre",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 87,
+      "symbol": "Category.nightclub",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 89,
+      "symbol": "Category.autoRepair",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 91,
+      "symbol": "Category.atm",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 93,
+      "symbol": "Category.hospital",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Category.swift",
+      "line": 95,
+      "symbol": "Category.emergencyRoom",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/DefaultCategoryDataProvider.swift",
+      "line": 3,
+      "symbol": "DefaultCategoryDataProvider",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/DefaultCategoryDataProvider.swift",
+      "line": 4,
+      "symbol": "DefaultCategoryDataProvider.minCategoriesCount",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/DefaultCategoryDataProvider.swift",
+      "line": 12,
+      "symbol": "DefaultCategoryDataProvider.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Maki+Extensions.swift",
+      "line": 5,
+      "symbol": "Maki.xcassetName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 9,
+      "symbol": "MapboxPanelController.State.opened",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 10,
+      "symbol": "MapboxPanelController.State.collapsed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 11,
+      "symbol": "MapboxPanelController.State.hidden",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 25,
+      "symbol": "MapboxPanelController.Configuration.initialState",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 27,
+      "symbol": "MapboxPanelController.Configuration.default",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 135,
+      "symbol": "MapboxPanelController.loadView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 176,
+      "symbol": "MapboxPanelController.traitCollectionDidChange(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 182,
+      "symbol": "MapboxPanelController.viewDidLayoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 193,
+      "symbol": "MapboxPanelController.willMove(toParent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 206,
+      "symbol": "MapboxPanelController.HorizontalAlignment.leading",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 207,
+      "symbol": "MapboxPanelController.HorizontalAlignment.center",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 208,
+      "symbol": "MapboxPanelController.HorizontalAlignment.trailing",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxPanelController.swift",
+      "line": 376,
+      "symbol": "MapboxPanelController.gestureRecognizerShouldBegin(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 5,
+      "symbol": "SearchControllerDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 6,
+      "symbol": "SearchControllerDelegate.searchResultSelected(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 8,
+      "symbol": "SearchControllerDelegate.categorySearchResultsReceived(results:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 9,
+      "symbol": "SearchControllerDelegate.userFavoriteSelected(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 11,
+      "symbol": "SearchControllerDelegate.shouldCollapseForSelection(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 14,
+      "symbol": "SearchControllerDelegate",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 15,
+      "symbol": "SearchControllerDelegate.shouldCollapseForSelection(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 20,
+      "symbol": "MapboxSearchController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 68,
+      "symbol": "MapboxSearchController.favoritesProvider",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 69,
+      "symbol": "MapboxSearchController.historyProvider",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 71,
+      "symbol": "MapboxSearchController.categorySearchEngine",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 72,
+      "symbol": "MapboxSearchController.searchEngine",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 83,
+      "symbol": "MapboxSearchController.configuration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 89,
+      "symbol": "MapboxSearchController.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 154,
+      "symbol": "MapboxSearchController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 203,
+      "symbol": "MapboxSearchController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 208,
+      "symbol": "MapboxSearchController.viewDidDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 355,
+      "symbol": "MapboxSearchController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 394,
+      "symbol": "MapboxSearchController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 440,
+      "symbol": "MapboxSearchController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 441,
+      "symbol": "MapboxSearchController.searchQueryDidChanged(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 445,
+      "symbol": "MapboxSearchController.searchTextFieldBeginEditing()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/MapboxSearchController.swift",
+      "line": 452,
+      "symbol": "MapboxSearchController.cancelSearch()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/Reachability.swift",
+      "line": 13,
+      "symbol": "Notification.Name.ReachabilityStatusChanged",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/SearchTextField.swift",
+      "line": 70,
+      "symbol": "SearchTextField.textFieldDidBeginEditing(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/SearchTextField.swift",
+      "line": 74,
+      "symbol": "SearchTextField.textFieldDidEndEditing(_:reason:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearchUI/SearchTextField.swift",
+      "line": 78,
+      "symbol": "SearchTextField.textFieldShouldReturn(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/distiller/project"
+}
