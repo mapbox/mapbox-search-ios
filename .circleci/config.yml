@@ -49,11 +49,17 @@ workflows:
           filters:
             tags:
               only: /v.*/
-      - release-ios:
+      - request-release-ios:
           type: approval
           requires:
             - build-for-release
             - documentation-pr
+          filters:
+            tags:
+              only: /v.*/
+      - release-ios:
+          requires:
+            - request-release-ios
           filters:
             tags:
               only: /v.*/
