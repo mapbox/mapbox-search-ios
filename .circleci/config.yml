@@ -257,7 +257,7 @@ jobs:
             sed -i '' -E "s/(MapboxSearch.*)/\1\/${VERSION}/g" ~/.cocoapods/repos/trunk/all_pods_versions_6_6_f.txt
             pod trunk push MapboxSearchUI.podspec
       - run: brew install gh taiki-e/tap/parse-changelog
-      - run: scripts/release_binary_manifest.sh
+      - run: scripts/release_notes.sh
 
   spm-build:
     macos:
