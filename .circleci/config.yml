@@ -50,6 +50,7 @@ workflows:
             tags:
               only: /v.*/
       - release-ios:
+          type: approval
           requires:
             - build-for-release
             - documentation-pr
@@ -220,8 +221,8 @@ jobs:
       - run: ls -lGh Products/
       - install-mbx-ci-darwin
       - run: mbx-ci aws setup
-      - run: make update-registry
-      - run: make list-registry-latest
+      # - run: make update-registry
+      # - run: make list-registry-latest
       - run:
           name: Create PR to SDK Registry
           command: |
