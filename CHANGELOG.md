@@ -6,6 +6,13 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.19] - 2021-12-08
+
+### Internal
+
+- Update MapboxCoreSearch to v0.45.2
+- Update MapboxCommon to v21.0.0
+
 ## [1.0.0-beta.18] - 2021-12-06
 
 ### Internal

@@ -49,10 +49,17 @@ workflows:
           filters:
             tags:
               only: /v.*/
-      - release-ios:
+      - request-release-ios:
+          type: approval
           requires:
             - build-for-release
             - documentation-pr
+          filters:
+            tags:
+              only: /v.*/
+      - release-ios:
+          requires:
+            - request-release-ios
           filters:
             tags:
               only: /v.*/
@@ -108,7 +115,7 @@ jobs:
 
   build:
     macos:
-      xcode: 12.0.0 # Specify the Xcode version to use
+      xcode: 12.5.0 # Specify the Xcode version to use
     environment:
       FL_OUTPUT_DIR: ../output
     steps:
@@ -220,8 +227,8 @@ jobs:
       - run: ls -lGh Products/
       - install-mbx-ci-darwin
       - run: mbx-ci aws setup
-      - run: make update-registry
-      - run: make list-registry-latest
+      # - run: make update-registry
+      # - run: make list-registry-latest
       - run:
           name: Create PR to SDK Registry
           command: |
@@ -250,7 +257,7 @@ jobs:
             sed -i '' -E "s/(MapboxSearch.*)/\1\/${VERSION}/g" ~/.cocoapods/repos/trunk/all_pods_versions_6_6_f.txt
             pod trunk push MapboxSearchUI.podspec
       - run: brew install gh taiki-e/tap/parse-changelog
-      - run: scripts/release_binary_manifest.sh
+      - run: scripts/release_notes.sh
 
   spm-build:
     macos:

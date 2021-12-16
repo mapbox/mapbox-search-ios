@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
-
-VERSION=1.0.0-beta.18
-
 # Get dependency versions (MapboxCommon, MapboxMobileEvents)
 MAPBOX_COMMON_DEPENDENCY_VERSION="$(grep -o 'MapboxCommon.*' Cartfile | grep -o '\d.*')"
 MAPBOX_MOBILE_EVENTS_DEPENDENCY_VERSION="$(grep -o "MapboxMobileEvents.*" Cartfile | grep -o "\d.*")"
