@@ -6,6 +6,12 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.20] - 2021-12-16
+
+### Internal
+
+- Release CI pipeline adjustments
+
 ## [1.0.0-beta.19] - 2021-12-08
 
 ### Internal

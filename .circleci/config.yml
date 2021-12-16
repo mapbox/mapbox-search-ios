@@ -49,17 +49,10 @@ workflows:
           filters:
             tags:
               only: /v.*/
-      - request-release-ios:
-          type: approval
+      - release-ios:
           requires:
             - build-for-release
             - documentation-pr
-          filters:
-            tags:
-              only: /v.*/
-      - release-ios:
-          requires:
-            - request-release-ios
           filters:
             tags:
               only: /v.*/
@@ -76,13 +69,6 @@ workflows:
           filters:
             tags:
               only: /v.*/
-      # - request-nightly-build:
-      #       type: approval
-      #       requires:
-      #       - pre-check
-      # - nightly-build:
-      #       requires:
-      #       - request-nightly-build
 
   nightly-build:
     jobs:
@@ -227,8 +213,8 @@ jobs:
       - run: ls -lGh Products/
       - install-mbx-ci-darwin
       - run: mbx-ci aws setup
-      # - run: make update-registry
-      # - run: make list-registry-latest
+      - run: make update-registry
+      - run: make list-registry-latest
       - run:
           name: Create PR to SDK Registry
           command: |
