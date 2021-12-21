@@ -6,6 +6,10 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## Internal
+
+- Remove unused npm package
+
 ## [1.0.0-beta.20] - 2021-12-16
 
 ### Internal
