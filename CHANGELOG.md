@@ -6,9 +6,12 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.21] - 2021-12-22
+
 ## Internal
 
 - Remove unused npm package
+- Update MapboxCoreSearch to v0.46.1
 
 ## [1.0.0-beta.20] - 2021-12-16
 
