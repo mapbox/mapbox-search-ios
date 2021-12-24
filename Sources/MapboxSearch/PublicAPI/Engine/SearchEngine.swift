@@ -247,7 +247,7 @@ public class SearchEngine: AbstractSearchEngine {
         
         switch queryValue {
         case .string(let query):
-            if coreResponse.request.query != query {
+            if coreResponse.request.query != query, coreResponse.request.endpoint != "suggest" {
                 return nil
             }
         case .category:

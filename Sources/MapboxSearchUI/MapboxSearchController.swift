@@ -241,9 +241,9 @@ public class MapboxSearchController: UIViewController {
     func updateTableStateUI() {
         switch tableState {
         case .history:
+            searchSuggestionsSource.reset() // Reset SearchResults cache to avoid outdated results during next search
             tableController.tableView.dataSource = historySource
             tableController.tableView.delegate = historySource
-            searchSuggestionsSource.reset() // Reset SearchResults cache to avoid outdated results during next search
             tableController.tableView.tableFooterView = UIView()
         case .searchResult:
             tableController.tableView.dataSource = searchSuggestionsSource
@@ -327,8 +327,8 @@ public class MapboxSearchController: UIViewController {
     }
     
     func presentSearchError(_ error: SearchError) {
-        searchErrorView.setError(error)
         searchSuggestionsSource.reset()
+        searchErrorView.setError(error)
         tableController.tableView.tableFooterView = searchErrorView
         tableController.tableView.reloadData()
         mapboxPanelController?.panelNavigationController.popToRootViewController(animated: true)
