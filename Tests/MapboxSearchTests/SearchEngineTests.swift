@@ -29,7 +29,7 @@ class SearchEngineTests: XCTestCase {
         if case .success(let results) = response.process() {
             XCTAssertEqual(results.suggestions.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
         } else {
-            fatalError("impossible")
+            XCTFail("impossible")
         }
     }
     
@@ -47,7 +47,7 @@ class SearchEngineTests: XCTestCase {
         if case .success(let results) = response.process() {
             XCTAssertEqual(results.suggestions.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
         } else {
-            fatalError("impossible")
+            XCTFail("impossible")
         }
     }
     
@@ -63,7 +63,7 @@ class SearchEngineTests: XCTestCase {
             if case .success(let reverseGeocodingResults) = result {
                 XCTAssertEqual(results.map({ $0.id }), reverseGeocodingResults.map({ $0.id }))
             } else {
-                fatalError("impossible")
+                XCTFail("impossible")
             }
             expectation.fulfill()
         }
@@ -83,7 +83,7 @@ class SearchEngineTests: XCTestCase {
         XCTAssertEqual([], searchEngine.suggestions.map({ $0.id }))
     }
     
-    func testIgnoreResultsForOutdatedSearchQuerry() throws {
+    func testIgnoreResultsForOutdatedSearchQuery() throws {
         let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
         searchEngine.delegate = delegate
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
@@ -97,7 +97,7 @@ class SearchEngineTests: XCTestCase {
         if case .success(let results) = response.process() {
             XCTAssertEqual(results.suggestions.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
         } else {
-            fatalError("impossible")
+            XCTFail("impossible")
         }
         
         engine.searchResponse = CoreSearchResponseStub.successSample(options: .sample2, results: [])
@@ -109,7 +109,7 @@ class SearchEngineTests: XCTestCase {
         if case .success(let results) = response.process() {
             XCTAssertEqual(results.suggestions.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
         } else {
-            fatalError("impossible")
+            XCTFail("impossible")
         }
     }
     
@@ -128,7 +128,7 @@ class SearchEngineTests: XCTestCase {
         if case .success(let results) = response.process() {
             XCTAssertEqual(results.suggestions.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
         } else {
-            fatalError("impossible")
+            XCTFail("impossible")
         }
         
         engine.searchResponse = CoreSearchResponseStub.failureSample
@@ -154,7 +154,7 @@ class SearchEngineTests: XCTestCase {
         if case .success(let results) = response.process() {
             XCTAssertEqual(results.suggestions.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
         } else {
-            fatalError("impossible")
+            XCTFail("impossible")
         }
         
         let successExpectation = delegate.successExpectation
@@ -187,7 +187,7 @@ class SearchEngineTests: XCTestCase {
         if case .success(let results) = response.process() {
             XCTAssertEqual(results.suggestions.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
         } else {
-            fatalError("impossible")
+            XCTFail("impossible")
         }
         
         let successExpectation = delegate.successExpectation
@@ -341,7 +341,7 @@ class SearchEngineTests: XCTestCase {
             if case .failure(let searchError) = result {
                 error = searchError
             } else {
-                fatalError("impossible")
+                XCTFail("impossible")
             }
             expectation.fulfill()
         }

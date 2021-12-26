@@ -6,6 +6,10 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+### Fixed
+
+ - Suggestion resolve no longer cancel on search query change.
+
 ## [1.0.0-beta.21] - 2021-12-22
 
 ## Internal

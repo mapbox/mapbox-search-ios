@@ -30,6 +30,7 @@ class SearchSuggestionsTableSource: NSObject, UITableViewDataSource, UITableView
     
     func reset() {
         suggestions = []
+        tableView?.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
