@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapboxSearchController" customModule="MapboxSearchUI">
             <connections>
                 <outlet property="categoriesRootView" destination="Npm-ay-avi" id="NVj-0k-5Vw"/>
-                <outlet property="emptySuggestionsView" destination="UtO-se-E9L" id="kx8-B2-Ycp"/>
+                <outlet property="noSuggestionsView" destination="UtO-se-E9L" id="ziJ-jB-mxh"/>
                 <outlet property="progressView" destination="aqY-4h-ZCd" id="uo7-il-hBp"/>
                 <outlet property="searchBar" destination="AAs-EW-QJH" id="7nE-h5-tDB"/>
                 <outlet property="searchErrorView" destination="PCo-iN-jQE" id="tno-pB-viy"/>

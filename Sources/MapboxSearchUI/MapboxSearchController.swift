@@ -64,7 +64,7 @@ public class MapboxSearchController: UIViewController {
     @IBOutlet private weak var searchBar: SearchBar!
     @IBOutlet private weak var categoriesRootView: SearchCategoriesRootView!
     @IBOutlet private var progressView: ActivityProgressView!
-    @IBOutlet private var emptySuggestionsView: NoSuggestionsView!
+    @IBOutlet private var noSuggestionsView: NoSuggestionsView!
     @IBOutlet private var searchErrorView: SearchErrorView!
     @IBOutlet private var tableController: UITableViewController!
     
@@ -190,6 +190,7 @@ public class MapboxSearchController: UIViewController {
         tableController.tableView.separatorInset.right = view.directionalLayoutMargins.trailing
         updateTableStateUI()
         
+        noSuggestionsView.missingResultHandler = reportMissingResult
         reachability.statusChangeHandler = reachabilityStatusChangeHandler
         searchErrorView.retryHandler = searchErrorViewRetryHandler
         
@@ -206,7 +207,7 @@ public class MapboxSearchController: UIViewController {
         favoriteDetailsController?.configuration = configuration
         
         categoriesRootView?.configuration = configuration
-        emptySuggestionsView?.configure(configuration: configuration)
+        noSuggestionsView?.configure(configuration: configuration)
         feedbackController?.configuration = configuration
         
         panelController?.updateUI(for: configuration)
@@ -360,13 +361,17 @@ public class MapboxSearchController: UIViewController {
         mapboxPanelController?.push(viewController: controller, animated: true)
     }
     
-    func navigateToSendFeedbackController(suggestion: SearchSuggestion) {
+    func navigateToSendFeedbackController(suggestion: SearchSuggestion?) {
         searchBar.endEditing(true)
         let controller = SendFeedbackController(configuration: configuration)
         feedbackController = controller
         
         if let window = view.window {
             controller.makeScreenshot(view: window)
+        }
+        if suggestion == nil {
+            controller.feedbackReasons = [.missingResult]
+            controller.responseInfo = searchEngine.responseInfo
         }
         controller.feedbackSuggestion = suggestion
         controller.delegate = self
@@ -428,12 +433,8 @@ extension MapboxSearchController: SearchEngineDelegate {
         }
         searchSuggestionsSource.suggestions = suggestions
         
-        if searchSuggestionsSource.suggestions.isEmpty {
-            tableController.tableView.tableFooterView = emptySuggestionsView
-        } else {
-            tableController.tableView.tableFooterView = UIView()
-        }
-        
+        noSuggestionsView.suggestionLabelVisible = searchSuggestionsSource.suggestions.isEmpty
+        tableController.tableView.tableFooterView = noSuggestionsView
         tableController.tableView.reloadData()
     }
     
@@ -481,6 +482,10 @@ extension MapboxSearchController: SearchBarDelegate {
 
 // MARK: - Results Source Delegate
 extension MapboxSearchController: SearchResultsTableSourceDelegate {
+    func reportMissingResult() {
+        navigateToSendFeedbackController(suggestion: nil)
+    }
+    
     func reportIssue(_ searchResult: SearchSuggestion) {
         view.endEditing(true)
         panelController?.setState(.opened)
@@ -517,21 +522,23 @@ extension MapboxSearchController: CategorySuggestionsControllerDelegate {
 
 // MARK: - SendFeedback  Delegate
 extension MapboxSearchController: SendFeedbackControllerDelegate {
-    func sendFeedbackController(_ controller: SendFeedbackController, feedbackReady reason: String, description: String?) {
-        guard let suggestion = controller.feedbackSuggestion else {
-            controller.presentFeedbackError()
+    func sendFeedbackDidReady() {
+        defer {
+            // Preventing navigation pop animation as it looks bad
+            mapboxPanelController?.panelNavigationController.popToRootViewController(animated: false)
+            resetSearchUI(animated: true)
+        }
+        
+        guard let event: FeedbackEvent = feedbackController?.buildFeedbackEvent() else {
+            feedbackController?.presentFeedbackError()
             return
         }
-        let event = FeedbackEvent(suggestion: suggestion, reason: reason, text: description)
-        event.screenshotData = controller.screenshot?.jpegData(compressionQuality: 0.6)
+        event.screenshotData = feedbackController?.screenshot?.jpegData(compressionQuality: 0.6)
         do {
             try searchEngine.feedbackManager.sendEvent(event)
         } catch {
-            controller.presentFeedbackError()
+            feedbackController?.presentFeedbackError()
         }
-        // Preventing navigation pop animation as it looks bad
-        mapboxPanelController?.panelNavigationController.popToRootViewController(animated: false)
-        resetSearchUI(animated: true)
     }
     
     func sendFeedbackDidCancel() {

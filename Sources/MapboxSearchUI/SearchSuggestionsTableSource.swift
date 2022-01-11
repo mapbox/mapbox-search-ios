@@ -5,14 +5,17 @@ import MapboxSearch
 protocol SearchResultsTableSourceDelegate: SearchSuggestionCellDelegate {
     func selectedSearchResult(_ searchResult: SearchSuggestion)
     func reportIssue(_ searchResult: SearchSuggestion)
+    func reportMissingResult()
 }
 
-class SearchSuggestionsTableSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+class SearchSuggestionsTableSource: NSObject {
     var suggestions: [SearchSuggestion] = []
     let cellIdentifier = "ResultCell"
     weak var delegate: SearchResultsTableSourceDelegate?
     
     weak var tableView: UITableView?
+    
+    var noSuggestionsView: NoSuggestionsView?
     
     var configuration: Configuration {
         didSet {
@@ -32,9 +35,11 @@ class SearchSuggestionsTableSource: NSObject, UITableViewDataSource, UITableView
         suggestions = []
         tableView?.reloadData()
     }
-    
+}
+
+extension SearchSuggestionsTableSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return suggestions.count
+        suggestions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,7 +50,9 @@ class SearchSuggestionsTableSource: NSObject, UITableViewDataSource, UITableView
         
         return cell
     }
-    
+}
+
+extension SearchSuggestionsTableSource: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let result = suggestions[indexPath.row]
         delegate?.selectedSearchResult(result)

@@ -6,6 +6,10 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+### Added
+
+- Missing result feedback type.
+
 ### Fixed
 
  - Suggestion resolve no longer cancel on search query change.

@@ -2,7 +2,7 @@ import UIKit
 import MapboxSearch
 
 protocol SendFeedbackControllerDelegate: AnyObject {
-    func sendFeedbackController(_ controller: SendFeedbackController, feedbackReady reason: String, description: String?)
+    func sendFeedbackDidReady()
     func sendFeedbackDidCancel()
     func sendFeedbackDidClose()
 }
@@ -16,11 +16,12 @@ class SendFeedbackController: UIViewController {
     
     weak var delegate: SendFeedbackControllerDelegate?
     
-    var pickerDataSource = FeedbackEvent.Reason.allCases.filter { $0 != .missingResult }
+    var responseInfo: SearchResponseInfo? 
+    var feedbackReasons = FeedbackEvent.Reason.allCases.filter { $0 != .missingResult }
     var feedbackSuggestion: SearchSuggestion?
     var screenshot: UIImage?
     
-    private lazy var selectedReason: FeedbackEvent.Reason = pickerDataSource[0]
+    private lazy var selectedReason: FeedbackEvent.Reason = feedbackReasons[0]
     
     var configuration: Configuration {
         didSet {
@@ -107,6 +108,18 @@ class SendFeedbackController: UIViewController {
         screenshot = image
     }
     
+    func buildFeedbackEvent() -> FeedbackEvent? {
+        let event: FeedbackEvent
+        if let suggestion = feedbackSuggestion {
+            event = FeedbackEvent(suggestion: suggestion, reason: selectedReason.rawValue, text: textView.text)
+        } else if selectedReason == .missingResult, let response = responseInfo {
+            event = FeedbackEvent(response: response, text: textView.text)
+        } else {
+            return nil
+        }
+        return event
+    }
+    
     func presentFeedbackError() {
         let alert = UIAlertController(title: Strings.Feedback.errorTitle, message: Strings.Feedback.errorMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Strings.General.ok, style: .default, handler: { _ in
@@ -119,7 +132,7 @@ class SendFeedbackController: UIViewController {
         let alert = UIAlertController(title: Strings.Feedback.confirmTitle, message: Strings.Feedback.confirmMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Strings.General.ok, style: .default, handler: { _ in
             alert.dismiss(animated: true, completion: nil)
-            self.delegate?.sendFeedbackController(self, feedbackReady: self.selectedReason.rawValue, description: self.textView.text)
+            self.delegate?.sendFeedbackDidReady()
         }))
         alert.addAction(UIAlertAction(title: Strings.General.cancel, style: .cancel, handler: { _ in
             alert.dismiss(animated: true, completion: nil)
@@ -148,7 +161,7 @@ extension SendFeedbackController {
 
 extension SendFeedbackController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedReason = pickerDataSource[row]
+        selectedReason = feedbackReasons[row]
     }
 }
 
@@ -158,10 +171,10 @@ extension SendFeedbackController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        pickerDataSource.count
+        feedbackReasons.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        pickerDataSource[row].title
+        feedbackReasons[row].title
     }
 }
