@@ -52,13 +52,13 @@
 
 "search.feedback.title" = "Send Feedback";
 
-"search.feedback.reason.incorrectNameOption.name" = "Incorrect Name";
+"search.feedback.reason.incorrectNameOption.name" = "Incorrect name";
 
-"search.feedback.reason.incorrectAddressOption.name" = "Incorrect Address";
+"search.feedback.reason.incorrectAddressOption.name" = "Incorrect address";
 
-"search.feedback.reason.incorrectLocationOption.name" = "Incorrect Location";
+"search.feedback.reason.incorrectLocationOption.name" = "Incorrect location";
 
-"search.feedback.reason.missingResultOption.name" = "Missing Search Result";
+"search.feedback.reason.missingResultOption.name" = "Missing result";
 
 "search.feedback.reason.other.name" = "Other";
 

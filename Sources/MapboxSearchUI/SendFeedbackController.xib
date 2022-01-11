@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,9 +25,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JF-hx-UWP">
-                    <rect key="frame" x="10" y="2" width="50" height="40"/>
+                    <rect key="frame" x="8" y="2" width="40" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="5tQ-7H-5WO"/>
+                        <constraint firstAttribute="width" constant="40" id="5tQ-7H-5WO"/>
                         <constraint firstAttribute="height" constant="40" id="ffy-Q9-0fB"/>
                     </constraints>
                     <state key="normal" image="back icon"/>
@@ -36,10 +36,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Spa-5D-pC6">
-                    <rect key="frame" x="315" y="2" width="50" height="40"/>
+                    <rect key="frame" x="327" y="2" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="6m4-Wi-Sib"/>
-                        <constraint firstAttribute="width" constant="50" id="z46-lA-MFc"/>
+                        <constraint firstAttribute="width" constant="40" id="z46-lA-MFc"/>
                     </constraints>
                     <state key="normal" image="cancel icon"/>
                     <connections>
@@ -47,7 +47,7 @@
                     </connections>
                 </button>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ei-Ak-bxK">
-                    <rect key="frame" x="20" y="58" width="335" height="120"/>
+                    <rect key="frame" x="14" y="58" width="347" height="120"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="120" id="u6o-km-RN7"/>
                     </constraints>
@@ -57,7 +57,7 @@
                     </connections>
                 </pickerView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jmg-Wc-vZ9">
-                    <rect key="frame" x="10" y="218" width="355" height="200"/>
+                    <rect key="frame" x="22" y="218" width="331" height="200"/>
                     <color key="backgroundColor" name="mapbox searchbar background"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="bIS-V3-AGN"/>
@@ -78,14 +78,14 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send Feedback" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rj0-2I-PxT">
-                    <rect key="frame" x="68" y="9.5" width="239" height="25"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                    <rect key="frame" x="56" y="10.5" width="263" height="23.5"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                     <color key="textColor" name="mapbox text"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description (optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXB-wp-Yuw">
-                    <rect key="frame" x="10" y="194" width="139" height="20"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXB-wp-Yuw">
+                    <rect key="frame" x="22" y="196" width="65.5" height="18"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
                     <color key="textColor" name="mapbox text"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -98,21 +98,21 @@
                 <constraint firstItem="7eU-0I-KvB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="2CO-je-Zb7"/>
                 <constraint firstItem="5JF-hx-UWP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="2" id="E0L-84-fFP"/>
                 <constraint firstItem="rj0-2I-PxT" firstAttribute="centerY" secondItem="5JF-hx-UWP" secondAttribute="centerY" id="GJk-eK-neJ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Spa-5D-pC6" secondAttribute="trailing" constant="10" id="H8H-Zb-IYD"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Spa-5D-pC6" secondAttribute="trailing" constant="8" id="H8H-Zb-IYD"/>
                 <constraint firstItem="1Ei-Ak-bxK" firstAttribute="top" secondItem="5JF-hx-UWP" secondAttribute="bottom" constant="16" id="Jto-CM-bM3"/>
                 <constraint firstItem="dXB-wp-Yuw" firstAttribute="leading" secondItem="jmg-Wc-vZ9" secondAttribute="leading" id="KnH-cz-MKu"/>
                 <constraint firstItem="Spa-5D-pC6" firstAttribute="leading" secondItem="rj0-2I-PxT" secondAttribute="trailing" constant="8" id="LSL-KN-47h"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jmg-Wc-vZ9" secondAttribute="trailing" constant="10" id="Vnu-4H-PuS"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jmg-Wc-vZ9" secondAttribute="trailing" constant="22" id="Vnu-4H-PuS"/>
                 <constraint firstItem="jmg-Wc-vZ9" firstAttribute="top" secondItem="dXB-wp-Yuw" secondAttribute="bottom" constant="4" id="Wmi-Qr-BtU"/>
-                <constraint firstItem="jmg-Wc-vZ9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="bto-cL-pX5"/>
+                <constraint firstItem="jmg-Wc-vZ9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="22" id="bto-cL-pX5"/>
                 <constraint firstItem="Spa-5D-pC6" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="2" id="jXP-6N-XpY"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7eU-0I-KvB" secondAttribute="trailing" constant="40" id="ple-J9-ZFf"/>
                 <constraint firstItem="rj0-2I-PxT" firstAttribute="leading" secondItem="5JF-hx-UWP" secondAttribute="trailing" constant="8" id="q4F-41-sY3"/>
                 <constraint firstItem="7eU-0I-KvB" firstAttribute="top" secondItem="jmg-Wc-vZ9" secondAttribute="bottom" constant="10" id="r56-Xt-nGp"/>
-                <constraint firstItem="1Ei-Ak-bxK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="r5r-A0-Aqj"/>
+                <constraint firstItem="1Ei-Ak-bxK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="14" id="r5r-A0-Aqj"/>
                 <constraint firstItem="jmg-Wc-vZ9" firstAttribute="top" secondItem="1Ei-Ak-bxK" secondAttribute="bottom" constant="40" id="rRx-Hi-6xa"/>
-                <constraint firstItem="5JF-hx-UWP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="x08-LL-fWg"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1Ei-Ak-bxK" secondAttribute="trailing" constant="20" id="yBj-d1-E7Y"/>
+                <constraint firstItem="5JF-hx-UWP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="x08-LL-fWg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1Ei-Ak-bxK" secondAttribute="trailing" constant="14" id="yBj-d1-E7Y"/>
             </constraints>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="Dfj-lh-aaF" appends="YES" id="GYM-fj-Q1Z"/>
