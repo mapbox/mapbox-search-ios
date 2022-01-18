@@ -33,7 +33,7 @@
 		F9201EE0253F1C6F002D141B /* CategorySuggestionsNavigationIntegrationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9201EDF253F1C6F002D141B /* CategorySuggestionsNavigationIntegrationTestCase.swift */; };
 		F9274FEB2732BF0E00708F37 /* SearchTileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9274FEA2732BF0E00708F37 /* SearchTileStore.swift */; };
 		F9274FED2733D29700708F37 /* SearchOfflineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9274FEC2733D29700708F37 /* SearchOfflineManager.swift */; };
-		F9274FEF27393A7E00708F37 /* Cancelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9274FEE27393A7E00708F37 /* Cancelable.swift */; };
+		F9274FEF27393A7E00708F37 /* SearchCancelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9274FEE27393A7E00708F37 /* SearchCancelable.swift */; };
 		F9274FF227394AE600708F37 /* TileRegionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9274FF127394AE600708F37 /* TileRegionError.swift */; };
 		F9274FF5273AA79700708F37 /* OfflineIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9274FF3273AA72800708F37 /* OfflineIntegrationTests.swift */; };
 		F9274FF7273AAE7200708F37 /* TileRegionLoadOptions+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9274FF6273AAE7200708F37 /* TileRegionLoadOptions+Search.swift */; };
@@ -442,7 +442,7 @@
 		F9201EDF253F1C6F002D141B /* CategorySuggestionsNavigationIntegrationTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySuggestionsNavigationIntegrationTestCase.swift; sourceTree = "<group>"; };
 		F9274FEA2732BF0E00708F37 /* SearchTileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTileStore.swift; sourceTree = "<group>"; };
 		F9274FEC2733D29700708F37 /* SearchOfflineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOfflineManager.swift; sourceTree = "<group>"; };
-		F9274FEE27393A7E00708F37 /* Cancelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancelable.swift; sourceTree = "<group>"; };
+		F9274FEE27393A7E00708F37 /* SearchCancelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCancelable.swift; sourceTree = "<group>"; };
 		F9274FF127394AE600708F37 /* TileRegionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileRegionError.swift; sourceTree = "<group>"; };
 		F9274FF3273AA72800708F37 /* OfflineIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineIntegrationTests.swift; sourceTree = "<group>"; };
 		F9274FF6273AAE7200708F37 /* TileRegionLoadOptions+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TileRegionLoadOptions+Search.swift"; sourceTree = "<group>"; };
@@ -869,7 +869,7 @@
 		F9274FF027394ABF00708F37 /* Offline */ = {
 			isa = PBXGroup;
 			children = (
-				F9274FEE27393A7E00708F37 /* Cancelable.swift */,
+				F9274FEE27393A7E00708F37 /* SearchCancelable.swift */,
 				F9274FEC2733D29700708F37 /* SearchOfflineManager.swift */,
 				F9274FF127394AE600708F37 /* TileRegionError.swift */,
 				F9274FEA2732BF0E00708F37 /* SearchTileStore.swift */,
@@ -1899,7 +1899,7 @@
 				F9A0B8392562845400CAD907 /* SearchNavigationProfile.swift in Sources */,
 				F9274FF227394AE600708F37 /* TileRegionError.swift in Sources */,
 				FE1064F525B9A1C9007837BC /* NavigationOptions.swift in Sources */,
-				F9274FEF27393A7E00708F37 /* Cancelable.swift in Sources */,
+				F9274FEF27393A7E00708F37 /* SearchCancelable.swift in Sources */,
 				FE4D4BCA25CAD6810039F933 /* SearchAddressType.swift in Sources */,
 				F9F5D75E256D0393007E32BE /* SearchResponse.swift in Sources */,
 				F931B35225A32CC400AA1674 /* SearchQuerySuggestion.swift in Sources */,

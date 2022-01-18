@@ -89,7 +89,7 @@ public class SearchTileStore {
     ///         of the loading operation. Any `Result` error could be of type
     ///         `TileRegionError`.
     /// - Returns: A `Cancelable` object to cancel the load request
-    public func loadTileRegion(id: String, options: MapboxCommon.TileRegionLoadOptions, progress: MapboxCommon.TileRegionLoadProgressCallback? = nil, completion: ((Result<MapboxCommon.TileRegion, TileRegionError>) -> Void)?) -> Cancelable {
+    public func loadTileRegion(id: String, options: MapboxCommon.TileRegionLoadOptions, progress: MapboxCommon.TileRegionLoadProgressCallback? = nil, completion: ((Result<MapboxCommon.TileRegion, TileRegionError>) -> Void)?) -> SearchCancelable {
         if let progress = progress {
             let cancelable = commonTileStore.__loadTileRegion(forId: id, loadOptions: options, onProgress: progress) { expected in
                 completion?(makeResult(expected: expected, fallbackError: TileRegionError.other("Unexpected")))
