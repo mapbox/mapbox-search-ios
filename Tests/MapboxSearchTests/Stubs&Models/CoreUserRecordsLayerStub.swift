@@ -28,6 +28,11 @@ class CoreUserRecordsLayerStub: CoreUserRecordsLayerProtocol {
         records.removeAll(where: { $0.id == id })
         return true
     }
+    
+    func removeMulti(forIds: [String]) {
+        forIds.forEach { remove(forId: $0) }
+    }
+    
     func clear() {
         records.removeAll()
     }

@@ -12,6 +12,8 @@ protocol CoreUserRecordsLayerProtocol {
 
     @discardableResult
     func remove(forId id: String) throws -> Bool
+    
+    func removeMulti(forIds: [String]) throws
 
     func clear() throws
 

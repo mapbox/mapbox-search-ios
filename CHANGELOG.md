@@ -9,6 +9,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 ### Added
 
 - Missing result feedback type.
+- RecordsProviderInteractor.add(records: [IndexableRecord])  method for batch adding user records.
+- RecordsProviderInteractor.delete(identifiers: [String])  method for batch removing user records.
 
 ### Fixed
 
