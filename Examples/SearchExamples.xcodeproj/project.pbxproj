@@ -20,7 +20,6 @@
 		FE5EC2F124C60F3C000DB978 /* SimpleUISearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5EC2F024C60F3C000DB978 /* SimpleUISearchViewController.swift */; };
 		FE8295832701E46D001005B4 /* MapboxBoundingBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE780E3124C9B3D000C62400 /* MapboxBoundingBoxController.swift */; };
 		FE849B5626FC9E63001CBC27 /* ExamplesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE849B5526FC9E63001CBC27 /* ExamplesTableViewController.swift */; };
-		FE849B5826FCB72F001CBC27 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE849B5726FCB72F001CBC27 /* Extensions.swift */; };
 		FE849B5A26FCBCEC001CBC27 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE849B5926FCBCEC001CBC27 /* MapsViewController.swift */; };
 		FE93032526F8D87A00644DF6 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = FE93032426F8D87A00644DF6 /* MapboxMaps */; };
 		FE9DFDAA26F8D9A60021375F /* MapboxSearch in Frameworks */ = {isa = PBXBuildFile; productRef = FE9DFDA926F8D9A60021375F /* MapboxSearch */; };
@@ -43,7 +42,6 @@
 		FE5EC2F024C60F3C000DB978 /* SimpleUISearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleUISearchViewController.swift; sourceTree = "<group>"; };
 		FE780E3124C9B3D000C62400 /* MapboxBoundingBoxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxBoundingBoxController.swift; sourceTree = "<group>"; };
 		FE849B5526FC9E63001CBC27 /* ExamplesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesTableViewController.swift; sourceTree = "<group>"; };
-		FE849B5726FCB72F001CBC27 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FE849B5926FCBCEC001CBC27 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		FE9DFDAE26F8E0430021375F /* inject-mapbox-token.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "inject-mapbox-token.sh"; sourceTree = "<group>"; };
 		FEF1D1B926FDF642004AE229 /* TextViewLoggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewLoggerViewController.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 				FE114AA724C10B88001B2CE8 /* AppDelegate.swift */,
 				FE00067E26FDCB9E00846819 /* Examples.swift */,
 				FE849B5526FC9E63001CBC27 /* ExamplesTableViewController.swift */,
-				FE849B5726FCB72F001CBC27 /* Extensions.swift */,
 				FE849B5926FCBCEC001CBC27 /* MapsViewController.swift */,
 				FEF1D1B926FDF642004AE229 /* TextViewLoggerViewController.swift */,
 				FE114AB024C10B8A001B2CE8 /* Assets.xcassets */,
@@ -246,7 +243,6 @@
 				FE114D9B24C1E37D001B2CE8 /* MapboxMapsCategoryResultsViewController.swift in Sources */,
 				FE5EC2F124C60F3C000DB978 /* SimpleUISearchViewController.swift in Sources */,
 				FE00067F26FDCB9E00846819 /* Examples.swift in Sources */,
-				FE849B5826FCB72F001CBC27 /* Extensions.swift in Sources */,
 				FE114AA824C10B88001B2CE8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,7 +459,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ProxymanApp/atlantis";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = upToNextMinorVersion;
 				minimumVersion = 1.11.2;
 			};
 		};

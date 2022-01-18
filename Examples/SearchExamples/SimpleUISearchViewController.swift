@@ -25,7 +25,7 @@ class SimpleUISearchViewController: MapsViewController {
 }
 
 extension SimpleUISearchViewController: SearchControllerDelegate {
-    func categorySearchResultsReceived(results: [SearchResult]) {
+    func categorySearchResultsReceived(category: SearchCategory, results: [SearchResult]) {
         showAnnotations(results: results)
     }
     
