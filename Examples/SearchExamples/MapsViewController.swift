@@ -54,3 +54,20 @@ class MapsViewController: UIViewController, ExampleController {
         present(alertController, animated: true, completion: nil)
     }
 }
+
+extension PointAnnotation {
+    init(searchResult: SearchResult) {
+        self.init(coordinate: searchResult.coordinate)
+        textField = searchResult.name
+    }
+    
+    init(favoriteRecord: FavoriteRecord) {
+        self.init(coordinate: favoriteRecord.coordinate)
+        textField = favoriteRecord.name
+    }
+}
+
+
+extension CLLocationCoordinate2D {
+    static let sanFrancisco = CLLocationCoordinate2D(latitude: 37.7911551, longitude: -122.3966103)
+}

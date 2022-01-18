@@ -10,7 +10,7 @@ class MapboxBoundingBoxController: MapsViewController {
     
     var draggingRefreshTimer: Timer?
     
-    var mapDraggingSubscription: Cancelable?
+    var mapDraggingSubscription: MapboxMaps.Cancelable?
     
     let categoryName = "cafe"
     

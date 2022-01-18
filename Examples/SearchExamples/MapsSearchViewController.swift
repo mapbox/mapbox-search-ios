@@ -1,5 +1,5 @@
 import UIKit
-import Mapbox
+import MapboxMaps
 import MapboxSearch
 import MapboxSearchUI
 
