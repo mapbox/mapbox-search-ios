@@ -15,6 +15,15 @@ class RecordsProviderInteractorNativeCore: RecordsProviderInteractor {
         }
     }
     
+    func add(records: [IndexableRecord]) {
+        do {
+            let coreRecords = records.map { $0.coreUserRecord() }
+            try userRecordsLayer.addMulti(for: coreRecords)
+        } catch {
+            _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
+        }
+    }
+    
     func update(record: IndexableRecord) {
         do {
             try userRecordsLayer.update(for: record.coreUserRecord())
@@ -30,6 +39,14 @@ class RecordsProviderInteractorNativeCore: RecordsProviderInteractor {
             _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
         }
     }
+    func delete(identifiers: [String]) {
+        do {
+            try userRecordsLayer.removeMulti(forIds: identifiers)
+        } catch {
+            _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
+        }
+    }
+    
     
     func deleteAll() {
         do {
