@@ -37,25 +37,20 @@ mapboxCoreSearch_build_with_commonVersion = run_shell('/usr/libexec/PlistBuddy -
 
 print("MapboxCoreSearch")
 print(f"\tSPM: {coreSearchVersion_spm} ({coreSearchHash_spm})")
-print("\tCarthage:", coreSearchVersion_carthage)
+print(f"\tCarthage {coreSearchVersion_carthage} (Resolved)")
 
 print(f"MapboxCommon (MapboxCoreSearch dependends on {mapboxCoreSearch_build_with_commonVersion} MapboxCommon)")
-print("\tSPM:", commonVersion_spm)
-print("\tCarthage:", commonVersion_carthage)
+print(f"\tSPM {commonVersion_spm} (Resolved)")
+print(f"\tCarthage {commonVersion_carthage} (Resolved)")
 print("\tCocoaPods:", commonVersion_cocoapods)
 
 print("MapboxMobileEvents")
-print("\tSPM:", mobileEventsVersion_spm)
-print("\tCarthage:", mobileEventsVersion_carthage)
+print(f"\tSPM {mobileEventsVersion_spm} (Resolved)")
+print(f"\tCarthage {mobileEventsVersion_carthage} (Resolved)")
 print("\tCocoaPods:", mobileEventsVersion_cocoapods)
 
 if coreSearchVersion_spm != coreSearchVersion_carthage:
     exit(1)
-
-if commonVersion_spm != commonVersion_carthage or commonVersion_spm != mapboxCoreSearch_build_with_commonVersion or commonVersion_carthage != commonVersion_cocoapods:
+if commonVersion_carthage != mapboxCoreSearch_build_with_commonVersion:
     exit(2)
-
-if mobileEventsVersion_carthage != mobileEventsVersion_spm or mobileEventsVersion_cocoapods != mobileEventsVersion_carthage:
-    exit(3)
-
 exit(0)

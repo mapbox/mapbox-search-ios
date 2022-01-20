@@ -6,6 +6,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.22] - 2022-01-19
+
 ### Added
 
 - Missing result feedback type.
@@ -14,7 +16,6 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ### Fixed
 
- - Suggestion resolve no longer cancel on search query change.
  - Cancelable renamed into SearchCancelable to prevent naming conflicts with Maps SDK.
 
 ## [1.0.0-beta.21] - 2021-12-22
