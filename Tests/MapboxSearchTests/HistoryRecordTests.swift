@@ -5,6 +5,7 @@ class HistoryRecordTests: XCTestCase {
     func testHistoryRecordCategories() throws {
         let record = HistoryRecord(id: UUID().uuidString,
                                    name: "DaName",
+                                   matchingName: nil,
                                    coordinate: .sample1,
                                    timestamp: Date(),
                                    historyType: .category,
@@ -16,6 +17,7 @@ class HistoryRecordTests: XCTestCase {
     func testHistoryRecordCoordinates() {
         var record = HistoryRecord(id: UUID().uuidString,
                                    name: "DaName",
+                                   matchingName: nil,
                                    coordinate: .sample1,
                                    timestamp: Date(),
                                    historyType: .category,
@@ -31,6 +33,7 @@ class HistoryRecordTests: XCTestCase {
     func testHistoryRecordDescriptionText() {
         let record = HistoryRecord(id: UUID().uuidString,
                                    name: "DaName",
+                                   matchingName: nil,
                                    coordinate: .sample1,
                                    timestamp: Date(),
                                    historyType: .category,

@@ -18,7 +18,17 @@ struct IndexableRecordStub: IndexableRecord {
     var additionalTokens: Set<String>?
     
     var asResolved: SearchResult {
-        SearchResultStub(id: id, categories: nil, name: name, iconName: nil, resultType: .address(subtypes: [.address]), coordinate: .init(coordinate), address: address, metadata: nil)
+        SearchResultStub(
+            id: id,
+            categories: nil,
+            name: name,
+            matchingName: nil,
+            iconName: nil,
+            resultType: .address(subtypes: [.address]),
+            coordinate: .init(coordinate),
+            address: address,
+            metadata: nil
+        )
     }
     
     init(id: String, name: String, coordinate: CLLocationCoordinate2DCodable, address: Address? = nil, additionalTokens: Set<String>? = nil) {
