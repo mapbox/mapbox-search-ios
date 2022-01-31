@@ -17,6 +17,8 @@ protocol CoreSearchResultProtocol {
     var addresses: [CoreAddress]? { get }
     
     var addressDescription: String? { get }
+    
+    var matchingName: String? { get }
 
     var center: CLLocation? { get }
 
