@@ -6,6 +6,12 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.23] - 2022-02-01
+
+### Added
+
+- [CORE] New property is available: `SearchResult.matchingName`.
+
 ### Fixed
 
 - ConstantCategoryDataProvider reference [#18](https://github.com/mapbox/search-ios/issues/18)

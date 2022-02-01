@@ -19,6 +19,8 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
     
     var metadata: SearchResultMetadata?
     
+    var serverIndex: Int?
+    
     var coordinateCodable: CLLocationCoordinate2DCodable
     
     var address: Address?
@@ -32,6 +34,8 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
     var id: String
     
     var name: String
+    
+    var matchingName: String?
     
     var descriptionText: String?
     
@@ -56,9 +60,11 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
         
         self.id = coreResult.id
         self.name = coreResult.names[0]
+        self.matchingName = coreResult.matchingName
         self.iconName = coreResult.icon
         self.estimatedTime = coreResult.estimatedTime
         self.metadata = coreResult.metadata.map(SearchResultMetadata.init)
+        self.serverIndex = coreResult.serverIndex?.intValue
         self.address = coreResult.addresses?.first.map(Address.init)
         self.categories = coreResult.categories
         self.coordinateCodable = .init(coordinate)
