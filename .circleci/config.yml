@@ -13,4 +13,4 @@ jobs:
     macos:
       xcode: 12.5.0
     steps:
-      - run: echo "Hello World"
+      - run: echo "Hello, Friend"
