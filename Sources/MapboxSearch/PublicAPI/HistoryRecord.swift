@@ -20,7 +20,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     }
     
     /// Unique identifier
-    public var id: String
+    public private(set) var id: String
     
     /// Record's name
     public private(set) var name: String
