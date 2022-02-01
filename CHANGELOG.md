@@ -6,9 +6,11 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.23] - 2022-02-01
+
 ### Added
 
-- [CORE] New properties are available: `SearchResult.matchingName`.
+- [CORE] New property is available: `SearchResult.matchingName`.
 
 ### Fixed
 
