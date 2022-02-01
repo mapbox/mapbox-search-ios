@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'MapboxSearchUI'
-  s.version          = '1.0.0-beta.10'
+  s.version          = '1.0.0-beta.23'
   s.summary          = 'Search UI for Mapbox Search API'
 
 # This description is used to generate tags and improve search results.
