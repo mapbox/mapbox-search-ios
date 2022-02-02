@@ -19,7 +19,8 @@ public class ConstantCategoryDataProvider: CategoryDataProvider {
     public init(slots: [SearchCategory]?, list: [SearchCategory]? = nil) {
         let defaults = DefaultCategoryDataProvider()
         
-        self.categoryList = list ?? defaults.categoryList
+        let categoryList = list ?? defaults.categoryList
+        self.categoryList = categoryList.isEmpty ? defaults.categoryList: categoryList
         
         let slots = (slots ?? []) + defaults.categorySlots
         self.categorySlots = Array(slots.removingDuplicates().prefix(DefaultCategoryDataProvider.minCategoriesCount))
