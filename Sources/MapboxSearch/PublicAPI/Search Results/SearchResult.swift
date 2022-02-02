@@ -19,6 +19,9 @@ public protocol SearchResult {
     /// Result coordinates.
     var coordinate: CLLocationCoordinate2D { get }
     
+    /// The feature name, as matched by the search algorithm.
+    var matchingName: String? { get }
+    
     /// Result address.
     var address: Address? { get }
     

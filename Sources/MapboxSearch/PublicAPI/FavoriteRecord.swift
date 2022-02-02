@@ -9,6 +9,13 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     /// Displayable name of the record.
     public var name: String
     
+    /**
+        The feature name, as matched by the search algorithm.
+        
+        - Warning: The field is exposed for compatibility only, will be removed soon.
+    */
+    public var matchingName: String?
+    
     /// address formatted with medium style.
     public var descriptionText: String? { address?.formattedAddress(style: .medium) }
     
@@ -60,9 +67,21 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     ///   - makiIcon:Favorite  icon name
     ///   - categories: Favorite categories list
     ///   - resultType: Favorite result type
-    public init(id: String? = nil, name: String, coordinate: CLLocationCoordinate2D, address: Address?, makiIcon: Maki?, categories: [String]?, routablePoints: [RoutablePoint]? = nil, resultType: SearchResultType, metadata: SearchResultMetadata? = nil) {
+    public init(
+        id: String? = nil,
+        name: String,
+        matchingName: String?,
+        coordinate: CLLocationCoordinate2D,
+        address: Address?,
+        makiIcon: Maki?,
+        categories: [String]?,
+        routablePoints: [RoutablePoint]? = nil,
+        resultType: SearchResultType,
+        metadata: SearchResultMetadata? = nil
+    ) {
         self.id = id ?? UUID().uuidString
         self.name = name
+        self.matchingName = matchingName
         self.coordinateCodable = .init(coordinate)
         self.address = address
         self.icon = makiIcon
@@ -76,9 +95,14 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     ///   - id: UUID used by default
     ///   - name: Favorite name
     ///   - searchResult: search result to use for FavoriteRecord
-    public init(id: String? = nil, name: String, searchResult: SearchResult) {
+    public init(
+        id: String? = nil,
+        name: String,
+        searchResult: SearchResult
+    ) {
         self.init(id: id,
                   name: name,
+                  matchingName: searchResult.matchingName,
                   coordinate: searchResult.coordinate,
                   address: searchResult.address,
                   makiIcon: searchResult.iconName.flatMap(Maki.init),

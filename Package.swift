@@ -5,7 +5,7 @@ import PackageDescription
 import Foundation
 
 let registry = SDKRegistry()
-let (coreSearchVersion, coreSearchVersionHash) = ("0.46.1", "181ee9cc21a9c1887fec0a660421e00ce123b16a5c915c694b49b7181c845a6c")
+let (coreSearchVersion, coreSearchVersionHash) = ("0.48.0", "31379747a032d32b481dc27de9214102a046283e57980414da6a5ce04420b7ce")
 
 let package = Package(
     name: "MapboxSearch",
@@ -24,7 +24,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         .package(name: "MapboxMobileEvents", url: "https://github.com/mapbox/mapbox-events-ios.git", from: "1.0.0"),
-        .package(name: "MapboxCommon", url: "https://github.com/mapbox/mapbox-common-ios.git", from: "21.0.0"),
+        .package(name: "MapboxCommon", url: "https://github.com/mapbox/mapbox-common-ios.git", .exact("21.1.0-rc.1")),
         .package(url: "https://github.com/mattgallagher/CwlPreconditionTesting.git", from: "2.0.0")
     ],
     targets: [
@@ -45,7 +45,7 @@ let package = Package(
             dependencies: ["MapboxSearch"],
             exclude: ["Info.plist", "Resources-Info.plist"]
         ),
-        
+
         registry.mapboxCoreSearchTarget(version: coreSearchVersion,
                                         checksum: coreSearchVersionHash),
         .testTarget(
@@ -63,19 +63,19 @@ let package = Package(
 
 struct SDKRegistry {
     let host = "api.mapbox.com"
-    
+
     func binaryTarget(name: String, version: String, path: String, filename: String, checksum: String) -> Target {
         var url = "https://\(host)/downloads/v2/\(path)/releases/ios/packages/\(version)/\(filename)"
-        
+
         if let token = netrcToken {
             url += "?access_token=\(token)"
         } else {
             debugPrint("Mapbox token wasn't founded in ~/.netrc. Fix this issue to integrate Mapbox SDK. Otherwise, you will see 'invalid status code 401' or 'no XCFramework found. To clean issue in Xcode, remove ~/Library/Developer/Xcode/DerivedData folder")
         }
-        
+
         return .binaryTarget(name: name, url: url, checksum: checksum)
     }
-    
+
     var netrcToken: String? {
         var mapboxToken: String?
         do {
@@ -84,7 +84,7 @@ struct SDKRegistry {
         } catch {
             // Do nothing on client machines
         }
-        
+
         return mapboxToken
     }
 }

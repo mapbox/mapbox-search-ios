@@ -24,6 +24,14 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     
     /// Record's name
     public private(set) var name: String
+    
+    /**
+        The feature name, as matched by the search algorithm.
+        
+        - Warning: The field is exposed for compatibility only, will be removed soon.
+    */
+    public private(set) var matchingName: String?
+    
     /// Address formatted with medium style
     public var descriptionText: String? { address?.formattedAddress(style: .medium) }
     
@@ -80,9 +88,22 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     ///   - metadata: Associated metadata
     ///   - categories: Categories of original object
     ///   - routablePoints: Coordinates of building entries
-    public init(id: String = UUID().uuidString, name: String, coordinate: CLLocationCoordinate2D, timestamp: Date = Date(), historyType: HistoryRecord.HistoryType, type: SearchResultType, address: Address?, metadata: SearchResultMetadata? = nil, categories: [String]? = nil, routablePoints: [RoutablePoint]? = nil) {
+    public init(
+        id: String = UUID().uuidString,
+        name: String,
+        matchingName: String?,
+        coordinate: CLLocationCoordinate2D,
+        timestamp: Date = Date(),
+        historyType: HistoryRecord.HistoryType,
+        type: SearchResultType,
+        address: Address?,
+        metadata: SearchResultMetadata? = nil,
+        categories: [String]? = nil,
+        routablePoints: [RoutablePoint]? = nil
+    ) {
         self.id = id
         self.name = name
+        self.matchingName = matchingName
         self.coordinateCodable = .init(coordinate)
         self.timestamp = timestamp
         self.historyType = historyType
@@ -98,9 +119,14 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     ///   - historyType: Type of history result
     ///   - searchResult: Prototype result
     ///   - timestamp: creating timestamp. Calling time by default
-    public init(historyType: HistoryRecord.HistoryType = .result, searchResult: SearchResult, timestamp: Date = Date()) {
+    public init(
+        historyType: HistoryRecord.HistoryType = .result,
+        searchResult: SearchResult,
+        timestamp: Date = Date()
+    ) {
         self.id = searchResult.id
         self.name = searchResult.name
+        self.matchingName = searchResult.matchingName
         self.coordinateCodable = .init(searchResult.coordinate)
         self.timestamp = timestamp
         self.historyType = historyType

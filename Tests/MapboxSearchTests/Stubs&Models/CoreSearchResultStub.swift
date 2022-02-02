@@ -9,6 +9,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         languages: [String] = ["sample-language1", "sample-language2"],
         addresses: [CoreAddress]? = [Address.mapboxDCOffice.coreAddress()],
         addressDescription: String? = nil,
+        matchingName: String? = nil,
         center: CLLocation? = .sample1,
         categories: [String]? = nil,
         routablePoints: [CoreRoutablePoint]? = nil,
@@ -56,6 +57,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
     var languages: [String]
     var addresses: [CoreAddress]?
     var addressDescription: String?
+    var matchingName: String?
     var center: CLLocation?
     var categories: [String]?
     var routablePoints: [CoreRoutablePoint]?
@@ -116,6 +118,7 @@ extension CoreSearchResultProtocol {
                          languages: languages,
                          addresses: addresses,
                          descrAddress: addressDescription,
+                         matchingName: matchingName,
                          distance: distance,
                          eta: nil,
                          center: center,

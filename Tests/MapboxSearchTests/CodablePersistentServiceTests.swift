@@ -31,6 +31,7 @@ class CodablePersistentServiceTests: XCTestCase {
                               country: "None")
         let record = FavoriteRecord(id: UUID().uuidString,
                                     name: "Say My Name",
+                                    matchingName: nil,
                                     coordinate: coordinate,
                                     address: address,
                                     makiIcon: nil,
@@ -51,6 +52,7 @@ class CodablePersistentServiceTests: XCTestCase {
         let coordinate = CLLocationCoordinate2D(latitude: 10.0, longitude: 10.0)
         let record = HistoryRecord(id: UUID().uuidString,
                                    name: "DaName",
+                                   matchingName: nil,
                                    coordinate: coordinate,
                                    timestamp: Date(),
                                    historyType: .category,
