@@ -6,6 +6,10 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.24] - 2022-02-18
+
+**MapboxCommon**: v21.1.0
+
 ### Fixed
 
 - ConstantCategoryDataProvider behave like described in API reference [#18](https://github.com/mapbox/search-ios/issues/18)
