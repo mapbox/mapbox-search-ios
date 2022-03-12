@@ -21,6 +21,7 @@ let package = Package(
                  targets: ["MapboxSearchUI"])
     ],
     dependencies: [
+        .package(name: "MapboxCoreSearch", url: "https://github.com/mapbox/mapbox-core-search-ios.git", from: "1.0.0"),
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         .package(name: "MapboxCommon", url: "https://github.com/mapbox/mapbox-common-ios.git", .exact("23.0.0-beta.1")),
@@ -44,8 +45,8 @@ let package = Package(
             exclude: ["Info.plist", "Resources-Info.plist"]
         ),
 
-        registry.mapboxCoreSearchTarget(version: coreSearchVersion,
-                                        checksum: coreSearchVersionHash),
+        // registry.mapboxCoreSearchTarget(version: coreSearchVersion,
+        //                                 checksum: coreSearchVersionHash),
         .testTarget(
             name: "MapboxSearchTests",
             dependencies: [
