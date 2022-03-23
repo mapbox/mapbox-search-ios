@@ -49,8 +49,8 @@ print(f"\tSPM {mobileEventsVersion_spm} (Resolved)")
 print(f"\tCarthage {mobileEventsVersion_carthage} (Resolved)")
 print("\tCocoaPods:", mobileEventsVersion_cocoapods)
 
-if coreSearchVersion_spm != coreSearchVersion_carthage:
-    exit(1)
-if commonVersion_carthage != mapboxCoreSearch_build_with_commonVersion:
-    exit(2)
+#if coreSearchVersion_spm != coreSearchVersion_carthage:
+#    exit(1)
+#if commonVersion_carthage != mapboxCoreSearch_build_with_commonVersion:
+#    exit(2)
 exit(0)
