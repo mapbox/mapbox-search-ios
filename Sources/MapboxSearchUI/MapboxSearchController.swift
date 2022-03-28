@@ -74,6 +74,15 @@ public class MapboxSearchController: UIViewController {
     
     private weak var feedbackController: SendFeedbackController?
     
+    /// Custom search bar placeholder
+    public var searchBarPlaceholder: String? {
+        didSet {
+            if isViewLoaded {
+                searchBar.customSearchBarPlaceholder = searchBarPlaceholder
+            }
+        }
+    }
+    
     /// Provider of customer's favorite records
     public var favoritesProvider = ServiceProvider.shared.localFavoritesProvider
     
@@ -178,7 +187,9 @@ public class MapboxSearchController: UIViewController {
         navigationItem.backButtonTitle = ""
         categoriesRootView.favoritesProvider = favoritesProvider
         categoriesRootView.delegate = self
+
         searchBar.delegate = self
+        searchBar.customSearchBarPlaceholder = searchBarPlaceholder
         
         searchEngine.defaultSearchOptions.limit = 10
         

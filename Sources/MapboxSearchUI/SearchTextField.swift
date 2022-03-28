@@ -12,6 +12,14 @@ class SearchTextField: UIView {
     
     weak var delegate: SearchTextFieldDelegate?
     
+    var customPlaceholder: String? {
+        didSet {
+            if configuration != nil {
+                updateUI()
+            }
+        }
+    }
+    
     var configuration: Configuration! {
         didSet {
             updateUI()
@@ -38,7 +46,7 @@ class SearchTextField: UIView {
         textField.adjustsFontForContentSizeCategory = true
         iconView.adjustsImageSizeForAccessibilityContentSizeCategory = true
         
-        textField.attributedPlaceholder = NSAttributedString(string: Strings.SearchTextField.placeholder,
+        textField.attributedPlaceholder = NSAttributedString(string: customPlaceholder ?? Strings.SearchTextField.placeholder,
                                                              attributes: [.foregroundColor: configuration.style.primaryInactiveElementColor])
     }
 

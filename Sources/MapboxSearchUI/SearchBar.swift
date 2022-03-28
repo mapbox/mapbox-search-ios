@@ -15,6 +15,12 @@ extension SearchBarDelegate {
 class SearchBar: UIView {
     weak var delegate: SearchBarDelegate?
     
+    var customSearchBarPlaceholder: String? {
+        didSet {
+            searchTextField.customPlaceholder = customSearchBarPlaceholder
+        }
+    }
+    
     @IBOutlet private var searchTextField: SearchTextField!
     @IBOutlet private var cancelButton: UIButton!
     @IBOutlet private var textFieldDefaultTrailingConstraint: NSLayoutConstraint!
