@@ -6,6 +6,10 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.27] - 2022-04-18
+
+**MapboxCommon**: v21.2.1
+
 ## [1.0.0-beta.26] - 2022-03-28
 
 **MapboxCommon**: v21.2.0
