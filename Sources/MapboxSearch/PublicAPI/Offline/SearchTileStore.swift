@@ -132,11 +132,11 @@ public class SearchTileStore {
     }
 }
 
-private func makeResult<Value>(expected: CoreExpected<AnyObject, AnyObject>, fallbackError: TileRegionError) -> Result<Value, TileRegionError> {
+private func makeResult<Value>(expected: CoreExpected<TileRegion, MapboxCommon.TileRegionError>, fallbackError: TileRegionError) -> Result<Value, TileRegionError> {
     if expected.isValue() {
         return .success(expected.value as! Value)
     } else if expected.isError() {
-        return .failure(TileRegionError(coreError: expected.error as! MapboxCommon.TileRegionError))
+        return .failure(TileRegionError(coreError: expected.error))
     } else {
         return .failure(fallbackError)
     }
