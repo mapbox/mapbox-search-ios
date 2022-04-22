@@ -6,6 +6,10 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.28] - 2022-04-22
+
+**MapboxCommon**: v21.3.0-rc.2
+
 ## [1.0.0-beta.27] - 2022-04-18
 
 **MapboxCommon**: v21.2.1
@@ -246,24 +250,24 @@ Guide: https://keepachangelog.com/en/1.0.0/
 ### Added
 
 - UI Tests separation for integration and non integration tests
-- Category list customization 
-- Category suggestions controller in Search UI 
-- Send Feedback method as part of 
-- Custom datasets and unit tests for it 
+- Category list customization
+- Category suggestions controller in Search UI
+- Send Feedback method as part of
+- Custom datasets and unit tests for it
 - Ability to set engine configuration in SearchUI Module (languages, limits, etc.), search request configurations (proximity, bounding box)
-- Added SearchResult ETA field 
-- Added SearchResult Metadata field 
+- Added SearchResult ETA field
+- Added SearchResult Metadata field
 - CoreSearch 0.9.x adaptation
-- EventsManager minor refactoring 
-- SearchEngine.select(suggestions: [SearchSuggestion]) -> Int  method  for POI batch retrieve 
-- Routable Points 
-- Send Feedback event based on SearchResult or SearchSuggestion 
-- Search along the Route 
-- SearchEngine.setAccessToken 
+- EventsManager minor refactoring
+- SearchEngine.select(suggestions: [SearchSuggestion]) -> Int  method  for POI batch retrieve
+- Routable Points
+- Send Feedback event based on SearchResult or SearchSuggestion
+- Search along the Route
+- SearchEngine.setAccessToken
 - CoreSearch 0.10.x adaptation
-- Added search address to Search Suggestion 
-- Added photos info to SearchResultMetadata 
-- Feedback Event v2.1 support 
+- Added search address to Search Suggestion
+- Added photos info to SearchResultMetadata
+- Feedback Event v2.1 support
 
 ### Fixed
 
@@ -277,7 +281,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 ### Fixed
 
 - UINavigationBar inset on "Edit Details" screen
-- Fix UI Tests 
+- Fix UI Tests
 
 ### Added
 
@@ -288,15 +292,15 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ### Fixed
 
-- Regression of the fix 
+- Regression of the fix
 
 ## [0.8.2] - 2020-08-31
 
 ### Fixed
 
-- Blank space on Search panel view in SearchUI 
-- Network error passthrough 
-- Add Error Domain check in SearchErrorView 
+- Blank space on Search panel view in SearchUI
+- Network error passthrough
+- Add Error Domain check in SearchErrorView
 
 ## [0.8.1] - 2020-07-29
 
