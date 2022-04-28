@@ -177,6 +177,7 @@ public struct SearchOptions {
                   routeOptions: routeOptions,
                   filterTypes: filterTypes,
                   ignoreIndexableRecords: options.isIgnoreUR,
+                  indexableRecordsDistanceThreshold: options.urDistanceThreshold?.doubleValue,
                   unsafeParameters: options.addonAPI)
     }
     
@@ -269,6 +270,7 @@ public struct SearchOptions {
                              routeOptions: routeOptions ?? with.routeOptions,
                              filterTypes: filterTypes ?? with.filterTypes,
                              ignoreIndexableRecords: ignoreIndexableRecords,
+                             indexableRecordsDistanceThreshold: indexableRecordsDistanceThreshold ?? with.indexableRecordsDistanceThreshold,
                              unsafeParameters: unsafeParameters ?? with.unsafeParameters)
     }
 }
