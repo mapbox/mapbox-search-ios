@@ -6,6 +6,13 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.29] - 2022-04-29
+
+### Fixed
+- `ignoreIndexableRecords` and `indexableRecordsDistanceThreshold` not respected when merging search options
+
+**MapboxCommon**: v21.3.0
+
 ## [1.0.0-beta.28] - 2022-04-22
 
 **MapboxCommon**: v21.3.0-rc.2
