@@ -1,19 +1,26 @@
 import Foundation
 
 protocol CoreSearchResponseProtocol {
-    var isIsSuccessful: Bool { get }
-
-    var httpCode: Int32 { get }
-
-    var message: String { get }
-
     var requestID: UInt32 { get }
-
     var request: CoreRequestOptions { get }
 
-    var results: [CoreSearchResult] { get }
-    
+    var result: Result<[CoreSearchResult], SearchError> { get }
     var responseUUID: String { get }
 }
 
-extension CoreSearchResponse: CoreSearchResponseProtocol {}
+extension CoreSearchResponse: CoreSearchResponseProtocol {
+    var result: Result<[CoreSearchResult], SearchError> {
+        if let responseResults = results.value as? [CoreSearchResult] {
+            return .success(responseResults)
+        } else if let error = results.error?.getHttpError() {
+            return .failure(
+                .generic(
+                    code: Int(error.httpCode),
+                    domain: mapboxCoreSearchErrorDomain,
+                    message: error.message)
+            )
+        } else {
+            return .failure(.responseProcessingFailed)
+        }
+    }
+}

@@ -16,14 +16,16 @@ public class CategorySearchEngine: AbstractSearchEngine {
             guard let self = self, let coreResponse = coreResponse else {
                 let error = SearchError.categorySearchRequestFailed(reason: SearchError.responseProcessingFailed)
                 eventsManager?.reportError(error)
+
                 completionQueue.async {
                     completion(.failure(error))
                 }
+    
                 assertionFailure("Response should never be nil")
                 return
             }
             
-            let response = SearchResponse(coreResponse: coreResponse, associatedError: self.platformClient.errors[coreResponse.requestID])
+            let response = SearchResponse(coreResponse: coreResponse)
             switch response.process() {
             case .success(let result):
                 let resultSuggestions = result.suggestions.compactMap({ $0 as? SearchResultSuggestion })
@@ -32,6 +34,7 @@ public class CategorySearchEngine: AbstractSearchEngine {
                 self.resolve(suggestions: resultSuggestions, completionQueue: completionQueue) { resolvedResults in
                     completion(.success(resolvedResults))
                 }
+
             case .failure(let searchError):
                 self.eventsManager.reportError(searchError)
                 completionQueue.async {

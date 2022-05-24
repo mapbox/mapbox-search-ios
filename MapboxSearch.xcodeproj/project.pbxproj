@@ -145,7 +145,6 @@
 		FE1064F525B9A1C9007837BC /* NavigationOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1064F425B9A1C9007837BC /* NavigationOptions.swift */; };
 		FE1122B92567BE5B0064FD53 /* ArrayExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1122B82567BE5B0064FD53 /* ArrayExtensionsTests.swift */; };
 		FE1122C02567C2F30064FD53 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1122BF2567C2F30064FD53 /* NetworkSession.swift */; };
-		FE1122C72567C52E0064FD53 /* DarwinPlatformClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1122C62567C52E0064FD53 /* DarwinPlatformClientTests.swift */; };
 		FE1122CE2567C6E00064FD53 /* NetworkSessionStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1122CD2567C6E00064FD53 /* NetworkSessionStub.swift */; };
 		FE1122D52567C8B70064FD53 /* NetworkSessionTaskStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1122D42567C8B70064FD53 /* NetworkSessionTaskStub.swift */; };
 		FE1122F12567D07B0064FD53 /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = FE1122F02567D07B0064FD53 /* CwlPreconditionTesting */; };
@@ -245,7 +244,6 @@
 		FEEDD2F62508DFE400DC0A98 /* CoreSearchResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD2C72508DFE400DC0A98 /* CoreSearchResultResponse.swift */; };
 		FEEDD2F72508DFE400DC0A98 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD2C82508DFE400DC0A98 /* Logger.swift */; };
 		FEEDD2F82508DFE400DC0A98 /* RecordsProviderInteractorNativeCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD2C92508DFE400DC0A98 /* RecordsProviderInteractorNativeCore.swift */; };
-		FEEDD2F92508DFE400DC0A98 /* DarwinPlatformClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD2CA2508DFE400DC0A98 /* DarwinPlatformClient.swift */; };
 		FEEDD2FA2508DFE400DC0A98 /* CoreSearchEngineProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD2CB2508DFE400DC0A98 /* CoreSearchEngineProtocol.swift */; };
 		FEEDD2FB2508DFE400DC0A98 /* WrapperLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD2CC2508DFE400DC0A98 /* WrapperLocationProvider.swift */; };
 		FEEDD2FC2508DFE400DC0A98 /* CoreSearchResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD2CD2508DFE400DC0A98 /* CoreSearchResponseProtocol.swift */; };
@@ -508,7 +506,6 @@
 		FE1064F425B9A1C9007837BC /* NavigationOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationOptions.swift; sourceTree = "<group>"; };
 		FE1122B82567BE5B0064FD53 /* ArrayExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionsTests.swift; sourceTree = "<group>"; };
 		FE1122BF2567C2F30064FD53 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
-		FE1122C62567C52E0064FD53 /* DarwinPlatformClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarwinPlatformClientTests.swift; sourceTree = "<group>"; };
 		FE1122CD2567C6E00064FD53 /* NetworkSessionStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionStub.swift; sourceTree = "<group>"; };
 		FE1122D42567C8B70064FD53 /* NetworkSessionTaskStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionTaskStub.swift; sourceTree = "<group>"; };
 		FE114D8624C1A86A001B2CE8 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
@@ -604,7 +601,6 @@
 		FEEDD2C72508DFE400DC0A98 /* CoreSearchResultResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreSearchResultResponse.swift; sourceTree = "<group>"; };
 		FEEDD2C82508DFE400DC0A98 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		FEEDD2C92508DFE400DC0A98 /* RecordsProviderInteractorNativeCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsProviderInteractorNativeCore.swift; sourceTree = "<group>"; };
-		FEEDD2CA2508DFE400DC0A98 /* DarwinPlatformClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarwinPlatformClient.swift; sourceTree = "<group>"; };
 		FEEDD2CB2508DFE400DC0A98 /* CoreSearchEngineProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreSearchEngineProtocol.swift; sourceTree = "<group>"; };
 		FEEDD2CC2508DFE400DC0A98 /* WrapperLocationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapperLocationProvider.swift; sourceTree = "<group>"; };
 		FEEDD2CD2508DFE400DC0A98 /* CoreSearchResponseProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreSearchResponseProtocol.swift; sourceTree = "<group>"; };
@@ -1061,7 +1057,6 @@
 				FEEDD2CF2508DFE400DC0A98 /* CoreSearchResultProtocol.swift */,
 				FEEDD2C72508DFE400DC0A98 /* CoreSearchResultResponse.swift */,
 				FE7C73A52566804E0047CA20 /* CoreUserRecordsLayerProtocol.swift */,
-				FEEDD2CA2508DFE400DC0A98 /* DarwinPlatformClient.swift */,
 				FEEDD2D22508DFE400DC0A98 /* Locale+Extensions.swift */,
 				FEEDD2C82508DFE400DC0A98 /* Logger.swift */,
 				FE1122BF2567C2F30064FD53 /* NetworkSession.swift */,
@@ -1241,7 +1236,6 @@
 				FED7E1A725517C5100DA34D9 /* CoreBoundingBoxTests.swift */,
 				FECB50C625540B090026302E /* CoreResponseProviderTests.swift */,
 				FEB0AA8225CAC3EF002F0D1F /* CoreResultTypeTests.swift */,
-				FE1122C62567C52E0064FD53 /* DarwinPlatformClientTests.swift */,
 				FECCDEE92552D20A008FC4D6 /* DefaultLocationProviderTests.swift */,
 				FE7E39B1256563A1000C5BD5 /* EventsManagerTests.swift */,
 				F9F6379C25DFB4AC00C99904 /* FeedbackManagerTests.swift */,
@@ -1910,7 +1904,6 @@
 				F9274FEB2732BF0E00708F37 /* SearchTileStore.swift in Sources */,
 				FEEDD31C2508DFE400DC0A98 /* IndexableDataResolver.swift in Sources */,
 				FEEDD3062508DFE400DC0A98 /* SearchEngine.swift in Sources */,
-				FEEDD2F92508DFE400DC0A98 /* DarwinPlatformClient.swift in Sources */,
 				F98BECBD2577B93D0081D3BC /* FeedbackEvent.swift in Sources */,
 				FEEDD2F12508DFE400DC0A98 /* ExternalRecordPlaceholder.swift in Sources */,
 				FEEDD2F72508DFE400DC0A98 /* Logger.swift in Sources */,
@@ -2038,7 +2031,6 @@
 				FEEDD3A62508E24900DC0A98 /* CoreSearchResultStub+Samples.swift in Sources */,
 				FED7E19C25516B8700DA34D9 /* CLLocationCoordinate2DCodableTests.swift in Sources */,
 				FEEDD3A92508E24900DC0A98 /* CoreAddress+Extensions.swift in Sources */,
-				FE1122C72567C52E0064FD53 /* DarwinPlatformClientTests.swift in Sources */,
 				FE1F320225680585004DCB6D /* SearchResultSuggestionStub.swift in Sources */,
 				F96E70C325FA6485005B8A3F /* WrapperLocationProviderStub.swift in Sources */,
 				FE1F31F125680542004DCB6D /* SearchRequestOptions+Samples.swift in Sources */,

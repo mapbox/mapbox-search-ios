@@ -14,7 +14,12 @@ protocol ServiceProviderProtocol {
 }
 
 protocol EngineProviderProtocol {
-    func createEngine(apiType: CoreSearchEngine.ApiType, accessToken: String, platformClient: CorePlatformClient, locationProvider: CoreLocationProvider?) -> CoreSearchEngineProtocol
+    func createEngine(
+        apiType: CoreSearchEngine.ApiType,
+        accessToken: String,
+        locationProvider: CoreLocationProvider?
+    ) -> CoreSearchEngineProtocol
+
     func getStoredAccessToken() -> String?
 }
 
@@ -53,8 +58,11 @@ extension ServiceProvider: EngineProviderProtocol {
         ?? Bundle.main.object(forInfoDictionaryKey: legacyAccessTokenPlistKey) as? String
     }
     
-    func createEngine(apiType: CoreSearchEngine.ApiType, accessToken: String, platformClient: CorePlatformClient, locationProvider: CoreLocationProvider?) -> CoreSearchEngineProtocol {
-
+    func createEngine(
+        apiType: CoreSearchEngine.ApiType,
+        accessToken: String,
+        locationProvider: CoreLocationProvider?
+    ) -> CoreSearchEngineProtocol {
         eventsManager.initialize(accessToken: accessToken)
         
         // UserDefaults can be used to setup base url in runtime (e.g. UI tests)
