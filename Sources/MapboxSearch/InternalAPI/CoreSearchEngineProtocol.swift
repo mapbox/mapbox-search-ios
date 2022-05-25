@@ -94,7 +94,7 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
     }
     
     func createUserLayer(_ layer: String, priority: Int32) -> CoreUserRecordsLayerProtocol {
-        CoreSearchEngine.createUserLayer(forLayer: layer, priority: priority) as CoreUserRecordsLayer
+        CoreSearchEngine.createUserLayer(forName: layer, priority: priority) as CoreUserRecordsLayer
     }
     
     func addUserLayer(_ layer: CoreUserRecordsLayerProtocol) {
@@ -106,7 +106,7 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
     }
     
     func removeUserLayer(_ layer: CoreUserRecordsLayerProtocol) {
-        removeUserLayer(forLayer: layer.name)
+        removeUserLayer(layer)
     }
     
     func nextSearch(for result: CoreSearchResultProtocol, with originalRequest: CoreRequestOptions, callback: @escaping (CoreSearchResponseProtocol?) -> Void) {
@@ -144,10 +144,6 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
         } else {
             assertionFailure("Unexpected type of CoreSearchResultProtocol. Engine doesn't support nothing but CoreSearchResult")
         }
-    }
-    
-    func createChildEngine() -> CoreSearchEngineProtocol {
-        createChild() as CoreSearchEngine
     }
     
     func search(forQuery query: String, categories: [String], options: CoreSearchOptions, completion: @escaping (CoreSearchResponseProtocol?) -> Void) {

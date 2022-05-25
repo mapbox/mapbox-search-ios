@@ -90,18 +90,6 @@ public class LocalDataProvider<Record: Codable & SearchResult & IndexableRecord>
         saveData()
     }
     
-    /// Add or override existoing record to provireds storage
-    /// - Parameter record: entirny to update
-    public func update(record: Record) {
-        recordsMap[record.id] = record
-        
-        for interactor in providerInteractors {
-            interactor.update(record: record)
-        }
-        
-        saveData()
-    }
-    
     /// Deletes record by id
     /// - Parameter recordId: record id to delete
     public func delete(recordId: String) {

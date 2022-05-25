@@ -10,11 +10,7 @@ public protocol RecordsProviderInteractor {
     /// Notify about records addition.
     /// Engine would add it to the search index asap.
     func add(records: [IndexableRecord])
-    
-    /// Notify about record alteration.
-    /// Engine would update search index for corresponding identifier asap.
-    func update(record: IndexableRecord)
-    
+
     /// Notify about record deletion.
     /// Engine would drop search index for particular identifier.
     func delete(identifier: String)
@@ -26,7 +22,4 @@ public protocol RecordsProviderInteractor {
     /// Notify about database drop.
     /// Engine would drop layer related search indexes.
     func deleteAll()
-    
-    /// Check index existence for particular identifier.
-    func contains(identifier: String) -> Bool
 }
