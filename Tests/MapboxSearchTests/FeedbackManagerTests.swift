@@ -4,7 +4,7 @@ import XCTest
 class FeedbackManagerTests: XCTestCase, FeedbackManagerDelegate {
     
     lazy var locationProviderWrapper: WrapperLocationProvider? = WrapperLocationProviderStub(wrapping: DefaultLocationProvider()) // swiftlint:disable:this unnecessary_type unnecessary_type
-    lazy var engine: CoreSearchEngineProtocol = CoreSearchEngineStub(accessToken: "token", client: DarwinPlatformClient(eventsManager: eventsManager), location: locationProviderWrapper)
+    lazy var engine: CoreSearchEngineProtocol = CoreSearchEngineStub(accessToken: "token", location: locationProviderWrapper)
     
     var telemetryStub: TelemetryManagerStub!
     var eventsManager: EventsManager!
@@ -304,94 +304,5 @@ class FeedbackManagerTests: XCTestCase, FeedbackManagerDelegate {
         XCTAssertEqual(telemetryEvent.attributes["selectedItemName"] as? String, favoriteRecord.address?.formattedAddress(style: .full))
         let metadata = telemetryEvent.attributes["appMetadata"] as? [String: String?]
         XCTAssertEqual(metadata?["sessionId"], "someOtherEvent_ID")
-    }
-    
-    func testRawFeedbackEvent() throws {
-        let coreSearchResult = CoreSearchResultStub.sample1
-        let searchResult = try XCTUnwrap(ServerSearchResult(coreResult: coreSearchResult,
-                                                            response: CoreSearchResponseStub.successSample(results: [coreSearchResult])))
-        let event = try XCTUnwrap(FeedbackEvent(record: searchResult, reason: "Unit Testing", text: "I have to test it"))
-        event.keyboardLocale = "en-US"
-        event.deviceOrientation = "undefined"
-        event.sessionId = "otherEvent_ID"
-        
-        let rawEvent = try feedbackManager.buildRawEvent(base: event)
-        
-        XCTAssertEqual(rawEvent.reason, event.reason)
-        XCTAssertEqual(rawEvent.text, event.text)
-        XCTAssertEqual(rawEvent["keyboardLocale"] as? String, "en-US")
-        
-        try feedbackManager.sendRawEvent(rawEvent, autoFlush: false)
-        
-        XCTAssertFalse(telemetryStub.enqueuedEvents.isEmpty)
-        
-        let telemetryEvent = try XCTUnwrap(telemetryStub.enqueuedEvents.last)
-        XCTAssertEqual(telemetryEvent.name, "search.feedback")
-        XCTAssertEqual(telemetryEvent.attributes["feedbackReason"] as? String, "Unit Testing")
-        XCTAssertEqual(telemetryEvent.attributes["feedbackText"] as? String, "I have to test it")
-        XCTAssertEqual(telemetryEvent.attributes["keyboardLocale"] as? String, "en-US")
-        XCTAssertEqual(telemetryEvent.attributes["orientation"] as? String, "undefined")
-        let metadata = telemetryEvent.attributes["appMetadata"] as? [String: String?]
-        XCTAssertEqual(metadata?["sessionId"], "otherEvent_ID")
-    }
-    
-    func testRawFeedbackEventEncoding() throws {
-        let coreSearchResult = CoreSearchResultStub.sample1
-        let searchResult = try XCTUnwrap(ServerSearchResult(coreResult: coreSearchResult,
-                                                            response: CoreSearchResponseStub.successSample(results: [coreSearchResult])))
-        let event = try XCTUnwrap(FeedbackEvent(record: searchResult, reason: "Unit Testing", text: "I have to test it"))
-        event.keyboardLocale = "en-US"
-        event.deviceOrientation = "undefined"
-        event.sessionId = "otherEvent_ID"
-        
-        let rawEvent = try feedbackManager.buildRawEvent(base: event)
-        let jsonData = rawEvent.json()!
-        let attributes = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: Any]
-        
-        XCTAssertEqual(event.reason, attributes["feedbackReason"] as? String)
-        XCTAssertEqual(event.text, attributes["feedbackText"] as? String)
-    }
-    
-    func testRawFeedbackEventDecoding() throws {
-        let coreSearchResult = CoreSearchResultStub.sample1
-        let searchResult = try XCTUnwrap(ServerSearchResult(coreResult: coreSearchResult,
-                                                            response: CoreSearchResponseStub.successSample(results: [coreSearchResult])))
-        let event = try XCTUnwrap(FeedbackEvent(record: searchResult, reason: "Unit Testing", text: "I have to test it"))
-        
-        let rawEvent = try feedbackManager.buildRawEvent(base: event)
-        let jsonData = rawEvent.json()!
-        let attributes = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: Any]
-        
-        let jsonDecodedEvent = RawFeedbackEvent(json: jsonData)!
-        let attributesDecodedEvent = RawFeedbackEvent(attributes: attributes)
-        
-        XCTAssertEqual(event.reason, attributesDecodedEvent.attributes["feedbackReason"] as? String)
-        XCTAssertEqual(event.text, attributesDecodedEvent.attributes["feedbackText"] as? String)
-        XCTAssertEqual(event.keyboardLocale, attributesDecodedEvent.attributes["keyboardLocale"] as? String)
-        
-        XCTAssertEqual(event.reason, jsonDecodedEvent.attributes["feedbackReason"] as? String)
-        XCTAssertEqual(event.text, jsonDecodedEvent.attributes["feedbackText"] as? String)
-        XCTAssertEqual(event.keyboardLocale, jsonDecodedEvent.attributes["keyboardLocale"] as? String)
-    }
-    
-    func testRawFeedbackInvalidJSON() throws {
-        let invalidJson = "{[]}"
-        XCTAssertNil(RawFeedbackEvent(json: invalidJson.data(using: .utf8)!))
-    }
-    
-    func testRawFeedbackSettersKeys() throws {
-        let coreSearchResult = CoreSearchResultStub.sample1
-        let searchResult = try XCTUnwrap(ServerSearchResult(coreResult: coreSearchResult,
-                                                            response: CoreSearchResponseStub.successSample(results: [coreSearchResult])))
-        let event = try XCTUnwrap(FeedbackEvent(record: searchResult, reason: "Unit Testing", text: "I have to test it"))
-        
-        let rawEvent = try feedbackManager.buildRawEvent(base: event)
-        rawEvent.reason = "new reason"
-        rawEvent.text = "new text"
-        let jsonData = rawEvent.json()!
-        let attributes = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: Any]
-        
-        XCTAssertEqual(rawEvent.reason, attributes["feedbackReason"] as? String)
-        XCTAssertEqual(rawEvent.text, attributes["feedbackText"] as? String)
     }
 }

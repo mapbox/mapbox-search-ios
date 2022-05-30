@@ -10,29 +10,6 @@ class CoreUserRecordsLayerStub: CoreUserRecordsLayerProtocol {
         self.name = name
     }
     
-    func add(for record: UserRecord) {
-        records.append(record)
-    }
-    
-    func addMulti(for records: [UserRecord]) {
-        self.records.append(contentsOf: records)
-    }
-    
-    func update(for record: UserRecord) {
-        remove(forId: record.id)
-        records.append(record)
-    }
-    
-    @discardableResult
-    func remove(forId id: String) -> Bool {
-        records.removeAll(where: { $0.id == id })
-        return true
-    }
-    
-    func removeMulti(forIds: [String]) {
-        forIds.forEach { remove(forId: $0) }
-    }
-    
     func clear() {
         records.removeAll()
     }
@@ -43,5 +20,22 @@ class CoreUserRecordsLayerStub: CoreUserRecordsLayerProtocol {
     
     func getForId(_ id: String) -> UserRecord? {
         records.first(where: { $0.id == id })
+    }
+
+    func upsert(for record: CoreUserRecord) throws {
+        try remove(forId: record.id)
+        records.append(record)
+    }
+    
+    func upsertMulti(forRecord: [CoreUserRecord]) throws {
+        try forRecord.forEach(upsert(for:))
+    }
+    
+    func remove(forId id: String) throws {
+        records.removeAll(where: { $0.id == id })
+    }
+    
+    func removeMulti(forIds: [String]) throws {
+        try forIds.forEach { try remove(forId: $0) }
     }
 }

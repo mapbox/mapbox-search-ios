@@ -220,7 +220,7 @@ public class FeedbackManager {
         case .userRecord,
              .suggestion,
              .searchResult:
-            throw SearchError.incorrectSearchResultForFeedback
+            throw SearchError.incorrectEventTemplate
         }
     }
 }

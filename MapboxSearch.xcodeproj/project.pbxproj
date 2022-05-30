@@ -321,7 +321,6 @@
 		FEEDD3A72508E24900DC0A98 /* LocationProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD3932508E24900DC0A98 /* LocationProviderTests.swift */; };
 		FEEDD3A82508E24900DC0A98 /* CoreSearchEngineStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD3942508E24900DC0A98 /* CoreSearchEngineStub.swift */; };
 		FEEDD3A92508E24900DC0A98 /* CoreAddress+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD3952508E24900DC0A98 /* CoreAddress+Extensions.swift */; };
-		FEEDD3AA2508E24900DC0A98 /* LoggerLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD3962508E24900DC0A98 /* LoggerLevelTests.swift */; };
 		FEEDD3AB2508E24900DC0A98 /* BoundingBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD3972508E24900DC0A98 /* BoundingBoxTests.swift */; };
 		FEEDD3AC2508E24900DC0A98 /* Address+TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD3982508E24900DC0A98 /* Address+TestData.swift */; };
 		FEEDD3BE2508E3CD00DC0A98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEEDD3B42508E3CD00DC0A98 /* Assets.xcassets */; };
@@ -694,7 +693,6 @@
 		FEEDD3932508E24900DC0A98 /* LocationProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationProviderTests.swift; sourceTree = "<group>"; };
 		FEEDD3942508E24900DC0A98 /* CoreSearchEngineStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreSearchEngineStub.swift; sourceTree = "<group>"; };
 		FEEDD3952508E24900DC0A98 /* CoreAddress+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreAddress+Extensions.swift"; sourceTree = "<group>"; };
-		FEEDD3962508E24900DC0A98 /* LoggerLevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerLevelTests.swift; sourceTree = "<group>"; };
 		FEEDD3972508E24900DC0A98 /* BoundingBoxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBoxTests.swift; sourceTree = "<group>"; };
 		FEEDD3982508E24900DC0A98 /* Address+TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Address+TestData.swift"; sourceTree = "<group>"; };
 		FEEDD3992508E24900DC0A98 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1243,7 +1241,6 @@
 				F9D70E5B252740DD0019105F /* IndexableDataProviderTests.swift */,
 				FEEDD3992508E24900DC0A98 /* Info.plist */,
 				FEEDD3932508E24900DC0A98 /* LocationProviderTests.swift */,
-				FEEDD3962508E24900DC0A98 /* LoggerLevelTests.swift */,
 				FE1F31E22567FDDF004DCB6D /* NetworkSessionTests.swift */,
 				FE6EEDED25B039E000EAE44E /* OpenHoursTests.swift */,
 				FE6EEDE625B0343700EAE44E /* OpenPeriodTests.swift */,
@@ -1957,7 +1954,6 @@
 				FEB0AA8A25CAC711002F0D1F /* SearchResultTypeTests.swift in Sources */,
 				FE1F31EA25680086004DCB6D /* DarwinNetworkSessionStub.swift in Sources */,
 				FE1F320925680E4B004DCB6D /* SearchResponseTests.swift in Sources */,
-				FEEDD3AA2508E24900DC0A98 /* LoggerLevelTests.swift in Sources */,
 				FECB510025541A170026302E /* ExternalRecordPlaceholderTests.swift in Sources */,
 				FE1122D52567C8B70064FD53 /* NetworkSessionTaskStub.swift in Sources */,
 				FE7C739A25667FDE0047CA20 /* RecordsProviderInteractorNativeCoreTests.swift in Sources */,

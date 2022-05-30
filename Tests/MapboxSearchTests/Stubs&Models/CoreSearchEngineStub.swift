@@ -5,7 +5,6 @@ import CoreLocation
 
 class CoreSearchEngineStub {
     var accessToken: String
-    let platformClient: CorePlatformClient
     let locationProvider: CoreLocationProvider?
     
     var searchResponse: CoreSearchResponseProtocol?
@@ -21,15 +20,41 @@ class CoreSearchEngineStub {
     
     var callbackWrapper: (@escaping () -> Void) -> Void = { $0() }
     
-    init(accessToken: String, client: CorePlatformClient, location: CoreLocationProvider?) {
+    init(accessToken: String, location: CoreLocationProvider?) {
         self.accessToken = accessToken
-        self.platformClient = client
         self.locationProvider = location
     }
 }
 
 extension CoreSearchEngineStub: CoreSearchEngineProtocol {
-    
+    func makeFeedbackEvent(
+        request: CoreRequestOptions,
+        result: CoreSearchResultProtocol?,
+        callback: @escaping (String) -> Void
+    ) throws {
+        let eventTemplate = """
+                            {
+                                "created": "2021-02-05T11:41:04+0300",
+                                "endpoint": "https://api.mapbox.com/search/v1/",
+                                "event": "search.feedback",
+                                "language": ["\(result?.languages.first ?? "none")"],
+                                "lat": 53.92068293258732,
+                                "lng": 27.587735185708915,
+                                "proximity":
+                                    [\(request.options.proximity?.coordinate.longitude ?? -1),
+                                     \(request.options.proximity?.coordinate.latitude ?? -1)],
+                                "queryString": "\(request.query)",
+                                "resultId": "\(result?.id ?? "nope")",
+                                "resultIndex": \(result?.serverIndex ?? -1),
+                                "schema": "search.feedback-2.1",
+                                "selectedItemName":"\(result?.names.first ?? "")",
+                                "sessionIdentifier": "\(UUID().uuidString)",
+                                "userAgent": "search-sdk-ios"
+                            }
+                            """
+        callback(eventTemplate)
+    }
+
     func setTileStore(_ tileStore: MapboxCommon.TileStore) {
         assertionFailure("Not Implemented")
     }
@@ -42,15 +67,11 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
     func setAccessTokenForToken(_ token: String) {
         accessToken = token
     }
-    
-    func createChildEngine() -> CoreSearchEngineProtocol {
-        assertionFailure("Not Implemented")
-        return self
-    }
-    
+
     func createUserLayer(_ layer: String, priority: Int32) -> CoreUserRecordsLayerProtocol {
         CoreUserRecordsLayerStub(name: layer)
     }
+    
     func addUserLayer(_ layer: CoreUserRecordsLayerProtocol) {
     }
     
@@ -89,31 +110,7 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
     func createEventTemplate(forName name: String) -> String {
         return eventTemplate.replacingOccurrences(of: "__event_name", with: name)
     }
-    
-    func makeFeedbackEvent(request: CoreRequestOptions, result: CoreSearchResultProtocol?) throws -> String {
-        let eventTemplate = """
-                            {
-                                "created": "2021-02-05T11:41:04+0300",
-                                "endpoint": "https://api.mapbox.com/search/v1/",
-                                "event": "search.feedback",
-                                "language": ["\(result?.languages.first ?? "none")"],
-                                "lat": 53.92068293258732,
-                                "lng": 27.587735185708915,
-                                "proximity":
-                                    [\(request.options.proximity?.coordinate.longitude ?? -1),
-                                     \(request.options.proximity?.coordinate.latitude ?? -1)],
-                                "queryString": "\(request.query)",
-                                "resultId": "\(result?.id ?? "nope")",
-                                "resultIndex": \(result?.serverIndex ?? -1),
-                                "schema": "search.feedback-2.1",
-                                "selectedItemName":"\(result?.names.first ?? "")",
-                                "sessionIdentifier": "\(UUID().uuidString)",
-                                "userAgent": "search-sdk-ios"
-                            }
-                            """
-        return eventTemplate
-    }
-    
+
     func reverseGeocoding(for options: CoreReverseGeoOptions, completion: @escaping (CoreSearchResponseProtocol?) -> Void) {
         DispatchQueue.main.async {
             self.callbackWrapper {
