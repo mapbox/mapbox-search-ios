@@ -16,8 +16,8 @@ public class FeedbackManager {
         self.eventsManager = eventsManager
     }
     
-    func buildAttributes(_ attributes: inout [String: Any], feedbackAttributes: FeedbackEvent.Attributes) {
-        
+    func buildAttributes(_ attributes: inout [String: Any], feedbackAttributes: FeedbackEvent.Attributes
+    ) {
         // Mandatory field set -1
         attributes["resultIndex"] = -1
         attributes["queryString"] = attributePlaceholder
@@ -29,7 +29,12 @@ public class FeedbackManager {
         }
     }
     
-    func buildAttributes(_ attributes: inout [String: Any], response: CoreSearchResponseProtocol, result: CoreSearchResultProtocol?, isReproducible: Bool) {
+    func buildAttributes(
+        _ attributes: inout [String: Any],
+        response: CoreSearchResponseProtocol,
+        result: CoreSearchResultProtocol?,
+        isReproducible: Bool
+    ) {
         
         // Response parameters
         attributes["queryString"] = response.request.query
@@ -39,10 +44,15 @@ public class FeedbackManager {
         attributes["types"] = response.request.options.types?.map({ (CoreResultType(rawValue: $0.intValue) ?? .unknown).stringValue })
         attributes["sessionIdentifier"] = response.request.sessionID
         
-        // `searchResultsJSON` required for cant find and suggestion feedbacks.
+        // `searchResultsJSON` required for `cant find` and `suggestion feedbacks`.
         // Single, resolved search result don't need it.
-        if response.results.count > 1 || result == nil {
-            attributes["searchResultsJSON"] = buildSearchResultsJSON(results: response.results, isReproducible: isReproducible)
+        if case let .success(results) = response.result {
+            if results.count > 1 || result == nil {
+                attributes["searchResultsJSON"] = buildSearchResultsJSON(
+                    results: results,
+                    isReproducible: isReproducible
+                )
+            }
         }
         
         if let bbox = response.request.options.bbox {
@@ -65,6 +75,7 @@ public class FeedbackManager {
         attributes["selectedItemName"] = result?.names.first ?? attributePlaceholder
         attributes["language"] = result?.languages
         attributes["resultId"] = result?.id ?? attributePlaceholder
+
         if let center = result?.center {
             attributes["resultCoordinates"] = [center.coordinate.longitude, center.coordinate.latitude]
         }
@@ -157,7 +168,10 @@ public class FeedbackManager {
         eventsManager.sendEvent(.feedback, attributes: attributes, autoFlush: autoFlush)
     }
     
-    func buildTemplate(event: FeedbackEvent) throws -> [String: Any] {
+    func buildTemplate(
+        event: FeedbackEvent,
+        completion: @escaping ([String: Any]) -> Void
+    ) throws {
         guard let delegate = delegate else {
             assertionFailure("Delegate with Engine is required")
             _Logger.searchSDK.debug("Cant build FeedbackEvent, wouldn't send", category: .telemetry)
@@ -166,18 +180,47 @@ public class FeedbackManager {
         
         switch event.type {
         case .missingResult(let response):
-            let jsonTemplate = try delegate.engine.makeFeedbackEvent(request: response.request, result: nil)
-            return try eventsManager.prepareEventTemplate(jsonTemplate).attributes
-            
+            try delegate.engine.makeFeedbackEvent(
+                request: response.request,
+                result: nil,
+                callback: { [eventsManager] eventTemplateName in
+                    do {
+                        let attributes = try eventsManager.prepareEventTemplate(
+                            eventTemplateName
+                        ).attributes
+                        
+                        completion(attributes)
+                    } catch {
+                        _Logger.searchSDK.error(
+                            "Failed to prepare event template, error: \(error.localizedDescription)"
+                        )
+                    }
+                }
+            )
+
         case .coreResult(let response, let result):
-            let jsonTemplate = try delegate.engine.makeFeedbackEvent(request: response.request, result: result)
-            return try eventsManager.prepareEventTemplate(jsonTemplate).attributes
-        
+            try delegate.engine.makeFeedbackEvent(
+                request: response.request,
+                result: result,
+                callback: { [eventsManager] eventTemplateName in
+                    do {
+                        let attributes = try eventsManager.prepareEventTemplate(
+                            eventTemplateName
+                        ).attributes
+                        
+                        completion(attributes)
+                    } catch {
+                        _Logger.searchSDK.error(
+                            "Failed to prepare event template, error: \(error.localizedDescription)"
+                        )
+                    }
+                }
+            )
+            
         case .userRecord,
              .suggestion,
              .searchResult:
-            let jsonTemplate = try delegate.engine.createEventTemplate(forName: EventsManager.Events.feedback.rawValue)
-            return try eventsManager.prepareEventTemplate(jsonTemplate).attributes
+            throw SearchError.incorrectSearchResultForFeedback
         }
     }
 }
@@ -196,54 +239,26 @@ extension FeedbackManager {
             return
         }
         do {
-            
             event.viewPort = delegate.locationProviderWrapper?.getViewport()
             
-            let template = try buildTemplate(event: event)
-            let attributes = try buildFeedbackAttributes(template, event: event)
-            
-            sendFeedback(attributes: attributes, autoFlush: autoFlush)
+            try buildTemplate(
+                event: event,
+                completion: { [weak self] template in
+                    guard let self = self else { return }
+                    
+                    do {
+                        let attributes = try self.buildFeedbackAttributes(template, event: event)
+                        
+                        self.sendFeedback(attributes: attributes, autoFlush: autoFlush)
+                    } catch {
+                        _Logger.searchSDK.debug("Unable to process FeedbackEvent", category: .telemetry)
+                    }
+                }
+            )
         } catch {
             eventsManager.reportError(error)
             _Logger.searchSDK.debug("Unable to process FeedbackEvent", category: .telemetry)
             throw error
         }
-    }
-    
-    
-    /// Converts `FeedbackEvent` into `RawFeedbackEvent`
-    /// `RawFeedbackEvent` is just a wrapper for event properties stored in a  dictionary
-    /// - Parameter event: `FeedbackEvent` event for conversion.
-    /// - Throws: CoreSearchEngines errors and`SearchError.incorrectEventTemplate`
-    /// - Returns: `RawFeedbackEvent` that can be edited or stored for later submitting
-    public func buildRawEvent(base event: FeedbackEvent) throws -> RawFeedbackEvent {
-        guard let delegate = delegate else {
-            assertionFailure("Delegate with Engine is required")
-            _Logger.searchSDK.debug("Cant build FeedbackEvent, wouldn't send", category: .telemetry)
-            throw SearchError.incorrectEventTemplate
-        }
-        do {
-            event.viewPort = delegate.locationProviderWrapper?.getViewport()
-            
-            let template = try buildTemplate(event: event)
-            let attributes = try buildFeedbackAttributes(template, event: event)
-            
-            return RawFeedbackEvent(attributes: attributes)
-        } catch {
-            eventsManager.reportError(error)
-            _Logger.searchSDK.debug("Unable to process FeedbackEvent", category: .telemetry)
-            throw error
-        }
-    }
-    
-    /// Send user feedback
-    /// - Parameters:
-    ///   - event: `RawFeedbackEvent` feedback event to send
-    ///   - autoFlush: sends feedback right after submitting, true by default
-    /// - Throws: CoreSearchEngines errors and`SearchError.incorrectEventTemplate`
-    public func sendRawEvent(_ event: RawFeedbackEvent, autoFlush: Bool = true) throws {
-        event.attributes["lat"] = delegate?.locationProviderWrapper?.getLocation()?.coordinate.latitude
-        event.attributes["lat"] = delegate?.locationProviderWrapper?.getLocation()?.coordinate.longitude
-        sendFeedback(attributes: event.attributes, autoFlush: autoFlush)
     }
 }

@@ -7,14 +7,7 @@ protocol CoreSearchEngineProtocol {
      Call this function in case of token's changing at runtime.
      */
     func setAccessTokenForToken(_ token: String) throws
-    
-    /**
-    @brief Create child sub-engine.
-    It performs independent search requests but shares favorites and history.
-    */
-    func createChildEngine() -> CoreSearchEngineProtocol
-    
-    
+
     /**
      -------------------------------------------------------------------------------------------
      @brief Create user data layer.
@@ -46,12 +39,13 @@ protocol CoreSearchEngineProtocol {
      Causes adding to the history, ending current session, billing, telemetry event.
      */
     func onSelected(forRequest request: CoreRequestOptions, result: CoreSearchResultProtocol)
-    
-    /** @brief Return new json telemetry event template. */
-    func createEventTemplate(forName name: String) throws -> String
-    
+
     /// @brief Create json feedback event.
-    func makeFeedbackEvent(request: CoreRequestOptions, result: CoreSearchResultProtocol?) throws -> String
+    func makeFeedbackEvent(
+        request: CoreRequestOptions,
+        result: CoreSearchResultProtocol?,
+        callback: @escaping (String) -> Void
+    ) throws
     
     func reverseGeocoding(for options: CoreReverseGeoOptions, completion: @escaping (CoreSearchResponseProtocol?) -> Void)
     
@@ -82,15 +76,28 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
         setTileStoreFor(tileStore)
     }
     
-    func makeFeedbackEvent(request: CoreRequestOptions, result: CoreSearchResultProtocol?) throws -> String {
+    func makeFeedbackEvent(
+        request: CoreRequestOptions,
+        result: CoreSearchResultProtocol?,
+        callback: @escaping (String) -> Void
+    ) throws {
         if let result = result {
             if let coreResult = result as? CoreSearchResult {
-                return makeFeedbackEvent(forRequest: request, result: coreResult)
+                return makeFeedbackEvent(
+                    forRequest: request,
+                    result: coreResult,
+                    callback: callback
+                )
             } else {
                 throw SearchError.incorrectSearchResultForFeedback
             }
         }
-        return makeFeedbackEvent(forRequest: request, result: nil)
+
+        return makeFeedbackEvent(
+            forRequest: request,
+            result: nil,
+            callback: callback
+        )
     }
     
     func createUserLayer(_ layer: String, priority: Int32) -> CoreUserRecordsLayerProtocol {
@@ -102,11 +109,17 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
             assertionFailure("Unexpected type of CoreUserRecordsLayerProtocol.")
             return
         }
+
         addUserLayer(for: layer)
     }
     
     func removeUserLayer(_ layer: CoreUserRecordsLayerProtocol) {
-        removeUserLayer(layer)
+        guard let layer = layer as? CoreUserRecordsLayer else {
+            assertionFailure("Unexpected type of CoreUserRecordsLayerProtocol.")
+            return
+        }
+
+        removeUserLayer(for: layer)
     }
     
     func nextSearch(for result: CoreSearchResultProtocol, with originalRequest: CoreRequestOptions, callback: @escaping (CoreSearchResponseProtocol?) -> Void) {
