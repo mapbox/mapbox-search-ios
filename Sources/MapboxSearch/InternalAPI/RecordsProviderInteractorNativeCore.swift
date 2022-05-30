@@ -24,6 +24,14 @@ class RecordsProviderInteractorNativeCore: RecordsProviderInteractor {
         }
     }
     
+    func update(record: IndexableRecord) {
+        do {
+            try userRecordsLayer.upsert(for: record.coreUserRecord())
+        } catch {
+            _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
+        }
+    }
+    
     func delete(identifier: String) {
         do {
             try userRecordsLayer.remove(forId: identifier)
