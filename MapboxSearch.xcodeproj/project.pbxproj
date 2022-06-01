@@ -12,9 +12,6 @@
 		E648C0BA26428D3D0044315F /* MapboxCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B926428D3D0044315F /* MapboxCommon.xcframework */; };
 		E648C0BD26428D530044315F /* MapboxCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B926428D3D0044315F /* MapboxCommon.xcframework */; };
 		E648C0BE26428D530044315F /* MapboxCommon.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B926428D3D0044315F /* MapboxCommon.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E648C0C026428D710044315F /* MapboxMobileEvents.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0BF26428D710044315F /* MapboxMobileEvents.xcframework */; };
-		E648C0C126428D710044315F /* MapboxMobileEvents.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0BF26428D710044315F /* MapboxMobileEvents.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E648C0C5264295D30044315F /* MapboxMobileEvents.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0BF26428D710044315F /* MapboxMobileEvents.xcframework */; };
 		E648C0C9264297A10044315F /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0C8264297730044315F /* libc++.1.tbd */; };
 		F907440F261B00000091899C /* suggestions-san-francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = F907440E261B00000091899C /* suggestions-san-francisco.json */; };
 		F9074425261B0DF70091899C /* retrieve-san-francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = F9074424261B0DF70091899C /* retrieve-san-francisco.json */; };
@@ -82,7 +79,6 @@
 		F9B62CC9264BC61600492999 /* category-cafe.json in Resources */ = {isa = PBXBuildFile; fileRef = F9B62CC7264BC61600492999 /* category-cafe.json */; };
 		F9B62CCB264BCC2600492999 /* suggestions-empty.json in Resources */ = {isa = PBXBuildFile; fileRef = F9B62CCA264BCC2600492999 /* suggestions-empty.json */; };
 		F9B62CCC264BCC2600492999 /* suggestions-empty.json in Resources */ = {isa = PBXBuildFile; fileRef = F9B62CCA264BCC2600492999 /* suggestions-empty.json */; };
-		F9BBFBD12604A4A500DE9C98 /* FeedbackIntegrationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BBFBD02604A4A500DE9C98 /* FeedbackIntegrationTestCase.swift */; };
 		F9C557672670CB0400BE8B94 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AB03C2261DBD7F00EDF1E7 /* MockResponse.swift */; };
 		F9C557682670CB0400BE8B94 /* MockWebServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ACA6112642B66600F50CD4 /* MockWebServer.swift */; };
 		F9C5579A2670CB0400BE8B94 /* MapboxSearchUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED0EBBB238D1E2600391B13 /* MapboxSearchUI.framework */; };
@@ -125,7 +121,6 @@
 		F9E8146225418E7D00F6378E /* EventsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E8146125418E7D00F6378E /* EventsManager.swift */; };
 		F9F5D75E256D0393007E32BE /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5D75D256D0393007E32BE /* SearchResponse.swift */; };
 		F9F6378A25DD6A4E00C99904 /* FeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F6378925DD6A4E00C99904 /* FeedbackManager.swift */; };
-		F9F637A325DFB4F300C99904 /* FeedbackManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F6379C25DFB4AC00C99904 /* FeedbackManagerTests.swift */; };
 		F9F88289258227D200062A82 /* CoreImageInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F88288258227D200062A82 /* CoreImageInfoProtocol.swift */; };
 		F9F882962583779A00062A82 /* CoreImageInfoStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F8828F2583698200062A82 /* CoreImageInfoStub.swift */; };
 		F9F882AC2588B6F400062A82 /* CoreResultMetadataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F882AB2588B6F400062A82 /* CoreResultMetadataProtocol.swift */; };
@@ -184,9 +179,6 @@
 		FE7E399825655EBE000C5BD5 /* FavoriteRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7E399725655EBE000C5BD5 /* FavoriteRecordTests.swift */; };
 		FE7E399F256560BC000C5BD5 /* SearchResultStub+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7E399E256560BC000C5BD5 /* SearchResultStub+Samples.swift */; };
 		FE7E39A62565615C000C5BD5 /* Address+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7E39A52565615C000C5BD5 /* Address+Samples.swift */; };
-		FE7E39B2256563A1000C5BD5 /* EventsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7E39B1256563A1000C5BD5 /* EventsManagerTests.swift */; };
-		FE7E39C425656D8D000C5BD5 /* TelemetryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7E39B825656D6F000C5BD5 /* TelemetryManager.swift */; };
-		FE7E39CB25656E69000C5BD5 /* TelemetryManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7E39CA25656E69000C5BD5 /* TelemetryManagerStub.swift */; };
 		FE8617F425EFC8E70029F19F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8617F325EFC8E70029F19F /* Configuration.swift */; };
 		FE8DA5A4271D9E09004901FB /* Search Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = FE8DA5A3271D998A004901FB /* Search Documentation.docc */; };
 		FE8F820E256D463100A100D4 /* RoutablePoint+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F820D256D463100A100D4 /* RoutablePoint+Samples.swift */; };
@@ -409,7 +401,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				FEBC00DB243C6D32000B268B /* MapboxSearch.framework in Embed Frameworks */,
-				E648C0C126428D710044315F /* MapboxMobileEvents.xcframework in Embed Frameworks */,
 				E648C0BE26428D530044315F /* MapboxCommon.xcframework in Embed Frameworks */,
 				FEBC00DF243C6D32000B268B /* MapboxSearchUI.framework in Embed Frameworks */,
 			);
@@ -423,7 +414,6 @@
 		3A0D7E55233522D5006D81BB /* MapboxSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapboxSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxCoreSearch.xcframework; path = Carthage/Build/MapboxCoreSearch.xcframework; sourceTree = "<group>"; };
 		E648C0B926428D3D0044315F /* MapboxCommon.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxCommon.xcframework; path = Carthage/Build/MapboxCommon.xcframework; sourceTree = "<group>"; };
-		E648C0BF26428D710044315F /* MapboxMobileEvents.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxMobileEvents.xcframework; path = Carthage/Build/MapboxMobileEvents.xcframework; sourceTree = "<group>"; };
 		E648C0C8264297730044315F /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
 		F907440E261B00000091899C /* suggestions-san-francisco.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "suggestions-san-francisco.json"; sourceTree = "<group>"; };
 		F9074424261B0DF70091899C /* retrieve-san-francisco.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "retrieve-san-francisco.json"; sourceTree = "<group>"; };
@@ -559,8 +549,6 @@
 		FE7E399E256560BC000C5BD5 /* SearchResultStub+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchResultStub+Samples.swift"; sourceTree = "<group>"; };
 		FE7E39A52565615C000C5BD5 /* Address+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Address+Samples.swift"; sourceTree = "<group>"; };
 		FE7E39B1256563A1000C5BD5 /* EventsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsManagerTests.swift; sourceTree = "<group>"; };
-		FE7E39B825656D6F000C5BD5 /* TelemetryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryManager.swift; sourceTree = "<group>"; };
-		FE7E39CA25656E69000C5BD5 /* TelemetryManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryManagerStub.swift; sourceTree = "<group>"; };
 		FE8617F325EFC8E70029F19F /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		FE8DA5A3271D998A004901FB /* Search Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = "Search Documentation.docc"; sourceTree = "<group>"; };
 		FE8F820D256D463100A100D4 /* RoutablePoint+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoutablePoint+Samples.swift"; sourceTree = "<group>"; };
@@ -720,7 +708,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E648C0B626428D2B0044315F /* MapboxCoreSearch.xcframework in Frameworks */,
-				E648C0C5264295D30044315F /* MapboxMobileEvents.xcframework in Frameworks */,
 				E648C0BA26428D3D0044315F /* MapboxCommon.xcframework in Frameworks */,
 				E648C0C9264297A10044315F /* libc++.1.tbd in Frameworks */,
 			);
@@ -767,7 +754,6 @@
 				FEBC00DA243C6D32000B268B /* MapboxSearch.framework in Frameworks */,
 				FE21364F2617477A0084D1E1 /* Atlantis in Frameworks */,
 				FEBC00DE243C6D32000B268B /* MapboxSearchUI.framework in Frameworks */,
-				E648C0C026428D710044315F /* MapboxMobileEvents.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -793,7 +779,6 @@
 			isa = PBXGroup;
 			children = (
 				E648C0C8264297730044315F /* libc++.1.tbd */,
-				E648C0BF26428D710044315F /* MapboxMobileEvents.xcframework */,
 				E648C0B926428D3D0044315F /* MapboxCommon.xcframework */,
 				E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */,
 			);
@@ -894,7 +879,6 @@
 				F9A59249252C75BB0074F692 /* TestDataProviderRecord.swift */,
 				FEEDD3942508E24900DC0A98 /* CoreSearchEngineStub.swift */,
 				F9A5925A252C799E0074F692 /* CoreUserRecordsLayerStub.swift */,
-				FE7E39CA25656E69000C5BD5 /* TelemetryManagerStub.swift */,
 				FE7C73AC2566871C0047CA20 /* IndexableRecordStub.swift */,
 				FE1122CD2567C6E00064FD53 /* NetworkSessionStub.swift */,
 				FE1122D42567C8B70064FD53 /* NetworkSessionTaskStub.swift */,
@@ -1057,7 +1041,6 @@
 				FE1122BF2567C2F30064FD53 /* NetworkSession.swift */,
 				FEEDD2C92508DFE400DC0A98 /* RecordsProviderInteractorNativeCore.swift */,
 				F9F5D75D256D0393007E32BE /* SearchResponse.swift */,
-				FE7E39B825656D6F000C5BD5 /* TelemetryManager.swift */,
 				FEEDD2CC2508DFE400DC0A98 /* WrapperLocationProvider.swift */,
 			);
 			path = InternalAPI;
@@ -1926,7 +1909,6 @@
 				FEEDD3152508DFE400DC0A98 /* ServerSearchResult.swift in Sources */,
 				FE059C5A251A0AE6001F7701 /* SearchCategorySuggestionImpl.swift in Sources */,
 				FEEDD2F62508DFE400DC0A98 /* CoreSearchResultResponse.swift in Sources */,
-				FE7E39C425656D8D000C5BD5 /* TelemetryManager.swift in Sources */,
 				FE260A6725C063880037B725 /* ReverseGeocodingOptions.swift in Sources */,
 				FECA461026D3F81800BC7B18 /* MapboxSearchUserAgent.swift in Sources */,
 				FEEDD2F32508DFE400DC0A98 /* CoreBoundingBox.swift in Sources */,
@@ -1991,7 +1973,6 @@
 				FECB50C725540B090026302E /* CoreResponseProviderTests.swift in Sources */,
 				FECB510725541A730026302E /* CoreSearchResponseStub+Samples.swift in Sources */,
 				FE8F820E256D463100A100D4 /* RoutablePoint+Samples.swift in Sources */,
-				FE7E39B2256563A1000C5BD5 /* EventsManagerTests.swift in Sources */,
 				FEEDD39E2508E24900DC0A98 /* SearchEngineDelegateStub.swift in Sources */,
 				F953A49325ECEB60003A3681 /* SearchCategorySuggestion+Samples.swift in Sources */,
 				F9F882962583779A00062A82 /* CoreImageInfoStub.swift in Sources */,
@@ -2007,11 +1988,9 @@
 				FECB50B92553FE740026302E /* SearchRequestOptionsTests.swift in Sources */,
 				FEEDD39A2508E24900DC0A98 /* CategorySearchEngineTests.swift in Sources */,
 				FE7E399825655EBE000C5BD5 /* FavoriteRecordTests.swift in Sources */,
-				FE7E39CB25656E69000C5BD5 /* TelemetryManagerStub.swift in Sources */,
 				FE5E0BCF257686C0002260C9 /* Route+Samples.swift in Sources */,
 				FE489B262566D83F002BF730 /* SearchResultMetadataTests.swift in Sources */,
 				FECB50CE25540FD10026302E /* SearchCategorySuggestionImplTests.swift in Sources */,
-				F9F637A325DFB4F300C99904 /* FeedbackManagerTests.swift in Sources */,
 				FE260A8225C19AE70037B725 /* SearchOptionsTests.swift in Sources */,
 				FE3E7EC32566EA8B009FFCC2 /* HistoryRecordTests.swift in Sources */,
 				FEEDD3A52508E24900DC0A98 /* CoreSearchResponseStub.swift in Sources */,
@@ -2041,7 +2020,6 @@
 				F9201EE0253F1C6F002D141B /* CategorySuggestionsNavigationIntegrationTestCase.swift in Sources */,
 				FEEDD3D12508E45B00DC0A98 /* SearchIntegrationTestCase.swift in Sources */,
 				F9201ECA253EECE0002D141B /* CategorySuggestionsIntegrationTestCase.swift in Sources */,
-				F9BBFBD12604A4A500DE9C98 /* FeedbackIntegrationTestCase.swift in Sources */,
 				F907443B261B13F40091899C /* MockServerTestCase.swift in Sources */,
 				F9ACA6132642B66600F50CD4 /* MockWebServer.swift in Sources */,
 				FEEDD3D22508E45B00DC0A98 /* VisibilityTestCase.swift in Sources */,

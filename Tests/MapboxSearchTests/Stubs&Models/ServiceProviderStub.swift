@@ -1,4 +1,3 @@
-import MapboxMobileEvents
 @testable import MapboxSearch
 
 class ServiceProviderStub: ServiceProviderProtocol, EngineProviderProtocol {
@@ -10,11 +9,9 @@ class ServiceProviderStub: ServiceProviderProtocol, EngineProviderProtocol {
     
     let localFavoritesProvider = LocalDataProvider<FavoriteRecord>()
     let localHistoryProvider = LocalDataProvider<HistoryRecord>()
-    lazy var eventsManager = EventsManager(telemetry: telemetryStub)
+    lazy var eventsManager = EventsManager()
     lazy var feedbackManager = FeedbackManager(eventsManager: eventsManager)
-    
-    let telemetryStub = TelemetryManagerStub()
-    
+
     var latestCoreEngine: CoreSearchEngineStub!
 
     func createEngine(apiType: CoreSearchEngine.ApiType, accessToken: String, locationProvider: CoreLocationProvider?) -> CoreSearchEngineProtocol {

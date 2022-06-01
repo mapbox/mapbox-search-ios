@@ -1,5 +1,4 @@
 import Foundation
-import MapboxMobileEvents
 
 let accessTokenPlistKey = "MBXAccessToken"
 let legacyAccessTokenPlistKey = "MGLMapboxAccessToken"
@@ -41,7 +40,7 @@ public class ServiceProvider: ServiceProviderProtocol {
     /// LocalDataProvider for history records
     public let localHistoryProvider = HistoryProvider()
     /// MapboxMobileEvents manager for analytics usage
-    public let eventsManager = EventsManager(telemetry: MMEEventsManager.shared())
+    public let eventsManager = EventsManager()
     
     /// Responsible for sending feedback related events.
     public private(set) lazy var feedbackManager = FeedbackManager(eventsManager: eventsManager)
@@ -63,8 +62,6 @@ extension ServiceProvider: EngineProviderProtocol {
         accessToken: String,
         locationProvider: CoreLocationProvider?
     ) -> CoreSearchEngineProtocol {
-        eventsManager.initialize(accessToken: accessToken)
-        
         // UserDefaults can be used to setup base url in runtime (e.g. UI tests)
         let defaultsBaseURL = UserDefaults.standard.value(forKey: baseURLPlistKey) as? String
         let bundleBaseURL = Bundle.main.object(forInfoDictionaryKey: baseURLPlistKey) as? String

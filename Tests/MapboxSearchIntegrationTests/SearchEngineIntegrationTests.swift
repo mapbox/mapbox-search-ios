@@ -62,7 +62,7 @@ class SearchEngineIntegrationTests: MockServerTestCase {
     }
     
     func testEmptySearch() throws {
-        
+
         try server.setResponse(.suggestEmpty)
         
         let expectation = delegate.updateExpectation
