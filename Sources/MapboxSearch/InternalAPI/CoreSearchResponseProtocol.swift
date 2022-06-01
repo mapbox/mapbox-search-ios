@@ -12,13 +12,30 @@ extension CoreSearchResponse: CoreSearchResponseProtocol {
     var result: Result<[CoreSearchResult], SearchError> {
         if let responseResults = results.value as? [CoreSearchResult] {
             return .success(responseResults)
-        } else if let error = results.error?.getHttpError() {
-            return .failure(
-                .generic(
-                    code: Int(error.httpCode),
-                    domain: mapboxCoreSearchErrorDomain,
-                    message: error.message)
-            )
+        } else if let error = results.error {
+            if error.isHttpError() {
+                let httpError = error.getHttpError()
+
+                return .failure(
+                    .generic(
+                        code: Int(httpError.httpCode),
+                        domain: mapboxCoreSearchErrorDomain,
+                        message: httpError.message
+                    )
+                )
+            } else if error.isInternalError() {
+                let internalError = error.getInternalError()
+                
+                _Logger.searchSDK.error("Search request failed: \(internalError.message)")
+                
+                return .failure(.responseProcessingFailed)
+            } else if error.isRequestCancelled() {
+                _Logger.searchSDK.error("Search request cancelled")
+                
+                return .failure(.responseProcessingFailed)
+            } else {
+                return .failure(.responseProcessingFailed)
+            }
         } else {
             return .failure(.responseProcessingFailed)
         }

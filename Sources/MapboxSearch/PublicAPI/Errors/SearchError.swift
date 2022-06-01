@@ -31,7 +31,7 @@ public enum SearchError: Error {
     
     /// Cannot process search response.
     case responseProcessingFailed
-    
+
     /// Cannot fetch suggestion details.
     case resultResolutionFailed(SearchResultSuggestion)
     
