@@ -31,7 +31,13 @@ public enum SearchError: Error {
     
     /// Cannot process search response.
     case responseProcessingFailed
-
+    
+    /// Request was cancelled.
+    case searchRequestCancelled
+    
+    /// Request was failed due to internal error.
+    case internalSearchRequestError(message: String)
+    
     /// Cannot fetch suggestion details.
     case resultResolutionFailed(SearchResultSuggestion)
     

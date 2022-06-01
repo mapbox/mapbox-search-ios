@@ -28,11 +28,15 @@ extension CoreSearchResponse: CoreSearchResponseProtocol {
                 
                 _Logger.searchSDK.error("Search request failed: \(internalError.message)")
                 
-                return .failure(.responseProcessingFailed)
+                return .failure(
+                    .internalSearchRequestError(
+                        message: internalError.message
+                    )
+                )
             } else if error.isRequestCancelled() {
                 _Logger.searchSDK.error("Search request cancelled")
                 
-                return .failure(.responseProcessingFailed)
+                return .failure(.searchRequestCancelled)
             } else {
                 return .failure(.responseProcessingFailed)
             }

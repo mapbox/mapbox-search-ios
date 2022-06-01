@@ -17,6 +17,8 @@ extension SearchError: CustomNSError {
         case .resultResolutionFailed: return -7
         case .dataResolverNotFound: return -8
         case .reverseGeocodingFailed: return -9
+        case .searchRequestCancelled: return -10
+        case .internalSearchRequestError: return -11
         }
     }
     
@@ -28,12 +30,18 @@ extension SearchError: CustomNSError {
             
         case .incorrectEventTemplate:
             return [NSLocalizedDescriptionKey: "SearchEngine unable create event template", NSLocalizedFailureReasonErrorKey: ""]
-            
+
         case .incorrectSearchResultForFeedback:
             return [NSLocalizedDescriptionKey: "Passed SearchResult invalid for feedback", NSLocalizedFailureReasonErrorKey: ""]
             
         case .searchRequestFailed(let error as NSError):
             return [NSLocalizedDescriptionKey: "Search Request Failed,", NSLocalizedFailureReasonErrorKey: "Error:[\(error.description)]"]
+            
+        case .searchRequestCancelled:
+            return [NSLocalizedDescriptionKey: "Search Request Cancelled,", NSLocalizedFailureReasonErrorKey: ""]
+            
+        case .internalSearchRequestError(let message):
+            return [NSLocalizedDescriptionKey: "Internal Search Request Error,", NSLocalizedFailureReasonErrorKey: "Error:[\(message)]"]
             
         case .categorySearchRequestFailed(let error as NSError):
             return [NSLocalizedDescriptionKey: "Category Search Request Failed,", NSLocalizedFailureReasonErrorKey: "Error:[\(error.description)]"]
