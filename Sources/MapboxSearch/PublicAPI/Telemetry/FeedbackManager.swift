@@ -220,7 +220,8 @@ public class FeedbackManager {
         case .userRecord,
              .suggestion,
              .searchResult:
-            throw SearchError.incorrectEventTemplate
+            let attributes = eventsManager.prepareEventTemplate(for: "EventsManager.Events.feedback.rawValue")
+            completion(attributes)
         }
     }
 }

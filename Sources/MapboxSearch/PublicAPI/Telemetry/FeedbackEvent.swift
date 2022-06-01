@@ -5,7 +5,6 @@ import CoreLocation
 /// Does a result or suggestion have any problem with naming, location or something else? Please send feedback describing the issue!
 /// Can be sent by calling `sendFeedback(event:)` method of any SearchEngine instance.
 public class FeedbackEvent {
-    
     /// Built-in set of reasons for feedback
     public enum Reason: String, CaseIterable {
         /// The name of attached suggestion/result is wrong.
@@ -34,7 +33,6 @@ public class FeedbackEvent {
     }
     
     struct Attributes {
-        
         var id: String
         var name: String
         var coordinate: CLLocationCoordinate2D?

@@ -80,6 +80,14 @@ public class EventsManager: NSObject {
         
         return (eventName, jsonObject)
     }
+    
+    func prepareEventTemplate(for event: String) -> [String: Any] {
+        return [
+            "event": event,
+            "created": ISO8601DateFormatter().string(from: Date()),
+            "userAgent": userAgentName
+        ]
+    }
 }
 
 extension EventsManager: MMEEventsManagerDelegate {

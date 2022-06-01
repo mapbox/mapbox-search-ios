@@ -26,61 +26,6 @@ class FeedbackManagerTests: XCTestCase, FeedbackManagerDelegate {
         eventsManager = nil
     }
     
-    func testNativeTelemetryBrokenFeedbackEvent() throws {
-        
-        (engine as! CoreSearchEngineStub).eventTemplate = "\"customField\": \"random-value\""
-        let record = IndexableRecordStub.init(id: "some", name: "other", coordinate: .sample1)
-        let feedbackEvent = FeedbackEvent(userRecord: record, reason: "test-reason", text: "test-text")
-        
-        XCTAssertThrowsError(try feedbackManager.sendEvent(feedbackEvent, autoFlush: true))
-        
-        XCTAssertEqual(telemetryStub.reportedErrors.first as NSError?, SearchError.incorrectEventTemplate as NSError)
-        XCTAssert(telemetryStub.enqueuedEvents.isEmpty)
-    }
-    
-    func testNativeTelemetryEventPreparation() throws {
-        (engine as! CoreSearchEngineStub).eventTemplate = """
-                                {
-                                    "event": "stub-event",
-                                    "created": "2014-01-01T23:28:56.782Z",
-                                    "userAgent": "custom-user-agent",
-                                    "customField": "random-value",
-                                    "endpoint": "SBS",
-                                }
-                                """
-        let record = IndexableRecordStub.init(id: "some", name: "other", coordinate: .sample1)
-        let feedbackEvent = FeedbackEvent(userRecord: record, reason: "test-reason", text: "test-text")
-        
-        feedbackEvent.deviceOrientation = "Unknown"
-        feedbackEvent.keyboardLocale = "en"
-        feedbackEvent.screenshotData = Data(base64Encoded: "SomeImageData")
-        let viewport = CoreBoundingBox(boundingBox: .sample1)
-        (locationProviderWrapper as! WrapperLocationProviderStub).viewport = CoreBoundingBox(boundingBox: .sample1)
-        
-        try feedbackManager.sendEvent(feedbackEvent, autoFlush: false)
-        
-        XCTAssert(telemetryStub.reportedErrors.isEmpty)
-        
-        let event = try XCTUnwrap(telemetryStub.enqueuedEvents.last)
-        
-        XCTAssertEqual(event.name, EventsManager.Events.feedback.rawValue)
-        XCTAssertEqual(event.attributes["customField"] as? String, "random-value")
-        XCTAssertEqual(event.attributes["selectedItemName"] as? String, "<No address>")
-        XCTAssertEqual(event.attributes["resultIndex"] as? Int, -1)
-        XCTAssertEqual(event.attributes["feedbackReason"] as? String, "test-reason")
-        XCTAssertEqual(event.attributes["feedbackText"] as? String, "test-text")
-        XCTAssertEqual(event.attributes["resultId"] as? String, record.id)
-        
-        XCTAssertEqual(event.attributes["keyboardLocale"] as? String, "en")
-        XCTAssertEqual(event.attributes["orientation"] as? String, "Unknown")
-        XCTAssertEqual(event.attributes["mapZoom"] as? Double, viewport.mapZoom())
-        XCTAssertEqual(event.attributes["mapCenterLatitude"] as? Double, (viewport.max.latitude + viewport.min.latitude) / 2.0)
-        XCTAssertEqual(event.attributes["mapCenterLongitude"] as? Double, (viewport.max.longitude + viewport.min.longitude) / 2.0)
-        
-        XCTAssertEqual(event.attributes["endpoint"] as? String, "SBS")
-        XCTAssertEqual(event.attributes["schema"] as? String, "\(EventsManager.Events.feedback.rawValue)-\(EventsManager.Events.feedback.version)")
-    }
-    
     func testNativeTelemetryFeedbackEventPreparation() throws {
         let coreResponse = CoreSearchResponseStub.successSample(results: [CoreSearchResultStub.sample1])
         let response = CoreSearchResultResponse(coreResult: CoreSearchResultStub.sample1, response: coreResponse)
