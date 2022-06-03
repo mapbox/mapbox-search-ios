@@ -6,6 +6,23 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.30] - 2022-05-03
+
+## Public API changes
+### Removed
+- `RecordsProviderInteractor.contains(identifier: String)` method removed.
+- `MapboxMobileEvents` dependecy.
+
+### Added
+- `SearchError.searchRequestCancelled` in order to identify cancelled request.
+
+## Known limitations
+- Analytics reports disabled for the `beta.30` + (unit tests), it will be enabled again in `beta.31`.
+
+**MapboxCommon**: v21.3.0
+**MapboxCoreSearch**: v0.54.1
+
+
 ## [1.0.0-beta.29] - 2022-04-29
 
 ### Fixed
