@@ -14,13 +14,10 @@ def run_shell(command):
 
 # CocoaPods
 commonVersion_cocoapods = cocoapods_version("MapboxCommon")
-mobileEventsVersion_cocoapods = cocoapods_version("MapboxMobileEvents")
 
 # Carthage
 coreSearchVersion_carthage = carthage_version("MapboxCoreSearch")
 commonVersion_carthage = carthage_version("MapboxCommon")
-mobileEventsVersion_carthage = carthage_version("MapboxMobileEvents.json")
-
 
 # SPM
 coreSearchVersion_spm = run_shell('grep \"let (coreSearchVersion, coreSearchVersionHash)\" Package.swift| cut -d \\" -f2')
@@ -31,7 +28,6 @@ with open('Package.resolved') as json_file:
     json_data = json.load(json_file)
     pins = json_data["object"]["pins"]
     commonVersion_spm = [x['state']['version'] for x in pins if x['repositoryURL'] == 'https://github.com/mapbox/mapbox-common-ios.git'][0]
-    mobileEventsVersion_spm = [x['state']['version'] for x in pins if x['repositoryURL'] == 'https://github.com/mapbox/mapbox-events-ios.git'][0]
 
 mapboxCoreSearch_build_with_commonVersion = run_shell('/usr/libexec/PlistBuddy -c \"Print :MBXCommonSDKVersion\" Carthage/Build/MapboxCoreSearch.xcframework/Info.plist | cut -c2-')
 
@@ -43,11 +39,6 @@ print(f"MapboxCommon (MapboxCoreSearch dependends on {mapboxCoreSearch_build_wit
 print(f"\tSPM {commonVersion_spm} (Resolved)")
 print(f"\tCarthage {commonVersion_carthage} (Resolved)")
 print("\tCocoaPods:", commonVersion_cocoapods)
-
-print("MapboxMobileEvents")
-print(f"\tSPM {mobileEventsVersion_spm} (Resolved)")
-print(f"\tCarthage {mobileEventsVersion_carthage} (Resolved)")
-print("\tCocoaPods:", mobileEventsVersion_cocoapods)
 
 #if coreSearchVersion_spm != coreSearchVersion_carthage:
 #    exit(1)

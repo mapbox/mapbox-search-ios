@@ -18,7 +18,7 @@ class IndexableDataProviderTests: XCTestCase {
         let results = dataProvider.records.map { CoreSearchResultStub(dataProviderRecord: $0) }
         let coreResponse = CoreSearchResponseStub.successSample(results: results)
         engine.searchResponse = coreResponse
-        let response = SearchResponse(coreResponse: coreResponse, associatedError: nil)
+        let response = SearchResponse(coreResponse: coreResponse)
         let expectation = delegate.updateExpectation
         searchEngine.search(query: "sample-1")
         wait(for: [expectation], timeout: 10)
@@ -40,7 +40,7 @@ class IndexableDataProviderTests: XCTestCase {
         let results = dataProvider.records.map { CoreSearchResultStub(dataProviderRecord: $0) }
         let coreResponse = CoreSearchResponseStub.successSample(results: results)
         engine.searchResponse = coreResponse
-        let response = SearchResponse(coreResponse: coreResponse, associatedError: nil)
+        let response = SearchResponse(coreResponse: coreResponse)
         let expectation = delegate.updateExpectation
         searchEngine.search(query: "sample-1")
         wait(for: [expectation], timeout: 10)
@@ -73,7 +73,7 @@ class IndexableDataProviderTests: XCTestCase {
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         let coreResponse = CoreSearchResponseStub.successSample(results: results)
         engine.searchResponse = coreResponse
-        let response = SearchResponse(coreResponse: coreResponse, associatedError: nil)
+        let response = SearchResponse(coreResponse: coreResponse)
         let expectation = delegate.updateExpectation
         searchEngine.search(query: "sample-1")
         wait(for: [expectation], timeout: 10)

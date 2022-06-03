@@ -29,9 +29,7 @@ class SearchEngineIntegrationTests: MockServerTestCase {
         searchEngine.search(query: "some query")
         wait(for: [expectation], timeout: 10)
                 
-        if case .generic(let code, let domain, let message) = delegate.error {
-            XCTAssert(code == 1)
-            XCTAssert(domain == "MapboxCoreSearchErrorDomain")
+        if case .internalSearchRequestError(let message) = delegate.error {
             XCTAssert(message == "Invalid json response")
         } else {
             XCTFail("Not expected")
@@ -64,7 +62,7 @@ class SearchEngineIntegrationTests: MockServerTestCase {
     }
     
     func testEmptySearch() throws {
-        
+
         try server.setResponse(.suggestEmpty)
         
         let expectation = delegate.updateExpectation

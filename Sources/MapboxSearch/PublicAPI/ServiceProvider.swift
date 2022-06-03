@@ -1,5 +1,4 @@
 import Foundation
-import MapboxMobileEvents
 
 let accessTokenPlistKey = "MBXAccessToken"
 let legacyAccessTokenPlistKey = "MGLMapboxAccessToken"
@@ -14,7 +13,12 @@ protocol ServiceProviderProtocol {
 }
 
 protocol EngineProviderProtocol {
-    func createEngine(apiType: CoreSearchEngine.ApiType, accessToken: String, platformClient: CorePlatformClient, locationProvider: CoreLocationProvider?) -> CoreSearchEngineProtocol
+    func createEngine(
+        apiType: CoreSearchEngine.ApiType,
+        accessToken: String,
+        locationProvider: CoreLocationProvider?
+    ) -> CoreSearchEngineProtocol
+
     func getStoredAccessToken() -> String?
 }
 
@@ -36,7 +40,7 @@ public class ServiceProvider: ServiceProviderProtocol {
     /// LocalDataProvider for history records
     public let localHistoryProvider = HistoryProvider()
     /// MapboxMobileEvents manager for analytics usage
-    public let eventsManager = EventsManager(telemetry: MMEEventsManager.shared())
+    public let eventsManager = EventsManager()
     
     /// Responsible for sending feedback related events.
     public private(set) lazy var feedbackManager = FeedbackManager(eventsManager: eventsManager)
@@ -53,19 +57,26 @@ extension ServiceProvider: EngineProviderProtocol {
         ?? Bundle.main.object(forInfoDictionaryKey: legacyAccessTokenPlistKey) as? String
     }
     
-    func createEngine(apiType: CoreSearchEngine.ApiType, accessToken: String, platformClient: CorePlatformClient, locationProvider: CoreLocationProvider?) -> CoreSearchEngineProtocol {
-
-        eventsManager.initialize(accessToken: accessToken)
-        
+    func createEngine(
+        apiType: CoreSearchEngine.ApiType,
+        accessToken: String,
+        locationProvider: CoreLocationProvider?
+    ) -> CoreSearchEngineProtocol {
         // UserDefaults can be used to setup base url in runtime (e.g. UI tests)
         let defaultsBaseURL = UserDefaults.standard.value(forKey: baseURLPlistKey) as? String
         let bundleBaseURL = Bundle.main.object(forInfoDictionaryKey: baseURLPlistKey) as? String
-        let engineOptions = CoreSearchEngine.Options(accessToken: accessToken,
-                                                     baseUrl: bundleBaseURL ?? defaultsBaseURL,
-                                                     apiType: NSNumber(value: apiType.rawValue),
-                                                     userAgent: eventsManager.userAgentName)
-            return CoreSearchEngine(options: engineOptions,
-                                       client: platformClient,
-                                     location: locationProvider)
+       
+        let engineOptions = CoreSearchEngine.Options(
+            accessToken: accessToken,
+            baseUrl: bundleBaseURL ?? defaultsBaseURL,
+            apiType: NSNumber(value: apiType.rawValue),
+            userAgent: eventsManager.userAgentName,
+            eventsUrl: nil
+        )
+
+        return CoreSearchEngine(
+            options: engineOptions,
+            location: locationProvider
+        )
     }
 }

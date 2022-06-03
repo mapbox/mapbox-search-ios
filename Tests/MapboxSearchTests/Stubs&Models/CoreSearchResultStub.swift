@@ -129,6 +129,7 @@ extension CoreSearchResultProtocol {
                          externalIDs: nil,
                          layer: layer,
                          userRecordID: userRecordID,
+                         userRecordPriority: 100,
                          action: action,
                          serverIndex: serverIndex)
     }

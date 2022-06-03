@@ -27,15 +27,6 @@
           "revision": "59b81d4f6316a661c322e8c47bc3310f8a1bdd4a",
           "version": "21.3.0"
         }
-      },
-      {
-        "package": "MapboxMobileEvents",
-        "repositoryURL": "https://github.com/mapbox/mapbox-events-ios.git",
-        "state": {
-          "branch": null,
-          "revision": "5e130fba637f5bbb0bb8bca0dec8d38a06ce07bf",
-          "version": "1.0.8"
-        }
       }
     ]
   },

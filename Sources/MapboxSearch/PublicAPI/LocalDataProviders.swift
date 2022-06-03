@@ -101,7 +101,7 @@ public class LocalDataProvider<Record: Codable & SearchResult & IndexableRecord>
         
         saveData()
     }
-    
+
     /// Deletes record by id
     /// - Parameter recordId: record id to delete
     public func delete(recordId: String) {
@@ -112,6 +112,12 @@ public class LocalDataProvider<Record: Codable & SearchResult & IndexableRecord>
             
             saveData()
         }
+    }
+    
+    /// Check record existance by id
+    /// - Parameter recordId: record id to check
+    func contains(recordId: String) -> Bool {
+        recordsMap[recordId] != nil
     }
     
     /// Deletes all records

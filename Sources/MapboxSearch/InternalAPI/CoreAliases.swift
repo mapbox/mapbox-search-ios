@@ -1,11 +1,12 @@
 /// https://forums.swift.org/t/update-on-implementation-only-imports/26996
 @_implementationOnly import MapboxCoreSearch
 @_implementationOnly import MapboxCommon_Private
+@_implementationOnly import MapboxCoreSearch_Private
 
 // Note: This file included in MapboxSearch and MapboxSearchTests targets
 
 typealias CoreSearchEngine = MapboxCoreSearch.SearchEngine
-typealias CoreSearchResponse = MapboxCoreSearch.SearchResponse
+typealias CoreSearchResponse = MapboxCoreSearch_Private.SearchResponse
 typealias CoreSearchOptions = MapboxCoreSearch.SearchOptions
 typealias CoreBoundingBox = MapboxCoreSearch.LonLatBBox
 typealias CoreSearchResult = MapboxCoreSearch.SearchResult
@@ -14,11 +15,7 @@ typealias CoreResultMetadata = MapboxCoreSearch.ResultMetadata
 typealias CoreRequestOptions = MapboxCoreSearch.RequestOptions
 typealias CoreResultType = MapboxCoreSearch.ResultType
 typealias CoreUserRecord = MapboxCoreSearch.UserRecord
-typealias CoreUserRecordsLayer = MapboxCoreSearch.UserRecordsLayer
-typealias CoreHttpCallback = MapboxCoreSearch.HttpCallback
-typealias CorePlatformClient = MapboxCoreSearch.PlatformClient
-typealias CoreTaskFunction = MapboxCoreSearch.TaskFunction
-typealias CoreLogLevel = MapboxCoreSearch.LogLevel
+typealias CoreUserRecordsLayer = MapboxCoreSearch_Private.UserRecordsLayer
 typealias CoreLocationProvider = MapboxCoreSearch.LocationProvider
 typealias CoreAddress = MapboxCoreSearch.SearchAddress
 typealias CoreSuggestAction = MapboxCoreSearch.SuggestAction

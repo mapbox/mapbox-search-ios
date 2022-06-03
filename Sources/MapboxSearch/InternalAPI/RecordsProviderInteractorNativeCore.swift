@@ -9,7 +9,7 @@ class RecordsProviderInteractorNativeCore: RecordsProviderInteractor {
     
     func add(record: IndexableRecord) {
         do {
-            try userRecordsLayer.add(for: record.coreUserRecord())
+            try userRecordsLayer.upsert(for: record.coreUserRecord())
         } catch {
             _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
         }
@@ -18,7 +18,7 @@ class RecordsProviderInteractorNativeCore: RecordsProviderInteractor {
     func add(records: [IndexableRecord]) {
         do {
             let coreRecords = records.map { $0.coreUserRecord() }
-            try userRecordsLayer.addMulti(for: coreRecords)
+            try userRecordsLayer.upsertMulti(forRecord: coreRecords)
         } catch {
             _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
         }
@@ -26,7 +26,7 @@ class RecordsProviderInteractorNativeCore: RecordsProviderInteractor {
     
     func update(record: IndexableRecord) {
         do {
-            try userRecordsLayer.update(for: record.coreUserRecord())
+            try userRecordsLayer.upsert(for: record.coreUserRecord())
         } catch {
             _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
         }
@@ -46,22 +46,12 @@ class RecordsProviderInteractorNativeCore: RecordsProviderInteractor {
             _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
         }
     }
-    
-    
+
     func deleteAll() {
         do {
             try userRecordsLayer.clear()
         } catch {
             _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
-        }
-    }
-    
-    func contains(identifier: String) -> Bool {
-        do {
-            return try userRecordsLayer.contains(forId: identifier)
-        } catch {
-            _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
-            return false
         }
     }
 }

@@ -3,10 +3,10 @@ import Foundation
 
 class CoreSearchResponseStub {
     let options: CoreRequestOptions
-    let result: Result<[CoreSearchResultProtocol], NSError>
+    let result: Result<[CoreSearchResult], SearchError>
     let id: UInt32
     
-    init(id: UInt32, options: CoreRequestOptions, result: Result<[CoreSearchResultProtocol], NSError>) {
+    init(id: UInt32, options: CoreRequestOptions, result: Result<[CoreSearchResult], SearchError>) {
         self.result = result
         self.options = options
         self.id = id
@@ -26,7 +26,7 @@ extension CoreSearchResponseStub: CoreSearchResponseProtocol {
         case .success:
             return 200
         case .failure(let error):
-            return Int32(error.code)
+            return Int32(error.errorCode)
         }
     }
     
@@ -50,7 +50,7 @@ extension CoreSearchResponseStub: CoreSearchResponseProtocol {
     var results: [CoreSearchResult] {
         switch result {
         case .success(let result):
-            return result.map({ $0.asCoreSearchResult })
+            return result
         case .failure:
             return []
         }

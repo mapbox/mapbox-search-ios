@@ -22,7 +22,7 @@ class SearchEngineTests: XCTestCase {
         
         let coreResponse = CoreSearchResponseStub.successSample(results: results)
         engine.searchResponse = coreResponse
-        let response = SearchResponse(coreResponse: coreResponse, associatedError: nil)
+        let response = SearchResponse(coreResponse: coreResponse)
         let expectation = delegate.updateExpectation
         searchEngine.search(query: "sample-1")
         wait(for: [expectation], timeout: 10)
@@ -40,7 +40,7 @@ class SearchEngineTests: XCTestCase {
         let results = CoreSearchResultStub.makeMixedResultsSet()
         let coreResponse = CoreSearchResponseStub.successSample(results: results)
         engine.searchResponse = coreResponse
-        let response = SearchResponse(coreResponse: coreResponse, associatedError: nil)
+        let response = SearchResponse(coreResponse: coreResponse)
         let expectation = delegate.updateExpectation
         searchEngine.search(query: "sample-1")
         wait(for: [expectation], timeout: 10)
@@ -90,7 +90,7 @@ class SearchEngineTests: XCTestCase {
         let results = CoreSearchResultStub.makeMixedResultsSet()
         let coreResponse = CoreSearchResponseStub.successSample(options: .sample1, results: results)
         engine.searchResponse = coreResponse
-        let response = SearchResponse(coreResponse: coreResponse, associatedError: nil)
+        let response = SearchResponse(coreResponse: coreResponse)
         let updateExpectation = delegate.updateExpectation
         searchEngine.search(query: "sample-1")
         wait(for: [updateExpectation], timeout: 10)
@@ -120,7 +120,7 @@ class SearchEngineTests: XCTestCase {
         let results = CoreSearchResultStub.makeMixedResultsSet()
         let coreResponse = CoreSearchResponseStub.successSample(results: results)
         engine.searchResponse = coreResponse
-        let response = SearchResponse(coreResponse: coreResponse, associatedError: nil)
+        let response = SearchResponse(coreResponse: coreResponse)
         let updateExpectation = delegate.updateExpectation
         searchEngine.search(query: "sample-1")
         wait(for: [updateExpectation], timeout: 10)
@@ -147,7 +147,7 @@ class SearchEngineTests: XCTestCase {
         let results = CoreSearchResultStub.makeMixedResultsSet()
         let coreResponse = CoreSearchResponseStub.successSample(results: results)
         engine.searchResponse = coreResponse
-        let response = SearchResponse(coreResponse: coreResponse, associatedError: nil)
+        let response = SearchResponse(coreResponse: coreResponse)
         let updateExpectation = delegate.updateExpectation
         searchEngine.search(query: "sample-1")
         wait(for: [updateExpectation], timeout: 10)
@@ -180,7 +180,7 @@ class SearchEngineTests: XCTestCase {
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         let coreResponse = CoreSearchResponseStub.successSample(results: results)
         engine.searchResponse = coreResponse
-        let response = SearchResponse(coreResponse: coreResponse, associatedError: nil)
+        let response = SearchResponse(coreResponse: coreResponse)
         let updateExpectation = delegate.updateExpectation
         searchEngine.search(query: "sample-1")
         wait(for: [updateExpectation], timeout: 10)

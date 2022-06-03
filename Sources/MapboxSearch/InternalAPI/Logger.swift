@@ -139,23 +139,4 @@ public enum LoggerLevel: Comparable {
     
     /// Special level to disable all logs
     case disabled
-
-    init(_ coreLevel: CoreLogLevel) {
-        switch coreLevel {
-        case .debug:
-            self = .debug
-        case .info:
-            self = .info
-        case .warning:
-            self = .warning
-        case .error:
-            self = .error
-        @unknown default:
-            #if DEBUG
-            self = .debug
-            #else
-            self = .warning
-            #endif
-        }
-    }
 }

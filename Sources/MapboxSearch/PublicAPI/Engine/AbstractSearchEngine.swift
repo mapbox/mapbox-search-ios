@@ -17,7 +17,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
 
     let engineApi: CoreSearchEngine.ApiType
     let engine: CoreSearchEngineProtocol
-    let platformClient: DarwinPlatformClient
+
     var locationProviderWrapper: WrapperLocationProvider?
     
     /// SearchEngine supports the latest Single-Box Search APIs
@@ -63,14 +63,13 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
         self.eventsManager = serviceProvider.eventsManager
         self.feedbackManager = serviceProvider.feedbackManager
         self.defaultSearchOptions = defaultSearchOptions
-        self.platformClient = DarwinPlatformClient(eventsManager: serviceProvider.eventsManager)
-        
         self.engineApi = supportSBS ? .SBS : .geocoding
-        let engine = serviceProvider.createEngine(apiType: engineApi,
-                                              accessToken: accessToken,
-                                              platformClient: platformClient,
-                                              locationProvider: self.locationProviderWrapper)
-        self.engine = engine
+
+        self.engine = serviceProvider.createEngine(
+            apiType: engineApi,
+            accessToken: accessToken,
+            locationProvider: self.locationProviderWrapper
+        )
         self.offlineManager = SearchOfflineManager(engine: engine, tileStore: SearchTileStore(accessToken: accessToken))
         
         self.feedbackManager.delegate = self

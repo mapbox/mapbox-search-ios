@@ -224,8 +224,8 @@ public class SearchEngine: AbstractSearchEngine {
             assertionFailure("Response should never be nil")
             return
         }
-        let response = SearchResponse(coreResponse: coreResponse,
-                                      associatedError: self.platformClient.errors[coreResponse.requestID])
+
+        let response = SearchResponse(coreResponse: coreResponse)
         switch response.process() {
         case .success(let result):
             delegate?.resultsResolved(results: result.results, searchEngine: self)
@@ -257,9 +257,7 @@ public class SearchEngine: AbstractSearchEngine {
             }
         }
         
-        let response = SearchResponse(coreResponse: coreResponse,
-                                      associatedError: self.platformClient.errors[coreResponse.requestID])
-        return response
+        return SearchResponse(coreResponse: coreResponse)
     }
     
     /// Process core search response and update delegate.
@@ -379,7 +377,9 @@ extension SearchEngine {
     public func reverseGeocoding(options: ReverseGeocodingOptions, completion: @escaping (Result<[SearchResult], SearchError>) -> Void) {
         assert(Thread.isMainThread)
         
-        engineReverseGeocodingFunction(options.toCore()) { response in
+        engineReverseGeocodingFunction(options.toCore()) { [weak self] response in
+            guard let self = self else { return }
+            
             guard let response = response else {
                 self.eventsManager.reportError(.responseProcessingFailed)
                 completion(.failure(.responseProcessingFailed))
@@ -387,14 +387,21 @@ extension SearchEngine {
                 return
             }
             
-            if response.isIsSuccessful {
-                let results = response.results.compactMap({ ServerSearchResult(coreResult: $0, response: response) })
-                completion(.success(results))
-            } else {
-                let responseError = SearchError.generic(code: Int(response.httpCode), domain: mapboxCoreSearchErrorDomain, message: response.message)
-                let searchError = SearchError.reverseGeocodingFailed(reason: responseError, options: options)
-                self.eventsManager.reportError(searchError)
-                completion(.failure(searchError))
+            switch response.result {
+            case .success(let results):
+                completion(
+                    .success(
+                        results.compactMap { ServerSearchResult(coreResult: $0, response: response) }
+                    )
+                )
+                
+            case .failure(let responseError):
+                let wrappedError = SearchError.reverseGeocodingFailed(
+                    reason: responseError,
+                    options: options
+                )
+                
+                completion(.failure(wrappedError))
             }
         }
     }

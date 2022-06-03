@@ -2,42 +2,50 @@ import Foundation
 
 typealias ProcessedSearchResponse = Result<(suggestions: [SearchSuggestion], results: [SearchResult]), SearchError>
 
-class SearchResponse {
+final class SearchResponse {
     let coreResponse: CoreSearchResponseProtocol
-    let associatedError: Error?
-    
-    init(coreResponse: CoreSearchResponseProtocol, associatedError: Error?) {
+
+    init(coreResponse: CoreSearchResponseProtocol) {
         self.coreResponse = coreResponse
-        self.associatedError = associatedError
     }
     
     func process() -> ProcessedSearchResponse {
-        guard coreResponse.isIsSuccessful else {
-            if let error = associatedError as NSError? {
-                return .failure(SearchError(error))
-            } else {
-                return .failure(.generic(code: Int(coreResponse.httpCode),
-                                         domain: mapboxCoreSearchErrorDomain,
-                                         message: coreResponse.message))
-            }
-        }
+        switch coreResponse.result {
+        case .success(let coreSearchResults):
+            return .success(
+                processResults(coreSearchResults)
+            )
         
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
+}
+
+// MARK: - Private
+private extension SearchResponse {
+    func processResults(_ responseResults: [CoreSearchResult]) -> (suggestions: [SearchSuggestion], results: [SearchResult]) {
         var results = [SearchResult]()
-        let suggestions = coreResponse.results.compactMap { coreResult -> SearchSuggestion? in
+        let suggestions = responseResults.compactMap { coreResult -> SearchSuggestion? in
             let suggestion: SearchSuggestion?
             switch coreResult.resultTypes {
             case [.query]:
                 suggestion = SearchQuerySuggestionImpl(coreResult: coreResult, response: coreResponse)
+
             case [.category]:
                 suggestion = SearchCategorySuggestionImpl(coreResult: coreResult, response: coreResponse)
+
             case [.userRecord]:
                 suggestion = ExternalRecordPlaceholder(coreResult: coreResult, response: coreResponse)
+
             case _ where coreResult.resultTypes.contains(.unknown):
                 assertionFailure("Unsupported configuration")
                 suggestion = nil
+
             default:
                 if coreResult.center != nil, let serverSearchResult = ServerSearchResult(coreResult: coreResult, response: coreResponse) {
                     results.append(serverSearchResult)
+
                     // All results should go to suggestions as well. They are stored in SearchEngine.items field
                     // and can be resolved later. SearchResult isn't stored anywhere in SearchEngine.
                     suggestion = serverSearchResult
@@ -49,6 +57,6 @@ class SearchResponse {
             return suggestion
         }
         
-        return .success((suggestions, results))
+        return (suggestions, results)
     }
 }
