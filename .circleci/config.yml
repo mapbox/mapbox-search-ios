@@ -256,7 +256,7 @@ jobs:
 
   nightly-build:
     macos:
-      xcode: 12.5.0
+      xcode: 13.4.0
     environment:
       FL_OUTPUT_DIR: ../output
     steps:
@@ -329,7 +329,7 @@ commands:
 
   upgrade-carthage:
     steps:
-      - run: 
+      - run:
           name: Force update Homebrew
           command: cd "$(brew --repository)" && git fetch && git reset --hard origin/master
       - run: brew update-reset
