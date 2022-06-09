@@ -122,6 +122,7 @@ extension CoreSearchResultProtocol {
                          distance: distance,
                          eta: nil,
                          center: center,
+                         accuracy: 100,
                          routablePoints: routablePoints,
                          categories: categories,
                          icon: icon,

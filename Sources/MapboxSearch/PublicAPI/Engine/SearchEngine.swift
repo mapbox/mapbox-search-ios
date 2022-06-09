@@ -185,10 +185,6 @@ public class SearchEngine: AbstractSearchEngine {
         offlineMode == .disabled ? engine.search : engine.searchOffline
     }
     
-    var engineRetrieveFunction: (CoreSearchResultProtocol, CoreRequestOptions, @escaping (CoreSearchResponseProtocol?) -> Void) -> Void {
-        offlineMode == .disabled ? engine.nextSearch : engine.retrieveOffline
-    }
-    
     var engineReverseGeocodingFunction: (CoreReverseGeoOptions, @escaping (CoreSearchResponseProtocol?) -> Void) -> Void {
         offlineMode == .disabled ? engine.reverseGeocoding : engine.reverseGeocodingOffline
     }
@@ -199,7 +195,12 @@ public class SearchEngine: AbstractSearchEngine {
             return
         }
         
-        engineRetrieveFunction(responseProvider.originalResponse.coreResult, responseProvider.originalResponse.requestOptions) { [weak self] serverResponse in
+        assert(offlineMode == .disabled)
+        
+        engine.nextSearch(
+            for: responseProvider.originalResponse.coreResult,
+            with: responseProvider.originalResponse.requestOptions
+        ) { [weak self] serverResponse in
             self?.processResponse(serverResponse, suggestion: suggestion)
         }
     }
@@ -423,7 +424,10 @@ extension SearchEngine: IndexableDataResolver {
         
         switch suggestion {
         case let suggestion as SearchResultSuggestionImpl:
-            engineRetrieveFunction(suggestion.originalResponse.coreResult, suggestion.originalResponse.requestOptions) { coreSearchResponse in
+            engine.nextSearch(
+                for: suggestion.originalResponse.coreResult,
+                with: suggestion.originalResponse.requestOptions
+            ) { coreSearchResponse in
                 // Processing search response for Suggestion with type Query may return multiple suggestions or results.
                 // For other types we are expecting single result.
                 let searchResult = self.resolveServerResponse(coreResponse: coreSearchResponse)
@@ -431,6 +435,7 @@ extension SearchEngine: IndexableDataResolver {
             }
         case let suggestion as SearchResult:
             completion(suggestion)
+
         default:
             assertionFailure("Class `\(type(of: suggestion))` must confirm `\(SearchResult.self)` protocol in current SDK implementation")
             // TODO: Should pass error here to IndexableDataResolver.

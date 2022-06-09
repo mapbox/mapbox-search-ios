@@ -52,9 +52,7 @@ protocol CoreSearchEngineProtocol {
     func searchOffline(query: String, categories: [String], options: CoreSearchOptions, completion: @escaping (CoreSearchResponseProtocol?) -> Void)
     
     func getOfflineAddress(street: String, proximity: CLLocationCoordinate2D, radius: Double, completion: @escaping (CoreSearchResponseProtocol?) -> Void)
-    
-    func retrieveOffline(for result: CoreSearchResultProtocol, with originalRequest: CoreRequestOptions, callback: @escaping (CoreSearchResponseProtocol?) -> Void)
-    
+
     func reverseGeocodingOffline(for options: CoreReverseGeoOptions, completion: @escaping (CoreSearchResponseProtocol?) -> Void)
     
     func setTileStore(_ tileStore: MapboxCommon.TileStore, completion: (() -> Void)?)
@@ -188,21 +186,6 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
         getAddressesOffline(forStreet: street, proximity: proximity, radiusM: radius) { response in
             DispatchQueue.main.async {
                 completion(response)
-            }
-        }
-    }
-    
-    func retrieveOffline(for result: CoreSearchResultProtocol, with originalRequest: CoreRequestOptions, callback: @escaping (CoreSearchResponseProtocol?) -> Void) {
-        if let coreResult = result as? CoreSearchResult {
-            retrieveOffline(forRequest: originalRequest, result: coreResult) { response in
-                DispatchQueue.main.async {
-                    callback(response)
-                }
-            }
-        } else {
-            assertionFailure("Unexpected type of CoreSearchResultProtocol. Engine doesn't support nothing but CoreSearchResult")
-            DispatchQueue.main.async {
-                callback(nil)
             }
         }
     }
