@@ -18,6 +18,9 @@ public protocol SearchSuggestion {
     /// Usually contains pre-formatted address.
     var descriptionText: String? { get }
     
+    /// Result categories types.
+    var categories: [String]? { get }
+    
     /// Result address.
     var address: Address? { get }
     

@@ -16,6 +16,8 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
     
     var iconName: String?
     
+    var categories: [String]?
+    
     var suggestionType: SearchSuggestType = .POI
     
     var distance: CLLocationDistance?
@@ -31,6 +33,7 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
         self.dataLayerIdentifier = layerIdentifier
         self.distance = coreResult.distanceToProximity
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
+        self.categories = coreResult.categories
         
         self.descriptionText = coreResult.addresses?.first.map(Address.init)?.formattedAddress(style: .medium)
         self.batchResolveSupported = coreResult.action?.isMultiRetrievable ?? false
