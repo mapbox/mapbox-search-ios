@@ -9,6 +9,11 @@ protocol CoreSearchResponseProtocol {
 }
 
 extension CoreSearchResponse: CoreSearchResponseProtocol {
+    
+    var requestID: UInt32 {
+        return 0
+    }
+    
     var result: Result<[CoreSearchResult], SearchError> {
         if let responseResults = results.value as? [CoreSearchResult] {
             return .success(responseResults)
