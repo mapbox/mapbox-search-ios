@@ -5,7 +5,7 @@ import PackageDescription
 import Foundation
 
 let registry = SDKRegistry()
-let (coreSearchVersion, coreSearchVersionHash) = ("0.55.0-beta.2", "7b2df085c423ca9af8f5a5b2db1457bcfa4a02b2c19b83fd8a3a0c6b4edbb92f")
+let (coreSearchVersion, coreSearchVersionHash) = ("0.56.0", "a12935cbe3ab46ebd82d1edd4219d330d781746adc4e0342b5ad41e9ae16e67b")
 
 let package = Package(
     name: "MapboxSearch",
@@ -23,7 +23,7 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
-        .package(name: "MapboxCommon", url: "https://github.com/mapbox/mapbox-common-ios.git", .exact("22.0.0-rc.2")),
+        .package(name: "MapboxCommon", url: "https://github.com/mapbox/mapbox-common-ios.git", .exact("22.0.0")),
         .package(url: "https://github.com/mattgallagher/CwlPreconditionTesting.git", from: "2.0.0")
     ],
     targets: [
