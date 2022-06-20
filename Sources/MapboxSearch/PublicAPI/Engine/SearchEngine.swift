@@ -269,11 +269,20 @@ public class SearchEngine: AbstractSearchEngine {
         guard let response = preProcessResponse(coreResponse) else {
             return
         }
+
         switch response.process() {
         case .success(let responseResult):
-            suggestions = responseResult.suggestions
             responseInfo = SearchResponseInfo(response: response.coreResponse, suggestion: suggestion)
-            delegate?.suggestionsUpdated(suggestions: suggestions, searchEngine: self)
+            suggestions = responseResult.suggestions
+            
+            if offlineMode == .enabled {
+                let results = responseResult.results
+                
+                delegate?.resultsResolved(results: results, searchEngine: self)
+            } else {
+                delegate?.suggestionsUpdated(suggestions: suggestions, searchEngine: self)
+            }
+
         case .failure(let searchError):
             eventsManager.reportError(searchError)
             delegate?.searchErrorHappened(searchError: searchError, searchEngine: self)
