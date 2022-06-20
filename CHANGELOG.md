@@ -6,6 +6,13 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## Public API changes
+### Added
+- `SearchSuggestion.categories` identifies categories of POI, optional.
+
+**MapboxCommon**: v21.3.0
+**MapboxCoreSearch**: v0.54.1
+
 ## [1.0.0-beta.30] - 2022-05-03
 
 ## Public API changes
