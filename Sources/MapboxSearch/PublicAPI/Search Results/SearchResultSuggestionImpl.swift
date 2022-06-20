@@ -14,6 +14,8 @@ class SearchResultSuggestionImpl: SearchResultSuggestion, CoreResponseProvider {
     
     var iconName: String?
     
+    var categories: [String]?
+    
     var suggestionType: SearchSuggestType
     
     var descriptionText: String?
@@ -44,6 +46,7 @@ class SearchResultSuggestionImpl: SearchResultSuggestion, CoreResponseProvider {
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
         self.distance = coreResult.distanceToProximity
         self.batchResolveSupported = coreResult.action?.isMultiRetrievable ?? false
+        self.categories = coreResult.categories
         
         self.descriptionText = coreResult.addressDescription
     }

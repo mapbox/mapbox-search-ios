@@ -13,6 +13,8 @@ struct SearchResultSuggestionStub: SearchResultSuggestion {
     
     var address: Address?
     
+    var categories: [String]?
+    
     var descriptionText: String? = "Test description text"
     
     var iconName: String? = Maki.bar.name
