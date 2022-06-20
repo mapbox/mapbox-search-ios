@@ -1,7 +1,6 @@
 import Foundation
 
 protocol CoreSearchResponseProtocol {
-    var requestID: UInt32 { get }
     var request: CoreRequestOptions { get }
 
     var result: Result<[CoreSearchResult], SearchError> { get }
