@@ -38,11 +38,7 @@ extension CoreSearchResponseStub: CoreSearchResponseProtocol {
             return error.localizedDescription
         }
     }
-    
-    var requestID: UInt32 {
-        return id
-    }
-    
+
     var request: CoreRequestOptions {
         return options
     }

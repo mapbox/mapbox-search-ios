@@ -1,7 +1,6 @@
 import Foundation
 
 protocol CoreSearchResponseProtocol {
-    var requestID: UInt32 { get }
     var request: CoreRequestOptions { get }
 
     var result: Result<[CoreSearchResult], SearchError> { get }
@@ -9,11 +8,6 @@ protocol CoreSearchResponseProtocol {
 }
 
 extension CoreSearchResponse: CoreSearchResponseProtocol {
-    
-    var requestID: UInt32 {
-        return 0
-    }
-    
     var result: Result<[CoreSearchResult], SearchError> {
         if let responseResults = results.value as? [CoreSearchResult] {
             return .success(responseResults)
