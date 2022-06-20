@@ -6,7 +6,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
-## [1.0.0-beta.30] - 2022-06-20
+## [1.0.0-beta.31] - 2022-06-20
 
 ### Added
 - [Core] `SearchSuggestion.categories` identifies categories of POI, optional.
