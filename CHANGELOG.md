@@ -6,12 +6,16 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
-## Public API changes
-### Added
-- `SearchSuggestion.categories` identifies categories of POI, optional.
+## [1.0.0-beta.30] - 2022-06-20
 
-**MapboxCommon**: v21.3.0
-**MapboxCoreSearch**: v0.54.1
+### Added
+- [Core] `SearchSuggestion.categories` identifies categories of POI, optional.
+
+### Updated
+- [Core] `OfflineSearchEngine` is a 1-step search now, which means that `SearchResult`'s returned in the first step without `SearchSuggestion` selection.
+
+**MapboxCommon**: v22.0.0
+**MapboxCoreSearch**: v0.56.0
 
 ## [1.0.0-beta.30] - 2022-05-03
 
