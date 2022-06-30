@@ -11,6 +11,7 @@ protocol CoreSearchResultProtocol {
      */
     var names: [String] { get }
 
+    var resultAccuracy: CoreAccuracy? { get }
     
     var languages: [String] { get }
 
@@ -64,6 +65,10 @@ extension CoreSearchResult: CoreSearchResultProtocol {
     
     var distanceToProximity: CLLocationDistance? {
         distance.map({ $0.doubleValue })
+    }
+    
+    var resultAccuracy: CoreAccuracy? {
+        accuracy.flatMap { CoreAccuracy(rawValue: $0.intValue) }
     }
     
     var addressDescription: String? { descrAddress }

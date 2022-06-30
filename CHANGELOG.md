@@ -8,6 +8,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ### Added
 - [Core] `SearchSuggestion.serverIndex` and `SearchResult.serverIndex` identifies index in response from server.
+- [Core] `SearchResult.accuracy` identifies accuracy metric for the returned address.
 
 
 ## [1.0.0-beta.31] - 2022-06-20

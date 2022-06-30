@@ -28,6 +28,9 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     /// Index in response from server.
     public let serverIndex: Int?
     
+    /// A point accuracy metric for the returned address.
+    public let accuracy: SearchResultAccuracy?
+    
     /**
         The feature name, as matched by the search algorithm.
         
@@ -96,6 +99,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         name: String,
         matchingName: String?,
         serverIndex: Int?,
+        accuracy: SearchResultAccuracy?,
         coordinate: CLLocationCoordinate2D,
         timestamp: Date = Date(),
         historyType: HistoryRecord.HistoryType,
@@ -109,6 +113,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         self.name = name
         self.matchingName = matchingName
         self.serverIndex = serverIndex
+        self.accuracy = accuracy
         self.coordinateCodable = .init(coordinate)
         self.timestamp = timestamp
         self.historyType = historyType
@@ -133,6 +138,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         self.name = searchResult.name
         self.matchingName = searchResult.matchingName
         self.serverIndex = searchResult.serverIndex
+        self.accuracy = searchResult.accuracy
         self.coordinateCodable = .init(searchResult.coordinate)
         self.timestamp = timestamp
         self.historyType = historyType

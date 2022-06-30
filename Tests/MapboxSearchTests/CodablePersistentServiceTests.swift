@@ -36,6 +36,7 @@ class CodablePersistentServiceTests: XCTestCase {
                                     address: address,
                                     makiIcon: nil,
                                     serverIndex: nil,
+                                    accuracy: nil,
                                     categories: [],
                                     resultType: .address(subtypes: [.address]))
         XCTAssertTrue(service.saveData(record), "Unable to save record")
@@ -55,6 +56,7 @@ class CodablePersistentServiceTests: XCTestCase {
                                    name: "DaName",
                                    matchingName: nil,
                                    serverIndex: nil,
+                                   accuracy: nil,
                                    coordinate: coordinate,
                                    timestamp: Date(),
                                    historyType: .category,

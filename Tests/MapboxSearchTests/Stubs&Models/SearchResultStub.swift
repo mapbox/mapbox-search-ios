@@ -5,6 +5,7 @@ import CoreLocation
 class SearchResultStub: SearchResult {
     init(
         id: String,
+        accuracy: SearchResultAccuracy? = nil,
         categories: [String]? = nil,
         name: String,
         matchingName: String?,
@@ -18,6 +19,7 @@ class SearchResultStub: SearchResult {
         dataLayerIdentifier: String = "unit-test-stub"
     ) {
         self.id = id
+        self.accuracy = accuracy
         self.categories = categories
         self.name = name
         self.matchingName = matchingName
@@ -34,6 +36,7 @@ class SearchResultStub: SearchResult {
     var dataLayerIdentifier: String
     
     var id: String
+    var accuracy: SearchResultAccuracy?
     var categories: [String]?
     var name: String
     var matchingName: String?

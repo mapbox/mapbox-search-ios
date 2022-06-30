@@ -23,6 +23,7 @@ typealias CoreQueryType = MapboxCoreSearch.QueryType
 typealias CoreImageInfo = MapboxCoreSearch.ImageInfo
 typealias CoreOpenHours = MapboxCoreSearch.OpenHours
 typealias CoreOpenPeriod = MapboxCoreSearch.OpenPeriod
+typealias CoreAccuracy = MapboxCoreSearch.ResultAccuracy
 
 typealias CoreReverseGeoOptions = MapboxCoreSearch.ReverseGeoOptions
 

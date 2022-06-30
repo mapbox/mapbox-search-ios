@@ -21,6 +21,8 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
     
     var serverIndex: Int?
     
+    var accuracy: SearchResultAccuracy?
+    
     var coordinateCodable: CLLocationCoordinate2DCodable
     
     var address: Address?
@@ -65,6 +67,7 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
         self.estimatedTime = coreResult.estimatedTime
         self.metadata = coreResult.metadata.map(SearchResultMetadata.init)
         self.serverIndex = coreResult.serverIndex?.intValue
+        self.accuracy = coreResult.resultAccuracy.flatMap(SearchResultAccuracy.from(coreAccuracy:))
         self.address = coreResult.addresses?.first.map(Address.init)
         self.categories = coreResult.categories
         self.coordinateCodable = .init(coordinate)
