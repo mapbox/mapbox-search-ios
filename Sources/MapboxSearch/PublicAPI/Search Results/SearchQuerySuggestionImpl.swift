@@ -15,6 +15,8 @@ class SearchQuerySuggestionImpl: SearchQuerySuggestion, CoreResponseProvider {
     
     var iconName: String?
     
+    var serverIndex: Int?
+    
     var categories: [String]?
     
     var suggestionType: SearchSuggestType

@@ -13,6 +13,9 @@ public protocol SearchResult {
     /// Icon name according to [Mapbox Maki icon set](https://github.com/mapbox/maki/)
     var iconName: String? { get }
     
+    /// Index in response from server.
+    var serverIndex: Int? { get }
+    
     /// Type of SearchResult. Should be one of address or POI.
     var type: SearchResultType { get }
     

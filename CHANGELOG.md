@@ -6,6 +6,10 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+### Added
+- [Core] `SearchSuggestion.serverIndex` and `SearchResult.serverIndex` identifies index in response from server.
+
+
 ## [1.0.0-beta.31] - 2022-06-20
 
 ### Added

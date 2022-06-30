@@ -37,6 +37,9 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     /// Maki icon name.
     public var icon: Maki?
     
+    /// Index in response from server.
+    public let serverIndex: Int?
+    
     /// Maki icon name. Use ``icon`` when possible.
     public var iconName: String?
     
@@ -74,6 +77,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         coordinate: CLLocationCoordinate2D,
         address: Address?,
         makiIcon: Maki?,
+        serverIndex: Int?,
         categories: [String]?,
         routablePoints: [RoutablePoint]? = nil,
         resultType: SearchResultType,
@@ -85,6 +89,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         self.coordinateCodable = .init(coordinate)
         self.address = address
         self.icon = makiIcon
+        self.serverIndex = serverIndex
         self.categories = categories
         self.type = resultType
         self.metadata = metadata
@@ -106,6 +111,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
                   coordinate: searchResult.coordinate,
                   address: searchResult.address,
                   makiIcon: searchResult.iconName.flatMap(Maki.init),
+                  serverIndex: searchResult.serverIndex,
                   categories: searchResult.categories,
                   routablePoints: searchResult.routablePoints,
                   resultType: searchResult.type,

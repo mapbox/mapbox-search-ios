@@ -6,6 +6,7 @@ struct TestDataProviderRecord: IndexableRecord, SearchResult {
     var id: String = UUID().uuidString
     var name: String
     var matchingName: String?
+    var serverIndex: Int?
     var coordinate: CLLocationCoordinate2D
     var iconName: String?
     var categories: [String]?

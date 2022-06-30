@@ -8,6 +8,7 @@ class SearchResultStub: SearchResult {
         categories: [String]? = nil,
         name: String,
         matchingName: String?,
+        serverIndex: Int?,
         iconName: String? = nil,
         resultType: SearchResultType,
         routablePoints: [RoutablePoint]? = nil,
@@ -20,6 +21,7 @@ class SearchResultStub: SearchResult {
         self.categories = categories
         self.name = name
         self.matchingName = matchingName
+        self.serverIndex = serverIndex
         self.iconName = iconName
         self.type = resultType
         self.routablePoints = routablePoints
@@ -35,6 +37,7 @@ class SearchResultStub: SearchResult {
     var categories: [String]?
     var name: String
     var matchingName: String?
+    var serverIndex: Int?
     var iconName: String?
     var type: SearchResultType
     var routablePoints: [RoutablePoint]?

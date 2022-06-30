@@ -14,6 +14,9 @@ public protocol SearchSuggestion {
     /// Suggestion name.
     var name: String { get }
     
+    /// Index in response from server.
+    var serverIndex: Int? { get }
+    
     /// Server provided result description.
     /// Usually contains pre-formatted address.
     var descriptionText: String? { get }
