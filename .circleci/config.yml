@@ -7,6 +7,12 @@ orbs:
 
 workflows:
   version: 2
+  release-temp:
+    jobs:
+      - post-SDK_Registry-release:
+          filters:
+            tags:
+              only: /v.*/
   develop-build:
     jobs:
       - pre-check:
