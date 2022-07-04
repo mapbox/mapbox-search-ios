@@ -444,7 +444,21 @@ extension MapboxSearchController: SearchEngineDelegate {
         }
         searchSuggestionsSource.suggestions = suggestions
         
-        noSuggestionsView.suggestionLabelVisible = searchSuggestionsSource.suggestions.isEmpty
+        noSuggestionsView.suggestionLabelVisible = suggestions.isEmpty
+        tableController.tableView.tableFooterView = noSuggestionsView
+        tableController.tableView.reloadData()
+    }
+    
+    public func offlineResultsUpdated(_ results: [SearchResult], suggestions: [SearchSuggestion], searchEngine: SearchEngine) {
+        assert(Thread.isMainThread)
+        assert(results.count == suggestions.count)
+        
+        let responseQuery = Query(string: searchEngine.query)
+        guard responseQuery == query || responseQuery == .none else { return }
+        
+        searchSuggestionsSource.suggestions = suggestions
+        
+        noSuggestionsView.suggestionLabelVisible = suggestions.isEmpty
         tableController.tableView.tableFooterView = noSuggestionsView
         tableController.tableView.reloadData()
     }
