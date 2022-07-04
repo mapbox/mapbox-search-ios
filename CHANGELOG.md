@@ -9,7 +9,10 @@ Guide: https://keepachangelog.com/en/1.0.0/
 ### Added
 - [Core] `SearchSuggestion.serverIndex` and `SearchResult.serverIndex` identifies index in response from server.
 - [Core] `SearchResult.accuracy` identifies accuracy metric for the returned address.
+- [Core] `SearchEngineDelegate.suggestionsUpdated(results:suggestions:searchEngine)` - added a separate method for search results received in offline mode.
 
+### Fixed
+- [UI] Fixed an issue in `MapboxSearchController` when search suggestions didn't update in offline mode
 
 ## [1.0.0-beta.31] - 2022-06-20
 
