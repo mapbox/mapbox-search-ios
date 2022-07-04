@@ -6,6 +6,12 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+### Added
+- [Core] `SearchEngineDelegate.suggestionsUpdated(results:suggestions:searchEngine)` - added a separate method for search results received in offline mode.
+
+### Fixed
+- [UI] Fixed an issue in `MapboxSearchController` when search suggestions didn't update in offline mode
+
 ## [1.0.0-beta.31] - 2022-06-20
 
 ### Added

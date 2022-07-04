@@ -9,6 +9,12 @@ public protocol SearchEngineDelegate: AnyObject {
     /// - Parameter searchEngine: calling engine
     func suggestionsUpdated(suggestions: [SearchSuggestion], searchEngine: SearchEngine)
     
+    /// Search Engine calls this method for every offline search update
+    /// - Parameter results: resolved search results
+    /// - Parameter suggestions: suggestions for search results
+    /// - Parameter searchEngine: calling engine
+    func offlineResultsUpdated(_ results: [SearchResult], suggestions: [SearchSuggestion], searchEngine: SearchEngine)
+    
     /// Search Engine did resolve SearchSuggestion.
     /// To receive resolved Search result you have to call "select(suggestion: SearchSuggestion)" method
     /// - Parameter result: resolved search result
@@ -33,6 +39,12 @@ public extension SearchEngineDelegate {
     ///   - results: resolved search result
     ///   - searchEngine: calling engine
     func resultsResolved(results: [SearchResult], searchEngine: SearchEngine) { }
+    
+    /// Default implementation does nothing
+    /// - Parameter results: resolved search results
+    /// - Parameter suggestions: suggestions for search results
+    /// - Parameter searchEngine: calling engine
+    func offlineResultsUpdated(_ results: [SearchResult], suggestions: [SearchSuggestion], searchEngine: SearchEngine) { }
 }
 
 /**
@@ -276,9 +288,11 @@ public class SearchEngine: AbstractSearchEngine {
             suggestions = responseResult.suggestions
             
             if offlineMode == .enabled {
-                let results = responseResult.results
-                
-                delegate?.resultsResolved(results: results, searchEngine: self)
+                delegate?.offlineResultsUpdated(
+                    responseResult.results,
+                    suggestions: responseResult.suggestions,
+                    searchEngine: self
+                )
             } else {
                 delegate?.suggestionsUpdated(suggestions: suggestions, searchEngine: self)
             }
