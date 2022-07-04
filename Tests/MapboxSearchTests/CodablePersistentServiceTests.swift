@@ -35,6 +35,8 @@ class CodablePersistentServiceTests: XCTestCase {
                                     coordinate: coordinate,
                                     address: address,
                                     makiIcon: nil,
+                                    serverIndex: nil,
+                                    accuracy: nil,
                                     categories: [],
                                     resultType: .address(subtypes: [.address]))
         XCTAssertTrue(service.saveData(record), "Unable to save record")
@@ -53,6 +55,8 @@ class CodablePersistentServiceTests: XCTestCase {
         let record = HistoryRecord(id: UUID().uuidString,
                                    name: "DaName",
                                    matchingName: nil,
+                                   serverIndex: nil,
+                                   accuracy: nil,
                                    coordinate: coordinate,
                                    timestamp: Date(),
                                    historyType: .category,

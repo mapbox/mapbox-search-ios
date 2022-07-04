@@ -19,6 +19,8 @@ struct SearchResultSuggestionStub: SearchResultSuggestion {
     
     var iconName: String? = Maki.bar.name
     
+    var serverIndex: Int?
+    
     var suggestionType: SearchSuggestType = .address(subtypes: [.address])
     
     var searchRequest: SearchRequestOptions = .sample1

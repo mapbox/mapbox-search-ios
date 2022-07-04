@@ -4,8 +4,10 @@ import CoreLocation
 struct TestDataProviderRecord: IndexableRecord, SearchResult {
     var type: SearchResultType
     var id: String = UUID().uuidString
+    var accuracy: SearchResultAccuracy?
     var name: String
     var matchingName: String?
+    var serverIndex: Int?
     var coordinate: CLLocationCoordinate2D
     var iconName: String?
     var categories: [String]?

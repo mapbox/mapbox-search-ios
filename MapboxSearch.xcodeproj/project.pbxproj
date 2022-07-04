@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140D1BDC286DB479001A51C2 /* SearchResultAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */; };
 		3A0D7E56233522D5006D81BB /* MapboxSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */; };
 		E648C0B626428D2B0044315F /* MapboxCoreSearch.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */; };
 		E648C0BA26428D3D0044315F /* MapboxCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B926428D3D0044315F /* MapboxCommon.xcframework */; };
@@ -410,6 +411,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAccuracy.swift; sourceTree = "<group>"; };
 		3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0D7E55233522D5006D81BB /* MapboxSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapboxSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxCoreSearch.xcframework; path = Carthage/Build/MapboxCoreSearch.xcframework; sourceTree = "<group>"; };
@@ -1084,6 +1086,7 @@
 				FEEDD2D52508DFE400DC0A98 /* SearchRequestOptions.swift */,
 				F998AED725D17DFF00230F34 /* SearchResponseInfo.swift */,
 				FEEDD2DF2508DFE400DC0A98 /* ServiceProvider.swift */,
+				140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */,
 			);
 			path = PublicAPI;
 			sourceTree = "<group>";
@@ -1899,6 +1902,7 @@
 				FE1122C02567C2F30064FD53 /* NetworkSession.swift in Sources */,
 				FEEDD30A2508DFE400DC0A98 /* RecordsProviderInteractor.swift in Sources */,
 				FEEDD3072508DFE400DC0A98 /* Address.swift in Sources */,
+				140D1BDC286DB479001A51C2 /* SearchResultAccuracy.swift in Sources */,
 				FEEDD3122508DFE400DC0A98 /* SearchResultSuggestion.swift in Sources */,
 				FE0A04F5256D3B5D00FB222B /* RoutablePoint.swift in Sources */,
 				F931B34B25A32C7500AA1674 /* SearchQuerySuggestionImpl.swift in Sources */,

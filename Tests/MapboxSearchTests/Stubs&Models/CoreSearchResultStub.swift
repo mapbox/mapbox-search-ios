@@ -4,6 +4,7 @@ import CoreLocation
 class CoreSearchResultStub: CoreSearchResultProtocol {
     init(
         id: String,
+        resultAccuracy: CoreAccuracy? = nil,
         type: CoreResultType,
         names: [String] = ["sample-name1", "sample-name2"],
         languages: [String] = ["sample-language1", "sample-language2"],
@@ -23,6 +24,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         estimatedTime: Measurement<UnitDuration>? = nil
     ) {
         self.id = id
+        self.resultAccuracy = resultAccuracy
         self.resultTypes = [type]
         self.names = names
         self.languages = languages
@@ -51,6 +53,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
     }
     
     var id: String
+    var resultAccuracy: CoreAccuracy?
     var resultTypes: [CoreResultType]
     var type: CoreResultType { resultTypes.first ?? .unknown }
     var names: [String]

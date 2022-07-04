@@ -8,6 +8,7 @@ struct SearchSuggestionStub: SearchSuggestion {
     var descriptionText: String? = "Test Description"
     var address: Address?
     var iconName: String?
+    var serverIndex: Int?
     var suggestionType: SearchSuggestType = .address(subtypes: [.place])
     var searchRequest = SearchRequestOptions(query: "test", proximity: nil)
     var distance: CLLocationDistance?

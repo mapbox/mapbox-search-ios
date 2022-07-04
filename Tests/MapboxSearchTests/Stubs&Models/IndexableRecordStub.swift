@@ -23,6 +23,7 @@ struct IndexableRecordStub: IndexableRecord {
             categories: nil,
             name: name,
             matchingName: nil,
+            serverIndex: nil,
             iconName: nil,
             resultType: .address(subtypes: [.address]),
             coordinate: .init(coordinate),

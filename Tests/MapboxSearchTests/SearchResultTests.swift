@@ -7,6 +7,7 @@ class SearchResultTests: XCTestCase {
             id: "unit-test-random",
             name: "Unit Test",
             matchingName: nil,
+            serverIndex: nil,
             resultType: .POI,
             coordinate: .init(latitude: 12, longitude: -35),
             metadata: .pizzaMetadata

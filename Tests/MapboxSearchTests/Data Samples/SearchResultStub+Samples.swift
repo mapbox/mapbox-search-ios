@@ -5,6 +5,7 @@ extension SearchResultStub {
                                           categories: ["sample-1", "sample-2"],
                                           name: "Sample No 1",
                                           matchingName: nil,
+                                          serverIndex: nil,
                                           iconName: Maki.bar.name,
                                           resultType: .POI,
                                           routablePoints: [.routablePointForSample1],
