@@ -4,7 +4,7 @@ public enum SearchSuggestType: Codable, Hashable {
     ///
     /// Can have multiple subtypes. For example, `[.country]` for Country result like Germany or `[.address]` for a concrete address.
     /// Sometimes server may respond with multiple address subtypes for the result. For example, Seoul would have `[.region, .place]`.
-    case address(subtypes: [SearchAddressType])
+    case address(subtypes: [AddressKind])
     
     /// Suggestion represents point-of-interest.
     case POI
@@ -19,7 +19,7 @@ public enum SearchSuggestType: Codable, Hashable {
     case query
     
     /// Access to `subtypes` of `address` type. Do not available for `.POI` type.
-    public var addressSubtypes: [SearchAddressType]? {
+    public var addressSubtypes: [AddressKind]? {
         switch self {
         case .address(let subtypes):
             return subtypes
@@ -41,7 +41,7 @@ public enum SearchSuggestType: Codable, Hashable {
         case .poi:
             self = .POI
         case .address:
-            let types = try container.decode([SearchAddressType].self, forKey: .address)
+            let types = try container.decode([AddressKind].self, forKey: .address)
             self = .address(subtypes: types)
         case .category:
             self = .category

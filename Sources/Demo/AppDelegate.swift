@@ -5,6 +5,8 @@ import Atlantis
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    
+    var addressAutofill: AddressAutofill?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if ProcessInfo.processInfo.arguments.contains("--uitesting") {
@@ -22,6 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         Atlantis.start()
+        
+        
+        addressAutofill = AddressAutofill()
+        addressAutofill?.suggestions(for: "New York") { suggestions in
+            print("kek")
+        }
         
         return true
     }

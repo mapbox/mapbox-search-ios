@@ -1,7 +1,7 @@
 import Foundation
 
 /// Concrete available address types
-public enum SearchAddressType: String, Hashable, Codable {
+public enum AddressKind: String, Hashable, Codable {
     /// Individual residential or business addresses.
     case address
     
@@ -11,7 +11,6 @@ public enum SearchAddressType: String, Hashable, Codable {
     case place
     
     /// The street, with no house number.
-    /// - Note: Single-Box Search API only
     case street
     
     /// Postal codes used in country-specific national addressing systems.
@@ -41,24 +40,34 @@ public enum SearchAddressType: String, Hashable, Codable {
         switch core {
         case .address:
             self = .address
+
         case .place:
             self = .place
+
         case .street:
             self = .street
+
         case .postcode:
             self = .postcode
+
         case .country:
             self = .country
+
         case .region:
             self = .region
+
         case .district:
             self = .district
+
         case .locality:
             self = .locality
+
         case .neighborhood:
             self = .neighborhood
+
         case .unknown, .category, .userRecord, .query, .poi:
             fallthrough
+
         @unknown default:
             return nil
         }
