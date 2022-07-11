@@ -10,9 +10,9 @@ public extension AddressAutofill {
 }
 
 public extension AddressAutofill.AddressComponent {
-    enum Kind: String, Hashable, Codable {
+    enum Kind: String, Hashable, Codable, CaseIterable {
         /// House number of the individual residential or business addresses.
-        case houseNumber
+        case houseNumber // swiftlint:disable:this raw_value_for_camel_cased_codable_enum
         
         /// Street name of the individual residential or business addresses.
         case street

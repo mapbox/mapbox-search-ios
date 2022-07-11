@@ -9,7 +9,7 @@ final class LanguageTests: XCTestCase {
         let lowercasedIdentifier = Language(languageCode: "en")
 
         XCTAssertNotNil(uppercasedIdentifier)
-        XCTAssertTrue(uppercasedIdentifier?.languageCode == "EN")
+        XCTAssertTrue(uppercasedIdentifier?.languageCode == "en")
         
         XCTAssertNotNil(lowercasedIdentifier)
         XCTAssertTrue(lowercasedIdentifier?.languageCode == "en")
