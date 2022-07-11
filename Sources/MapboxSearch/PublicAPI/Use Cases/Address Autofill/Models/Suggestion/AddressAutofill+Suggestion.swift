@@ -14,7 +14,11 @@ public extension AddressAutofill {
         // Detailed address components like street, house number, etc.
         private let addressComponents: NonEmptyArray<AddressComponent>
         
-        init(formattedAddress: String, coordinate: CLLocationCoordinate2D, addressComponents: NonEmptyArray<AddressComponent>) {
+        init(
+            formattedAddress: String,
+            coordinate: CLLocationCoordinate2D,
+            addressComponents: NonEmptyArray<AddressComponent>
+        ) {
             self.formattedAddress = formattedAddress
             self.coordinate = coordinate
             self.addressComponents = addressComponents

@@ -24,13 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         Atlantis.start()
-        
-        
-        addressAutofill = AddressAutofill()
-        addressAutofill?.suggestions(for: "New York") { suggestions in
-            print("kek")
-        }
-        
+
         return true
     }
 }

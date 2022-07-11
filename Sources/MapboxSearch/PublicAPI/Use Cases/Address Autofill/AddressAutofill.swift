@@ -68,21 +68,18 @@ public extension AddressAutofill {
 // MARK: - Reverse geocoding query
 private extension AddressAutofill {
     func fetchSuggestions(using options: CoreReverseGeoOptions, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
-        searchEngine.reverseGeocoding(for: options) { response in
-            guard let response = response else {
-                assertionFailure("Response should never be nil")
+        searchEngine.reverseGeocoding(for: options) { [weak self] response in
+            guard let response = Self.preprocessResponse(response) else {
                 return
             }
             
-            switch response.result {
+            switch response.coreResponse.result {
             case .success(let results):
-                // HANDLE SUCCESS
-                print(results.count)
+                self?.resolve(suggestions: results, with: response.coreResponse.request, completion: completion)
                 
             case .failure(let responseError):
-                // TODO: handle errors
                 completion(
-                    .failure(.underlying(responseError))
+                    .failure(responseError)
                 )
             }
         }
@@ -112,36 +109,35 @@ private extension AddressAutofill {
         for query: String,
         completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
     ) {
-        guard let response = Self.preprocessResponse(coreResponse, for: query) else {
+        guard let response = Self.preprocessResponse(coreResponse) else {
             return
         }
         
         switch response.coreResponse.result {
         case .success(let coreResults):
-            resolve(suggestions: coreResults, for: query, with: response.coreResponse.request, completion: completion)
+            resolve(suggestions: coreResults, with: response.coreResponse.request, completion: completion)
             
         case .failure(let error):
-            // TODO: handle errors
-            completion(.failure(.underlying(error)))
+            completion(.failure(error))
         }
     }
     
-    static func preprocessResponse(_ coreResponse: CoreSearchResponseProtocol?, for query: String) -> SearchResponse? {
+    static func preprocessResponse(_ coreResponse: CoreSearchResponseProtocol?) -> SearchResponse? {
         assert(Thread.isMainThread)
         
         guard let coreResponse = coreResponse else {
             assertionFailure("Response should never be nil")
             return nil
         }
-        
-        guard coreResponse.request.query == query else {
-            return nil
-        }
-        
+    
         return SearchResponse(coreResponse: coreResponse)
     }
     
-    func resolve(suggestions: [CoreSearchResult], for query: String, with options: CoreRequestOptions, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
+    func resolve(
+        suggestions: [CoreSearchResult],
+        with options: CoreRequestOptions,
+        completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
+    ) {
         guard !suggestions.isEmpty else {
             return completion(.success([]))
         }
@@ -162,7 +158,7 @@ private extension AddressAutofill {
                     return
                 }
                 
-                guard let response = Self.preprocessResponse(coreResponse, for: query) else {
+                guard let response = Self.preprocessResponse(coreResponse) else {
                     return
                 }
                 
@@ -177,14 +173,21 @@ private extension AddressAutofill {
                     }
                     
                 case .failure(let error):
-                    // TODO: handle errors
-                    completion(.failure(.underlying(error)))
+                    completion(.failure(error))
                 }
             }
         }
         
         dispatchGroup.notify(queue: .main) {
-            print(resolvedResultsUnsafe.count)
+            let resolvedSuggestions: [Suggestion] = resolvedResultsUnsafe.compactMap {
+                do {
+                    return try $0.map(Suggestion.from(_:))
+                } catch {
+                    return nil
+                }
+            }
+            
+            completion(.success(resolvedSuggestions))
         }
     }
 }
