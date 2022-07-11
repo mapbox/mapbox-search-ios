@@ -7,7 +7,7 @@ public final class AddressAutofill {
     private let searchEngine: CoreSearchEngineProtocol
     
     private static var apiType: CoreSearchEngine.ApiType {
-        return .SBS
+        return .autofill
     }
     
     /// Basic internal initializer
@@ -89,7 +89,7 @@ private extension AddressAutofill {
 // MARK: - Text query
 private extension AddressAutofill {
     var acceptedTypes: [SearchQueryType] {
-        [.country, .region, .postcode, .district, .place, .locality, .neighborhood, .address, .street]
+        [.country, .region, .postcode, .district, .place, .locality, .neighborhood, .address, .street, .poi]
     }
 
     func fetchSuggestions(for query: String, with options: CoreSearchOptions, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
