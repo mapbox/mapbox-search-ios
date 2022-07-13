@@ -50,9 +50,17 @@ public class DefaultLocationProvider {
     }
 
     // MARK: Private functions
+    
+    private var locationServicesDisabled: Bool {
+        if #available(iOS 14.0, *) {
+            return locationManager.authorizationStatus == .denied
+        } else {
+            return CLLocationManager.authorizationStatus() == .denied
+        }
+    }
 
     private func initializeLocation() {
-        guard CLLocationManager.locationServicesEnabled() else {
+        guard !locationServicesDisabled else {
             _Logger.searchSDK.info("CLLocationManager.locationServicesEnabled == false", category: .default)
             return
         }
