@@ -6,6 +6,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+### Added
+- [Core] `SearchResult.searchRequest` field exposed. Identifies original search request for a result.
+
 ### Fixed
 - [Core] Fixed warning related to `CLLocationManager` permissions check.
 
