@@ -61,6 +61,9 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     /// FavoriteRecord Always has estimatedTime as nil.
     public var estimatedTime: Measurement<UnitDuration>?
     
+    /// Original search request.
+    public let searchRequest: SearchRequestOptions
+    
     /// Associated metadata
     public var metadata: SearchResultMetadata?
     
@@ -72,6 +75,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     ///   - address: Favorite address
     ///   - makiIcon:Favorite  icon name
     ///   - categories: Favorite categories list
+    ///   - searchRequest: original search request
     ///   - resultType: Favorite result type
     public init(
         id: String? = nil,
@@ -85,6 +89,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         categories: [String]?,
         routablePoints: [RoutablePoint]? = nil,
         resultType: SearchResultType,
+        searchRequest: SearchRequestOptions,
         metadata: SearchResultMetadata? = nil
     ) {
         self.id = id ?? UUID().uuidString
@@ -98,6 +103,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         self.categories = categories
         self.type = resultType
         self.metadata = metadata
+        self.searchRequest = searchRequest
     }
     
     /// Build Favorite record from SearchResult
@@ -121,6 +127,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
                   categories: searchResult.categories,
                   routablePoints: searchResult.routablePoints,
                   resultType: searchResult.type,
+                  searchRequest: searchResult.searchRequest,
                   metadata: searchResult.metadata)
     }
 } 

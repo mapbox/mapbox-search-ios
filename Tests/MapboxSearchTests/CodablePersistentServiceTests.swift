@@ -38,7 +38,9 @@ class CodablePersistentServiceTests: XCTestCase {
                                     serverIndex: nil,
                                     accuracy: nil,
                                     categories: [],
-                                    resultType: .address(subtypes: [.address]))
+                                    resultType: .address(subtypes: [.address]),
+                                    searchRequest: .init(query: "Sample", proximity: nil)
+        )
         XCTAssertTrue(service.saveData(record), "Unable to save record")
         if let loadedRecord = service.loadData() {
             XCTAssertEqual(record, loadedRecord)
@@ -61,7 +63,9 @@ class CodablePersistentServiceTests: XCTestCase {
                                    timestamp: Date(),
                                    historyType: .category,
                                    type: .address(subtypes: [.address]),
-                                   address: nil)
+                                   address: nil,
+                                   searchRequest: .init(query: "Sample", proximity: nil)
+        )
         XCTAssertTrue(service.saveData(record), "Unable to save record")
         if let loadedRecord = service.loadData() {
             XCTAssertEqual(record, loadedRecord)

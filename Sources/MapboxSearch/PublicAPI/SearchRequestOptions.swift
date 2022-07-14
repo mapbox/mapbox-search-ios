@@ -1,7 +1,7 @@
 import CoreLocation
 
 /// Possible options for search request
-public struct SearchRequestOptions: Codable {
+public struct SearchRequestOptions: Equatable, Hashable, Codable {
     /// Search query
     public let query: String
     

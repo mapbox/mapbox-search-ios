@@ -40,6 +40,9 @@ public protocol SearchResult {
     /// Coordinates of building entries
     var routablePoints: [RoutablePoint]? { get }
     
+    /// Original search request.
+    var searchRequest: SearchRequestOptions { get }
+    
     /// MapKit placemark
     var placemark: MKPlacemark { get }
     
