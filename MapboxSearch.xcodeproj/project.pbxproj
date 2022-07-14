@@ -26,6 +26,7 @@
 		148DE66C285757AA0085684D /* AddressAutofill+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE66B285757AA0085684D /* AddressAutofill+Result.swift */; };
 		148DE671285777180085684D /* NSLocking+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE670285777180085684D /* NSLocking+Extensions.swift */; };
 		148DE68B285A18900085684D /* AddressAutofill+AddressComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE68A285A18900085684D /* AddressAutofill+AddressComponent.swift */; };
+		14FBBBA9287ECC5C00721935 /* AddressAutofill+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */; };
 		3A0D7E56233522D5006D81BB /* MapboxSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */; };
 		E648C0B626428D2B0044315F /* MapboxCoreSearch.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */; };
 		E648C0BA26428D3D0044315F /* MapboxCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B926428D3D0044315F /* MapboxCommon.xcframework */; };
@@ -448,6 +449,7 @@
 		148DE66B285757AA0085684D /* AddressAutofill+Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Result.swift"; sourceTree = "<group>"; };
 		148DE670285777180085684D /* NSLocking+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLocking+Extensions.swift"; sourceTree = "<group>"; };
 		148DE68A285A18900085684D /* AddressAutofill+AddressComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+AddressComponent.swift"; sourceTree = "<group>"; };
+		14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Tests.swift"; sourceTree = "<group>"; };
 		3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0D7E55233522D5006D81BB /* MapboxSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapboxSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxCoreSearch.xcframework; path = Carthage/Build/MapboxCoreSearch.xcframework; sourceTree = "<group>"; };
@@ -911,6 +913,7 @@
 			children = (
 				141789BA2878AD9B0000AE79 /* AddressAutofill.Options+Tests.swift */,
 				141789E9287C115C0000AE79 /* AddressAutofill.Suggestion+Tests.swift */,
+				14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -2145,6 +2148,7 @@
 				FECB50C02553FF210026302E /* HighlightsCalculatorTests.swift in Sources */,
 				FE22DE4C2576983F00DFEACD /* Route+Tests.swift in Sources */,
 				F9F882B92588CCEE00062A82 /* CoreSearchResultMetadataStub.swift in Sources */,
+				14FBBBA9287ECC5C00721935 /* AddressAutofill+Tests.swift in Sources */,
 				FEEDD3AB2508E24900DC0A98 /* BoundingBoxTests.swift in Sources */,
 				FE5A41EC2551694600A076BF /* SearchResultTests.swift in Sources */,
 				FEEDD39D2508E24900DC0A98 /* ServiceProviderStub.swift in Sources */,

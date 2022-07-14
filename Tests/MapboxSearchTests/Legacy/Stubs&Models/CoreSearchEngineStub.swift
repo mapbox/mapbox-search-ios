@@ -8,6 +8,8 @@ class CoreSearchEngineStub {
     let locationProvider: CoreLocationProvider?
     
     var searchResponse: CoreSearchResponseProtocol?
+    var searchOptions: CoreSearchOptions?
+    var reverseGeocodingOptions: CoreReverseGeoOptions?
     
     var eventTemplate = """
                             {
@@ -80,6 +82,8 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
     }
     
     func search(forQuery query: String, categories: [String], options: CoreSearchOptions, completion: @escaping (CoreSearchResponseProtocol?) -> Void) {
+        self.searchOptions = options
+        
         DispatchQueue.main.async {
             self.callbackWrapper {
                 completion(self.searchResponse)
@@ -112,6 +116,8 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
     }
 
     func reverseGeocoding(for options: CoreReverseGeoOptions, completion: @escaping (CoreSearchResponseProtocol?) -> Void) {
+        self.reverseGeocodingOptions = options
+        
         DispatchQueue.main.async {
             self.callbackWrapper {
                 completion(self.searchResponse)

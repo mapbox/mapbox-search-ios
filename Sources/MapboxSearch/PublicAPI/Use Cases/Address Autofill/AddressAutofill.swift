@@ -53,7 +53,7 @@ public extension AddressAutofill {
     /// - Parameters:
     ///   - coordinate: point Coordinate to resolve
     ///   - options: if no value provided Search Engine will use options from requestOptions field
-    func suggestion(for coordinate: CLLocationCoordinate2D, with options: Options? = nil, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
+    func suggestions(for coordinate: CLLocationCoordinate2D, with options: Options? = nil, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
         let searchOptions = ReverseGeocodingOptions(
             point: coordinate,
             types: acceptedTypes,
