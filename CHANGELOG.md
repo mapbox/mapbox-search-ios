@@ -8,6 +8,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ### Added
 - [Core] `SearchResult.searchRequest` field exposed. Identifies original search request for a result.
+- [Core] `AddressAutofill` separate use case to for completing adress forms.
 
 ### Fixed
 - [Core] Fixed warning related to `CLLocationManager` permissions check.
