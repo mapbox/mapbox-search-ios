@@ -16,6 +16,7 @@ class SearchResultStub: SearchResult {
         coordinate: CLLocationCoordinate2DCodable,
         address: Address? = nil,
         metadata: SearchResultMetadata?,
+        searchRequest: SearchRequestOptions = .init(query: "Sample", proximity: nil),
         dataLayerIdentifier: String = "unit-test-stub"
     ) {
         self.id = id
@@ -31,6 +32,7 @@ class SearchResultStub: SearchResult {
         self.address = address
         self.metadata = metadata
         self.dataLayerIdentifier = dataLayerIdentifier
+        self.searchRequest = searchRequest
     }
     
     var dataLayerIdentifier: String
@@ -58,4 +60,5 @@ class SearchResultStub: SearchResult {
     var coordinateCodable: CLLocationCoordinate2DCodable
     var address: Address?
     var descriptionText: String?
+    var searchRequest: SearchRequestOptions
 }

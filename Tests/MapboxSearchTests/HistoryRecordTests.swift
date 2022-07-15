@@ -12,7 +12,9 @@ class HistoryRecordTests: XCTestCase {
                                    timestamp: Date(),
                                    historyType: .category,
                                    type: .address(subtypes: [.address]),
-                                   address: nil)
+                                   address: nil,
+                                   searchRequest: .init(query: "Sample", proximity: nil)
+        )
         XCTAssertNil(record.categories)
     }
     
@@ -26,7 +28,9 @@ class HistoryRecordTests: XCTestCase {
                                    timestamp: Date(),
                                    historyType: .category,
                                    type: .address(subtypes: [.address]),
-                                   address: nil)
+                                   address: nil,
+                                   searchRequest: .init(query: "Sample", proximity: nil)
+        )
         
         XCTAssertEqual(record.coordinate, .sample1)
         
@@ -44,7 +48,9 @@ class HistoryRecordTests: XCTestCase {
                                    timestamp: Date(),
                                    historyType: .category,
                                    type: .address(subtypes: [.address]),
-                                   address: .mapboxDCOffice)
+                                   address: .mapboxDCOffice,
+                                   searchRequest: .init(query: "Sample", proximity: nil)
+        )
         
         XCTAssertEqual(record.descriptionText, "740 15th St NW, Washington")
     }

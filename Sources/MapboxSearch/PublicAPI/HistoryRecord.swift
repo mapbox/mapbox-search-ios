@@ -79,6 +79,9 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     /// Categories associated with original result
     public var categories: [String]?
     
+    /// Original search request.
+    public let searchRequest: SearchRequestOptions
+    
     /// Coordinates of building entries
     public var routablePoints: [RoutablePoint]?
     
@@ -107,6 +110,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         address: Address?,
         metadata: SearchResultMetadata? = nil,
         categories: [String]? = nil,
+        searchRequest: SearchRequestOptions,
         routablePoints: [RoutablePoint]? = nil
     ) {
         self.id = id
@@ -121,6 +125,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         self.address = address
         self.metadata = metadata
         self.categories = categories
+        self.searchRequest = searchRequest
         self.routablePoints = routablePoints
     }
     
@@ -146,6 +151,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         self.address = searchResult.address
         self.metadata = searchResult.metadata
         self.categories = searchResult.categories
+        self.searchRequest = searchResult.searchRequest
         self.routablePoints = searchResult.routablePoints
     }
 }

@@ -17,6 +17,7 @@ struct TestDataProviderRecord: IndexableRecord, SearchResult {
     var estimatedTime: Measurement<UnitDuration>?
     var metadata: SearchResultMetadata?
     var descriptionText: String?
+    var searchRequest: SearchRequestOptions = .init(query: "Sample", proximity: nil)
 
     static func testData(count: Int) -> [TestDataProviderRecord] {
         var results = [TestDataProviderRecord]()
