@@ -21,7 +21,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     var locationProviderWrapper: WrapperLocationProvider?
     
     /// SearchEngine supports the latest Single-Box Search APIs
-    public internal(set) var supportSBS = UserDefaults.standard.bool(forKey: "com.mapbox.mapboxsearch.enableSBS")
+    public let supportSBS: Bool
     
     /// Location provider for search results `proximity` argument
     public let locationProvider: LocationProvider?
@@ -52,12 +52,15 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     init(accessToken: String? = nil,
          serviceProvider: ServiceProviderProtocol & EngineProviderProtocol,
          locationProvider: LocationProvider? = DefaultLocationProvider(),
-         defaultSearchOptions: SearchOptions = SearchOptions()) {
+         defaultSearchOptions: SearchOptions = SearchOptions(),
+         supportSBS: Bool = false
+    ) {
         
         guard let accessToken = accessToken ?? serviceProvider.getStoredAccessToken() else {
             fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
         }
         
+        self.supportSBS = supportSBS
         self.locationProvider = locationProvider
         self.locationProviderWrapper = WrapperLocationProvider(wrapping: locationProvider)
         self.eventsManager = serviceProvider.eventsManager
