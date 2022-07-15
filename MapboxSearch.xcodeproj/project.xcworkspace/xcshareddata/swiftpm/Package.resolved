@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ProxymanApp/atlantis",
       "state" : {
-        "revision" : "2f3ec3fe240706fad46c15041b79506a73446cfa",
-        "version" : "1.18.0"
+        "revision" : "2ee37f1da01b438d67012cc1405617e158f358a1",
+        "version" : "1.11.2"
       }
     },
     {
@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mattgallagher/CwlCatchException.git",
       "state" : {
-        "revision" : "35f9e770f54ce62dd8526470f14c6e137cef3eea",
-        "version" : "2.1.1"
+        "revision" : "682841464136f8c66e04afe5dbd01ab51a3a56f2",
+        "version" : "2.1.0"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mattgallagher/CwlPreconditionTesting.git",
       "state" : {
-        "revision" : "c21f7bab5ca8eee0a9998bbd17ca1d0eb45d4688",
-        "version" : "2.1.0"
+        "revision" : "02b7a39a99c4da27abe03cab2053a9034379639f",
+        "version" : "2.0.0"
       }
     },
     {
