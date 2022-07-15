@@ -38,7 +38,7 @@ public extension AddressAutofill {
     /// - Parameters:
     ///   - query: query string to search
     ///   - options: if no value provided Search Engine will use options from requestOptions field
-    func suggestions(for query: String, with options: Options? = nil, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
+    func suggestions(for query: Query, with options: Options? = nil, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
         let searchOptions = SearchOptions(
             countries: options?.countries.map { $0.countryCode },
             languages: options.map { [$0.language.languageCode] },
@@ -46,7 +46,7 @@ public extension AddressAutofill {
             ignoreIndexableRecords: true
         ).toCore(apiType: Self.apiType)
         
-        fetchSuggestions(for: query, with: searchOptions, completion: completion)
+        fetchSuggestions(for: query.value, with: searchOptions, completion: completion)
     }
     
     /// Start searching for query with provided options

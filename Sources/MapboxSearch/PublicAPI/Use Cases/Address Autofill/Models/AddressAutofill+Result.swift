@@ -7,7 +7,7 @@ public extension AddressAutofill {
         /// [AddressAutofillSuggestion] from which this result has been resolved.
         public let suggestion: Suggestion
         
-        // Detailed address components like street, house number, etc.
+        /// Detailed address components like street, house number, etc.
         public let addressComponents: NonEmptyArray<AddressComponent>
         
         init(suggestion: Suggestion, addressComponents: NonEmptyArray<AddressComponent>) {

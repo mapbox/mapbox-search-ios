@@ -26,7 +26,7 @@ final class AddressAutofillTests: XCTestCase {
     // MARK: - Options for query
     
     func testThatCorrectAcceptedTypesAreUsedForSuggestionsByQuery() {
-        addressAutofill.suggestions(for: "query") { _ in }
+        addressAutofill.suggestions(for: .init(value: "query")!) { _ in }
         
         let acceptedTypes: [SearchQueryType] = [.country, .region, .postcode, .district, .place, .locality, .neighborhood, .address, .street, .poi]
         
@@ -34,7 +34,7 @@ final class AddressAutofillTests: XCTestCase {
     }
     
     func testThatDefaultOptionsArePassedForSuggestionsByQuery() {
-        addressAutofill.suggestions(for: "query") { _ in }
+        addressAutofill.suggestions(for: .init(value: "query")!) { _ in }
         
         XCTAssertNil(searchEngine.searchOptions?.countries)
         XCTAssertEqual(searchEngine.searchOptions?.language, [Language.default.languageCode])
@@ -49,7 +49,7 @@ final class AddressAutofillTests: XCTestCase {
         let language = Language(languageCode: Language.ISO639_1.ja.rawValue)!
         
         let autofillOptions = AddressAutofill.Options(countries: countries, language: language)
-        addressAutofill.suggestions(for: "query", with: autofillOptions) { _ in }
+        addressAutofill.suggestions(for: .init(value: "query")!, with: autofillOptions) { _ in }
         
         XCTAssertEqual(searchEngine.searchOptions?.countries, countries.map { $0.countryCode })
         XCTAssertEqual(searchEngine.searchOptions?.language, [language.languageCode])

@@ -27,6 +27,8 @@
 		148DE671285777180085684D /* NSLocking+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE670285777180085684D /* NSLocking+Extensions.swift */; };
 		148DE68B285A18900085684D /* AddressAutofill+AddressComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE68A285A18900085684D /* AddressAutofill+AddressComponent.swift */; };
 		14FBBBA9287ECC5C00721935 /* AddressAutofill+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */; };
+		14FBBBAD2881663800721935 /* AddressAutofill+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBAC2881663800721935 /* AddressAutofill+Query.swift */; };
+		14FBBBAF2881673E00721935 /* AddressAutofill.Query+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBAE2881673E00721935 /* AddressAutofill.Query+Tests.swift */; };
 		3A0D7E56233522D5006D81BB /* MapboxSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */; };
 		E648C0B626428D2B0044315F /* MapboxCoreSearch.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */; };
 		E648C0BA26428D3D0044315F /* MapboxCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B926428D3D0044315F /* MapboxCommon.xcframework */; };
@@ -450,6 +452,8 @@
 		148DE670285777180085684D /* NSLocking+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLocking+Extensions.swift"; sourceTree = "<group>"; };
 		148DE68A285A18900085684D /* AddressAutofill+AddressComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+AddressComponent.swift"; sourceTree = "<group>"; };
 		14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Tests.swift"; sourceTree = "<group>"; };
+		14FBBBAC2881663800721935 /* AddressAutofill+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Query.swift"; sourceTree = "<group>"; };
+		14FBBBAE2881673E00721935 /* AddressAutofill.Query+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill.Query+Tests.swift"; sourceTree = "<group>"; };
 		3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0D7E55233522D5006D81BB /* MapboxSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapboxSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxCoreSearch.xcframework; path = Carthage/Build/MapboxCoreSearch.xcframework; sourceTree = "<group>"; };
@@ -913,6 +917,7 @@
 			children = (
 				141789BA2878AD9B0000AE79 /* AddressAutofill.Options+Tests.swift */,
 				141789E9287C115C0000AE79 /* AddressAutofill.Suggestion+Tests.swift */,
+				14FBBBAE2881673E00721935 /* AddressAutofill.Query+Tests.swift */,
 				14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */,
 			);
 			path = "Use Cases";
@@ -959,6 +964,7 @@
 			children = (
 				141789E5287C04590000AE79 /* Suggestion */,
 				148DE66B285757AA0085684D /* AddressAutofill+Result.swift */,
+				14FBBBAC2881663800721935 /* AddressAutofill+Query.swift */,
 				148DE6632857503A0085684D /* AddressAutofill+Options.swift */,
 				148DE68A285A18900085684D /* AddressAutofill+AddressComponent.swift */,
 			);
@@ -2099,6 +2105,7 @@
 				141789E7287C05060000AE79 /* AddressAutofill.Suggestion+SearchResult.swift in Sources */,
 				FEEDD3122508DFE400DC0A98 /* SearchResultSuggestion.swift in Sources */,
 				148DE671285777180085684D /* NSLocking+Extensions.swift in Sources */,
+				14FBBBAD2881663800721935 /* AddressAutofill+Query.swift in Sources */,
 				FE0A04F5256D3B5D00FB222B /* RoutablePoint.swift in Sources */,
 				F931B34B25A32C7500AA1674 /* SearchQuerySuggestionImpl.swift in Sources */,
 				F9E8146225418E7D00F6378E /* EventsManager.swift in Sources */,
@@ -2141,6 +2148,7 @@
 				FE1122D52567C8B70064FD53 /* NetworkSessionTaskStub.swift in Sources */,
 				FE7C739A25667FDE0047CA20 /* RecordsProviderInteractorNativeCoreTests.swift in Sources */,
 				FE1122B92567BE5B0064FD53 /* ArrayExtensionsTests.swift in Sources */,
+				14FBBBAF2881673E00721935 /* AddressAutofill.Query+Tests.swift in Sources */,
 				FEEDD39C2508E24900DC0A98 /* LotLan+Extensions.swift in Sources */,
 				FEEDD3AC2508E24900DC0A98 /* Address+TestData.swift in Sources */,
 				141789EE287C125E0000AE79 /* AddressAutofill.Suggestion+Tests.swift in Sources */,
