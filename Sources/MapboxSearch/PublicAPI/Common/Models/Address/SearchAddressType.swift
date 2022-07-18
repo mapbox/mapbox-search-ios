@@ -1,7 +1,7 @@
 import Foundation
 
 /// Concrete available address types
-public enum AddressKind: String, Hashable, Codable {
+public enum SearchAddressType: String, Hashable, Codable {
     /// Individual residential or business addresses.
     case address
     

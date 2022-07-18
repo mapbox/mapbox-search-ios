@@ -32,7 +32,7 @@ class SearchResultSuggestionImpl: SearchResultSuggestion, CoreResponseProvider {
         
         switch coreResult.resultTypes {
         case _ where CoreResultType.hasOnlyAddressSubtypes(types: coreResult.resultTypes):
-            self.suggestionType = .address(subtypes: coreResult.resultTypes.compactMap(AddressKind.init))
+            self.suggestionType = .address(subtypes: coreResult.resultTypes.compactMap(SearchAddressType.init))
         case [.query]:
             self.suggestionType = .query
         case [.poi]:

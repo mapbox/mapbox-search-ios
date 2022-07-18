@@ -3,16 +3,16 @@
 import XCTest
 @testable import MapboxSearch
 
-final class AddressKindTests: XCTestCase {
-    func testThatAddressKindIsInitializedCorrectlyFromCoreTypes() {
-        let addressKinds = CoreResultType.allAddressTypes.compactMap(AddressKind.init(_:))
+final class SearchAddressTypeTests: XCTestCase {
+    func testThatSearchAddressTypeIsInitializedCorrectlyFromCoreTypes() {
+        let addressKinds = CoreResultType.allAddressTypes.compactMap(SearchAddressType.init(_:))
         
         XCTAssertEqual(CoreResultType.allAddressTypes.count, addressKinds.count)
     }
     
     func testRelatedAddressTypesFromCoreTypes() {
-        let validAddressCheck: (CoreResultType, AddressKind) -> Void = { coreAddress, addressKind in
-            let fromCore = AddressKind(coreAddress)
+        let validAddressCheck: (CoreResultType, SearchAddressType) -> Void = { coreAddress, addressKind in
+            let fromCore = SearchAddressType(coreAddress)
             
             XCTAssertNotNil(fromCore)
             XCTAssertEqual(addressKind, fromCore)
@@ -31,7 +31,7 @@ final class AddressKindTests: XCTestCase {
     
     func testUnrelatedAddressTypesFromCoreTypes() {
         let invalidAddressCheck: (CoreResultType) -> Void = { coreAddress in
-            let fromCore = AddressKind(coreAddress)
+            let fromCore = SearchAddressType(coreAddress)
             
             XCTAssertNil(fromCore)
         }

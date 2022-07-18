@@ -7,13 +7,13 @@ public enum SearchResultType: Codable, Hashable {
     ///
     /// Can have multiple subtypes. For example, `[.country]` for Country result like Germany or `[.address]` for a concrete address.
     /// Sometimes server may respond with multiple address subtypes for the result. For example, Seoul would have `[.region, .place]`.
-    case address(subtypes: [AddressKind])
+    case address(subtypes: [SearchAddressType])
     
     /// Point of Interest – like restaurant, hotel or ATM
     case POI
     
     /// Access to `subtypes` of `address` type. Do not available for `.POI` type.
-    public var addressSubtypes: [AddressKind]? {
+    public var addressSubtypes: [SearchAddressType]? {
         switch self {
         case .POI:
             return nil
@@ -35,9 +35,9 @@ public enum SearchResultType: Codable, Hashable {
             return nil
         case _ where CoreResultType.hasOnlyAddressSubtypes(types: coreResultTypes):
             // We do not expect multiple types to contain something rather than addresses
-            self = .address(subtypes: coreResultTypes.compactMap(AddressKind.init))
+            self = .address(subtypes: coreResultTypes.compactMap(SearchAddressType.init))
             
-            assert(coreResultTypes.compactMap(AddressKind.init).count == coreResultTypes.count)
+            assert(coreResultTypes.compactMap(SearchAddressType.init).count == coreResultTypes.count)
         case _ where coreResultTypes.count > 1:
             assertionFailure("All multiple types should be Address subtypes")
             return nil
@@ -55,7 +55,7 @@ public enum SearchResultType: Codable, Hashable {
         case .poi:
             self = .POI
         case .address:
-            let types = try container.decode([AddressKind].self, forKey: .address)
+            let types = try container.decode([SearchAddressType].self, forKey: .address)
             self = .address(subtypes: types)
         case nil:
             var path = container.codingPath
