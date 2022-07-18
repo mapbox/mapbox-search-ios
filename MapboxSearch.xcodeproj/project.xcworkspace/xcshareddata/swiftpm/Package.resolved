@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ProxymanApp/atlantis",
       "state" : {
-        "revision" : "30141b3aee18b5ea717d34d58561b4fca2a2cbe0",
-        "version" : "1.18.1"
+        "revision" : "2ee37f1da01b438d67012cc1405617e158f358a1",
+        "version" : "1.11.2"
       }
     },
     {
