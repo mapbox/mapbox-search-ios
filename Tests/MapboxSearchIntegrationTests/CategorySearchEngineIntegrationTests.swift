@@ -4,7 +4,11 @@ import CoreLocation
 
 class CategorySearchEngineIntegrationTests: MockServerTestCase {
     
-    lazy var searchEngine = CategorySearchEngine(accessToken: "access-token", locationProvider: DefaultLocationProvider())
+    lazy var searchEngine = CategorySearchEngine(
+        accessToken: "access-token",
+        locationProvider: DefaultLocationProvider(),
+        supportSBS: true
+    )
     
     func testCategorySearch() throws {
         

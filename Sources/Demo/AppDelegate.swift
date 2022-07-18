@@ -12,9 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ServiceProvider.shared.localHistoryProvider.deleteAll()
             UserDefaults.resetStandardUserDefaults()
         }
-        
-        UserDefaults.standard.setValue(true, forKey: "com.mapbox.mapboxsearch.enableSBS")
-        
+
         if let customEndpoint = ProcessInfo.processInfo.environment["search_endpoint"] {
             UserDefaults.standard.setValue(customEndpoint, forKey: "MGLMapboxAPIBaseURL")
         } else {
