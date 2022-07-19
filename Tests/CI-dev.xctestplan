@@ -19,9 +19,7 @@
       ]
     },
     "commandLineArgumentEntries" : [
-      {
-        "argument" : "-com.mapbox.mapboxsearch.enableSBS YES"
-      }
+
     ],
     "language" : "en",
     "region" : "US",

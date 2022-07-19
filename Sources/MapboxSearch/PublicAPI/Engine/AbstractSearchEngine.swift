@@ -21,7 +21,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     var locationProviderWrapper: WrapperLocationProvider?
     
     /// SearchEngine supports the latest Single-Box Search APIs
-    public internal(set) var supportSBS = UserDefaults.standard.bool(forKey: "com.mapbox.mapboxsearch.enableSBS")
+    public let supportSBS: Bool
     
     /// Location provider for search results `proximity` argument
     public let locationProvider: LocationProvider?
@@ -49,15 +49,19 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     ///   - serviceProvider: Internal `ServiceProvider` for sharing common dependencies like favoritesService or eventsManager
+    ///   - supportSBS: enable support the latest Single-Box Search APIs
     init(accessToken: String? = nil,
          serviceProvider: ServiceProviderProtocol & EngineProviderProtocol,
          locationProvider: LocationProvider? = DefaultLocationProvider(),
-         defaultSearchOptions: SearchOptions = SearchOptions()) {
+         defaultSearchOptions: SearchOptions = SearchOptions(),
+         supportSBS: Bool = false
+    ) {
         
         guard let accessToken = accessToken ?? serviceProvider.getStoredAccessToken() else {
             fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
         }
         
+        self.supportSBS = supportSBS
         self.locationProvider = locationProvider
         self.locationProviderWrapper = WrapperLocationProvider(wrapping: locationProvider)
         self.eventsManager = serviceProvider.eventsManager
@@ -91,10 +95,20 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     ///   - defaultSearchOptions: Default options to use when `nil` was passed to the `search(…: options:)` call
-    public convenience init(accessToken: String? = nil,
-                            locationProvider: LocationProvider? = DefaultLocationProvider(),
-                            defaultSearchOptions: SearchOptions = SearchOptions()) {
-        self.init(accessToken: accessToken, serviceProvider: ServiceProvider.shared, locationProvider: locationProvider, defaultSearchOptions: defaultSearchOptions)
+    ///   - supportSBS: enable support the latest Single-Box Search APIs
+    public convenience init(
+        accessToken: String? = nil,
+        locationProvider: LocationProvider? = DefaultLocationProvider(),
+        defaultSearchOptions: SearchOptions = SearchOptions(),
+        supportSBS: Bool = false
+    ) {
+        self.init(
+            accessToken: accessToken,
+            serviceProvider: ServiceProvider.shared,
+            locationProvider: locationProvider,
+            defaultSearchOptions: defaultSearchOptions,
+            supportSBS: supportSBS
+        )
     }
     
     /// Update existing Access Token on the fly

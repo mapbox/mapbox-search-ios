@@ -6,9 +6,13 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+### Breaking changes
+- [CORE] Undocumented system property used to enable SBS API Type is deprecated. `com.mapbox.mapboxsearch.enableSBS`
+
 ### Added
 - [Core] `SearchResult.searchRequest` field exposed. Identifies original search request for a result.
 - [Core] `AddressAutofill` separate use case to for completing adress forms.
+- [Core] `SearchEngine.init(supportSBS: Bool) added flag to initialize `SearchEngine` with SBS support.
 
 ### Fixed
 - [Core] Fixed warning related to `CLLocationManager` permissions check.
