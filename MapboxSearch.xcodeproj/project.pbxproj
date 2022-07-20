@@ -8,6 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		140D1BDC286DB479001A51C2 /* SearchResultAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */; };
+		14173C2E28783E1000B20E1C /* Country+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14173C2D28783E1000B20E1C /* Country+Tests.swift */; };
+		14173C302878437D00B20E1C /* Country+ISO3166-1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14173C2F2878437D00B20E1C /* Country+ISO3166-1.swift */; };
+		14173C332878476400B20E1C /* Language+ISO639-1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14173C322878476400B20E1C /* Language+ISO639-1.swift */; };
+		14173C35287847B000B20E1C /* Language+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14173C34287847B000B20E1C /* Language+Tests.swift */; };
+		14173C3A28784ABC00B20E1C /* NonEmptyArray+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14173C3928784ABC00B20E1C /* NonEmptyArray+Tests.swift */; };
+		141789B828787CE70000AE79 /* SearchAddressType +Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141789B728787CE70000AE79 /* SearchAddressType +Tests.swift */; };
+		141789BB2878AD9B0000AE79 /* AddressAutofill.Options+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141789BA2878AD9B0000AE79 /* AddressAutofill.Options+Tests.swift */; };
+		141789E7287C05060000AE79 /* AddressAutofill.Suggestion+SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141789E6287C05060000AE79 /* AddressAutofill.Suggestion+SearchResult.swift */; };
+		141789EE287C125E0000AE79 /* AddressAutofill.Suggestion+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141789E9287C115C0000AE79 /* AddressAutofill.Suggestion+Tests.swift */; };
+		148DE65D28574E6E0085684D /* AddressAutofill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE65C28574E6E0085684D /* AddressAutofill.swift */; };
+		148DE6622857501D0085684D /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE6612857501D0085684D /* Country.swift */; };
+		148DE6642857503A0085684D /* AddressAutofill+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE6632857503A0085684D /* AddressAutofill+Options.swift */; };
+		148DE666285750710085684D /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE665285750710085684D /* Language.swift */; };
+		148DE668285755500085684D /* AddressAutofill+Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE667285755500085684D /* AddressAutofill+Suggestion.swift */; };
+		148DE66A285756C20085684D /* NonEmptyArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE669285756C20085684D /* NonEmptyArray.swift */; };
+		148DE66C285757AA0085684D /* AddressAutofill+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE66B285757AA0085684D /* AddressAutofill+Result.swift */; };
+		148DE671285777180085684D /* NSLocking+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE670285777180085684D /* NSLocking+Extensions.swift */; };
+		148DE68B285A18900085684D /* AddressAutofill+AddressComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE68A285A18900085684D /* AddressAutofill+AddressComponent.swift */; };
+		14FBBBA9287ECC5C00721935 /* AddressAutofill+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */; };
+		14FBBBAD2881663800721935 /* AddressAutofill+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBAC2881663800721935 /* AddressAutofill+Query.swift */; };
+		14FBBBAF2881673E00721935 /* AddressAutofill.Query+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBAE2881673E00721935 /* AddressAutofill.Query+Tests.swift */; };
 		3A0D7E56233522D5006D81BB /* MapboxSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */; };
 		E648C0B626428D2B0044315F /* MapboxCoreSearch.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */; };
 		E648C0BA26428D3D0044315F /* MapboxCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B926428D3D0044315F /* MapboxCommon.xcframework */; };
@@ -412,6 +433,27 @@
 
 /* Begin PBXFileReference section */
 		140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAccuracy.swift; sourceTree = "<group>"; };
+		14173C2D28783E1000B20E1C /* Country+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+Tests.swift"; sourceTree = "<group>"; };
+		14173C2F2878437D00B20E1C /* Country+ISO3166-1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+ISO3166-1.swift"; sourceTree = "<group>"; };
+		14173C322878476400B20E1C /* Language+ISO639-1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Language+ISO639-1.swift"; sourceTree = "<group>"; };
+		14173C34287847B000B20E1C /* Language+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Language+Tests.swift"; sourceTree = "<group>"; };
+		14173C3928784ABC00B20E1C /* NonEmptyArray+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NonEmptyArray+Tests.swift"; sourceTree = "<group>"; };
+		141789B728787CE70000AE79 /* SearchAddressType +Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchAddressType +Tests.swift"; sourceTree = "<group>"; };
+		141789BA2878AD9B0000AE79 /* AddressAutofill.Options+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill.Options+Tests.swift"; sourceTree = "<group>"; };
+		141789E6287C05060000AE79 /* AddressAutofill.Suggestion+SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill.Suggestion+SearchResult.swift"; sourceTree = "<group>"; };
+		141789E9287C115C0000AE79 /* AddressAutofill.Suggestion+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill.Suggestion+Tests.swift"; sourceTree = "<group>"; };
+		148DE65C28574E6E0085684D /* AddressAutofill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAutofill.swift; sourceTree = "<group>"; };
+		148DE6612857501D0085684D /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		148DE6632857503A0085684D /* AddressAutofill+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Options.swift"; sourceTree = "<group>"; };
+		148DE665285750710085684D /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		148DE667285755500085684D /* AddressAutofill+Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Suggestion.swift"; sourceTree = "<group>"; };
+		148DE669285756C20085684D /* NonEmptyArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonEmptyArray.swift; sourceTree = "<group>"; };
+		148DE66B285757AA0085684D /* AddressAutofill+Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Result.swift"; sourceTree = "<group>"; };
+		148DE670285777180085684D /* NSLocking+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLocking+Extensions.swift"; sourceTree = "<group>"; };
+		148DE68A285A18900085684D /* AddressAutofill+AddressComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+AddressComponent.swift"; sourceTree = "<group>"; };
+		14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Tests.swift"; sourceTree = "<group>"; };
+		14FBBBAC2881663800721935 /* AddressAutofill+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Query.swift"; sourceTree = "<group>"; };
+		14FBBBAE2881673E00721935 /* AddressAutofill.Query+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill.Query+Tests.swift"; sourceTree = "<group>"; };
 		3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0D7E55233522D5006D81BB /* MapboxSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapboxSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxCoreSearch.xcframework; path = Carthage/Build/MapboxCoreSearch.xcframework; sourceTree = "<group>"; };
@@ -777,6 +819,193 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14173C2C28783DDD00B20E1C /* Country */ = {
+			isa = PBXGroup;
+			children = (
+				148DE6612857501D0085684D /* Country.swift */,
+				14173C2F2878437D00B20E1C /* Country+ISO3166-1.swift */,
+			);
+			path = Country;
+			sourceTree = "<group>";
+		};
+		14173C31287846EA00B20E1C /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				148DE665285750710085684D /* Language.swift */,
+				14173C322878476400B20E1C /* Language+ISO639-1.swift */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
+		14173C3628784A7D00B20E1C /* NonEmptyArray */ = {
+			isa = PBXGroup;
+			children = (
+				148DE669285756C20085684D /* NonEmptyArray.swift */,
+			);
+			path = NonEmptyArray;
+			sourceTree = "<group>";
+		};
+		14173C3B28784B8900B20E1C /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				FE4D4BC925CAD6810039F933 /* SearchAddressType.swift */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
+		141789E5287C04590000AE79 /* Suggestion */ = {
+			isa = PBXGroup;
+			children = (
+				148DE667285755500085684D /* AddressAutofill+Suggestion.swift */,
+				141789E6287C05060000AE79 /* AddressAutofill.Suggestion+SearchResult.swift */,
+			);
+			path = Suggestion;
+			sourceTree = "<group>";
+		};
+		141789EF287C30260000AE79 /* Legacy */ = {
+			isa = PBXGroup;
+			children = (
+				F970FACC252B14340000806B /* Stubs&Models */,
+				F970FACB252B14170000806B /* Extensions */,
+				FECB50D52554103B0026302E /* Data Samples */,
+				FE66C65625E3F42E006A74FC /* ValidateResources.swift */,
+				FEEDD38F2508E24900DC0A98 /* AddressTests.swift */,
+				FE1122B82567BE5B0064FD53 /* ArrayExtensionsTests.swift */,
+				FEEDD3972508E24900DC0A98 /* BoundingBoxTests.swift */,
+				FEEDD3862508E24900DC0A98 /* CategorySearchEngineTests.swift */,
+				FED7E19B25516B8700DA34D9 /* CLLocationCoordinate2DCodableTests.swift */,
+				FEEDD38B2508E24900DC0A98 /* CodablePersistentServiceTests.swift */,
+				FED7E1A725517C5100DA34D9 /* CoreBoundingBoxTests.swift */,
+				FECB50C625540B090026302E /* CoreResponseProviderTests.swift */,
+				FEB0AA8225CAC3EF002F0D1F /* CoreResultTypeTests.swift */,
+				FECCDEE92552D20A008FC4D6 /* DefaultLocationProviderTests.swift */,
+				FE7E39B1256563A1000C5BD5 /* EventsManagerTests.swift */,
+				F9F6379C25DFB4AC00C99904 /* FeedbackManagerTests.swift */,
+				FECB50FF25541A170026302E /* ExternalRecordPlaceholderTests.swift */,
+				FE7E399725655EBE000C5BD5 /* FavoriteRecordTests.swift */,
+				FECB50BF2553FF210026302E /* HighlightsCalculatorTests.swift */,
+				FE3E7EC22566EA8B009FFCC2 /* HistoryRecordTests.swift */,
+				F9D70E5B252740DD0019105F /* IndexableDataProviderTests.swift */,
+				FEEDD3932508E24900DC0A98 /* LocationProviderTests.swift */,
+				FE1F31E22567FDDF004DCB6D /* NetworkSessionTests.swift */,
+				FE6EEDED25B039E000EAE44E /* OpenHoursTests.swift */,
+				FE6EEDE625B0343700EAE44E /* OpenPeriodTests.swift */,
+				FE7C739925667FDB0047CA20 /* RecordsProviderInteractorNativeCoreTests.swift */,
+				FE8F821B256D509600A100D4 /* RoutablePointTests.swift */,
+				FE22DE4B2576983F00DFEACD /* Route+Tests.swift */,
+				FE5B507F25769D2800D039BA /* RouteOptions+Tests.swift */,
+				FECB50CD25540FD10026302E /* SearchCategorySuggestionImplTests.swift */,
+				FEEDD38E2508E24900DC0A98 /* SearchEngineTests.swift */,
+				FEEDD3902508E24900DC0A98 /* SearchErrorTests.swift */,
+				FE3F35E02566D4D800E0462F /* SearchNavigationProfileTests.swift */,
+				FE260A8125C19AE70037B725 /* SearchOptionsTests.swift */,
+				FECB50B82553FE740026302E /* SearchRequestOptionsTests.swift */,
+				FE1F320825680E4B004DCB6D /* SearchResponseTests.swift */,
+				FE3F35E72566D58800E0462F /* SearchResultMetadataTests.swift */,
+				FE4655A02566B619007ECC6A /* SearchResultSuggestionImplTests.swift */,
+				FE5A41EB2551694600A076BF /* SearchResultTests.swift */,
+				FEB0AA8925CAC711002F0D1F /* SearchResultTypeTests.swift */,
+				FE46559925669B4E007ECC6A /* ServerSearchResultTests.swift */,
+				FE1F31DB2567FA6D004DCB6D /* WrapperLocationProviderTests.swift */,
+				FE9234CA25CAE34C00BB69C8 /* SearchSuggestTypeTests.swift */,
+			);
+			path = Legacy;
+			sourceTree = "<group>";
+		};
+		141789F0287C30450000AE79 /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+				141789BA2878AD9B0000AE79 /* AddressAutofill.Options+Tests.swift */,
+				141789E9287C115C0000AE79 /* AddressAutofill.Suggestion+Tests.swift */,
+				14FBBBAE2881673E00721935 /* AddressAutofill.Query+Tests.swift */,
+				14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */,
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		141789F2287C30850000AE79 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				141789F3287C308A0000AE79 /* Models */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		141789F3287C308A0000AE79 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				141789B728787CE70000AE79 /* SearchAddressType +Tests.swift */,
+				14173C3928784ABC00B20E1C /* NonEmptyArray+Tests.swift */,
+				14173C34287847B000B20E1C /* Language+Tests.swift */,
+				14173C2D28783E1000B20E1C /* Country+Tests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		148DE65A28574E4E0085684D /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+				148DE65B28574E560085684D /* Address Autofill */,
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		148DE65B28574E560085684D /* Address Autofill */ = {
+			isa = PBXGroup;
+			children = (
+				148DE65E28574F680085684D /* Models */,
+				148DE65C28574E6E0085684D /* AddressAutofill.swift */,
+			);
+			path = "Address Autofill";
+			sourceTree = "<group>";
+		};
+		148DE65E28574F680085684D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				141789E5287C04590000AE79 /* Suggestion */,
+				148DE66B285757AA0085684D /* AddressAutofill+Result.swift */,
+				14FBBBAC2881663800721935 /* AddressAutofill+Query.swift */,
+				148DE6632857503A0085684D /* AddressAutofill+Options.swift */,
+				148DE68A285A18900085684D /* AddressAutofill+AddressComponent.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		148DE65F285750050085684D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				148DE660285750100085684D /* Models */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		148DE660285750100085684D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14173C3B28784B8900B20E1C /* Address */,
+				14173C3628784A7D00B20E1C /* NonEmptyArray */,
+				14173C31287846EA00B20E1C /* Language */,
+				14173C2C28783DDD00B20E1C /* Country */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		148DE66E285777050085684D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				148DE66F2857770A0085684D /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		148DE66F2857770A0085684D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				148DE670285777180085684D /* NSLocking+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		3A0972062361A19E003F200F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1022,6 +1251,7 @@
 		FEEDD2C12508DFE400DC0A98 /* InternalAPI */ = {
 			isa = PBXGroup;
 			children = (
+				148DE66E285777050085684D /* Common */,
 				F98BECBB2577B9150081D3BC /* Telemetry */,
 				FEEDD2C32508DFE400DC0A98 /* Array+Extensions.swift */,
 				F97E9A83268C7BBE00F6353D /* DefaultStringInterpolation+Extensions.swift */,
@@ -1051,6 +1281,8 @@
 		FEEDD2D42508DFE400DC0A98 /* PublicAPI */ = {
 			isa = PBXGroup;
 			children = (
+				148DE65F285750050085684D /* Common */,
+				148DE65A28574E4E0085684D /* Use Cases */,
 				F9274FF027394ABF00708F37 /* Offline */,
 				F98BECBA2577B8F40081D3BC /* Telemetry */,
 				F9274FE92732B64C00708F37 /* Engine */,
@@ -1079,7 +1311,6 @@
 				FE0A04F4256D3B5D00FB222B /* RoutablePoint.swift */,
 				FEA5AA9925718E7D00871FDB /* Route.swift */,
 				FE4CE13A257647CC006C69FE /* RouteOptions.swift */,
-				FE4D4BC925CAD6810039F933 /* SearchAddressType.swift */,
 				F9A0B8382562845400CAD907 /* SearchNavigationProfile.swift */,
 				FE260A5F25C03AD40037B725 /* SearchOptions.swift */,
 				FEB0B15625B7108400189446 /* SearchQueryType.swift */,
@@ -1204,50 +1435,10 @@
 		FEEDD3852508E24900DC0A98 /* MapboxSearchTests */ = {
 			isa = PBXGroup;
 			children = (
-				F970FACC252B14340000806B /* Stubs&Models */,
-				F970FACB252B14170000806B /* Extensions */,
-				FECB50D52554103B0026302E /* Data Samples */,
-				FE66C65625E3F42E006A74FC /* ValidateResources.swift */,
-				FEEDD38F2508E24900DC0A98 /* AddressTests.swift */,
-				FE1122B82567BE5B0064FD53 /* ArrayExtensionsTests.swift */,
-				FEEDD3972508E24900DC0A98 /* BoundingBoxTests.swift */,
-				FEEDD3862508E24900DC0A98 /* CategorySearchEngineTests.swift */,
-				FED7E19B25516B8700DA34D9 /* CLLocationCoordinate2DCodableTests.swift */,
-				FEEDD38B2508E24900DC0A98 /* CodablePersistentServiceTests.swift */,
-				FED7E1A725517C5100DA34D9 /* CoreBoundingBoxTests.swift */,
-				FECB50C625540B090026302E /* CoreResponseProviderTests.swift */,
-				FEB0AA8225CAC3EF002F0D1F /* CoreResultTypeTests.swift */,
-				FECCDEE92552D20A008FC4D6 /* DefaultLocationProviderTests.swift */,
-				FE7E39B1256563A1000C5BD5 /* EventsManagerTests.swift */,
-				F9F6379C25DFB4AC00C99904 /* FeedbackManagerTests.swift */,
-				FECB50FF25541A170026302E /* ExternalRecordPlaceholderTests.swift */,
-				FE7E399725655EBE000C5BD5 /* FavoriteRecordTests.swift */,
-				FECB50BF2553FF210026302E /* HighlightsCalculatorTests.swift */,
-				FE3E7EC22566EA8B009FFCC2 /* HistoryRecordTests.swift */,
-				F9D70E5B252740DD0019105F /* IndexableDataProviderTests.swift */,
+				141789F2287C30850000AE79 /* Common */,
+				141789F0287C30450000AE79 /* Use Cases */,
+				141789EF287C30260000AE79 /* Legacy */,
 				FEEDD3992508E24900DC0A98 /* Info.plist */,
-				FEEDD3932508E24900DC0A98 /* LocationProviderTests.swift */,
-				FE1F31E22567FDDF004DCB6D /* NetworkSessionTests.swift */,
-				FE6EEDED25B039E000EAE44E /* OpenHoursTests.swift */,
-				FE6EEDE625B0343700EAE44E /* OpenPeriodTests.swift */,
-				FE7C739925667FDB0047CA20 /* RecordsProviderInteractorNativeCoreTests.swift */,
-				FE8F821B256D509600A100D4 /* RoutablePointTests.swift */,
-				FE22DE4B2576983F00DFEACD /* Route+Tests.swift */,
-				FE5B507F25769D2800D039BA /* RouteOptions+Tests.swift */,
-				FECB50CD25540FD10026302E /* SearchCategorySuggestionImplTests.swift */,
-				FEEDD38E2508E24900DC0A98 /* SearchEngineTests.swift */,
-				FEEDD3902508E24900DC0A98 /* SearchErrorTests.swift */,
-				FE3F35E02566D4D800E0462F /* SearchNavigationProfileTests.swift */,
-				FE260A8125C19AE70037B725 /* SearchOptionsTests.swift */,
-				FECB50B82553FE740026302E /* SearchRequestOptionsTests.swift */,
-				FE1F320825680E4B004DCB6D /* SearchResponseTests.swift */,
-				FE3F35E72566D58800E0462F /* SearchResultMetadataTests.swift */,
-				FE4655A02566B619007ECC6A /* SearchResultSuggestionImplTests.swift */,
-				FE5A41EB2551694600A076BF /* SearchResultTests.swift */,
-				FEB0AA8925CAC711002F0D1F /* SearchResultTypeTests.swift */,
-				FE46559925669B4E007ECC6A /* ServerSearchResultTests.swift */,
-				FE1F31DB2567FA6D004DCB6D /* WrapperLocationProviderTests.swift */,
-				FE9234CA25CAE34C00BB69C8 /* SearchSuggestTypeTests.swift */,
 			);
 			path = MapboxSearchTests;
 			sourceTree = "<group>";
@@ -1847,8 +2038,10 @@
 			files = (
 				F93DA6FF274E4B86005595B5 /* CoreSearchEngineStatics.swift in Sources */,
 				F9F6378A25DD6A4E00C99904 /* FeedbackManager.swift in Sources */,
+				148DE65D28574E6E0085684D /* AddressAutofill.swift in Sources */,
 				FEEDD3092508DFE400DC0A98 /* CodablePersistentService.swift in Sources */,
 				FEEDD3192508DFE400DC0A98 /* IndexableDataProvider.swift in Sources */,
+				14173C302878437D00B20E1C /* Country+ISO3166-1.swift in Sources */,
 				FEEDD3162508DFE400DC0A98 /* SearchCategorySuggestion.swift in Sources */,
 				FEEDD31D2508DFE400DC0A98 /* HighlightsCalculator.swift in Sources */,
 				F9A0B8402562B10E00CAD907 /* SearchResultMetadata.swift in Sources */,
@@ -1873,6 +2066,7 @@
 				F9A0B8392562845400CAD907 /* SearchNavigationProfile.swift in Sources */,
 				F9274FF227394AE600708F37 /* TileRegionError.swift in Sources */,
 				FE1064F525B9A1C9007837BC /* NavigationOptions.swift in Sources */,
+				148DE668285755500085684D /* AddressAutofill+Suggestion.swift in Sources */,
 				F9274FEF27393A7E00708F37 /* SearchCancelable.swift in Sources */,
 				FE4D4BCA25CAD6810039F933 /* SearchAddressType.swift in Sources */,
 				F9F5D75E256D0393007E32BE /* SearchResponse.swift in Sources */,
@@ -1882,13 +2076,18 @@
 				FEEDD2FB2508DFE400DC0A98 /* WrapperLocationProvider.swift in Sources */,
 				FE7C73A62566804E0047CA20 /* CoreUserRecordsLayerProtocol.swift in Sources */,
 				F9274FEB2732BF0E00708F37 /* SearchTileStore.swift in Sources */,
+				148DE66C285757AA0085684D /* AddressAutofill+Result.swift in Sources */,
 				FEEDD31C2508DFE400DC0A98 /* IndexableDataResolver.swift in Sources */,
 				FEEDD3062508DFE400DC0A98 /* SearchEngine.swift in Sources */,
 				F98BECBD2577B93D0081D3BC /* FeedbackEvent.swift in Sources */,
 				FEEDD2F12508DFE400DC0A98 /* ExternalRecordPlaceholder.swift in Sources */,
+				148DE6622857501D0085684D /* Country.swift in Sources */,
 				FEEDD2F72508DFE400DC0A98 /* Logger.swift in Sources */,
+				148DE6642857503A0085684D /* AddressAutofill+Options.swift in Sources */,
+				148DE666285750710085684D /* Language.swift in Sources */,
 				FE059C61251A0E27001F7701 /* SearchSuggestType.swift in Sources */,
 				FEEDD3112508DFE400DC0A98 /* AbstractSearchEngine.swift in Sources */,
+				148DE68B285A18900085684D /* AddressAutofill+AddressComponent.swift in Sources */,
 				FEEDD3182508DFE400DC0A98 /* CategorySearchEngine.swift in Sources */,
 				FE097B7C264EAA1A001EAC2F /* SearchError.swift in Sources */,
 				F9274FED2733D29700708F37 /* SearchOfflineManager.swift in Sources */,
@@ -1903,7 +2102,10 @@
 				FEEDD30A2508DFE400DC0A98 /* RecordsProviderInteractor.swift in Sources */,
 				FEEDD3072508DFE400DC0A98 /* Address.swift in Sources */,
 				140D1BDC286DB479001A51C2 /* SearchResultAccuracy.swift in Sources */,
+				141789E7287C05060000AE79 /* AddressAutofill.Suggestion+SearchResult.swift in Sources */,
 				FEEDD3122508DFE400DC0A98 /* SearchResultSuggestion.swift in Sources */,
+				148DE671285777180085684D /* NSLocking+Extensions.swift in Sources */,
+				14FBBBAD2881663800721935 /* AddressAutofill+Query.swift in Sources */,
 				FE0A04F5256D3B5D00FB222B /* RoutablePoint.swift in Sources */,
 				F931B34B25A32C7500AA1674 /* SearchQuerySuggestionImpl.swift in Sources */,
 				F9E8146225418E7D00F6378E /* EventsManager.swift in Sources */,
@@ -1916,6 +2118,7 @@
 				FE260A6725C063880037B725 /* ReverseGeocodingOptions.swift in Sources */,
 				FECA461026D3F81800BC7B18 /* MapboxSearchUserAgent.swift in Sources */,
 				FEEDD2F32508DFE400DC0A98 /* CoreBoundingBox.swift in Sources */,
+				148DE66A285756C20085684D /* NonEmptyArray.swift in Sources */,
 				F97FA24025C95ACD0085A311 /* EventAppMetadata.swift in Sources */,
 				FEEDD31A2508DFE400DC0A98 /* FavoriteRecord.swift in Sources */,
 				FEEDD30F2508DFE400DC0A98 /* DefaultLocationProvider.swift in Sources */,
@@ -1923,6 +2126,7 @@
 				F9274FF7273AAE7200708F37 /* TileRegionLoadOptions+Search.swift in Sources */,
 				FEEDD3142508DFE400DC0A98 /* SearchSuggestion.swift in Sources */,
 				FE6EEDE025B0340B00EAE44E /* OpenPeriod.swift in Sources */,
+				14173C332878476400B20E1C /* Language+ISO639-1.swift in Sources */,
 				FEAD7496258B5C0000D3A86E /* MapboxSearchVersion.swift in Sources */,
 				FEEDD3012508DFE400DC0A98 /* Locale+Extensions.swift in Sources */,
 				FEEDD30B2508DFE400DC0A98 /* LocationProvider.swift in Sources */,
@@ -1944,12 +2148,15 @@
 				FE1122D52567C8B70064FD53 /* NetworkSessionTaskStub.swift in Sources */,
 				FE7C739A25667FDE0047CA20 /* RecordsProviderInteractorNativeCoreTests.swift in Sources */,
 				FE1122B92567BE5B0064FD53 /* ArrayExtensionsTests.swift in Sources */,
+				14FBBBAF2881673E00721935 /* AddressAutofill.Query+Tests.swift in Sources */,
 				FEEDD39C2508E24900DC0A98 /* LotLan+Extensions.swift in Sources */,
 				FEEDD3AC2508E24900DC0A98 /* Address+TestData.swift in Sources */,
+				141789EE287C125E0000AE79 /* AddressAutofill.Suggestion+Tests.swift in Sources */,
 				FE46559A25669B4E007ECC6A /* ServerSearchResultTests.swift in Sources */,
 				FECB50C02553FF210026302E /* HighlightsCalculatorTests.swift in Sources */,
 				FE22DE4C2576983F00DFEACD /* Route+Tests.swift in Sources */,
 				F9F882B92588CCEE00062A82 /* CoreSearchResultMetadataStub.swift in Sources */,
+				14FBBBA9287ECC5C00721935 /* AddressAutofill+Tests.swift in Sources */,
 				FEEDD3AB2508E24900DC0A98 /* BoundingBoxTests.swift in Sources */,
 				FE5A41EC2551694600A076BF /* SearchResultTests.swift in Sources */,
 				FEEDD39D2508E24900DC0A98 /* ServiceProviderStub.swift in Sources */,
@@ -1965,18 +2172,22 @@
 				F9F88315258B74AB00062A82 /* CoreSearchOptions+Samples.swift in Sources */,
 				FE1F31E32567FDDF004DCB6D /* NetworkSessionTests.swift in Sources */,
 				FEEDD3A72508E24900DC0A98 /* LocationProviderTests.swift in Sources */,
+				14173C35287847B000B20E1C /* Language+Tests.swift in Sources */,
 				F9A5925B252C799E0074F692 /* CoreUserRecordsLayerStub.swift in Sources */,
 				FE489B1B2566D839002BF730 /* SearchNavigationProfileTests.swift in Sources */,
 				F9ACA6152642BEE100F50CD4 /* MockResponse.swift in Sources */,
 				F9ACA6142642BEDD00F50CD4 /* MockWebServer.swift in Sources */,
 				FE8F8215256D46F400A100D4 /* SearchResultMetadata+Samples.swift in Sources */,
 				FECB50E3255410BC0026302E /* CLLocationCoordinate2D+Samples.swift in Sources */,
+				14173C3A28784ABC00B20E1C /* NonEmptyArray+Tests.swift in Sources */,
 				FECB50F9255417AA0026302E /* CoreRequestOptions+Samples.swift in Sources */,
 				FE1122CE2567C6E00064FD53 /* NetworkSessionStub.swift in Sources */,
+				14173C2E28783E1000B20E1C /* Country+Tests.swift in Sources */,
 				FE66C65725E3F42E006A74FC /* ValidateResources.swift in Sources */,
 				FECB50C725540B090026302E /* CoreResponseProviderTests.swift in Sources */,
 				FECB510725541A730026302E /* CoreSearchResponseStub+Samples.swift in Sources */,
 				FE8F820E256D463100A100D4 /* RoutablePoint+Samples.swift in Sources */,
+				141789BB2878AD9B0000AE79 /* AddressAutofill.Options+Tests.swift in Sources */,
 				FEEDD39E2508E24900DC0A98 /* SearchEngineDelegateStub.swift in Sources */,
 				F953A49325ECEB60003A3681 /* SearchCategorySuggestion+Samples.swift in Sources */,
 				F9F882962583779A00062A82 /* CoreImageInfoStub.swift in Sources */,
@@ -2005,6 +2216,7 @@
 				FE7E39A62565615C000C5BD5 /* Address+Samples.swift in Sources */,
 				FEEDD3A62508E24900DC0A98 /* CoreSearchResultStub+Samples.swift in Sources */,
 				FED7E19C25516B8700DA34D9 /* CLLocationCoordinate2DCodableTests.swift in Sources */,
+				141789B828787CE70000AE79 /* SearchAddressType +Tests.swift in Sources */,
 				FEEDD3A92508E24900DC0A98 /* CoreAddress+Extensions.swift in Sources */,
 				FE1F320225680585004DCB6D /* SearchResultSuggestionStub.swift in Sources */,
 				F96E70C325FA6485005B8A3F /* WrapperLocationProviderStub.swift in Sources */,
@@ -2827,8 +3039,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ProxymanApp/atlantis";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.8.0;
+				kind = exactVersion;
+				version = 1.11.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

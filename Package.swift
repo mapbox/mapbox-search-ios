@@ -5,7 +5,7 @@ import PackageDescription
 import Foundation
 
 let registry = SDKRegistry()
-let (coreSearchVersion, coreSearchVersionHash) = ("0.56.0", "a12935cbe3ab46ebd82d1edd4219d330d781746adc4e0342b5ad41e9ae16e67b")
+let (coreSearchVersion, coreSearchVersionHash) = ("0.57.0", "404cf6abaa6856705017c06cc2915774c139ac849c7e82aa43428b5ee6b4c5e4")
 
 let package = Package(
     name: "MapboxSearch",
