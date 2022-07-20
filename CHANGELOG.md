@@ -6,6 +6,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.33] - 2022-07-20
+
 ### Breaking changes
 - [CORE] Undocumented system property used to enable SBS API Type is deprecated. `com.mapbox.mapboxsearch.enableSBS`
 
