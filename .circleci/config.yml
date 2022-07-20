@@ -207,6 +207,7 @@ jobs:
       - checkout
       - setup-authentication
       - parse-release-version
+      - run: rm '/usr/local/lib/python3.9/site-packages/six.py'
       - run: brew install awscli gh
       - attach_workspace:
           at: Products
