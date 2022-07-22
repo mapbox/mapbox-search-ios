@@ -7,9 +7,6 @@ extension DefaultStringInterpolation {
 
         case .SBS:
             versionName = "SBS"
-            
-        case .autofill:
-            versionName = "autofill"
 
         @unknown default:
             versionName = "unknown"

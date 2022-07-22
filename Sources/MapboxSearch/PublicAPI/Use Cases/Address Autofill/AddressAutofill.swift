@@ -7,7 +7,7 @@ public final class AddressAutofill {
     private let searchEngine: CoreSearchEngineProtocol
     
     private static var apiType: CoreSearchEngine.ApiType {
-        return .autofill
+        return .geocoding
     }
     
     /// Basic internal initializer

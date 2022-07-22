@@ -246,14 +246,6 @@ public struct SearchOptions {
                 info("SBS API doesn't support multiple languages at once. Search SDK will use the first")
             }
             
-        case .autofill:
-            let unsupportedFilterTypes: [SearchQueryType] = [.category]
-            
-            validSearchOptions.filterTypes = filterTypes?.filter({ !unsupportedFilterTypes.contains($0) })
-            if validSearchOptions.filterTypes?.count != filterTypes?.count {
-                info("Autofill API doesn't support following filter types: \(unsupportedFilterTypes)")
-            }
-            
         @unknown default:
             _Logger.searchSDK.warning("Unexpected engine API Type: \(apiType)")
         }
