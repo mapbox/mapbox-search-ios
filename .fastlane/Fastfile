@@ -37,7 +37,7 @@ platform :ios do
 
     bundle_id = "com.mapbox.MapboxSearchDemoApplication"
     xcodeproj_path = "MapboxSearch.xcodeproj"
-    
+
     sync_code_signing(type: "development")
     disable_automatic_code_signing(
       path: xcodeproj_path,
@@ -45,10 +45,10 @@ platform :ios do
       profile_name: lane_context[SharedValues::MATCH_PROVISIONING_PROFILE_MAPPING][bundle_id],
       targets: ["Demo"]
     )
-    
-    build_number = `TZ=UTC date +%Y%m%d%H%M`[0..-2]
+
+    build_number = `TZ=UTC date +%Y%m%d%H%M`[0..-2] + ENV["CIRCLE_BUILD_NUM"]
     increment_build_number_in_plist(
-      build_number: build_number, 
+      build_number: build_number,
       xcodeproj: xcodeproj_path,
       target: 'Demo'
     )
@@ -56,7 +56,7 @@ platform :ios do
     build_app(scheme: "Demo",
               export_method: "app-store",
               export_options: {
-                provisioningProfiles: { 
+                provisioningProfiles: {
                   bundle_id => lane_context[SharedValues::MATCH_PROVISIONING_PROFILE_MAPPING][bundle_id]
                 }
               })
