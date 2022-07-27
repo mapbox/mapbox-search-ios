@@ -9,7 +9,8 @@ class ExamplesTableViewController: UITableViewController {
             Example(title: "Get query results", screenType: SimpleListSearchViewController.self),
             Example(title: "Search for category", screenType: SimpleCategorySearchViewController.self),
             Example(title: "Integrate SearchUI module", screenType: SimpleUISearchViewController.self),
-            Example(title: "Continuous Search", screenType: ContinuousSearchViewController.self)
+            Example(title: "Continuous Search", screenType: ContinuousSearchViewController.self),
+            Example(title: "Japanese Search", screenType: JapanSearchViewController.self)
         ]),
         ExampleSection(title: "Results on the Map", examples: [
             Example(title: "Category Results on MapboxMaps", screenType: MapboxMapsCategoryResultsViewController.self),

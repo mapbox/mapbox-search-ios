@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83BCC5B42891159F00CD4CB3 /* JapanSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BCC5B32891159F00CD4CB3 /* JapanSearchViewController.swift */; };
 		FE00067F26FDCB9E00846819 /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE00067E26FDCB9E00846819 /* Examples.swift */; };
 		FE0720BE26FC86C70065A273 /* MapboxSearch in Frameworks */ = {isa = PBXBuildFile; productRef = FE0720BD26FC86C70065A273 /* MapboxSearch */; };
 		FE0720C026FC86C70065A273 /* MapboxSearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = FE0720BF26FC86C70065A273 /* MapboxSearchUI */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83BCC5B32891159F00CD4CB3 /* JapanSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapanSearchViewController.swift; sourceTree = "<group>"; };
 		FE00067E26FDCB9E00846819 /* Examples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Examples.swift; sourceTree = "<group>"; };
 		FE114AA424C10B88001B2CE8 /* SearchExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE114AA724C10B88001B2CE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				FE114D9424C1C1E9001B2CE8 /* SimpleCategorySearchViewController.swift */,
 				FE114D8124C1A382001B2CE8 /* SimpleListSearchViewController.swift */,
 				FE5EC2F024C60F3C000DB978 /* SimpleUISearchViewController.swift */,
+				83BCC5B32891159F00CD4CB3 /* JapanSearchViewController.swift */,
 			);
 			path = SearchExamples;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				FE114D8224C1A382001B2CE8 /* SimpleListSearchViewController.swift in Sources */,
 				FE849B5A26FCBCEC001CBC27 /* MapsViewController.swift in Sources */,
 				FE8295832701E46D001005B4 /* MapboxBoundingBoxController.swift in Sources */,
+				83BCC5B42891159F00CD4CB3 /* JapanSearchViewController.swift in Sources */,
 				FE114D9524C1C1E9001B2CE8 /* SimpleCategorySearchViewController.swift in Sources */,
 				FE114D9D24C1EBAD001B2CE8 /* ContinuousSearchViewController.swift in Sources */,
 				FE114D9B24C1E37D001B2CE8 /* MapboxMapsCategoryResultsViewController.swift in Sources */,

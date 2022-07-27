@@ -70,4 +70,6 @@ extension PointAnnotation {
 
 extension CLLocationCoordinate2D {
     static let sanFrancisco = CLLocationCoordinate2D(latitude: 37.7911551, longitude: -122.3966103)
+    
+    static let tokyo = CLLocationCoordinate2D(latitude: 35.7101, longitude: 139.8107)
 }
