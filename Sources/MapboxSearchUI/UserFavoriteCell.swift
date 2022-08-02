@@ -96,7 +96,7 @@ class UserFavoriteCell: UITableViewCell {
         
         actionSheetController.addAction(UIAlertAction(title: Strings.UserFavoriteCell.cancelAction, style: .cancel))
         
-        guard let controller = window?.rootViewController else {
+        guard let controller = UIApplication.topPresentedViewController else {
             assertionFailure("Unexpected controller missing")
             return
         }
