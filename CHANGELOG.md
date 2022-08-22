@@ -6,6 +6,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+### Breaking changes
+- [CORE] `SearchEngine.setAccessToken(_: String)` has been removed.
+
 ## [1.0.0-beta.33] - 2022-07-20
 
 ### Breaking changes
