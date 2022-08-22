@@ -36,6 +36,10 @@ public enum SearchAddressType: String, Hashable, Codable {
     /// Unlike locality features, these typically lack official status and may lack universally agreed-upon boundaries.
     case neighborhood
     
+    /// The block number. Available specifically for Japan.
+    case block
+    
+    // swiftlint:disable:next cyclomatic_complexity
     init?(_ core: CoreResultType) {
         switch core {
         case .address:
@@ -64,6 +68,9 @@ public enum SearchAddressType: String, Hashable, Codable {
 
         case .neighborhood:
             self = .neighborhood
+            
+        case .block:
+            self = .block
 
         case .unknown, .category, .userRecord, .query, .poi:
             fallthrough
