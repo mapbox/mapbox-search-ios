@@ -3,12 +3,6 @@ import CoreLocation
 
 protocol CoreSearchEngineProtocol {
     /**
-     @brief Set Mapbox access token.
-     Call this function in case of token's changing at runtime.
-     */
-    func setAccessTokenForToken(_ token: String) throws
-
-    /**
      -------------------------------------------------------------------------------------------
      @brief Create user data layer.
      @param[in] layer     Unique layer name.

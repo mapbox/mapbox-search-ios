@@ -16,6 +16,7 @@ extension CoreResultType {
         case .locality: return "locality"
         case .userRecord: return "userRecord"
         case .neighborhood: return "neighborhood"
+        case .block: return "block"
         case .unknown:  fallthrough
         @unknown default:
             return "unknown"
@@ -31,7 +32,8 @@ extension CoreResultType {
         .region,
         .district,
         .locality,
-        .neighborhood
+        .neighborhood,
+        .block
     ]
     
     /// Validate that all input types are specific address subtypes (like country, district or concrete address)

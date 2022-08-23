@@ -111,19 +111,6 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
         )
     }
     
-    /// Update existing Access Token on the fly
-    /// - Parameter token: New valid Mapbox access token
-    /// - Throws: `NSError` if operation was failed
-    public func setAccessToken(_ token: String) throws {
-        do {
-            try engine.setAccessTokenForToken(token)
-        } catch {
-            _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)")
-            eventsManager.reportError(error)
-            throw error
-        }
-    }
-    
     /// Register indexable data provider to provide custom data layer for SearchEngine
     /// - Parameters:
     ///   - dataProvider: IndexableDataProvider to register

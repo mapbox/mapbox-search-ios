@@ -6,7 +6,7 @@ extension UIApplication {
     static var topPresentedViewController: UIViewController? {
         let keyWindow: UIWindow?
         if #available(iOS 13, *) {
-            keyWindow = UIApplication.shared.windows.filter { $0.isKeyWindow }.first
+            keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
         } else {
             keyWindow = UIApplication.shared.keyWindow
         }

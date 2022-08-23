@@ -412,12 +412,4 @@ class SearchEngineTests: XCTestCase {
         searchEngine.query = "random-query"
         XCTAssertEqual(searchEngine.query, "random-query")
     }
-    
-    func testAccessTokenUpdate() throws {
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
-        XCTAssertEqual(provider.latestCoreEngine.accessToken, "mapbox-access-token")
-        
-        try searchEngine.setAccessToken("updated-token")
-        XCTAssertEqual(provider.latestCoreEngine.accessToken, "updated-token")
-    }
 }

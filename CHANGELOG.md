@@ -6,6 +6,15 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+### Breaking changes
+- [CORE]: `SearchEngine.setAccessToken(_: String)` has been removed.
+
+### Added
+- [CORE]: SearchResultType provides a new value - `block` which represents the block number. Available specifically for Japan.
+
+### Fixed
+- [UI]: fixed UIViewController presentation on SDK side. [#7 ](https://github.com/mapbox/mapbox-search-ios/issues/7)
+
 ## [1.0.0-beta.33] - 2022-07-20
 
 ### Breaking changes
