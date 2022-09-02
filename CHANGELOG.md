@@ -6,6 +6,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.35] - 2022-08-24
+
 ### Fixed
 - [Core]: Don't use languages list as default languages parameter. Use only first languages from system settings if available.
 
