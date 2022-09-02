@@ -6,13 +6,16 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+### Fixed
+- [Core]: Don't use languages list as default languages parameter. Use only first languages from system settings if available.
+
 ## [1.0.0-beta.34] - 2022-08-24
 
 ### Breaking changes
-- [CORE]: `SearchEngine.setAccessToken(_: String)` has been removed.
+- [Core]: `SearchEngine.setAccessToken(_: String)` has been removed.
 
 ### Added
-- [CORE]: SearchResultType provides a new value - `block` which represents the block number. Available specifically for Japan.
+- [Core]: SearchResultType provides a new value - `block` which represents the block number. Available specifically for Japan.
 
 ### Fixed
 - [UI]: fixed UIViewController presentation on SDK side. [#7 ](https://github.com/mapbox/mapbox-search-ios/issues/7)
@@ -20,7 +23,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 ## [1.0.0-beta.33] - 2022-07-20
 
 ### Breaking changes
-- [CORE] Undocumented system property used to enable SBS API Type is deprecated. `com.mapbox.mapboxsearch.enableSBS`
+- [Core] Undocumented system property used to enable SBS API Type is deprecated. `com.mapbox.mapboxsearch.enableSBS`
 
 ### Added
 - [Core] `SearchResult.searchRequest` field exposed. Identifies original search request for a result.

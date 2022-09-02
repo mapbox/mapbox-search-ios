@@ -7,10 +7,11 @@ extension Locale {
 extension Locale {
     static func defaultLanguages() -> [String] {
         let regions = Locale.preferredLanguages.map(Locale.init).compactMap({ $0.languageCode }).removingDuplicates()
-        if regions.isEmpty {
-            return [Locale.defaultLanguage]
+        
+        if let first = regions.first {
+            return [first]
         } else {
-            return regions
+            return [Locale.defaultLanguage]
         }
     }
 }
