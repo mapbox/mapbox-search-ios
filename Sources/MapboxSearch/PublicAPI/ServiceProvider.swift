@@ -1,6 +1,6 @@
 import Foundation
 
-let accessTokenPlistKey = "MBXAccessToken"
+let accessTokenPlistKey = "MBXEventsServiceAccessToken"
 let legacyAccessTokenPlistKey = "MGLMapboxAccessToken"
 let baseURLPlistKey = "MGLMapboxAPIBaseURL"
 
@@ -67,7 +67,7 @@ extension ServiceProvider: EngineProviderProtocol {
         let bundleBaseURL = Bundle.main.object(forInfoDictionaryKey: baseURLPlistKey) as? String
        
         let engineOptions = CoreSearchEngine.Options(
-            accessToken: accessToken,
+            accessToken: getStoredAccessToken() ?? accessToken,
             baseUrl: bundleBaseURL ?? defaultsBaseURL,
             apiType: NSNumber(value: apiType.rawValue),
             userAgent: eventsManager.userAgentName,
