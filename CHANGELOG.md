@@ -6,6 +6,11 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.36] - 2022-09-22
+
+### Updated
+- [Core]: updated module dependencies
+
 ## [1.0.0-beta.35] - 2022-08-24
 
 ### Fixed
