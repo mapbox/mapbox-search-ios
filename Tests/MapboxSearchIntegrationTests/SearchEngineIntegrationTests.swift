@@ -134,6 +134,28 @@ class SearchEngineIntegrationTests: MockServerTestCase {
         XCTAssertEqual(resolvedResult.name, selectedResult.name)
     }
     
+    func testResolvedSearchResultWhenQueryChanged() throws {
+        try server.setResponse(.suggestMinsk)
+        try server.setResponse(.retrieveMinsk)
+        
+        searchEngine.search(query: "Mapbox")
+        
+        let updateExpectation = delegate.updateExpectation
+        wait(for: [updateExpectation], timeout: 10)
+        
+        XCTAssertFalse(searchEngine.suggestions.isEmpty)
+        let selectedResult = searchEngine.suggestions.first!
+        
+        searchEngine.search(query: "Mapbo")
+        searchEngine.select(suggestion: selectedResult)
+        
+        let successExpectation = delegate.successExpectation
+        wait(for: [successExpectation], timeout: 10)
+        
+        let resolvedResult = try XCTUnwrap(delegate.resolvedResult)
+        XCTAssertEqual(resolvedResult.name, selectedResult.name)
+    }
+    
     func testResolvedSearchResultFailed() throws {
         
         try server.setResponse(.suggestMinsk)
