@@ -142,7 +142,7 @@ extension SearchCategory {
     
     /// Hospital category.
     public static let hospital =
-        SearchCategory(canonicalId: "hospital", name: Strings.Categories.hospital, legacyName: "hospital", iconName: Maki.cinema.xcassetName)
+    SearchCategory(canonicalId: "hospital", name: Strings.Categories.hospital, legacyName: "hospital", iconName: Maki.hospital.xcassetName)
     
     /// Emergency Room category.
     public static let emergencyRoom =
