@@ -6,6 +6,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+### Fixed
+- [Core]: fixed an issue related to suggestion resolving, when the request was failed in case `searchEngine.query` is changed during resolving.
+
 ## [1.0.0-beta.36] - 2022-09-22
 
 ### Updated

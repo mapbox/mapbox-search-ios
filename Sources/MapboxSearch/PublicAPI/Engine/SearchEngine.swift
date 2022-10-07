@@ -273,6 +273,20 @@ public class SearchEngine: AbstractSearchEngine {
         return SearchResponse(coreResponse: coreResponse)
     }
     
+    private func preProcessRetrieveResponse(_ coreResponse: CoreSearchResponseProtocol?) -> SearchResponse? {
+        assert(Thread.isMainThread)
+        
+        guard let coreResponse = coreResponse else {
+            assertionFailure("Response should never be nil")
+            eventsManager.reportError(.responseProcessingFailed)
+            delegate?.searchErrorHappened(searchError: .responseProcessingFailed, searchEngine: self)
+
+            return nil
+        }
+        
+        return SearchResponse(coreResponse: coreResponse)
+    }
+    
     /// Process core search response and update delegate.
     /// - Parameters:
     ///   - coreResponse: coreResponse to process
@@ -300,6 +314,20 @@ public class SearchEngine: AbstractSearchEngine {
         case .failure(let searchError):
             eventsManager.reportError(searchError)
             delegate?.searchErrorHappened(searchError: searchError, searchEngine: self)
+        }
+    }
+    
+    private func resolveServerRetrieveResponse(_ coreResponse: CoreSearchResponseProtocol?) -> SearchResult? {
+        guard let response = preProcessRetrieveResponse(coreResponse) else {
+            return nil
+        }
+
+        switch response.process() {
+        case .success(let responseResult):
+            return responseResult.results.first
+
+        case .failure:
+            return nil
         }
     }
     
@@ -453,7 +481,7 @@ extension SearchEngine: IndexableDataResolver {
             ) { coreSearchResponse in
                 // Processing search response for Suggestion with type Query may return multiple suggestions or results.
                 // For other types we are expecting single result.
-                let searchResult = self.resolveServerResponse(coreResponse: coreSearchResponse)
+                let searchResult = self.resolveServerRetrieveResponse(coreSearchResponse)
                 completion(searchResult)
             }
         case let suggestion as SearchResult:
