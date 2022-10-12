@@ -67,7 +67,6 @@ public extension AddressAutofill {
     func suggestions(for coordinate: CLLocationCoordinate2D, with options: Options? = nil, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
         let searchOptions = ReverseGeocodingOptions(
             point: coordinate,
-            limit: Constants.defaultSuggestionsLimit,
             types: acceptedTypes,
             countries: options?.countries.map { $0.countryCode },
             languages: options.map { [$0.language.languageCode] }
