@@ -42,6 +42,7 @@ public extension AddressAutofill {
         let searchOptions = SearchOptions(
             countries: options?.countries.map { $0.countryCode },
             languages: options.map { [$0.language.languageCode] },
+            limit: 10,
             filterTypes: acceptedTypes,
             ignoreIndexableRecords: true
         ).toCore(apiType: Self.apiType)

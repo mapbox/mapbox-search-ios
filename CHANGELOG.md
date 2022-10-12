@@ -9,6 +9,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 ### Fixed
 - [Core]: fixed an issue related to suggestion resolving, when the request was failed in case `searchEngine.query` is changed during resolving.
 - [UI]: fixed `hospital` category icon.
+- [Autofill] `AddressAutofill` now returns up to 10 suggestions.
 
 ## [1.0.0-beta.36] - 2022-09-22
 
