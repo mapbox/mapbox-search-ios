@@ -3,6 +3,12 @@
 import Foundation
 import CoreLocation
 
+private extension AddressAutofill {
+    enum Constants {
+        static let defaultSuggestionsLimit = 10
+    }
+}
+
 public final class AddressAutofill {
     private let searchEngine: CoreSearchEngineProtocol
     
@@ -13,7 +19,11 @@ public final class AddressAutofill {
     /// Basic internal initializer
     /// - Parameters:
     ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
-    public convenience init(accessToken: String? = nil) {
+    ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
+    public convenience init(
+        accessToken: String? = nil,
+        locationProvider: LocationProvider? = DefaultLocationProvider()
+    ) {
         guard let accessToken = accessToken ?? ServiceProvider.shared.getStoredAccessToken() else {
             fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
         }
@@ -21,7 +31,7 @@ public final class AddressAutofill {
         let searchEngine = ServiceProvider.shared.createEngine(
             apiType: Self.apiType,
             accessToken: accessToken,
-            locationProvider: WrapperLocationProvider(wrapping: DefaultLocationProvider())
+            locationProvider: WrapperLocationProvider(wrapping: locationProvider)
         )
         
         self.init(searchEngine: searchEngine)
@@ -42,6 +52,7 @@ public extension AddressAutofill {
         let searchOptions = SearchOptions(
             countries: options?.countries.map { $0.countryCode },
             languages: options.map { [$0.language.languageCode] },
+            limit: Constants.defaultSuggestionsLimit,
             filterTypes: acceptedTypes,
             ignoreIndexableRecords: true
         ).toCore(apiType: Self.apiType)
