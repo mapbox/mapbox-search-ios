@@ -6,10 +6,13 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.37] - 2022-10-14
+
 ### Fixed
 - [Core]: fixed an issue related to suggestion resolving, when the request was failed in case `searchEngine.query` is changed during resolving.
 - [UI]: fixed `hospital` category icon.
 
+### Updated
 - [Autofill]: `AddressAutofill` now returns up to 10 suggestions.
 - [Autofill]: Now it is possible to provide custom implementation of `LocationProvider`.
 
