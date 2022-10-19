@@ -7,7 +7,6 @@ final class AddressAutofillQueryTests: XCTestCase {
     func testThatQueryIsNotInitializedWithIncorrectValue() {
         XCTAssertNil(AddressAutofill.Query(value: ""))
         XCTAssertNil(AddressAutofill.Query(value: "1"))
-        XCTAssertNil(AddressAutofill.Query(value: "12"))
     }
     
     func testThatQueryIsInitializedWithCorrectValue() {
