@@ -5,6 +5,9 @@ import CoreLocation
 
 public extension AddressAutofill {
     struct Suggestion {
+        /// Suggestion name.
+        public let name: String
+        
         /// Textual representation of the address.
         public let formattedAddress: String
         
@@ -15,10 +18,12 @@ public extension AddressAutofill {
         private let addressComponents: NonEmptyArray<AddressComponent>
         
         init(
+            name: String,
             formattedAddress: String,
             coordinate: CLLocationCoordinate2D,
             addressComponents: NonEmptyArray<AddressComponent>
         ) {
+            self.name = name
             self.formattedAddress = formattedAddress
             self.coordinate = coordinate
             self.addressComponents = addressComponents

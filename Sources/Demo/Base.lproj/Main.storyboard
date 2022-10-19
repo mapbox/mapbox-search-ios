@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o1C-pK-XDO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JVX-IJ-mtG">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="Hxt-PZ-mXr">
+            <objects>
+                <tabBarController id="JVX-IJ-mtG" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ayf-l1-awu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="o1C-pK-XDO" kind="relationship" relationship="viewControllers" id="CAd-iy-6wJ"/>
+                        <segue destination="NZD-nP-oWd" kind="relationship" relationship="viewControllers" id="cty-OW-eZL"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Opb-vT-sn5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2000" y="1151"/>
+        </scene>
+        <!--SearchUI-->
         <scene sceneID="BeI-ty-XHo">
             <objects>
                 <navigationController navigationBarHidden="YES" id="o1C-pK-XDO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="SearchUI" id="lTB-qi-YMg"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1Rg-Ar-SQd">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -49,10 +68,92 @@
             </objects>
             <point key="canvasLocation" x="138" y="815"/>
         </scene>
+        <!--Address Autofill-->
+        <scene sceneID="uHr-2S-ZJS">
+            <objects>
+                <navigationController id="NZD-nP-oWd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Address Autofill" id="fkh-Aj-TqY"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MnI-GH-jMM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="7bM-3D-K0g" kind="relationship" relationship="rootViewController" id="H8Y-xg-x6V"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rcO-YM-pqS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-888" y="1572"/>
+        </scene>
+        <!--Address Autofill-->
+        <scene sceneID="8aW-Pt-0kO">
+            <objects>
+                <viewController title="Address Autofill" id="7bM-3D-K0g" customClass="AddressAutofillMainViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o0f-ON-FJF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type your query in order to get Address Autofill suggestions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKd-b0-QXa">
+                                <rect key="frame" x="25.666666666666657" y="301.33333333333331" width="363" height="40.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qJO-gQ-NF4">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5iw-ka-cAf"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iKd-b0-QXa" firstAttribute="centerY" secondItem="5iw-ka-cAf" secondAttribute="centerY" id="7T2-HH-OGq"/>
+                            <constraint firstItem="qJO-gQ-NF4" firstAttribute="trailing" secondItem="5iw-ka-cAf" secondAttribute="trailing" id="AeW-sk-VBS"/>
+                            <constraint firstItem="qJO-gQ-NF4" firstAttribute="top" secondItem="5iw-ka-cAf" secondAttribute="top" id="Frz-9v-98I"/>
+                            <constraint firstAttribute="bottom" secondItem="qJO-gQ-NF4" secondAttribute="bottom" id="H9E-F3-gdP"/>
+                            <constraint firstItem="qJO-gQ-NF4" firstAttribute="leading" secondItem="5iw-ka-cAf" secondAttribute="leading" id="YDw-Uf-pau"/>
+                            <constraint firstItem="iKd-b0-QXa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5iw-ka-cAf" secondAttribute="leading" constant="16" id="saH-2L-ZvH"/>
+                            <constraint firstItem="iKd-b0-QXa" firstAttribute="centerX" secondItem="5iw-ka-cAf" secondAttribute="centerX" id="szq-Mj-VQ3"/>
+                            <constraint firstItem="5iw-ka-cAf" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iKd-b0-QXa" secondAttribute="trailing" constant="16" id="vkL-KP-meH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Address Autofill" id="fik-rE-EC5"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="messageLabel" destination="iKd-b0-QXa" id="ehf-e0-AA6"/>
+                        <outlet property="tableView" destination="qJO-gQ-NF4" id="4VE-bB-7fd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hIk-is-HvS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-49.275362318840585" y="1571.7391304347827"/>
+        </scene>
+        <!--Address Autofill Result View Controller-->
+        <scene sceneID="Stl-SA-q6N">
+            <objects>
+                <tableViewController storyboardIdentifier="AddressAutofillResultViewController" id="A0k-U9-gqP" customClass="AddressAutofillResultViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="CdA-1C-LmF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="A0k-U9-gqP" id="Xha-ad-F4q"/>
+                            <outlet property="delegate" destination="A0k-U9-gqP" id="0IB-xo-Bf8"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8h1-LP-tIP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="803" y="1572"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
