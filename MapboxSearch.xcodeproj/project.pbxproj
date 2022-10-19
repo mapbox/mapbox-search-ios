@@ -598,7 +598,6 @@
 		FE7E399725655EBE000C5BD5 /* FavoriteRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecordTests.swift; sourceTree = "<group>"; };
 		FE7E399E256560BC000C5BD5 /* SearchResultStub+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchResultStub+Samples.swift"; sourceTree = "<group>"; };
 		FE7E39A52565615C000C5BD5 /* Address+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Address+Samples.swift"; sourceTree = "<group>"; };
-		FE7E39B1256563A1000C5BD5 /* EventsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsManagerTests.swift; sourceTree = "<group>"; };
 		FE8617F325EFC8E70029F19F /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		FE8DA5A3271D998A004901FB /* Search Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = "Search Documentation.docc"; sourceTree = "<group>"; };
 		FE8F820D256D463100A100D4 /* RoutablePoint+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoutablePoint+Samples.swift"; sourceTree = "<group>"; };
@@ -885,7 +884,6 @@
 				FECB50C625540B090026302E /* CoreResponseProviderTests.swift */,
 				FEB0AA8225CAC3EF002F0D1F /* CoreResultTypeTests.swift */,
 				FECCDEE92552D20A008FC4D6 /* DefaultLocationProviderTests.swift */,
-				FE7E39B1256563A1000C5BD5 /* EventsManagerTests.swift */,
 				F9F6379C25DFB4AC00C99904 /* FeedbackManagerTests.swift */,
 				FECB50FF25541A170026302E /* ExternalRecordPlaceholderTests.swift */,
 				FE7E399725655EBE000C5BD5 /* FavoriteRecordTests.swift */,
