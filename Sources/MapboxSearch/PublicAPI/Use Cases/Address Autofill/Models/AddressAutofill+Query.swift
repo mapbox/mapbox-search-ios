@@ -5,7 +5,7 @@ import Foundation
 public extension AddressAutofill {
     struct Query {
         public enum Requirements {
-            static let queryLength: UInt = 3
+            public static let queryLength: UInt = 2
         }
                 
         /// Identifies search query.
