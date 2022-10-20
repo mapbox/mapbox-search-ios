@@ -2,8 +2,12 @@
 
 import UIKit
 import MapboxSearch
+import MapKit
 
-final class AddressAutofillResultViewController: UITableViewController {
+final class AddressAutofillResultViewController: UIViewController {
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var mapView: MKMapView!
+    
     private var result: AddressAutofill.Result!
     
     static func instantiate(with result: AddressAutofill.Result) -> AddressAutofillResultViewController {
@@ -29,16 +33,18 @@ final class AddressAutofillResultViewController: UITableViewController {
         super.viewDidLoad()
         
         title = result.suggestion.name
+        
+        configureMapView()
     }
 }
 
 // MARK: - TableView data source
-extension AddressAutofillResultViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension AddressAutofillResultViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         result.addressComponents.all.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "result-cell"
         
         let tableViewCell: UITableViewCell
@@ -50,10 +56,26 @@ extension AddressAutofillResultViewController {
         
         let addressComponent = result.addressComponents.all[indexPath.row]
 
-        tableViewCell.textLabel?.text = addressComponent.kind.rawValue
-        tableViewCell.detailTextLabel?.text = addressComponent.value.capitalized
+        tableViewCell.textLabel?.text = addressComponent.kind.rawValue.capitalized
+        tableViewCell.detailTextLabel?.text = addressComponent.value
         tableViewCell.detailTextLabel?.textColor = UIColor.darkGray
         
         return tableViewCell
+    }
+}
+
+// MARK: - Private
+private extension AddressAutofillResultViewController {
+    func configureMapView() {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = result.suggestion.coordinate
+        annotation.title = result.suggestion.name
+        mapView.addAnnotation(annotation)
+        
+        let region = MKCoordinateRegion(
+            center: result.suggestion.coordinate,
+            span: .init(latitudeDelta: 0.001, longitudeDelta: 0.001)
+        )
+        mapView.setRegion(region, animated: false)
     }
 }

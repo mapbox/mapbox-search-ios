@@ -129,23 +129,45 @@
             <point key="canvasLocation" x="-49.275362318840585" y="1571.7391304347827"/>
         </scene>
         <!--Address Autofill Result View Controller-->
-        <scene sceneID="Stl-SA-q6N">
+        <scene sceneID="qpr-6R-Dud">
             <objects>
-                <tableViewController storyboardIdentifier="AddressAutofillResultViewController" id="A0k-U9-gqP" customClass="AddressAutofillResultViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="CdA-1C-LmF">
+                <viewController storyboardIdentifier="AddressAutofillResultViewController" id="LVK-aO-7G6" customClass="AddressAutofillResultViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jNZ-gW-cMN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="A0k-U9-gqP" id="Xha-ad-F4q"/>
-                            <outlet property="delegate" destination="A0k-U9-gqP" id="0IB-xo-Bf8"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8h1-LP-tIP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LGp-Id-chq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="294.33333333333331"/>
+                            </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mhN-fE-IJo">
+                                <rect key="frame" x="0.0" y="294.33333333333326" width="414" height="441.66666666666674"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="LVK-aO-7G6" id="sae-eD-fFb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QeP-QX-DK9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LGp-Id-chq" firstAttribute="top" secondItem="QeP-QX-DK9" secondAttribute="top" id="4L6-VE-Uec"/>
+                            <constraint firstItem="mhN-fE-IJo" firstAttribute="top" secondItem="LGp-Id-chq" secondAttribute="bottom" id="B1h-LS-KgK"/>
+                            <constraint firstItem="mhN-fE-IJo" firstAttribute="bottom" secondItem="QeP-QX-DK9" secondAttribute="bottom" id="Bhy-SD-XGH"/>
+                            <constraint firstItem="mhN-fE-IJo" firstAttribute="leading" secondItem="QeP-QX-DK9" secondAttribute="leading" id="Ohk-GK-ecE"/>
+                            <constraint firstItem="LGp-Id-chq" firstAttribute="height" secondItem="jNZ-gW-cMN" secondAttribute="height" multiplier="0.4" id="U7b-Kn-XKb"/>
+                            <constraint firstItem="LGp-Id-chq" firstAttribute="leading" secondItem="QeP-QX-DK9" secondAttribute="leading" id="ZQc-bT-dg7"/>
+                            <constraint firstItem="mhN-fE-IJo" firstAttribute="trailing" secondItem="QeP-QX-DK9" secondAttribute="trailing" id="eZk-Pp-Xif"/>
+                            <constraint firstItem="LGp-Id-chq" firstAttribute="trailing" secondItem="QeP-QX-DK9" secondAttribute="trailing" id="ssv-ev-NKi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="LGp-Id-chq" id="kbw-Ay-MbH"/>
+                        <outlet property="tableView" destination="mhN-fE-IJo" id="bfP-1G-RFk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oa3-az-ze4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="803" y="1572"/>
+            <point key="canvasLocation" x="753.62318840579712" y="1579.8913043478262"/>
         </scene>
     </scenes>
     <resources>
