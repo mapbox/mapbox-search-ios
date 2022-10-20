@@ -70,8 +70,6 @@
 		F94FFA4B264547CD0019ED9B /* retrieve-multi.json in Resources */ = {isa = PBXBuildFile; fileRef = F94FFA49264547CD0019ED9B /* retrieve-multi.json */; };
 		F953A49325ECEB60003A3681 /* SearchCategorySuggestion+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = F953A49225ECEB60003A3681 /* SearchCategorySuggestion+Samples.swift */; };
 		F953A49A25ECF3D7003A3681 /* SearchQuerySuggestionImpl+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = F953A49925ECF3D7003A3681 /* SearchQuerySuggestionImpl+Samples.swift */; };
-		F96305E52611FD1300BBDEDE /* Embassy in Frameworks */ = {isa = PBXBuildFile; productRef = F96305E42611FD1300BBDEDE /* Embassy */; };
-		F96305ED2611FDBB00BBDEDE /* Ambassador in Frameworks */ = {isa = PBXBuildFile; productRef = F96305EC2611FDBB00BBDEDE /* Ambassador */; };
 		F96535B82538B39D0066D699 /* CategorySuggestionsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96535A72538AD380066D699 /* CategorySuggestionsController.xib */; };
 		F96E70C325FA6485005B8A3F /* WrapperLocationProviderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96E70C225FA6485005B8A3F /* WrapperLocationProviderStub.swift */; };
 		F96E710C25FB8A5F005B8A3F /* SearchSuggestionStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96E710B25FB8A5F005B8A3F /* SearchSuggestionStub.swift */; };
@@ -88,8 +86,6 @@
 		F9AB03A6261DB37C00EDF1E7 /* suggestions-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = F9AB03A5261DB37C00EDF1E7 /* suggestions-categories.json */; };
 		F9AB03B2261DB50500EDF1E7 /* retrieve-category.json in Resources */ = {isa = PBXBuildFile; fileRef = F9AB03B1261DB50500EDF1E7 /* retrieve-category.json */; };
 		F9AB03C3261DBD7F00EDF1E7 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AB03C2261DBD7F00EDF1E7 /* MockResponse.swift */; };
-		F9ACA60B2642AE1300F50CD4 /* Embassy in Frameworks */ = {isa = PBXBuildFile; productRef = F9ACA60A2642AE1300F50CD4 /* Embassy */; };
-		F9ACA60D2642AE1300F50CD4 /* Ambassador in Frameworks */ = {isa = PBXBuildFile; productRef = F9ACA60C2642AE1300F50CD4 /* Ambassador */; };
 		F9ACA6132642B66600F50CD4 /* MockWebServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ACA6112642B66600F50CD4 /* MockWebServer.swift */; };
 		F9ACA6142642BEDD00F50CD4 /* MockWebServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ACA6112642B66600F50CD4 /* MockWebServer.swift */; };
 		F9ACA6152642BEE100F50CD4 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AB03C2261DBD7F00EDF1E7 /* MockResponse.swift */; };
@@ -108,9 +104,7 @@
 		F9C557682670CB0400BE8B94 /* MockWebServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ACA6112642B66600F50CD4 /* MockWebServer.swift */; };
 		F9C5579A2670CB0400BE8B94 /* MapboxSearchUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED0EBBB238D1E2600391B13 /* MapboxSearchUI.framework */; };
 		F9C5579B2670CB0400BE8B94 /* MapboxSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */; };
-		F9C5579C2670CB0400BE8B94 /* Ambassador in Frameworks */ = {isa = PBXBuildFile; productRef = F9C557412670CB0400BE8B94 /* Ambassador */; };
 		F9C5579D2670CB0400BE8B94 /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = F9C5573D2670CB0400BE8B94 /* CwlPreconditionTesting */; };
-		F9C5579E2670CB0400BE8B94 /* Embassy in Frameworks */ = {isa = PBXBuildFile; productRef = F9C5573F2670CB0400BE8B94 /* Embassy */; };
 		F9C557A02670CB0400BE8B94 /* suggestions-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = F91D2D0A26174F5B00F7DFDF /* suggestions-minsk.json */; };
 		F9C557A12670CB0400BE8B94 /* retrieve-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = F9074457261B68B50091899C /* retrieve-minsk.json */; };
 		F9C557A22670CB0400BE8B94 /* suggestions-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = F9AB03A5261DB37C00EDF1E7 /* suggestions-categories.json */; };
@@ -767,9 +761,7 @@
 			files = (
 				FEA746D6243B893700BD8DAF /* MapboxSearchUI.framework in Frameworks */,
 				3A0D7E56233522D5006D81BB /* MapboxSearch.framework in Frameworks */,
-				F9ACA60D2642AE1300F50CD4 /* Ambassador in Frameworks */,
 				FE1122F12567D07B0064FD53 /* CwlPreconditionTesting in Frameworks */,
-				F9ACA60B2642AE1300F50CD4 /* Embassy in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,8 +769,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F96305E52611FD1300BBDEDE /* Embassy in Frameworks */,
-				F96305ED2611FDBB00BBDEDE /* Ambassador in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,9 +778,7 @@
 			files = (
 				F9C5579A2670CB0400BE8B94 /* MapboxSearchUI.framework in Frameworks */,
 				F9C5579B2670CB0400BE8B94 /* MapboxSearch.framework in Frameworks */,
-				F9C5579C2670CB0400BE8B94 /* Ambassador in Frameworks */,
 				F9C5579D2670CB0400BE8B94 /* CwlPreconditionTesting in Frameworks */,
-				F9C5579E2670CB0400BE8B94 /* Embassy in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1552,8 +1540,6 @@
 			name = MapboxSearchTests;
 			packageProductDependencies = (
 				FE1122F02567D07B0064FD53 /* CwlPreconditionTesting */,
-				F9ACA60A2642AE1300F50CD4 /* Embassy */,
-				F9ACA60C2642AE1300F50CD4 /* Ambassador */,
 			);
 			productName = MapboxSearchTests;
 			productReference = 3A0D7E55233522D5006D81BB /* MapboxSearchTests.xctest */;
@@ -1574,8 +1560,6 @@
 			);
 			name = MapboxSearchUITests;
 			packageProductDependencies = (
-				F96305E42611FD1300BBDEDE /* Embassy */,
-				F96305EC2611FDBB00BBDEDE /* Ambassador */,
 			);
 			productName = DemoUITests;
 			productReference = F9190D592453126600C169AB /* MapboxSearchUITests.xctest */;
@@ -1600,8 +1584,6 @@
 			name = MapboxSearchIntegrationTests;
 			packageProductDependencies = (
 				F9C5573D2670CB0400BE8B94 /* CwlPreconditionTesting */,
-				F9C5573F2670CB0400BE8B94 /* Embassy */,
-				F9C557412670CB0400BE8B94 /* Ambassador */,
 			);
 			productName = MapboxSearchTests;
 			productReference = F9C557B02670CB0400BE8B94 /* MapboxSearchIntegrationTests.xctest */;
@@ -1721,8 +1703,6 @@
 			mainGroup = 3A0D7E42233522D4006D81BB;
 			packageReferences = (
 				FE1122EF2567D07B0064FD53 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */,
-				F96305E32611FD1300BBDEDE /* XCRemoteSwiftPackageReference "Embassy" */,
-				F96305EB2611FDBB00BBDEDE /* XCRemoteSwiftPackageReference "Ambassador" */,
 				FE21364D2617477A0084D1E1 /* XCRemoteSwiftPackageReference "atlantis" */,
 			);
 			productRefGroup = 3A0D7E4D233522D4006D81BB /* Products */;
@@ -3011,44 +2991,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F96305E32611FD1300BBDEDE /* XCRemoteSwiftPackageReference "Embassy" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/envoy/Embassy.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.1.3;
-			};
-		};
-		F96305EB2611FDBB00BBDEDE /* XCRemoteSwiftPackageReference "Ambassador" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/envoy/Ambassador.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.5;
-			};
-		};
 		F9C5573E2670CB0400BE8B94 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mattgallagher/CwlPreconditionTesting.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
-			};
-		};
-		F9C557402670CB0400BE8B94 /* XCRemoteSwiftPackageReference "Embassy" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/envoy/Embassy.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.1.3;
-			};
-		};
-		F9C557422670CB0400BE8B94 /* XCRemoteSwiftPackageReference "Ambassador" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/envoy/Ambassador.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.5;
 			};
 		};
 		FE1122EF2567D07B0064FD53 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */ = {
@@ -3070,40 +3018,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F96305E42611FD1300BBDEDE /* Embassy */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F96305E32611FD1300BBDEDE /* XCRemoteSwiftPackageReference "Embassy" */;
-			productName = Embassy;
-		};
-		F96305EC2611FDBB00BBDEDE /* Ambassador */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F96305EB2611FDBB00BBDEDE /* XCRemoteSwiftPackageReference "Ambassador" */;
-			productName = Ambassador;
-		};
-		F9ACA60A2642AE1300F50CD4 /* Embassy */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F96305E32611FD1300BBDEDE /* XCRemoteSwiftPackageReference "Embassy" */;
-			productName = Embassy;
-		};
-		F9ACA60C2642AE1300F50CD4 /* Ambassador */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F96305EB2611FDBB00BBDEDE /* XCRemoteSwiftPackageReference "Ambassador" */;
-			productName = Ambassador;
-		};
 		F9C5573D2670CB0400BE8B94 /* CwlPreconditionTesting */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F9C5573E2670CB0400BE8B94 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */;
 			productName = CwlPreconditionTesting;
-		};
-		F9C5573F2670CB0400BE8B94 /* Embassy */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F9C557402670CB0400BE8B94 /* XCRemoteSwiftPackageReference "Embassy" */;
-			productName = Embassy;
-		};
-		F9C557412670CB0400BE8B94 /* Ambassador */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F9C557422670CB0400BE8B94 /* XCRemoteSwiftPackageReference "Ambassador" */;
-			productName = Ambassador;
 		};
 		FE1122F02567D07B0064FD53 /* CwlPreconditionTesting */ = {
 			isa = XCSwiftPackageProductDependency;
