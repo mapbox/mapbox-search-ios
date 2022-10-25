@@ -62,6 +62,18 @@ public struct SearchOptions {
     /// - Attention: May break engine entity functionality. Do not use without SDK developers agreement
     public var unsafeParameters: [String: String]?
     
+    /**
+     The locale in which results should be returned.
+     
+     This property affects the language of returned results; generally speaking, it does not determine which results are found.
+     Components other than the language code, such as the country and script codes, are ignored.
+     
+     If `locale` option is set, `languages` option will be ignored.
+     
+     By default, this property is set to `nil`, causing results to be in the default language.
+    */
+    public var locale: Locale?
+    
     /// Search request options constructor
     /// - Parameter countries: Limit results to one or more countries. Permitted values are ISO 3166 alpha 2 country codes (e.g. US, DE, GB)
     /// - Parameter languages: List of  language codes which used to provide localized results, order matters. Locale.preferredLanguages used as default or ["en"] if none.
@@ -186,6 +198,13 @@ public struct SearchOptions {
     }
     
     func toCore() -> CoreSearchOptions {
+        let searchLanguages: [String]
+        if let localeLanguageCode = locale?.languageCode {
+            searchLanguages = [localeLanguageCode]
+        } else {
+            searchLanguages = languages
+        }
+        
         return CoreSearchOptions(proximity: proximity.flatMap({ CLLocation(latitude: $0.latitude, longitude: $0.longitude) }),
                                  origin: origin.flatMap({ CLLocation(latitude: $0.latitude, longitude: $0.longitude) }),
                                  navProfile: navigationOptions?.profile.string,
@@ -193,7 +212,7 @@ public struct SearchOptions {
                                  bbox: boundingBox.map(CoreBoundingBox.init),
                                  countries: countries,
                                  fuzzyMatch: fuzzyMatch.map(NSNumber.init),
-                                 language: languages,
+                                 language: searchLanguages,
                                  limit: limit.map(NSNumber.init),
                                  types: filterTypes.map { $0.map { NSNumber(value: $0.coreValue.rawValue) } },
                                  ignoreUR: ignoreIndexableRecords,
