@@ -20,4 +20,19 @@ final class LanguageTests: XCTestCase {
 
         XCTAssertNil(invalidIdentifier)
     }
+    
+    func testThatLanguageCanBeInitializedFromLocale() {
+        [
+            Locale(identifier: "en-US"),
+            Locale(identifier: "en"),
+            Locale(identifier: "en-UK")
+        ].forEach { locale in
+            XCTAssertNotNil(locale)
+            
+            let language = Language(locale: locale)
+
+            XCTAssertNotNil(language)
+            XCTAssertEqual(language?.languageCode, locale.languageCode)
+        }
+    }
 }

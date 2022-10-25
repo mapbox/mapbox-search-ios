@@ -147,6 +147,18 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertEqual(fromCoreSearchOptions.indexableRecordsDistanceThreshold, searchOptions.indexableRecordsDistanceThreshold)
     }
     
+    func testSearchOptionsUsesLocale() {
+        var searchOptions = SearchOptions()
+        searchOptions.languages = ["en", "es"]
+        
+        var coreOptions = searchOptions.toCore()
+        XCTAssertEqual(coreOptions.language, ["en", "es"])
+        
+        searchOptions.locale = Locale(identifier: "fr-US")
+        coreOptions = searchOptions.toCore()
+        XCTAssertEqual(coreOptions.language, ["fr"])
+    }
+    
     func testSearchOptionsEmptyInit() {
         let searchOptions = SearchOptions()
         
