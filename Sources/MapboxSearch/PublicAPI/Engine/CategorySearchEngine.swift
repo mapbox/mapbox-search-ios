@@ -11,7 +11,7 @@ public class CategorySearchEngine: AbstractSearchEngine {
     ///   - completionQueue: DispatchQueue.main is default
     ///   - completion: completion closure
     public func search(categoryName: String, options: SearchOptions? = nil, completionQueue: DispatchQueue = .main, completion: @escaping (Result<[SearchResult], SearchError>) -> Void) {
-        let options = options?.merged(defaultSearchOptions) ?? SearchOptions()
+        let options = options?.merged(defaultSearchOptions) ?? defaultSearchOptions
         engine.search(forQuery: "", categories: [categoryName], options: options.toCore(apiType: engineApi)) { [weak self, weak eventsManager] coreResponse in
             guard let self = self, let coreResponse = coreResponse else {
                 let error = SearchError.categorySearchRequestFailed(reason: SearchError.responseProcessingFailed)
