@@ -6,6 +6,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.38] - 2022-10-26
+
 ### Fixed
 - Fixed the issue when `defaultSearchOptions` were ignored for the `CategorySearchEngine`.
 
@@ -14,7 +16,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Autofill]: exposed query requirements constant in `AddressAutofill.Query.Requirements`.
 - [Autofill]: added example to the Demo project
 
-- [Common]: added support to initialize `Language` with the `locale` object.
+- [Common]: added support to initialize `Language` with the `Locale` object.
 - [Common]: added support to pass `Locale` object to the `SearchOptions`. Language code will be used for a search request if present.
 
 ## [1.0.0-beta.37] - 2022-10-14
