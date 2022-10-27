@@ -29,6 +29,10 @@
 		148DE66C285757AA0085684D /* AddressAutofill+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE66B285757AA0085684D /* AddressAutofill+Result.swift */; };
 		148DE671285777180085684D /* NSLocking+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE670285777180085684D /* NSLocking+Extensions.swift */; };
 		148DE68B285A18900085684D /* AddressAutofill+AddressComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE68A285A18900085684D /* AddressAutofill+AddressComponent.swift */; };
+		149948E7290A8ACE00E7E619 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 149948E6290A8ACE00E7E619 /* Swifter */; };
+		149948ED290A8DCA00E7E619 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 149948EC290A8DCA00E7E619 /* Swifter */; };
+		149948EF290A8DD500E7E619 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 149948EE290A8DD500E7E619 /* Swifter */; };
+		149948F1290A8DF900E7E619 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 149948F0290A8DF900E7E619 /* Swifter */; };
 		14FBBBA9287ECC5C00721935 /* AddressAutofill+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */; };
 		14FBBBAD2881663800721935 /* AddressAutofill+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBAC2881663800721935 /* AddressAutofill+Query.swift */; };
 		14FBBBAF2881673E00721935 /* AddressAutofill.Query+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBAE2881673E00721935 /* AddressAutofill.Query+Tests.swift */; };
@@ -752,6 +756,7 @@
 				E648C0B626428D2B0044315F /* MapboxCoreSearch.xcframework in Frameworks */,
 				E648C0BA26428D3D0044315F /* MapboxCommon.xcframework in Frameworks */,
 				E648C0C9264297A10044315F /* libc++.1.tbd in Frameworks */,
+				149948E7290A8ACE00E7E619 /* Swifter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,6 +767,7 @@
 				FEA746D6243B893700BD8DAF /* MapboxSearchUI.framework in Frameworks */,
 				3A0D7E56233522D5006D81BB /* MapboxSearch.framework in Frameworks */,
 				FE1122F12567D07B0064FD53 /* CwlPreconditionTesting in Frameworks */,
+				149948F1290A8DF900E7E619 /* Swifter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -769,6 +775,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				149948ED290A8DCA00E7E619 /* Swifter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,6 +786,7 @@
 				F9C5579A2670CB0400BE8B94 /* MapboxSearchUI.framework in Frameworks */,
 				F9C5579B2670CB0400BE8B94 /* MapboxSearch.framework in Frameworks */,
 				F9C5579D2670CB0400BE8B94 /* CwlPreconditionTesting in Frameworks */,
+				149948EF290A8DD500E7E619 /* Swifter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1517,6 +1525,9 @@
 			dependencies = (
 			);
 			name = MapboxSearch;
+			packageProductDependencies = (
+				149948E6290A8ACE00E7E619 /* Swifter */,
+			);
 			productName = MapboxSearch;
 			productReference = 3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1540,6 +1551,7 @@
 			name = MapboxSearchTests;
 			packageProductDependencies = (
 				FE1122F02567D07B0064FD53 /* CwlPreconditionTesting */,
+				149948F0290A8DF900E7E619 /* Swifter */,
 			);
 			productName = MapboxSearchTests;
 			productReference = 3A0D7E55233522D5006D81BB /* MapboxSearchTests.xctest */;
@@ -1560,6 +1572,7 @@
 			);
 			name = MapboxSearchUITests;
 			packageProductDependencies = (
+				149948EC290A8DCA00E7E619 /* Swifter */,
 			);
 			productName = DemoUITests;
 			productReference = F9190D592453126600C169AB /* MapboxSearchUITests.xctest */;
@@ -1584,6 +1597,7 @@
 			name = MapboxSearchIntegrationTests;
 			packageProductDependencies = (
 				F9C5573D2670CB0400BE8B94 /* CwlPreconditionTesting */,
+				149948EE290A8DD500E7E619 /* Swifter */,
 			);
 			productName = MapboxSearchTests;
 			productReference = F9C557B02670CB0400BE8B94 /* MapboxSearchIntegrationTests.xctest */;
@@ -1704,6 +1718,7 @@
 			packageReferences = (
 				FE1122EF2567D07B0064FD53 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */,
 				FE21364D2617477A0084D1E1 /* XCRemoteSwiftPackageReference "atlantis" */,
+				149948E5290A8ACE00E7E619 /* XCRemoteSwiftPackageReference "swifter" */,
 			);
 			productRefGroup = 3A0D7E4D233522D4006D81BB /* Products */;
 			projectDirPath = "";
@@ -2991,6 +3006,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		149948E5290A8ACE00E7E619 /* XCRemoteSwiftPackageReference "swifter" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/httpswift/swifter";
+			requirement = {
+				kind = exactVersion;
+				version = 1.5.0;
+			};
+		};
 		F9C5573E2670CB0400BE8B94 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mattgallagher/CwlPreconditionTesting.git";
@@ -3018,6 +3041,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		149948E6290A8ACE00E7E619 /* Swifter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 149948E5290A8ACE00E7E619 /* XCRemoteSwiftPackageReference "swifter" */;
+			productName = Swifter;
+		};
+		149948EC290A8DCA00E7E619 /* Swifter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 149948E5290A8ACE00E7E619 /* XCRemoteSwiftPackageReference "swifter" */;
+			productName = Swifter;
+		};
+		149948EE290A8DD500E7E619 /* Swifter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 149948E5290A8ACE00E7E619 /* XCRemoteSwiftPackageReference "swifter" */;
+			productName = Swifter;
+		};
+		149948F0290A8DF900E7E619 /* Swifter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 149948E5290A8ACE00E7E619 /* XCRemoteSwiftPackageReference "swifter" */;
+			productName = Swifter;
+		};
 		F9C5573D2670CB0400BE8B94 /* CwlPreconditionTesting */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F9C5573E2670CB0400BE8B94 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */;

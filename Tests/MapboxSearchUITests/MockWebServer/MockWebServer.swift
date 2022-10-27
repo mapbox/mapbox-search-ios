@@ -1,62 +1,92 @@
 import Foundation
+import Swifter
 
-class MockWebServer {
-    
+final class MockWebServer {
     let endpoint = "http://localhost:8080"
     
-//    var eventLoop: EventLoop!
-//    var router: Router!
-//    var eventLoopThreadCondition: NSCondition!
-//    var eventLoopThread: Thread!
-//    var server: HTTPServer!
-    
+    private let server = HttpServer()
+
     func setResponse(_ response: MockResponse, query: String? = nil, statusCode: Int = 200) throws {
-//        let json = try Data(contentsOf: URL(fileURLWithPath: response.path))
-//        var route = "/search/v1/\(response.endpoint.rawValue)"
-//
-//        // Append query only for suggestions
-//        if response.endpoint == .suggest {
-//            let encodedQuery = query.flatMap { "/\($0.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)" } ?? ""
-//            route.append(encodedQuery)
-//        }
-//
-//        router[route] = JSONResponse(statusCode: statusCode, handler: { environ in
-//            return try! JSONSerialization.jsonObject(with: json, options: [])
-//        })
+        let route = Self.path(for: response.endpoint)
+        let method = Self.httpMethod(for: response.endpoint)
+        
+        let response = HttpResponse.raw(statusCode, "mocked response", nil) { writer in
+            try writer.write(
+                try Data(contentsOf: URL(fileURLWithPath: response.path))
+            )
+        }
+        
+        switch method {
+        case .get:
+            server.get[route] = { _ in response }
+            
+        case .post:
+            server.post[route] = { _ in response }
+        }
     }
     
-    func setResponse(endpoint: MockResponse.Endpoint, body: String, statusCode: Int) {
-//        let route = "/search/v1/\(endpoint.rawValue)"
-//        router[route] = DataResponse(handler: { environ, sendData in
-//            sendData(body.data(using: .utf8)!)
-//        })
+    func setResponse(endpoint: MockResponse.Endpoint, query: String? = nil, body: String, statusCode: Int) {
+        let route = Self.path(for: endpoint)
+        let method = Self.httpMethod(for: endpoint)
+        
+        let response = HttpResponse.raw(statusCode, "mocked response", nil) { writer in
+            try writer.write(body.data(using: .utf8)!)
+        }
+
+        switch method {
+        case .get:
+            server.get[route] = { _ in response }
+            
+        case .post:
+            server.post[route] = { _ in response }
+        }
     }
     
     func start() throws {
-//        eventLoop = try SelectorEventLoop(selector: try KqueueSelector())
-//        router = Router()
-//        server = DefaultHTTPServer(eventLoop: eventLoop, port: 8080, app: router.app)
-//        try server.start()
-//
-//        eventLoopThreadCondition = NSCondition()
-//        eventLoopThread = Thread(block: {
-//            self.eventLoop.runForever()
-//            self.eventLoopThreadCondition.lock()
-//            self.eventLoopThreadCondition.signal()
-//            self.eventLoopThreadCondition.unlock()
-//        })
-//        eventLoopThread.start()
+        try server.start()
     }
     
     func stop() {
-//        server.stopAndWait()
-//        eventLoopThreadCondition.lock()
-//        eventLoop.stop()
-//
-//        while eventLoop.running {
-//            if !eventLoopThreadCondition.wait(until: Date(timeIntervalSinceNow: 10)) {
-//                fatalError("Join eventLoopThread timeout")
-//            }
-//        }
+        server.stop()
+    }
+}
+
+// MARK: - private
+private extension MockWebServer {
+    enum HTTPMethod {
+        case get, post
+    }
+    
+    static func httpMethod(for endpoint: MockResponse.Endpoint) -> HTTPMethod {
+        switch endpoint {
+        case .suggest, .category, .reverse:
+            return .get
+            
+        case .retrieve, .multiRetrieve:
+            return .post
+        }
+    }
+    
+    static func path(for endpoint: MockResponse.Endpoint) -> String {
+        var path = "/search/v1/\(endpoint.rawValue)"
+        
+        switch endpoint {
+        case .suggest:
+            path += "/:query"
+            
+        case .category:
+            path += "/:category"
+            
+        case .multiRetrieve:
+            break
+            
+        case .reverse:
+            path += "/:coordinates"
+            
+        case .retrieve:
+            break
+        }
+        
+        return path
     }
 }
