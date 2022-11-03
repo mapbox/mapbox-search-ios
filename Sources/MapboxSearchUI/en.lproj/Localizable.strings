@@ -12,7 +12,7 @@
 
 "search.error.noInternet.name" = "NO INTERNET CONNECTION";
 
-"search.error.noInternet.description" = "You’re offline. Try to reconnect.";
+"search.error.noInternet.description" = "You’re offline. Try reconnecting.";
 
 "search.error.generic.name" = "ERROR";
 
@@ -32,7 +32,7 @@
 
 "favorite.cell.cancel.name" = "Cancel";
 
-"favorite.cell.address.placeholder" = "Tap me to set the address";
+"favorite.cell.address.placeholder" = "Tap to set the address";
 
 "favorite.cell.default.home.name" = "Home";
 
@@ -52,11 +52,11 @@
 
 "search.feedback.title" = "Send Feedback";
 
-"search.feedback.reason.incorrectNameOption.name" = "Incorrect name";
+"search.feedback.reason.incorrectNameOption.name" = "Wrong name";
 
-"search.feedback.reason.incorrectAddressOption.name" = "Incorrect address";
+"search.feedback.reason.incorrectAddressOption.name" = "Wrong address";
 
-"search.feedback.reason.incorrectLocationOption.name" = "Incorrect location";
+"search.feedback.reason.incorrectLocationOption.name" = "Wrong location";
 
 "search.feedback.reason.missingResultOption.name" = "Missing result";
 
@@ -64,11 +64,11 @@
 
 "search.feedback.error.name" = "Feedback Error";
 
-"search.feedback.error.message" = "Sorry, for some reason this feedback can not be submitted";
+"search.feedback.error.message" = "An unknown error occurred when submitting this feedback.";
 
-"search.feedback.confirmation.title" = "Feedback Confirmation";
+"search.feedback.confirmation.title" = "Submit Feedback?";
 
-"search.feedback.confirmation.message" = "Submit Yours Feedback?";
+"search.feedback.confirmation.message" = "Are you sure you want to send this feedback to Mapbox?";
 
 "search.general.ok" = "OK";
 
