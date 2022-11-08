@@ -63,11 +63,13 @@ extension ServiceProvider: EngineProviderProtocol {
         locationProvider: CoreLocationProvider?
     ) -> CoreSearchEngineProtocol {
         // UserDefaults can be used to setup base url in runtime (e.g. UI tests)
+        // UserDefaults can be used to setup base url in runtime (e.g. UI tests)
         let defaultsBaseURL = UserDefaults.standard.value(forKey: baseURLPlistKey) as? String
-
+        let bundleBaseURL = Bundle.main.object(forInfoDictionaryKey: baseURLPlistKey) as? String
+       
         let engineOptions = CoreSearchEngine.Options(
             accessToken: accessToken,
-            baseUrl: defaultsBaseURL,
+            baseUrl: bundleBaseURL ?? defaultsBaseURL,
             apiType: NSNumber(value: apiType.rawValue),
             userAgent: eventsManager.userAgentName,
             eventsUrl: nil
