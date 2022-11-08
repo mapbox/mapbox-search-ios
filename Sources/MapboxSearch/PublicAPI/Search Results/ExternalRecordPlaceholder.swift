@@ -33,10 +33,18 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
         self.name = coreResult.names[0]
         self.address = coreResult.addresses?.first.map(Address.init)
         self.dataLayerIdentifier = layerIdentifier
-        self.distance = coreResult.distanceToProximity
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
         self.categories = coreResult.categories
         self.serverIndex = coreResult.serverIndex?.intValue
+        
+        /*
+            It is not possible to calculate distance correctly for userRecords suggestions in case if navProfile is specified.
+        */
+        if response.request.options.navProfile != nil {
+            self.distance = nil
+        } else {
+            self.distance = coreResult.distanceToProximity
+        }
         
         self.descriptionText = coreResult.addresses?.first.map(Address.init)?.formattedAddress(style: .medium)
         self.batchResolveSupported = coreResult.action?.isMultiRetrievable ?? false
