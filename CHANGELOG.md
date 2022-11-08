@@ -6,6 +6,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+### Fixed
+- [UI]: fixed the issue with incorrect distance for the suggestions from `History/Favorites`.
+
 ## [1.0.0-beta.38] - 2022-10-26
 
 ### Fixed
