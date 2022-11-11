@@ -161,13 +161,8 @@
 		FE0A04F5256D3B5D00FB222B /* RoutablePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0A04F4256D3B5D00FB222B /* RoutablePoint.swift */; };
 		FE1064F525B9A1C9007837BC /* NavigationOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1064F425B9A1C9007837BC /* NavigationOptions.swift */; };
 		FE1122B92567BE5B0064FD53 /* ArrayExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1122B82567BE5B0064FD53 /* ArrayExtensionsTests.swift */; };
-		FE1122C02567C2F30064FD53 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1122BF2567C2F30064FD53 /* NetworkSession.swift */; };
-		FE1122CE2567C6E00064FD53 /* NetworkSessionStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1122CD2567C6E00064FD53 /* NetworkSessionStub.swift */; };
-		FE1122D52567C8B70064FD53 /* NetworkSessionTaskStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1122D42567C8B70064FD53 /* NetworkSessionTaskStub.swift */; };
 		FE1122F12567D07B0064FD53 /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = FE1122F02567D07B0064FD53 /* CwlPreconditionTesting */; };
 		FE1F31DC2567FA6D004DCB6D /* WrapperLocationProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F31DB2567FA6D004DCB6D /* WrapperLocationProviderTests.swift */; };
-		FE1F31E32567FDDF004DCB6D /* NetworkSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F31E22567FDDF004DCB6D /* NetworkSessionTests.swift */; };
-		FE1F31EA25680086004DCB6D /* DarwinNetworkSessionStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F31E925680086004DCB6D /* DarwinNetworkSessionStub.swift */; };
 		FE1F31F125680542004DCB6D /* SearchRequestOptions+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F31F025680542004DCB6D /* SearchRequestOptions+Samples.swift */; };
 		FE1F320225680585004DCB6D /* SearchResultSuggestionStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F320125680585004DCB6D /* SearchResultSuggestionStub.swift */; };
 		FE1F320925680E4B004DCB6D /* SearchResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F320825680E4B004DCB6D /* SearchResponseTests.swift */; };
@@ -539,9 +534,6 @@
 		FE0A04F4256D3B5D00FB222B /* RoutablePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutablePoint.swift; sourceTree = "<group>"; };
 		FE1064F425B9A1C9007837BC /* NavigationOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationOptions.swift; sourceTree = "<group>"; };
 		FE1122B82567BE5B0064FD53 /* ArrayExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionsTests.swift; sourceTree = "<group>"; };
-		FE1122BF2567C2F30064FD53 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
-		FE1122CD2567C6E00064FD53 /* NetworkSessionStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionStub.swift; sourceTree = "<group>"; };
-		FE1122D42567C8B70064FD53 /* NetworkSessionTaskStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionTaskStub.swift; sourceTree = "<group>"; };
 		FE114D8624C1A86A001B2CE8 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		FE114D8724C1A86A001B2CE8 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		FE114D8824C1A86A001B2CE8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -556,8 +548,6 @@
 		FE114D9124C1A880001B2CE8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FE13EE3B24C891FD005B6980 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		FE1F31DB2567FA6D004DCB6D /* WrapperLocationProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperLocationProviderTests.swift; sourceTree = "<group>"; };
-		FE1F31E22567FDDF004DCB6D /* NetworkSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionTests.swift; sourceTree = "<group>"; };
-		FE1F31E925680086004DCB6D /* DarwinNetworkSessionStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarwinNetworkSessionStub.swift; sourceTree = "<group>"; };
 		FE1F31F025680542004DCB6D /* SearchRequestOptions+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchRequestOptions+Samples.swift"; sourceTree = "<group>"; };
 		FE1F320125680585004DCB6D /* SearchResultSuggestionStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultSuggestionStub.swift; sourceTree = "<group>"; };
 		FE1F320825680E4B004DCB6D /* SearchResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponseTests.swift; sourceTree = "<group>"; };
@@ -885,7 +875,6 @@
 				FE3E7EC22566EA8B009FFCC2 /* HistoryRecordTests.swift */,
 				F9D70E5B252740DD0019105F /* IndexableDataProviderTests.swift */,
 				FEEDD3932508E24900DC0A98 /* LocationProviderTests.swift */,
-				FE1F31E22567FDDF004DCB6D /* NetworkSessionTests.swift */,
 				FE6EEDED25B039E000EAE44E /* OpenHoursTests.swift */,
 				FE6EEDE625B0343700EAE44E /* OpenPeriodTests.swift */,
 				FE7C739925667FDB0047CA20 /* RecordsProviderInteractorNativeCoreTests.swift */,
@@ -1127,9 +1116,6 @@
 				FEEDD3942508E24900DC0A98 /* CoreSearchEngineStub.swift */,
 				F9A5925A252C799E0074F692 /* CoreUserRecordsLayerStub.swift */,
 				FE7C73AC2566871C0047CA20 /* IndexableRecordStub.swift */,
-				FE1122CD2567C6E00064FD53 /* NetworkSessionStub.swift */,
-				FE1122D42567C8B70064FD53 /* NetworkSessionTaskStub.swift */,
-				FE1F31E925680086004DCB6D /* DarwinNetworkSessionStub.swift */,
 				FE1F320125680585004DCB6D /* SearchResultSuggestionStub.swift */,
 				F9F8828F2583698200062A82 /* CoreImageInfoStub.swift */,
 				F9F882B22588CCB700062A82 /* CoreSearchResultMetadataStub.swift */,
@@ -1286,7 +1272,6 @@
 				FE7C73A52566804E0047CA20 /* CoreUserRecordsLayerProtocol.swift */,
 				FEEDD2D22508DFE400DC0A98 /* Locale+Extensions.swift */,
 				FEEDD2C82508DFE400DC0A98 /* Logger.swift */,
-				FE1122BF2567C2F30064FD53 /* NetworkSession.swift */,
 				FEEDD2C92508DFE400DC0A98 /* RecordsProviderInteractorNativeCore.swift */,
 				F9F5D75D256D0393007E32BE /* SearchResponse.swift */,
 				FEEDD2CC2508DFE400DC0A98 /* WrapperLocationProvider.swift */,
@@ -2114,7 +2099,6 @@
 				F9F882AC2588B6F400062A82 /* CoreResultMetadataProtocol.swift in Sources */,
 				FE8DA5A4271D9E09004901FB /* Search Documentation.docc in Sources */,
 				FEEDD3102508DFE400DC0A98 /* Maki.swift in Sources */,
-				FE1122C02567C2F30064FD53 /* NetworkSession.swift in Sources */,
 				FEEDD30A2508DFE400DC0A98 /* RecordsProviderInteractor.swift in Sources */,
 				FEEDD3072508DFE400DC0A98 /* Address.swift in Sources */,
 				140D1BDC286DB479001A51C2 /* SearchResultAccuracy.swift in Sources */,
@@ -2158,10 +2142,8 @@
 				FEEDD39F2508E24900DC0A98 /* CodablePersistentServiceTests.swift in Sources */,
 				FEEDD3A32508E24900DC0A98 /* AddressTests.swift in Sources */,
 				FEB0AA8A25CAC711002F0D1F /* SearchResultTypeTests.swift in Sources */,
-				FE1F31EA25680086004DCB6D /* DarwinNetworkSessionStub.swift in Sources */,
 				FE1F320925680E4B004DCB6D /* SearchResponseTests.swift in Sources */,
 				FECB510025541A170026302E /* ExternalRecordPlaceholderTests.swift in Sources */,
-				FE1122D52567C8B70064FD53 /* NetworkSessionTaskStub.swift in Sources */,
 				FE7C739A25667FDE0047CA20 /* RecordsProviderInteractorNativeCoreTests.swift in Sources */,
 				FE1122B92567BE5B0064FD53 /* ArrayExtensionsTests.swift in Sources */,
 				14FBBBAF2881673E00721935 /* AddressAutofill.Query+Tests.swift in Sources */,
@@ -2186,7 +2168,6 @@
 				FEB0AA8325CAC3EF002F0D1F /* CoreResultTypeTests.swift in Sources */,
 				FE4655A12566B619007ECC6A /* SearchResultSuggestionImplTests.swift in Sources */,
 				F9F88315258B74AB00062A82 /* CoreSearchOptions+Samples.swift in Sources */,
-				FE1F31E32567FDDF004DCB6D /* NetworkSessionTests.swift in Sources */,
 				FEEDD3A72508E24900DC0A98 /* LocationProviderTests.swift in Sources */,
 				14173C35287847B000B20E1C /* Language+Tests.swift in Sources */,
 				F9A5925B252C799E0074F692 /* CoreUserRecordsLayerStub.swift in Sources */,
@@ -2197,7 +2178,6 @@
 				FECB50E3255410BC0026302E /* CLLocationCoordinate2D+Samples.swift in Sources */,
 				14173C3A28784ABC00B20E1C /* NonEmptyArray+Tests.swift in Sources */,
 				FECB50F9255417AA0026302E /* CoreRequestOptions+Samples.swift in Sources */,
-				FE1122CE2567C6E00064FD53 /* NetworkSessionStub.swift in Sources */,
 				14173C2E28783E1000B20E1C /* Country+Tests.swift in Sources */,
 				FE66C65725E3F42E006A74FC /* ValidateResources.swift in Sources */,
 				FECB50C725540B090026302E /* CoreResponseProviderTests.swift in Sources */,
