@@ -78,11 +78,11 @@ class SearchEngineIntegrationTests: MockServerTestCase {
     }
     
     func testReverseGeocodingSearch() throws {
-        
         try server.setResponse(.reverseGeocoding)
         
         let expectation = XCTestExpectation()
         let options = ReverseGeocodingOptions(point: CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0))
+
         searchEngine.reverseGeocoding(options: options) { result in
             if case .success(let reverseGeocodingResults) = result {
                 XCTAssertFalse(reverseGeocodingResults.isEmpty)
@@ -91,11 +91,11 @@ class SearchEngineIntegrationTests: MockServerTestCase {
             }
             expectation.fulfill()
         }
+
         wait(for: [expectation], timeout: 10)
     }
     
     func testReverseGeocodingSearchFailed() throws {
-        
         try server.setResponse(.reverseGeocoding, statusCode: 500)
         
         let expectation = XCTestExpectation()
@@ -116,7 +116,6 @@ class SearchEngineIntegrationTests: MockServerTestCase {
     }
     
     func testResolvedSearchResult() throws {
-        
         try server.setResponse(.suggestMinsk)
         try server.setResponse(.retrieveMinsk)
         
@@ -128,6 +127,7 @@ class SearchEngineIntegrationTests: MockServerTestCase {
         let successExpectation = delegate.successExpectation
         let selectedResult = searchEngine.suggestions.first!
         searchEngine.select(suggestion: selectedResult)
+
         wait(for: [successExpectation], timeout: 10)
         let resolvedResult = try XCTUnwrap(delegate.resolvedResult)
         
@@ -157,7 +157,6 @@ class SearchEngineIntegrationTests: MockServerTestCase {
     }
     
     func testResolvedSearchResultFailed() throws {
-        
         try server.setResponse(.suggestMinsk)
         try server.setResponse(.retrieveMinsk, statusCode: 500)
         
@@ -183,7 +182,6 @@ class SearchEngineIntegrationTests: MockServerTestCase {
     }
     
     func testBatchResolve() throws {
-        
         try server.setResponse(.multiRetrieve)
         
         let results = CoreSearchResultStub.makeMixedResultsSet().map { $0.asCoreSearchResult }
@@ -201,7 +199,6 @@ class SearchEngineIntegrationTests: MockServerTestCase {
     }
     
     func testBatchResolveFailed() throws {
-        
         try server.setResponse(.multiRetrieve, statusCode: 500)
         
         let results = CoreSearchResultStub.makeMixedResultsSet().map { $0.asCoreSearchResult }
@@ -219,7 +216,6 @@ class SearchEngineIntegrationTests: MockServerTestCase {
     }
     
     func testSuggestionTypeQuery() throws {
-        
         try server.setResponse(.recursion)
         
         let updateExpectation = delegate.updateExpectation

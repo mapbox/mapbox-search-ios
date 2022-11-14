@@ -1,15 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "ambassador",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/envoy/Ambassador.git",
-      "state" : {
-        "revision" : "447cf56f692999153bd261b1775ea4a58f7f7be9",
-        "version" : "4.0.5"
-      }
-    },
-    {
       "identity" : "atlantis",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ProxymanApp/atlantis",
@@ -37,12 +28,12 @@
       }
     },
     {
-      "identity" : "embassy",
+      "identity" : "swifter",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/envoy/Embassy.git",
+      "location" : "https://github.com/httpswift/swifter",
       "state" : {
-        "revision" : "065b6ce52596bd06b867cfe17fea2c56dcb53b30",
-        "version" : "4.1.3"
+        "revision" : "9483a5d459b45c3ffd059f7b55f9638e268632fd",
+        "version" : "1.5.0"
       }
     }
   ],

@@ -2,7 +2,7 @@ import Foundation
 
 let accessTokenPlistKey = "MBXAccessToken"
 let legacyAccessTokenPlistKey = "MGLMapboxAccessToken"
-let baseURLPlistKey = "MGLMapboxAPIBaseURL"
+let baseURLPlistKey = "MapboxAPIBaseURL"
 
 protocol ServiceProviderProtocol {
     var localFavoritesProvider: FavoritesProvider { get }
@@ -62,6 +62,7 @@ extension ServiceProvider: EngineProviderProtocol {
         accessToken: String,
         locationProvider: CoreLocationProvider?
     ) -> CoreSearchEngineProtocol {
+        // UserDefaults can be used to setup base url in runtime (e.g. UI tests)
         // UserDefaults can be used to setup base url in runtime (e.g. UI tests)
         let defaultsBaseURL = UserDefaults.standard.value(forKey: baseURLPlistKey) as? String
         let bundleBaseURL = Bundle.main.object(forInfoDictionaryKey: baseURLPlistKey) as? String

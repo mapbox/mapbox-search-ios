@@ -14,12 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ServiceProvider.shared.localHistoryProvider.deleteAll()
             UserDefaults.resetStandardUserDefaults()
         }
-
-        if let customEndpoint = ProcessInfo.processInfo.environment["search_endpoint"] {
-            UserDefaults.standard.setValue(customEndpoint, forKey: "MGLMapboxAPIBaseURL")
-        } else {
-            UserDefaults.standard.setValue(nil, forKey: "MGLMapboxAPIBaseURL")
-        }
         
         Atlantis.start()
 

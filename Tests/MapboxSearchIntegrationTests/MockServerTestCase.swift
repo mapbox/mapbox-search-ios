@@ -3,7 +3,6 @@ import CoreLocation
 @testable import MapboxSearch
 
 class MockServerTestCase: XCTestCase {
-    
     let server = MockWebServer()
 
     func setServerResponse(_ response: MockResponse, query: String? = nil) throws {
@@ -13,7 +12,7 @@ class MockServerTestCase: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         
-        UserDefaults.standard.setValue(server.endpoint, forKey: "MGLMapboxAPIBaseURL")
+        UserDefaults.standard.setValue(server.endpoint, forKey: "MapboxAPIBaseURL")
         
         try server.start()
     }
