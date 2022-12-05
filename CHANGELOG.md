@@ -6,6 +6,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+- [Tech]: added version range support for `MapboxCommon` dependency in `SPM`/`Cocoapods`.
+
 ## [1.0.0-beta.39] - 2022-11-14
 
 - [Common]: fixed errors related to Xcode 14, updated unit tests and removed dead code.
