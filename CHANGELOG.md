@@ -12,7 +12,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Tech]: added version range support for `MapboxCommon` dependency in `SPM`/`Cocoapods`.
 
 ### Fixed
-- [Autofill]: fixed retireving reverse geocoding suggestions.
+- [Autofill]: fixed retrieving reverse geocoding suggestions.
 
 ## [1.0.0-beta.39] - 2022-11-14
 
