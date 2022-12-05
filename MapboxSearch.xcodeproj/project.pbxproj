@@ -166,7 +166,6 @@
 		FE1F31F125680542004DCB6D /* SearchRequestOptions+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F31F025680542004DCB6D /* SearchRequestOptions+Samples.swift */; };
 		FE1F320225680585004DCB6D /* SearchResultSuggestionStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F320125680585004DCB6D /* SearchResultSuggestionStub.swift */; };
 		FE1F320925680E4B004DCB6D /* SearchResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1F320825680E4B004DCB6D /* SearchResponseTests.swift */; };
-		FE21364F2617477A0084D1E1 /* Atlantis in Frameworks */ = {isa = PBXBuildFile; productRef = FE21364E2617477A0084D1E1 /* Atlantis */; };
 		FE22DE4C2576983F00DFEACD /* Route+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE22DE4B2576983F00DFEACD /* Route+Tests.swift */; };
 		FE260A6025C03AD40037B725 /* SearchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE260A5F25C03AD40037B725 /* SearchOptions.swift */; };
 		FE260A6725C063880037B725 /* ReverseGeocodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE260A6625C063880037B725 /* ReverseGeocodingOptions.swift */; };
@@ -786,7 +785,6 @@
 			files = (
 				E648C0BD26428D530044315F /* MapboxCommon.xcframework in Frameworks */,
 				FEBC00DA243C6D32000B268B /* MapboxSearch.framework in Frameworks */,
-				FE21364F2617477A0084D1E1 /* Atlantis in Frameworks */,
 				FEBC00DE243C6D32000B268B /* MapboxSearchUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1608,7 +1606,6 @@
 			);
 			name = Demo;
 			packageProductDependencies = (
-				FE21364E2617477A0084D1E1 /* Atlantis */,
 			);
 			productName = Demo;
 			productReference = FEBC00B8243C6CC2000B268B /* Demo.app */;
@@ -1702,7 +1699,6 @@
 			mainGroup = 3A0D7E42233522D4006D81BB;
 			packageReferences = (
 				FE1122EF2567D07B0064FD53 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */,
-				FE21364D2617477A0084D1E1 /* XCRemoteSwiftPackageReference "atlantis" */,
 				149948E5290A8ACE00E7E619 /* XCRemoteSwiftPackageReference "swifter" */,
 			);
 			productRefGroup = 3A0D7E4D233522D4006D81BB /* Products */;
@@ -3010,14 +3006,6 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		FE21364D2617477A0084D1E1 /* XCRemoteSwiftPackageReference "atlantis" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ProxymanApp/atlantis";
-			requirement = {
-				kind = exactVersion;
-				version = 1.11.2;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -3050,11 +3038,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FE1122EF2567D07B0064FD53 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */;
 			productName = CwlPreconditionTesting;
-		};
-		FE21364E2617477A0084D1E1 /* Atlantis */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FE21364D2617477A0084D1E1 /* XCRemoteSwiftPackageReference "atlantis" */;
-			productName = Atlantis;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

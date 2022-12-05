@@ -1,6 +1,5 @@
 import UIKit
 import MapboxSearch
-import Atlantis
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,8 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ServiceProvider.shared.localHistoryProvider.deleteAll()
             UserDefaults.resetStandardUserDefaults()
         }
-        
-        Atlantis.start()
 
         return true
     }

@@ -1,15 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "atlantis",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ProxymanApp/atlantis",
-      "state" : {
-        "revision" : "2ee37f1da01b438d67012cc1405617e158f358a1",
-        "version" : "1.11.2"
-      }
-    },
-    {
       "identity" : "cwlcatchexception",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mattgallagher/CwlCatchException.git",
