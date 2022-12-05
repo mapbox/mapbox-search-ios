@@ -10,7 +10,7 @@ public class SearchTileStore {
     struct AccessTokenNotFound: Error { }
     
     /// Default API Url used for `Search` tile data domain.
-    public let defaultEndPoint = "https://api-offline-search-staging.tilestream.net"
+    public let defaultEndPoint = "https://api.mapbox.com"
     
     /// Underlaying TileStore from MapboxCommon framework for use across Mapbox frameworks.
     public private(set) var commonTileStore: MapboxCommon.TileStore
