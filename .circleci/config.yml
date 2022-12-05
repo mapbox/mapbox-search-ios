@@ -238,11 +238,7 @@ jobs:
           name: Push podspecs to CocoaPods CDN Trunk
           command: |
             pod trunk push MapboxSearch.podspec
-            md5 -s MapboxSearch
-            pod search MapboxSearchUI --no-pager
-            cat ~/.cocoapods/repos/trunk/all_pods_versions_6_6_f.txt
-            sed -i '' -E "s/(MapboxSearch.*)/\1\/${VERSION}/g" ~/.cocoapods/repos/trunk/all_pods_versions_6_6_f.txt
-            pod trunk push MapboxSearchUI.podspec
+            pod trunk push MapboxSearchUI.podspec --synchronous
       - run: brew install gh taiki-e/tap/parse-changelog
       - run: scripts/release_notes.sh
 
