@@ -9,7 +9,7 @@ fi
 set -u
 
 # VERSION=${CIRCLE_TAG#v}
-export GITHUB_TOKEN=$(mbx-ci github writer token 2>/dev/null)
+export GITHUB_TOKEN=$(mbx-ci github writer private token 2>/dev/null)
 
 BRANCH_NAME="search-sdk/ios/${VERSION}"
 
@@ -42,6 +42,3 @@ BODY="* Release new ${VERSION} of Search Core SDK"
 
 echo ">>> Creating PR to mapbox/api-downloads"
 gh pr create --title "${TITLE}" --body "${BODY}" --reviewer don1ck --draft
-
-
-

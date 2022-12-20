@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export GITHUB_TOKEN=$(mbx-ci github writer token 2>/dev/null)
+export GITHUB_TOKEN=$(mbx-ci github writer private token 2>/dev/null)
 BRANCH_NAME="search-sdk/ios/${VERSION}"
 
 git clone https://x-access-token:${GITHUB_TOKEN}@github.com/mapbox/ios-sdk.git --branch ${BRANCH_NAME} --depth=1
