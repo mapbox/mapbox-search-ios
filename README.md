@@ -1,4 +1,4 @@
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/mapbox/mapbox-search-ios/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/mapbox/mapbox-search-ios/tree/main)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/mapbox/mapbox-search-ios/tree/main.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/mapbox/mapbox-search-ios/tree/main)
 [![Swift version](https://img.shields.io/badge/swift-4.2+-orange.svg?style=flat&logo=swift)](https://developer.apple.com/swift)
 [![iOS version](https://img.shields.io/badge/iOS-11.0+-green.svg?style=flat&logo=apple)](https://developer.apple.com/ios/)
 [![Xcode version](https://img.shields.io/badge/Xcode-11.3+-DeepSkyBlue.svg?style=flat&logo=xcode&logoColor=lightGray)](https://developer.apple.com/xcode/)
