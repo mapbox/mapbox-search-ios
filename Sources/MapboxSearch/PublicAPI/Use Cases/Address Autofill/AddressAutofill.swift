@@ -79,14 +79,25 @@ public extension AddressAutofill {
 // MARK: - Reverse geocoding query
 private extension AddressAutofill {
     func fetchSuggestions(using options: CoreReverseGeoOptions, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
-        searchEngine.reverseGeocoding(for: options) { [weak self] response in
+        searchEngine.reverseGeocoding(for: options) { response in
             guard let response = Self.preprocessResponse(response) else {
                 return
             }
             
             switch response.coreResponse.result {
-            case .success(let results):
-                self?.resolve(suggestions: results, with: response.coreResponse.request, completion: completion)
+            case .success(let remoteResults):
+                let suggestions: [Suggestion] = remoteResults.compactMap { remoteResult -> Suggestion? in
+                    do {
+                        return try ServerSearchResult(
+                            coreResult: remoteResult,
+                            response: response.coreResponse
+                        )
+                        .map(Suggestion.from(_:))
+                    } catch {
+                        return nil
+                    }
+                }
+                completion(.success(suggestions))
                 
             case .failure(let responseError):
                 completion(
@@ -121,7 +132,9 @@ private extension AddressAutofill {
         completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
     ) {
         guard let response = Self.preprocessResponse(coreResponse) else {
-            return
+            return completion(
+                .failure(SearchError.responseProcessingFailed)
+            )
         }
         
         switch response.coreResponse.result {
