@@ -69,7 +69,7 @@ extension AddressAutofillMainViewController: UITableViewDataSource, UITableViewD
 
         tableViewCell.detailTextLabel?.text = suggestion.formattedAddress
         tableViewCell.detailTextLabel?.textColor = UIColor.darkGray
-        tableViewCell.detailTextLabel?.numberOfLines = .zero
+        tableViewCell.detailTextLabel?.numberOfLines = 2
         
         return tableViewCell
     }
