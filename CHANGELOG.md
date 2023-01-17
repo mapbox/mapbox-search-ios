@@ -6,6 +6,14 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.41] - 2023-01-17
+
+### Updated
+- [Autofill]: added example of the Address Autofill reverse geocoding requests.
+
+### Fixed
+- [Autofill]: fixed retrieving reverse geocoding suggestions.
+
 ## [1.0.0-beta.40] - 2022-12-5
 
 ### Updated
