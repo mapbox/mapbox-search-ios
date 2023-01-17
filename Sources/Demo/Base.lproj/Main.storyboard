@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JVX-IJ-mtG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JVX-IJ-mtG">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -146,22 +147,79 @@
                                     <outlet property="dataSource" destination="LVK-aO-7G6" id="sae-eD-fFb"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="der-07-RBJ" userLabel="loading-view">
+                                <rect key="frame" x="0.0" y="294.33333333333326" width="414" height="441.66666666666674"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="TDf-la-teZ">
+                                        <rect key="frame" x="197" y="211" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="TDf-la-teZ" firstAttribute="centerX" secondItem="der-07-RBJ" secondAttribute="centerX" id="C3y-Kc-Ga2"/>
+                                    <constraint firstItem="TDf-la-teZ" firstAttribute="centerY" secondItem="der-07-RBJ" secondAttribute="centerY" id="dRa-7Q-aE7"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1P-it-8aH">
+                                <rect key="frame" x="0.0" y="294.33333333333326" width="414" height="441.66666666666674"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adjusting address location, then press 'Done' button" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vH-kY-TAX">
+                                        <rect key="frame" x="60" y="200.66666666666669" width="294.33333333333331" height="40.666666666666657"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="5vH-kY-TAX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i1P-it-8aH" secondAttribute="leading" constant="16" id="KKX-6a-lQS"/>
+                                    <constraint firstItem="5vH-kY-TAX" firstAttribute="centerX" secondItem="i1P-it-8aH" secondAttribute="centerX" id="QdH-tg-s4y"/>
+                                    <constraint firstItem="5vH-kY-TAX" firstAttribute="centerY" secondItem="i1P-it-8aH" secondAttribute="centerY" id="gKR-oo-nAS"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5vH-kY-TAX" secondAttribute="trailing" constant="16" id="lyA-3e-daC"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjg-hw-gam">
+                                <rect key="frame" x="183" y="123.33333333333331" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="8qi-ea-U9f"/>
+                                    <constraint firstAttribute="width" constant="48" id="USa-dG-sgS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="mappin.and.ellipse" catalog="system" symbolScale="large"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QeP-QX-DK9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="der-07-RBJ" firstAttribute="bottom" secondItem="QeP-QX-DK9" secondAttribute="bottom" id="2OF-sI-J7q"/>
                             <constraint firstItem="LGp-Id-chq" firstAttribute="top" secondItem="QeP-QX-DK9" secondAttribute="top" id="4L6-VE-Uec"/>
+                            <constraint firstItem="mhN-fE-IJo" firstAttribute="top" secondItem="der-07-RBJ" secondAttribute="top" id="8xv-0b-hzB"/>
+                            <constraint firstItem="i1P-it-8aH" firstAttribute="top" secondItem="der-07-RBJ" secondAttribute="top" id="AeJ-RS-HWl"/>
                             <constraint firstItem="mhN-fE-IJo" firstAttribute="top" secondItem="LGp-Id-chq" secondAttribute="bottom" id="B1h-LS-KgK"/>
+                            <constraint firstItem="der-07-RBJ" firstAttribute="trailing" secondItem="QeP-QX-DK9" secondAttribute="trailing" id="B5U-LN-Zrk"/>
                             <constraint firstItem="mhN-fE-IJo" firstAttribute="bottom" secondItem="QeP-QX-DK9" secondAttribute="bottom" id="Bhy-SD-XGH"/>
+                            <constraint firstItem="i1P-it-8aH" firstAttribute="bottom" secondItem="der-07-RBJ" secondAttribute="bottom" id="GVr-PP-7aK"/>
+                            <constraint firstItem="der-07-RBJ" firstAttribute="leading" secondItem="QeP-QX-DK9" secondAttribute="leading" id="Kx5-II-eKe"/>
                             <constraint firstItem="mhN-fE-IJo" firstAttribute="leading" secondItem="QeP-QX-DK9" secondAttribute="leading" id="Ohk-GK-ecE"/>
+                            <constraint firstItem="i1P-it-8aH" firstAttribute="leading" secondItem="der-07-RBJ" secondAttribute="leading" id="Qqm-Q3-gCQ"/>
+                            <constraint firstItem="kjg-hw-gam" firstAttribute="centerX" secondItem="LGp-Id-chq" secondAttribute="centerX" id="Skx-8k-nPL"/>
                             <constraint firstItem="LGp-Id-chq" firstAttribute="height" secondItem="jNZ-gW-cMN" secondAttribute="height" multiplier="0.4" id="U7b-Kn-XKb"/>
                             <constraint firstItem="LGp-Id-chq" firstAttribute="leading" secondItem="QeP-QX-DK9" secondAttribute="leading" id="ZQc-bT-dg7"/>
                             <constraint firstItem="mhN-fE-IJo" firstAttribute="trailing" secondItem="QeP-QX-DK9" secondAttribute="trailing" id="eZk-Pp-Xif"/>
+                            <constraint firstItem="kjg-hw-gam" firstAttribute="centerY" secondItem="LGp-Id-chq" secondAttribute="centerY" id="jkq-oc-Gs6"/>
+                            <constraint firstItem="i1P-it-8aH" firstAttribute="trailing" secondItem="der-07-RBJ" secondAttribute="trailing" id="peF-I0-vlK"/>
                             <constraint firstItem="LGp-Id-chq" firstAttribute="trailing" secondItem="QeP-QX-DK9" secondAttribute="trailing" id="ssv-ev-NKi"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityView" destination="der-07-RBJ" id="N4b-BC-eAg"/>
+                        <outlet property="infoView" destination="i1P-it-8aH" id="q7K-FP-6EK"/>
                         <outlet property="mapView" destination="LGp-Id-chq" id="kbw-Ay-MbH"/>
+                        <outlet property="pinButton" destination="kjg-hw-gam" id="9PB-Hw-Luo"/>
                         <outlet property="tableView" destination="mhN-fE-IJo" id="bfP-1G-RFk"/>
                     </connections>
                 </viewController>
@@ -171,8 +229,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
