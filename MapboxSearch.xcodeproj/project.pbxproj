@@ -13,10 +13,12 @@
 		14173C332878476400B20E1C /* Language+ISO639-1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14173C322878476400B20E1C /* Language+ISO639-1.swift */; };
 		14173C35287847B000B20E1C /* Language+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14173C34287847B000B20E1C /* Language+Tests.swift */; };
 		14173C3A28784ABC00B20E1C /* NonEmptyArray+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14173C3928784ABC00B20E1C /* NonEmptyArray+Tests.swift */; };
-		141789B828787CE70000AE79 /* SearchAddressType +Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141789B728787CE70000AE79 /* SearchAddressType +Tests.swift */; };
+		141789B828787CE70000AE79 /* SearchAddressType+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141789B728787CE70000AE79 /* SearchAddressType+Tests.swift */; };
 		141789BB2878AD9B0000AE79 /* AddressAutofill.Options+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141789BA2878AD9B0000AE79 /* AddressAutofill.Options+Tests.swift */; };
 		141789E7287C05060000AE79 /* AddressAutofill.Suggestion+SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141789E6287C05060000AE79 /* AddressAutofill.Suggestion+SearchResult.swift */; };
 		141789EE287C125E0000AE79 /* AddressAutofill.Suggestion+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141789E9287C115C0000AE79 /* AddressAutofill.Suggestion+Tests.swift */; };
+		1419EB6929670638009672CA /* Autofill.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1419EB6829670638009672CA /* Autofill.xcassets */; };
+		1421416A2953450C00774439 /* PlaceAutocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142141692953450C00774439 /* PlaceAutocomplete.swift */; };
 		143695F72899291200861F1A /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143695F5289927FD00861F1A /* UIApplication+Extensions.swift */; };
 		1440BF4D28FD75A9009B3679 /* AddressAutofillMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1440BF4C28FD75A9009B3679 /* AddressAutofillMainViewController.swift */; };
 		1440BF4F290019AD009B3679 /* AddressAutofillResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1440BF4E290019AD009B3679 /* AddressAutofillResultViewController.swift */; };
@@ -33,6 +35,17 @@
 		149948ED290A8DCA00E7E619 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 149948EC290A8DCA00E7E619 /* Swifter */; };
 		149948EF290A8DD500E7E619 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 149948EE290A8DD500E7E619 /* Swifter */; };
 		149948F1290A8DF900E7E619 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 149948F0290A8DF900E7E619 /* Swifter */; };
+		14FA65752953463300056E5B /* PlaceAutocomplete+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA65742953463300056E5B /* PlaceAutocomplete+Query.swift */; };
+		14FA657A2953481C00056E5B /* PlaceAutocomplete.Query+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA6578295347FB00056E5B /* PlaceAutocomplete.Query+Tests.swift */; };
+		14FA657C2953497600056E5B /* PlaceAutocomplete+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA657B2953497600056E5B /* PlaceAutocomplete+Options.swift */; };
+		14FA657F295355BC00056E5B /* AdministrativeUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA657E295355BC00056E5B /* AdministrativeUnits.swift */; };
+		14FA658229535ABC00056E5B /* AdministrativeUnits+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA658029535AB100056E5B /* AdministrativeUnits+Tests.swift */; };
+		14FA65842953618800056E5B /* PlaceAutocomplete.Options+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA65832953618800056E5B /* PlaceAutocomplete.Options+Tests.swift */; };
+		14FA65872953644400056E5B /* PlaceAutocomplete+Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA65852953642B00056E5B /* PlaceAutocomplete+Suggestion.swift */; };
+		14FA6589295368AF00056E5B /* CoreAddress+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD3952508E24900DC0A98 /* CoreAddress+Extensions.swift */; };
+		14FA658A295368B400056E5B /* Address+TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD3982508E24900DC0A98 /* Address+TestData.swift */; };
+		14FA658D295383D700056E5B /* PlaceAutocomplete+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA658B295376B100056E5B /* PlaceAutocomplete+Result.swift */; };
+		14FA6590295454F100056E5B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA658F295454F100056E5B /* Image.swift */; };
 		14FBBBA9287ECC5C00721935 /* AddressAutofill+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */; };
 		14FBBBAD2881663800721935 /* AddressAutofill+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBAC2881663800721935 /* AddressAutofill+Query.swift */; };
 		14FBBBAF2881673E00721935 /* AddressAutofill.Query+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBAE2881673E00721935 /* AddressAutofill.Query+Tests.swift */; };
@@ -323,7 +336,7 @@
 		FEEDD3A02508E24900DC0A98 /* DataLayerProviderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD38C2508E24900DC0A98 /* DataLayerProviderStub.swift */; };
 		FEEDD3A12508E24900DC0A98 /* CoreSearchResultStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD38D2508E24900DC0A98 /* CoreSearchResultStub.swift */; };
 		FEEDD3A22508E24900DC0A98 /* SearchEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD38E2508E24900DC0A98 /* SearchEngineTests.swift */; };
-		FEEDD3A32508E24900DC0A98 /* AddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD38F2508E24900DC0A98 /* AddressTests.swift */; };
+		FEEDD3A32508E24900DC0A98 /* Address+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD38F2508E24900DC0A98 /* Address+Tests.swift */; };
 		FEEDD3A42508E24900DC0A98 /* SearchErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD3902508E24900DC0A98 /* SearchErrorTests.swift */; };
 		FEEDD3A52508E24900DC0A98 /* CoreSearchResponseStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD3912508E24900DC0A98 /* CoreSearchResponseStub.swift */; };
 		FEEDD3A62508E24900DC0A98 /* CoreSearchResultStub+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD3922508E24900DC0A98 /* CoreSearchResultStub+Samples.swift */; };
@@ -433,10 +446,12 @@
 		14173C322878476400B20E1C /* Language+ISO639-1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Language+ISO639-1.swift"; sourceTree = "<group>"; };
 		14173C34287847B000B20E1C /* Language+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Language+Tests.swift"; sourceTree = "<group>"; };
 		14173C3928784ABC00B20E1C /* NonEmptyArray+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NonEmptyArray+Tests.swift"; sourceTree = "<group>"; };
-		141789B728787CE70000AE79 /* SearchAddressType +Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchAddressType +Tests.swift"; sourceTree = "<group>"; };
+		141789B728787CE70000AE79 /* SearchAddressType+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchAddressType+Tests.swift"; sourceTree = "<group>"; };
 		141789BA2878AD9B0000AE79 /* AddressAutofill.Options+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill.Options+Tests.swift"; sourceTree = "<group>"; };
 		141789E6287C05060000AE79 /* AddressAutofill.Suggestion+SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill.Suggestion+SearchResult.swift"; sourceTree = "<group>"; };
 		141789E9287C115C0000AE79 /* AddressAutofill.Suggestion+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill.Suggestion+Tests.swift"; sourceTree = "<group>"; };
+		1419EB6829670638009672CA /* Autofill.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Autofill.xcassets; sourceTree = "<group>"; };
+		142141692953450C00774439 /* PlaceAutocomplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAutocomplete.swift; sourceTree = "<group>"; };
 		143695F5289927FD00861F1A /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		1440BF4C28FD75A9009B3679 /* AddressAutofillMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAutofillMainViewController.swift; sourceTree = "<group>"; };
 		1440BF4E290019AD009B3679 /* AddressAutofillResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAutofillResultViewController.swift; sourceTree = "<group>"; };
@@ -449,6 +464,15 @@
 		148DE66B285757AA0085684D /* AddressAutofill+Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Result.swift"; sourceTree = "<group>"; };
 		148DE670285777180085684D /* NSLocking+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLocking+Extensions.swift"; sourceTree = "<group>"; };
 		148DE68A285A18900085684D /* AddressAutofill+AddressComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+AddressComponent.swift"; sourceTree = "<group>"; };
+		14FA65742953463300056E5B /* PlaceAutocomplete+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceAutocomplete+Query.swift"; sourceTree = "<group>"; };
+		14FA6578295347FB00056E5B /* PlaceAutocomplete.Query+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceAutocomplete.Query+Tests.swift"; sourceTree = "<group>"; };
+		14FA657B2953497600056E5B /* PlaceAutocomplete+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceAutocomplete+Options.swift"; sourceTree = "<group>"; };
+		14FA657E295355BC00056E5B /* AdministrativeUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministrativeUnits.swift; sourceTree = "<group>"; };
+		14FA658029535AB100056E5B /* AdministrativeUnits+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdministrativeUnits+Tests.swift"; sourceTree = "<group>"; };
+		14FA65832953618800056E5B /* PlaceAutocomplete.Options+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceAutocomplete.Options+Tests.swift"; sourceTree = "<group>"; };
+		14FA65852953642B00056E5B /* PlaceAutocomplete+Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceAutocomplete+Suggestion.swift"; sourceTree = "<group>"; };
+		14FA658B295376B100056E5B /* PlaceAutocomplete+Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceAutocomplete+Result.swift"; sourceTree = "<group>"; };
+		14FA658F295454F100056E5B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Tests.swift"; sourceTree = "<group>"; };
 		14FBBBAC2881663800721935 /* AddressAutofill+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Query.swift"; sourceTree = "<group>"; };
 		14FBBBAE2881673E00721935 /* AddressAutofill.Query+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill.Query+Tests.swift"; sourceTree = "<group>"; };
@@ -545,7 +569,6 @@
 		FE114D8F24C1A880001B2CE8 /* CODEOWNERS */ = {isa = PBXFileReference; lastKnownFileType = text; path = CODEOWNERS; sourceTree = "<group>"; };
 		FE114D9024C1A880001B2CE8 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		FE114D9124C1A880001B2CE8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		FE13EE3B24C891FD005B6980 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		FE1F31DB2567FA6D004DCB6D /* WrapperLocationProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperLocationProviderTests.swift; sourceTree = "<group>"; };
 		FE1F31F025680542004DCB6D /* SearchRequestOptions+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchRequestOptions+Samples.swift"; sourceTree = "<group>"; };
 		FE1F320125680585004DCB6D /* SearchResultSuggestionStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultSuggestionStub.swift; sourceTree = "<group>"; };
@@ -709,7 +732,7 @@
 		FEEDD38C2508E24900DC0A98 /* DataLayerProviderStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLayerProviderStub.swift; sourceTree = "<group>"; };
 		FEEDD38D2508E24900DC0A98 /* CoreSearchResultStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreSearchResultStub.swift; sourceTree = "<group>"; };
 		FEEDD38E2508E24900DC0A98 /* SearchEngineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngineTests.swift; sourceTree = "<group>"; };
-		FEEDD38F2508E24900DC0A98 /* AddressTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressTests.swift; sourceTree = "<group>"; };
+		FEEDD38F2508E24900DC0A98 /* Address+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Address+Tests.swift"; sourceTree = "<group>"; };
 		FEEDD3902508E24900DC0A98 /* SearchErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchErrorTests.swift; sourceTree = "<group>"; };
 		FEEDD3912508E24900DC0A98 /* CoreSearchResponseStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreSearchResponseStub.swift; sourceTree = "<group>"; };
 		FEEDD3922508E24900DC0A98 /* CoreSearchResultStub+Samples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CoreSearchResultStub+Samples.swift"; path = "../Extensions/CoreSearchResultStub+Samples.swift"; sourceTree = "<group>"; };
@@ -836,7 +859,7 @@
 		14173C3B28784B8900B20E1C /* Address */ = {
 			isa = PBXGroup;
 			children = (
-				FE4D4BC925CAD6810039F933 /* SearchAddressType.swift */,
+				FEEDD2D92508DFE400DC0A98 /* Address.swift */,
 			);
 			path = Address;
 			sourceTree = "<group>";
@@ -857,7 +880,6 @@
 				F970FACB252B14170000806B /* Extensions */,
 				FECB50D52554103B0026302E /* Data Samples */,
 				FE66C65625E3F42E006A74FC /* ValidateResources.swift */,
-				FEEDD38F2508E24900DC0A98 /* AddressTests.swift */,
 				FE1122B82567BE5B0064FD53 /* ArrayExtensionsTests.swift */,
 				FEEDD3972508E24900DC0A98 /* BoundingBoxTests.swift */,
 				FEEDD3862508E24900DC0A98 /* CategorySearchEngineTests.swift */,
@@ -900,10 +922,8 @@
 		141789F0287C30450000AE79 /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
-				141789BA2878AD9B0000AE79 /* AddressAutofill.Options+Tests.swift */,
-				141789E9287C115C0000AE79 /* AddressAutofill.Suggestion+Tests.swift */,
-				14FBBBAE2881673E00721935 /* AddressAutofill.Query+Tests.swift */,
-				14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */,
+				14FA6577295347E700056E5B /* Place Autocomplete */,
+				14FA6576295347CB00056E5B /* Address Autofill */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -919,10 +939,40 @@
 		141789F3287C308A0000AE79 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				141789B728787CE70000AE79 /* SearchAddressType +Tests.swift */,
+				14FA65882953689800056E5B /* Address */,
+				141789B728787CE70000AE79 /* SearchAddressType+Tests.swift */,
 				14173C3928784ABC00B20E1C /* NonEmptyArray+Tests.swift */,
 				14173C34287847B000B20E1C /* Language+Tests.swift */,
 				14173C2D28783E1000B20E1C /* Country+Tests.swift */,
+				14FA658029535AB100056E5B /* AdministrativeUnits+Tests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1419EB6729670629009672CA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1419EB6829670638009672CA /* Autofill.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		142141672953447D00774439 /* Place Autocomplete */ = {
+			isa = PBXGroup;
+			children = (
+				142141682953449600774439 /* Models */,
+				142141692953450C00774439 /* PlaceAutocomplete.swift */,
+			);
+			path = "Place Autocomplete";
+			sourceTree = "<group>";
+		};
+		142141682953449600774439 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14FA65742953463300056E5B /* PlaceAutocomplete+Query.swift */,
+				14FA657B2953497600056E5B /* PlaceAutocomplete+Options.swift */,
+				14FA65852953642B00056E5B /* PlaceAutocomplete+Suggestion.swift */,
+				14FA658B295376B100056E5B /* PlaceAutocomplete+Result.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -939,6 +989,7 @@
 		1440BF4B28FD7591009B3679 /* Address Autofill */ = {
 			isa = PBXGroup;
 			children = (
+				1419EB6729670629009672CA /* Resources */,
 				1440BF4C28FD75A9009B3679 /* AddressAutofillMainViewController.swift */,
 				1440BF4E290019AD009B3679 /* AddressAutofillResultViewController.swift */,
 			);
@@ -948,6 +999,7 @@
 		148DE65A28574E4E0085684D /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
+				142141672953447D00774439 /* Place Autocomplete */,
 				148DE65B28574E560085684D /* Address Autofill */,
 			);
 			path = "Use Cases";
@@ -985,6 +1037,8 @@
 		148DE660285750100085684D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				14FA658E295454DF00056E5B /* Image */,
+				14FA657D295355A500056E5B /* Administrative Unit */,
 				14173C3B28784B8900B20E1C /* Address */,
 				14173C3628784A7D00B20E1C /* NonEmptyArray */,
 				14173C31287846EA00B20E1C /* Language */,
@@ -1009,6 +1063,53 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		14FA6576295347CB00056E5B /* Address Autofill */ = {
+			isa = PBXGroup;
+			children = (
+				141789BA2878AD9B0000AE79 /* AddressAutofill.Options+Tests.swift */,
+				141789E9287C115C0000AE79 /* AddressAutofill.Suggestion+Tests.swift */,
+				14FBBBAE2881673E00721935 /* AddressAutofill.Query+Tests.swift */,
+				14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */,
+			);
+			path = "Address Autofill";
+			sourceTree = "<group>";
+		};
+		14FA6577295347E700056E5B /* Place Autocomplete */ = {
+			isa = PBXGroup;
+			children = (
+				14FA6578295347FB00056E5B /* PlaceAutocomplete.Query+Tests.swift */,
+				14FA65832953618800056E5B /* PlaceAutocomplete.Options+Tests.swift */,
+			);
+			path = "Place Autocomplete";
+			sourceTree = "<group>";
+		};
+		14FA657D295355A500056E5B /* Administrative Unit */ = {
+			isa = PBXGroup;
+			children = (
+				14FA657E295355BC00056E5B /* AdministrativeUnits.swift */,
+			);
+			path = "Administrative Unit";
+			sourceTree = "<group>";
+		};
+		14FA65882953689800056E5B /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				FEEDD3952508E24900DC0A98 /* CoreAddress+Extensions.swift */,
+				FE7E39A52565615C000C5BD5 /* Address+Samples.swift */,
+				FEEDD3982508E24900DC0A98 /* Address+TestData.swift */,
+				FEEDD38F2508E24900DC0A98 /* Address+Tests.swift */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
+		14FA658E295454DF00056E5B /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				14FA658F295454F100056E5B /* Image.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		3A0972062361A19E003F200F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1024,7 +1125,6 @@
 			children = (
 				FE8DA5A3271D998A004901FB /* Search Documentation.docc */,
 				FE41BEB72721768B00607603 /* SearchUI Documentation.docc */,
-				FE13EE3B24C891FD005B6980 /* CHANGELOG.md */,
 				FEEDD2BF2508DFCD00DC0A98 /* Sources */,
 				FEEDD3842508E22800DC0A98 /* Tests */,
 				FE114D8524C1A857001B2CE8 /* Metadata */,
@@ -1092,9 +1192,7 @@
 		F970FACB252B14170000806B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FEEDD3952508E24900DC0A98 /* CoreAddress+Extensions.swift */,
 				FEEDD3882508E24900DC0A98 /* LotLan+Extensions.swift */,
-				FEEDD3982508E24900DC0A98 /* Address+TestData.swift */,
 				F970FAD7252B14950000806B /* SearchResultType+Extensions.swift */,
 			);
 			path = Extensions;
@@ -1209,7 +1307,6 @@
 		FECB50D52554103B0026302E /* Data Samples */ = {
 			isa = PBXGroup;
 			children = (
-				FE7E39A52565615C000C5BD5 /* Address+Samples.swift */,
 				FECB50E2255410BC0026302E /* CLLocationCoordinate2D+Samples.swift */,
 				FECB50F8255417AA0026302E /* CoreRequestOptions+Samples.swift */,
 				F9F88314258B74AB00062A82 /* CoreSearchOptions+Samples.swift */,
@@ -1287,10 +1384,10 @@
 				F9274FE92732B64C00708F37 /* Engine */,
 				FEEDD2E42508DFE400DC0A98 /* Search Results */,
 				FE097B77264EAA1A001EAC2F /* Errors */,
-				FEEDD2D92508DFE400DC0A98 /* Address.swift */,
 				FEEDD2D72508DFE400DC0A98 /* BoundingBox.swift */,
 				FEEDD2DB2508DFE400DC0A98 /* CodablePersistentService.swift */,
 				FEEDD2E12508DFE400DC0A98 /* DefaultLocationProvider.swift */,
+				FE4D4BC925CAD6810039F933 /* SearchAddressType.swift */,
 				FEEDD2ED2508DFE400DC0A98 /* FavoriteRecord.swift */,
 				FEEDD2F02508DFE400DC0A98 /* HighlightsCalculator.swift */,
 				FEEDD2DA2508DFE400DC0A98 /* HistoryRecord.swift */,
@@ -1721,6 +1818,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1419EB6929670638009672CA /* Autofill.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2041,6 +2139,7 @@
 				14173C302878437D00B20E1C /* Country+ISO3166-1.swift in Sources */,
 				FEEDD3162508DFE400DC0A98 /* SearchCategorySuggestion.swift in Sources */,
 				FEEDD31D2508DFE400DC0A98 /* HighlightsCalculator.swift in Sources */,
+				14FA657C2953497600056E5B /* PlaceAutocomplete+Options.swift in Sources */,
 				F9A0B8402562B10E00CAD907 /* SearchResultMetadata.swift in Sources */,
 				FE097B7D264EAA1A001EAC2F /* CustomNSError.swift in Sources */,
 				FEA5AA9A25718E7D00871FDB /* Route.swift in Sources */,
@@ -2060,6 +2159,7 @@
 				FEEDD3032508DFE400DC0A98 /* SearchRequestOptions.swift in Sources */,
 				FEEDD2F82508DFE400DC0A98 /* RecordsProviderInteractorNativeCore.swift in Sources */,
 				F97E9A84268C7BBE00F6353D /* DefaultStringInterpolation+Extensions.swift in Sources */,
+				14FA657F295355BC00056E5B /* AdministrativeUnits.swift in Sources */,
 				F9A0B8392562845400CAD907 /* SearchNavigationProfile.swift in Sources */,
 				F9274FF227394AE600708F37 /* TileRegionError.swift in Sources */,
 				FE1064F525B9A1C9007837BC /* NavigationOptions.swift in Sources */,
@@ -2080,12 +2180,14 @@
 				FEEDD2F12508DFE400DC0A98 /* ExternalRecordPlaceholder.swift in Sources */,
 				148DE6622857501D0085684D /* Country.swift in Sources */,
 				FEEDD2F72508DFE400DC0A98 /* Logger.swift in Sources */,
+				14FA6590295454F100056E5B /* Image.swift in Sources */,
 				148DE6642857503A0085684D /* AddressAutofill+Options.swift in Sources */,
 				148DE666285750710085684D /* Language.swift in Sources */,
 				FE059C61251A0E27001F7701 /* SearchSuggestType.swift in Sources */,
 				FEEDD3112508DFE400DC0A98 /* AbstractSearchEngine.swift in Sources */,
 				148DE68B285A18900085684D /* AddressAutofill+AddressComponent.swift in Sources */,
 				FEEDD3182508DFE400DC0A98 /* CategorySearchEngine.swift in Sources */,
+				14FA658D295383D700056E5B /* PlaceAutocomplete+Result.swift in Sources */,
 				FE097B7C264EAA1A001EAC2F /* SearchError.swift in Sources */,
 				F9274FED2733D29700708F37 /* SearchOfflineManager.swift in Sources */,
 				FEEDD3132508DFE400DC0A98 /* SearchResult.swift in Sources */,
@@ -2094,6 +2196,7 @@
 				FE9CDA5825B5A3CD0053422F /* OpenHours.swift in Sources */,
 				F9F882AC2588B6F400062A82 /* CoreResultMetadataProtocol.swift in Sources */,
 				FE8DA5A4271D9E09004901FB /* Search Documentation.docc in Sources */,
+				1421416A2953450C00774439 /* PlaceAutocomplete.swift in Sources */,
 				FEEDD3102508DFE400DC0A98 /* Maki.swift in Sources */,
 				FEEDD30A2508DFE400DC0A98 /* RecordsProviderInteractor.swift in Sources */,
 				FEEDD3072508DFE400DC0A98 /* Address.swift in Sources */,
@@ -2109,6 +2212,7 @@
 				FEEDD3042508DFE400DC0A98 /* SearchResultType.swift in Sources */,
 				F91FD66C258CCB41008CB8E1 /* CoreResultType+Extensions.swift in Sources */,
 				FEEDD3152508DFE400DC0A98 /* ServerSearchResult.swift in Sources */,
+				14FA65872953644400056E5B /* PlaceAutocomplete+Suggestion.swift in Sources */,
 				FE059C5A251A0AE6001F7701 /* SearchCategorySuggestionImpl.swift in Sources */,
 				FEEDD2F62508DFE400DC0A98 /* CoreSearchResultResponse.swift in Sources */,
 				FE260A6725C063880037B725 /* ReverseGeocodingOptions.swift in Sources */,
@@ -2118,6 +2222,7 @@
 				F97FA24025C95ACD0085A311 /* EventAppMetadata.swift in Sources */,
 				FEEDD31A2508DFE400DC0A98 /* FavoriteRecord.swift in Sources */,
 				FEEDD30F2508DFE400DC0A98 /* DefaultLocationProvider.swift in Sources */,
+				14FA65752953463300056E5B /* PlaceAutocomplete+Query.swift in Sources */,
 				FEEDD3172508DFE400DC0A98 /* SearchResultSuggestionImpl.swift in Sources */,
 				F9274FF7273AAE7200708F37 /* TileRegionLoadOptions+Search.swift in Sources */,
 				FEEDD3142508DFE400DC0A98 /* SearchSuggestion.swift in Sources */,
@@ -2136,7 +2241,7 @@
 				FEEDD39B2508E24900DC0A98 /* SearchResultStub.swift in Sources */,
 				FEEDD3A02508E24900DC0A98 /* DataLayerProviderStub.swift in Sources */,
 				FEEDD39F2508E24900DC0A98 /* CodablePersistentServiceTests.swift in Sources */,
-				FEEDD3A32508E24900DC0A98 /* AddressTests.swift in Sources */,
+				FEEDD3A32508E24900DC0A98 /* Address+Tests.swift in Sources */,
 				FEB0AA8A25CAC711002F0D1F /* SearchResultTypeTests.swift in Sources */,
 				FE1F320925680E4B004DCB6D /* SearchResponseTests.swift in Sources */,
 				FECB510025541A170026302E /* ExternalRecordPlaceholderTests.swift in Sources */,
@@ -2148,6 +2253,7 @@
 				141789EE287C125E0000AE79 /* AddressAutofill.Suggestion+Tests.swift in Sources */,
 				FE46559A25669B4E007ECC6A /* ServerSearchResultTests.swift in Sources */,
 				FECB50C02553FF210026302E /* HighlightsCalculatorTests.swift in Sources */,
+				14FA65842953618800056E5B /* PlaceAutocomplete.Options+Tests.swift in Sources */,
 				FE22DE4C2576983F00DFEACD /* Route+Tests.swift in Sources */,
 				F9F882B92588CCEE00062A82 /* CoreSearchResultMetadataStub.swift in Sources */,
 				14FBBBA9287ECC5C00721935 /* AddressAutofill+Tests.swift in Sources */,
@@ -2161,6 +2267,7 @@
 				FE7C73B3256687310047CA20 /* IndexableRecordStub.swift in Sources */,
 				FEEDD3A42508E24900DC0A98 /* SearchErrorTests.swift in Sources */,
 				FE8F821C256D509600A100D4 /* RoutablePointTests.swift in Sources */,
+				14FA658229535ABC00056E5B /* AdministrativeUnits+Tests.swift in Sources */,
 				FEB0AA8325CAC3EF002F0D1F /* CoreResultTypeTests.swift in Sources */,
 				FE4655A12566B619007ECC6A /* SearchResultSuggestionImplTests.swift in Sources */,
 				F9F88315258B74AB00062A82 /* CoreSearchOptions+Samples.swift in Sources */,
@@ -2208,12 +2315,13 @@
 				FE7E39A62565615C000C5BD5 /* Address+Samples.swift in Sources */,
 				FEEDD3A62508E24900DC0A98 /* CoreSearchResultStub+Samples.swift in Sources */,
 				FED7E19C25516B8700DA34D9 /* CLLocationCoordinate2DCodableTests.swift in Sources */,
-				141789B828787CE70000AE79 /* SearchAddressType +Tests.swift in Sources */,
+				141789B828787CE70000AE79 /* SearchAddressType+Tests.swift in Sources */,
 				FEEDD3A92508E24900DC0A98 /* CoreAddress+Extensions.swift in Sources */,
 				FE1F320225680585004DCB6D /* SearchResultSuggestionStub.swift in Sources */,
 				F96E70C325FA6485005B8A3F /* WrapperLocationProviderStub.swift in Sources */,
 				FE1F31F125680542004DCB6D /* SearchRequestOptions+Samples.swift in Sources */,
 				FE9234CB25CAE34C00BB69C8 /* SearchSuggestTypeTests.swift in Sources */,
+				14FA657A2953481C00056E5B /* PlaceAutocomplete.Query+Tests.swift in Sources */,
 				FEEDD3A82508E24900DC0A98 /* CoreSearchEngineStub.swift in Sources */,
 				FE6EEDEE25B039E000EAE44E /* OpenHoursTests.swift in Sources */,
 				FECCDEEA2552D20A008FC4D6 /* DefaultLocationProviderTests.swift in Sources */,
@@ -2252,6 +2360,8 @@
 				F9C557672670CB0400BE8B94 /* MockResponse.swift in Sources */,
 				F9C557682670CB0400BE8B94 /* MockWebServer.swift in Sources */,
 				F9C557BD2670CD0D00BE8B94 /* CoreSuggestAction+Samples.swift in Sources */,
+				14FA658A295368B400056E5B /* Address+TestData.swift in Sources */,
+				14FA6589295368AF00056E5B /* CoreAddress+Extensions.swift in Sources */,
 				F9C557C02670CD5E00BE8B94 /* Address+Samples.swift in Sources */,
 				F914EE652743E4F400D4F173 /* CoreAliases.swift in Sources */,
 				F9C557B42670CB4000BE8B94 /* SearchEngineIntegrationTests.swift in Sources */,
@@ -2753,7 +2863,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GJZR2MEM28;
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Demo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2778,7 +2888,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GJZR2MEM28;
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Demo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

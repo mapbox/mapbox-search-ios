@@ -17,8 +17,9 @@ final class AddressAutofillResultViewController: UIViewController {
     @IBOutlet private var infoView: UIView!
     
     private var result: AddressAutofill.Result!
+    
     private lazy var addressAutofill = AddressAutofill()
-
+    
     static func instantiate(with result: AddressAutofill.Result) -> AddressAutofillResultViewController {
         let storyboard = UIStoryboard(
             name: "Main",
@@ -42,6 +43,12 @@ final class AddressAutofillResultViewController: UIViewController {
         super.viewDidLoad()
 
         prepare()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        mapView.delegate = self
     }
 }
 
@@ -71,35 +78,15 @@ extension AddressAutofillResultViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - Private
-private extension AddressAutofillResultViewController {
-    func attachAdjustLocationButtonToNavigationItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Adjust",
-            style: .plain,
-            target: self,
-            action: #selector(onStartAdjustLocationAction)
-        )
-    }
-    
-    func attachDoneButtonToNavigationItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Done",
-            style: .done,
-            target: self,
-            action: #selector(onFinishAdjustLocationAction)
-        )
-    }
-    
-    @objc func onStartAdjustLocationAction() {
-        result = nil
+// MARK: - MKMapViewDelegate
+extension AddressAutofillResultViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
         mapView.removeAnnotations(mapView.annotations)
-        
+
         updateViewState(to: .adjusting)
-        attachDoneButtonToNavigationItem()
     }
     
-    @objc func onFinishAdjustLocationAction() {
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         performAutofillRequest()
     }
 }
@@ -108,34 +95,28 @@ private extension AddressAutofillResultViewController {
 private extension AddressAutofillResultViewController {
     func prepare() {
         title = "Address"
-
+        
         updateViewState(to: .result)
-
-        attachAdjustLocationButtonToNavigationItem()
     }
     
     func updateViewState(to viewState: ViewState) {
         switch viewState {
         case .result:
-            mapView.isUserInteractionEnabled = false
             pinButton.isHidden = true
             activityView.isHidden = true
             infoView.isHidden = true
             
         case .adjusting:
-            mapView.isUserInteractionEnabled = true
             pinButton.isHidden = false
             activityView.isHidden = true
             infoView.isHidden = false
             
         case .loading:
-            mapView.isUserInteractionEnabled = false
             pinButton.isHidden = false
             activityView.isHidden = false
             infoView.isHidden = true
             
         case .empty:
-            mapView.isUserInteractionEnabled = false
             pinButton.isHidden = true
             activityView.isHidden = true
             infoView.isHidden = true
@@ -173,7 +154,8 @@ private extension AddressAutofillResultViewController {
     
     func performAutofillRequest() {
         result = nil
-
+        mapView.delegate = nil
+        
         updateViewState(to: .loading)
         
         addressAutofill.suggestions(for: mapView.centerCoordinate) { [weak self] result in
@@ -195,7 +177,7 @@ private extension AddressAutofillResultViewController {
                 self.updateViewState(to: .empty)
             }
             
-            self.attachAdjustLocationButtonToNavigationItem()
+            self.mapView.delegate = self
         }
     }
 }

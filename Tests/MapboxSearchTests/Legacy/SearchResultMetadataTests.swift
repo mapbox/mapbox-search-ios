@@ -90,19 +90,19 @@ class SearchResultMetadataTests: XCTestCase {
         let metadata3 = SearchResultMetadata(metadata: stub)
         XCTAssertNotEqual(metadata(), metadata3)
     }
-    
+
     func testEqualImageInfo() {
-        let sample = SearchResultMetadata.SizedImage(coreImageInfo: CoreImageInfoStub(url: "https://mapbox.com/assets/small_fake_image.png", width: 40, height: 80)
+        let sample = Image.SizedImage(coreImageInfo: CoreImageInfoStub(url: "https://mapbox.com/assets/small_fake_image.png", width: 40, height: 80)
         )
-        XCTAssertEqual(sample, SearchResultMetadata.SizedImage(coreImageInfo: CoreImageInfoStub.sample1))
+        XCTAssertEqual(sample, Image.SizedImage(coreImageInfo: CoreImageInfoStub.sample1))
     }
-    
+
     func testNonEqualImageInfo() {
-        let sample = SearchResultMetadata.SizedImage(coreImageInfo: CoreImageInfoStub(url: "https://mapbox.com/assets/Big_fake_image.png", width: 42, height: 88)
+        let sample = Image.SizedImage(coreImageInfo: CoreImageInfoStub(url: "https://mapbox.com/assets/Big_fake_image.png", width: 42, height: 88)
         )
-        XCTAssertNotEqual(sample, SearchResultMetadata.SizedImage(coreImageInfo: CoreImageInfoStub.sample1))
+        XCTAssertNotEqual(sample, Image.SizedImage(coreImageInfo: CoreImageInfoStub.sample1))
     }
-    
+
     func testImageInitialization() throws {
         let primaryImage = try XCTUnwrap(CoreSearchResultMetadataStub.sample1.primaryImage)
         let otherImage = try XCTUnwrap(CoreSearchResultMetadataStub.sample1.otherImage)

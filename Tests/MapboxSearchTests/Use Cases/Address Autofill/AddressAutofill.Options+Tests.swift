@@ -13,9 +13,9 @@ final class AddressAutofillOptionsTests: XCTestCase {
     
     func testThatOptionsInitializedWithCountries() {
         let countries = [
-            Country(countryCode: Country.ISO3166_1_alpha1.fr.rawValue),
-            Country(countryCode: Country.ISO3166_1_alpha1.de.rawValue),
-            Country(countryCode: Country.ISO3166_1_alpha1.us.rawValue)
+            Country(countryCode: Country.ISO3166_1_alpha2.fr.rawValue),
+            Country(countryCode: Country.ISO3166_1_alpha2.de.rawValue),
+            Country(countryCode: Country.ISO3166_1_alpha2.us.rawValue)
         ].compactMap { $0 }
         
         XCTAssertEqual(countries.count, 3)
