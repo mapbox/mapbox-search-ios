@@ -54,7 +54,7 @@ public extension PlaceAutocomplete {
             languages: options.map { [$0.language.languageCode] },
             limit: Constants.defaultSuggestionsLimit,
             boundingBox: query.boundingBox,
-            filterTypes: [.country], // TODO: PlaceAutocomplete
+            filterTypes: options?.administrativeUnits.map { $0.rawValue },
             ignoreIndexableRecords: true
         ).toCore(apiType: Self.apiType)
         
@@ -68,7 +68,7 @@ public extension PlaceAutocomplete {
     func suggestions(for query: CoordinateQuery, with options: Options? = nil, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
         let searchOptions = ReverseGeocodingOptions(
             point: query.coordinate,
-            types: [.country], // TODO: PlaceAutocomplete
+            types: options?.administrativeUnits.map { $0.rawValue },
             countries: options?.countries.map { $0.countryCode },
             languages: options.map { [$0.language.languageCode] }
         ).toCore()

@@ -177,7 +177,7 @@ class SearchResultMetadataTests: XCTestCase {
         #else
 
         let assertionError = catchBadInstruction {
-            _ = SearchResultMetadata.SizedImage(coreImageInfo: CoreImageInfoStub(url: "", width: 42, height: 88))
+            _ = Image.SizedImage(coreImageInfo: CoreImageInfoStub(url: "", width: 42, height: 88))
         }
         XCTAssertNotNil(assertionError)
         #endif
