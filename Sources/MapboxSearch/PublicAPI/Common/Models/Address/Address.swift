@@ -37,6 +37,13 @@ public struct Address: Codable, Hashable {
     /// that has been given a designated country code under ISO 3166-1.
     public var country: String?
     
+    // TODO: Discover
+//    /// The country code in ISO 3166-1.
+//    public let countryISO1: String?
+//
+//    /// The country code in ISO 3166-2.
+//    public let countryISO2: String?
+    
     /// The postal address associated with the location, formatted for use with the Contacts framework.
     public var postalAddress: CNPostalAddress {
         let streetNameAndNumber = [houseNumber, street]
@@ -53,6 +60,20 @@ public struct Address: Codable, Hashable {
         
         return address
     }
+    
+    public static var empty: Address {
+        .init(
+            houseNumber: nil,
+            street: nil,
+            neighborhood: nil,
+            locality: nil,
+            postcode: nil,
+            place: nil,
+            district: nil,
+            region: nil,
+            country: nil
+        )
+    }
 }
 
 extension Address {
@@ -64,15 +85,17 @@ extension Address {
             return input
         }
         
-        self.init(houseNumber: valueOrNil(coreAddress.houseNumber),
-                  street: valueOrNil(coreAddress.street),
-                  neighborhood: valueOrNil(coreAddress.neighborhood),
-                  locality: valueOrNil(coreAddress.locality),
-                  postcode: valueOrNil(coreAddress.postcode),
-                  place: valueOrNil(coreAddress.place),
-                  district: valueOrNil(coreAddress.district),
-                  region: valueOrNil(coreAddress.region),
-                  country: valueOrNil(coreAddress.country))
+        self.init(
+            houseNumber: valueOrNil(coreAddress.houseNumber),
+            street: valueOrNil(coreAddress.street),
+            neighborhood: valueOrNil(coreAddress.neighborhood),
+            locality: valueOrNil(coreAddress.locality),
+            postcode: valueOrNil(coreAddress.postcode),
+            place: valueOrNil(coreAddress.place),
+            district: valueOrNil(coreAddress.district),
+            region: valueOrNil(coreAddress.region),
+            country: valueOrNil(coreAddress.country)
+        )
     }
     
     func coreAddress() -> CoreAddress {

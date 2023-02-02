@@ -21,5 +21,5 @@ extension Address {
                                         region: "District of Columbia",
                                         country: "United States")
     
-    static let emptyAddress = Address()
+    static let emptyAddress = Address.empty
 }

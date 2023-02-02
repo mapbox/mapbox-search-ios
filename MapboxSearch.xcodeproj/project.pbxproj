@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		140D1BDC286DB479001A51C2 /* SearchResultAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */; };
+		140E47A2298BC90E00677E30 /* DiscoverAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A1298BC90E00677E30 /* DiscoverAPI.swift */; };
+		140E47A5298BC94D00677E30 /* DiscoverAPI+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A4298BC94D00677E30 /* DiscoverAPI+Options.swift */; };
+		140E47A7298BCBDF00677E30 /* DiscoverAPI+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A6298BCBDF00677E30 /* DiscoverAPI+Query.swift */; };
+		140E47AA298BE3A200677E30 /* DiscoverAPI+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A9298BE3A200677E30 /* DiscoverAPI+Result.swift */; };
 		14173C2E28783E1000B20E1C /* Country+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14173C2D28783E1000B20E1C /* Country+Tests.swift */; };
 		14173C302878437D00B20E1C /* Country+ISO3166-1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14173C2F2878437D00B20E1C /* Country+ISO3166-1.swift */; };
 		14173C332878476400B20E1C /* Language+ISO639-1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14173C322878476400B20E1C /* Language+ISO639-1.swift */; };
@@ -441,6 +445,10 @@
 
 /* Begin PBXFileReference section */
 		140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAccuracy.swift; sourceTree = "<group>"; };
+		140E47A1298BC90E00677E30 /* DiscoverAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverAPI.swift; sourceTree = "<group>"; };
+		140E47A4298BC94D00677E30 /* DiscoverAPI+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoverAPI+Options.swift"; sourceTree = "<group>"; };
+		140E47A6298BCBDF00677E30 /* DiscoverAPI+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoverAPI+Query.swift"; sourceTree = "<group>"; };
+		140E47A9298BE3A200677E30 /* DiscoverAPI+Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoverAPI+Result.swift"; sourceTree = "<group>"; };
 		14173C2D28783E1000B20E1C /* Country+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+Tests.swift"; sourceTree = "<group>"; };
 		14173C2F2878437D00B20E1C /* Country+ISO3166-1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+ISO3166-1.swift"; sourceTree = "<group>"; };
 		14173C322878476400B20E1C /* Language+ISO639-1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Language+ISO639-1.swift"; sourceTree = "<group>"; };
@@ -830,6 +838,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		140E47A0298BC8F800677E30 /* Discover API */ = {
+			isa = PBXGroup;
+			children = (
+				140E47A3298BC94000677E30 /* Models */,
+				140E47A1298BC90E00677E30 /* DiscoverAPI.swift */,
+			);
+			path = "Discover API";
+			sourceTree = "<group>";
+		};
+		140E47A3298BC94000677E30 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				140E47A8298BE28C00677E30 /* Result */,
+				140E47A4298BC94D00677E30 /* DiscoverAPI+Options.swift */,
+				140E47A6298BCBDF00677E30 /* DiscoverAPI+Query.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		140E47A8298BE28C00677E30 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				140E47A9298BE3A200677E30 /* DiscoverAPI+Result.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
 		14173C2C28783DDD00B20E1C /* Country */ = {
 			isa = PBXGroup;
 			children = (
@@ -999,6 +1034,7 @@
 		148DE65A28574E4E0085684D /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
+				140E47A0298BC8F800677E30 /* Discover API */,
 				142141672953447D00774439 /* Place Autocomplete */,
 				148DE65B28574E560085684D /* Address Autofill */,
 			);
@@ -2134,6 +2170,7 @@
 				F93DA6FF274E4B86005595B5 /* CoreSearchEngineStatics.swift in Sources */,
 				F9F6378A25DD6A4E00C99904 /* FeedbackManager.swift in Sources */,
 				148DE65D28574E6E0085684D /* AddressAutofill.swift in Sources */,
+				140E47A7298BCBDF00677E30 /* DiscoverAPI+Query.swift in Sources */,
 				FEEDD3092508DFE400DC0A98 /* CodablePersistentService.swift in Sources */,
 				FEEDD3192508DFE400DC0A98 /* IndexableDataProvider.swift in Sources */,
 				14173C302878437D00B20E1C /* Country+ISO3166-1.swift in Sources */,
@@ -2153,6 +2190,7 @@
 				FEEDD2FA2508DFE400DC0A98 /* CoreSearchEngineProtocol.swift in Sources */,
 				FEEDD3052508DFE400DC0A98 /* BoundingBox.swift in Sources */,
 				FEEDD2FE2508DFE400DC0A98 /* CoreSearchResultProtocol.swift in Sources */,
+				140E47A5298BC94D00677E30 /* DiscoverAPI+Options.swift in Sources */,
 				F914EE642743E4F400D4F173 /* CoreAliases.swift in Sources */,
 				F998AED825D17DFF00230F34 /* SearchResponseInfo.swift in Sources */,
 				FEEDD3082508DFE400DC0A98 /* HistoryRecord.swift in Sources */,
@@ -2183,6 +2221,7 @@
 				14FA6590295454F100056E5B /* Image.swift in Sources */,
 				148DE6642857503A0085684D /* AddressAutofill+Options.swift in Sources */,
 				148DE666285750710085684D /* Language.swift in Sources */,
+				140E47AA298BE3A200677E30 /* DiscoverAPI+Result.swift in Sources */,
 				FE059C61251A0E27001F7701 /* SearchSuggestType.swift in Sources */,
 				FEEDD3112508DFE400DC0A98 /* AbstractSearchEngine.swift in Sources */,
 				148DE68B285A18900085684D /* AddressAutofill+AddressComponent.swift in Sources */,
@@ -2212,6 +2251,7 @@
 				FEEDD3042508DFE400DC0A98 /* SearchResultType.swift in Sources */,
 				F91FD66C258CCB41008CB8E1 /* CoreResultType+Extensions.swift in Sources */,
 				FEEDD3152508DFE400DC0A98 /* ServerSearchResult.swift in Sources */,
+				140E47A2298BC90E00677E30 /* DiscoverAPI.swift in Sources */,
 				14FA65872953644400056E5B /* PlaceAutocomplete+Suggestion.swift in Sources */,
 				FE059C5A251A0AE6001F7701 /* SearchCategorySuggestionImpl.swift in Sources */,
 				FEEDD2F62508DFE400DC0A98 /* CoreSearchResultResponse.swift in Sources */,
