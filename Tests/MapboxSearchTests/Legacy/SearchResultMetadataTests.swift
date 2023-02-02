@@ -152,6 +152,7 @@ class SearchResultMetadataTests: XCTestCase {
         reviewCount: 200,
         phone: "+ 000 00 000 00 00",
         website: "https://www.google.com")
+    
         let metadata = SearchResultMetadata(metadata: stub)
         XCTAssertNil(metadata.primaryImage)
     }

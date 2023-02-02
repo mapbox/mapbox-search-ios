@@ -7,7 +7,7 @@ public extension DiscoverAPI {
     struct Result {
         /// Result's name
         public let name: String
-        
+
         /// Result's address
         public let address: Address
         
@@ -27,11 +27,18 @@ public extension DiscoverAPI {
 
 extension DiscoverAPI.Result {
     static func from(_ searchResult: SearchResult) -> Self {
-        .init(
+        var routablePointsArray: NonEmptyArray<RoutablePoint>?
+        if let routablePoints = searchResult.routablePoints, let first = searchResult.routablePoints?.first {
+            routablePointsArray = .init(first: first, others: Array(routablePoints.dropFirst()))
+        } else {
+            routablePointsArray = nil
+        }
+        
+        return .init(
             name: searchResult.name,
             address: searchResult.address ?? .empty,
             coordinate: searchResult.coordinate,
-            routablePoints: nil,
+            routablePoints: routablePointsArray,
             categories: searchResult.categories ?? [],
             makiIcon: searchResult.iconName
         )

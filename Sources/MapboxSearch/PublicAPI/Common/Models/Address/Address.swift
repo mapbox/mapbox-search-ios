@@ -36,14 +36,7 @@ public struct Address: Codable, Hashable {
     /// Generally recognized countries or, in some cases like Hong Kong, an area of quasi-national administrative status
     /// that has been given a designated country code under ISO 3166-1.
     public var country: String?
-    
-    // TODO: Discover
-//    /// The country code in ISO 3166-1.
-//    public let countryISO1: String?
-//
-//    /// The country code in ISO 3166-2.
-//    public let countryISO2: String?
-    
+
     /// The postal address associated with the location, formatted for use with the Contacts framework.
     public var postalAddress: CNPostalAddress {
         let streetNameAndNumber = [houseNumber, street]

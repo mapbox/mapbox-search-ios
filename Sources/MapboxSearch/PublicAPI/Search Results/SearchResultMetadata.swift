@@ -35,12 +35,12 @@ public struct SearchResultMetadata: Codable, Hashable {
         self.reviewCount = metadata.reviewCount?.intValue
         self.averageRating = metadata.averageRating?.doubleValue
         self.openHours = metadata.openHours.flatMap(OpenHours.init)
-        
-        if let primaries = metadata.primaryImage {
+
+        if let primaries = metadata.primaryImage, !primaries.isEmpty {
             self.primaryImage = Image(sizes: primaries.map(Image.SizedImage.init))
         }
 
-        if let others = metadata.otherImage {
+        if let others = metadata.otherImage, !others.isEmpty {
             self.otherImages = [
                 Image(sizes: others.map(Image.SizedImage.init))
             ]
