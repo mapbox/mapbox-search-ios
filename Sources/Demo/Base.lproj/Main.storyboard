@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JVX-IJ-mtG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JVX-IJ-mtG">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -22,6 +22,7 @@
                     <connections>
                         <segue destination="o1C-pK-XDO" kind="relationship" relationship="viewControllers" id="CAd-iy-6wJ"/>
                         <segue destination="NZD-nP-oWd" kind="relationship" relationship="viewControllers" id="cty-OW-eZL"/>
+                        <segue destination="kQh-we-4TL" kind="relationship" relationship="viewControllers" id="E6H-hA-rLw"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Opb-vT-sn5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -227,9 +228,82 @@
             </objects>
             <point key="canvasLocation" x="753.62318840579712" y="1579.8913043478262"/>
         </scene>
+        <!--Discover-->
+        <scene sceneID="Cbv-pg-ufB">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="kQh-we-4TL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Discover" id="FHv-mk-0xk"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XUy-LY-TcY">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ggU-4h-Z4i" kind="relationship" relationship="rootViewController" id="NU4-nG-mk7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IYu-1H-3u5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1023" y="2400"/>
+        </scene>
+        <!--Discover-->
+        <scene sceneID="cow-iZ-A5n">
+            <objects>
+                <viewController title="Discover" id="ggU-4h-Z4i" customClass="DiscoverViewController" customModule="MapboxSearch" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H51-Up-D8x">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7ae-PQ-eTh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GC2-d5-Go6">
+                                <rect key="frame" x="20" y="621" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ZOA-oe-th4"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Search in this area"/>
+                                <connections>
+                                    <action selector="handleSearchInRegionAction" destination="ggU-4h-Z4i" eventType="touchUpInside" id="hjK-Ac-YT2"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jyc-Lb-8Kz">
+                                <rect key="frame" x="20" y="20" width="374" height="32"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <segments>
+                                    <segment title="Parking"/>
+                                    <segment title="Restaurants"/>
+                                    <segment title="Museum"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KC9-Og-jfE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KC9-Og-jfE" firstAttribute="trailing" secondItem="GC2-d5-Go6" secondAttribute="trailing" constant="20" id="0HQ-po-u2b"/>
+                            <constraint firstAttribute="bottom" secondItem="7ae-PQ-eTh" secondAttribute="bottom" id="2kr-us-p2x"/>
+                            <constraint firstItem="GC2-d5-Go6" firstAttribute="leading" secondItem="KC9-Og-jfE" secondAttribute="leading" constant="20" id="3zk-gR-kzL"/>
+                            <constraint firstItem="jyc-Lb-8Kz" firstAttribute="top" secondItem="KC9-Og-jfE" secondAttribute="top" constant="20" id="AVj-tU-GLu"/>
+                            <constraint firstItem="jyc-Lb-8Kz" firstAttribute="leading" secondItem="KC9-Og-jfE" secondAttribute="leading" constant="20" id="BYc-A6-d1e"/>
+                            <constraint firstItem="GC2-d5-Go6" firstAttribute="bottom" secondItem="KC9-Og-jfE" secondAttribute="bottom" constant="-16" id="GcV-L7-awi"/>
+                            <constraint firstItem="7ae-PQ-eTh" firstAttribute="top" secondItem="H51-Up-D8x" secondAttribute="top" id="Xoi-bI-i96"/>
+                            <constraint firstItem="7ae-PQ-eTh" firstAttribute="trailing" secondItem="KC9-Og-jfE" secondAttribute="trailing" id="hqJ-W4-1MZ"/>
+                            <constraint firstItem="KC9-Og-jfE" firstAttribute="trailing" secondItem="jyc-Lb-8Kz" secondAttribute="trailing" constant="20" id="k2d-U6-vqh"/>
+                            <constraint firstItem="7ae-PQ-eTh" firstAttribute="leading" secondItem="KC9-Og-jfE" secondAttribute="leading" id="zFB-hO-BwP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="evC-4X-ARn"/>
+                    <connections>
+                        <outlet property="mapView" destination="7ae-PQ-eTh" id="m1K-WU-Dmw"/>
+                        <outlet property="segmentedControl" destination="jyc-Lb-8Kz" id="raK-8M-n1j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z2h-Sj-K7C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-78.260869565217391" y="2400"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
+        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

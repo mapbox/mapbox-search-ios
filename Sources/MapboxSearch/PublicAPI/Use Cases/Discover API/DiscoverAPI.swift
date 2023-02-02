@@ -20,7 +20,8 @@ public final class DiscoverAPI {
 
         let searchEngine = CategorySearchEngine(
             accessToken: accessToken,
-            locationProvider: locationProvider
+            locationProvider: locationProvider,
+            supportSBS: true
         )
 
         self.init(searchEngine: searchEngine)
@@ -65,7 +66,7 @@ public extension DiscoverAPI {
     func search(
         for query: Query,
         in region: BoundingBox,
-        proximity: CLLocationCoordinate2D?,
+        proximity: CLLocationCoordinate2D? = nil,
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
