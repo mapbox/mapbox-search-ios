@@ -26,6 +26,8 @@
 		143695F72899291200861F1A /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143695F5289927FD00861F1A /* UIApplication+Extensions.swift */; };
 		1440BF4D28FD75A9009B3679 /* AddressAutofillMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1440BF4C28FD75A9009B3679 /* AddressAutofillMainViewController.swift */; };
 		1440BF4F290019AD009B3679 /* AddressAutofillResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1440BF4E290019AD009B3679 /* AddressAutofillResultViewController.swift */; };
+		144F32F2298D1FCD0082B2D5 /* DiscoverAPI+Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F32F1298D1FCD0082B2D5 /* DiscoverAPI+Address.swift */; };
+		144F32F5298D21E70082B2D5 /* AddressComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F32F4298D21E70082B2D5 /* AddressComponents.swift */; };
 		148DE65D28574E6E0085684D /* AddressAutofill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE65C28574E6E0085684D /* AddressAutofill.swift */; };
 		148DE6622857501D0085684D /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE6612857501D0085684D /* Country.swift */; };
 		148DE6642857503A0085684D /* AddressAutofill+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE6632857503A0085684D /* AddressAutofill+Options.swift */; };
@@ -464,6 +466,8 @@
 		143695F5289927FD00861F1A /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		1440BF4C28FD75A9009B3679 /* AddressAutofillMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAutofillMainViewController.swift; sourceTree = "<group>"; };
 		1440BF4E290019AD009B3679 /* AddressAutofillResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAutofillResultViewController.swift; sourceTree = "<group>"; };
+		144F32F1298D1FCD0082B2D5 /* DiscoverAPI+Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoverAPI+Address.swift"; sourceTree = "<group>"; };
+		144F32F4298D21E70082B2D5 /* AddressComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressComponents.swift; sourceTree = "<group>"; };
 		148DE65C28574E6E0085684D /* AddressAutofill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAutofill.swift; sourceTree = "<group>"; };
 		148DE6612857501D0085684D /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		148DE6632857503A0085684D /* AddressAutofill+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Options.swift"; sourceTree = "<group>"; };
@@ -852,19 +856,12 @@
 		140E47A3298BC94000677E30 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				140E47A8298BE28C00677E30 /* Result */,
 				140E47A4298BC94D00677E30 /* DiscoverAPI+Options.swift */,
 				140E47A6298BCBDF00677E30 /* DiscoverAPI+Query.swift */,
+				140E47A9298BE3A200677E30 /* DiscoverAPI+Result.swift */,
+				144F32F1298D1FCD0082B2D5 /* DiscoverAPI+Address.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		140E47A8298BE28C00677E30 /* Result */ = {
-			isa = PBXGroup;
-			children = (
-				140E47A9298BE3A200677E30 /* DiscoverAPI+Result.swift */,
-			);
-			path = Result;
 			sourceTree = "<group>";
 		};
 		14173C2C28783DDD00B20E1C /* Country */ = {
@@ -1033,9 +1030,18 @@
 			name = "Address Autofill";
 			sourceTree = "<group>";
 		};
+		144F32F3298D21D70082B2D5 /* Address Components */ = {
+			isa = PBXGroup;
+			children = (
+				144F32F4298D21E70082B2D5 /* AddressComponents.swift */,
+			);
+			path = "Address Components";
+			sourceTree = "<group>";
+		};
 		148DE65A28574E4E0085684D /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
+				144F32F3298D21D70082B2D5 /* Address Components */,
 				140E47A0298BC8F800677E30 /* Discover API */,
 				142141672953447D00774439 /* Place Autocomplete */,
 				148DE65B28574E560085684D /* Address Autofill */,
@@ -2220,6 +2226,7 @@
 				F931B35225A32CC400AA1674 /* SearchQuerySuggestion.swift in Sources */,
 				F9F88289258227D200062A82 /* CoreImageInfoProtocol.swift in Sources */,
 				FEEDD2FC2508DFE400DC0A98 /* CoreSearchResponseProtocol.swift in Sources */,
+				144F32F2298D1FCD0082B2D5 /* DiscoverAPI+Address.swift in Sources */,
 				FEEDD2FB2508DFE400DC0A98 /* WrapperLocationProvider.swift in Sources */,
 				FE7C73A62566804E0047CA20 /* CoreUserRecordsLayerProtocol.swift in Sources */,
 				F9274FEB2732BF0E00708F37 /* SearchTileStore.swift in Sources */,
@@ -2253,6 +2260,7 @@
 				FEEDD3072508DFE400DC0A98 /* Address.swift in Sources */,
 				140D1BDC286DB479001A51C2 /* SearchResultAccuracy.swift in Sources */,
 				141789E7287C05060000AE79 /* AddressAutofill.Suggestion+SearchResult.swift in Sources */,
+				144F32F5298D21E70082B2D5 /* AddressComponents.swift in Sources */,
 				FEEDD3122508DFE400DC0A98 /* SearchResultSuggestion.swift in Sources */,
 				148DE671285777180085684D /* NSLocking+Extensions.swift in Sources */,
 				14FBBBAD2881663800721935 /* AddressAutofill+Query.swift in Sources */,

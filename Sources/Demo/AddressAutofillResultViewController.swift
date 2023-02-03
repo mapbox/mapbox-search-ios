@@ -155,8 +155,8 @@ private extension AddressAutofillResultViewController {
         guard result != nil else { return }
         
         let annotation = MKPointAnnotation()
-        annotation.coordinate = result.suggestion.coordinate
-        annotation.title = result.suggestion.name
+        annotation.coordinate = result.coordinate
+        annotation.title = result.name
 
         mapView.addAnnotation(annotation)
     }
@@ -165,7 +165,7 @@ private extension AddressAutofillResultViewController {
         guard result != nil else { return }
         
         let region = MKCoordinateRegion(
-            center: result.suggestion.coordinate,
+            center: result.coordinate,
             span: .init(latitudeDelta: 0.001, longitudeDelta: 0.001)
         )
         mapView.setRegion(region, animated: true)

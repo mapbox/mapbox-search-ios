@@ -9,7 +9,7 @@ public extension DiscoverAPI {
         public let name: String
 
         /// Result's address
-        public let address: Address
+        public let address: AddressComponents
         
         /// Result's geographic point.
         public let coordinate: CLLocationCoordinate2D
@@ -36,7 +36,7 @@ extension DiscoverAPI.Result {
         
         return .init(
             name: searchResult.name,
-            address: searchResult.address ?? .empty,
+            address: .init(searchResult: searchResult),
             coordinate: searchResult.coordinate,
             routablePoints: routablePointsArray,
             categories: searchResult.categories ?? [],
