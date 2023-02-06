@@ -156,7 +156,7 @@ jobs:
           paths:
             - vendor/bundle
       - run: |
-          git remote set-url origin https://x-access-token:$(mbx-ci github writer private token)@github.com/mapbox/search-ios.git
+          git remote set-url origin https://x-access-token:$(mbx-ci github writer private token)@github.com/mapbox/mapbox-search-ios.git
 
       - run: make release-docs
 
