@@ -45,8 +45,7 @@ class RecordsProviderInteractorNativeCoreTests: XCTestCase {
         XCTAssertEqual(layerRecord.name, "new-name")
         XCTAssertEqual(layerRecord.id, originalRecord.id)
     }
-    
-    // TODO: refactor indexable records
+
     func testInteractorDeleteRecord() {
         let record = IndexableRecordStub()
         interactor.add(record: record)

@@ -26,6 +26,13 @@ public struct Language: Equatable {
     }
     
     static var `default`: Self {
-        Language(languageCode: "en")!
+        let regions = Locale.preferredLanguages.map(Locale.init).compactMap({ $0.languageCode }).removingDuplicates()
+        let defaultLanguage = Language(languageCode: "en")!
+        
+        if let first = regions.first {
+            return Language(languageCode: first) ?? defaultLanguage
+        } else {
+            return defaultLanguage
+        }
     }
 }

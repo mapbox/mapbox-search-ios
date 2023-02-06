@@ -2,7 +2,6 @@ import UIKit.UIImage
 import MapboxSearch
 
 enum Images {
-    // TODO: Generate the structure (e.g. SwiftGen)
     static let unknownIcon = UIImage(named: "unknown icon", in: .mapboxSearchUI, compatibleWith: nil)!
     static let workIcon = UIImage(named: "work", in: .mapboxSearchUI, compatibleWith: nil)!
     static let homeIcon = Maki.home.icon

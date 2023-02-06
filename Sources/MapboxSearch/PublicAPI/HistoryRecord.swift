@@ -2,8 +2,6 @@ import CoreLocation
 
 /// Resolved search result intended to represent user search history
 public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
-    
-    // TODO: Make a constant
     /// "history icon" by default
     public var iconName: String? = "history icon"
     
