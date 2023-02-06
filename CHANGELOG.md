@@ -6,6 +6,11 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-beta.42] - 2023-02-06
+
+### Added
+- [Discover]: added Discover use case for searching POIs nearby/in region by a category.
+
 ## [1.0.0-beta.41] - 2023-01-17
 
 ### Updated
