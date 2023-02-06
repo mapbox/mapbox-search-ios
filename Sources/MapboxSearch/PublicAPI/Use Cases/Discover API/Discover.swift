@@ -3,7 +3,7 @@
 import Foundation
 import CoreLocation
 
-public final class DiscoverAPI {
+public final class Discover {
     private let searchEngine: CategorySearchEngine
     
     /// Basic internal initializer
@@ -32,7 +32,7 @@ public final class DiscoverAPI {
     }
 }
 
-public extension DiscoverAPI {
+public extension Discover {
     /// Search for places nearby the specified geographic point.
     /// - Parameters:
     ///   - query: Search query
@@ -104,7 +104,7 @@ public extension DiscoverAPI {
 }
 
 // MARK: - Private
-private extension DiscoverAPI {
+private extension Discover {
     func search(
         for query: Query,
         with searchOptions: SearchOptions,
@@ -116,7 +116,7 @@ private extension DiscoverAPI {
         ) { result in
             switch result {
             case .success(let searchResults):
-                let discoverResults = searchResults.map(DiscoverAPI.Result.from(_:))
+                let discoverResults = searchResults.map(Discover.Result.from(_:))
                 completion(.success(discoverResults))
                 
             case .failure(let error):

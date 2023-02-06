@@ -3,7 +3,7 @@
 import Foundation
 import CoreLocation
 
-public extension DiscoverAPI {
+public extension Discover {
     struct Result {
         /// Result's name
         public let name: String
@@ -25,7 +25,7 @@ public extension DiscoverAPI {
     }
 }
 
-extension DiscoverAPI.Result {
+extension Discover.Result {
     static func from(_ searchResult: SearchResult) -> Self {
         var routablePointsArray: NonEmptyArray<RoutablePoint>?
         if let routablePoints = searchResult.routablePoints, let first = searchResult.routablePoints?.first {

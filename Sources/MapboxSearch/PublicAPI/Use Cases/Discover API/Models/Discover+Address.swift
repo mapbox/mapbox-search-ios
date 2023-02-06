@@ -3,7 +3,7 @@
 import Foundation
 import Contacts
 
-public extension DiscoverAPI {
+public extension Discover {
     struct Address {
         /// House number of the individual residential or business addresses.
         public let houseNumber: String?
@@ -76,7 +76,7 @@ public extension DiscoverAPI {
 }
 
 // MARK: - Contacts extension
-public extension DiscoverAPI.Address {
+public extension Discover.Address {
     /// The postal address associated with the location, formatted for use with the Contacts framework.
     var postalAddress: CNPostalAddress {
         let streetNameAndNumber = [houseNumber, street]
