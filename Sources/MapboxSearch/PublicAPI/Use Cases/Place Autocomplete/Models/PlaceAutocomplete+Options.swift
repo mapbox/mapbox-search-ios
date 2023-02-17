@@ -14,19 +14,18 @@ public extension PlaceAutocomplete {
         /// For example, a query for things that start with Frank might return Frankfurt as the first result with an English (en) language parameter, but Frankreich (“France”) with a German (de) language parameter.
         public let language: Language
         
-        /// Limit results to one or more administrative unit types of features.
+        /// Limit results to one or more types of features.
         /// Pass one or more of the type names as a comma separated list. If no types are specified, all possible types may be returned.
-        ///  - Note: All supported unit types described in `AdministrativeUnits` and `AdministrativeUnits.Japan`.
-        public let administrativeUnits: [AdministrativeUnit]
+        public let types: [PlaceType]
         
         public init(
             countries: [Country] = [],
             language: Language? = nil,
-            administrativeUnits: [AdministrativeUnit] = []
+            types: [PlaceType] = []
         ) {
             self.countries = countries
             self.language = language ?? .default
-            self.administrativeUnits = administrativeUnits
+            self.types = types
         }
     }
 }

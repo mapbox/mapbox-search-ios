@@ -9,7 +9,7 @@ final class PlaceAutocompleteOptionsTests: XCTestCase {
         
         XCTAssertTrue(options.countries.isEmpty)
         XCTAssertEqual(options.language, .default)
-        XCTAssertTrue(options.administrativeUnits.isEmpty)
+        XCTAssertTrue(options.types.isEmpty)
     }
     
     func testThatOptionsInitializedWithCountries() {
@@ -34,10 +34,12 @@ final class PlaceAutocompleteOptionsTests: XCTestCase {
     }
     
     func testThatOptionsInitializedWithAdministrativeTypes() {
-        let administrativeUnits: [AdministrativeUnit] = [.address, .street, .Japan.prefecture]
+        let placeTypes: [PlaceAutocomplete.PlaceType] = [
+            .administrativeUnit(.region), .administrativeUnit(.address), .administrativeUnit(.chome)
+        ]
         
-        let options = PlaceAutocomplete.Options(administrativeUnits: administrativeUnits)
+        let options = PlaceAutocomplete.Options(types: placeTypes)
         
-        XCTAssertEqual(options.administrativeUnits, administrativeUnits)
+        XCTAssertEqual(options.types, placeTypes)
     }
 }

@@ -38,21 +38,17 @@ public struct AdministrativeUnit: Equatable {
     
     /// Individual residential or business addresses as a street with house number. In a Japanese context, this is the block number and the house number. All components smaller than chome are designated as an address.
     public static let address: AdministrativeUnit = .init(rawValue: .address)
-}
-
-public extension AdministrativeUnit {
-    enum Japan {
-        /// Japanese administrative unit analogous to `place`.
-        public static let city: AdministrativeUnit = .init(rawValue: .place)
-        
-        /// Japanese administrative unit analogous to `region`.
-        public static let prefecture: AdministrativeUnit = .init(rawValue: .region)
-        
-        /// Japanese administrative unit analogous to `locality`.
-        public static let oaza: AdministrativeUnit = .init(rawValue: .locality)
-        
-        /// Japanese administrative unit analogous to `neighborhood`.
-        /// - Note: Not available for reverse geocoding requests.
-        public static let chome: AdministrativeUnit = .init(rawValue: .neighborhood)
-    }
+    
+    /// Japanese administrative unit analogous to `place`.
+    public static let city: AdministrativeUnit = .init(rawValue: .place)
+    
+    /// Japanese administrative unit analogous to `region`.
+    public static let prefecture: AdministrativeUnit = .init(rawValue: .region)
+    
+    /// Japanese administrative unit analogous to `locality`.
+    public static let oaza: AdministrativeUnit = .init(rawValue: .locality)
+    
+    /// Japanese administrative unit analogous to `neighborhood`.
+    /// - Note: Not available for reverse geocoding requests.
+    public static let chome: AdministrativeUnit = .init(rawValue: .neighborhood)
 }

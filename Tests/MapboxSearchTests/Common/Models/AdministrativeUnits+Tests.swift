@@ -17,9 +17,9 @@ final class AdministrativeUnitsTests: XCTestCase {
     }
     
     func testJapanAdministrativeUnits() {
-        XCTAssertEqual(AdministrativeUnit.Japan.prefecture.rawValue, SearchQueryType.region)
-        XCTAssertEqual(AdministrativeUnit.Japan.city.rawValue, SearchQueryType.place)
-        XCTAssertEqual(AdministrativeUnit.Japan.oaza.rawValue, SearchQueryType.locality)
-        XCTAssertEqual(AdministrativeUnit.Japan.chome.rawValue, SearchQueryType.neighborhood)
+        XCTAssertEqual(AdministrativeUnit.prefecture.rawValue, SearchQueryType.region)
+        XCTAssertEqual(AdministrativeUnit.city.rawValue, SearchQueryType.place)
+        XCTAssertEqual(AdministrativeUnit.oaza.rawValue, SearchQueryType.locality)
+        XCTAssertEqual(AdministrativeUnit.chome.rawValue, SearchQueryType.neighborhood)
     }
 }
