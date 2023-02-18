@@ -51,7 +51,7 @@ public extension PlaceAutocomplete {
 }
 
 // MARK: - Result
-extension PlaceAutocomplete.Suggestion {
+public extension PlaceAutocomplete.Suggestion {
     func result() -> PlaceAutocomplete.Result {
         .init(
             name: name,
