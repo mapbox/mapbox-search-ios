@@ -927,12 +927,7 @@
 				FE3E7EC22566EA8B009FFCC2 /* HistoryRecordTests.swift */,
 				F9D70E5B252740DD0019105F /* IndexableDataProviderTests.swift */,
 				FEEDD3932508E24900DC0A98 /* LocationProviderTests.swift */,
-				FE6EEDED25B039E000EAE44E /* OpenHoursTests.swift */,
-				FE6EEDE625B0343700EAE44E /* OpenPeriodTests.swift */,
 				FE7C739925667FDB0047CA20 /* RecordsProviderInteractorNativeCoreTests.swift */,
-				FE8F821B256D509600A100D4 /* RoutablePointTests.swift */,
-				FE22DE4B2576983F00DFEACD /* Route+Tests.swift */,
-				FE5B507F25769D2800D039BA /* RouteOptions+Tests.swift */,
 				FECB50CD25540FD10026302E /* SearchCategorySuggestionImplTests.swift */,
 				FEEDD38E2508E24900DC0A98 /* SearchEngineTests.swift */,
 				FEEDD3902508E24900DC0A98 /* SearchErrorTests.swift */,
@@ -940,11 +935,6 @@
 				FE260A8125C19AE70037B725 /* SearchOptionsTests.swift */,
 				FECB50B82553FE740026302E /* SearchRequestOptionsTests.swift */,
 				FE1F320825680E4B004DCB6D /* SearchResponseTests.swift */,
-				FE3F35E72566D58800E0462F /* SearchResultMetadataTests.swift */,
-				FE4655A02566B619007ECC6A /* SearchResultSuggestionImplTests.swift */,
-				FE5A41EB2551694600A076BF /* SearchResultTests.swift */,
-				FEB0AA8925CAC711002F0D1F /* SearchResultTypeTests.swift */,
-				FE46559925669B4E007ECC6A /* ServerSearchResultTests.swift */,
 				FE1F31DB2567FA6D004DCB6D /* WrapperLocationProviderTests.swift */,
 				FE9234CA25CAE34C00BB69C8 /* SearchSuggestTypeTests.swift */,
 			);
@@ -974,6 +964,9 @@
 		141789F3287C308A0000AE79 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1420F31B29A25BD500D4A511 /* Search Result */,
+				1420F31A29A25BBC00D4A511 /* Metadata */,
+				1420F31929A25B9B00D4A511 /* Route */,
 				14FA65882953689800056E5B /* Address */,
 				141789B728787CE70000AE79 /* SearchAddressType+Tests.swift */,
 				14173C3928784ABC00B20E1C /* NonEmptyArray+Tests.swift */,
@@ -990,6 +983,37 @@
 				1419EB6829670638009672CA /* Autofill.xcassets */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		1420F31929A25B9B00D4A511 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				FE8F821B256D509600A100D4 /* RoutablePointTests.swift */,
+				FE22DE4B2576983F00DFEACD /* Route+Tests.swift */,
+				FE5B507F25769D2800D039BA /* RouteOptions+Tests.swift */,
+			);
+			path = Route;
+			sourceTree = "<group>";
+		};
+		1420F31A29A25BBC00D4A511 /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				FE3F35E72566D58800E0462F /* SearchResultMetadataTests.swift */,
+				FE6EEDED25B039E000EAE44E /* OpenHoursTests.swift */,
+				FE6EEDE625B0343700EAE44E /* OpenPeriodTests.swift */,
+			);
+			path = Metadata;
+			sourceTree = "<group>";
+		};
+		1420F31B29A25BD500D4A511 /* Search Result */ = {
+			isa = PBXGroup;
+			children = (
+				FE4655A02566B619007ECC6A /* SearchResultSuggestionImplTests.swift */,
+				FE5A41EB2551694600A076BF /* SearchResultTests.swift */,
+				FEB0AA8925CAC711002F0D1F /* SearchResultTypeTests.swift */,
+				FE46559925669B4E007ECC6A /* ServerSearchResultTests.swift */,
+			);
+			path = "Search Result";
 			sourceTree = "<group>";
 		};
 		142141672953447D00774439 /* Place Autocomplete */ = {
