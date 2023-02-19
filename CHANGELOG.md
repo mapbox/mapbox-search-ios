@@ -6,6 +6,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## [Unreleased]
 
+## [1.0.0-rc.1] - 2023-02-19
+
 ## [1.0.0-beta.42] - 2023-02-06
 
 ### Added
