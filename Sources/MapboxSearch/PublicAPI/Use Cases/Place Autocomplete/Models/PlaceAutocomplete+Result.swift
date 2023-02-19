@@ -10,6 +10,9 @@ public extension PlaceAutocomplete {
         /// Contains formatted address.
         public let description: String?
 
+        /// The type of result.
+        public let type: SearchResultType
+
         /// result geographic point.
         public let coordinate: CLLocationCoordinate2D
         
@@ -18,6 +21,12 @@ public extension PlaceAutocomplete {
         
         /// The straight line distance in meters between the origin and this suggestion.
         public let distance: CLLocationDistance?
+        
+        /// List of points near [coordinate], that represents entries to associated building.
+        public let routablePoints: [RoutablePoint]
+        
+        /// Poi categories. Always empty for non-POI suggestions.
+        public let categories: [String]
         
         /// Textual representation of the address.
         public let address: Address?
@@ -36,5 +45,11 @@ public extension PlaceAutocomplete {
         
         /// Business opening hours
         public let openHours: OpenHours?
+        
+        /// Primary image
+        public let primaryImage: Image?
+        
+        /// Additional images
+        public var otherImages: [Image]?
     }
 }

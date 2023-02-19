@@ -9,6 +9,7 @@ private extension PlaceAutocomplete {
     }
 }
 
+/// Main entrypoint to the Mapbox Place Autocomplete SDK.
 public final class PlaceAutocomplete {
     private let searchEngine: CoreSearchEngineProtocol
     
@@ -47,30 +48,42 @@ public extension PlaceAutocomplete {
     /// Start searching for query with provided options
     /// - Parameters:
     ///   - query: text query for suggestions
-    ///   - options: if no value provided Search Engine will use options from requestOptions field
-    func suggestions(for query: TextQuery, filterBy options: Options? = nil, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
+    ///   - proximity: proximity Optional geographic point that bias the response to favor results that are closer to this location.
+    ///   - options: Search options used for filtration
+    func suggestions(
+        for query: String,
+        region: BoundingBox? = nil,
+        proximity: CLLocationCoordinate2D? = nil,
+        filterBy options: Options = .init(),
+        completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
+    ) {
         let searchOptions = SearchOptions(
-            countries: options?.countries.map { $0.countryCode },
-            languages: options.map { [$0.language.languageCode] },
+            countries: options.countries.map { $0.countryCode },
+            languages: [options.language.languageCode],
             limit: Constants.defaultSuggestionsLimit,
-            boundingBox: query.boundingBox,
-            filterTypes: options?.administrativeUnits.map { $0.rawValue },
+            proximity: proximity,
+            boundingBox: region,
+            filterTypes: options.types.isEmpty ? nil : options.types.map { $0.coreType },
             ignoreIndexableRecords: true
         ).toCore(apiType: Self.apiType)
         
-        fetchSuggestions(for: query.value, with: searchOptions, completion: completion)
+        fetchSuggestions(for: query, with: searchOptions, completion: completion)
     }
     
     /// Start searching for query with provided options
     /// - Parameters:
     ///   - coordinate: coordinates query
-    ///   - options: if no value provided Search Engine will use options from requestOptions field
-    func suggestions(for query: CoordinateQuery, with options: Options? = nil, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
+    ///   - options: Search options used for filtration
+    func suggestions(
+        for query: CLLocationCoordinate2D,
+        filterBy options: Options = .init(),
+        completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
+    ) {
         let searchOptions = ReverseGeocodingOptions(
-            point: query.coordinate,
-            types: options?.administrativeUnits.map { $0.rawValue },
-            countries: options?.countries.map { $0.countryCode },
-            languages: options.map { [$0.language.languageCode] }
+            point: query,
+            types: options.types.map { $0.coreType },
+            countries: options.countries.map { $0.countryCode },
+            languages: [options.language.languageCode]
         ).toCore()
         
         fetchSuggestions(using: searchOptions, completion: completion)

@@ -31,8 +31,8 @@ public extension AddressAutofill {
 }
 
 public extension AddressAutofill.Suggestion {
-    /// Returns resolved Result object, each request billed individually
-    var result: AddressAutofill.Result {
+    /// Returns resolved Result object
+    func result() -> AddressAutofill.Result {
         .init(
             name: name,
             formattedAddress: formattedAddress,

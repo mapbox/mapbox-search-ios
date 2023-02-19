@@ -60,7 +60,7 @@ final class AddressAutofillSuggestionsTests: XCTestCase {
         searchResult.address = .valid
         searchResult.coordinate = coordinates
         
-        let result = try! AddressAutofill.Suggestion.from(searchResult).result
+        let result = try! AddressAutofill.Suggestion.from(searchResult).result()
         
         XCTAssertEqual(result.addressComponents.all.count, AddressAutofill.AddressComponent.Kind.allCases.count)
         
