@@ -70,17 +70,6 @@ workflows:
             tags:
               only: /v.*/
 
-  nightly-build:
-    jobs:
-      - nightly-build
-    triggers:
-      - schedule:
-          cron: "0 0 * * 1-6"
-          filters:
-            branches:
-              only:
-                - main
-
 jobs:
   pre-check:
     macos:
@@ -252,37 +241,6 @@ jobs:
       - setup-authentication
       - run: brew install xcodegen
       - run: make validate-spm-build
-
-  nightly-build:
-    macos:
-      xcode: 13.4.0
-    environment:
-      FL_OUTPUT_DIR: ../output
-    steps:
-      - checkout
-      - setup-authentication
-      - ios-prestart-simulator
-      - upgrade-carthage
-      - install-swiftlint
-      - run:
-          name: Install third-party dependencies
-          command: bundle install
-      - run:
-          name: Build dependencies
-          command: make dependencies
-      # - run:
-      #    name: Trigger Metrics job
-      #    command: scripts/trigger_metrics.sh
-      # - run:
-      #       name: Check Carthage integration
-      #       command: echo 'github "mapbox/search-ios" "main"' > Cartfile; carthage update --use-netrc --use-xcframeworks
-      - run:
-          name: Build and upload Demo application
-          command: bundle exec fastlane beta
-      - slack/notify:
-          event: fail
-          mentions: "@search-sdk-ios"
-          template: basic_fail_1
 
 commands:
   setup-authentication:
