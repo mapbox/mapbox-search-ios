@@ -388,6 +388,16 @@ public class MapboxSearchController: UIViewController {
         controller.delegate = self
         mapboxPanelController?.push(viewController: controller, animated: true)
     }
+
+    private func panelStateForSelection(_ searchResult: SearchResult) -> MapboxPanelController.State {
+        let state: MapboxPanelController.State
+        if delegate?.shouldCollapseForSelection(searchResult) == true {
+            state = .collapsed
+        } else {
+            state = .hidden
+        }
+        return state
+    }
 }
 
 public extension MapboxSearchController {
@@ -501,7 +511,10 @@ extension MapboxSearchController: SearchBarDelegate {
     
     func cancelSearch() {
         setSearchState(.none, animated: true)
-        mapboxPanelController?.setState(.collapsed)
+        if let mapboxPanelController = mapboxPanelController {
+            let state = mapboxPanelController.configuration.finishSearchState
+            mapboxPanelController.setState(state)
+        }
     }
 }
 
@@ -610,12 +623,18 @@ extension MapboxSearchController: SearchCategoriesRootViewDelegate {
                 print("Failed search; error=\(searchError)")
                 self.presentSearchError(searchError)
             }
-            self.mapboxPanelController?.setState(.collapsed, animated: true)
+            if let mapboxPanelController = self.mapboxPanelController {
+                let state = mapboxPanelController.configuration.finishSearchState
+                mapboxPanelController.setState(state, animated: true)
+            }
         }
     }
     
     func userFavoriteSelected(_ userFavorite: FavoriteRecord) {
-        mapboxPanelController?.setState(.collapsed)
+        if let mapboxPanelController = mapboxPanelController {
+            let state = mapboxPanelController.configuration.finishSearchState
+            mapboxPanelController.setState(state)
+        }
         delegate?.userFavoriteSelected(userFavorite)
     }
     

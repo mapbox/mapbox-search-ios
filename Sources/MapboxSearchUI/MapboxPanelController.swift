@@ -30,18 +30,22 @@ public class MapboxPanelController: UIViewController {
         
         /// Initial appearance state of the panel.
         public var initialState: State
+
+        /// Finish appearance state of the panel.
+        public var finishSearchState: State
         
         /// Configuration with set of default values.
         public static let `default` = Configuration()
         
         /// Make new `Configuration` instance for `MapboxPanelController`
         /// - Parameter state: Initial state of `MapboxPanelController`
-        public init(state: State? = nil) {
+        public init(state: State? = nil, finishSearchState: State = .collapsed) {
             if let state = state {
                 initialState = state
             } else {
                 initialState = UIDevice.current.userInterfaceIdiom == .pad ? .opened : .collapsed
             }
+            self.finishSearchState = finishSearchState
         }
     }
     
