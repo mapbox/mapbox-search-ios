@@ -90,6 +90,10 @@ public class MapboxPanelController: UIViewController {
         }
         topConstraint?.constant = topConstant
         self.state = toState
+
+        if state == .hidden {
+            view.endEditing(true)
+        }
         
         if animated {
             UIViewPropertyAnimator.runningPropertyAnimator(withDuration: animationDuration, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
