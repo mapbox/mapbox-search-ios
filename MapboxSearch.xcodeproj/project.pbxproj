@@ -30,6 +30,7 @@
 		1440BF4F290019AD009B3679 /* AddressAutofillResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1440BF4E290019AD009B3679 /* AddressAutofillResultViewController.swift */; };
 		144F32F2298D1FCD0082B2D5 /* Discover+Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F32F1298D1FCD0082B2D5 /* Discover+Address.swift */; };
 		144F32F5298D21E70082B2D5 /* AddressComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F32F4298D21E70082B2D5 /* AddressComponents.swift */; };
+		1488F78329A7AD5800CF373B /* CoreUserActivityReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1488F78229A7AD5800CF373B /* CoreUserActivityReporter.swift */; };
 		148DE65D28574E6E0085684D /* AddressAutofill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE65C28574E6E0085684D /* AddressAutofill.swift */; };
 		148DE6622857501D0085684D /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE6612857501D0085684D /* Country.swift */; };
 		148DE6642857503A0085684D /* AddressAutofill+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE6632857503A0085684D /* AddressAutofill+Options.swift */; };
@@ -470,6 +471,7 @@
 		1440BF4E290019AD009B3679 /* AddressAutofillResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAutofillResultViewController.swift; sourceTree = "<group>"; };
 		144F32F1298D1FCD0082B2D5 /* Discover+Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discover+Address.swift"; sourceTree = "<group>"; };
 		144F32F4298D21E70082B2D5 /* AddressComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressComponents.swift; sourceTree = "<group>"; };
+		1488F78229A7AD5800CF373B /* CoreUserActivityReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreUserActivityReporter.swift; sourceTree = "<group>"; };
 		148DE65C28574E6E0085684D /* AddressAutofill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAutofill.swift; sourceTree = "<group>"; };
 		148DE6612857501D0085684D /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		148DE6632857503A0085684D /* AddressAutofill+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Options.swift"; sourceTree = "<group>"; };
@@ -1474,6 +1476,7 @@
 				FEEDD2C92508DFE400DC0A98 /* RecordsProviderInteractorNativeCore.swift */,
 				F9F5D75D256D0393007E32BE /* SearchResponse.swift */,
 				FEEDD2CC2508DFE400DC0A98 /* WrapperLocationProvider.swift */,
+				1488F78229A7AD5800CF373B /* CoreUserActivityReporter.swift */,
 			);
 			path = InternalAPI;
 			sourceTree = "<group>";
@@ -2312,6 +2315,7 @@
 				FEEDD3072508DFE400DC0A98 /* Address.swift in Sources */,
 				140D1BDC286DB479001A51C2 /* SearchResultAccuracy.swift in Sources */,
 				141789E7287C05060000AE79 /* AddressAutofill.Suggestion+SearchResult.swift in Sources */,
+				1488F78329A7AD5800CF373B /* CoreUserActivityReporter.swift in Sources */,
 				144F32F5298D21E70082B2D5 /* AddressComponents.swift in Sources */,
 				FEEDD3122508DFE400DC0A98 /* SearchResultSuggestion.swift in Sources */,
 				148DE671285777180085684D /* NSLocking+Extensions.swift in Sources */,

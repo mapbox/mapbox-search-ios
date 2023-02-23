@@ -5,6 +5,7 @@ import CoreLocation
 
 public final class Discover {
     private let searchEngine: CategorySearchEngine
+    private let userActivityReporter: CoreUserActivityReporter
     
     /// Basic internal initializer
     /// - Parameters:
@@ -23,12 +24,21 @@ public final class Discover {
             locationProvider: locationProvider,
             supportSBS: true
         )
-
-        self.init(searchEngine: searchEngine)
+        
+        let userActivityReporter = CoreUserActivityReporter.getOrCreate(
+            for: CoreUserActivityReporterOptions(
+                accessToken: accessToken,
+                userAgent: defaultUserAgent,
+                eventsUrl: nil
+            )
+        )
+        
+        self.init(searchEngine: searchEngine, userActivityReporter: userActivityReporter)
     }
     
-    init(searchEngine: CategorySearchEngine) {
+    init(searchEngine: CategorySearchEngine, userActivityReporter: CoreUserActivityReporter) {
         self.searchEngine = searchEngine
+        self.userActivityReporter = userActivityReporter
     }
 }
 
@@ -46,6 +56,8 @@ public extension Discover {
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
+        userActivityReporter.reportActivity(forComponent: "discover-search-nearby")
+        
         let searchOptions = SearchOptions(
             languages: [options.language.languageCode],
             limit: options.limit,
@@ -70,6 +82,8 @@ public extension Discover {
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
+        userActivityReporter.reportActivity(forComponent: "discover-search-in-area")
+        
         let searchOptions = SearchOptions(
             languages: [options.language.languageCode],
             limit: options.limit,
@@ -93,6 +107,8 @@ public extension Discover {
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
+        userActivityReporter.reportActivity(forComponent: "discover-search-along-the-route")
+        
         let searchOptions = SearchOptions(
             languages: [options.language.languageCode],
             limit: options.limit,

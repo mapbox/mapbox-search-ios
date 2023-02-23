@@ -11,6 +11,7 @@ private extension AddressAutofill {
 
 public final class AddressAutofill {
     private let searchEngine: CoreSearchEngineProtocol
+    private let userActivityReporter: CoreUserActivityReporter
     
     private static var apiType: CoreSearchEngine.ApiType {
         return .autofill
@@ -34,11 +35,20 @@ public final class AddressAutofill {
             locationProvider: WrapperLocationProvider(wrapping: locationProvider)
         )
         
-        self.init(searchEngine: searchEngine)
+        let userActivityReporter = CoreUserActivityReporter.getOrCreate(
+            for: CoreUserActivityReporterOptions(
+                accessToken: accessToken,
+                userAgent: defaultUserAgent,
+                eventsUrl: nil
+            )
+        )
+        
+        self.init(searchEngine: searchEngine, userActivityReporter: userActivityReporter)
     }
     
-    init(searchEngine: CoreSearchEngineProtocol) {
+    init(searchEngine: CoreSearchEngineProtocol, userActivityReporter: CoreUserActivityReporter) {
         self.searchEngine = searchEngine
+        self.userActivityReporter = userActivityReporter
     }
 }
 
@@ -49,6 +59,8 @@ public extension AddressAutofill {
     ///   - query: query string to search
     ///   - options: if no value provided Search Engine will use options from requestOptions field
     func suggestions(for query: Query, with options: Options? = nil, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
+        userActivityReporter.reportActivity(forComponent: "address-autofill-forward-geocoding")
+        
         let searchOptions = SearchOptions(
             countries: options?.countries.map { $0.countryCode },
             languages: options.map { [$0.language.languageCode] },
@@ -65,6 +77,8 @@ public extension AddressAutofill {
     ///   - coordinate: point Coordinate to resolve
     ///   - options: if no value provided Search Engine will use options from requestOptions field
     func suggestions(for coordinate: CLLocationCoordinate2D, with options: Options? = nil, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
+        userActivityReporter.reportActivity(forComponent: "address-autofill-reverse-geocoding")
+        
         let searchOptions = ReverseGeocodingOptions(
             point: coordinate,
             types: acceptedTypes,

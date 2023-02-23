@@ -12,11 +12,12 @@ private extension PlaceAutocomplete {
 /// Main entrypoint to the Mapbox Place Autocomplete SDK.
 public final class PlaceAutocomplete {
     private let searchEngine: CoreSearchEngineProtocol
+    private let userActivityReporter: CoreUserActivityReporter
     
     private static var apiType: CoreSearchEngine.ApiType {
         return .SBS
     }
-    
+
     /// Basic internal initializer
     /// - Parameters:
     ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
@@ -35,11 +36,20 @@ public final class PlaceAutocomplete {
             locationProvider: WrapperLocationProvider(wrapping: locationProvider)
         )
         
-        self.init(searchEngine: searchEngine)
+        let userActivityReporter = CoreUserActivityReporter.getOrCreate(
+            for: CoreUserActivityReporterOptions(
+                accessToken: accessToken,
+                userAgent: defaultUserAgent,
+                eventsUrl: nil
+            )
+        )
+        
+        self.init(searchEngine: searchEngine, userActivityReporter: userActivityReporter)
     }
     
-    init(searchEngine: CoreSearchEngineProtocol) {
+    init(searchEngine: CoreSearchEngineProtocol, userActivityReporter: CoreUserActivityReporter) {
         self.searchEngine = searchEngine
+        self.userActivityReporter = userActivityReporter
     }
 }
 
@@ -57,6 +67,8 @@ public extension PlaceAutocomplete {
         filterBy options: Options = .init(),
         completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
     ) {
+        userActivityReporter.reportActivity(forComponent: "place-autocomplete-forward-geocoding")
+        
         let searchOptions = SearchOptions(
             countries: options.countries.map { $0.countryCode },
             languages: [options.language.languageCode],
@@ -79,6 +91,8 @@ public extension PlaceAutocomplete {
         filterBy options: Options = .init(),
         completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
     ) {
+        userActivityReporter.reportActivity(forComponent: "place-autocomplete-reverse-geocoding")
+        
         let searchOptions = ReverseGeocodingOptions(
             point: query,
             types: options.types.map { $0.coreType },
