@@ -11,7 +11,7 @@ private extension AddressAutofill {
 
 public final class AddressAutofill {
     private let searchEngine: CoreSearchEngineProtocol
-    private let userActivityReporter: CoreUserActivityReporter
+    private let userActivityReporter: CoreUserActivityReporterProtocol
     
     private static var apiType: CoreSearchEngine.ApiType {
         return .autofill
@@ -46,7 +46,7 @@ public final class AddressAutofill {
         self.init(searchEngine: searchEngine, userActivityReporter: userActivityReporter)
     }
     
-    init(searchEngine: CoreSearchEngineProtocol, userActivityReporter: CoreUserActivityReporter) {
+    init(searchEngine: CoreSearchEngineProtocol, userActivityReporter: CoreUserActivityReporterProtocol) {
         self.searchEngine = searchEngine
         self.userActivityReporter = userActivityReporter
     }

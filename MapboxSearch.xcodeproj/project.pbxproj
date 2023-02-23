@@ -31,6 +31,7 @@
 		144F32F2298D1FCD0082B2D5 /* Discover+Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F32F1298D1FCD0082B2D5 /* Discover+Address.swift */; };
 		144F32F5298D21E70082B2D5 /* AddressComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F32F4298D21E70082B2D5 /* AddressComponents.swift */; };
 		1488F78329A7AD5800CF373B /* CoreUserActivityReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1488F78229A7AD5800CF373B /* CoreUserActivityReporter.swift */; };
+		1488F78629A7C23500CF373B /* CoreUserActivityReporterStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1488F78429A7C22F00CF373B /* CoreUserActivityReporterStub.swift */; };
 		148DE65D28574E6E0085684D /* AddressAutofill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE65C28574E6E0085684D /* AddressAutofill.swift */; };
 		148DE6622857501D0085684D /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE6612857501D0085684D /* Country.swift */; };
 		148DE6642857503A0085684D /* AddressAutofill+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE6632857503A0085684D /* AddressAutofill+Options.swift */; };
@@ -472,6 +473,7 @@
 		144F32F1298D1FCD0082B2D5 /* Discover+Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discover+Address.swift"; sourceTree = "<group>"; };
 		144F32F4298D21E70082B2D5 /* AddressComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressComponents.swift; sourceTree = "<group>"; };
 		1488F78229A7AD5800CF373B /* CoreUserActivityReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreUserActivityReporter.swift; sourceTree = "<group>"; };
+		1488F78429A7C22F00CF373B /* CoreUserActivityReporterStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreUserActivityReporterStub.swift; sourceTree = "<group>"; };
 		148DE65C28574E6E0085684D /* AddressAutofill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAutofill.swift; sourceTree = "<group>"; };
 		148DE6612857501D0085684D /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		148DE6632857503A0085684D /* AddressAutofill+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Options.swift"; sourceTree = "<group>"; };
@@ -1428,6 +1430,7 @@
 				FE6EEDF425B03B7200EAE44E /* CoreOpenPeriod+Samples.swift */,
 				F953A49225ECEB60003A3681 /* SearchCategorySuggestion+Samples.swift */,
 				F953A49925ECF3D7003A3681 /* SearchQuerySuggestionImpl+Samples.swift */,
+				1488F78429A7C22F00CF373B /* CoreUserActivityReporterStub.swift */,
 			);
 			path = "Data Samples";
 			sourceTree = "<group>";
@@ -2432,6 +2435,7 @@
 				FED7E19C25516B8700DA34D9 /* CLLocationCoordinate2DCodableTests.swift in Sources */,
 				141789B828787CE70000AE79 /* SearchAddressType+Tests.swift in Sources */,
 				FEEDD3A92508E24900DC0A98 /* CoreAddress+Extensions.swift in Sources */,
+				1488F78629A7C23500CF373B /* CoreUserActivityReporterStub.swift in Sources */,
 				FE1F320225680585004DCB6D /* SearchResultSuggestionStub.swift in Sources */,
 				F96E70C325FA6485005B8A3F /* WrapperLocationProviderStub.swift in Sources */,
 				FE1F31F125680542004DCB6D /* SearchRequestOptions+Samples.swift in Sources */,

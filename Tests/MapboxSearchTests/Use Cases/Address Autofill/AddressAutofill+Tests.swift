@@ -13,7 +13,10 @@ final class AddressAutofillTests: XCTestCase {
         searchEngine = CoreSearchEngineStub(accessToken: "test", location: nil)
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: [])
         
-        addressAutofill = AddressAutofill(searchEngine: searchEngine)
+        addressAutofill = AddressAutofill(
+            searchEngine: searchEngine,
+            userActivityReporter: CoreUserActivityReporterStub()
+        )
     }
     
     override func tearDown() {

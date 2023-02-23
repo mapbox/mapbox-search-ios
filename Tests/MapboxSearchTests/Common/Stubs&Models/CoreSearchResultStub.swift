@@ -122,6 +122,7 @@ extension CoreSearchResultProtocol {
                          addresses: addresses,
                          descrAddress: addressDescription,
                          matchingName: matchingName,
+                         fullAddress: nil,
                          distance: distance,
                          eta: nil,
                          center: center,
