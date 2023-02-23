@@ -4,9 +4,9 @@
 import PackageDescription
 import Foundation
 
-let (coreSearchVersion, coreSearchVersionHash) = ("0.65.0", "8195a862febe08e50cba546f75ecd00099edd7abb813e70ae2948bed1be1e4f8")
+let (coreSearchVersion, coreSearchVersionHash) = ("0.67.1", "0ae7e081ac8e80b5996fb48c8eec1eb0d1cd3a2130ed371e29aa97214aeacb9e")
 
-let commonMinVersion = Version("23.2.0")
+let commonMinVersion = Version("23.3.1")
 let commonMaxVersion = Version("24.0.0")
 
 let package = Package(
