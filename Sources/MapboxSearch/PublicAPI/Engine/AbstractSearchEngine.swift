@@ -35,6 +35,9 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     // Manager to send raw events to Mapbox Telemetry
     let eventsManager: EventsManager
     
+    // Reporter for tracking user activity
+    let userActivityReporter: CoreUserActivityReporter
+    
     /// Default options to use when `nil` was passed to the `search(…: options:)` call
     ///
     /// Full `SearchOptions` structure would be used when nothing was passed to the `search` function
@@ -68,6 +71,14 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
         self.feedbackManager = serviceProvider.feedbackManager
         self.defaultSearchOptions = defaultSearchOptions
         self.engineApi = supportSBS ? .SBS : .geocoding
+        
+        self.userActivityReporter = .getOrCreate(
+            for: .init(
+                accessToken: accessToken,
+                userAgent: defaultUserAgent,
+                eventsUrl: nil
+            )
+        )
 
         self.engine = serviceProvider.createEngine(
             apiType: engineApi,
