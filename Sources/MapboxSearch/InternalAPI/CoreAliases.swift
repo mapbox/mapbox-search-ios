@@ -25,6 +25,9 @@ typealias CoreOpenHours = MapboxCoreSearch.OpenHours
 typealias CoreOpenPeriod = MapboxCoreSearch.OpenPeriod
 typealias CoreAccuracy = MapboxCoreSearch.ResultAccuracy
 
+typealias CoreUserActivityReporter = MapboxCoreSearch.UserActivityReporter
+typealias CoreUserActivityReporterOptions = MapboxCoreSearch.UserActivityReporterOptions
+
 typealias CoreReverseGeoOptions = MapboxCoreSearch.ReverseGeoOptions
 
 let mapboxCoreSearchErrorDomain = "MapboxCoreSearchErrorDomain"

@@ -354,6 +354,12 @@ extension SearchEngine {
     public func search(query: String, options: SearchOptions? = nil) {
         precondition(delegate != nil, "Assign delegate to use \(SearchEngine.self) search functionality")
         
+        if offlineMode == .enabled {
+            userActivityReporter.reportActivity(forComponent: "offline-search-engine-forward-geocoding")
+        } else {
+            userActivityReporter.reportActivity(forComponent: "search-engine-forward-geocoding-suggestions")
+        }
+        
         queryValue = .string(query)
         
         startSearch(options: options)
@@ -363,6 +369,8 @@ extension SearchEngine {
     /// Search flow would continue if category suggestion was selected.
     /// - Parameter suggestion: Suggestion to continue the search and retrieve resolved `SearchResult` via delegate.
     public func select(suggestion: SearchSuggestion) {
+        userActivityReporter.reportActivity(forComponent: "search-engine-forward-geocoding-selection")
+        
         // Call `onSelected` for only supported types
         // but avoid it for category suggestions (like Cafe category)
         if let responseProvider = suggestion as? CoreResponseProvider, !(suggestion is SearchCategorySuggestion) {
@@ -428,6 +436,12 @@ extension SearchEngine {
     ///   - completion: completion handler with either reverse geocoding Resuts or Error.
     public func reverseGeocoding(options: ReverseGeocodingOptions, completion: @escaping (Result<[SearchResult], SearchError>) -> Void) {
         assert(Thread.isMainThread)
+        
+        if offlineMode == .enabled {
+            userActivityReporter.reportActivity(forComponent: "offline-search-engine-reverse-geocoding")
+        } else {
+            userActivityReporter.reportActivity(forComponent: "search-engine-reverse-geocoding")
+        }
         
         engineReverseGeocodingFunction(options.toCore()) { [weak self] response in
             guard let self = self else { return }
