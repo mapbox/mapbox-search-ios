@@ -46,6 +46,7 @@ class SearchResultStub: SearchResult {
     var type: SearchResultType
     var routablePoints: [RoutablePoint]?
     var estimatedTime: Measurement<UnitDuration>?
+    var distance: CLLocationDistance?
     var metadata: SearchResultMetadata?
     var coordinate: CLLocationCoordinate2D {
         get {

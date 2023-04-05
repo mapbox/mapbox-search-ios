@@ -11,6 +11,7 @@ struct SearchSuggestionStub: SearchSuggestion {
     var serverIndex: Int?
     var suggestionType: SearchSuggestType = .address(subtypes: [.place])
     var searchRequest = SearchRequestOptions(query: "test", proximity: nil)
+    var estimatedTime: Measurement<UnitDuration>?
     var distance: CLLocationDistance?
     var batchResolveSupported: Bool = false
 }

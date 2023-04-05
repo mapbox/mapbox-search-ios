@@ -50,6 +50,10 @@ public protocol SearchResult {
     /// Those can be specified via `SearchOptions`
     var estimatedTime: Measurement<UnitDuration>? { get }
     
+    /// Distance in meters from result to requested proximity bias based on specified origin point and `NavigationOptions`.
+    /// Those can be specified via `SearchOptions`
+    var distance: CLLocationDistance? { get }
+    
     /// Additional search result data, such as phone number, website and other
     var metadata: SearchResultMetadata? { get }
 }

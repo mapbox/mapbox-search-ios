@@ -60,13 +60,16 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     
     /// FavoriteRecord Always has estimatedTime as nil.
     public var estimatedTime: Measurement<UnitDuration>?
+
+    /// FavoriteRecord Always has distance as nil.
+    public var distance: CLLocationDistance?
     
     /// Original search request.
     public let searchRequest: SearchRequestOptions
     
     /// Associated metadata
     public var metadata: SearchResultMetadata?
-    
+
     /// Favorite record constructor
     /// - Parameters:
     ///   - id: UUID used by default

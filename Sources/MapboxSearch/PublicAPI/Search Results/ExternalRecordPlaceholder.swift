@@ -21,6 +21,8 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
     var categories: [String]?
     
     var suggestionType: SearchSuggestType = .POI
+
+    var estimatedTime: Measurement<UnitDuration>?
     
     var distance: CLLocationDistance?
     
@@ -33,6 +35,7 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
         self.name = coreResult.names[0]
         self.address = coreResult.addresses?.first.map(Address.init)
         self.dataLayerIdentifier = layerIdentifier
+        self.estimatedTime = coreResult.estimatedTime
         self.distance = coreResult.distanceToProximity
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
         self.categories = coreResult.categories

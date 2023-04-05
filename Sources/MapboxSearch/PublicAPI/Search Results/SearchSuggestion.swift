@@ -35,6 +35,9 @@ public protocol SearchSuggestion {
     
     /// Original search request.
     var searchRequest: SearchRequestOptions { get }
+
+    /// An estimated time of arrival (in minutes) based on requested proximity  May be `nil` even for correct proximity argument.
+    var estimatedTime: Measurement<UnitDuration>? { get }
     
     /// Distance in meters from result to requested proximity bias. May be `nil` even for correct proximity argument.
     var distance: CLLocationDistance? { get }

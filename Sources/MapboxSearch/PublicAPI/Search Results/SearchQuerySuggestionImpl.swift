@@ -20,6 +20,8 @@ class SearchQuerySuggestionImpl: SearchQuerySuggestion, CoreResponseProvider {
     var categories: [String]?
     
     var suggestionType: SearchSuggestType
+
+    var estimatedTime: Measurement<UnitDuration>?
     
     var distance: CLLocationDistance?
     
@@ -36,6 +38,7 @@ class SearchQuerySuggestionImpl: SearchQuerySuggestion, CoreResponseProvider {
         self.address = coreResult.addresses?.first.map(Address.init)
         self.iconName = nil // Queries should use it's special icon
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
+        self.estimatedTime = coreResult.estimatedTime
         self.distance = coreResult.distanceToProximity
         self.batchResolveSupported = coreResult.action?.isMultiRetrievable ?? false
         self.categories = coreResult.categories
