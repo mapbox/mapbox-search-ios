@@ -60,8 +60,11 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     /// Original result type of object, e.g. address or POI
     public private(set) var type: SearchResultType
     
-    /// FavoriteRecord Always has estimatedTime as nil.
+    /// HistoryRecord Always has estimatedTime as nil.
     public var estimatedTime: Measurement<UnitDuration>?
+
+    /// HistoryRecord Always has distance as nil.
+    public var distance: CLLocationDistance?
     
     /// Associated metadata at creating time if available.
     public var metadata: SearchResultMetadata?

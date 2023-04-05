@@ -15,6 +15,7 @@ struct TestDataProviderRecord: IndexableRecord, SearchResult {
     var address: Address?
     var additionalTokens: Set<String>?
     var estimatedTime: Measurement<UnitDuration>?
+    var distance: CLLocationDistance?
     var metadata: SearchResultMetadata?
     var descriptionText: String?
     var searchRequest: SearchRequestOptions = .init(query: "Sample", proximity: nil)

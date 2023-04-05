@@ -25,6 +25,8 @@ struct SearchResultSuggestionStub: SearchResultSuggestion {
     
     var searchRequest: SearchRequestOptions = .sample1
     
+    var estimatedTime: Measurement<UnitDuration>?
+    
     var distance: CLLocationDistance? = 300
     
     var batchResolveSupported = false

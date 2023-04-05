@@ -19,6 +19,8 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
     var suggestionType: SearchSuggestType
     
     var categories: [String]?
+
+    var estimatedTime: Measurement<UnitDuration>?
     
     var distance: CLLocationDistance?
     
@@ -36,6 +38,7 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
         self.iconName = nil // Categories should use it's special icon
         self.serverIndex = coreResult.serverIndex?.intValue
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
+        self.estimatedTime = coreResult.estimatedTime
         self.distance = coreResult.distanceToProximity
         self.batchResolveSupported = coreResult.action?.isMultiRetrievable ?? false
         self.categories = coreResult.categories
