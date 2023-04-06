@@ -1,4 +1,5 @@
 @testable import MapboxSearch
+import Foundation
 import CoreLocation
 
 class CoreSearchResultStub: CoreSearchResultProtocol {
@@ -21,7 +22,8 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         serverIndex: NSNumber? = 1,
         distance: NSNumber? = nil,
         metadata: CoreResultMetadata? = nil,
-        estimatedTime: Measurement<UnitDuration>? = nil
+        estimatedTime: Measurement<UnitDuration>? = nil,
+        externalIds: [String: String]? = nil
     ) {
         self.id = id
         self.resultAccuracy = resultAccuracy
@@ -41,6 +43,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         self.distance = distance
         self.metadata = metadata
         self.estimatedTime = estimatedTime
+        self.externalIds = externalIds
     }
     
     convenience init(dataProviderRecord: TestDataProviderRecord) {
@@ -79,7 +82,8 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
     
     var dataLayerIdentifier: String { customDataLayerIdentifier ?? getLayerIdentifier() }
     var customDataLayerIdentifier: String?
-    
+
+    var externalIds: [String: String]?
     
     func getLayerIdentifier() -> String {
         switch type {
