@@ -52,6 +52,9 @@ protocol CoreSearchResultProtocol {
     
     var distance: NSNumber? { get }
     var distanceToProximity: CLLocationDistance? { get }
+
+    /** map of external ids. */
+    var externalIds: [String: String]? { get }
 }
 
 extension CoreSearchResult: CoreSearchResultProtocol {
@@ -72,4 +75,6 @@ extension CoreSearchResult: CoreSearchResultProtocol {
     }
     
     var addressDescription: String? { descrAddress }
+
+    var externalIds: [String: String]? { externalIDs }
 }

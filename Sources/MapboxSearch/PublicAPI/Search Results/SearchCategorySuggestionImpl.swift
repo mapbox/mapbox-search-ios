@@ -25,6 +25,8 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
     var distance: CLLocationDistance?
     
     let batchResolveSupported: Bool
+
+    var categoryCanonicalName: String?
     
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
         assert(coreResult.center == nil)
@@ -42,7 +44,17 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
         self.distance = coreResult.distanceToProximity
         self.batchResolveSupported = coreResult.action?.isMultiRetrievable ?? false
         self.categories = coreResult.categories
+
+        if let externalValue = coreResult.externalIds?[Constants.externalIdCategoryKey],
+           externalValue.hasPrefix(Constants.categoryCanonicalNamePrefix) {
+            self.categoryCanonicalName = String(externalValue.dropFirst(Constants.categoryCanonicalNamePrefix.count))
+        }
         
         self.descriptionText = coreResult.addressDescription
+    }
+
+    enum Constants {
+        static let externalIdCategoryKey = "federated"
+        static let categoryCanonicalNamePrefix = "category."
     }
 }
