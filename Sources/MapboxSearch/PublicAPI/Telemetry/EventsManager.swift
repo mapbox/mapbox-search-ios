@@ -4,7 +4,9 @@ import Foundation
 ///
 /// That will help us to investigate issues related to search and search quality.
 public class EventsManager: NSObject {
-    let userAgentName = "search-sdk-ios"
+    var userAgentName: String {
+        "search-sdk-ios/\(mapboxSearchSDKVersion)"
+    }
     
     enum Events: String {
         case feedback = "search.feedback"
