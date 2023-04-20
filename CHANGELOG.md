@@ -4,7 +4,10 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
-## [Unreleased]
+## 1.0.0-rc.3
+
+### Updated
+- [Tech]: added SDK version to the Telemetry User Agent.
 
 ## 1.0.0-rc.2 - 2023-03-17
 

@@ -61,6 +61,7 @@
 		14FBBBA9287ECC5C00721935 /* AddressAutofill+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */; };
 		14FBBBAD2881663800721935 /* AddressAutofill+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBAC2881663800721935 /* AddressAutofill+Query.swift */; };
 		14FBBBAF2881673E00721935 /* AddressAutofill.Query+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBAE2881673E00721935 /* AddressAutofill.Query+Tests.swift */; };
+		2CD6C03C29F1982100D865D1 /* EventsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6C03B29F1982100D865D1 /* EventsManagerTests.swift */; };
 		3A0D7E56233522D5006D81BB /* MapboxSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */; };
 		E648C0B626428D2B0044315F /* MapboxCoreSearch.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */; };
 		E648C0BA26428D3D0044315F /* MapboxCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B926428D3D0044315F /* MapboxCommon.xcframework */; };
@@ -497,6 +498,7 @@
 		14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Tests.swift"; sourceTree = "<group>"; };
 		14FBBBAC2881663800721935 /* AddressAutofill+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Query.swift"; sourceTree = "<group>"; };
 		14FBBBAE2881673E00721935 /* AddressAutofill.Query+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill.Query+Tests.swift"; sourceTree = "<group>"; };
+		2CD6C03B29F1982100D865D1 /* EventsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsManagerTests.swift; sourceTree = "<group>"; };
 		3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0D7E55233522D5006D81BB /* MapboxSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapboxSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxCoreSearch.xcframework; path = Carthage/Build/MapboxCoreSearch.xcframework; sourceTree = "<group>"; };
@@ -1218,6 +1220,14 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
+		2CD6C03A29F1980700D865D1 /* Telemetry */ = {
+			isa = PBXGroup;
+			children = (
+				2CD6C03B29F1982100D865D1 /* EventsManagerTests.swift */,
+			);
+			path = Telemetry;
+			sourceTree = "<group>";
+		};
 		3A0972062361A19E003F200F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1640,6 +1650,7 @@
 		FEEDD3852508E24900DC0A98 /* MapboxSearchTests */ = {
 			isa = PBXGroup;
 			children = (
+				2CD6C03A29F1980700D865D1 /* Telemetry */,
 				141789F2287C30850000AE79 /* Common */,
 				141789F0287C30450000AE79 /* Use Cases */,
 				141789EF287C30260000AE79 /* Legacy */,
@@ -2376,6 +2387,7 @@
 				FE22DE4C2576983F00DFEACD /* Route+Tests.swift in Sources */,
 				F9F882B92588CCEE00062A82 /* CoreSearchResultMetadataStub.swift in Sources */,
 				14FBBBA9287ECC5C00721935 /* AddressAutofill+Tests.swift in Sources */,
+				2CD6C03C29F1982100D865D1 /* EventsManagerTests.swift in Sources */,
 				FEEDD3AB2508E24900DC0A98 /* BoundingBoxTests.swift in Sources */,
 				FE5A41EC2551694600A076BF /* SearchResultTests.swift in Sources */,
 				FEEDD39D2508E24900DC0A98 /* ServiceProviderStub.swift in Sources */,
