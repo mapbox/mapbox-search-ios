@@ -78,11 +78,17 @@ extension PlaceAutocompleteMainViewController: UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let result = cachedSuggestions[indexPath.row].result()
-        let resultVC = PlaceAutocompleteResultViewController.instantiate(with: result)
-        
-        navigationController?.pushViewController(resultVC, animated: true)
+
+        placeAutocomplete.select(suggestion: cachedSuggestions[indexPath.row]) { [weak self] result in
+            switch result {
+            case .success(let suggestionResult):
+                let resultVC = PlaceAutocompleteResultViewController.instantiate(with: suggestionResult)
+                self?.navigationController?.pushViewController(resultVC, animated: true)
+
+            case .failure(let error):
+                print("Suggestion selection error \(error)")
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

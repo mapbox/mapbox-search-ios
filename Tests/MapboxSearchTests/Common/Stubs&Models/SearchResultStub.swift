@@ -1,7 +1,6 @@
 @testable import MapboxSearch
 import CoreLocation
 
-
 class SearchResultStub: SearchResult {
     init(
         id: String,
@@ -61,4 +60,20 @@ class SearchResultStub: SearchResult {
     var address: Address?
     var descriptionText: String?
     var searchRequest: SearchRequestOptions
+}
+
+
+// MARK: - SearchResultStub
+extension SearchResultStub {
+    static var `default`: SearchResultStub {
+        SearchResultStub(
+            id: "AddressAutofillAddressComponentTests",
+            name: "AddressAutofillAddressComponentTests",
+            matchingName: nil,
+            serverIndex: nil,
+            resultType: .POI,
+            coordinate: .init(latitude: 12, longitude: -35),
+            metadata: nil
+        )
+    }
 }

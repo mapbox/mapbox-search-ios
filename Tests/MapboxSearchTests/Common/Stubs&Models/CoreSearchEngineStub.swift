@@ -6,10 +6,15 @@ import CoreLocation
 class CoreSearchEngineStub {
     var accessToken: String
     let locationProvider: CoreLocationProvider?
-    
+
     var searchResponse: CoreSearchResponseProtocol?
+    var nextSearchResponse: CoreSearchResponseProtocol?
     var searchOptions: CoreSearchOptions?
     var reverseGeocodingOptions: CoreReverseGeoOptions?
+    var query: String?
+    var categories: [String]?
+
+    var nextSearchCalled = false
     
     var eventTemplate = """
                             {
@@ -83,6 +88,8 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
     
     func search(forQuery query: String, categories: [String], options: CoreSearchOptions, completion: @escaping (CoreSearchResponseProtocol?) -> Void) {
         self.searchOptions = options
+        self.query = query
+        self.categories = categories
         
         DispatchQueue.main.async {
             self.callbackWrapper {
@@ -92,9 +99,10 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
     }
     
     func nextSearch(for result: CoreSearchResultProtocol, with originalRequest: CoreRequestOptions, callback: @escaping (CoreSearchResponseProtocol?) -> Void) {
+        nextSearchCalled = true
         DispatchQueue.main.async {
             self.callbackWrapper {
-                callback(self.searchResponse)
+                callback(self.nextSearchResponse ?? self.searchResponse)
             }
         }
     }

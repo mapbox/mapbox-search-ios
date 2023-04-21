@@ -4,7 +4,14 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
-## 1.0.0-rc.3
+## 1.0.0-rc.3 - 2023-04-21
+
+### Added
+- [Place Autocomplete]: added `routablePoints` property to the `PlaceAutocomplete.Suggestion`.
+
+### Breaking changes
+- [Place Autocomplete]: `PlaceAutocomplete.Suggestion.result()` method has been removed.
+Use `PlaceAutocomplete.select(PlaceAutocomplete.Suggestion)` instead. Note that developers must call this method when a user selects a search suggestion in the UI.
 
 ### Updated
 - [Tech]: added SDK version to the Telemetry User Agent.

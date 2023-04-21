@@ -117,7 +117,7 @@ private extension Address {
             country: nil
         )
     }
-    
+
     static var valid: Address {
         Address(
             houseNumber: "houseNumber",
@@ -129,21 +129,6 @@ private extension Address {
             district: "district",
             region: "region",
             country: "country"
-        )
-    }
-}
-
-// MARK: - SearchResultStub
-private extension SearchResultStub {
-    static var `default`: SearchResultStub {
-        SearchResultStub(
-            id: "AddressAutofillAddressComponentTests",
-            name: "AddressAutofillAddressComponentTests",
-            matchingName: nil,
-            serverIndex: nil,
-            resultType: .POI,
-            coordinate: .init(latitude: 12, longitude: -35),
-            metadata: nil
         )
     }
 }

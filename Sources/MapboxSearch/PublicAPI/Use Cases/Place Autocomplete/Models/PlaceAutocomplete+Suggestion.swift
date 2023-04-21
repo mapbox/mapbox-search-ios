@@ -25,8 +25,11 @@ public extension PlaceAutocomplete {
         
         /// Poi categories. Always empty for non-POI suggestions.
         public let categories: [String]
+
+        /// List of points near `coordinate`, that represents entries to associated building.
+        public let routablePoints: [RoutablePoint]
         
-        private let underlyingResult: SearchResult
+        let underlying: Underlying
 
         init(
             name: String,
@@ -36,7 +39,8 @@ public extension PlaceAutocomplete {
             distance: CLLocationDistance?,
             placeType: SearchResultType,
             categories: [String],
-            underlyingResult: SearchResult
+            routablePoints: [RoutablePoint],
+            underlying: Underlying
         ) {
             self.name = name
             self.description = description
@@ -45,14 +49,19 @@ public extension PlaceAutocomplete {
             self.distance = distance
             self.placeType = placeType
             self.categories = categories
-            self.underlyingResult = underlyingResult
+            self.routablePoints = routablePoints
+            self.underlying = underlying
         }
     }
 }
 
-// MARK: - Result
-public extension PlaceAutocomplete.Suggestion {
-    func result() -> PlaceAutocomplete.Result {
+extension PlaceAutocomplete.Suggestion {
+    enum Underlying {
+        case suggestion(CoreSearchResultProtocol, CoreRequestOptions)
+        case result(SearchResult)
+    }
+    
+    func result(for underlyingResult: SearchResult) -> PlaceAutocomplete.Result {
         .init(
             name: name,
             description: description,
@@ -98,7 +107,33 @@ extension PlaceAutocomplete.Suggestion {
             distance: searchResultType.distance,
             placeType: searchResultType.type,
             categories: searchResultType.categories ?? [],
-            underlyingResult: searchResult
+            routablePoints: searchResultType.routablePoints ?? [],
+            underlying: .result(searchResult)
+        )
+    }
+
+    static func from(
+        searchSuggestion: CoreSearchResultProtocol,
+        options: CoreRequestOptions
+    ) throws -> Self {
+        guard let type = SearchResultType(coreResultTypes: searchSuggestion.resultTypes) else {
+            throw Error.invalidResultType
+        }
+        guard let coordinate = searchSuggestion.center?.coordinate,
+                CLLocationCoordinate2DIsValid(coordinate) else {
+            throw Error.invalidCoordinates
+        }
+
+        return .init(
+            name: searchSuggestion.names.first ?? "",
+            description: searchSuggestion.addressDescription,
+            coordinate: coordinate,
+            iconName: searchSuggestion.icon,
+            distance: searchSuggestion.distanceToProximity,
+            placeType: type,
+            categories: searchSuggestion.categories ?? [],
+            routablePoints: searchSuggestion.routablePoints?.map(RoutablePoint.init) ?? [],
+            underlying: .suggestion(searchSuggestion, options)
         )
     }
 }
