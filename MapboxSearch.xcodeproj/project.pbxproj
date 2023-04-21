@@ -61,10 +61,24 @@
 		14FBBBA9287ECC5C00721935 /* AddressAutofill+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */; };
 		14FBBBAD2881663800721935 /* AddressAutofill+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBAC2881663800721935 /* AddressAutofill+Query.swift */; };
 		14FBBBAF2881673E00721935 /* AddressAutofill.Query+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBAE2881673E00721935 /* AddressAutofill.Query+Tests.swift */; };
-		2CD6C03C29F1982100D865D1 /* EventsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6C03B29F1982100D865D1 /* EventsManagerTests.swift */; };
+		2C10133429F1C6200094413F /* PlaceAutocompleteIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10133329F1C6200094413F /* PlaceAutocompleteIntegrationTests.swift */; };
 		2C18E9F429F0A83900FD96E6 /* PlaceAutocompleteSuggestionStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C18E9F229F0A82E00FD96E6 /* PlaceAutocompleteSuggestionStub.swift */; };
 		2CA1E22129F09CD200A533CF /* PlaceAutocomplete.Suggestion+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1E22029F09CD200A533CF /* PlaceAutocomplete.Suggestion+Tests.swift */; };
 		2CA1E22329F0A47600A533CF /* PlaceAutocompleteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1E22229F0A47600A533CF /* PlaceAutocompleteTests.swift */; };
+		2CD6C03C29F1982100D865D1 /* EventsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6C03B29F1982100D865D1 /* EventsManagerTests.swift */; };
+		2CD8AC4329F1D38800C47BE4 /* suggestions-category-with-coordinates.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8AC4029F1D38800C47BE4 /* suggestions-category-with-coordinates.json */; };
+		2CD8AC4429F1D38800C47BE4 /* suggestions-category-with-coordinates.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8AC4029F1D38800C47BE4 /* suggestions-category-with-coordinates.json */; };
+		2CD8AC4529F1D38800C47BE4 /* suggestions-category-with-coordinates.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8AC4029F1D38800C47BE4 /* suggestions-category-with-coordinates.json */; };
+		2CD8AC4629F1D38800C47BE4 /* suggestions-with-coordinates.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8AC4129F1D38800C47BE4 /* suggestions-with-coordinates.json */; };
+		2CD8AC4729F1D38800C47BE4 /* suggestions-with-coordinates.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8AC4129F1D38800C47BE4 /* suggestions-with-coordinates.json */; };
+		2CD8AC4829F1D38800C47BE4 /* suggestions-with-coordinates.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8AC4129F1D38800C47BE4 /* suggestions-with-coordinates.json */; };
+		2CD8AC4929F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8AC4229F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json */; };
+		2CD8AC4A29F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8AC4229F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json */; };
+		2CD8AC4B29F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8AC4229F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json */; };
+		2CD8AC5229F28D6900C47BE4 /* retrieve-poi.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8AC5129F28D6900C47BE4 /* retrieve-poi.json */; };
+		2CD8AC5329F28D6900C47BE4 /* retrieve-poi.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8AC5129F28D6900C47BE4 /* retrieve-poi.json */; };
+		2CD8AC5429F28D6900C47BE4 /* retrieve-poi.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8AC5129F28D6900C47BE4 /* retrieve-poi.json */; };
+		2CD8AC5529F28D6900C47BE4 /* retrieve-poi.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8AC5129F28D6900C47BE4 /* retrieve-poi.json */; };
 		3A0D7E56233522D5006D81BB /* MapboxSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */; };
 		E648C0B626428D2B0044315F /* MapboxCoreSearch.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */; };
 		E648C0BA26428D3D0044315F /* MapboxCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B926428D3D0044315F /* MapboxCommon.xcframework */; };
@@ -501,10 +515,15 @@
 		14FBBBA8287ECC5C00721935 /* AddressAutofill+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Tests.swift"; sourceTree = "<group>"; };
 		14FBBBAC2881663800721935 /* AddressAutofill+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill+Query.swift"; sourceTree = "<group>"; };
 		14FBBBAE2881673E00721935 /* AddressAutofill.Query+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill.Query+Tests.swift"; sourceTree = "<group>"; };
-		2CD6C03B29F1982100D865D1 /* EventsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsManagerTests.swift; sourceTree = "<group>"; };
+		2C10133329F1C6200094413F /* PlaceAutocompleteIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAutocompleteIntegrationTests.swift; sourceTree = "<group>"; };
 		2C18E9F229F0A82E00FD96E6 /* PlaceAutocompleteSuggestionStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAutocompleteSuggestionStub.swift; sourceTree = "<group>"; };
 		2CA1E22029F09CD200A533CF /* PlaceAutocomplete.Suggestion+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceAutocomplete.Suggestion+Tests.swift"; sourceTree = "<group>"; };
 		2CA1E22229F0A47600A533CF /* PlaceAutocompleteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAutocompleteTests.swift; sourceTree = "<group>"; };
+		2CD6C03B29F1982100D865D1 /* EventsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsManagerTests.swift; sourceTree = "<group>"; };
+		2CD8AC4029F1D38800C47BE4 /* suggestions-category-with-coordinates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "suggestions-category-with-coordinates.json"; sourceTree = "<group>"; };
+		2CD8AC4129F1D38800C47BE4 /* suggestions-with-coordinates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "suggestions-with-coordinates.json"; sourceTree = "<group>"; };
+		2CD8AC4229F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "suggestions-with-mixed-coordinates.json"; sourceTree = "<group>"; };
+		2CD8AC5129F28D6900C47BE4 /* retrieve-poi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "retrieve-poi.json"; sourceTree = "<group>"; };
 		3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0D7E55233522D5006D81BB /* MapboxSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapboxSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxCoreSearch.xcframework; path = Carthage/Build/MapboxCoreSearch.xcframework; sourceTree = "<group>"; };
@@ -1276,6 +1295,10 @@
 		F91D2D162617513700F7DFDF /* MockWebServer */ = {
 			isa = PBXGroup;
 			children = (
+				2CD8AC5129F28D6900C47BE4 /* retrieve-poi.json */,
+				2CD8AC4029F1D38800C47BE4 /* suggestions-category-with-coordinates.json */,
+				2CD8AC4129F1D38800C47BE4 /* suggestions-with-coordinates.json */,
+				2CD8AC4229F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json */,
 				F9AB03C2261DBD7F00EDF1E7 /* MockResponse.swift */,
 				F9ACA6112642B66600F50CD4 /* MockWebServer.swift */,
 				F9074446261B192D0091899C /* recursion.json */,
@@ -1382,6 +1405,7 @@
 		F9C557292670C88E00BE8B94 /* MapboxSearchIntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
+				2C10133329F1C6200094413F /* PlaceAutocompleteIntegrationTests.swift */,
 				F9ACA60726429EA200F50CD4 /* MockServerTestCase.swift */,
 				F9274FF3273AA72800708F37 /* OfflineIntegrationTests.swift */,
 				F9ACA6162642C18200F50CD4 /* SearchEngineIntegrationTests.swift */,
@@ -1961,12 +1985,16 @@
 				F9ACA61C2642C49900F50CD4 /* suggestions-categories.json in Resources */,
 				F9ACA61E2642C4A000F50CD4 /* suggestions-san-francisco.json in Resources */,
 				F94FFA4A264547CD0019ED9B /* retrieve-multi.json in Resources */,
+				2CD8AC4429F1D38800C47BE4 /* suggestions-category-with-coordinates.json in Resources */,
 				F9B62CCB264BCC2600492999 /* suggestions-empty.json in Resources */,
 				F9ACA6182642C48C00F50CD4 /* recursion.json in Resources */,
 				F9B62CC8264BC61600492999 /* category-cafe.json in Resources */,
 				F9ACA6192642C49000F50CD4 /* retrieve-category.json in Resources */,
 				F94FFA4726453D410019ED9B /* reverse-geocoding.json in Resources */,
+				2CD8AC4A29F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json in Resources */,
+				2CD8AC5329F28D6900C47BE4 /* retrieve-poi.json in Resources */,
 				F9ACA61A2642C49300F50CD4 /* retrieve-san-francisco.json in Resources */,
+				2CD8AC4729F1D38800C47BE4 /* suggestions-with-coordinates.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1979,12 +2007,16 @@
 				F9AB03B2261DB50500EDF1E7 /* retrieve-category.json in Resources */,
 				F9074447261B192D0091899C /* recursion.json in Resources */,
 				F94FFA4B264547CD0019ED9B /* retrieve-multi.json in Resources */,
+				2CD8AC4529F1D38800C47BE4 /* suggestions-category-with-coordinates.json in Resources */,
 				F9B62CCC264BCC2600492999 /* suggestions-empty.json in Resources */,
 				F91D2D0B26174F5F00F7DFDF /* suggestions-minsk.json in Resources */,
 				F9B62CC9264BC61600492999 /* category-cafe.json in Resources */,
 				F907440F261B00000091899C /* suggestions-san-francisco.json in Resources */,
 				F94FFA4826453D410019ED9B /* reverse-geocoding.json in Resources */,
+				2CD8AC4B29F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json in Resources */,
+				2CD8AC5429F28D6900C47BE4 /* retrieve-poi.json in Resources */,
 				F9074425261B0DF70091899C /* retrieve-san-francisco.json in Resources */,
+				2CD8AC4829F1D38800C47BE4 /* suggestions-with-coordinates.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1997,12 +2029,16 @@
 				F9C557A22670CB0400BE8B94 /* suggestions-categories.json in Resources */,
 				F9C557A32670CB0400BE8B94 /* suggestions-san-francisco.json in Resources */,
 				F9C557A42670CB0400BE8B94 /* retrieve-multi.json in Resources */,
+				2CD8AC4329F1D38800C47BE4 /* suggestions-category-with-coordinates.json in Resources */,
 				F9C557A52670CB0400BE8B94 /* suggestions-empty.json in Resources */,
 				F9C557A62670CB0400BE8B94 /* recursion.json in Resources */,
 				F9C557A72670CB0400BE8B94 /* category-cafe.json in Resources */,
 				F9C557A82670CB0400BE8B94 /* retrieve-category.json in Resources */,
 				F9C557A92670CB0400BE8B94 /* reverse-geocoding.json in Resources */,
+				2CD8AC4929F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json in Resources */,
+				2CD8AC5229F28D6900C47BE4 /* retrieve-poi.json in Resources */,
 				F9C557AA2670CB0400BE8B94 /* retrieve-san-francisco.json in Resources */,
+				2CD8AC4629F1D38800C47BE4 /* suggestions-with-coordinates.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2029,6 +2065,7 @@
 				FEBB7AE42508F16100B331C3 /* SearchErrorView.xib in Resources */,
 				FEBB7AE92508F19100B331C3 /* Assets.xcassets in Resources */,
 				FEBB7AE62508F16100B331C3 /* SearchSuggestionCell.xib in Resources */,
+				2CD8AC5529F28D6900C47BE4 /* retrieve-poi.json in Resources */,
 				FEBB7AE12508F16100B331C3 /* NoSuggestionsView.xib in Resources */,
 				FEBB7AE52508F16100B331C3 /* SearchHistoryCell.xib in Resources */,
 				FEBB7AE32508F16100B331C3 /* SearchCategoriesRootView.xib in Resources */,
@@ -2501,6 +2538,7 @@
 				F9C557BB2670CCC000BE8B94 /* SearchResultType+Extensions.swift in Sources */,
 				F9C557BA2670CCAB00BE8B94 /* TestDataProviderRecord.swift in Sources */,
 				F9C557672670CB0400BE8B94 /* MockResponse.swift in Sources */,
+				2C10133429F1C6200094413F /* PlaceAutocompleteIntegrationTests.swift in Sources */,
 				F9C557682670CB0400BE8B94 /* MockWebServer.swift in Sources */,
 				F9C557BD2670CD0D00BE8B94 /* CoreSuggestAction+Samples.swift in Sources */,
 				14FA658A295368B400056E5B /* Address+TestData.swift in Sources */,

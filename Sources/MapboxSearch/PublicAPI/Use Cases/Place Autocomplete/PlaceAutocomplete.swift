@@ -266,17 +266,20 @@ private extension PlaceAutocomplete {
         with options: CoreRequestOptions,
         completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
     ) {
-        guard !suggestions.isEmpty else {
+        let filteredSuggestions = suggestions.filter {
+            !$0.resultTypes.contains(.category) && !$0.resultTypes.contains(.query)
+        }
+        guard !filteredSuggestions.isEmpty else {
             return completion(.success([]))
         }
         
         let dispatchGroup = DispatchGroup()
         var resolvingError: Error?
         
-        var resolvedSuggestions: [Suggestion?] = Array(repeating: nil, count: suggestions.count)
+        var resolvedSuggestions: [Suggestion?] = Array(repeating: nil, count: filteredSuggestions.count)
         let lock = NSLock()
 
-        suggestions.enumerated().forEach { iterator in
+        filteredSuggestions.enumerated().forEach { iterator in
             dispatchGroup.enter()
 
             if iterator.element.center != nil {

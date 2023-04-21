@@ -14,10 +14,14 @@ enum MockResponse {
     case suggestMinsk
     case suggestSanFrancisco
     case suggestCategories
+    case suggestWithCoordinates
+    case suggestWithMixedCoordinates
+    case suggestCategoryWithCoordinates
     
     case retrieveSanFrancisco
     case retrieveMinsk
     case retrieveCategory
+    case retrievePoi
     case multiRetrieve
     
     case recursion
@@ -35,12 +39,20 @@ enum MockResponse {
             return bundle.path(forResource: "suggestions-san-francisco", ofType: "json")!
         case .suggestCategories:
             return bundle.path(forResource: "suggestions-categories", ofType: "json")!
+        case .suggestWithCoordinates:
+            return bundle.path(forResource: "suggestions-with-coordinates", ofType: "json")!
+        case .suggestWithMixedCoordinates:
+            return bundle.path(forResource: "suggestions-with-mixed-coordinates", ofType: "json")!
+        case .suggestCategoryWithCoordinates:
+            return bundle.path(forResource: "suggestions-category-with-coordinates", ofType: "json")!
         case .retrieveSanFrancisco:
             return bundle.path(forResource: "retrieve-san-francisco", ofType: "json")!
         case .retrieveMinsk:
             return bundle.path(forResource: "retrieve-minsk", ofType: "json")!
         case .retrieveCategory:
             return bundle.path(forResource: "retrieve-category", ofType: "json")!
+        case .retrievePoi:
+            return bundle.path(forResource: "retrieve-poi", ofType: "json")!
         case .recursion:
             return bundle.path(forResource: "recursion", ofType: "json")!
         case .reverseGeocoding:
@@ -58,12 +70,16 @@ enum MockResponse {
              .suggestEmpty,
              .suggestSanFrancisco,
              .suggestCategories,
+             .suggestWithCoordinates,
+             .suggestWithMixedCoordinates,
+             .suggestCategoryWithCoordinates,
              .recursion:
             return .suggest
             
         case .retrieveSanFrancisco,
              .retrieveCategory,
-             .retrieveMinsk:
+             .retrieveMinsk,
+             .retrievePoi:
             return .retrieve
             
         case .reverseGeocoding:

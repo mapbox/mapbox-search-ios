@@ -39,6 +39,62 @@ final class PlaceAutocompleteTests: XCTestCase {
         XCTAssertEqual(searchEngine.searchOptions?.isIgnoreUR, true)
     }
 
+    func testFilterOutCategoryAndQuerySuggestion() {
+        let expectation = XCTestExpectation(description: "Call callback")
+        let results = [
+            CoreSearchResultStub.makePOI(),
+            CoreSearchResultStub.makePlace(),
+            CoreSearchResultStub.makeAddress(),
+            CoreSearchResultStub.makeSuggestion(),
+            CoreSearchResultStub.makeCategory(),
+            CoreSearchResultStub.makeSuggestionTypeQuery()
+        ].map { $0.asCoreSearchResult }
+        searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: results)
+
+        let retrieveResults = [CoreSearchResultStub.makePOI().asCoreSearchResult]
+        searchEngine.nextSearchResponse = CoreSearchResponseStub.successSample(results: retrieveResults)
+
+        placeAutocomplete.suggestions(for: "query") { result in
+            switch result {
+            case .success(let returnedSuggestions):
+                XCTAssertEqual(returnedSuggestions.count, 4)
+            case .failure:
+                XCTFail("Should return success")
+            }
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 1.0)
+
+        XCTAssertEqual(userActivityReporter.passedActivity, "place-autocomplete-forward-geocoding")
+        XCTAssertTrue(searchEngine.nextSearchCalled)
+        XCTAssertEqual(searchEngine.query, "query")
+        XCTAssertEqual(searchEngine.categories, [])
+        XCTAssertEqual(searchEngine.searchOptions?.isIgnoreUR, true)
+    }
+
+    func testDoNotCallRetrieveForSuggestionWithCoordinate() {
+        let expectation = XCTestExpectation(description: "Call callback")
+        let results = [
+            CoreSearchResultStub.makePOI(),
+            CoreSearchResultStub.makePlace(),
+            CoreSearchResultStub.makeAddress()
+        ].map { $0.asCoreSearchResult }
+        searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: results)
+        placeAutocomplete.suggestions(for: "query") { result in
+            switch result {
+            case .success(let returnedSuggestions):
+                XCTAssertEqual(returnedSuggestions.count, 3)
+            case .failure:
+                XCTFail("Should return success")
+            }
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 1.0)
+        XCTAssertFalse(searchEngine.nextSearchCalled)
+    }
+
     func testSelectSuggestionIfNeedToRetrive() {
         let coreSuggestion = CoreSearchResultStub.makeSuggestion()
         coreSuggestion.resultTypes = [.poi]

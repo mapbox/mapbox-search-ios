@@ -6,8 +6,9 @@ import CoreLocation
 class CoreSearchEngineStub {
     var accessToken: String
     let locationProvider: CoreLocationProvider?
-    
+
     var searchResponse: CoreSearchResponseProtocol?
+    var nextSearchResponse: CoreSearchResponseProtocol?
     var searchOptions: CoreSearchOptions?
     var reverseGeocodingOptions: CoreReverseGeoOptions?
     var query: String?
@@ -101,7 +102,7 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
         nextSearchCalled = true
         DispatchQueue.main.async {
             self.callbackWrapper {
-                callback(self.searchResponse)
+                callback(self.nextSearchResponse ?? self.searchResponse)
             }
         }
     }
