@@ -35,7 +35,7 @@ public class CategorySearchEngine: AbstractSearchEngine {
             switch response.process() {
             case .success(let result):
                 let resultSuggestions = result.suggestions.compactMap({ $0 as? SearchResultSuggestion })
-                responseInfo = SearchResponseInfo(response: response.coreResponse, suggestion: nil)
+                self.responseInfo = SearchResponseInfo(response: response.coreResponse, suggestion: nil)
                 assert(result.suggestions.count == resultSuggestions.count, "Every search result in Category search must conform SearchResultSuggestion requirements")
                 
                 self.resolve(suggestions: resultSuggestions, completionQueue: completionQueue) { resolvedResults in
