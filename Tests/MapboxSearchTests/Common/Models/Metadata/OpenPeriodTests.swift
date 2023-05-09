@@ -51,4 +51,41 @@ class OpenPeriodTests: XCTestCase {
         let endDateString = ISO8601DateFormatter().string(from: endDate)
         XCTAssertEqual(endDateString, "2021-01-04T00:00:00Z") // Monday
     }
+
+    func testWeekDayPeriod() {
+        let sundayPeriod = CoreOpenPeriod(openD: 6, openH: 10, openM: 10, closedD: 6, closedH: 22, closedM: 00)
+        let sundayOpenPeriod = OpenPeriod(sundayPeriod)
+        XCTAssertEqual(sundayOpenPeriod.start.weekday!, 1)
+        XCTAssertEqual(sundayOpenPeriod.end.weekday!, 1)
+
+        let mondayPeriod = CoreOpenPeriod(openD: 0, openH: 10, openM: 10, closedD: 0, closedH: 22, closedM: 00)
+        let mondayOpenPeriod = OpenPeriod(mondayPeriod)
+        XCTAssertEqual(mondayOpenPeriod.start.weekday!, 2)
+        XCTAssertEqual(mondayOpenPeriod.end.weekday!, 2)
+
+        let tuesdayPeriod = CoreOpenPeriod(openD: 1, openH: 10, openM: 10, closedD: 1, closedH: 22, closedM: 00)
+        let tuesdayOpenPeriod = OpenPeriod(tuesdayPeriod)
+        XCTAssertEqual(tuesdayOpenPeriod.start.weekday!, 3)
+        XCTAssertEqual(tuesdayOpenPeriod.end.weekday!, 3)
+
+        let wednesdayPeriod = CoreOpenPeriod(openD: 2, openH: 10, openM: 10, closedD: 2, closedH: 22, closedM: 00)
+        let wednesdayOpenPeriod = OpenPeriod(wednesdayPeriod)
+        XCTAssertEqual(wednesdayOpenPeriod.start.weekday!, 4)
+        XCTAssertEqual(wednesdayOpenPeriod.end.weekday!, 4)
+
+        let thursdayPeriod = CoreOpenPeriod(openD: 3, openH: 10, openM: 10, closedD: 3, closedH: 22, closedM: 00)
+        let thursdayOpenPeriod = OpenPeriod(thursdayPeriod)
+        XCTAssertEqual(thursdayOpenPeriod.start.weekday!, 5)
+        XCTAssertEqual(thursdayOpenPeriod.end.weekday!, 5)
+
+        let fridayPeriod = CoreOpenPeriod(openD: 4, openH: 10, openM: 10, closedD: 4, closedH: 22, closedM: 00)
+        let fridayOpenPeriod = OpenPeriod(fridayPeriod)
+        XCTAssertEqual(fridayOpenPeriod.start.weekday!, 6)
+        XCTAssertEqual(fridayOpenPeriod.end.weekday!, 6)
+        
+        let saturdayPeriod = CoreOpenPeriod(openD: 5, openH: 10, openM: 10, closedD: 5, closedH: 22, closedM: 00)
+        let saturdayOpenPeriod = OpenPeriod(saturdayPeriod)
+        XCTAssertEqual(saturdayOpenPeriod.start.weekday!, 7)
+        XCTAssertEqual(saturdayOpenPeriod.end.weekday!, 7)
+    }
 }

@@ -11,10 +11,10 @@ public struct OpenPeriod: Codable, Hashable {
         start = DateComponents(calendar: Calendar(identifier: .gregorian),
                                hour: Int(core.openH),
                                minute: Int(core.openM),
-                               weekday: Int((core.openD + 2) % 7)) // Convert Monday=0 style to the Sunday=1, Monday=2 iOS default style
+                               weekday: (Int(core.openD) + 1) % 7 + 1) // Convert Monday=0 style to the Sunday=1, Monday=2 iOS default style
         end = DateComponents(calendar: Calendar(identifier: .gregorian),
                                hour: Int(core.closedH),
                                minute: Int(core.closedM),
-                               weekday: Int((core.closedD + 2) % 7))
+                               weekday: (Int(core.closedD) + 1) % 7 + 1)
     }
 }
