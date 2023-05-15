@@ -4,6 +4,11 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
+## 1.0.0-rc.4 - 2023-05-19
+
+### Added
+- [Place Autocomplete]: added `eta` property to the `PlaceAutocomplete.Suggestion`.
+
 ## 1.0.0-rc.3 - 2023-04-21
 
 ### Added
