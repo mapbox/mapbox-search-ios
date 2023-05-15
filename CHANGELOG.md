@@ -4,6 +4,9 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
+### Fixed
+- [Core]: fixed possibly incorrect data about POI opening hours. Fixed weekday conversion to the Gregorian calendar with Sunday as the first weekday.
+
 ## 1.0.0-rc.3 - 2023-04-21
 
 ### Added
