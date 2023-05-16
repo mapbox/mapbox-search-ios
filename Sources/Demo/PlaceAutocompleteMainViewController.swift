@@ -10,10 +10,14 @@ final class PlaceAutocompleteMainViewController: UIViewController {
     private lazy var placeAutocomplete = PlaceAutocomplete()
     
     private var cachedSuggestions: [PlaceAutocomplete.Suggestion] = []
+
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         configureUI()
     }
 }
@@ -29,10 +33,11 @@ extension PlaceAutocompleteMainViewController: UISearchResultsUpdating {
             reloadData()
             return
         }
-        
+
         placeAutocomplete.suggestions(
             for: text,
-            filterBy: .init(types: [.POI])
+            proximity: locationManager.location?.coordinate,
+            filterBy: .init(types: [.POI], navigationProfile: .driving)
         ) { [weak self] result in
             guard let self = self else { return }
             
@@ -69,9 +74,17 @@ extension PlaceAutocompleteMainViewController: UITableViewDataSource, UITableVie
         tableViewCell.textLabel?.text = suggestion.name
         tableViewCell.accessoryType = .disclosureIndicator
 
-        tableViewCell.detailTextLabel?.text = suggestion.description
+        var description = suggestion.description ?? ""
+        if let distance = suggestion.distance {
+            description += "\n\(PlaceAutocomplete.Result.distanceFormatter.string(fromDistance: distance))"
+        }
+        if let estimatedTime = suggestion.estimatedTime {
+            description += "\n\(PlaceAutocomplete.Result.measurumentFormatter.string(from: estimatedTime))"
+        }
+
+        tableViewCell.detailTextLabel?.text = description
         tableViewCell.detailTextLabel?.textColor = UIColor.darkGray
-        tableViewCell.detailTextLabel?.numberOfLines = 2
+        tableViewCell.detailTextLabel?.numberOfLines = 4
         
         return tableViewCell
     }
@@ -92,7 +105,7 @@ extension PlaceAutocompleteMainViewController: UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        60
+        100
     }
 }
 

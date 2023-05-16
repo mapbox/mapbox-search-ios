@@ -3,8 +3,16 @@ import CoreLocation
 @testable import MapboxSearch
 
 extension CoreSearchResultStub {
-    static let sample1 = CoreSearchResultStub(id: "sample-1", type: .poi)
-    static let sample2 = CoreSearchResultStub(id: "sample-2", type: .category)
+    static let sample1 = CoreSearchResultStub(
+        id: "sample-1",
+        type: .poi,
+        distance: 4200,
+        estimatedTime: Measurement(value: 10.5, unit: .minutes)
+    )
+    static let sample2 = CoreSearchResultStub(
+        id: "sample-2",
+        type: .category
+    )
     
     static let externalRecordSample = CoreSearchResultStub(id: "sample-3",
                                                            type: .userRecord,

@@ -21,6 +21,9 @@ public extension PlaceAutocomplete {
         
         /// The straight line distance in meters between the origin and this suggestion.
         public let distance: CLLocationDistance?
+
+        /// Estimated time of arrival (in minutes) based on specified `proximity`.
+        public let estimatedTime: Measurement<UnitDuration>?
         
         /// List of points near [coordinate], that represents entries to associated building.
         public let routablePoints: [RoutablePoint]

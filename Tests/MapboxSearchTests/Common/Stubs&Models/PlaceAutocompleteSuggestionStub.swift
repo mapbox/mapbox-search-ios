@@ -14,6 +14,7 @@ extension PlaceAutocomplete.Suggestion {
               coordinate: CLLocationCoordinate2D(latitude: 10, longitude: 10),
               iconName: "iconName",
               distance: nil,
+              estimatedTime: nil,
               placeType: placeType,
               categories: ["coffee"],
               routablePoints: routablePoints,
