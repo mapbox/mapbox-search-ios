@@ -8,6 +8,8 @@ enum MockResponse {
         case reverse = "reverse"
         case multiRetrieve = "retrieve/multi"
         case category = "category"
+        case addressSuggest = "autofill/suggest"
+        case addressRetrieve = "autofill/retrieve"
     }
     
     case suggestEmpty
@@ -17,12 +19,14 @@ enum MockResponse {
     case suggestWithCoordinates
     case suggestWithMixedCoordinates
     case suggestCategoryWithCoordinates
+    case suggestAddressSanFrancisco
     
     case retrieveSanFrancisco
     case retrieveMinsk
     case retrieveCategory
     case retrievePoi
     case multiRetrieve
+    case retrieveAddressSanFrancisco
     
     case recursion
     case reverseGeocoding
@@ -61,11 +65,21 @@ enum MockResponse {
             return bundle.path(forResource: "retrieve-multi", ofType: "json")!
         case .categoryCafe:
             return bundle.path(forResource: "category-cafe", ofType: "json")!
+        case .suggestAddressSanFrancisco:
+            return bundle.path(forResource: "address-suggestions-san-francisco", ofType: "json")!
+        case .retrieveAddressSanFrancisco:
+            return bundle.path(forResource: "address-retrieve-san-francisco", ofType: "json")!
         }
     }
     
     var endpoint: Endpoint {
         switch self {
+        case .suggestAddressSanFrancisco:
+            return .addressSuggest
+
+        case .retrieveAddressSanFrancisco:
+            return .addressRetrieve
+
         case .suggestMinsk,
              .suggestEmpty,
              .suggestSanFrancisco,

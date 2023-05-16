@@ -88,6 +88,33 @@ public extension AddressAutofill {
         
         fetchSuggestions(using: searchOptions, completion: completion)
     }
+
+    /// Retrieves detailed information about the `AddressAutofill.Suggestion`.
+    /// Use this function to end search session even if you don't need detailed information.
+    ///
+    /// Subject to change: in future, you may be charged for a suggestion call in case your UX flow
+    /// accepts one of suggestions as selected and uses the coordinates,
+    /// but you don’t call `select(suggestion:completion:)` method to confirm this.
+    /// Other than that suggestions calls are not billed.
+    ///
+    /// - Parameters:
+    ///   - suggestion: Suggestion to select.
+    ///   - completion: Result of the suggestion selection, one of error or value.
+    func select(
+        suggestion: Suggestion,
+        completion: @escaping (Swift.Result<AddressAutofill.Result, Error>
+        ) -> Void
+    ) {
+        userActivityReporter.reportActivity(forComponent: "address-autofill-suggestion-select")
+
+        let result = AddressAutofill.Result(
+            name: suggestion.name,
+            formattedAddress: suggestion.formattedAddress,
+            coordinate: suggestion.coordinate,
+            addressComponents: suggestion.addressComponents
+        )
+        completion(.success(result))
+    }
 }
 
 // MARK: - Reverse geocoding query

@@ -60,16 +60,16 @@ final class AddressAutofillSuggestionsTests: XCTestCase {
         searchResult.address = .valid
         searchResult.coordinate = coordinates
         
-        let result = try! AddressAutofill.Suggestion.from(searchResult).result()
+        let suggestion = try! AddressAutofill.Suggestion.from(searchResult)
         
-        XCTAssertEqual(result.addressComponents.all.count, AddressAutofill.AddressComponent.Kind.allCases.count)
+        XCTAssertEqual(suggestion.addressComponents.all.count, AddressAutofill.AddressComponent.Kind.allCases.count)
         
         let addressComponentCheck: (AddressAutofill.AddressComponent, AddressAutofill.AddressComponent.Kind) -> Void = { candidate, match in
             XCTAssertEqual(candidate.kind, match)
             XCTAssertEqual(candidate.value, match.rawValue)
         }
         
-        result.addressComponents.all.forEach { addressComponent in
+        suggestion.addressComponents.all.forEach { addressComponent in
             switch addressComponent.kind {
             case .locality:
                 addressComponentCheck(addressComponent, .locality)

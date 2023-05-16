@@ -1,0 +1,106 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+        "type": "Feature",
+        "properties": {
+            "accuracy": "interpolated",
+            "mapbox_id": "dXJuOm1ieGFkcjpkZDg4MTIzOS03NDdjLTQzZmEtOThiOC0yNjNiMWQ1OTNiODY",
+            "match_code": {
+                "address_number": "plausible",
+                "street": "matched",
+                "postcode": "unmatched",
+                "place": "unmatched",
+                "region": "unmatched",
+                "locality": "not_applicable",
+                "country": "inferred",
+                "confidence": "low"
+            },
+            "place_type": ["address"],
+            "place_name": "701 Steiner Street, San Francisco, California 94117, United States",
+            "address_number": "701",
+            "street": "Steiner Street",
+            "context": [{
+                "id": "neighborhood.374770924",
+                "mapbox_id": "dXJuOm1ieHBsYzpGbGFNN0E",
+                "text_en": "Lower Pacific Heights",
+                "text": "Lower Pacific Heights"
+            }, {
+                "id": "postcode.2456803540324000",
+                "text_en": "94117",
+                "text": "94117"
+            }, {
+                "id": "place.292358380",
+                "wikidata": "Q62",
+                "mapbox_id": "dXJuOm1ieHBsYzpFVzBJN0E",
+                "text_en": "San Francisco",
+                "language_en": "en",
+                "text": "San Francisco",
+                "language": "en"
+            }, {
+                "id": "district.20547308",
+                "wikidata": "Q62",
+                "mapbox_id": "dXJuOm1ieHBsYzpBVG1HN0E",
+                "text_en": "San Francisco",
+                "language_en": "en",
+                "text": "San Francisco",
+                "language": "en"
+            }, {
+                "id": "region.419052",
+                "short_code": "US-CA",
+                "wikidata": "Q99",
+                "mapbox_id": "dXJuOm1ieHBsYzpCbVRz",
+                "text_en": "California",
+                "language_en": "en",
+                "text": "California",
+                "language": "en"
+            }, {
+                "id": "country.8940",
+                "short_code": "us",
+                "wikidata": "Q30",
+                "mapbox_id": "dXJuOm1ieHBsYzpJdXc",
+                "text_en": "United States",
+                "language_en": "en",
+                "text": "United States",
+                "language": "en"
+            }],
+            "id": "address.2456803540324000",
+            "external_ids": {
+                "carmen": "address.2456803540324000",
+                "federated": "carmen.address.2456803540324000"
+            },
+            "feature_name": "701 Steiner Street",
+            "matching_name": "701 Steiner Street",
+            "description": "San Francisco, California 94117, United States",
+            "metadata": {
+                "iso_3166_2": "US-CA",
+                "iso_3166_1": "us"
+            },
+            "language": "en",
+            "maki": "marker",
+            "neighborhood": "Lower Pacific Heights",
+            "postcode": "94117",
+            "place": "San Francisco",
+            "district": "San Francisco",
+            "region": "California",
+            "region_code": "CA",
+            "country": "United States",
+            "country_code": "us",
+            "full_address": "701 Steiner Street, San Francisco, California 94117, United States",
+            "address_line1": "701 Steiner Street",
+            "address_line2": "",
+            "address_line3": "",
+            "address_level1": "CA",
+            "address_level2": "San Francisco",
+            "address_level3": "Lower Pacific Heights",
+            "is_deliverable": null
+        },
+        "text_en": "Steiner Street",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-122.434671, 37.784592],
+            "interpolated": true,
+            "omitted": true
+        }
+    }],
+    "attribution": "NOTICE: © 2023 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/). This response and the information it contains may not be retained. POI(s) provided by Foursquare."
+}

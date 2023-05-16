@@ -14,7 +14,7 @@ public extension AddressAutofill {
         /// Address geographic point.
         public let coordinate: CLLocationCoordinate2D
 
-        private let addressComponents: NonEmptyArray<AddressComponent>
+        internal let addressComponents: NonEmptyArray<AddressComponent>
         
         init(
             name: String,
@@ -27,17 +27,5 @@ public extension AddressAutofill {
             self.coordinate = coordinate
             self.addressComponents = addressComponents
         }
-    }
-}
-
-public extension AddressAutofill.Suggestion {
-    /// Returns resolved Result object
-    func result() -> AddressAutofill.Result {
-        .init(
-            name: name,
-            formattedAddress: formattedAddress,
-            coordinate: coordinate,
-            addressComponents: addressComponents
-        )
     }
 }

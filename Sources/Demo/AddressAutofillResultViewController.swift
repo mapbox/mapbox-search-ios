@@ -182,7 +182,15 @@ private extension AddressAutofillResultViewController {
             switch result {
             case .success(let suggestions):
                 if let first = suggestions.first {
-                    self.result = first.result()
+                    self.addressAutofill.select(suggestion: first) { [weak self] result in
+                        guard let self = self else { return }
+
+                        if case .success = result {
+                            self.updateViewState(to: .result)
+                        } else {
+                            self.updateViewState(to: .empty)
+                        }
+                    }
                     
                     self.updateViewState(to: .result)
                 } else {

@@ -13,6 +13,10 @@ Guide: https://keepachangelog.com/en/1.0.0/
 ### Fixed
 - [Place Autocomplete] fixed a bug with missing `PlaceAutocomplete.Suggestion.distance`.
 
+### Breaking changes
+- [Address Autofill]: `AddressAutofill.Suggestion.result()` method has been removed.
+Use `AddressAutofill.select(AddressAutofill.Suggestion)` instead. Note that developers must call this method when a user selects a search suggestion in the UI.
+
 ## 1.0.0-rc.3 - 2023-04-21
 
 ### Added
