@@ -12,6 +12,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ### Fixed
 - [Place Autocomplete] fixed a bug with missing `PlaceAutocomplete.Suggestion.distance`.
+- [Core]: fixed possibly incorrect data about POI opening hours. Fixed weekday conversion to the Gregorian calendar with Sunday as the first weekday.
 
 ## 1.0.0-rc.3 - 2023-04-21
 
