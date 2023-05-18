@@ -16,9 +16,12 @@ public extension PlaceAutocomplete {
         
         /// Icon name according to [Mapbox Maki icon set](https://github.com/mapbox/maki/)
         public let iconName: String?
-        
+
         /// The straight line distance in meters between the origin and this suggestion.
         public let distance: CLLocationDistance?
+
+        /// Estimated time of arrival (in minutes) based on specified `proximity`.
+        public let estimatedTime: Measurement<UnitDuration>?
 
         /// The type of result.
         public let placeType: SearchResultType
@@ -37,6 +40,7 @@ public extension PlaceAutocomplete {
             coordinate: CLLocationCoordinate2D,
             iconName: String?,
             distance: CLLocationDistance?,
+            estimatedTime: Measurement<UnitDuration>?,
             placeType: SearchResultType,
             categories: [String],
             routablePoints: [RoutablePoint],
@@ -47,6 +51,7 @@ public extension PlaceAutocomplete {
             self.coordinate = coordinate
             self.iconName = iconName
             self.distance = distance
+            self.estimatedTime = estimatedTime
             self.placeType = placeType
             self.categories = categories
             self.routablePoints = routablePoints
@@ -69,6 +74,7 @@ extension PlaceAutocomplete.Suggestion {
             coordinate: coordinate,
             iconName: iconName,
             distance: distance,
+            estimatedTime: estimatedTime,
             routablePoints: underlyingResult.routablePoints ?? [],
             categories: underlyingResult.categories ?? [],
             address: underlyingResult.address,
@@ -105,6 +111,7 @@ extension PlaceAutocomplete.Suggestion {
             coordinate: searchResult.coordinate,
             iconName: searchResult.iconName,
             distance: searchResultType.distance,
+            estimatedTime: searchResultType.estimatedTime,
             placeType: searchResultType.type,
             categories: searchResultType.categories ?? [],
             routablePoints: searchResultType.routablePoints ?? [],
@@ -130,6 +137,7 @@ extension PlaceAutocomplete.Suggestion {
             coordinate: coordinate,
             iconName: searchSuggestion.icon,
             distance: searchSuggestion.distanceToProximity,
+            estimatedTime: searchSuggestion.estimatedTime,
             placeType: type,
             categories: searchSuggestion.categories ?? [],
             routablePoints: searchSuggestion.routablePoints?.map(RoutablePoint.init) ?? [],

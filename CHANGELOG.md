@@ -4,7 +4,14 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
+## 1.0.0-rc.4 - 2023-05-19
+
+### Added
+- [Place Autocomplete]: added `estimatedTime` property to the `PlaceAutocomplete.Suggestion` and `PlaceAutocomplete.Result`.
+- [Place Autocomplete]: added `navigationProfile` property to the `PlaceAutocomplete.Options` to determine how distance and estimatedTime are calculated.
+
 ### Fixed
+- [Place Autocomplete] fixed a bug with missing `PlaceAutocomplete.Suggestion.distance`.
 - [Core]: fixed possibly incorrect data about POI opening hours. Fixed weekday conversion to the Gregorian calendar with Sunday as the first weekday.
 
 ## 1.0.0-rc.3 - 2023-04-21

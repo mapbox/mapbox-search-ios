@@ -19,6 +19,9 @@ final class PlaceAutocompleteSuggestionTests: XCTestCase {
             XCTFail("Should have underlying result")
             return
         }
+
+        XCTAssertEqual(suggestion?.estimatedTime, CoreSearchResultStub.sample1.estimatedTime)
+        XCTAssertEqual(suggestion?.distance, CoreSearchResultStub.sample1.distanceToProximity)
     }
 
     func testCreationFromCoreSuggestion() {

@@ -7,6 +7,7 @@ final class PlaceAutocompleteTests: XCTestCase {
     private var searchEngine: CoreSearchEngineStub!
     private var userActivityReporter: CoreUserActivityReporterStub!
     private var placeAutocomplete: PlaceAutocomplete!
+    private var coordinate: CLLocationCoordinate2D!
 
     private let options = CoreRequestOptions.sample1
 
@@ -16,6 +17,7 @@ final class PlaceAutocompleteTests: XCTestCase {
         searchEngine = CoreSearchEngineStub(accessToken: "test", location: nil)
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: [])
         userActivityReporter = CoreUserActivityReporterStub()
+        coordinate = CLLocationCoordinate2D(latitude: 40.730610, longitude: -73.935242)
 
         placeAutocomplete = PlaceAutocomplete(
             searchEngine: searchEngine,
@@ -31,12 +33,42 @@ final class PlaceAutocompleteTests: XCTestCase {
     }
 
     func testSuggestionsForQuery() {
-        placeAutocomplete.suggestions(for: "query") { _ in }
+        placeAutocomplete.suggestions(for: "query", proximity: coordinate) { _ in }
 
         XCTAssertEqual(userActivityReporter.passedActivity, "place-autocomplete-forward-geocoding")
         XCTAssertEqual(searchEngine.query, "query")
         XCTAssertEqual(searchEngine.categories, [])
         XCTAssertEqual(searchEngine.searchOptions?.isIgnoreUR, true)
+        XCTAssertEqual(searchEngine.searchOptions?.proximity?.coordinate, coordinate)
+        XCTAssertEqual(searchEngine.searchOptions?.origin?.coordinate, coordinate)
+        XCTAssertNil(searchEngine.searchOptions?.navProfile)
+        XCTAssertNil(searchEngine.searchOptions?.etaType)
+    }
+
+    func testSuggestionsFilteredBy() {
+        let types: [PlaceAutocomplete.PlaceType] = [.POI, .administrativeUnit(.city)]
+        placeAutocomplete.suggestions(
+            for: "query",
+            proximity: coordinate,
+            filterBy: .init(
+                countries: [.init(countryCode: Country.ISO3166_1_alpha2.us.rawValue)!, .init(countryCode: Country.ISO3166_1_alpha2.gb.rawValue)!],
+                language: .init(languageCode: Language.ISO639_1.en.rawValue),
+                types: types,
+                navigationProfile: .cycling
+            )
+        ) { _ in }
+
+        XCTAssertEqual(userActivityReporter.passedActivity, "place-autocomplete-forward-geocoding")
+        XCTAssertEqual(searchEngine.query, "query")
+        XCTAssertEqual(searchEngine.categories, [])
+        XCTAssertEqual(searchEngine.searchOptions?.isIgnoreUR, true)
+        XCTAssertEqual(searchEngine.searchOptions?.proximity?.coordinate, coordinate)
+        XCTAssertEqual(searchEngine.searchOptions?.origin?.coordinate, coordinate)
+        XCTAssertEqual(searchEngine.searchOptions?.navProfile, "cycling")
+        XCTAssertEqual(searchEngine.searchOptions?.etaType, "navigation")
+        XCTAssertEqual(searchEngine.searchOptions?.countries, ["us", "gb"])
+        XCTAssertEqual(searchEngine.searchOptions?.language, ["en"])
+        XCTAssertEqual(searchEngine.searchOptions?.types, types.map { $0.coreType.coreValue.rawValue as NSNumber })
     }
 
     func testFilterOutCategoryAndQuerySuggestion() {

@@ -70,13 +70,19 @@ public extension PlaceAutocomplete {
         completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
     ) {
         userActivityReporter.reportActivity(forComponent: "place-autocomplete-forward-geocoding")
-        
+
+        var navigationOptions: SearchNavigationOptions?
+        if let navigationProfiler = options.navigationProfile {
+            navigationOptions = .init(profile: navigationProfiler, etaType: .navigation)
+        }
         let searchOptions = SearchOptions(
             countries: options.countries.map { $0.countryCode },
             languages: [options.language.languageCode],
             limit: Constants.defaultSuggestionsLimit,
             proximity: proximity,
             boundingBox: region,
+            origin: proximity,
+            navigationOptions: navigationOptions,
             filterTypes: options.types.isEmpty ? nil : options.types.map { $0.coreType },
             ignoreIndexableRecords: true
         ).toCore(apiType: Self.apiType)

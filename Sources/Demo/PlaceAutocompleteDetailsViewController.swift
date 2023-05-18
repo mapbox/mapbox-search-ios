@@ -98,17 +98,42 @@ private extension PlaceAutocompleteResultViewController {
     }
 }
 
-// MARK: - Private
-private extension PlaceAutocomplete.Result {
+extension PlaceAutocomplete.Result {
+    static let measurumentFormatter: MeasurementFormatter = {
+        let formatter = MeasurementFormatter()
+        formatter.unitOptions = [.naturalScale]
+        formatter.numberFormatter.roundingMode = .halfUp
+        formatter.numberFormatter.maximumFractionDigits = 0
+        return formatter
+    }()
+
+    static let distanceFormatter: MKDistanceFormatter = {
+        let formatter = MKDistanceFormatter()
+        formatter.unitStyle = .abbreviated
+        return formatter
+    }()
+
     func toComponents() -> [((name: String, value: String))] {
         var components = [
             (name: "Name", value: name),
             (name: "Type", value: "\(type == .POI ? "POI" : "Address")")
         ]
-        
+
         if let address = address, let formattedAddress = address.formattedAddress(style: .short) {
             components.append(
                 (name: "Address", value: formattedAddress)
+            )
+        }
+
+        if let distance = distance {
+            components.append(
+                (name: "Distance", value: PlaceAutocomplete.Result.distanceFormatter.string(fromDistance: distance))
+            )
+        }
+
+        if let estimatedTime = estimatedTime {
+            components.append(
+                (name: "Estimated time", value: PlaceAutocomplete.Result.measurumentFormatter.string(from: estimatedTime))
             )
         }
         

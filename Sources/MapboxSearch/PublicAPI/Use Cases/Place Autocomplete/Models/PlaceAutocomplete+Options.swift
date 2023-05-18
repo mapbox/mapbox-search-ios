@@ -17,15 +17,21 @@ public extension PlaceAutocomplete {
         /// Limit results to one or more types of features.
         /// Pass one or more of the type names as a comma separated list. If no types are specified, all possible types may be returned.
         public let types: [PlaceType]
+
+        /// Optional navigation routing profile to use.
+        /// Required for `PlaceAutocomplete.Suggestion.distance` and `PlaceAutocomplete.Suggestion.estimatedTime` calculations.
+        public let navigationProfile: SearchNavigationProfile?
         
         public init(
             countries: [Country] = [],
             language: Language? = nil,
-            types: [PlaceType] = []
+            types: [PlaceType] = [],
+            navigationProfile: SearchNavigationProfile? = nil
         ) {
             self.countries = countries
             self.language = language ?? .default
             self.types = types
+            self.navigationProfile = navigationProfile
         }
     }
 }
