@@ -76,11 +76,17 @@ extension AddressAutofillMainViewController: UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let result = cachedSuggestions[indexPath.row].result()
-        let resultVC = AddressAutofillResultViewController.instantiate(with: result)
-        
-        navigationController?.pushViewController(resultVC, animated: true)
+
+        addressAutofill.select(suggestion: cachedSuggestions[indexPath.row]) { [weak self] result in
+            switch result {
+            case .success(let suggestionResult):
+                let resultVC = AddressAutofillResultViewController.instantiate(with: suggestionResult)
+                self?.navigationController?.pushViewController(resultVC, animated: true)
+
+            case .failure(let error):
+                print("Suggestion selection error \(error)")
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

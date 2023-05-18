@@ -32,8 +32,8 @@ extension AddressAutofill.Suggestion {
     }
 }
 
-// MARK: - Private
-private extension Address {
+// MARK: - Internal
+extension Address {
     enum AutofillParsingError: Error {
         case emptyAddressComponents
     }

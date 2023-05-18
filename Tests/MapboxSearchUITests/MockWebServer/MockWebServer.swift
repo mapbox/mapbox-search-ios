@@ -59,7 +59,7 @@ private extension MockWebServer {
     
     static func httpMethod(for endpoint: MockResponse.Endpoint) -> HTTPMethod {
         switch endpoint {
-        case .suggest, .category, .reverse:
+        case .suggest, .category, .reverse, .addressSuggest, .addressRetrieve:
             return .get
             
         case .retrieve, .multiRetrieve:
@@ -85,6 +85,12 @@ private extension MockWebServer {
             
         case .retrieve:
             break
+
+        case .addressSuggest:
+            path = "/autofill/v1/suggest/:query"
+
+        case .addressRetrieve:
+            path = "/autofill/v1/retrieve/:action.id"
         }
         
         return path

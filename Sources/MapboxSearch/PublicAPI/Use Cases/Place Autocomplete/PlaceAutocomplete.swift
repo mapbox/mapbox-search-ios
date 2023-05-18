@@ -121,7 +121,7 @@ public extension PlaceAutocomplete {
     /// Other than that suggestions calls are not billed.
     ///
     /// - Parameters:
-    ///   - suggestion: Suggestion to select.z
+    ///   - suggestion: Suggestion to select.
     ///   - completion: Result of the suggestion selection, one of error or value.
     func select(
         suggestion: Suggestion,
