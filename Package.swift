@@ -6,9 +6,6 @@ import Foundation
 
 let (coreSearchVersion, coreSearchVersionHash) = ("0.67.2", "2ef9f07e3b5f255633516bc5b5651a705a0372d7cd4df0c7887b93c7f6d7c16e")
 
-let commonMinVersion = Version("23.3.1")
-let commonMaxVersion = Version("24.0.0")
-
 let package = Package(
     name: "MapboxSearch",
     defaultLocalization: "en",
@@ -25,7 +22,7 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
-        .package(name: "MapboxCommon", url: "https://github.com/mapbox/mapbox-common-ios.git", commonMinVersion..<commonMaxVersion),
+        .package(name: "MapboxCommon", url: "https://github.com/mapbox/mapbox-common-ios.git", from: "23.6.0-beta.1"),
         .package(url: "https://github.com/mattgallagher/CwlPreconditionTesting.git", from: "2.0.0")
     ],
     targets: [
