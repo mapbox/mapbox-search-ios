@@ -75,6 +75,13 @@ public extension PlaceAutocomplete {
         if let navigationProfiler = options.navigationProfile {
             navigationOptions = .init(profile: navigationProfiler, etaType: .navigation)
         }
+        
+        // We should not leave core types list empty or null in order to avoid unsupported types being requested
+        var filterTypes = options.types
+        if filterTypes.isEmpty {
+            filterTypes = PlaceType.allTypes
+        }
+        
         let searchOptions = SearchOptions(
             countries: options.countries.map { $0.countryCode },
             languages: [options.language.languageCode],
@@ -83,7 +90,7 @@ public extension PlaceAutocomplete {
             boundingBox: region,
             origin: proximity,
             navigationOptions: navigationOptions,
-            filterTypes: options.types.isEmpty ? nil : options.types.map { $0.coreType },
+            filterTypes: filterTypes.map { $0.coreType },
             ignoreIndexableRecords: true
         ).toCore(apiType: Self.apiType)
         
@@ -102,9 +109,15 @@ public extension PlaceAutocomplete {
     ) {
         userActivityReporter.reportActivity(forComponent: "place-autocomplete-reverse-geocoding")
         
+        // We should not leave core types list empty or null in order to avoid unsupported types being requested
+        var filterTypes = options.types
+        if filterTypes.isEmpty {
+            filterTypes = PlaceType.allTypes
+        }
+        
         let searchOptions = ReverseGeocodingOptions(
             point: query,
-            types: options.types.map { $0.coreType },
+            types: filterTypes.map { $0.coreType },
             countries: options.countries.map { $0.countryCode },
             languages: [options.language.languageCode]
         ).toCore()

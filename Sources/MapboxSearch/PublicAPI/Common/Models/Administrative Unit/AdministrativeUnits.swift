@@ -51,4 +51,8 @@ public struct AdministrativeUnit: Equatable {
     /// Japanese administrative unit analogous to `neighborhood`.
     /// - Note: Not available for reverse geocoding requests.
     public static let chome: AdministrativeUnit = .init(rawValue: .neighborhood)
+    
+    public static var all: [AdministrativeUnit] {
+        [.country, .region, .postcode, .district, .place, .locality, .neighborhood, .street, .address, .city, prefecture, .oaza, chome]
+    }
 }

@@ -25,7 +25,7 @@ public extension PlaceAutocomplete {
         public init(
             countries: [Country] = [],
             language: Language? = nil,
-            types: [PlaceType] = [.POI],
+            types: [PlaceType] = [],
             navigationProfile: SearchNavigationProfile? = nil
         ) {
             self.countries = countries

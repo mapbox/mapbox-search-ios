@@ -8,8 +8,9 @@ final class PlaceAutocompleteOptionsTests: XCTestCase {
         let options = PlaceAutocomplete.Options()
         
         XCTAssertTrue(options.countries.isEmpty)
+        XCTAssertTrue(options.types.isEmpty)
+
         XCTAssertEqual(options.language, .default)
-        XCTAssertEqual(options.types, [.POI])
     }
     
     func testThatOptionsInitializedWithCountries() {

@@ -85,7 +85,6 @@ class OfflineIntegrationTests: MockServerTestCase {
         wait(for: [errorExpectation], timeout: 10)
         
         XCTAssertTrue(searchEngine.suggestions.isEmpty)
-        
     }
     
     func testCancelDownload() {

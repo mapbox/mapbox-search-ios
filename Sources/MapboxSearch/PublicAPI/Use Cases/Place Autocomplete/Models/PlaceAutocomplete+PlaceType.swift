@@ -9,6 +9,10 @@ public extension PlaceAutocomplete {
         case POI
         case administrativeUnit(AdministrativeUnit)
         
+        public static var allTypes: [PlaceType] {
+            [.POI] + AdministrativeUnit.all.map(PlaceType.administrativeUnit)
+        }
+        
         var coreType: SearchQueryType {
             switch self {
             case .POI: return .poi
