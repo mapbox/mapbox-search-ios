@@ -9,7 +9,7 @@ final class PlaceAutocompleteOptionsTests: XCTestCase {
         
         XCTAssertTrue(options.countries.isEmpty)
         XCTAssertEqual(options.language, .default)
-        XCTAssertTrue(options.types.isEmpty)
+        XCTAssertEqual(options.types, [.POI])
     }
     
     func testThatOptionsInitializedWithCountries() {
