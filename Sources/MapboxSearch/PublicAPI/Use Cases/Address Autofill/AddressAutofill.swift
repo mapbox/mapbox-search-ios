@@ -65,7 +65,6 @@ public extension AddressAutofill {
             countries: options?.countries.map { $0.countryCode },
             languages: options.map { [$0.language.languageCode] },
             limit: Constants.defaultSuggestionsLimit,
-            filterTypes: acceptedTypes,
             ignoreIndexableRecords: true
         ).toCore(apiType: Self.apiType)
         
@@ -81,7 +80,6 @@ public extension AddressAutofill {
         
         let searchOptions = ReverseGeocodingOptions(
             point: coordinate,
-            types: acceptedTypes,
             countries: options?.countries.map { $0.countryCode },
             languages: options.map { [$0.language.languageCode] }
         ).toCore()
@@ -151,10 +149,6 @@ private extension AddressAutofill {
 
 // MARK: - Text query
 private extension AddressAutofill {
-    var acceptedTypes: [SearchQueryType] {
-        [.country, .region, .postcode, .district, .place, .locality, .neighborhood, .address, .street, .poi]
-    }
-
     func fetchSuggestions(for query: String, with options: CoreSearchOptions, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
         searchEngine.search(
             forQuery: query,
