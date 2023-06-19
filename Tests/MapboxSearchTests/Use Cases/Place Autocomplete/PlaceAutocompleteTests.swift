@@ -44,6 +44,20 @@ final class PlaceAutocompleteTests: XCTestCase {
         XCTAssertNil(searchEngine.searchOptions?.navProfile)
         XCTAssertNil(searchEngine.searchOptions?.etaType)
     }
+    
+    func testReverseGeocodingRequestUsesAllPlaceTypesIfTheyWereNotSpecifiedInOptions() {
+        placeAutocomplete.suggestions(for: .sample1) { _ in }
+        
+        XCTAssertFalse(searchEngine.reverseGeocodingOptions!.types!.isEmpty)
+        XCTAssertEqual(searchEngine.reverseGeocodingOptions!.types!.count, PlaceAutocomplete.PlaceType.allTypes.count)
+    }
+    
+    func testSuggestionsRequestUsesAllPlaceTypesIfTheyWereNotSpecifiedInOptions() {
+        placeAutocomplete.suggestions(for: "query") { _ in }
+        
+        XCTAssertFalse(searchEngine.searchOptions!.types!.isEmpty)
+        XCTAssertEqual(searchEngine.searchOptions!.types!.count, PlaceAutocomplete.PlaceType.allTypes.count)
+    }
 
     func testSuggestionsFilteredBy() {
         let types: [PlaceAutocomplete.PlaceType] = [.POI, .administrativeUnit(.city)]
@@ -127,7 +141,7 @@ final class PlaceAutocompleteTests: XCTestCase {
         XCTAssertFalse(searchEngine.nextSearchCalled)
     }
 
-    func testSelectSuggestionIfNeedToRetrive() {
+    func testSelectSuggestionIfNeedToRetrieve() {
         let coreSuggestion = CoreSearchResultStub.makeSuggestion()
         coreSuggestion.resultTypes = [.poi]
         coreSuggestion.center = CLLocation(latitude: 10.0, longitude: 20.0)
@@ -146,7 +160,7 @@ final class PlaceAutocompleteTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
     }
 
-    func testSelectSuggestionIfDoNotNeedToRetrive() {
+    func testSelectSuggestionIfDoNotNeedToRetrieve() {
         let suggestion = PlaceAutocomplete.Suggestion.makeMock()
 
         let expectation = XCTestExpectation(description: "Call callback")
