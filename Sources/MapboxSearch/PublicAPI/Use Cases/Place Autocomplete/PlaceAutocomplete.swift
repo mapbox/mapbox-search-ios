@@ -157,19 +157,22 @@ public extension PlaceAutocomplete {
 // MARK: - Reverse geocoding query
 private extension PlaceAutocomplete {
     func fetchSuggestions(using options: CoreReverseGeoOptions, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
-        searchEngine.reverseGeocoding(for: options) { [weak self] response in
+        searchEngine.reverseGeocoding(for: options) { response in
             guard let response = Self.preprocessResponse(response) else {
                 return
             }
             
-            switch response.coreResponse.result {
-            case .success(let results):
-                self?.resolve(suggestions: results, with: response.coreResponse.request, completion: completion)
+            switch response.process() {
+            case .success(let processedResponse):
+                do {
+                    let suggestions = try processedResponse.results.map { try Suggestion.from($0) }
+                    completion(.success(suggestions))
+                } catch {
+                    completion(.failure(error))
+                }
 
-            case .failure(let responseError):
-                completion(
-                    .failure(responseError)
-                )
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }
