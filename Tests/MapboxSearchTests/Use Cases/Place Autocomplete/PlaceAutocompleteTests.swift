@@ -172,4 +172,32 @@ final class PlaceAutocompleteTests: XCTestCase {
         XCTAssertFalse(searchEngine.nextSearchCalled)
         wait(for: [expectation], timeout: 1.0)
     }
+    
+    func testReverseGeocodingReturnsAutocompleteSuggestionsAsResults() {
+        let results = [
+            CoreSearchResultStub.makePlace(),
+            CoreSearchResultStub.makeAddress()
+        ].map { $0.asCoreSearchResult }
+
+        searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: results)
+        
+        let suggestionsExpectation = XCTestExpectation(description: "Suggestions resolved")
+        
+        placeAutocomplete.suggestions(
+            for: CLLocationCoordinate2D(latitude: .zero, longitude: .zero)
+        ) { result in
+            suggestionsExpectation.fulfill()
+            
+            let suggestions = try! result.get()
+            XCTAssertEqual(suggestions.count, 2)
+            
+            suggestions.forEach {
+                if case .suggestion = $0.underlying {
+                    XCTFail("Geocoding suggestions should be resolved as results")
+                }
+            }
+        }
+        
+        wait(for: [suggestionsExpectation], timeout: 1.0)
+    }
 }

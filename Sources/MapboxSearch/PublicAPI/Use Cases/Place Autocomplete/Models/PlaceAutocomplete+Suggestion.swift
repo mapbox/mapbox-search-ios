@@ -126,6 +126,7 @@ extension PlaceAutocomplete.Suggestion {
         guard let type = SearchResultType(coreResultTypes: searchSuggestion.resultTypes) else {
             throw Error.invalidResultType
         }
+
         guard let coordinate = searchSuggestion.center?.coordinate,
                 CLLocationCoordinate2DIsValid(coordinate) else {
             throw Error.invalidCoordinates
