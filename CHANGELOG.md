@@ -6,6 +6,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+## 1.0.0-rc.5 - 2023-06-26
+
 ### Fixed
 - [Place Autocomplete]: request all possible `PlaceType` values in case if types were not specified in a search query options.
 - [Place Autocomplete]: fixed an issue when reverevse geocoding suggestion returns error on `select` request.
