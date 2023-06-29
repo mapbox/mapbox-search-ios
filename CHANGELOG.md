@@ -6,6 +6,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+### Fixed
+- [Core]: removed assertion for unsupported search result types.
+
 ## 1.0.0-rc.5 - 2023-06-26
 
 ### Fixed

@@ -98,20 +98,4 @@ class SearchResponseTests: XCTestCase {
         let processedResponse = try response.process().get()
         XCTAssertEqual(processedResponse.suggestions.map({ $0.id }), expectedResults.map({ $0.id }))
     }
-    
-    func testSuccessResponseWithUnsupportedType_UserRecord() throws {
-        #if !arch(x86_64)
-        throw XCTSkip("Unsupported architecture")
-        #else
-
-        let result = CoreSearchResultStub(id: "random-userRecord-type", type: .userRecord)
-        let coreResponse = CoreSearchResponseStub(id: 377, options: .sample1, result: .success([result].map { $0.asCoreSearchResult }))
-        let response = SearchResponse(coreResponse: coreResponse)
-        let assertionError = catchBadInstruction {
-            let processedResponse = try? response.process().get()
-            XCTAssert(processedResponse?.suggestions.isEmpty == true)
-        }
-        XCTAssertNotNil(assertionError)
-        #endif
-    }
 }
