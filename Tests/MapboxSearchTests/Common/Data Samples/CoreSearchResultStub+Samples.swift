@@ -29,7 +29,7 @@ extension CoreSearchResultStub {
         return results
     }
     
-    static func makeSuggestion() -> CoreSearchResultStub {
+    static func makeSuggestion(metadata: CoreResultMetadata? = nil) -> CoreSearchResultStub {
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
             type: .place,
@@ -37,7 +37,8 @@ extension CoreSearchResultStub {
             languages: ["en"],
             center: nil,
             categories: ["cafe"],
-            icon: Maki.alcoholShop.name
+            icon: Maki.alcoholShop.name,
+            metadata: metadata
         )
         return result
     }

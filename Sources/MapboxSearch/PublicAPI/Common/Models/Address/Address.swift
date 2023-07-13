@@ -50,7 +50,7 @@ public struct Address: Codable, Hashable {
         address.country = country ?? ""
         address.state = region ?? ""
         address.city = place ?? ""
-        
+
         return address
     }
     
