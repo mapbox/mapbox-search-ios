@@ -21,3 +21,21 @@ extension SearchResultMetadata {
         website: "https://www.pizzahut.com")
     )
 }
+
+extension CoreResultMetadata {
+    static func make(data: [String: String] = [:]) -> CoreResultMetadata {
+        .init(
+            reviewCount: nil,
+            phone: nil,
+            website: nil,
+            avRating: nil,
+            description: nil,
+            openHours: nil,
+            primaryPhoto: nil,
+            otherPhoto: nil,
+            cpsJson: nil,
+            parking: nil,
+            data: data
+        )
+    }
+}

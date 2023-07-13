@@ -31,8 +31,8 @@ public extension PlaceAutocomplete {
         /// Poi categories. Always empty for non-POI suggestions.
         public let categories: [String]
         
-        /// Textual representation of the address.
-        public let address: Address?
+        /// Type representing address components.
+        public let address: AddressComponents?
         
         /// Business phone number
         public let phone: String?

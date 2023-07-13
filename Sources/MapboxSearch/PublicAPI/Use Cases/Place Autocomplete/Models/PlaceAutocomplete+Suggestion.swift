@@ -77,7 +77,7 @@ extension PlaceAutocomplete.Suggestion {
             estimatedTime: estimatedTime,
             routablePoints: underlyingResult.routablePoints ?? [],
             categories: underlyingResult.categories ?? [],
-            address: underlyingResult.address,
+            address: AddressComponents(searchResult: underlyingResult),
             phone: underlyingResult.metadata?.phone,
             website: underlyingResult.metadata?.website,
             reviewCount: underlyingResult.metadata?.reviewCount,

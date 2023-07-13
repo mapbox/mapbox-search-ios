@@ -6,6 +6,16 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+### Added
+- [PlaceAutocomplete]: added `formattedAddress` function to perform default address formatting.
+- [PlaceAutocomplete]: added `countryISO1` and `countryISO2` properties in the resul's address.
+
+### Fixed
+- [Core]: Fixed street name capitalization for names with numbers.
+
+### Breaking changes
+- [PlaceAutocomplete]: replaced `Address` type of the `Result` to the `AddressComponents`.
+
 ## 1.0.0-rc.5 - 2023-06-29
 
 ### Fixed
