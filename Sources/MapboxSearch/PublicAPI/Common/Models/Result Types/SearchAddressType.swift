@@ -72,7 +72,7 @@ public enum SearchAddressType: String, Hashable, Codable {
         case .block:
             self = .block
 
-        case .unknown, .category, .userRecord, .query, .poi:
+        case .unknown, .category, .userRecord, .query, .poi, .brand:
             fallthrough
 
         @unknown default:

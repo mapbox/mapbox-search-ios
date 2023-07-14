@@ -8,6 +8,9 @@ extension DefaultStringInterpolation {
         case .SBS:
             versionName = "SBS"
             
+        case .searchBox:
+            versionName = "searchBox"
+            
         case .autofill:
             versionName = "autofill"
 
