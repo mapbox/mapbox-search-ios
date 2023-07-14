@@ -273,6 +273,9 @@ public struct SearchOptions {
                 info("Autofill API doesn't support following filter types: \(unsupportedFilterTypes)")
             }
             
+        case .searchBox:
+            _Logger.searchSDK.warning("SearchBox API is not supported yet.")
+            
         @unknown default:
             _Logger.searchSDK.warning("Unexpected engine API Type: \(apiType)")
         }

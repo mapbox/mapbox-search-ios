@@ -17,6 +17,7 @@ extension CoreResultType {
         case .userRecord: return "userRecord"
         case .neighborhood: return "neighborhood"
         case .block: return "block"
+        case .brand: return "brand"
         case .unknown:  fallthrough
         @unknown default:
             return "unknown"
