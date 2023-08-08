@@ -4,10 +4,7 @@
 import PackageDescription
 import Foundation
 
-let (coreSearchVersion, coreSearchVersionHash) = ("0.71.0", "252327e268abc28b9e5546a381d969c5cd1a3a8ccbd4b3ae2a31cef448a61fbc")
-
-let commonMinVersion = Version("23.6.0")
-let commonMaxVersion = Version("24.0.0")
+let (coreSearchVersion, coreSearchVersionHash) = ("0.71.0-Common-24-SNAPSHOT", "59b6e35656ee2be4caa559352384d6a0508fd6cda697392283a72af17533449a")
 
 let package = Package(
     name: "MapboxSearch",
@@ -25,7 +22,7 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
-        .package(name: "MapboxCommon", url: "https://github.com/mapbox/mapbox-common-ios.git", commonMinVersion..<commonMaxVersion),
+        .package(name: "MapboxCommon", url: "https://github.com/mapbox/mapbox-common-ios.git", from: "24.0.0-beta.2"),
         .package(url: "https://github.com/mattgallagher/CwlPreconditionTesting.git", from: "2.0.0")
     ],
     targets: [
@@ -67,7 +64,7 @@ let package = Package(
 
 private func coreSearchTarget(name: String, version: String, checksum: String) -> Target {
     let host = "api.mapbox.com"
-    let url = "https://\(host)/downloads/v2/search-core-sdk/releases/ios/packages/\(version)/MapboxCoreSearch.xcframework.zip"
+    let url = "https://\(host)/downloads/v2/search-core-sdk/snapshots/ios/packages/\(version)/MapboxCoreSearch.xcframework.zip"
 
     return .binaryTarget(name: name, url: url, checksum: checksum)
 }
