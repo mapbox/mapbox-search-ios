@@ -2,10 +2,6 @@
 
 import Foundation
 
-protocol CoreUserActivityReporterOptionsProtocol {
-    init(accessToken: String, userAgent: String, eventsUrl: String?)
-}
-
 protocol CoreUserActivityReporterProtocol {
     static func getOrCreate(for options: CoreUserActivityReporterOptions) -> CoreUserActivityReporter
     
@@ -13,5 +9,3 @@ protocol CoreUserActivityReporterProtocol {
 }
 
 extension CoreUserActivityReporter: CoreUserActivityReporterProtocol {}
-
-extension CoreUserActivityReporterOptions: CoreUserActivityReporterOptionsProtocol {}

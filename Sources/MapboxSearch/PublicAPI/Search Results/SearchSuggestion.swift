@@ -38,7 +38,4 @@ public protocol SearchSuggestion {
     
     /// Distance in meters from result to requested proximity bias. May be `nil` even for correct proximity argument.
     var distance: CLLocationDistance? { get }
-    
-    /// Indicates whatever this suggestion can be batch resolved. Suggestion should be POI type.
-    var batchResolveSupported: Bool { get }
 }

@@ -36,11 +36,7 @@ public final class AddressAutofill {
         )
         
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(
-            for: CoreUserActivityReporterOptions(
-                accessToken: accessToken,
-                userAgent: defaultUserAgent,
-                eventsUrl: nil
-            )
+            for: .init(sdkInformation: globalSDKInformation, eventsUrl: nil)
         )
         
         self.init(searchEngine: searchEngine, userActivityReporter: userActivityReporter)

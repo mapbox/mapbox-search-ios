@@ -74,8 +74,11 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
         
         self.userActivityReporter = .getOrCreate(
             for: .init(
-                accessToken: accessToken,
-                userAgent: defaultUserAgent,
+                sdkInformation: .init(
+                    name: "Search SDK",
+                    version: mapboxSearchSDKVersion,
+                    packageName: nil
+                ),
                 eventsUrl: nil
             )
         )

@@ -1,0 +1,7 @@
+framework module MapboxCoreSearch_Private {
+  umbrella header "MapboxCoreSearch_Internal.h"
+
+  export *
+  module * { export * }
+  link "c++"
+}

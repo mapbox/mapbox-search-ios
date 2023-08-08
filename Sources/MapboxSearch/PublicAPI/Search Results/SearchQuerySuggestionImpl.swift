@@ -22,9 +22,7 @@ class SearchQuerySuggestionImpl: SearchQuerySuggestion, CoreResponseProvider {
     var suggestionType: SearchSuggestType
     
     var distance: CLLocationDistance?
-    
-    let batchResolveSupported: Bool
-    
+
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
         assert(coreResult.center == nil)
         
@@ -37,7 +35,6 @@ class SearchQuerySuggestionImpl: SearchQuerySuggestion, CoreResponseProvider {
         self.iconName = nil // Queries should use it's special icon
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
         self.distance = coreResult.distanceToProximity
-        self.batchResolveSupported = coreResult.action?.isMultiRetrievable ?? false
         self.categories = coreResult.categories
         
         self.descriptionText = coreResult.addressDescription

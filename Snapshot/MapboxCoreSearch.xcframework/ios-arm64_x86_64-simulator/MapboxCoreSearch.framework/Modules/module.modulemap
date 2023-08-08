@@ -1,0 +1,6 @@
+framework module MapboxCoreSearch {
+  umbrella header "MapboxCoreSearch.h"
+
+  export *
+  module * { export * }
+}

@@ -114,8 +114,8 @@ extension CoreSearchResultStub {
             postcode: nil,
             place: nil,
             district: "poi-land",
-            region: "poi-region",
-            country: "poi-country"
+            region: .init(name: "poi-region", regionCode: nil, regionCodeFull: nil),
+            country: .init(name: "poi-country", countryCode: nil, countryCodeAlpha3: nil)
         )
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
@@ -140,8 +140,8 @@ extension CoreSearchResultStub {
             postcode: nil,
             place: nil,
             district: "pizza-land",
-            region: "pizza-region",
-            country: "pizza-country"
+            region: .init(name: "pizza-region", regionCode: nil, regionCodeFull: nil),
+            country: .init(name: "pizza-country", countryCode: nil, countryCodeAlpha3: nil)
         )
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
@@ -166,8 +166,8 @@ extension CoreSearchResultStub {
             postcode: nil,
             place: nil,
             district: "history-land",
-            region: "history-region",
-            country: "history-country"
+            region: .init(name: "history-region", regionCode: nil, regionCodeFull: nil),
+            country: .init(name: "history-country", countryCode: nil, countryCodeAlpha3: nil)
         )
         let result = CoreSearchResultStub(
             id: UUID().uuidString,

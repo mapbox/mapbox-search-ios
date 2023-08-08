@@ -38,7 +38,7 @@ final class PlaceAutocompleteTests: XCTestCase {
         XCTAssertEqual(userActivityReporter.passedActivity, "place-autocomplete-forward-geocoding")
         XCTAssertEqual(searchEngine.query, "query")
         XCTAssertEqual(searchEngine.categories, [])
-        XCTAssertEqual(searchEngine.searchOptions?.isIgnoreUR, true)
+        XCTAssertEqual(searchEngine.searchOptions?.ignoreUR, true)
         XCTAssertEqual(searchEngine.searchOptions?.proximity?.coordinate, coordinate)
         XCTAssertEqual(searchEngine.searchOptions?.origin?.coordinate, coordinate)
         XCTAssertNil(searchEngine.searchOptions?.navProfile)
@@ -75,7 +75,7 @@ final class PlaceAutocompleteTests: XCTestCase {
         XCTAssertEqual(userActivityReporter.passedActivity, "place-autocomplete-forward-geocoding")
         XCTAssertEqual(searchEngine.query, "query")
         XCTAssertEqual(searchEngine.categories, [])
-        XCTAssertEqual(searchEngine.searchOptions?.isIgnoreUR, true)
+        XCTAssertEqual(searchEngine.searchOptions?.ignoreUR, true)
         XCTAssertEqual(searchEngine.searchOptions?.proximity?.coordinate, coordinate)
         XCTAssertEqual(searchEngine.searchOptions?.origin?.coordinate, coordinate)
         XCTAssertEqual(searchEngine.searchOptions?.navProfile, "cycling")
@@ -116,7 +116,7 @@ final class PlaceAutocompleteTests: XCTestCase {
         XCTAssertTrue(searchEngine.nextSearchCalled)
         XCTAssertEqual(searchEngine.query, "query")
         XCTAssertEqual(searchEngine.categories, [])
-        XCTAssertEqual(searchEngine.searchOptions?.isIgnoreUR, true)
+        XCTAssertEqual(searchEngine.searchOptions?.ignoreUR, true)
     }
 
     func testDoNotCallRetrieveForSuggestionWithCoordinate() {

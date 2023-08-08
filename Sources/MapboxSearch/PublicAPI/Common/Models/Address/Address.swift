@@ -86,8 +86,8 @@ extension Address {
             postcode: valueOrNil(coreAddress.postcode),
             place: valueOrNil(coreAddress.place),
             district: valueOrNil(coreAddress.district),
-            region: valueOrNil(coreAddress.region),
-            country: valueOrNil(coreAddress.country)
+            region: valueOrNil(coreAddress.region?.name),
+            country: valueOrNil(coreAddress.country?.name)
         )
     }
     
@@ -99,8 +99,8 @@ extension Address {
                     postcode: postcode,
                     place: place,
                     district: district,
-                    region: region,
-                    country: country)
+                    region: nil,
+                    country: nil)
     }
 }
 

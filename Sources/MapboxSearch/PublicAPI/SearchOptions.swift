@@ -188,7 +188,7 @@ public struct SearchOptions {
                   navigationOptions: profile,
                   routeOptions: routeOptions,
                   filterTypes: filterTypes,
-                  ignoreIndexableRecords: options.isIgnoreUR,
+                  ignoreIndexableRecords: options.ignoreUR,
                   indexableRecordsDistanceThreshold: options.urDistanceThreshold?.doubleValue,
                   unsafeParameters: options.addonAPI)
     }

@@ -21,9 +21,7 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
     var categories: [String]?
     
     var distance: CLLocationDistance?
-    
-    let batchResolveSupported: Bool
-    
+
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
         assert(coreResult.center == nil)
         
@@ -37,7 +35,6 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
         self.serverIndex = coreResult.serverIndex?.intValue
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
         self.distance = coreResult.distanceToProximity
-        self.batchResolveSupported = coreResult.action?.isMultiRetrievable ?? false
         self.categories = coreResult.categories
         
         self.descriptionText = coreResult.addressDescription

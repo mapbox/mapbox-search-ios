@@ -199,43 +199,6 @@ class SearchEngineTests: XCTestCase {
         XCTAssertEqual(resolvedResult.id, selectedResult.id)
     }
     
-    func testBatchResolve() throws {
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
-        searchEngine.delegate = delegate
-        
-        let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
-        let results = CoreSearchResultStub.makeMixedResultsSet()
-        let coreResponse = CoreSearchResponseStub.successSample(results: results)
-        engine.searchResponse = coreResponse
-        let expectation = delegate.batchUpdateExpectation
-        
-        let suggestions = CoreSearchResultStub.makeSuggestionsSet().compactMap {
-            SearchResultSuggestionImpl(coreResult: $0, response: coreResponse)
-        }
-        
-        searchEngine.select(suggestions: suggestions)
-        
-        wait(for: [expectation], timeout: 10)
-        XCTAssertEqual(results.map { $0.id }, delegate.resolvedResults.map { $0.id })
-    }
-    
-    func testEmptyBatchResolve() throws {
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
-        searchEngine.delegate = delegate
-        
-        let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
-        let results = CoreSearchResultStub.makeMixedResultsSet()
-        let coreResponse = CoreSearchResponseStub.successSample(results: results)
-        engine.searchResponse = coreResponse
-        let expectation = delegate.batchUpdateExpectation
-        expectation.isInverted = true
-        let suggestions: [SearchSuggestion] = []
-        
-        searchEngine.select(suggestions: suggestions)
-        wait(for: [expectation], timeout: 0.5)
-        XCTAssertTrue(delegate.resolvedResults.isEmpty)
-    }
-    
     func testSuggestionTypeQuery() throws {
         let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
         searchEngine.delegate = delegate
@@ -258,37 +221,7 @@ class SearchEngineTests: XCTestCase {
         
         XCTAssertEqual(expectedResults.map { $0.id }, results.map { $0.id })
     }
-    
-    func testBatchResolveFailedResponse() throws {
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
-        searchEngine.delegate = delegate
-        
-        let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
 
-        let expectedError = NSError(domain: mapboxCoreSearchErrorDomain,
-                                   code: 500,
-                                   userInfo: [NSLocalizedDescriptionKey: "Server Internal error"])
-        let coreResponse = CoreSearchResponseStub.failureSample(error: expectedError)
-        engine.searchResponse = coreResponse
-        let expectation = delegate.errorExpectation
-        
-        let suggestions = CoreSearchResultStub.makeSuggestionsSet().compactMap {
-            SearchResultSuggestionImpl(coreResult: $0, response: coreResponse)
-        }
-        
-        searchEngine.select(suggestions: suggestions)
-        
-        wait(for: [expectation], timeout: 10)
-        
-        guard case let .generic(code, domain, message) = delegate.error else {
-            XCTFail("Generic error expected")
-            return
-        }
-        XCTAssertEqual(expectedError.code, code)
-        XCTAssertEqual(expectedError.domain, domain)
-        XCTAssertEqual(expectedError.localizedDescription, message)
-    }
-    
     func testBatchResolveNoResponse() throws {
         #if !arch(x86_64)
         throw XCTSkip("Unsupported architecture")

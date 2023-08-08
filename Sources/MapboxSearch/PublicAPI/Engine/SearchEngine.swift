@@ -400,33 +400,6 @@ extension SearchEngine {
         }
     }
     
-    /// Function to select multiple suggestions at once.
-    /// With the current implementation, only POI suggestions support batch resolving.
-    /// All suggestions must originate from the same search request.
-    /// Suggestions with other types will be ignored. You can use `SearchSuggestion.batchResolveSupported` field for filtering.
-    /// - Parameter suggestions: suggestions list to resolve. All suggestions must originate from the same search request.
-    public func select(suggestions: [SearchSuggestion]) {
-        for suggestion in suggestions {
-            let supported = (suggestion as? CoreResponseProvider)?.originalResponse.coreResult.action?.isMultiRetrievable == true
-            if !supported {
-                _Logger.searchSDK.warning("Unsupported suggestion: \(suggestion.name) of type: \(suggestion.suggestionType)")
-            }
-        }
-        let suggestionsImpls = suggestions
-            .compactMap({ $0 as? CoreResponseProvider })
-            .filter({ $0.originalResponse.coreResult.action?.isMultiRetrievable == true })
-        
-        guard suggestionsImpls.isEmpty == false else {
-            return
-        }
-        let options = suggestionsImpls[0].originalResponse.requestOptions
-        let coreSearchResults = suggestionsImpls.compactMap({ $0.originalResponse.coreResult })
-        
-        engine.batchResolve(results: coreSearchResults, with: options) { response in
-            self.processBatchResponse(response)
-        }
-    }
-    
     /// Reverse geocoding of coordinates to addresses.
     /// The default behavior in reverse geocoding is to return at most one feature at each of the multiple levels of the administrative hierarchy (for example, one address, one region, one country).
     /// Increasing the limit allows returning multiple features of the same type, but only for one type (for example, multiple address results).

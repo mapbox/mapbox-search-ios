@@ -44,9 +44,7 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
     var iconName: String?
     
     var type: SearchResultType
-    
-    let batchResolveSupported: Bool
-    
+
     var suggestionType: SearchSuggestType {
         switch type {
         case .POI: return .POI
@@ -75,7 +73,6 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
         self.distance = coreResult.distanceToProximity ??
             response.request.options.proximity?.distance(from: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude))
         self.routablePoints = coreResult.routablePoints?.map(RoutablePoint.init)
-        self.batchResolveSupported = coreResult.action?.isMultiRetrievable ?? false
         self.descriptionText = coreResult.addressDescription
         
         assert(!id.isEmpty)

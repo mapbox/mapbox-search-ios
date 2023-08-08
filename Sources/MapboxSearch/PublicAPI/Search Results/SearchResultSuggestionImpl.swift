@@ -22,9 +22,7 @@ class SearchResultSuggestionImpl: SearchResultSuggestion, CoreResponseProvider {
     
     var descriptionText: String?
     var distance: CLLocationDistance?
-    
-    let batchResolveSupported: Bool
-    
+
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
         assert(coreResult.center == nil, "CoreSearchResult should not contain coordinate. Instantiate \(ServerSearchResult.self) instead.")
         
@@ -48,7 +46,6 @@ class SearchResultSuggestionImpl: SearchResultSuggestion, CoreResponseProvider {
         self.serverIndex = coreResult.serverIndex?.intValue
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
         self.distance = coreResult.distanceToProximity
-        self.batchResolveSupported = coreResult.action?.isMultiRetrievable ?? false
         self.categories = coreResult.categories
         
         self.descriptionText = coreResult.addressDescription

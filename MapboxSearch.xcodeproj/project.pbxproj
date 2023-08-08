@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		140D1BDC286DB479001A51C2 /* SearchResultAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */; };
+		140D61C22A829C0B001F4CD3 /* MapboxCoreSearch.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140D61C12A829C0B001F4CD3 /* MapboxCoreSearch.xcframework */; };
+		140D61C32A829C0B001F4CD3 /* MapboxCoreSearch.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 140D61C12A829C0B001F4CD3 /* MapboxCoreSearch.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		140D61C72A829E51001F4CD3 /* SearchSDKInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140D61C62A829E51001F4CD3 /* SearchSDKInformation.swift */; };
 		140E47A2298BC90E00677E30 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A1298BC90E00677E30 /* Discover.swift */; };
 		140E47A5298BC94D00677E30 /* Discover+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A4298BC94D00677E30 /* Discover+Options.swift */; };
 		140E47A7298BCBDF00677E30 /* Discover+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A6298BCBDF00677E30 /* Discover+Query.swift */; };
@@ -87,7 +90,6 @@
 		2CE1B9FD2A13D41A005B043F /* address-suggestions-san-francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1B9F92A13D412005B043F /* address-suggestions-san-francisco.json */; };
 		2CE1B9FE2A13D41A005B043F /* address-retrieve-san-francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1B9FA2A13D412005B043F /* address-retrieve-san-francisco.json */; };
 		3A0D7E56233522D5006D81BB /* MapboxSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */; };
-		E648C0B626428D2B0044315F /* MapboxCoreSearch.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */; };
 		E648C0BA26428D3D0044315F /* MapboxCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B926428D3D0044315F /* MapboxCommon.xcframework */; };
 		E648C0BD26428D530044315F /* MapboxCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B926428D3D0044315F /* MapboxCommon.xcframework */; };
 		E648C0BE26428D530044315F /* MapboxCommon.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B926428D3D0044315F /* MapboxCommon.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -458,6 +460,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		140D61C42A829C0B001F4CD3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				140D61C32A829C0B001F4CD3 /* MapboxCoreSearch.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FEBC00E2243C6D32000B268B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -475,6 +488,9 @@
 
 /* Begin PBXFileReference section */
 		140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAccuracy.swift; sourceTree = "<group>"; };
+		140D61BD2A829BFA001F4CD3 /* MapboxCoreSearch 18.51.00.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "MapboxCoreSearch 18.51.00.xcframework"; path = "Snapshot/MapboxCoreSearch 18.51.00.xcframework"; sourceTree = "<group>"; };
+		140D61C12A829C0B001F4CD3 /* MapboxCoreSearch.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxCoreSearch.xcframework; path = Snapshot/MapboxCoreSearch.xcframework; sourceTree = "<group>"; };
+		140D61C62A829E51001F4CD3 /* SearchSDKInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSDKInformation.swift; sourceTree = "<group>"; };
 		140E47A1298BC90E00677E30 /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
 		140E47A4298BC94D00677E30 /* Discover+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discover+Options.swift"; sourceTree = "<group>"; };
 		140E47A6298BCBDF00677E30 /* Discover+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discover+Query.swift"; sourceTree = "<group>"; };
@@ -822,8 +838,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E648C0B626428D2B0044315F /* MapboxCoreSearch.xcframework in Frameworks */,
 				E648C0BA26428D3D0044315F /* MapboxCommon.xcframework in Frameworks */,
+				140D61C22A829C0B001F4CD3 /* MapboxCoreSearch.xcframework in Frameworks */,
 				E648C0C9264297A10044315F /* libc++.1.tbd in Frameworks */,
 				149948E7290A8ACE00E7E619 /* Swifter in Frameworks */,
 			);
@@ -1278,6 +1294,8 @@
 		3A0972062361A19E003F200F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				140D61C12A829C0B001F4CD3 /* MapboxCoreSearch.xcframework */,
+				140D61BD2A829BFA001F4CD3 /* MapboxCoreSearch 18.51.00.xcframework */,
 				E648C0C8264297730044315F /* libc++.1.tbd */,
 				E648C0B926428D3D0044315F /* MapboxCommon.xcframework */,
 				E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */,
@@ -1412,6 +1430,7 @@
 				F9E8146125418E7D00F6378E /* EventsManager.swift */,
 				F9F6378925DD6A4E00C99904 /* FeedbackManager.swift */,
 				F98BECBC2577B93D0081D3BC /* FeedbackEvent.swift */,
+				140D61C62A829E51001F4CD3 /* SearchSDKInformation.swift */,
 			);
 			path = Telemetry;
 			sourceTree = "<group>";
@@ -1775,6 +1794,7 @@
 				3A0D7E49233522D4006D81BB /* Frameworks */,
 				3A0D7E4A233522D4006D81BB /* Resources */,
 				3A2CBBD4238B0FF400A5BA69 /* SwiftLint */,
+				140D61C42A829C0B001F4CD3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2326,6 +2346,7 @@
 			files = (
 				F93DA6FF274E4B86005595B5 /* CoreSearchEngineStatics.swift in Sources */,
 				14F71865299FD4BD00D5BC2E /* PlaceAutocomplete+PlaceType.swift in Sources */,
+				140D61C72A829E51001F4CD3 /* SearchSDKInformation.swift in Sources */,
 				F9F6378A25DD6A4E00C99904 /* FeedbackManager.swift in Sources */,
 				148DE65D28574E6E0085684D /* AddressAutofill.swift in Sources */,
 				140E47A7298BCBDF00677E30 /* Discover+Query.swift in Sources */,
