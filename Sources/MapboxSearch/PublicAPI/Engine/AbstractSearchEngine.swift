@@ -1,4 +1,5 @@
 import Foundation
+import MapboxCommon
 
 /// Abstract configuration protocol for Search Engine
 public protocol AbstractSearchEngineConfiguration {
@@ -63,6 +64,8 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
         guard let accessToken = accessToken ?? serviceProvider.getStoredAccessToken() else {
             fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
         }
+        
+        MapboxOptions.accessToken = accessToken
         
         self.supportSBS = supportSBS
         self.locationProvider = locationProvider
