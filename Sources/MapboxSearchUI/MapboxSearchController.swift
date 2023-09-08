@@ -16,12 +16,20 @@ public protocol SearchControllerDelegate: AnyObject {
     
     /// Control auto-collapse behavior of the panel after result selection.
     func shouldCollapseForSelection(_ searchResult: SearchResult) -> Bool
+  
+    /// Control auto-hide behavior of the panel after result selection.
+    func shouldHideForSelection(_ searchResult: SearchResult) -> Bool
 }
 
 public extension SearchControllerDelegate {
     /// Control auto-collapse behavior of the panel after result selection. Default `true`.
     func shouldCollapseForSelection(_ searchResult: SearchResult) -> Bool {
         return true
+    }
+  
+    /// Control auto-collapse behavior of the panel after result selection. Default `true`.
+    func shouldHideForSelection(_ searchResult: SearchResult) -> Bool {
+        return false
     }
 }
 
@@ -307,6 +315,10 @@ public class MapboxSearchController: UIViewController {
             view.endEditing(true)
             panel?.setState(.collapsed, animated: true)
         }
+        if delegate?.shouldHideForSelection(searchResult) == true {
+            view.endEditing(true)
+            panel?.setState(.hidden, animated: true)
+        }
     }
     
     func handleCreateFavoriteSearchResult(_ searchResult: SearchResult) {
@@ -418,14 +430,19 @@ public extension MapboxSearchController {
     ///   - animated: Should changes be animated
     ///   - collapse: Change the collapsing status. Pass `nil` to not apply status changes.
     ///               Default: `.collapsed`
-    func resetSearchUI(animated: Bool, collapse: MapboxPanelController.State? = .collapsed) {
+    func resetSearchUI(animated: Bool, to panelState: MapboxPanelController.State? = .collapsed) {
         resetSearch(animated: animated)
         categoriesRootView?.resetUI(animated: animated)
         
-        if let collapse = collapse {
-            mapboxPanelController?.setState(collapse, animated: animated)
+        if let newState = panelState {
+            mapboxPanelController?.setState(newState, animated: animated)
         }
     }
+    
+  func requestSearchStateUI(){
+    resetSearch(animated: true)
+    updateSearchState(.localSearch)
+  }
 }
 
 // MARK: - Search Engine Delegate
