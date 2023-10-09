@@ -87,6 +87,7 @@
 		2CE1B9FD2A13D41A005B043F /* address-suggestions-san-francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1B9F92A13D412005B043F /* address-suggestions-san-francisco.json */; };
 		2CE1B9FE2A13D41A005B043F /* address-retrieve-san-francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1B9FA2A13D412005B043F /* address-retrieve-san-francisco.json */; };
 		3A0D7E56233522D5006D81BB /* MapboxSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */; };
+		DFBC8A6D2AD42F5F00D394EF /* Any+dumpAsString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBC8A6C2AD42F5F00D394EF /* Any+dumpAsString.swift */; };
 		E648C0B626428D2B0044315F /* MapboxCoreSearch.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */; };
 		E648C0BA26428D3D0044315F /* MapboxCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B926428D3D0044315F /* MapboxCommon.xcframework */; };
 		E648C0BD26428D530044315F /* MapboxCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B926428D3D0044315F /* MapboxCommon.xcframework */; };
@@ -537,6 +538,7 @@
 		2CE1B9FA2A13D412005B043F /* address-retrieve-san-francisco.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "address-retrieve-san-francisco.json"; sourceTree = "<group>"; };
 		3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0D7E55233522D5006D81BB /* MapboxSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapboxSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFBC8A6C2AD42F5F00D394EF /* Any+dumpAsString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Any+dumpAsString.swift"; sourceTree = "<group>"; };
 		E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxCoreSearch.xcframework; path = Carthage/Build/MapboxCoreSearch.xcframework; sourceTree = "<group>"; };
 		E648C0B926428D3D0044315F /* MapboxCommon.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxCommon.xcframework; path = Carthage/Build/MapboxCommon.xcframework; sourceTree = "<group>"; };
 		E648C0C8264297730044315F /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
@@ -1173,6 +1175,7 @@
 			isa = PBXGroup;
 			children = (
 				148DE670285777180085684D /* NSLocking+Extensions.swift */,
+				DFBC8A6C2AD42F5F00D394EF /* Any+dumpAsString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2351,6 +2354,7 @@
 				FEEDD3052508DFE400DC0A98 /* BoundingBox.swift in Sources */,
 				FEEDD2FE2508DFE400DC0A98 /* CoreSearchResultProtocol.swift in Sources */,
 				140E47A5298BC94D00677E30 /* Discover+Options.swift in Sources */,
+				DFBC8A6D2AD42F5F00D394EF /* Any+dumpAsString.swift in Sources */,
 				F914EE642743E4F400D4F173 /* CoreAliases.swift in Sources */,
 				F998AED825D17DFF00230F34 /* SearchResponseInfo.swift in Sources */,
 				FEEDD3082508DFE400DC0A98 /* HistoryRecord.swift in Sources */,
