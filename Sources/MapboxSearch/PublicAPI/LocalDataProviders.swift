@@ -80,7 +80,7 @@ public class LocalDataProvider<Record: Codable & SearchResult & IndexableRecord>
     /// - Parameter record: entity to add
     public func add(record: Record) {
         recordsMap[record.id] = record
-        _Logger.searchSDK.debug("New record [id='\(record.id)'] in \(self). Whole record: \(dump(record))",
+        _Logger.searchSDK.debug("New record [id='\(record.id)'] in \(self). Whole record: \(dumpAsString(record))",
                       category: .userRecords)
         
         for interactor in providerInteractors {
