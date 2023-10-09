@@ -6,6 +6,11 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+## 1.0.0-rc.8 - 2023-10-09
+
+### Fixed
+- [Core]: removed unnecessary log statement that didn't respect the `LoggerLevel` setting.
+
 ## 1.0.0-rc.7 - 2023-07-13
 
 ### Added
