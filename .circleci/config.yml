@@ -235,7 +235,7 @@ jobs:
 
   spm-build:
     macos:
-      xcode: 13.4.0
+      xcode: 14.3.1
     steps:
       - checkout
       - setup-authentication
