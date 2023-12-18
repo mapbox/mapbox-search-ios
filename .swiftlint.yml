@@ -143,7 +143,13 @@ type_body_length:
 modifier_order:
   preferred_modifier_order: [acl, setterACL, override, dynamic, mutators, lazy, final, required, convenience, typeMethods, owned]
 # Disable rules from the default enabled set
-#disabled_rules:
+disabled_rules:
+  - large_tuple
+  - line_length
+  - force_unwrap
+  - force_cast
+  - force_try
+  - trailing_whitespace
 # - array_init # Prefer using Array(seq) over seq.map { $0 } to convert a sequence into an Array.
 # - attributes # Attributes should be on their own lines in functions and types, but on the same line as variables and imports. # Roman: Attributes is currently broken for @IBAction on above line
 # - closure_body_length # Closure bodies should not span too many lines.

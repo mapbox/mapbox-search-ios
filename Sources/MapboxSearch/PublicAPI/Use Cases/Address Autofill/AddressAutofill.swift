@@ -100,18 +100,23 @@ public extension AddressAutofill {
     ///   - completion: Result of the suggestion selection, one of error or value.
     func select(
         suggestion: Suggestion,
+        with options: Options? = nil,
         completion: @escaping (Swift.Result<AddressAutofill.Result, Error>
         ) -> Void
     ) {
         userActivityReporter.reportActivity(forComponent: "address-autofill-suggestion-select")
 
-        let result = AddressAutofill.Result(
-            name: suggestion.name,
-            formattedAddress: suggestion.formattedAddress,
-            coordinate: suggestion.coordinate,
-            addressComponents: suggestion.addressComponents
-        )
-        completion(.success(result))
+        guard let coreSearch = suggestion.coreSearch,
+            let coreOptions = suggestion.coreRequestOptions else {
+            completion(.failure(SearchError.responseProcessingFailed))
+            return
+        }
+
+        searchEngine.nextSearch(for: coreSearch, with: coreOptions) { [weak self] coreResponse in
+            guard let self else { return }
+
+            self.manage(response: coreResponse, completion: completion)
+        }
     }
 }
 
@@ -147,7 +152,7 @@ private extension AddressAutofill {
     }
 }
 
-// MARK: - Text query
+// MARK: - Suggestion Text query
 private extension AddressAutofill {
     func fetchSuggestions(for query: String, with options: CoreSearchOptions, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
         searchEngine.search(
@@ -200,53 +205,59 @@ private extension AddressAutofill {
         guard !suggestions.isEmpty else {
             return completion(.success([]))
         }
-        
-        let dispatchGroup = DispatchGroup()
-        
-        var resolvedResultsUnsafe: [SearchResult?] = Array(repeating: nil, count: suggestions.count)
-        let lock = NSLock()
 
-        suggestions.enumerated().forEach { iterator in
-            dispatchGroup.enter()
-            
-            searchEngine.nextSearch(for: iterator.element, with: options) { response in
-                defer { dispatchGroup.leave() }
-                
-                guard let coreResponse = response else {
-                    assertionFailure("Response should never be nil")
-                    return
-                }
-                
-                guard let response = Self.preprocessResponse(coreResponse) else {
-                    return
-                }
-                
-                switch response.process() {
-                case .success(let processedResponse):
-                    guard let result = processedResponse.results.first else {
-                        return
-                    }
-                
-                    lock.sync {
-                        resolvedResultsUnsafe[iterator.offset] = result
-                    }
-                    
-                case .failure(let error):
-                    completion(.failure(error))
-                }
+        let resolvedSuggestions = suggestions.compactMap { result -> Suggestion? in
+            guard let address = result.addresses?.first,
+                  let matchingName = result.matchingName,
+                  let fullAddress = result.fullAddress,
+                  let resultAddress = try? address.toAutofillComponents() else {
+                return nil
             }
+
+            return Suggestion(name: matchingName,
+                              formattedAddress: fullAddress,
+                              coordinate: result.center?.coordinate,
+                              addressComponents: resultAddress,
+                              coreSearch: result,
+                              coreRequestOptions: options)
         }
-        
-        dispatchGroup.notify(queue: .main) {
-            let resolvedSuggestions: [Suggestion] = resolvedResultsUnsafe.compactMap {
-                do {
-                    return try $0.map(Suggestion.from(_:))
-                } catch {
-                    return nil
-                }
+
+        completion(.success(resolvedSuggestions))
+    }
+}
+
+// MARK: - Suggestion Retrieval Query
+private extension AddressAutofill {
+    /// Manage responses from retrieve invocations.
+    /// - Parameters:
+    ///   - coreResponse: Response from retrieve endpoint for a given suggestion.
+    ///   - completion: Completion to execute when done processing response.
+    func manage(
+        response coreResponse: CoreSearchResponseProtocol?,
+        completion: @escaping (Swift.Result<AddressAutofill.Result, Error>) -> Void
+    ) {
+        guard let response = Self.preprocessResponse(coreResponse) else {
+            completion(.failure(SearchError.responseProcessingFailed))
+            return
+        }
+
+        switch response.process() {
+        case .success(let success):
+            guard let result = success.results.first,
+                  let formattedAddress = result.address?.formattedAddress(style: .full),
+                  let addressComponents = try? result.address?.toAutofillComponents() else {
+                completion(.failure(SearchError.responseProcessingFailed))
+                return
             }
-            
-            completion(.success(resolvedSuggestions))
+
+            let autofillResult = AddressAutofill.Result(name: result.name,
+                                                        formattedAddress: formattedAddress,
+                                                        coordinate: result.coordinate,
+                                                        addressComponents: addressComponents)
+
+            completion(.success(autofillResult))
+        case .failure(let failure):
+            completion(.failure(failure))
         }
     }
 }
