@@ -302,7 +302,7 @@ private extension PlaceAutocomplete {
             let placeTypes = SearchResultType(coreResultTypes: coreResultTypes)
             let categories = result.categories ?? []
             let routablePoints = result.routablePoints?.compactMap { RoutablePoint(routablePoint: $0) } ?? []
-            let underlying = Suggestion.Underlying.suggestion(result, options)
+            let underlying: Suggestion.Underlying = .suggestion(result, options)
 
             return Suggestion(name: matchingName,
                               description: result.addressDescription,

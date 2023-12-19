@@ -106,8 +106,7 @@ public extension AddressAutofill {
     ) {
         userActivityReporter.reportActivity(forComponent: "address-autofill-suggestion-select")
 
-        guard let coreSearch = suggestion.coreSearch,
-            let coreOptions = suggestion.coreRequestOptions else {
+        guard case let .suggestion(coreSearch, coreOptions) = suggestion.underlying else {
             completion(.failure(SearchError.responseProcessingFailed))
             return
         }
@@ -202,24 +201,21 @@ private extension AddressAutofill {
         with options: CoreRequestOptions,
         completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
     ) {
-        guard !suggestions.isEmpty else {
-            return completion(.success([]))
-        }
-
         let resolvedSuggestions = suggestions.compactMap { result -> Suggestion? in
             guard let address = result.addresses?.first,
-                  let matchingName = result.matchingName,
-                  let fullAddress = result.fullAddress,
                   let resultAddress = try? address.toAutofillComponents() else {
                 return nil
             }
+
+            let matchingName = result.matchingName ?? " "
+            let fullAddress = result.fullAddress ?? ""
+            let underlying: Suggestion.Underlying = .suggestion(result, options)
 
             return Suggestion(name: matchingName,
                               formattedAddress: fullAddress,
                               coordinate: result.center?.coordinate,
                               addressComponents: resultAddress,
-                              coreSearch: result,
-                              coreRequestOptions: options)
+                              underlying: underlying)
         }
 
         completion(.success(resolvedSuggestions))

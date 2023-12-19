@@ -17,26 +17,29 @@ public extension AddressAutofill {
         /// The individual address components.
         internal let addressComponents: NonEmptyArray<AddressComponent>
 
-        /// THe original search's request, used to complete autofill/v1/retrieve calls for this suggestion.
-        internal let coreSearch: CoreSearchResultProtocol?
-
-        /// The original search's options, used to complete autofill/v1/retrieve calls for this suggestion.
-        internal let coreRequestOptions: CoreRequestOptions?
+        /// Underlying data provided by core SDK and API used to construct this Suggestion instance.
+        /// Useful for any follow-up API calls or unit test validation.
+        internal let underlying: Underlying
 
         init(
             name: String,
             formattedAddress: String,
             coordinate: CLLocationCoordinate2D?,
             addressComponents: NonEmptyArray<AddressComponent>,
-            coreSearch: CoreSearchResultProtocol? = nil,
-            coreRequestOptions: CoreRequestOptions? = nil
+            underlying: Underlying
         ) {
             self.name = name
             self.formattedAddress = formattedAddress
             self.coordinate = coordinate
             self.addressComponents = addressComponents
-            self.coreSearch = coreSearch
-            self.coreRequestOptions = coreRequestOptions
+            self.underlying = underlying
         }
+    }
+}
+
+extension AddressAutofill.Suggestion {
+    enum Underlying {
+        case suggestion(CoreSearchResultProtocol, CoreRequestOptions)
+        case result(SearchResult)
     }
 }

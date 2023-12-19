@@ -32,6 +32,8 @@ public extension PlaceAutocomplete {
         /// List of points near `coordinate`, that represents entries to associated building.
         public let routablePoints: [RoutablePoint]
         
+        /// Underlying data provided by core SDK and API used to construct this Suggestion instance.
+        /// Useful for any follow-up API calls or unit test validation.
         let underlying: Underlying
 
         init(
