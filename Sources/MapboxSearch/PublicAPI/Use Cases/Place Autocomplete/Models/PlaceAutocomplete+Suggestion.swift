@@ -12,8 +12,8 @@ public extension PlaceAutocomplete {
         public let description: String?
 
         /// Geographic point.
-        public let coordinate: CLLocationCoordinate2D
-        
+        public let coordinate: CLLocationCoordinate2D?
+
         /// Icon name according to [Mapbox Maki icon set](https://github.com/mapbox/maki/)
         public let iconName: String?
 
@@ -37,7 +37,7 @@ public extension PlaceAutocomplete {
         init(
             name: String,
             description: String?,
-            coordinate: CLLocationCoordinate2D,
+            coordinate: CLLocationCoordinate2D?,
             iconName: String?,
             distance: CLLocationDistance?,
             estimatedTime: Measurement<UnitDuration>?,
