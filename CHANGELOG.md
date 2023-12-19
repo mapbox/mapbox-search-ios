@@ -6,6 +6,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+- [Address Autofill]: removed pre-fetching for suggestions
+- [Place Autocomplete]: removed pre-fetching for suggestions
+
 ## 1.0.0-rc.8 - 2023-10-09
 
 ### Fixed

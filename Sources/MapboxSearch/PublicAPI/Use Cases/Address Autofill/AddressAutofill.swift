@@ -100,7 +100,6 @@ public extension AddressAutofill {
     ///   - completion: Result of the suggestion selection, one of error or value.
     func select(
         suggestion: Suggestion,
-        with options: Options? = nil,
         completion: @escaping (Swift.Result<AddressAutofill.Result, Error>
         ) -> Void
     ) {
