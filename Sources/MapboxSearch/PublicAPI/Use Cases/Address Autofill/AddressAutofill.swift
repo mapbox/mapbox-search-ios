@@ -111,7 +111,7 @@ public extension AddressAutofill {
         }
 
         searchEngine.nextSearch(for: coreSearch, with: coreOptions) { [weak self] coreResponse in
-            guard let self else { return }
+            guard let self = self else { return }
 
             self.manage(response: coreResponse, completion: completion)
         }
