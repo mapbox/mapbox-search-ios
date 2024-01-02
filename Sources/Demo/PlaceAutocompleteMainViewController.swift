@@ -84,7 +84,7 @@ extension PlaceAutocompleteMainViewController: UITableViewDataSource, UITableVie
 
         tableViewCell.detailTextLabel?.text = description
         tableViewCell.detailTextLabel?.textColor = UIColor.darkGray
-        tableViewCell.detailTextLabel?.numberOfLines = 4
+        tableViewCell.detailTextLabel?.numberOfLines = 3
         
         return tableViewCell
     }
@@ -102,10 +102,6 @@ extension PlaceAutocompleteMainViewController: UITableViewDataSource, UITableVie
                 print("Suggestion selection error \(error)")
             }
         }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
     }
 }
 

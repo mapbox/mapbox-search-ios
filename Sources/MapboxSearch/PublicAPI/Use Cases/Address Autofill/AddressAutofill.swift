@@ -201,16 +201,16 @@ private extension AddressAutofill {
         completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
     ) {
         let resolvedSuggestions = suggestions.compactMap { result -> Suggestion? in
-            guard let address = result.addresses?.first,
+            guard let name = result.names.first,
+                  let address = result.addresses?.first,
                   let resultAddress = try? address.toAutofillComponents() else {
                 return nil
             }
 
-            let matchingName = result.matchingName ?? " "
             let fullAddress = result.fullAddress ?? ""
             let underlying: Suggestion.Underlying = .suggestion(result, options)
 
-            return Suggestion(name: matchingName,
+            return Suggestion(name: name,
                               formattedAddress: fullAddress,
                               coordinate: result.center?.coordinate,
                               addressComponents: resultAddress,

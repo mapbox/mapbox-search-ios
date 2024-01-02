@@ -293,7 +293,7 @@ private extension PlaceAutocomplete {
         }
 
         let resolvedSuggestions = filteredSuggestions.compactMap { result -> Suggestion? in
-            let matchingName = result.matchingName ?? ""
+            let name = result.names.first ?? ""
             let distance = result.distance.flatMap { CLLocationDistance(integerLiteral: $0.int64Value) }
             let coreResultTypes = result.types.compactMap { CoreResultType(rawValue: $0.intValue) }
             let placeTypes = SearchResultType(coreResultTypes: coreResultTypes)
@@ -301,7 +301,7 @@ private extension PlaceAutocomplete {
             let routablePoints = result.routablePoints?.compactMap { RoutablePoint(routablePoint: $0) } ?? []
             let underlying: Suggestion.Underlying = .suggestion(result, options)
 
-            return Suggestion(name: matchingName,
+            return Suggestion(name: name,
                               description: result.addressDescription,
                               coordinate: result.center?.coordinate,
                               iconName: result.icon,

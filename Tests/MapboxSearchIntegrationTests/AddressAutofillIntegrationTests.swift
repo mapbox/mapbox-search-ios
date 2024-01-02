@@ -49,10 +49,7 @@ final class AddressAutofillIntegrationTests: MockServerTestCase {
         )
         let expectedAddressComponents = try! expectedAddress.toAutofillComponents()
 
-        guard let actualSuggestion = suggestion else {
-            XCTFail("Should return non nil suggestion")
-            return
-        }
+        let actualSuggestion = try! XCTUnwrap(suggestion, "Should return non-nil suggestion")
 
         let selectionExpectation = XCTestExpectation(description: "Expecting selection result")
 
