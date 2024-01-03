@@ -105,15 +105,25 @@ public extension AddressAutofill {
     ) {
         userActivityReporter.reportActivity(forComponent: "address-autofill-suggestion-select")
 
-        guard case let .suggestion(coreSearch, coreOptions) = suggestion.underlying else {
-            completion(.failure(SearchError.responseProcessingFailed))
-            return
-        }
+        switch suggestion.underlying {
+        case let .suggestion(coreSearch, coreOptions):
+            searchEngine.nextSearch(for: coreSearch, with: coreOptions) { [weak self] coreResponse in
+                guard let self = self else { return }
 
-        searchEngine.nextSearch(for: coreSearch, with: coreOptions) { [weak self] coreResponse in
-            guard let self = self else { return }
-
-            self.manage(response: coreResponse, completion: completion)
+                self.manage(response: coreResponse, completion: completion)
+            }
+        case .result:
+            guard let coordinate = suggestion.coordinate else {
+                completion(.failure(SearchError.responseProcessingFailed))
+                return
+            }
+            let result = AddressAutofill.Result(
+                 name: suggestion.name,
+                 formattedAddress: suggestion.formattedAddress,
+                 coordinate: coordinate,
+                 addressComponents: suggestion.addressComponents
+             )
+            completion(.success(result))
         }
     }
 }
