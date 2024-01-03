@@ -53,18 +53,16 @@ The Search SDK is pre-configured for autocomplete, local search biasing, and inc
 ## Prerequisites
 The SDK requires Carthage which you can install using Homebrew.
 1. Check that Homebrew is installed by running `brew -v`. If you don't have Homebrew, [install before proceeding.](https://brew.sh/)
-1. Update Homebrew data to install latest tools versions  
-    `brew update`
-1. Install Carthage (required version: 0.35 and newer)
-    `brew install carthage` or `brew upgrade carthage`
+1. Update Homebrew data to install latest tools versions including Carthage (v0.38 or newer)
+    - `brew update && brew bundle install`
 1. Setup .netrc file for sdk registry access
     1. Create .netrc file in user home directory (`$HOME/.netrc`, e.g. `/Users/victorprivalov/.netrc`)
     2. File content:
-```
-machine api.mapbox.com
-login mapbox
-password sk.ey_your_access_token_wit_Read_permission
-```
+    ```
+    machine api.mapbox.com
+    login mapbox
+    password sk.ey_your_access_token_wit_Read_permission
+    ```
 1. Build dependencies:
     `make dependencies`
 1. Mapbox APIs require a Mapbox account and access token. Get an access token from the [Mapbox account page](https://account.mapbox.com/access-tokens/). To run a Demo you can provide a token in different ways:
