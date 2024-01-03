@@ -127,6 +127,7 @@ import SwiftUI
 @available(iOS 13.0, *)
 struct SearchSuggestionCellRepresentable: UIViewRepresentable {
     func makeUIView(context: Context) -> UIView {
+        // swiftlint:disable:next force_cast
         UINib(nibName: "SearchSuggestionCell", bundle: .mapboxSearchUI).instantiate(withOwner: nil, options: nil)[0] as! UIView
     }
     

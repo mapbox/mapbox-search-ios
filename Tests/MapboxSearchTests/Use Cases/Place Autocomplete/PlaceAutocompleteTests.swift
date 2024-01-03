@@ -187,14 +187,18 @@ final class PlaceAutocompleteTests: XCTestCase {
             for: CLLocationCoordinate2D(latitude: .zero, longitude: .zero)
         ) { result in
             suggestionsExpectation.fulfill()
-            
-            let suggestions = try! result.get()
-            XCTAssertEqual(suggestions.count, 2)
-            
-            suggestions.forEach {
-                if case .suggestion = $0.underlying {
-                    XCTFail("Geocoding suggestions should be resolved as results")
+
+            do {
+                let suggestions = try result.get()
+                XCTAssertEqual(suggestions.count, 2)
+
+                suggestions.forEach {
+                    if case .suggestion = $0.underlying {
+                        XCTFail("Geocoding suggestions should be resolved as results")
+                    }
                 }
+            } catch {
+                XCTFail(error.localizedDescription)
             }
         }
         

@@ -35,7 +35,11 @@ class SearchHistoryTableViewSource: NSObject {
         historyProvider.recordsMap.values.sorted(by: { $1.timestamp < $0.timestamp }).unique(by: \.name)
     }
     
-    init(historyProvider: HistoryProvider, favoritesProvider: FavoritesProvider, registerCellsInTableView tableView: UITableView, delegate: SearchHistoryTableViewSourceDelegate?, configuration: Configuration) {
+    init(historyProvider: HistoryProvider,
+         favoritesProvider: FavoritesProvider,
+         registerCellsInTableView tableView: UITableView,
+         delegate: SearchHistoryTableViewSourceDelegate?,
+         configuration: Configuration) {
         self.historyProvider = historyProvider
         self.favoritesProvider = favoritesProvider
         self.tableView = tableView
@@ -82,6 +86,7 @@ extension SearchHistoryTableViewSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let historyEntry = history[indexPath.row]
+        // swiftlint:disable:next force_cast
         let cell = tableView.dequeueReusableCell(withIdentifier: Defaults.historyCellReuseIdentifier, for: indexPath) as! SearchHistoryCell
         let isFavorite = favoritesProvider.isAlsoFavorite(history: historyEntry)
         cell.configure(historyEntry: historyEntry, isFavorite: isFavorite, configuration: configuration)

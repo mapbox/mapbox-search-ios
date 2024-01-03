@@ -47,7 +47,7 @@ final class AddressAutofillIntegrationTests: MockServerTestCase {
             region: "California",
             country: "United States"
         )
-        let expectedAddressComponents = try! expectedAddress.toAutofillComponents()
+        let expectedAddressComponents = try expectedAddress.toAutofillComponents()
 
         guard let actualSuggestion = suggestion else {
             XCTFail("Should return non nil suggestion")

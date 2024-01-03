@@ -35,6 +35,7 @@ class CategoriesTableViewSource: NSObject, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // swiftlint:disable:next force_cast
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CategoriesTableViewCell
         cell.configure(category: categories[indexPath.row], configuration: configuration)
         

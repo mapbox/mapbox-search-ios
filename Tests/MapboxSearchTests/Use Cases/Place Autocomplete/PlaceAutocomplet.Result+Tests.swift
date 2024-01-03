@@ -4,7 +4,7 @@ import XCTest
 @testable import MapboxSearch
 
 final class PlaceAutocompleteResultTests: XCTestCase {
-    func testResultContainsISOCountryCodes() {
+    func testResultContainsISOCountryCodes() throws {
         let coreResult = CoreSearchResultStub(
             id: UUID().uuidString,
             type: .address
@@ -19,7 +19,7 @@ final class PlaceAutocompleteResultTests: XCTestCase {
             response: CoreSearchResponseStub.successSample(results: [coreResult])
         )!
         
-        let result = try! PlaceAutocomplete.Suggestion.from(searchResult).result(for: searchResult)
+        let result = try PlaceAutocomplete.Suggestion.from(searchResult).result(for: searchResult)
         
         XCTAssertEqual(result.address?.countryISO1, "US")
         XCTAssertEqual(result.address?.countryISO2, "US-NY")

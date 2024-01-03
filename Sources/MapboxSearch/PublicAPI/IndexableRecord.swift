@@ -25,6 +25,11 @@ extension IndexableRecord {
             .compactMap({ $0 })
             .forEach({ tokens.insert($0) })
         
-        return CoreUserRecord(id: id, name: name, center: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude), address: address?.coreAddress(), categories: nil, indexTokens: Array(tokens))
+        return CoreUserRecord(id: id,
+                              name: name,
+                              center: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude),
+                              address: address?.coreAddress(),
+                              categories: nil,
+                              indexTokens: Array(tokens))
     }
 }

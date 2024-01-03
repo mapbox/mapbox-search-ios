@@ -130,6 +130,7 @@ extension CategorySuggestionsController: UITableViewDataSource {
             assertionFailure("No suggestion found for this cell")
             return UITableViewCell()
         }
+        // swiftlint:disable:next force_cast
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SearchSuggestionCell
         cell.configure(suggestion: searchSuggestion, hideQueryHighlights: true, configuration: configuration)
         cell.populateButtonEnabled = false

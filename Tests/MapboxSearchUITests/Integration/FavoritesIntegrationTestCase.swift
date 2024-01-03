@@ -48,8 +48,9 @@ class FavoritesIntegrationTestCase: MockServerTestCase {
         XCTAssertTrue(favoritesTableView.cells["Minsk"].firstMatch.waitForExistence(timeout: BaseTestCase.defaultTimeout), "Selected favorite item not in favorites list")
         
         renameFavorite(element: favoritesTableView.cells["Minsk"])
-        
-        XCTAssertEqual(app.textFields["FavoriteDetailsController.textField"].value as! String, "Minsk", "Incorrect Favorite name")
+
+        let textFieldString = try XCTUnwrap(app.textFields["FavoriteDetailsController.textField"].value as? String)
+        XCTAssertEqual(textFieldString, "Minsk", "Incorrect Favorite name")
         waitForHittable(app.buttons["Clear text"]).tap()
         waitForEnabled(false, for: app.buttons["FavoriteDetailsController.doneButton"])
         app.textFields["FavoriteDetailsController.textField"].typeText("Riga")
@@ -82,8 +83,9 @@ class FavoritesIntegrationTestCase: MockServerTestCase {
         XCTAssertTrue(favoritesTableView.cells["Minsk"].firstMatch.waitForExistence(timeout: BaseTestCase.defaultTimeout), "Selected favorite item not in favorites list")
         
         renameFavorite(element: favoritesTableView.cells["Minsk"])
-        
-        XCTAssertEqual(app.textFields["FavoriteDetailsController.textField"].value as! String, "Minsk", "Incorrect Favorite name")
+
+        let textFieldString = try XCTUnwrap(app.textFields["FavoriteDetailsController.textField"].value as? String)
+        XCTAssertEqual(textFieldString, "Minsk", "Incorrect Favorite name")
         waitForHittable(app.buttons["Clear text"]).tap()
         waitForEnabled(false, for: app.buttons["FavoriteDetailsController.doneButton"])
         app.textFields["FavoriteDetailsController.textField"].typeText("Riga")

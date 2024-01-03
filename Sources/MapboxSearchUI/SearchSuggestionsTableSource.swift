@@ -44,6 +44,7 @@ extension SearchSuggestionsTableSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let searchSuggestion = suggestions[indexPath.row]
+        // swiftlint:disable:next force_cast
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SearchSuggestionCell
         cell.delegate = self
         cell.configure(suggestion: searchSuggestion, configuration: configuration)

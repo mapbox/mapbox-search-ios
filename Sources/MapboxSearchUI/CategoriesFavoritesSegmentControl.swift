@@ -162,6 +162,7 @@ import SwiftUI
 @available(iOS 13.0, *)
 struct TabsSegmentControlRepresentable: UIViewRepresentable {
     func makeUIView(context: Context) -> UIView {
+        // swiftlint:disable:next force_cast
         UINib(nibName: "CategoriesFavoritesSegmentControl", bundle: .mapboxSearchUI).instantiate(withOwner: nil, options: nil)[0] as! UIView
     }
     

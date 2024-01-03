@@ -90,9 +90,10 @@ extension SearchResultTypeTests {
         
         let encoder = JSONEncoder()
         let data = try encoder.encode(fakeObject)
-        
+
         let assertionError = catchBadInstruction {
             let decoder = JSONDecoder()
+            // swiftlint:disable:next force_try
             _ = try! decoder.decode(SearchResultType.self, from: data)
         }
         XCTAssertNotNil(assertionError)

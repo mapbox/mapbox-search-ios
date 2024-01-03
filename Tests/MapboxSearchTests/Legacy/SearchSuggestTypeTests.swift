@@ -79,9 +79,10 @@ extension SearchSuggestTypeTests {
         #else
         
         let data = "{}".data(using: .utf8)!
-        
+
         let assertionError = catchBadInstruction {
             let decoder = JSONDecoder()
+            // swiftlint:disable:next force_try
             _ = try! decoder.decode(SearchSuggestType.self, from: data)
         }
         XCTAssertNotNil(assertionError)

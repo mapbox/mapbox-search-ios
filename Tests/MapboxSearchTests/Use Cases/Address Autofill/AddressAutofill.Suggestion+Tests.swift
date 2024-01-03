@@ -40,27 +40,27 @@ final class AddressAutofillSuggestionsTests: XCTestCase {
         }
     }
     
-    func testMappingFromSearchResultWithValidAddress() {
+    func testMappingFromSearchResultWithValidAddress() throws {
         let coordinates = CLLocationCoordinate2D(latitude: 90, longitude: 90)
         
         let searchResult = SearchResultStub.default
         searchResult.address = .valid
         searchResult.coordinate = coordinates
         
-        let suggestion = try! AddressAutofill.Suggestion.from(searchResult)
+        let suggestion = try AddressAutofill.Suggestion.from(searchResult)
         
         XCTAssertEqual(suggestion.formattedAddress, Address.valid.formattedAddress(style: .full))
         XCTAssertEqual(suggestion.coordinate, coordinates)
     }
     
-    func testMappingOfAddressComponentFromSearchResultWithValidAddress() {
+    func testMappingOfAddressComponentFromSearchResultWithValidAddress() throws {
         let coordinates = CLLocationCoordinate2D(latitude: 90, longitude: 90)
         
         let searchResult = SearchResultStub.default
         searchResult.address = .valid
         searchResult.coordinate = coordinates
         
-        let suggestion = try! AddressAutofill.Suggestion.from(searchResult)
+        let suggestion = try AddressAutofill.Suggestion.from(searchResult)
         
         XCTAssertEqual(suggestion.addressComponents.all.count, AddressAutofill.AddressComponent.Kind.allCases.count)
         
