@@ -55,7 +55,7 @@ The SDK requires Carthage which you can install using Homebrew.
 1. Check that Homebrew is installed by running `brew -v`. If you don't have Homebrew, [install before proceeding.](https://brew.sh/)
 1. Update Homebrew data to install latest tools versions including Carthage (v0.38 or newer)
     - `brew update && brew bundle install`
-1. Setup .netrc file for sdk registry access
+1. Set up .netrc file for sdk registry access
     1. Create .netrc file in user home directory (`$HOME/.netrc`, e.g. `/Users/victorprivalov/.netrc`)
     2. File content:
     ```
@@ -63,6 +63,8 @@ The SDK requires Carthage which you can install using Homebrew.
     login mapbox
     password sk.ey_your_access_token_wit_Read_permission
     ```
+1. Set up commit hooks with
+    `./scripts/install_git_hooks`
 1. Build dependencies:
     `make dependencies`
 1. Mapbox APIs require a Mapbox account and access token. Get an access token from the [Mapbox account page](https://account.mapbox.com/access-tokens/). To run a Demo you can provide a token in different ways:
