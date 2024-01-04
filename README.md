@@ -105,13 +105,13 @@ MapboxSearchDemoApplication provides a Demo app wih MapboxSearchUI.framework pre
 ##### MapboxSearch
 To integrate latest preview version of `MapboxSearch` into your Xcode project using CocoaPods, specify it in your `Podfile`:  
 ```
-pod 'MapboxSearch', ">= 1.0.0-beta", "< 2.0"
+pod 'MapboxSearch', ">= 1.0.0-rc.8", "< 2.0"
 ```
 
 ##### MapboxSearchUI
 To integrate latest preview version of `MapboxSearchUI` into your Xcode project using CocoaPods, specify it in your `Podfile`:  
 ```
-pod 'MapboxSearchUI', ">= 1.0.0-beta", "< 2.0"
+pod 'MapboxSearchUI', ">= 1.0.0-rc.8", "< 2.0"
 ```
 
 ### Swift Package Manager
