@@ -38,7 +38,7 @@ extension PlaceAutocompleteMainViewController: UISearchResultsUpdating {
             proximity: locationManager.location?.coordinate,
             filterBy: .init(types: [.POI], navigationProfile: .driving)
         ) { [weak self] result in
-            guard let self else { return }
+            guard let self = self else { return }
 
             switch result {
             case .success(let suggestions):
