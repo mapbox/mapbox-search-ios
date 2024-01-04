@@ -1,5 +1,3 @@
-// Copyright © 2022 Mapbox. All rights reserved.
-
 import XCTest
 @testable import MapboxSearch
 
@@ -15,7 +13,7 @@ final class AdministrativeUnitsTests: XCTestCase {
         XCTAssertEqual(AdministrativeUnit.neighborhood.rawValue, SearchQueryType.neighborhood)
         XCTAssertEqual(AdministrativeUnit.street.rawValue, SearchQueryType.street)
     }
-    
+
     func testJapanAdministrativeUnits() {
         XCTAssertEqual(AdministrativeUnit.prefecture.rawValue, SearchQueryType.region)
         XCTAssertEqual(AdministrativeUnit.city.rawValue, SearchQueryType.place)

@@ -7,7 +7,7 @@ class ExternalRecordPlaceholderTests: XCTestCase {
                                                        response: CoreSearchResponseStub.failureSample)
         XCTAssertNotNil(externalRecord)
     }
-    
+
     func testFailedInitForAddressRecord() {
         XCTAssertNil(ExternalRecordPlaceholder(coreResult: CoreSearchResultStub.sample1,
                                                response: CoreSearchResponseStub.failureSample))

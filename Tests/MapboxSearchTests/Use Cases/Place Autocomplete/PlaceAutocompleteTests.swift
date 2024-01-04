@@ -1,5 +1,3 @@
-// Copyright © 2022 Mapbox. All rights reserved.
-
 import XCTest
 @testable import MapboxSearch
 
@@ -44,17 +42,17 @@ final class PlaceAutocompleteTests: XCTestCase {
         XCTAssertNil(searchEngine.searchOptions?.navProfile)
         XCTAssertNil(searchEngine.searchOptions?.etaType)
     }
-    
+
     func testReverseGeocodingRequestUsesAllPlaceTypesIfTheyWereNotSpecifiedInOptions() {
         placeAutocomplete.suggestions(for: .sample1) { _ in }
-        
+
         XCTAssertFalse(searchEngine.reverseGeocodingOptions!.types!.isEmpty)
         XCTAssertEqual(searchEngine.reverseGeocodingOptions!.types!.count, PlaceAutocomplete.PlaceType.allTypes.count)
     }
-    
+
     func testSuggestionsRequestUsesAllPlaceTypesIfTheyWereNotSpecifiedInOptions() {
         placeAutocomplete.suggestions(for: "query") { _ in }
-        
+
         XCTAssertFalse(searchEngine.searchOptions!.types!.isEmpty)
         XCTAssertEqual(searchEngine.searchOptions!.types!.count, PlaceAutocomplete.PlaceType.allTypes.count)
     }
@@ -93,7 +91,7 @@ final class PlaceAutocompleteTests: XCTestCase {
             CoreSearchResultStub.makeAddress(),
             CoreSearchResultStub.makeSuggestion(),
             CoreSearchResultStub.makeCategory(),
-            CoreSearchResultStub.makeSuggestionTypeQuery()
+            CoreSearchResultStub.makeSuggestionTypeQuery(),
         ].map { $0.asCoreSearchResult }
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: results)
 
@@ -124,7 +122,7 @@ final class PlaceAutocompleteTests: XCTestCase {
         let results = [
             CoreSearchResultStub.makePOI(),
             CoreSearchResultStub.makePlace(),
-            CoreSearchResultStub.makeAddress()
+            CoreSearchResultStub.makeAddress(),
         ].map { $0.asCoreSearchResult }
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: results)
         placeAutocomplete.suggestions(for: "query") { result in
@@ -172,17 +170,17 @@ final class PlaceAutocompleteTests: XCTestCase {
         XCTAssertFalse(searchEngine.nextSearchCalled)
         wait(for: [expectation], timeout: 1.0)
     }
-    
+
     func testReverseGeocodingReturnsAutocompleteSuggestionsAsResults() {
         let results = [
             CoreSearchResultStub.makePlace(),
-            CoreSearchResultStub.makeAddress()
+            CoreSearchResultStub.makeAddress(),
         ].map { $0.asCoreSearchResult }
 
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: results)
-        
+
         let suggestionsExpectation = XCTestExpectation(description: "Suggestions resolved")
-        
+
         placeAutocomplete.suggestions(
             for: CLLocationCoordinate2D(latitude: .zero, longitude: .zero)
         ) { result in
@@ -201,7 +199,7 @@ final class PlaceAutocompleteTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
         }
-        
+
         wait(for: [suggestionsExpectation], timeout: 1.0)
     }
 }

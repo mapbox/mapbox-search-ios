@@ -1,5 +1,3 @@
-// Copyright © 2023 Mapbox. All rights reserved.
-
 import Foundation
 
 public extension Discover {

@@ -5,7 +5,7 @@ extension CoreBoundingBox {
     convenience init(boundingBox: BoundingBox) {
         self.init(min: boundingBox.southWest, max: boundingBox.northEast)
     }
-    
+
     func mapZoom() -> Double {
         let eps = 1.0E-5
         let longitudeZoom = 360.0 / Swift.max(abs(max.longitude - min.longitude), eps)

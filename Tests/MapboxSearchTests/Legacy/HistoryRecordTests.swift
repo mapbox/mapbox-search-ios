@@ -13,11 +13,10 @@ class HistoryRecordTests: XCTestCase {
                                    historyType: .category,
                                    type: .address(subtypes: [.address]),
                                    address: nil,
-                                   searchRequest: .init(query: "Sample", proximity: nil)
-        )
+                                   searchRequest: .init(query: "Sample", proximity: nil))
         XCTAssertNil(record.categories)
     }
-    
+
     func testHistoryRecordCoordinates() {
         var record = HistoryRecord(id: UUID().uuidString,
                                    name: "DaName",
@@ -29,11 +28,10 @@ class HistoryRecordTests: XCTestCase {
                                    historyType: .category,
                                    type: .address(subtypes: [.address]),
                                    address: nil,
-                                   searchRequest: .init(query: "Sample", proximity: nil)
-        )
-        
+                                   searchRequest: .init(query: "Sample", proximity: nil))
+
         XCTAssertEqual(record.coordinate, .sample1)
-        
+
         record.coordinate = .sample2
         XCTAssertEqual(record.coordinate, .sample2)
     }
@@ -49,19 +47,18 @@ class HistoryRecordTests: XCTestCase {
                                    historyType: .category,
                                    type: .address(subtypes: [.address]),
                                    address: .mapboxDCOffice,
-                                   searchRequest: .init(query: "Sample", proximity: nil)
-        )
-        
+                                   searchRequest: .init(query: "Sample", proximity: nil))
+
         XCTAssertEqual(record.descriptionText, "740 15th St NW, Washington")
     }
-    
+
     func testHistoryRecordInitFromSearchResult() {
         let timestamp = Date(timeIntervalSince1970: 18473536)
         let result = SearchResultStub.sample1
         let record = HistoryRecord(searchResult: result, timestamp: timestamp)
-        
+
         XCTAssertEqual(record.name, result.name)
-        
+
         XCTAssertEqual(record.id, result.id)
         XCTAssertEqual(record.name, result.name)
         XCTAssertEqual(record.coordinate, result.coordinate)

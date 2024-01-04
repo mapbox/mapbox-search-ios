@@ -11,15 +11,15 @@ class MockServerTestCase: XCTestCase {
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        
+
         UserDefaults.standard.setValue(server.endpoint, forKey: "MapboxAPIBaseURL")
-        
+
         try server.start()
     }
-    
+
     override func tearDown() {
         super.tearDown()
-        
-         server.stop()
+
+        server.stop()
     }
 }

@@ -12,7 +12,7 @@ class SearchCategorySuggestionImplTests: XCTestCase {
                                                                                                          result: .success([]))))
         XCTAssertEqual(suggestionImpl.suggestionType, .category)
     }
-    
+
     func testFailedInitForPOI() throws {
         XCTAssertNil(SearchCategorySuggestionImpl(coreResult: CoreSearchResultStub(id: "sample-1", type: .poi, center: nil),
                                                   response: CoreSearchResponseStub(id: 42,

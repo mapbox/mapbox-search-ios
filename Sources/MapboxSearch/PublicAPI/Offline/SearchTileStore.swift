@@ -6,15 +6,14 @@ import Foundation
 ///
 /// Use `commonTileStore` property to access underlaying `MapboxCommon.TileStore`
 public class SearchTileStore {
-    
-    struct AccessTokenNotFound: Error { }
-    
+    struct AccessTokenNotFound: Error {}
+
     /// Default API Url used for `Search` tile data domain.
     public let defaultEndPoint = "https://api.mapbox.com"
-    
+
     /// Underlaying TileStore from MapboxCommon framework for use across Mapbox frameworks.
     public private(set) var commonTileStore: MapboxCommon.TileStore
-    
+
     /// Creates with shared `MapboxCommon.TileStore` instance at the default location.
     /// Creates a new `MapboxCommon.TileStore` if one doesn't yet exist.
     /// - Parameter accessToken: Mapbox access token
@@ -22,7 +21,7 @@ public class SearchTileStore {
         commonTileStore = MapboxCommon.TileStore.__create()
         setup(tileStore: commonTileStore, accessToken: accessToken)
     }
-    
+
     /// Creates with shared `MapboxCommon.TileStore` instance at the default location.
     /// Creates a new `MapboxCommon.TileStore` if one doesn't yet exist.
     /// Throws AccessTokenNotFound if no access token found.
@@ -32,7 +31,7 @@ public class SearchTileStore {
         }
         self.init(accessToken: token)
     }
-    
+
     /// Creates with custom CommonTileStore.
     /// - Parameter commonTileStore: SearchEngine will start using provided TileStore
     /// - Parameter accessToken: Mapbox access token
@@ -40,7 +39,7 @@ public class SearchTileStore {
         self.commonTileStore = commonTileStore
         setup(tileStore: commonTileStore, accessToken: accessToken)
     }
-    
+
     /// Creates with custom CommonTileStore.
     /// - Parameter commonTileStore: SearchEngine will start using provided TileStore
     /// Throws AccessTokenNotFound if no access token found.
@@ -50,7 +49,7 @@ public class SearchTileStore {
         }
         self.init(commonTileStore: commonTileStore, accessToken: token)
     }
-    
+
     /// Creates with shared `MapboxCommon.TileStore` instance for the given storage path.
     /// Creates a new `MapboxCommon.TileStore` if one doesn't yet exist.
     /// If the given path is empty, the tile store at the default location is  returned.
@@ -61,7 +60,7 @@ public class SearchTileStore {
         commonTileStore = MapboxCommon.TileStore.__create(forPath: path)
         setup(tileStore: commonTileStore, accessToken: accessToken)
     }
-    
+
     func setup(tileStore: MapboxCommon.TileStore, accessToken: String) {
         tileStore.setOptionForKey(MapboxCommon.TileStoreOptions.mapboxAPIURL,
                                   domain: MapboxCommon.TileDataDomain.search,
@@ -70,7 +69,7 @@ public class SearchTileStore {
                                   domain: MapboxCommon.TileDataDomain.search,
                                   value: accessToken)
     }
-    
+
     /// Loads a new tile region or updates the existing one.
     /// - Parameters:
     ///   - id: The tile region identifier.
@@ -78,7 +77,7 @@ public class SearchTileStore {
     public func loadTileRegion(id: String, options: MapboxCommon.TileRegionLoadOptions) {
         commonTileStore.__loadTileRegion(forId: id, loadOptions: options)
     }
-    
+
     /// Loads a new tile region or updates the existing one.
     /// - Parameters:
     ///   - id: The tile region identifier.
@@ -105,7 +104,7 @@ public class SearchTileStore {
             return CommonCancelableWrapper(cancelable)
         }
     }
-    
+
     /// Removes a tile region.
     ///
     /// Removes a tile region from the existing packages list. The actual resources
@@ -116,7 +115,7 @@ public class SearchTileStore {
     public func removeTileRegion(id: String) {
         commonTileStore.removeTileRegion(forId: id)
     }
-    
+
     /// Removes a tile region.
     ///
     /// Removes a tile region from the existing packages list. The actual resources

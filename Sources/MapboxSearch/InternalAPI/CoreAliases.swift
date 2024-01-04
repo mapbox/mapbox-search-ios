@@ -40,4 +40,5 @@ extension CoreSearchEngine {
 typealias CoreExpected = MapboxCommon_Private.Expected
 
 // MARK: - Public
+
 @_exported import MapboxCommon

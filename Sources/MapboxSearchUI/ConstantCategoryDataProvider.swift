@@ -10,7 +10,7 @@ public class ConstantCategoryDataProvider: CategoryDataProvider {
 
     /// Provide custom vertical list of categories
     public var categoryList: [SearchCategory]
-    
+
     /// Make a constant categories provider
     /// - Parameters:
     ///   - slots: Categories you would like to see in horizontal list. Passing `nil` would follow to default list.
@@ -18,13 +18,13 @@ public class ConstantCategoryDataProvider: CategoryDataProvider {
     ///   - list: Custom category collection for vertical list. Passing `nil` or empty array `[]` would follow to default list.
     public init(slots: [SearchCategory]?, list: [SearchCategory]? = nil) {
         let defaults = DefaultCategoryDataProvider()
-        
+
         let categoryList = list ?? defaults.categoryList
-        self.categoryList = categoryList.isEmpty ? defaults.categoryList: categoryList
-        
+        self.categoryList = categoryList.isEmpty ? defaults.categoryList : categoryList
+
         let slots = (slots ?? []) + defaults.categorySlots
         self.categorySlots = Array(slots.removingDuplicates().prefix(DefaultCategoryDataProvider.minCategoriesCount))
-        
+
         assert(!self.categoryList.isEmpty)
         assert(self.categorySlots.count >= DefaultCategoryDataProvider.minCategoriesCount)
     }

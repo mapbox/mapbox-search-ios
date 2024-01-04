@@ -3,9 +3,9 @@ import CoreLocation
 
 class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProvider {
     var distance: CLLocationDistance?
-    
+
     var originalResponse: CoreSearchResultResponse
-    
+
     var coordinate: CLLocationCoordinate2D {
         get {
             coordinateCodable.coordinates
@@ -14,52 +14,52 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
             coordinateCodable = .init(newValue)
         }
     }
-    
+
     var estimatedTime: Measurement<UnitDuration>?
-    
+
     var metadata: SearchResultMetadata?
-    
+
     var serverIndex: Int?
-    
+
     var accuracy: SearchResultAccuracy?
-    
+
     var coordinateCodable: CLLocationCoordinate2DCodable
-    
+
     var address: Address?
-    
+
     var categories: [String]?
-    
+
     var routablePoints: [RoutablePoint]?
-    
+
     let dataLayerIdentifier = SearchEngine.providerIdentifier
-    
+
     var id: String
-    
+
     var name: String
-    
+
     var matchingName: String?
-    
+
     var descriptionText: String?
-    
+
     var iconName: String?
-    
+
     var type: SearchResultType
-    
+
     let batchResolveSupported: Bool
-    
+
     var suggestionType: SearchSuggestType {
         switch type {
         case .POI: return .POI
         case .address(let subtypes): return .address(subtypes: subtypes)
         }
     }
-    
+
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
         guard let coordinate = coreResult.center?.coordinate else { return nil }
 
         guard let type = SearchResultType(coreResultTypes: coreResult.resultTypes) else { return nil }
         self.type = type
-        
+
         self.id = coreResult.id
         self.name = coreResult.names[0]
         self.matchingName = coreResult.matchingName
@@ -77,7 +77,7 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
         self.routablePoints = coreResult.routablePoints?.map(RoutablePoint.init)
         self.batchResolveSupported = coreResult.action?.isMultiRetrievable ?? false
         self.descriptionText = coreResult.addressDescription
-        
+
         assert(!id.isEmpty)
         assert(!name.isEmpty)
         assert(address != nil)

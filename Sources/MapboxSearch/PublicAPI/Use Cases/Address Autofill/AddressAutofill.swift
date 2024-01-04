@@ -1,5 +1,3 @@
-// Copyright © 2022 Mapbox. All rights reserved.
-
 import Foundation
 import CoreLocation
 
@@ -12,11 +10,11 @@ private extension AddressAutofill {
 public final class AddressAutofill {
     private let searchEngine: CoreSearchEngineProtocol
     private let userActivityReporter: CoreUserActivityReporterProtocol
-    
+
     private static var apiType: CoreSearchEngine.ApiType {
         return .autofill
     }
-    
+
     /// Basic internal initializer
     /// - Parameters:
     ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
@@ -28,13 +26,13 @@ public final class AddressAutofill {
         guard let accessToken = accessToken ?? ServiceProvider.shared.getStoredAccessToken() else {
             fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
         }
-        
+
         let searchEngine = ServiceProvider.shared.createEngine(
             apiType: Self.apiType,
             accessToken: accessToken,
             locationProvider: WrapperLocationProvider(wrapping: locationProvider)
         )
-        
+
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(
             for: CoreUserActivityReporterOptions(
                 accessToken: accessToken,
@@ -42,10 +40,10 @@ public final class AddressAutofill {
                 eventsUrl: nil
             )
         )
-        
+
         self.init(searchEngine: searchEngine, userActivityReporter: userActivityReporter)
     }
-    
+
     init(searchEngine: CoreSearchEngineProtocol, userActivityReporter: CoreUserActivityReporterProtocol) {
         self.searchEngine = searchEngine
         self.userActivityReporter = userActivityReporter
@@ -53,6 +51,7 @@ public final class AddressAutofill {
 }
 
 // MARK: - Public API
+
 public extension AddressAutofill {
     /// Start searching for query with provided options
     /// - Parameters:
@@ -60,30 +59,30 @@ public extension AddressAutofill {
     ///   - options: if no value provided Search Engine will use options from requestOptions field
     func suggestions(for query: Query, with options: Options? = nil, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
         userActivityReporter.reportActivity(forComponent: "address-autofill-forward-geocoding")
-        
+
         let searchOptions = SearchOptions(
             countries: options?.countries.map { $0.countryCode },
             languages: options.map { [$0.language.languageCode] },
             limit: Constants.defaultSuggestionsLimit,
             ignoreIndexableRecords: true
         ).toCore(apiType: Self.apiType)
-        
+
         fetchSuggestions(for: query.value, with: searchOptions, completion: completion)
     }
-    
+
     /// Start searching for query with provided options
     /// - Parameters:
     ///   - coordinate: point Coordinate to resolve
     ///   - options: if no value provided Search Engine will use options from requestOptions field
     func suggestions(for coordinate: CLLocationCoordinate2D, with options: Options? = nil, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
         userActivityReporter.reportActivity(forComponent: "address-autofill-reverse-geocoding")
-        
+
         let searchOptions = ReverseGeocodingOptions(
             point: coordinate,
             countries: options?.countries.map { $0.countryCode },
             languages: options.map { [$0.language.languageCode] }
         ).toCore()
-        
+
         fetchSuggestions(using: searchOptions, completion: completion)
     }
 
@@ -116,13 +115,14 @@ public extension AddressAutofill {
 }
 
 // MARK: - Reverse geocoding query
+
 private extension AddressAutofill {
     func fetchSuggestions(using options: CoreReverseGeoOptions, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
         searchEngine.reverseGeocoding(for: options) { response in
             guard let response = Self.preprocessResponse(response) else {
                 return
             }
-            
+
             switch response.coreResponse.result {
             case .success(let remoteResults):
                 let suggestions: [Suggestion] = remoteResults.compactMap { remoteResult -> Suggestion? in
@@ -137,7 +137,7 @@ private extension AddressAutofill {
                     }
                 }
                 completion(.success(suggestions))
-                
+
             case .failure(let responseError):
                 completion(
                     .failure(responseError)
@@ -148,6 +148,7 @@ private extension AddressAutofill {
 }
 
 // MARK: - Text query
+
 private extension AddressAutofill {
     func fetchSuggestions(for query: String, with options: CoreSearchOptions, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
         searchEngine.search(
@@ -156,11 +157,11 @@ private extension AddressAutofill {
             options: options
         ) { [weak self] response in
             guard let self = self else { return }
-                
+
             self.manage(response: response, for: query, completion: completion)
         }
     }
-    
+
     func manage(
         response coreResponse: CoreSearchResponseProtocol?,
         for query: String,
@@ -171,27 +172,27 @@ private extension AddressAutofill {
                 .failure(SearchError.responseProcessingFailed)
             )
         }
-        
+
         switch response.coreResponse.result {
         case .success(let coreResults):
             resolve(suggestions: coreResults, with: response.coreResponse.request, completion: completion)
-            
+
         case .failure(let error):
             completion(.failure(error))
         }
     }
-    
+
     static func preprocessResponse(_ coreResponse: CoreSearchResponseProtocol?) -> SearchResponse? {
         assert(Thread.isMainThread)
-        
+
         guard let coreResponse = coreResponse else {
             assertionFailure("Response should never be nil")
             return nil
         }
-    
+
         return SearchResponse(coreResponse: coreResponse)
     }
-    
+
     func resolve(
         suggestions: [CoreSearchResult],
         with options: CoreRequestOptions,
@@ -200,43 +201,43 @@ private extension AddressAutofill {
         guard !suggestions.isEmpty else {
             return completion(.success([]))
         }
-        
+
         let dispatchGroup = DispatchGroup()
-        
+
         var resolvedResultsUnsafe: [SearchResult?] = Array(repeating: nil, count: suggestions.count)
         let lock = NSLock()
 
         suggestions.enumerated().forEach { iterator in
             dispatchGroup.enter()
-            
+
             searchEngine.nextSearch(for: iterator.element, with: options) { response in
                 defer { dispatchGroup.leave() }
-                
+
                 guard let coreResponse = response else {
                     assertionFailure("Response should never be nil")
                     return
                 }
-                
+
                 guard let response = Self.preprocessResponse(coreResponse) else {
                     return
                 }
-                
+
                 switch response.process() {
                 case .success(let processedResponse):
                     guard let result = processedResponse.results.first else {
                         return
                     }
-                
+
                     lock.sync {
                         resolvedResultsUnsafe[iterator.offset] = result
                     }
-                    
+
                 case .failure(let error):
                     completion(.failure(error))
                 }
             }
         }
-        
+
         dispatchGroup.notify(queue: .main) {
             let resolvedSuggestions: [Suggestion] = resolvedResultsUnsafe.compactMap {
                 do {
@@ -245,7 +246,7 @@ private extension AddressAutofill {
                     return nil
                 }
             }
-            
+
             completion(.success(resolvedSuggestions))
         }
     }

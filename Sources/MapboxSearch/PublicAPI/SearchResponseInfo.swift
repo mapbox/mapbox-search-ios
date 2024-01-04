@@ -5,13 +5,13 @@ import Foundation
 /// `SearchEngine.sendFeedback(event: FeedbackEvent, autoFlush: Bool = true) throws`
 public class SearchResponseInfo {
     let coreResponse: CoreSearchResponseProtocol
-    
+
     /// Associated search suggestion if available.
     public let suggestion: SearchSuggestion?
-    
+
     /// Search request options.
     public let options: SearchOptions
-    
+
     // Note: consider make public version of `CoreSearchResponseProtocol`.
     init(response: CoreSearchResponseProtocol, suggestion: SearchSuggestion?) {
         self.coreResponse = response

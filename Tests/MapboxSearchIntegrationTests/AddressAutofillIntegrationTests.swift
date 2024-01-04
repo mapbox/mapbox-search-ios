@@ -1,5 +1,3 @@
-// Copyright © 2023 Mapbox. All rights reserved.
-
 import XCTest
 import CoreLocation
 @testable import MapboxSearch
@@ -15,7 +13,7 @@ final class AddressAutofillIntegrationTests: MockServerTestCase {
             locationProvider: DefaultLocationProvider()
         )
     }
-    
+
     func testSelectSuggestion() throws {
         let expectation = XCTestExpectation(description: "Expecting results")
 

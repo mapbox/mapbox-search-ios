@@ -15,11 +15,11 @@ enum Query: Equatable {
             return false
         }
     }
-    
+
     case none
     case string(String)
     case historyEntry(HistoryRecord)
-    
+
     var string: String? {
         switch self {
         case .none:
@@ -30,7 +30,7 @@ enum Query: Equatable {
             return historyEntry.name
         }
     }
-    
+
     init(string: String?) {
         switch string {
         case let value? where !value.isEmpty:

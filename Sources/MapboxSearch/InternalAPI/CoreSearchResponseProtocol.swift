@@ -24,9 +24,9 @@ extension CoreSearchResponse: CoreSearchResponseProtocol {
                 )
             } else if error.isInternalError() {
                 let internalError = error.getInternalError()
-                
+
                 _Logger.searchSDK.error("Search request failed: \(internalError.message)")
-                
+
                 return .failure(
                     .internalSearchRequestError(
                         message: internalError.message
@@ -34,7 +34,7 @@ extension CoreSearchResponse: CoreSearchResponseProtocol {
                 )
             } else if error.isRequestCancelled() {
                 _Logger.searchSDK.error("Search request cancelled")
-                
+
                 return .failure(.searchRequestCancelled)
             } else {
                 return .failure(.responseProcessingFailed)

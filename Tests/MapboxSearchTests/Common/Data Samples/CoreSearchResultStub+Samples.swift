@@ -13,7 +13,7 @@ extension CoreSearchResultStub {
         id: "sample-2",
         type: .category
     )
-    
+
     static let externalRecordSample = CoreSearchResultStub(id: "sample-3",
                                                            type: .userRecord,
                                                            center: .sample1,
@@ -22,13 +22,13 @@ extension CoreSearchResultStub {
                                                            action: .sample1,
                                                            serverIndex: 3,
                                                            distance: 97)
-    
+
     static func makeSuggestionsSet() -> [CoreSearchResultStub] {
         let results = makeMixedResultsSet()
         results.forEach({ $0.center = nil })
         return results
     }
-    
+
     static func makeSuggestion(metadata: CoreResultMetadata? = nil) -> CoreSearchResultStub {
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
@@ -42,17 +42,17 @@ extension CoreSearchResultStub {
         )
         return result
     }
-    
+
     static func makeMixedResultsSet() -> [CoreSearchResultStub] {
         [
             CoreSearchResultStub.makePlace(),
             CoreSearchResultStub.makeAddress(),
             CoreSearchResultStub.makePOI(),
             CoreSearchResultStub.makeFavorite(),
-            CoreSearchResultStub.makeHistory()
+            CoreSearchResultStub.makeHistory(),
         ]
     }
-    
+
     static func makeCategoryResultsSet() -> [CoreSearchResultStub] {
         [
             CoreSearchResultStub.makePlace(),
@@ -60,11 +60,11 @@ extension CoreSearchResultStub {
             CoreSearchResultStub.makePOI(),
         ]
     }
-    
+
     static func makeSuggestionTypeQuery() -> CoreSearchResultStub {
         CoreSearchResultStub(id: "recursion", type: .query, center: nil)
     }
-    
+
     static func makeCategory() -> CoreSearchResultStub {
         CoreSearchResultStub(
             id: UUID().uuidString,
@@ -75,7 +75,7 @@ extension CoreSearchResultStub {
             icon: Maki.cafe.name
         )
     }
-    
+
     static func makePlace() -> CoreSearchResultStub {
         let center = CLLocation(latitude: 12.0000, longitude: 10.0000)
         let result = CoreSearchResultStub(
@@ -89,8 +89,8 @@ extension CoreSearchResultStub {
         )
         return result
     }
-    
-    
+
+
     static func makeAddress() -> CoreSearchResultStub {
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
@@ -103,7 +103,7 @@ extension CoreSearchResultStub {
         )
         return result
     }
-    
+
     static func makePOI() -> CoreSearchResultStub {
         let center = CLLocation(latitude: 12.0000, longitude: 10.0000)
         let address = CoreAddress(
@@ -129,7 +129,7 @@ extension CoreSearchResultStub {
         )
         return result
     }
-    
+
     static func makeFavorite() -> CoreSearchResultStub {
         let center = CLLocation(latitude: 12.0000, longitude: 10.0000)
         let address = CoreAddress(
@@ -155,7 +155,7 @@ extension CoreSearchResultStub {
         )
         return result
     }
-    
+
     static func makeHistory() -> CoreSearchResultStub {
         let center = CLLocation(latitude: 12.0000, longitude: 10.0000)
         let address = CoreAddress(

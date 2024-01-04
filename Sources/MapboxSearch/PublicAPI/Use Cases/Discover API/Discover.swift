@@ -1,12 +1,10 @@
-// Copyright © 2023 Mapbox. All rights reserved.
-
 import Foundation
 import CoreLocation
 
 public final class Discover {
     private let searchEngine: CategorySearchEngine
     private let userActivityReporter: CoreUserActivityReporter
-    
+
     /// Basic internal initializer
     /// - Parameters:
     ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
@@ -24,7 +22,7 @@ public final class Discover {
             locationProvider: locationProvider,
             supportSBS: true
         )
-        
+
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(
             for: CoreUserActivityReporterOptions(
                 accessToken: accessToken,
@@ -32,10 +30,10 @@ public final class Discover {
                 eventsUrl: nil
             )
         )
-        
+
         self.init(searchEngine: searchEngine, userActivityReporter: userActivityReporter)
     }
-    
+
     init(searchEngine: CategorySearchEngine, userActivityReporter: CoreUserActivityReporter) {
         self.searchEngine = searchEngine
         self.userActivityReporter = userActivityReporter
@@ -57,7 +55,7 @@ public extension Discover {
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
         userActivityReporter.reportActivity(forComponent: "discover-search-nearby")
-        
+
         let searchOptions = SearchOptions(
             languages: [options.language.languageCode],
             limit: options.limit,
@@ -66,7 +64,7 @@ public extension Discover {
 
         search(for: query, with: searchOptions, completion: completion)
     }
-    
+
     /// Search for places nearby the specified geographic point.
     /// - Parameters:
     ///   - query: Search query
@@ -83,7 +81,7 @@ public extension Discover {
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
         userActivityReporter.reportActivity(forComponent: "discover-search-in-area")
-        
+
         let searchOptions = SearchOptions(
             languages: [options.language.languageCode],
             limit: options.limit,
@@ -93,7 +91,7 @@ public extension Discover {
 
         search(for: query, with: searchOptions, completion: completion)
     }
-    
+
     /// Search for places nearby the specified geographic point.
     /// - Parameters:
     ///   - query: Search query
@@ -108,7 +106,7 @@ public extension Discover {
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
         userActivityReporter.reportActivity(forComponent: "discover-search-along-the-route")
-        
+
         let searchOptions = SearchOptions(
             languages: [options.language.languageCode],
             limit: options.limit,
@@ -120,6 +118,7 @@ public extension Discover {
 }
 
 // MARK: - Private
+
 private extension Discover {
     func search(
         for query: Query,
@@ -134,7 +133,7 @@ private extension Discover {
             case .success(let searchResults):
                 let discoverResults = searchResults.map(Discover.Result.from(_:))
                 completion(.success(discoverResults))
-                
+
             case .failure(let error):
                 completion(.failure(error))
             }

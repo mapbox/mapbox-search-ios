@@ -7,7 +7,7 @@ extension Locale {
 extension Locale {
     static func defaultLanguages() -> [String] {
         let regions = Locale.preferredLanguages.map(Locale.init).compactMap({ $0.languageCode }).removingDuplicates()
-        
+
         if let first = regions.first {
             return [first]
         } else {

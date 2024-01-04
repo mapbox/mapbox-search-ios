@@ -2,23 +2,22 @@ import CoreLocation
 
 /// Resolved search result intended to represent user favorites
 public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable {
-    
     /// Unique record identifier.
     public let id: String
-    
+
     /// Displayable name of the record.
     public var name: String
-    
+
     /**
-        The feature name, as matched by the search algorithm.
-        
-        - Warning: The field is exposed for compatibility only, will be removed soon.
-    */
+         The feature name, as matched by the search algorithm.
+
+         - Warning: The field is exposed for compatibility only, will be removed soon.
+     */
     public var matchingName: String?
-    
+
     /// address formatted with medium style.
     public var descriptionText: String? { address?.formattedAddress(style: .medium) }
-    
+
     /// Coordinate associated to the favorite record.
     public internal(set) var coordinate: CLLocationCoordinate2D {
         get {
@@ -28,45 +27,45 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
             coordinateCodable = .init(newValue)
         }
     }
-    
+
     var coordinateCodable: CLLocationCoordinate2DCodable
-    
+
     /// Result address.
     public var address: Address?
-    
+
     /// Maki icon name.
     public var icon: Maki?
-    
+
     /// Index in response from server.
     public let serverIndex: Int?
-    
+
     /// A point accuracy metric for the returned address.
     public let accuracy: SearchResultAccuracy?
-    
+
     /// Maki icon name. Use ``icon`` when possible.
     public var iconName: String?
-    
+
     /// Result categories types.
     public var categories: [String]?
-    
+
     /// Coordinates of building entries
     public var routablePoints: [RoutablePoint]?
-    
+
     /// Type of SearchResult. Should be one of address or POI.
     public var type: SearchResultType
-    
+
     /// Additional string literals that should be included in object index. For example, you may provide non-official names to force `SearchEngine` match them.
     public var additionalTokens: Set<String>?
-    
+
     /// FavoriteRecord Always has estimatedTime as nil.
     public var estimatedTime: Measurement<UnitDuration>?
-    
+
     /// Original search request.
     public let searchRequest: SearchRequestOptions
-    
+
     /// Associated metadata
     public var metadata: SearchResultMetadata?
-    
+
     /// Favorite record constructor
     /// - Parameters:
     ///   - id: UUID used by default
@@ -105,7 +104,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         self.metadata = metadata
         self.searchRequest = searchRequest
     }
-    
+
     /// Build Favorite record from SearchResult
     /// - Parameters:
     ///   - id: UUID used by default
@@ -130,4 +129,4 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
                   searchRequest: searchResult.searchRequest,
                   metadata: searchResult.metadata)
     }
-} 
+}

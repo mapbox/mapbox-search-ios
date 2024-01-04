@@ -8,14 +8,14 @@ final class SearchResponse {
     init(coreResponse: CoreSearchResponseProtocol) {
         self.coreResponse = coreResponse
     }
-    
+
     func process() -> ProcessedSearchResponse {
         switch coreResponse.result {
         case .success(let coreSearchResults):
             return .success(
                 processResults(coreSearchResults)
             )
-        
+
         case .failure(let error):
             return .failure(error)
         }
@@ -23,6 +23,7 @@ final class SearchResponse {
 }
 
 // MARK: - Private
+
 private extension SearchResponse {
     func processResults(_ responseResults: [CoreSearchResult]) -> (suggestions: [SearchSuggestion], results: [SearchResult]) {
         var results = [SearchResult]()
@@ -55,7 +56,7 @@ private extension SearchResponse {
 
             return suggestion
         }
-        
+
         return (suggestions, results)
     }
 }

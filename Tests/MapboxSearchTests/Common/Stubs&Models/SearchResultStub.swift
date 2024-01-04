@@ -33,9 +33,9 @@ class SearchResultStub: SearchResult {
         self.dataLayerIdentifier = dataLayerIdentifier
         self.searchRequest = searchRequest
     }
-    
+
     var dataLayerIdentifier: String
-    
+
     var id: String
     var accuracy: SearchResultAccuracy?
     var categories: [String]?
@@ -55,7 +55,7 @@ class SearchResultStub: SearchResult {
             coordinateCodable = .init(newValue)
         }
     }
-    
+
     var coordinateCodable: CLLocationCoordinate2DCodable
     var address: Address?
     var descriptionText: String?
@@ -64,6 +64,7 @@ class SearchResultStub: SearchResult {
 
 
 // MARK: - SearchResultStub
+
 extension SearchResultStub {
     static var `default`: SearchResultStub {
         SearchResultStub(

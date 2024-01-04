@@ -13,7 +13,7 @@ extension Array where Element == CoreOpenPeriod {
         let fridayPeriod = CoreOpenPeriod(openD: 4, openH: 8, openM: 35, closedD: 4, closedH: 20, closedM: 18)
         let saturdayPeriod = CoreOpenPeriod(openD: 5, openH: 10, openM: 00, closedD: 5, closedH: 19, closedM: 00)
         let sundayPeriod = CoreOpenPeriod(openD: 6, openH: 10, openM: 00, closedD: 6, closedH: 19, closedM: 00)
-        
+
         return [mondayPeriod, tuesdayPeriod, wednesdayPeriod, thursdayPeriod, fridayPeriod, saturdayPeriod, sundayPeriod]
     }
 }

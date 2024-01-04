@@ -6,7 +6,6 @@ import UIKit
 /// Dark mode support should be implemented in the same Style instance as the light one.
 /// Please use Asset Catalog colors or `UIColor.init(dynamicProvider:)`
 public struct Style {
-    
     /// Make your own Style for SearchUI or use the default as `Style.default`. Pass `nil` to args to use default value
     /// - Parameters:
     ///   - primaryTextColor: Color of the most text-based elements
@@ -40,37 +39,37 @@ public struct Style {
         self.iconTintColor = iconTintColor ?? Colors.iconTint
         self.activeSegmentTitleColor = activeSegmentTitleColor ?? .white
     }
-    
+
     /// Default Mapbox style for SearchUI SDK
     public static let `default` = Style()
-    
+
     /// Color of the most text-based elements
     public var primaryTextColor: UIColor
-    
+
     /// Main background color
     public var primaryBackgroundColor: UIColor
-    
+
     /// Search Bar background, Category buttons background
     public var secondaryBackgroundColor: UIColor
-    
+
     /// Separator color for UITableViews
     public var separatorColor: UIColor
-    
+
     /// Accent color is used is `UIView.tintColor`. By default is blue (mapbox style)
     public var primaryAccentColor: UIColor
-    
+
     /// Color of non-active or non-important labels like placeholder in `SearchBar` or address label in `SearchSuggestionCell`
     public var primaryInactiveElementColor: UIColor
-    
+
     /// Shadow color for `MapboxPanelController`
     public var panelShadowColor: UIColor
-    
+
     /// Color of the small rectangle at the top of the `MapboxPanelController`
     public var panelHandlerColor: UIColor
-    
+
     /// Tinting color for most icons like category icon or favorite record icon
     public var iconTintColor: UIColor
-    
+
     /// Title color for active element in SegmentedControl
     ///
     /// - Note: To customise inactive title color use `Style.primaryInactiveElementColor`

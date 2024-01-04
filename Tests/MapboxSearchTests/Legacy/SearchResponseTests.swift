@@ -5,10 +5,10 @@ import CwlPreconditionTesting
 class SearchResponseTests: XCTestCase {
     func testResolvedAddressResult() throws {
         let coreResponse = CoreSearchResponseStub(id: 377,
-                                              options: .sample1,
+                                                  options: .sample1,
                                                   result: .success([CoreSearchResultStub.makeAddress().asCoreSearchResult]))
         let response = SearchResponse(coreResponse: coreResponse)
-        
+
         let processedResponse = try response.process().get()
         XCTAssertTrue(processedResponse.suggestions.count == 1)
         XCTAssertEqual(processedResponse.results.first?.coordinate, .sample1)
@@ -27,7 +27,7 @@ class SearchResponseTests: XCTestCase {
             }
         }
     }
-    
+
     func testSuccessResponseWithAssociatedError() throws {
         let nserror = NSError(domain: NSURLErrorDomain, code: 400, userInfo: [NSLocalizedDescriptionKey: "Bad Request"])
         let coreResponse = CoreSearchResponseStub.failureSample(error: nserror)
@@ -47,54 +47,54 @@ class SearchResponseTests: XCTestCase {
     func testSuccessResponseWithZeroResults() throws {
         let coreResponse = CoreSearchResponseStub(id: 377, options: .sample1, result: .success([]))
         let response = SearchResponse(coreResponse: coreResponse)
-        
+
         let processedResponse = try response.process().get()
         XCTAssertTrue(processedResponse.suggestions.isEmpty)
     }
-    
+
     func testSuccessResponseWithSuggestionsOnly() throws {
         let expectedResults = CoreSearchResultStub.makeSuggestionsSet().map { $0.asCoreSearchResult }
         let coreResponse = CoreSearchResponseStub(id: 377,
                                                   options: .sample1,
                                                   result: .success(expectedResults))
         let response = SearchResponse(coreResponse: coreResponse)
-        
+
         let processedResponse = try response.process().get()
         XCTAssertTrue(processedResponse.results.isEmpty)
         XCTAssertEqual(processedResponse.suggestions.map({ $0.id }), expectedResults.map({ $0.id }))
     }
-    
+
     func testSuccessResponseWithMixedResults() throws {
         let expectedResults = CoreSearchResultStub.makeMixedResultsSet().map { $0.asCoreSearchResult }
         let coreResponse = CoreSearchResponseStub(id: 377,
                                                   options: .sample1,
                                                   result: .success(expectedResults))
         let response = SearchResponse(coreResponse: coreResponse)
-        
+
         let processedResponse = try response.process().get()
-        XCTAssertEqual(processedResponse.results.map({ $0.id }), expectedResults.filter({ $0.center != nil }).map({ $0.id }) )
+        XCTAssertEqual(processedResponse.results.map({ $0.id }), expectedResults.filter({ $0.center != nil }).map({ $0.id }))
         XCTAssertEqual(processedResponse.suggestions.map({ $0.id }), expectedResults.map({ $0.id }))
     }
-    
+
     func testSuccessResponseWithResultsOnly() throws {
         let expectedResults = CoreSearchResultStub.makeCategoryResultsSet().map { $0.asCoreSearchResult }
         let coreResponse = CoreSearchResponseStub(id: 377,
                                                   options: .sample1,
                                                   result: .success(expectedResults))
         let response = SearchResponse(coreResponse: coreResponse)
-        
+
         let processedResponse = try response.process().get()
         XCTAssertEqual(processedResponse.results.map({ $0.id }), expectedResults.map({ $0.id }))
         XCTAssertEqual(processedResponse.suggestions.map({ $0.id }), expectedResults.map({ $0.id }))
     }
-    
+
     func testSuccessResponseWithQueryOnly() throws {
         let expectedResults = [CoreSearchResultStub.makeSuggestionTypeQuery()].map { $0.asCoreSearchResult }
         let coreResponse = CoreSearchResponseStub(id: 377,
                                                   options: .sample1,
                                                   result: .success(expectedResults))
         let response = SearchResponse(coreResponse: coreResponse)
-        
+
         let processedResponse = try response.process().get()
         XCTAssertEqual(processedResponse.suggestions.map({ $0.id }), expectedResults.map({ $0.id }))
     }

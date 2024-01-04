@@ -12,6 +12,6 @@ enum Colors {
     static let panelHandler = UIColor(named: "mapbox handler", in: .mapboxSearchUI, compatibleWith: nil)!
     static let favDetailsShadow = UIColor(named: "mapbox fav details shadow", in: .mapboxSearchUI, compatibleWith: nil)!
     static let tableAction = UIColor(named: "mapbox table action", in: .mapboxSearchUI, compatibleWith: nil)!
-    
+
     static let mapboxBlue = UIColor(named: "mapbox blue", in: .mapboxSearchUI, compatibleWith: nil)!
 }

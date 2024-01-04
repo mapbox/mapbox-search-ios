@@ -1,5 +1,3 @@
-// Copyright © 2022 Mapbox. All rights reserved.
-
 import Foundation
 import CoreLocation
 
@@ -9,7 +7,7 @@ extension AddressAutofill.Suggestion {
         case incorrectFormattedAddress
         case invalidCoordinates
     }
-    
+
     static func from(_ searchResult: SearchResult) throws -> Self {
         guard let address = searchResult.address else {
             throw Error.emptyAddress
@@ -18,7 +16,7 @@ extension AddressAutofill.Suggestion {
         guard let formattedAddress = address.formattedAddress(style: .full) else {
             throw Error.incorrectFormattedAddress
         }
-        
+
         guard CLLocationCoordinate2DIsValid(searchResult.coordinate) else {
             throw Error.invalidCoordinates
         }
@@ -33,14 +31,15 @@ extension AddressAutofill.Suggestion {
 }
 
 // MARK: - Internal
+
 extension Address {
     enum AutofillParsingError: Error {
         case emptyAddressComponents
     }
-    
+
     func toAutofillComponents() throws -> NonEmptyArray<AddressAutofill.AddressComponent> {
         var components: [AddressAutofill.AddressComponent] = []
-        
+
         houseNumber.map { components.append(.init(kind: .houseNumber, value: $0)) }
         street.map { components.append(.init(kind: .street, value: $0)) }
         neighborhood.map { components.append(.init(kind: .neighborhood, value: $0)) }
@@ -50,11 +49,11 @@ extension Address {
         district.map { components.append(.init(kind: .district, value: $0)) }
         region.map { components.append(.init(kind: .region, value: $0)) }
         country.map { components.append(.init(kind: .country, value: $0)) }
-        
+
         guard let first = components.first else {
             throw AutofillParsingError.emptyAddressComponents
         }
-        
+
         return .init(
             first: first,
             others: Array(components.dropFirst())

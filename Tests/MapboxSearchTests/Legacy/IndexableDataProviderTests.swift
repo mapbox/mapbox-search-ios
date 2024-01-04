@@ -5,7 +5,7 @@ import CoreLocation
 class IndexableDataProviderTests: XCTestCase {
     var delegate = SearchEngineDelegateStub()
     let provider = ServiceProviderStub()
-    
+
     func testOneDataProvider() throws {
         let dataProvider = TestDataProvider()
         let searchEngine = SearchEngine(accessToken: "Stub_token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
@@ -13,7 +13,7 @@ class IndexableDataProviderTests: XCTestCase {
         dataProvider.records = TestDataProviderRecord.testData(count: 2)
         let interactor = try searchEngine.register(dataProvider: dataProvider, priority: 10)
         dataProvider.registerProviderInteractor(interactor: interactor)
-        
+
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         let results = dataProvider.records.map { CoreSearchResultStub(dataProviderRecord: $0) }
         let coreResponse = CoreSearchResponseStub.successSample(results: results)
@@ -28,14 +28,14 @@ class IndexableDataProviderTests: XCTestCase {
             fatalError("impossible")
         }
     }
-    
+
     func testDataProviderWithNoRecords() throws {
         let dataProvider = TestDataProvider()
         let searchEngine = SearchEngine(accessToken: "Stub_token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
         searchEngine.delegate = delegate
         let interactor = try searchEngine.register(dataProvider: dataProvider, priority: 10)
         dataProvider.registerProviderInteractor(interactor: interactor)
-        
+
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         let results = dataProvider.records.map { CoreSearchResultStub(dataProviderRecord: $0) }
         let coreResponse = CoreSearchResponseStub.successSample(results: results)
@@ -50,26 +50,26 @@ class IndexableDataProviderTests: XCTestCase {
             fatalError("impossible")
         }
     }
-    
+
     func testMultipleDataProviders() throws {
         let dataProviderNoRecords = TestDataProvider()
         let dataProviderSomeRecords = TestDataProvider()
         dataProviderSomeRecords.records = TestDataProviderRecord.testData(count: 10)
         let dataProviderManyRecords = TestDataProvider()
         dataProviderManyRecords.records = TestDataProviderRecord.testData(count: 10000)
-        
+
         let searchEngine = SearchEngine(accessToken: "Stub_token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
         searchEngine.delegate = delegate
-        
+
         for (index, dataProvider) in [dataProviderNoRecords, dataProviderSomeRecords, dataProviderManyRecords].enumerated() {
             let interactor = try searchEngine.register(dataProvider: dataProvider, priority: 10 + index)
             dataProvider.registerProviderInteractor(interactor: interactor)
         }
-        
+
         let results = (
             dataProviderNoRecords.records + dataProviderSomeRecords.records + dataProviderManyRecords.records
         ).map({ CoreSearchResultStub(dataProviderRecord: $0) })
-        
+
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         let coreResponse = CoreSearchResponseStub.successSample(results: results)
         engine.searchResponse = coreResponse

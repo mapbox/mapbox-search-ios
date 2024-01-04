@@ -1,5 +1,3 @@
-// Copyright © 2023 Mapbox. All rights reserved.
-
 import XCTest
 import CoreLocation
 @testable import MapboxSearch
@@ -15,7 +13,7 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
             locationProvider: DefaultLocationProvider()
         )
     }
-    
+
     func testSelectSuggestionsAllWithoutCoordinate() throws {
         let expectation = XCTestExpectation(description: "Expecting results")
 
@@ -221,6 +219,6 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
 
 extension CLLocationCoordinate2D: Equatable {}
 
-public func ==(lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+public func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
     return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
 }

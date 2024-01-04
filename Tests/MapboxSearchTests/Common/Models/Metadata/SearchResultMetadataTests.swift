@@ -8,56 +8,56 @@ class SearchResultMetadataTests: XCTestCase {
     func metadata() -> SearchResultMetadata {
         SearchResultMetadata(metadata: CoreSearchResultMetadataStub.sample1)
     }
-    
+
     func testMetadataPhone() {
         XCTAssertEqual(metadata().phone, "+ 000 00 000 00 00")
     }
-    
+
     func testMetadataWebsite() {
         XCTAssertEqual(metadata().website?.absoluteString, "https://www.google.com")
     }
-    
+
     func testMetadataReviewsCount() {
         XCTAssertEqual(metadata().reviewCount, 200)
     }
-    
+
     func testMetadataAverageRating() {
         XCTAssertEqual(metadata().averageRating, 4.5)
     }
-    
+
     func testSubscript() {
         XCTAssertEqual(metadata()["review_count"], "42")
     }
-    
+
     func testNoResultSubscript() {
         XCTAssertNil(metadata()["non existing key"])
     }
-    
+
     func testPrimaryPhoto() {
         XCTAssertEqual(metadata().primaryImage?.sizes.count, 3)
         XCTAssertEqual(metadata().primaryImage?.sizes[0].size.height, CGFloat(CoreImageInfoStub.sample1.height))
         XCTAssertEqual(metadata().primaryImage?.sizes[0].size.width, CGFloat(CoreImageInfoStub.sample1.width))
         XCTAssertEqual(metadata().primaryImage?.sizes[0].url?.absoluteString, CoreImageInfoStub.sample1.url)
     }
-    
+
     func testOtherPhoto() {
         XCTAssertEqual(metadata().otherImages?.first?.sizes.count, 1)
         XCTAssertEqual(metadata().otherImages?.first?.sizes[0].size.height, CGFloat(CoreImageInfoStub.sample4.height))
         XCTAssertEqual(metadata().otherImages?.first?.sizes[0].size.width, CGFloat(CoreImageInfoStub.sample4.width))
         XCTAssertEqual(metadata().otherImages?.first?.sizes[0].url?.absoluteString, CoreImageInfoStub.sample4.url)
     }
-    
+
     func testEqualMetadata() {
         let stub = CoreSearchResultMetadataStub(data: [
             "phone": "+1 23 34 5648",
             "website": "https://mapbox.com",
             "review_count": "42",
-            "average_rating": "3.97"
+            "average_rating": "3.97",
         ],
         primaryImage: [
             CoreImageInfoStub.sample1,
             CoreImageInfoStub.sample2,
-            CoreImageInfoStub.sample3
+            CoreImageInfoStub.sample3,
         ],
         otherImage: [CoreImageInfoStub.sample4],
         description: "Test Description",
@@ -68,18 +68,18 @@ class SearchResultMetadataTests: XCTestCase {
         let metadata2 = SearchResultMetadata(metadata: stub)
         XCTAssertEqual(metadata(), metadata2)
     }
-    
+
     func testNonEqualMetadata() {
         let stub = CoreSearchResultMetadataStub(data: [
             "phone": "+1 23 24 5648",
             "website": "https://mapbox.com",
             "review_count": "41",
-            "average_rating": "3.99"
+            "average_rating": "3.99",
         ],
         primaryImage: [
             CoreImageInfoStub.sample1,
             CoreImageInfoStub.sample2,
-            CoreImageInfoStub.sample3
+            CoreImageInfoStub.sample3,
         ],
         otherImage: [CoreImageInfoStub.sample4],
         description: "Test Description",
@@ -115,7 +115,7 @@ class SearchResultMetadataTests: XCTestCase {
             return true
         })
         XCTAssert(equal == true)
-        
+
         equal = metadata.otherImages?.first?.sizes.elementsEqual(otherImage, by: { image, coreImage -> Bool in
             XCTAssertEqual(image.url?.absoluteString, coreImage.url)
             XCTAssertEqual(image.size.width, CGFloat(coreImage.width))
@@ -124,11 +124,11 @@ class SearchResultMetadataTests: XCTestCase {
         })
         XCTAssert(equal == true)
     }
-    
+
     func testEmptyMetadata() {
         let stub = CoreSearchResultMetadataStub(data: [:])
         let metadata = SearchResultMetadata(metadata: stub)
-        
+
         XCTAssertNil(metadata.primaryImage)
         XCTAssertNil(metadata.otherImages)
         XCTAssertNil(metadata.reviewCount)
@@ -137,13 +137,13 @@ class SearchResultMetadataTests: XCTestCase {
         XCTAssertNil(metadata.averageRating)
         XCTAssertTrue(metadata.data.isEmpty)
     }
-    
+
     func testPrimaryImageInitializationFailed() {
         let stub = CoreSearchResultMetadataStub(data: [
             "phone": "+1 23 34 5648",
             "website": "https://mapbox.com",
             "review_count": "42",
-            "average_rating": "3.97"
+            "average_rating": "3.97",
         ],
         primaryImage: [],
         otherImage: [CoreImageInfoStub.sample4],
@@ -152,11 +152,11 @@ class SearchResultMetadataTests: XCTestCase {
         reviewCount: 200,
         phone: "+ 000 00 000 00 00",
         website: "https://www.google.com")
-    
+
         let metadata = SearchResultMetadata(metadata: stub)
         XCTAssertNil(metadata.primaryImage)
     }
-    
+
     func testOtherImageInitializationFailed() {
         let stub = CoreSearchResultMetadataStub(
             data: [:],
@@ -171,16 +171,16 @@ class SearchResultMetadataTests: XCTestCase {
         let metadata = SearchResultMetadata(metadata: stub)
         XCTAssertNil(metadata.otherImages)
     }
-    
+
     func testIncorrectImageInfoURL() throws {
         #if !arch(x86_64)
-        throw XCTSkip("Unsupported architecture")
+            throw XCTSkip("Unsupported architecture")
         #else
 
-        let assertionError = catchBadInstruction {
-            _ = Image.SizedImage(coreImageInfo: CoreImageInfoStub(url: "", width: 42, height: 88))
-        }
-        XCTAssertNotNil(assertionError)
+            let assertionError = catchBadInstruction {
+                _ = Image.SizedImage(coreImageInfo: CoreImageInfoStub(url: "", width: 42, height: 88))
+            }
+            XCTAssertNotNil(assertionError)
         #endif
     }
 }

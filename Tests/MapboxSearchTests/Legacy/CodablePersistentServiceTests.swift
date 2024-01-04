@@ -15,7 +15,7 @@ class CodablePersistentServiceTests: XCTestCase {
         }
         service.clear()
     }
-    
+
     func testSaveFavoritesRecord() throws {
         let filename = "FavoritesRecord.test"
         let service = try XCTUnwrap(CodablePersistentService<FavoriteRecord>(filename: filename))
@@ -39,8 +39,7 @@ class CodablePersistentServiceTests: XCTestCase {
                                     accuracy: nil,
                                     categories: [],
                                     resultType: .address(subtypes: [.address]),
-                                    searchRequest: .init(query: "Sample", proximity: nil)
-        )
+                                    searchRequest: .init(query: "Sample", proximity: nil))
         XCTAssertTrue(service.saveData(record), "Unable to save record")
         if let loadedRecord = service.loadData() {
             XCTAssertEqual(record, loadedRecord)
@@ -49,7 +48,7 @@ class CodablePersistentServiceTests: XCTestCase {
         }
         service.clear()
     }
-    
+
     func testSaveHistoryRecord() throws {
         let filename = "FavoritesRecord.test"
         let service = try XCTUnwrap(CodablePersistentService<HistoryRecord>(filename: filename))
@@ -64,8 +63,7 @@ class CodablePersistentServiceTests: XCTestCase {
                                    historyType: .category,
                                    type: .address(subtypes: [.address]),
                                    address: nil,
-                                   searchRequest: .init(query: "Sample", proximity: nil)
-        )
+                                   searchRequest: .init(query: "Sample", proximity: nil))
         XCTAssertTrue(service.saveData(record), "Unable to save record")
         if let loadedRecord = service.loadData() {
             XCTAssertEqual(record, loadedRecord)
@@ -74,7 +72,7 @@ class CodablePersistentServiceTests: XCTestCase {
         }
         service.clear()
     }
-    
+
     func testClean() throws {
         let filename = "customRecord.test"
         let service = try XCTUnwrap(CodablePersistentService<TestRecord>(filename: filename))
@@ -95,7 +93,7 @@ private struct TestRecord: Codable, Equatable {
     var address: TestAddress
     var icon: Maki?
     var categories: [String]?
-    
+
     init() {
         iconName = "Some Icon"
         id = UUID().uuidString

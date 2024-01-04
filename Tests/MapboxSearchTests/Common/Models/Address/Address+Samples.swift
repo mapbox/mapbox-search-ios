@@ -10,7 +10,7 @@ extension Address {
                                      district: "$district",
                                      region: "$region",
                                      country: "$country")
-    
+
     static let mapboxDCOffice = Address(houseNumber: "740",
                                         street: "15th St NW",
                                         neighborhood: "Downtown",
@@ -20,6 +20,6 @@ extension Address {
                                         district: nil,
                                         region: "District of Columbia",
                                         country: "United States")
-    
+
     static let emptyAddress = Address.empty
 }

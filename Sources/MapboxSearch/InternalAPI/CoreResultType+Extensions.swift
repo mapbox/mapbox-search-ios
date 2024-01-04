@@ -23,7 +23,7 @@ extension CoreResultType {
             return "unknown"
         }
     }
-    
+
     static let allAddressTypes: [CoreResultType] = [
         .address,
         .place,
@@ -34,9 +34,9 @@ extension CoreResultType {
         .district,
         .locality,
         .neighborhood,
-        .block
+        .block,
     ]
-    
+
     /// Validate that all input types are specific address subtypes (like country, district or concrete address)
     /// - Parameter types: Mixed set of types
     /// - Returns: Does all input `types` belong to address subtypes

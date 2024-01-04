@@ -8,7 +8,7 @@ class CoreBoundingBoxTests: XCTestCase {
         let northEast = CLLocationCoordinate2D(latitude: 34, longitude: 45)
         let bbox = BoundingBox(southWest, northEast)
         let coreBBox = CoreBoundingBox(boundingBox: bbox)
-        
+
         XCTAssertEqual(coreBBox.min, southWest)
         XCTAssertEqual(coreBBox.max, northEast)
     }

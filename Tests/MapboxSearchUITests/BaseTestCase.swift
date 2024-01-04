@@ -2,9 +2,9 @@ import XCTest
 
 class BaseTestCase: XCTestCase {
     static let defaultTimeout: TimeInterval = 10.0
-    
+
     var app: XCUIApplication!
-    
+
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()

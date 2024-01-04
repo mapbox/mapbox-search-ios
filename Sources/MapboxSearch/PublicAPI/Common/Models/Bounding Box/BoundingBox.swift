@@ -9,16 +9,16 @@ public struct BoundingBox: Codable, Hashable {
         get { southWestCodable.coordinates }
         set { southWestCodable.coordinates = newValue }
     }
-    
+
     /// The most north and east coordinate in bounding box
     public var northEast: CLLocationCoordinate2D {
         get { northEastCodable.coordinates }
         set { northEastCodable.coordinates = newValue }
     }
-    
+
     var southWestCodable: CLLocationCoordinate2DCodable
     var northEastCodable: CLLocationCoordinate2DCodable
-    
+
     /// Build `BoundingBox` with array of coordinates
     ///
     /// Constructor would search for the minimal and maximum latitude and longitude.
@@ -39,7 +39,7 @@ public struct BoundingBox: Codable, Hashable {
         southWestCodable = CLLocationCoordinate2DCodable(latitude: minLat, longitude: minLon)
         northEastCodable = CLLocationCoordinate2DCodable(latitude: maxLat, longitude: maxLon)
     }
-    
+
     /// Build `BoundingBox` based on south-west (bottom-left) and north-east (top-right) coordinates
     /// - Parameters:
     ///   - southWest: The most south-west coordinate in bounding box
@@ -48,7 +48,7 @@ public struct BoundingBox: Codable, Hashable {
         self.southWestCodable = CLLocationCoordinate2DCodable(southWest)
         self.northEastCodable = CLLocationCoordinate2DCodable(northEast)
     }
-    
+
     /// Returns a Boolean value indicating whether the `BoundingBox` contains the coordinate.
     /// - Parameters:
     ///   - coordinate: The coordinate to find in the bounding box.
@@ -61,7 +61,7 @@ public struct BoundingBox: Codable, Hashable {
                 && southWest.longitude < coordinate.longitude
                 && northEast.longitude > coordinate.longitude
         }
-        
+
         return southWest.latitude <= coordinate.latitude
             && northEast.latitude >= coordinate.latitude
             && southWest.longitude <= coordinate.longitude

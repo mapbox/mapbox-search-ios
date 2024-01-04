@@ -4,7 +4,7 @@ import CoreLocation
 extension CLLocationCoordinate2D {
     /// Mapbox SF Office
     static let sample1 = CLLocationCoordinate2D(latitude: 37.7913235, longitude: -122.3964788)
-    
+
     /// Mapbox DC Office
     static let sample2 = CLLocationCoordinate2D(latitude: 38.8996104, longitude: -77.0341996)
 }

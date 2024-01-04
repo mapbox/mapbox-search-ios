@@ -4,9 +4,9 @@ class ServiceProviderStub: ServiceProviderProtocol, EngineProviderProtocol {
     func getStoredAccessToken() -> String? {
         "mapbox-access-token"
     }
-    
+
     lazy var dataLayerProviders: [IndexableDataProvider] = [localFavoritesProvider, localHistoryProvider]
-    
+
     let localFavoritesProvider = LocalDataProvider<FavoriteRecord>()
     let localHistoryProvider = LocalDataProvider<HistoryRecord>()
     lazy var eventsManager = EventsManager()

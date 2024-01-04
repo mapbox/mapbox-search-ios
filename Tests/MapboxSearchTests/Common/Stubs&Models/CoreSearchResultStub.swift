@@ -42,7 +42,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         self.metadata = metadata
         self.estimatedTime = estimatedTime
     }
-    
+
     convenience init(dataProviderRecord: TestDataProviderRecord) {
         self.init(
             id: dataProviderRecord.id,
@@ -51,7 +51,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
             languages: ["en"]
         )
     }
-    
+
     var id: String
     var resultAccuracy: CoreAccuracy?
     var resultTypes: [CoreResultType]
@@ -72,15 +72,15 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
     var distance: NSNumber?
     var metadata: CoreResultMetadata?
     var estimatedTime: Measurement<UnitDuration>?
-    
+
     var distanceToProximity: CLLocationDistance? {
         distance.map({ $0.doubleValue })
     }
-    
+
     var dataLayerIdentifier: String { customDataLayerIdentifier ?? getLayerIdentifier() }
     var customDataLayerIdentifier: String?
-    
-    
+
+
     func getLayerIdentifier() -> String {
         switch type {
         case .place:
@@ -98,18 +98,18 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
 extension CoreSearchResultStub: Equatable {
     static func == (lhs: CoreSearchResultStub, rhs: CoreSearchResultStub) -> Bool {
         return lhs.id == rhs.id
-        && lhs.type == rhs.type
-        && lhs.names == rhs.names
-        && lhs.languages == rhs.languages
-        && lhs.addresses == rhs.addresses
-        && lhs.center == rhs.center
-        && lhs.categories == rhs.categories
-        && lhs.icon == rhs.icon
-        && lhs.layer == rhs.layer
-        && lhs.userRecordID == rhs.userRecordID
-        && lhs.action == rhs.action
-        && lhs.serverIndex == rhs.serverIndex
-        && lhs.distance == rhs.distance
+            && lhs.type == rhs.type
+            && lhs.names == rhs.names
+            && lhs.languages == rhs.languages
+            && lhs.addresses == rhs.addresses
+            && lhs.center == rhs.center
+            && lhs.categories == rhs.categories
+            && lhs.icon == rhs.icon
+            && lhs.layer == rhs.layer
+            && lhs.userRecordID == rhs.userRecordID
+            && lhs.action == rhs.action
+            && lhs.serverIndex == rhs.serverIndex
+            && lhs.distance == rhs.distance
     }
 }
 

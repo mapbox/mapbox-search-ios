@@ -20,34 +20,34 @@ class Reachability {
         case unavailable
         case available
     }
-    
+
     static let userInfoKey = Defaults.notificationKey
-    
+
     private let reachability: SCNetworkReachability
     private let queue = DispatchQueue(label: Defaults.queueName, qos: .default)
-    
+
     var statusChangeHandler: ((Status) -> Void)?
-    
+
     private var flags: SCNetworkReachabilityFlags? {
         didSet {
             guard flags != oldValue else { return }
             notifyReachabilityChanged()
         }
     }
-    
+
     var status: Status {
         guard let flags = flags else { return .unknown }
         return flags.status
     }
-    
+
     init(hostname: String) {
         self.reachability = SCNetworkReachabilityCreateWithName(nil, hostname)!
     }
-    
+
     deinit {
         stop()
     }
-    
+
     private func notifyReachabilityChanged() {
         DispatchQueue.main.async {
             self.statusChangeHandler?(self.status)
@@ -71,7 +71,7 @@ extension Reachability {
         // info parameter used to pass self pointer into callback
         let callback: SCNetworkReachabilityCallBack = { _, flags, info in
             guard let info = info else { return }
-            
+
             let reachability = Unmanaged<Reachability>.fromOpaque(info).takeUnretainedValue()
             reachability.flags = flags
         }
@@ -79,12 +79,12 @@ extension Reachability {
         SCNetworkReachabilitySetDispatchQueue(reachability, queue)
         updateFlags()
     }
-    
+
     func stop() {
         SCNetworkReachabilitySetCallback(reachability, nil, nil)
         SCNetworkReachabilitySetDispatchQueue(reachability, nil)
     }
-    
+
     private func updateFlags() {
         queue.async {
             var flags = SCNetworkReachabilityFlags()

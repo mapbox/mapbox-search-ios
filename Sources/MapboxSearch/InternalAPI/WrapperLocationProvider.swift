@@ -7,7 +7,7 @@ class WrapperLocationProvider: CoreLocationProvider {
         // Implement to support ViewPort argument for Telemetry
         return nil
     }
-    
+
     private let locationProvider: LocationProvider
 
     init?(wrapping locationProvider: LocationProvider?) {

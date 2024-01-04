@@ -13,13 +13,13 @@ open class PointLocationProvider: LocationProvider {
     public let coordinate: CLLocationCoordinate2D
 
     // MARK: Public functions
-    
+
     /// Create location provider with fixed coordinate
     /// - Parameter coordinate: Pinned coordinate for Location Provider
     public init(coordinate: CLLocationCoordinate2D) {
         self.coordinate = coordinate
     }
-    
+
     /// Fixed coordinate access
     /// - Returns: Pinned coordinate for Location Provider
     public func currentLocation() -> CLLocationCoordinate2D? { coordinate }

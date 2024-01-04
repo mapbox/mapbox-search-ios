@@ -8,36 +8,36 @@ let defaultUserAgent: String = {
     let bundle = info?[kCFBundleIdentifierKey as String] as? String ?? "Unknown"
     let appVersion = info?["CFBundleShortVersionString"] as? String ?? "Unknown"
     let appBuild = info?[kCFBundleVersionKey as String] as? String ?? "Unknown"
-    
+
     let osNameVersion: String = {
         let version = ProcessInfo.processInfo.operatingSystemVersion
         let versionString = "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
         let osName: String = {
             #if os(iOS)
-            #if targetEnvironment(macCatalyst)
-            return "macOS(Catalyst)"
-            #else
-            return "iOS"
-            #endif
+                #if targetEnvironment(macCatalyst)
+                    return "macOS(Catalyst)"
+                #else
+                    return "iOS"
+                #endif
             #elseif os(watchOS)
-            return "watchOS"
+                return "watchOS"
             #elseif os(tvOS)
-            return "tvOS"
+                return "tvOS"
             #elseif os(macOS)
-            return "macOS"
+                return "macOS"
             #elseif os(Linux)
-            return "Linux"
+                return "Linux"
             #elseif os(Windows)
-            return "Windows"
+                return "Windows"
             #else
-            return "Unknown"
+                return "Unknown"
             #endif
         }()
-        
+
         return "\(osName) \(versionString)"
     }()
-    
+
     let searchSDKVersion = "MapboxSearchSDK-iOS/\(mapboxSearchSDKVersion)"
-    
+
     return "\(executable)/\(appVersion) (\(bundle); build:\(appBuild); \(osNameVersion)) \(searchSDKVersion)"
 }()

@@ -1,10 +1,7 @@
-// Copyright © 2023 Mapbox. All rights reserved.
-
 import XCTest
 @testable import MapboxSearch
 
 final class EventsManagerTests: XCTestCase {
-
     var eventsManager: EventsManager!
 
     override func setUp() {
