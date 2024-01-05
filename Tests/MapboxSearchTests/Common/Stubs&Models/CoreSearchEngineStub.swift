@@ -48,8 +48,8 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
                                 "lat": 53.92068293258732,
                                 "lng": 27.587735185708915,
                                 "proximity":
-                                    [\(request.options.proximity?.coordinate.longitude ?? -1),
-                                     \(request.options.proximity?.coordinate.latitude ?? -1)],
+                                    [\(request.options.proximity?.value.longitude ?? -1),
+                                     \(request.options.proximity?.value.latitude ?? -1)],
                                 "queryString": "\(request.query)",
                                 "resultId": "\(result?.id ?? "nope")",
                                 "resultIndex": \(result?.serverIndex ?? -1),

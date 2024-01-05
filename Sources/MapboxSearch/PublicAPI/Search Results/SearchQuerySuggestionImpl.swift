@@ -37,7 +37,7 @@ class SearchQuerySuggestionImpl: SearchQuerySuggestion, CoreResponseProvider {
         self.iconName = nil // Queries should use it's special icon
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
         self.distance = coreResult.distanceToProximity
-        self.batchResolveSupported = coreResult.action?.isMultiRetrievable ?? false
+        self.batchResolveSupported = coreResult.action?.multiRetrievable ?? false
         self.categories = coreResult.categories
         
         self.descriptionText = coreResult.addressDescription

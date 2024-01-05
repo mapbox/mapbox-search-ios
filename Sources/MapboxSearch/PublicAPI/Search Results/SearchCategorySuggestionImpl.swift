@@ -37,7 +37,7 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
         self.serverIndex = coreResult.serverIndex?.intValue
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
         self.distance = coreResult.distanceToProximity
-        self.batchResolveSupported = coreResult.action?.isMultiRetrievable ?? false
+        self.batchResolveSupported = coreResult.action?.multiRetrievable ?? false
         self.categories = coreResult.categories
         
         self.descriptionText = coreResult.addressDescription

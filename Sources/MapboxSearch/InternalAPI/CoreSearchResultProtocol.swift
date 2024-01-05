@@ -55,6 +55,10 @@ protocol CoreSearchResultProtocol {
 }
 
 extension CoreSearchResult: CoreSearchResultProtocol {
+    var center: CLLocation? {
+        return nil
+    }
+
     var resultTypes: [CoreResultType] {
         types.compactMap({ CoreResultType(rawValue: $0.intValue) })
     }

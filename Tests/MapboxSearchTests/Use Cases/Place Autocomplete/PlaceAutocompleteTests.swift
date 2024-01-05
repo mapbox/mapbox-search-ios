@@ -38,9 +38,9 @@ final class PlaceAutocompleteTests: XCTestCase {
         XCTAssertEqual(userActivityReporter.passedActivity, "place-autocomplete-forward-geocoding")
         XCTAssertEqual(searchEngine.query, "query")
         XCTAssertEqual(searchEngine.categories, [])
-        XCTAssertEqual(searchEngine.searchOptions?.isIgnoreUR, true)
-        XCTAssertEqual(searchEngine.searchOptions?.proximity?.coordinate, coordinate)
-        XCTAssertEqual(searchEngine.searchOptions?.origin?.coordinate, coordinate)
+        XCTAssertEqual(searchEngine.searchOptions?.ignoreUR, true)
+        XCTAssertEqual(searchEngine.searchOptions?.proximity?.value, coordinate)
+        XCTAssertEqual(searchEngine.searchOptions?.origin?.value, coordinate)
         XCTAssertNil(searchEngine.searchOptions?.navProfile)
         XCTAssertNil(searchEngine.searchOptions?.etaType)
     }
@@ -75,9 +75,9 @@ final class PlaceAutocompleteTests: XCTestCase {
         XCTAssertEqual(userActivityReporter.passedActivity, "place-autocomplete-forward-geocoding")
         XCTAssertEqual(searchEngine.query, "query")
         XCTAssertEqual(searchEngine.categories, [])
-        XCTAssertEqual(searchEngine.searchOptions?.isIgnoreUR, true)
-        XCTAssertEqual(searchEngine.searchOptions?.proximity?.coordinate, coordinate)
-        XCTAssertEqual(searchEngine.searchOptions?.origin?.coordinate, coordinate)
+        XCTAssertEqual(searchEngine.searchOptions?.ignoreUR, true)
+        XCTAssertEqual(searchEngine.searchOptions?.proximity?.value, coordinate)
+        XCTAssertEqual(searchEngine.searchOptions?.origin?.value, coordinate)
         XCTAssertEqual(searchEngine.searchOptions?.navProfile, "cycling")
         XCTAssertEqual(searchEngine.searchOptions?.etaType, "navigation")
         XCTAssertEqual(searchEngine.searchOptions?.countries, ["us", "gb"])
@@ -116,7 +116,7 @@ final class PlaceAutocompleteTests: XCTestCase {
         XCTAssertTrue(searchEngine.nextSearchCalled)
         XCTAssertEqual(searchEngine.query, "query")
         XCTAssertEqual(searchEngine.categories, [])
-        XCTAssertEqual(searchEngine.searchOptions?.isIgnoreUR, true)
+        XCTAssertEqual(searchEngine.searchOptions?.ignoreUR, true)
     }
 
     func testDoNotCallRetrieveForSuggestionWithCoordinate() {

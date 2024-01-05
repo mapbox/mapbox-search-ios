@@ -34,11 +34,11 @@ public final class AddressAutofill {
             accessToken: accessToken,
             locationProvider: WrapperLocationProvider(wrapping: locationProvider)
         )
-        
+
+        let information = CoreSdkInformation(name: "", version: "", packageName: nil)
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(
             for: CoreUserActivityReporterOptions(
-                accessToken: accessToken,
-                userAgent: defaultUserAgent,
+                sdkInformation: information,
                 eventsUrl: nil
             )
         )

@@ -27,8 +27,7 @@ public final class Discover {
         
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(
             for: CoreUserActivityReporterOptions(
-                accessToken: accessToken,
-                userAgent: defaultUserAgent,
+                sdkInformation: CoreSdkInformation(name: "", version: "", packageName: ""),
                 eventsUrl: nil
             )
         )

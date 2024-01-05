@@ -63,7 +63,7 @@ public class FeedbackManager {
         }
         
         if let proximity = response.request.options.proximity {
-            attributes["proximity"] = [proximity.coordinate.longitude, proximity.coordinate.latitude]
+            attributes["proximity"] = [proximity.value.longitude, proximity.value.latitude]
         }
         
         attributes["responseUuid"] = response.responseUUID

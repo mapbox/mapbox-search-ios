@@ -66,9 +66,10 @@ public class SearchTileStore {
         tileStore.setOptionForKey(MapboxCommon.TileStoreOptions.mapboxAPIURL,
                                   domain: MapboxCommon.TileDataDomain.search,
                                   value: defaultEndPoint)
-        tileStore.setOptionForKey(MapboxCommon.TileStoreOptions.mapboxAccessToken,
-                                  domain: MapboxCommon.TileDataDomain.search,
-                                  value: accessToken)
+        // [tile_store] Remove MapboxAccessToken tilestore option, get token from MapboxOptions. (#3679)
+//        tileStore.setOptionForKey(MapboxCommon.TileStoreOptions.mapboxAccessToken,
+//                                  domain: MapboxCommon.TileDataDomain.search,
+//                                  value: accessToken)
     }
     
     /// Loads a new tile region or updates the existing one.

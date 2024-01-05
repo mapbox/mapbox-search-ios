@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04E5FF962B48828500DADC18 /* SearchAddressCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5FF952B48828500DADC18 /* SearchAddressCountry.swift */; };
+		04E5FF992B48829200DADC18 /* SearchAddressRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5FF982B48829200DADC18 /* SearchAddressRegion.swift */; };
 		140D1BDC286DB479001A51C2 /* SearchResultAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */; };
 		140E47A2298BC90E00677E30 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A1298BC90E00677E30 /* Discover.swift */; };
 		140E47A5298BC94D00677E30 /* Discover+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A4298BC94D00677E30 /* Discover+Options.swift */; };
@@ -475,6 +477,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04E5FF952B48828500DADC18 /* SearchAddressCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressCountry.swift; sourceTree = "<group>"; };
+		04E5FF982B48829200DADC18 /* SearchAddressRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressRegion.swift; sourceTree = "<group>"; };
 		140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAccuracy.swift; sourceTree = "<group>"; };
 		140E47A1298BC90E00677E30 /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
 		140E47A4298BC94D00677E30 /* Discover+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discover+Options.swift"; sourceTree = "<group>"; };
@@ -889,6 +893,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04E5FF972B48829200DADC18 /* Region */ = {
+			isa = PBXGroup;
+			children = (
+				04E5FF982B48829200DADC18 /* SearchAddressRegion.swift */,
+			);
+			path = Region;
+			sourceTree = "<group>";
+		};
 		140E47A0298BC8F800677E30 /* Discover API */ = {
 			isa = PBXGroup;
 			children = (
@@ -912,6 +924,7 @@
 		14173C2C28783DDD00B20E1C /* Country */ = {
 			isa = PBXGroup;
 			children = (
+				04E5FF952B48828500DADC18 /* SearchAddressCountry.swift */,
 				148DE6612857501D0085684D /* Country.swift */,
 				14173C2F2878437D00B20E1C /* Country+ISO3166-1.swift */,
 			);
@@ -1158,6 +1171,7 @@
 				14173C31287846EA00B20E1C /* Language */,
 				2C705F042A137CEB00B8B773 /* Navigation */,
 				14173C3628784A7D00B20E1C /* NonEmptyArray */,
+				04E5FF972B48829200DADC18 /* Region */,
 				14F7186629A1331200D5BC2E /* Result Types */,
 			);
 			path = Models;
@@ -2374,6 +2388,8 @@
 				144F32F2298D1FCD0082B2D5 /* Discover+Address.swift in Sources */,
 				FEEDD2FB2508DFE400DC0A98 /* WrapperLocationProvider.swift in Sources */,
 				FE7C73A62566804E0047CA20 /* CoreUserRecordsLayerProtocol.swift in Sources */,
+				04E5FF992B48829200DADC18 /* SearchAddressRegion.swift in Sources */,
+				04E5FF962B48828500DADC18 /* SearchAddressCountry.swift in Sources */,
 				F9274FEB2732BF0E00708F37 /* SearchTileStore.swift in Sources */,
 				148DE66C285757AA0085684D /* AddressAutofill+Result.swift in Sources */,
 				FEEDD31C2508DFE400DC0A98 /* IndexableDataResolver.swift in Sources */,

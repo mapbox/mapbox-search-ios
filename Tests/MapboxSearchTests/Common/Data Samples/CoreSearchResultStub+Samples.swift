@@ -114,8 +114,12 @@ extension CoreSearchResultStub {
             postcode: nil,
             place: nil,
             district: "poi-land",
-            region: "poi-region",
-            country: "poi-country"
+            region: CoreSearchAddressRegion(name: "poi-region",
+                                            regionCode: nil,
+                                            regionCodeFull: nil),
+            country: CoreSearchAddressCountry(name: "poi-country",
+                                              countryCode: nil,
+                                              countryCodeAlpha3: nil)
         )
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
@@ -140,8 +144,12 @@ extension CoreSearchResultStub {
             postcode: nil,
             place: nil,
             district: "pizza-land",
-            region: "pizza-region",
-            country: "pizza-country"
+            region: CoreSearchAddressRegion(name: "pizza-region",
+                                            regionCode: nil,
+                                            regionCodeFull: nil),
+            country: CoreSearchAddressCountry(name: "pizza-country",
+                                              countryCode: nil,
+                                              countryCodeAlpha3: nil)
         )
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
@@ -166,8 +174,12 @@ extension CoreSearchResultStub {
             postcode: nil,
             place: nil,
             district: "history-land",
-            region: "history-region",
-            country: "history-country"
+            region: CoreSearchAddressRegion(name: "history-region",
+                                            regionCode: nil,
+                                            regionCodeFull: nil),
+            country: CoreSearchAddressCountry(name: "history-country",
+                                              countryCode: nil,
+                                              countryCodeAlpha3: nil)
         )
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
