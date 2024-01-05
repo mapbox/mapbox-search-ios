@@ -23,7 +23,7 @@ targets:
   CircleCIApp:
     type: application
     platform: iOS
-    deploymentTarget: 11.0
+    deploymentTarget: 14.0
     info:
       path: App.plist
     dependencies:
@@ -38,7 +38,7 @@ EOF
 
 BASEDIR="${BASEDIR}" xcodegen
 xcodebuild -resolvePackageDependencies -derivedDataPath derivedData -scheme CircleCIApp
-xcodebuild -scheme "CircleCIApp" -destination 'platform=iOS Simulator,name=iPhone 12' -derivedDataPath derivedData/ -project CircleCIApp.xcodeproj CODE_SIGNING_ALLOWED=NO
+xcodebuild -scheme "CircleCIApp" -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.0' -derivedDataPath derivedData/ -project CircleCIApp.xcodeproj CODE_SIGNING_ALLOWED=NO
 
 popd
 
