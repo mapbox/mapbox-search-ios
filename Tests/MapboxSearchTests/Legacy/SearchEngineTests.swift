@@ -248,7 +248,7 @@ class SearchEngineTests: XCTestCase {
         let updateExpectation = delegate.updateExpectation
         
         let coreSuggestion = CoreSearchResultStub.makeSuggestionTypeQuery()
-        coreSuggestion.center = nil
+        coreSuggestion.centerLocation = nil
         let suggestion = try XCTUnwrap(SearchResultSuggestionImpl(coreResult: coreSuggestion, response: coreResponse))
         searchEngine.query = "sample-1"
         searchEngine.select(suggestion: suggestion)

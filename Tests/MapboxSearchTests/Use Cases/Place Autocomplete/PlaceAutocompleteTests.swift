@@ -144,7 +144,7 @@ final class PlaceAutocompleteTests: XCTestCase {
     func testSelectSuggestionIfNeedToRetrieve() {
         let coreSuggestion = CoreSearchResultStub.makeSuggestion()
         coreSuggestion.resultTypes = [.poi]
-        coreSuggestion.center = CLLocation(latitude: 10.0, longitude: 20.0)
+        coreSuggestion.centerLocation = CLLocation(latitude: 10.0, longitude: 20.0)
 
         let suggestion = PlaceAutocomplete.Suggestion.makeMock(
             underlying: .suggestion(coreSuggestion, options)

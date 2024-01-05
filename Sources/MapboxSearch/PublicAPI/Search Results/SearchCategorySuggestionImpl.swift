@@ -25,7 +25,7 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
     let batchResolveSupported: Bool
     
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
-        assert(coreResult.center == nil)
+        assert(coreResult.centerLocation == nil)
         
         guard coreResult.resultTypes == [.category] else { return nil }
         

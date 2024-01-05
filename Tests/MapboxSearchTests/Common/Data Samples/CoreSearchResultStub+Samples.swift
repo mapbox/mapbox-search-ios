@@ -16,7 +16,7 @@ extension CoreSearchResultStub {
     
     static let externalRecordSample = CoreSearchResultStub(id: "sample-3",
                                                            type: .userRecord,
-                                                           center: .sample1,
+                                                           centerLocation: .sample1,
                                                            layer: FavoritesProvider.providerIdentifier,
                                                            userRecordID: "external-record-1",
                                                            action: .sample1,
@@ -25,7 +25,7 @@ extension CoreSearchResultStub {
     
     static func makeSuggestionsSet() -> [CoreSearchResultStub] {
         let results = makeMixedResultsSet()
-        results.forEach({ $0.center = nil })
+        results.forEach({ $0.centerLocation = nil })
         return results
     }
     
@@ -35,7 +35,7 @@ extension CoreSearchResultStub {
             type: .place,
             names: ["Some Place Name"],
             languages: ["en"],
-            center: nil,
+            centerLocation: nil,
             categories: ["cafe"],
             icon: Maki.alcoholShop.name,
             metadata: metadata
@@ -62,7 +62,7 @@ extension CoreSearchResultStub {
     }
     
     static func makeSuggestionTypeQuery() -> CoreSearchResultStub {
-        CoreSearchResultStub(id: "recursion", type: .query, center: nil)
+        CoreSearchResultStub(id: "recursion", type: .query, centerLocation: nil)
     }
     
     static func makeCategory() -> CoreSearchResultStub {
@@ -83,7 +83,7 @@ extension CoreSearchResultStub {
             type: .place,
             names: ["Some Place Name"],
             languages: ["en"],
-            center: center,
+            centerLocation: center,
             categories: ["cafe"],
             icon: Maki.alcoholShop.name
         )
@@ -97,7 +97,7 @@ extension CoreSearchResultStub {
             type: .address,
             names: ["Some Place Name"],
             languages: ["en"],
-            center: .sample1,
+            centerLocation: .sample1,
             categories: ["address", "location"],
             icon: Maki.alcoholShop.name
         )
@@ -127,7 +127,7 @@ extension CoreSearchResultStub {
             names: ["Some Place Name"],
             languages: ["en"],
             addresses: [address],
-            center: center,
+            centerLocation: center,
             categories: ["poi"],
             icon: Maki.viewpoint.name
         )
@@ -157,7 +157,7 @@ extension CoreSearchResultStub {
             names: ["Some Place Name"],
             languages: ["en"],
             addresses: [address],
-            center: center,
+            centerLocation: center,
             categories: ["pizza", "cafe"],
             icon: Maki.fastFood.name
         )
@@ -187,7 +187,7 @@ extension CoreSearchResultStub {
             names: ["Some Place Name"],
             languages: ["en"],
             addresses: [address],
-            center: center,
+            centerLocation: center,
             categories: ["history", "other"],
             icon: Maki.fastFood.name
         )

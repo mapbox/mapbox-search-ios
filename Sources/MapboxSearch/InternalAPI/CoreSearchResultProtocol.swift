@@ -21,7 +21,7 @@ protocol CoreSearchResultProtocol {
     
     var matchingName: String? { get }
 
-    var center: CLLocation? { get }
+    var centerLocation: CLLocation? { get }
 
     var estimatedTime: Measurement<UnitDuration>? { get }
 
@@ -55,8 +55,8 @@ protocol CoreSearchResultProtocol {
 }
 
 extension CoreSearchResult: CoreSearchResultProtocol {
-    var center: CLLocation? {
-        return nil
+    var centerLocation: CLLocation? {
+        center.map { CLLocation(latitude: $0.value.latitude, longitude: $0.value.longitude) }
     }
 
     var resultTypes: [CoreResultType] {

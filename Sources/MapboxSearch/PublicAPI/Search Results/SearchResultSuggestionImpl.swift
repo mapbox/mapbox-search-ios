@@ -26,9 +26,9 @@ class SearchResultSuggestionImpl: SearchResultSuggestion, CoreResponseProvider {
     let batchResolveSupported: Bool
     
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
-        assert(coreResult.center == nil, "CoreSearchResult should not contain coordinate. Instantiate \(ServerSearchResult.self) instead.")
+        assert(coreResult.centerLocation == nil, "CoreSearchResult should not contain coordinate. Instantiate \(ServerSearchResult.self) instead.")
         
-        guard coreResult.center == nil else { return nil }
+        guard coreResult.centerLocation == nil else { return nil }
         
         switch coreResult.resultTypes {
         case _ where CoreResultType.hasOnlyAddressSubtypes(types: coreResult.resultTypes):
