@@ -33,7 +33,7 @@ class CategorySuggestionsIntegrationTestCase: MockServerTestCase {
 
         let suggestions = app.categorySuggestionsTableView
         waitForHittable(suggestions, message: "CategorySuggestionsController tableView not hittable")
-        XCTAssertTrue(!suggestions.cells.isEmpty, "No Category suggestions results")
+        XCTAssertGreaterThan(suggestions.cells.count, 0, "Category suggestions results should not be empty")
 
         suggestions.cells.firstMatch.tap()
         waitForHittable(suggestions)
