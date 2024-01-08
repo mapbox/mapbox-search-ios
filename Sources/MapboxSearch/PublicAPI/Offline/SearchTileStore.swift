@@ -7,8 +7,6 @@ import Foundation
 /// Use `commonTileStore` property to access underlaying `MapboxCommon.TileStore`
 public class SearchTileStore {
     
-    struct AccessTokenNotFound: Error { }
-    
     /// Default API Url used for `Search` tile data domain.
     public let defaultEndPoint = "https://api.mapbox.com"
     
