@@ -12,7 +12,7 @@ let commonMaxVersion = Version("25.0.0")
 let package = Package(
     name: "MapboxSearch",
     defaultLocalization: "en",
-    platforms: [.iOS(.v11), .macOS(.v10_15)],
+    platforms: [.iOS(.v12), .macOS(.v10_15)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
