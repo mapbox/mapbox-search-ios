@@ -17,59 +17,34 @@ public class SearchTileStore {
     
     /// Creates with shared `MapboxCommon.TileStore` instance at the default location.
     /// Creates a new `MapboxCommon.TileStore` if one doesn't yet exist.
-    /// - Parameter accessToken: Mapbox access token
-    public init(accessToken: String) {
+    public init() {
         commonTileStore = MapboxCommon.TileStore.__create()
-        setup(tileStore: commonTileStore, accessToken: accessToken)
+        setup(tileStore: commonTileStore)
     }
-    
-    /// Creates with shared `MapboxCommon.TileStore` instance at the default location.
-    /// Creates a new `MapboxCommon.TileStore` if one doesn't yet exist.
-    /// Throws AccessTokenNotFound if no access token found.
-    public convenience init() throws {
-        guard let token = ServiceProvider.shared.getStoredAccessToken() else {
-            throw AccessTokenNotFound()
-        }
-        self.init(accessToken: token)
-    }
-    
+
     /// Creates with custom CommonTileStore.
     /// - Parameter commonTileStore: SearchEngine will start using provided TileStore
-    /// - Parameter accessToken: Mapbox access token
-    public init(commonTileStore: MapboxCommon.TileStore, accessToken: String) {
+    public init(commonTileStore: MapboxCommon.TileStore) {
         self.commonTileStore = commonTileStore
-        setup(tileStore: commonTileStore, accessToken: accessToken)
-    }
-    
-    /// Creates with custom CommonTileStore.
-    /// - Parameter commonTileStore: SearchEngine will start using provided TileStore
-    /// Throws AccessTokenNotFound if no access token found.
-    public convenience init(commonTileStore: MapboxCommon.TileStore) throws {
-        guard let token = ServiceProvider.shared.getStoredAccessToken() else {
-            throw AccessTokenNotFound()
-        }
-        self.init(commonTileStore: commonTileStore, accessToken: token)
+        setup(tileStore: commonTileStore)
     }
     
     /// Creates with shared `MapboxCommon.TileStore` instance for the given storage path.
     /// Creates a new `MapboxCommon.TileStore` if one doesn't yet exist.
     /// If the given path is empty, the tile store at the default location is  returned.
     /// - Parameters:
-    ///   - accessToken: Mapbox access token
     ///   - path: The path on disk where tiles and metadata will be stored.
-    public init(accessToken: String, path: String) {
+    public init(path: String) {
         commonTileStore = MapboxCommon.TileStore.__create(forPath: path)
-        setup(tileStore: commonTileStore, accessToken: accessToken)
+        setup(tileStore: commonTileStore)
     }
+
+    // MARK: -
     
-    func setup(tileStore: MapboxCommon.TileStore, accessToken: String) {
+    func setup(tileStore: MapboxCommon.TileStore) {
         tileStore.setOptionForKey(MapboxCommon.TileStoreOptions.mapboxAPIURL,
                                   domain: MapboxCommon.TileDataDomain.search,
                                   value: defaultEndPoint)
-        // [tile_store] Remove MapboxAccessToken tilestore option, get token from MapboxOptions. (#3679)
-//        tileStore.setOptionForKey(MapboxCommon.TileStoreOptions.mapboxAccessToken,
-//                                  domain: MapboxCommon.TileDataDomain.search,
-//                                  value: accessToken)
     }
     
     /// Loads a new tile region or updates the existing one.

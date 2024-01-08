@@ -84,7 +84,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
             accessToken: accessToken,
             locationProvider: self.locationProviderWrapper
         )
-        self.offlineManager = SearchOfflineManager(engine: engine, tileStore: SearchTileStore(accessToken: accessToken))
+        self.offlineManager = SearchOfflineManager(engine: engine, tileStore: SearchTileStore())
         
         self.feedbackManager.delegate = self
         _Logger.searchSDK.info("Init \(self) for API v.\(engineApi)")
