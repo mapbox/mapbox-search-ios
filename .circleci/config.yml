@@ -73,7 +73,7 @@ workflows:
 jobs:
   pre-check:
     macos:
-      xcode: 13.4.0
+      xcode: 14.1
     steps:
       - checkout
       - ios-install-carthage-dependencies
@@ -81,7 +81,7 @@ jobs:
 
   release-pre-check:
     macos:
-      xcode: 13.4.0
+      xcode: 14.1
     steps:
       - parse-release-version
       - run:
@@ -90,7 +90,7 @@ jobs:
 
   build:
     macos:
-      xcode: 13.4.0 # Specify the Xcode version to use
+      xcode: 14.1 # Specify the Xcode version to use
     environment:
       FL_OUTPUT_DIR: ../output
     steps:
@@ -128,7 +128,7 @@ jobs:
 
   release-documentation:
     macos:
-      xcode: 13.4.0
+      xcode: 14.1
     steps:
       - checkout
       - parse-release-version
@@ -151,7 +151,7 @@ jobs:
 
   documentation-pr:
     macos:
-      xcode: 13.4.0
+      xcode: 14.1
     steps:
       - checkout
       - parse-release-version
@@ -174,7 +174,7 @@ jobs:
 
   build-for-release:
     macos:
-      xcode: 13.4.0
+      xcode: 14.1
     steps:
       - checkout
       - setup-authentication
@@ -193,7 +193,7 @@ jobs:
 
   release-ios:
     macos:
-      xcode: 13.4.0
+      xcode: 14.1
     steps:
       - checkout
       - setup-authentication
@@ -218,7 +218,7 @@ jobs:
 
   post-SDK_Registry-release:
     macos:
-      xcode: 13.4.0
+      xcode: 14.1
     steps:
       - checkout
       - parse-release-version
