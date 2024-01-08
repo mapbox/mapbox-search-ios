@@ -35,10 +35,9 @@ public final class AddressAutofill {
             locationProvider: WrapperLocationProvider(wrapping: locationProvider)
         )
 
-        let information = CoreSdkInformation(name: "", version: "", packageName: nil)
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(
             for: CoreUserActivityReporterOptions(
-                sdkInformation: information,
+                sdkInformation: SdkInformation.info(),
                 eventsUrl: nil
             )
         )

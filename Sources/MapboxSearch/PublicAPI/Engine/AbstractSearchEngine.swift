@@ -74,7 +74,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
         
         self.userActivityReporter = .getOrCreate(
             for: .init(
-                sdkInformation: CoreSdkInformation(name: "", version: "", packageName: ""),
+                sdkInformation: SdkInformation.info(),
                 eventsUrl: nil
             )
         )

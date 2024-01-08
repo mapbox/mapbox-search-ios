@@ -67,11 +67,10 @@ extension ServiceProvider: EngineProviderProtocol {
         let defaultsBaseURL = UserDefaults.standard.value(forKey: baseURLPlistKey) as? String
         let bundleBaseURL = Bundle.main.object(forInfoDictionaryKey: baseURLPlistKey) as? String
 
-        let information = CoreSdkInformation(name: "", version: "", packageName: nil)
         let engineOptions = CoreSearchEngine.Options(
             baseUrl: bundleBaseURL ?? defaultsBaseURL,
             apiType: NSNumber(value: apiType.rawValue),
-            sdkInformation: information,
+            sdkInformation: SdkInformation.info(),
             eventsUrl: nil
         )
 
