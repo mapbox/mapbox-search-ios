@@ -59,7 +59,7 @@ extension ServiceProvider: EngineProviderProtocol {
         let engineOptions = CoreSearchEngine.Options(
             baseUrl: bundleBaseURL ?? defaultsBaseURL,
             apiType: NSNumber(value: apiType.rawValue),
-            sdkInformation: SdkInformation.info(),
+            sdkInformation: SdkInformation.defaultInfo,
             eventsUrl: nil
         )
 

@@ -28,7 +28,7 @@ public final class AddressAutofill {
 
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(
             for: CoreUserActivityReporterOptions(
-                sdkInformation: SdkInformation.info(),
+                sdkInformation: SdkInformation.defaultInfo,
                 eventsUrl: nil
             )
         )

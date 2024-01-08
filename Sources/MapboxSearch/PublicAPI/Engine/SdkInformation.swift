@@ -3,7 +3,7 @@
 import Foundation
 
 extension SdkInformation {
-    static func info() -> SdkInformation {
+    static var defaultInfo: SdkInformation {
         SdkInformation(name: "mapbox-search-ios",
                        version: mapboxSearchSDKVersion,
                        packageName: nil)

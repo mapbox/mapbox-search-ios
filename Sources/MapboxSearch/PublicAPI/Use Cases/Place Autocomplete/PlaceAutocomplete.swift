@@ -29,7 +29,7 @@ public final class PlaceAutocomplete {
         
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(
             for: CoreUserActivityReporterOptions(
-                sdkInformation: SdkInformation.info(),
+                sdkInformation: SdkInformation.defaultInfo,
                 eventsUrl: nil
             )
         )
