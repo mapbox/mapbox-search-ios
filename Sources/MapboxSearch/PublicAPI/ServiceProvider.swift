@@ -15,7 +15,6 @@ protocol ServiceProviderProtocol {
 protocol EngineProviderProtocol {
     func createEngine(
         apiType: CoreSearchEngine.ApiType,
-        accessToken: String,
         locationProvider: CoreLocationProvider?
     ) -> CoreSearchEngineProtocol
 
@@ -59,7 +58,6 @@ extension ServiceProvider: EngineProviderProtocol {
     
     func createEngine(
         apiType: CoreSearchEngine.ApiType,
-        accessToken: String,
         locationProvider: CoreLocationProvider?
     ) -> CoreSearchEngineProtocol {
         // UserDefaults can be used to setup base url in runtime (e.g. UI tests)

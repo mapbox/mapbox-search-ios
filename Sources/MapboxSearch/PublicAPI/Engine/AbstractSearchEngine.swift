@@ -59,11 +59,6 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
          defaultSearchOptions: SearchOptions = SearchOptions(),
          supportSBS: Bool = false
     ) {
-        
-        guard let accessToken = accessToken ?? serviceProvider.getStoredAccessToken() else {
-            fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
-        }
-        
         self.supportSBS = supportSBS
         self.locationProvider = locationProvider
         self.locationProviderWrapper = WrapperLocationProvider(wrapping: locationProvider)
@@ -81,7 +76,6 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
 
         self.engine = serviceProvider.createEngine(
             apiType: engineApi,
-            accessToken: accessToken,
             locationProvider: self.locationProviderWrapper
         )
         self.offlineManager = SearchOfflineManager(engine: engine, tileStore: SearchTileStore())
