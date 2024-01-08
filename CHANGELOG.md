@@ -7,6 +7,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 ## Unreleased
 
 - [Core] Updated to Xcode 14.1 minimum version
+- [Core] Updated deployment target to iOS 12
 
 ## 1.0.0-rc.8 - 2023-10-09
 
