@@ -23,7 +23,7 @@ targets:
   CircleCIApp:
     type: application
     platform: iOS
-    deploymentTarget: 14.0
+    deploymentTarget: 12.0
     info:
       path: App.plist
     dependencies:

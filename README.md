@@ -1,6 +1,6 @@
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/mapbox/mapbox-search-ios/tree/main.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/mapbox/mapbox-search-ios/tree/main)
 [![Swift version](https://img.shields.io/badge/swift-5.7.1+-orange.svg?style=flat&logo=swift)](https://developer.apple.com/swift)
-[![iOS version](https://img.shields.io/badge/iOS-14.0+-green.svg?style=flat&logo=apple)](https://developer.apple.com/ios/)
+[![iOS version](https://img.shields.io/badge/iOS-12.0+-green.svg?style=flat&logo=apple)](https://developer.apple.com/ios/)
 [![Xcode version](https://img.shields.io/badge/Xcode-14.1+-DeepSkyBlue.svg?style=flat&logo=xcode&logoColor=lightGray)](https://developer.apple.com/xcode/)
 [![codecov](https://codecov.io/gh/mapbox/mapbox-search-ios/branch/develop/graph/badge.svg?token=js3DSKdda4)](https://codecov.io/gh/mapbox/mapbox-search-ios)
 [![swift-doc](https://img.shields.io/badge/swift--doc-64.94%25-orange?logo=read-the-docs)](https://github.com/SwiftDocOrg/swift-doc)
@@ -34,7 +34,7 @@ The Search SDK is pre-configured for autocomplete, local search biasing, and inc
 
 ## Requirements
 
-- iOS 14.0 and newer
+- iOS 12.0 and newer
 - Xcode 14 and newer
 - Swift 5.7.1 and newer
 - Objective-C is not supported
