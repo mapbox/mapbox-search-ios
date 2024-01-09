@@ -76,7 +76,6 @@ jobs:
       xcode: 14.1
     steps:
       - checkout
-      - run: bundle install
       - ios-install-carthage-dependencies
       - run: python3 scripts/cmp_deps_across_managers.py
 
