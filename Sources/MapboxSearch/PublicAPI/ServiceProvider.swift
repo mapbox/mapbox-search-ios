@@ -1,5 +1,7 @@
 import Foundation
 
+let accessTokenPlistKey = "MBXAccessToken"
+let legacyAccessTokenPlistKey = "MGLMapboxAccessToken"
 let baseURLPlistKey = "MapboxAPIBaseURL"
 
 protocol ServiceProviderProtocol {
@@ -15,6 +17,8 @@ protocol EngineProviderProtocol {
         apiType: CoreSearchEngine.ApiType,
         locationProvider: CoreLocationProvider?
     ) -> CoreSearchEngineProtocol
+
+    func getStoredAccessToken() -> String?
 }
 
 /// Built-in local data provider for ``FavoriteRecord`` data.
@@ -47,6 +51,11 @@ public class ServiceProvider: ServiceProviderProtocol {
 }
 
 extension ServiceProvider: EngineProviderProtocol {
+    func getStoredAccessToken() -> String? {
+        Bundle.main.object(forInfoDictionaryKey: accessTokenPlistKey) as? String
+        ?? Bundle.main.object(forInfoDictionaryKey: legacyAccessTokenPlistKey) as? String
+    }
+
     func createEngine(
         apiType: CoreSearchEngine.ApiType,
         locationProvider: CoreLocationProvider?

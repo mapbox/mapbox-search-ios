@@ -57,6 +57,12 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
          defaultSearchOptions: SearchOptions = SearchOptions(),
          supportSBS: Bool = false
     ) {
+        guard let accessToken = serviceProvider.getStoredAccessToken() else {
+            fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
+        }
+
+        MapboxOptions.accessToken = accessToken
+
         self.supportSBS = supportSBS
         self.locationProvider = locationProvider
         self.locationProviderWrapper = WrapperLocationProvider(wrapping: locationProvider)
