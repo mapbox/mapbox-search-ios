@@ -30,9 +30,11 @@ offline:
 	aws s3 cp s3://vng-temp/HERE/luxembourg.tgz - | tar -xz -C Sources/Demo/offline/
 
 ci-dev-test: dependencies
+	bundle install
 	bundle exec fastlane scan --scheme "Demo" --device "iPhone 13 Pro" --result_bundle "true" --testplan "CI-dev" --output_directory "output"
 
 ci-full-test: dependencies
+	bundle install
 	bundle exec fastlane scan --scheme "Demo" --device "iPhone 13 Pro" --result_bundle "true" --testplan "Demo" --output_directory "output"
 
 test: dependencies
