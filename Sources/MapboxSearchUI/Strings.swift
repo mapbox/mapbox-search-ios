@@ -119,6 +119,9 @@ extension FeedbackEvent.Reason {
             return Strings.Feedback.reasonOther
         case .missingResult:
             return Strings.Feedback.reasonMissingResult
+        @unknown default:
+            assertionFailure()
+            return Strings.Feedback.reasonOther
         }
     }
 }

@@ -116,6 +116,8 @@ extension SearchSuggestType {
             return Images.poiIcon
         case .query:
             return Images.poiIcon
+        @unknown default:
+            return Images.poiIcon
         }
     }
 }
