@@ -71,8 +71,7 @@ password sk.ey_your_access_token_wit_Read_permission
     1. Create a new file named `mapbox` or `.mapbox` in your home directory with content of your access token. We also support `.mapbox` file in the repository root folder. MapboxSearchDemoApplication will automatically handle this key and insert it in corresponding place.
 
         _Note: Run `pbpaste > ~/.mapbox` in Terminal.app to insert you Pastebord (Command+C buffer) into `.mapbox` in Home directory._
-    1. Open the Workspace, choose `MapboxSearchDemoApplication` project and select "Info" tab for "MapboxSearchDemoApplication" target. Here you can set your accessToken for `MGLMapboxAccessToken` key in "Custom iOS Target Properties" section.
-    1. Provide your accessToken directly in argument named `accessToken` in `SearchDrawer.make(:)` method
+    1. Open the Workspace, choose `MapboxSearchDemoApplication` project and select "Info" tab for "MapboxSearchDemoApplication" target. Here you should set your accessToken for `MGLMapboxAccessToken` key in "Custom iOS Target Properties" section.
 
 ## Getting Started
 
