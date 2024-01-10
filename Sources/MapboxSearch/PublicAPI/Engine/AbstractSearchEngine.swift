@@ -51,11 +51,11 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     /// - Parameters:
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     ///   - serviceProvider: Internal `ServiceProvider` for sharing common dependencies like favoritesService or eventsManager
-    ///   - supportSBS: enable support the latest Single-Box Search APIs
+    ///   - supportSBS: enable support the latest Single-Box Search APIs. Defaults to true.
     init(serviceProvider: ServiceProviderProtocol & EngineProviderProtocol,
          locationProvider: LocationProvider? = DefaultLocationProvider(),
          defaultSearchOptions: SearchOptions = SearchOptions(),
-         supportSBS: Bool = false
+         supportSBS: Bool = true
     ) {
         guard let accessToken = serviceProvider.getStoredAccessToken() else {
             fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
@@ -106,7 +106,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     public convenience init(
         locationProvider: LocationProvider? = DefaultLocationProvider(),
         defaultSearchOptions: SearchOptions = SearchOptions(),
-        supportSBS: Bool = false
+        supportSBS: Bool = true
     ) {
         self.init(
             serviceProvider: ServiceProvider.shared,

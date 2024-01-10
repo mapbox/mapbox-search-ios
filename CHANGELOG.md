@@ -12,9 +12,10 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Place Autocomplete] Suggestions no longer perform a `retrieve` call.
 - [Place Autocomplete] `Suggestion.coordinate` is now an optional.
 - [Place Autocomplete] `Result.coordinate` is now an optional.
-- [Core] Updated to Xcode 14.1 minimum version
-- [Core] Updated deployment target to iOS 12
-- [Core] Remove bitcode support
+- [Core] Changed default SearchEngine `supportSBS` initializer parameter to true.
+- [Core] Updated to Xcode 14.1 minimum version.
+- [Core] Updated deployment target to iOS 12.
+- [Core] Remove bitcode support.
 - [Core] Updated API usage:
 	- Removed parameter-based Access Token. Be sure to provide your token in Info.plist.
 	- Renamed `CoreSuggestAction.isMultiRetrivable` to `multiRetrievable`.
