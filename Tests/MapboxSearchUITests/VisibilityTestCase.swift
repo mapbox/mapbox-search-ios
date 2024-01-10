@@ -70,7 +70,7 @@ class VisibilityTestCase: BaseTestCase {
         searchBar.swipeUp()
         
         let categoriesTableView = waitForHittable(app.tables["CategoriesTableViewSource.tableView"])
-        XCTAssertTrue(categoriesTableView.cells.count > 0, "Categories TableView empty")
+        XCTAssertTrue(categoriesTableView.cells.count > 0, "Categories TableView should not be empty")
         for cell in categoriesTableView.cells.allElementsBoundByIndex {
             XCTAssertTrue(cell.images.element.exists, "Category \(cell.identifier) has no icon")
         }

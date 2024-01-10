@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043A3D4D2B30F38300DB681B /* CoreAddress+AddressComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A3D4C2B30F38300DB681B /* CoreAddress+AddressComponents.swift */; };
 		140D1BDC286DB479001A51C2 /* SearchResultAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */; };
 		140E47A2298BC90E00677E30 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A1298BC90E00677E30 /* Discover.swift */; };
 		140E47A5298BC94D00677E30 /* Discover+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A4298BC94D00677E30 /* Discover+Options.swift */; };
@@ -475,6 +476,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		043A3D4C2B30F38300DB681B /* CoreAddress+AddressComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreAddress+AddressComponents.swift"; sourceTree = "<group>"; };
 		140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAccuracy.swift; sourceTree = "<group>"; };
 		140E47A1298BC90E00677E30 /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
 		140E47A4298BC94D00677E30 /* Discover+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discover+Options.swift"; sourceTree = "<group>"; };
@@ -947,6 +949,7 @@
 			isa = PBXGroup;
 			children = (
 				148DE667285755500085684D /* AddressAutofill+Suggestion.swift */,
+				043A3D4C2B30F38300DB681B /* CoreAddress+AddressComponents.swift */,
 				141789E6287C05060000AE79 /* AddressAutofill.Suggestion+SearchResult.swift */,
 			);
 			path = Suggestion;
@@ -2348,6 +2351,7 @@
 				FEEDD31B2508DFE400DC0A98 /* LocalDataProviders.swift in Sources */,
 				FEEDD2F42508DFE400DC0A98 /* CoreResponseProvider.swift in Sources */,
 				FEEDD30C2508DFE400DC0A98 /* IndexableRecord.swift in Sources */,
+				043A3D4D2B30F38300DB681B /* CoreAddress+AddressComponents.swift in Sources */,
 				FE097B7B264EAA1A001EAC2F /* AddOfflineRegionError.swift in Sources */,
 				FEEDD30D2508DFE400DC0A98 /* ServiceProvider.swift in Sources */,
 				FEEDD2FA2508DFE400DC0A98 /* CoreSearchEngineProtocol.swift in Sources */,
