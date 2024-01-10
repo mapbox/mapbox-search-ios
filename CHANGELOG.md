@@ -6,6 +6,12 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+- [Address Autofill] Suggestions no longer perform a `retrieve` call.
+- [Address Autofill] `Suggestion.coordinate` is now an optional. `init` requires an Underlying enum parameter.
+- [Address Autofill] Added new AddressAutofill.Suggestion.Underlying enum parameter with cases for suggestion and result inputs.
+- [Place Autocomplete] Suggestions no longer perform a `retrieve` call.
+- [Place Autocomplete] `Suggestion.coordinate` is now an optional.
+- [Place Autocomplete] `Result.coordinate` is now an optional.
 - [Core] Updated to Xcode 14.1 minimum version
 - [Core] Updated deployment target to iOS 12
 - [Core] Remove bitcode support

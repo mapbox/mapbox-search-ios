@@ -97,9 +97,6 @@ final class PlaceAutocompleteTests: XCTestCase {
         ].map { $0.asCoreSearchResult }
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: results)
 
-        let retrieveResults = [CoreSearchResultStub.makePOI().asCoreSearchResult]
-        searchEngine.nextSearchResponse = CoreSearchResponseStub.successSample(results: retrieveResults)
-
         placeAutocomplete.suggestions(for: "query") { result in
             switch result {
             case .success(let returnedSuggestions):
@@ -113,7 +110,7 @@ final class PlaceAutocompleteTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
 
         XCTAssertEqual(userActivityReporter.passedActivity, "place-autocomplete-forward-geocoding")
-        XCTAssertTrue(searchEngine.nextSearchCalled)
+        XCTAssertFalse(searchEngine.nextSearchCalled)
         XCTAssertEqual(searchEngine.query, "query")
         XCTAssertEqual(searchEngine.categories, [])
         XCTAssertEqual(searchEngine.searchOptions?.ignoreUR, true)

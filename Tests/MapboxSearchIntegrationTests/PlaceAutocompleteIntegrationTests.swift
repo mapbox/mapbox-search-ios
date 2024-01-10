@@ -27,7 +27,7 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
             case .success(let suggestions):
                 XCTAssertEqual(suggestions.count, 10)
                 XCTAssertTrue(suggestions.allSatisfy({ suggestion in
-                    if case .result = suggestion.underlying { return true }
+                    if case .suggestion = suggestion.underlying { return true }
                     return false
                 }))
                 suggestion = suggestions[0]
@@ -117,8 +117,8 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
             switch result {
             case .success(let suggestions):
                 XCTAssertEqual(suggestions.count, 3)
-                guard case .result = suggestions[0].underlying else {
-                    XCTFail("First without coordinate should be retrieved")
+                guard case .suggestion = suggestions[0].underlying else {
+                    XCTFail("First without coordinate should be retrieved and have empty value")
                     return
                 }
                 guard case .suggestion = suggestions[1].underlying else {
@@ -145,7 +145,11 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
         }
         wait(for: [expectation], timeout: 5)
 
+        let firstSuggestion = try XCTUnwrap(actualSuggestions[0])
+        XCTAssertNil(firstSuggestion.coordinate)
+
         let selectionExpectation = XCTestExpectation(description: "Expecting selection result")
+        XCTAssertEqual(actualSuggestions.count, 3)
         placeAutocomplete.select(suggestion: actualSuggestions[1]) { result in
             switch result {
             case .success(let resolvedSuggestion):
