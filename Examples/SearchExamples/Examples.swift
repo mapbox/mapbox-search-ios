@@ -10,6 +10,6 @@ struct Example {
     let screenType: ExampleController.Type
 }
 
-protocol ExampleController: UIViewController {
+public protocol ExampleController: UIViewController {
     
 }

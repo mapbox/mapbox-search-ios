@@ -20,8 +20,16 @@ class MapboxBoundingBoxController: MapsViewController {
         super.viewDidAppear(animated)
         
         updateSearchResults(proximity: mapboxSFOfficeCoordinate)
-        
-        mapDraggingSubscription = mapView.mapboxMap.onEvery(.cameraChanged, handler: reloadResultsOnCameraChange(_:))
+
+        mapDraggingSubscription = mapView.mapboxMap.onCameraChanged.observe { [weak self] cameraChanged in
+            guard let self else { return }
+            self.draggingRefreshTimer?.invalidate()
+            self.draggingRefreshTimer = Timer.scheduledTimer(timeInterval: 1,
+                                                             target: self,
+                                                             selector: #selector(self.reloadResultInMapBounds),
+                                                             userInfo: nil,
+                                                             repeats: false)
+        }
     }
     
     func updateSearchResults(proximity: CLLocationCoordinate2D? = nil, boundingBox: MapboxSearch.BoundingBox? = nil) {
@@ -37,11 +45,6 @@ class MapboxBoundingBoxController: MapsViewController {
                 self.showError(error)
             }
         }
-    }
-    
-    func reloadResultsOnCameraChange(_ event: Event) {
-        draggingRefreshTimer?.invalidate()
-        draggingRefreshTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(reloadResultInMapBounds), userInfo: nil, repeats: false)
     }
     
     @objc

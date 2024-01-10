@@ -1,11 +1,12 @@
+import UIKit
 import MapboxMaps
 import MapboxSearch
 
-class MapsViewController: UIViewController, ExampleController {
+public class MapsViewController: UIViewController, ExampleController {
     let mapView = MapView(frame: .zero)
     lazy var annotationsManager = mapView.annotations.makePointAnnotationManager()
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         mapView.frame = view.bounds
