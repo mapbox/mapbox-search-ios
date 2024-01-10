@@ -51,7 +51,7 @@ public extension SearchEngineDelegate {
  An entry object for online search with autocomplete suggestions powered by Mapbox Search services
 
  SearchEngine requires [Mapbox Access Token](https://account.mapbox.com/access-tokens/) with any scope and visibility.
- We recommend to pass token through  `MGLMapboxAccessToken` key in application's `Info.plist` to share token with the others Mapbox SDKs
+ We recommend to pass token through  `MBXAccessToken` key in application's `Info.plist` to share token with the others Mapbox SDKs
  
  You must always assign `delegate` to receive search results provided by the engine.
  Update the `SearchEngine.query` value to start or continue your search experience.

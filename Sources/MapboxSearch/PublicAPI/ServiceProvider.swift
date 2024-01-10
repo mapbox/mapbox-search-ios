@@ -1,7 +1,6 @@
 import Foundation
 
 let accessTokenPlistKey = "MBXAccessToken"
-let legacyAccessTokenPlistKey = "MGLMapboxAccessToken"
 let baseURLPlistKey = "MapboxAPIBaseURL"
 
 protocol ServiceProviderProtocol {
@@ -54,7 +53,6 @@ public class ServiceProvider: ServiceProviderProtocol {
 extension ServiceProvider: EngineProviderProtocol {
     func getStoredAccessToken() -> String? {
         Bundle.main.object(forInfoDictionaryKey: accessTokenPlistKey) as? String
-        ?? Bundle.main.object(forInfoDictionaryKey: legacyAccessTokenPlistKey) as? String
     }
     
     func createEngine(

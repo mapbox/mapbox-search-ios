@@ -49,7 +49,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     
     /// Basic internal initializer
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
+    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MBXAccessToken` will be used for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     ///   - serviceProvider: Internal `ServiceProvider` for sharing common dependencies like favoritesService or eventsManager
     ///   - supportSBS: enable support the latest Single-Box Search APIs
@@ -103,7 +103,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     
     /// Initializer with safe-to-go defaults
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
+    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MBXAccessToken` will be used for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     ///   - defaultSearchOptions: Default options to use when `nil` was passed to the `search(…: options:)` call
     ///   - supportSBS: enable support the latest Single-Box Search APIs

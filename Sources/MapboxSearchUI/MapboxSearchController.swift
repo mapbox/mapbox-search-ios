@@ -161,7 +161,7 @@ public class MapboxSearchController: UIViewController {
     
     /// MapboxSearchController initializer with accessToken taken from application Info.plist
     ///
-    /// Access token is expected to be at `MGLMapboxAccessToken` key in application Info.plist.
+    /// Access token is expected to be at `MBXAccessToken` key in application Info.plist.
     /// Missing accessToken will trigger fatalError
     /// - Parameters:
     ///   - configuration: configuration for search and categorySearch engines.
