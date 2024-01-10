@@ -291,52 +291,28 @@ private extension PlaceAutocomplete {
         let filteredSuggestions = suggestions.filter {
             !$0.resultTypes.contains(.category) && !$0.resultTypes.contains(.query)
         }
-        guard !filteredSuggestions.isEmpty else {
-            return completion(.success([]))
-        }
-        
-        let dispatchGroup = DispatchGroup()
-        var resolvingError: Error?
-        
-        var resolvedSuggestions: [Suggestion?] = Array(repeating: nil, count: filteredSuggestions.count)
-        let lock = NSLock()
 
-        filteredSuggestions.enumerated().forEach { iterator in
-            dispatchGroup.enter()
+        let resolvedSuggestions = filteredSuggestions.compactMap { result -> Suggestion? in
+            let name = result.names.first ?? ""
+            let distance = result.distance.flatMap { CLLocationDistance(integerLiteral: $0.int64Value) }
+            let coreResultTypes = result.types.compactMap { CoreResultType(rawValue: $0.intValue) }
+            let placeTypes = SearchResultType(coreResultTypes: coreResultTypes)
+            let categories = result.categories ?? []
+            let routablePoints = result.routablePoints?.compactMap { RoutablePoint(routablePoint: $0) } ?? []
+            let underlying: Suggestion.Underlying = .suggestion(result, options)
 
-            if iterator.element.center != nil {
-                do {
-                    let resolvedSuggestion = try Suggestion.from(searchSuggestion: iterator.element, options: options)
-                    lock.sync {
-                        resolvedSuggestions[iterator.offset] = resolvedSuggestion
-                    }
-                } catch {
-                    resolvingError = error
-                }
-                dispatchGroup.leave()
-            } else {
-                retrieve(suggestion: iterator.element, with: options) { result in
-                    defer { dispatchGroup.leave() }
+            return Suggestion(name: name,
+                              description: result.addressDescription,
+                              coordinate: result.center?.coordinate,
+                              iconName: result.icon,
+                              distance: distance,
+                              estimatedTime: result.estimatedTime,
+                              placeType: placeTypes ?? .POI,
+                              categories: categories,
+                              routablePoints: routablePoints,
+                              underlying: underlying)
+        }
 
-                    switch result {
-                    case .success(let suggestion):
-                        lock.sync {
-                            resolvedSuggestions[iterator.offset] = suggestion
-                        }
-                    case .failure(let error):
-                        resolvingError = error
-                    }
-                }
-            }
-        }
-        
-        dispatchGroup.notify(queue: .main) {
-            let results = resolvedSuggestions.compactMap({ $0 })
-            if results.isEmpty {
-                completion(.failure(resolvingError ?? SearchError.responseProcessingFailed))
-            } else {
-                completion(.success(results))
-            }
-        }
+        completion(.success(resolvedSuggestions))
     }
 }

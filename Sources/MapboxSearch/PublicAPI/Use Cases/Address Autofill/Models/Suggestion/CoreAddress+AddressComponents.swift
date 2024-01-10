@@ -1,47 +1,15 @@
-// Copyright © 2022 Mapbox. All rights reserved.
+// Copyright © 2023 Mapbox. All rights reserved.
 
 import Foundation
-import CoreLocation
 
-extension AddressAutofill.Suggestion {
-    enum Error: Swift.Error {
-        case emptyAddress
-        case incorrectFormattedAddress
-        case invalidCoordinates
-    }
-    
-    static func from(_ searchResult: SearchResult) throws -> Self {
-        guard let address = searchResult.address else {
-            throw Error.emptyAddress
-        }
-
-        guard let formattedAddress = address.formattedAddress(style: .full) else {
-            throw Error.incorrectFormattedAddress
-        }
-        
-        guard CLLocationCoordinate2DIsValid(searchResult.coordinate) else {
-            throw Error.invalidCoordinates
-        }
-
-        return .init(
-            name: searchResult.name,
-            formattedAddress: formattedAddress,
-            coordinate: searchResult.coordinate,
-            addressComponents: try address.toAutofillComponents(),
-            underlying: .result(searchResult)
-        )
-    }
-}
-
-// MARK: - Internal
-extension Address {
+extension CoreAddress {
     enum AutofillParsingError: Error {
         case emptyAddressComponents
     }
-    
+
     func toAutofillComponents() throws -> NonEmptyArray<AddressAutofill.AddressComponent> {
         var components: [AddressAutofill.AddressComponent] = []
-        
+
         houseNumber.map { components.append(.init(kind: .houseNumber, value: $0)) }
         street.map { components.append(.init(kind: .street, value: $0)) }
         neighborhood.map { components.append(.init(kind: .neighborhood, value: $0)) }
@@ -51,14 +19,15 @@ extension Address {
         district.map { components.append(.init(kind: .district, value: $0)) }
         region.map { components.append(.init(kind: .region, value: $0)) }
         country.map { components.append(.init(kind: .country, value: $0)) }
-        
+
         guard let first = components.first else {
             throw AutofillParsingError.emptyAddressComponents
         }
-        
+
         return .init(
             first: first,
             others: Array(components.dropFirst())
         )
     }
+
 }
