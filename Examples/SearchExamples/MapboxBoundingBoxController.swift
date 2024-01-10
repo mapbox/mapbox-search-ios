@@ -21,7 +21,7 @@ class MapboxBoundingBoxController: MapsViewController {
         
         updateSearchResults(proximity: mapboxSFOfficeCoordinate)
 
-        mapDraggingSubscription = mapView.mapboxMap.onCameraChanged.observe { [weak self] cameraChanged in
+        mapDraggingSubscription = mapView.mapboxMap.onEvery(event: .cameraChanged) { [weak self] cameraChanged in
             guard let self else { return }
             self.draggingRefreshTimer?.invalidate()
             self.draggingRefreshTimer = Timer.scheduledTimer(timeInterval: 1,

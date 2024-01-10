@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mapbox/mapbox-common-ios.git",
       "state" : {
-        "revision" : "66c604ce480a5d2e98dbe017b49886652d4d89a2",
-        "version" : "24.0.0"
+        "revision" : "065cb97a83b8bf8d8584ab56cb6ebed898cc0c97",
+        "version" : "23.8.6"
       }
     },
     {
@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mapbox/mapbox-core-maps-ios.git",
       "state" : {
-        "revision" : "5c19a597907deb167eed89d737de878db9088f52",
-        "version" : "11.0.0"
+        "revision" : "798644dafccc37c3be17127e39638f39d6cd57e3",
+        "version" : "10.16.4"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mapbox/mapbox-maps-ios.git",
       "state" : {
-        "revision" : "b28c6331eb03145e49098ae63162db13c02cca8a",
-        "version" : "11.0.0"
+        "revision" : "05a275f685ac95982716d87ccb677ebad417c252",
+        "version" : "10.16.4"
       }
     },
     {
@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mapbox/search-ios",
       "state" : {
-        "branch" : "SSDK-495-update-sdk-core-v2",
-        "revision" : "3e61795dde795cd5955cb0c895e62d9a76d30812"
+        "revision" : "ecd3aa0f782aa0a27267c7118dd6ebd391ea7f82",
+        "version" : "1.0.0-rc.8"
       }
     },
     {

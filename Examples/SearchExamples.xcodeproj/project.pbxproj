@@ -442,15 +442,15 @@
 			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 11.0.0;
+				minimumVersion = 10.0.0;
 			};
 		};
 		FE0720BC26FC86C70065A273 /* XCRemoteSwiftPackageReference "search-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mapbox/search-ios";
 			requirement = {
-				branch = "SSDK-495-update-sdk-core-v2";
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = "1.0.0-rc.8";
 			};
 		};
 		FEF1D1BB26FDFB1F004AE229 /* XCRemoteSwiftPackageReference "atlantis" */ = {
