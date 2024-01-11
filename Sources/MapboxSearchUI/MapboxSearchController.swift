@@ -143,20 +143,6 @@ public class MapboxSearchController: UIViewController {
         }
     }
 
-    /// Instantiate MapboxSearchController with explicit accessToken and custom location provider
-    /// - Parameters:
-    ///   - accessToken: Mapbox public access token. Checkout `init(locationProvider:)` to
-    ///   - configuration: configuration for search and categorySearch engines.
-    public required init(accessToken: String, configuration: Configuration = Configuration()) {
-        self.categorySearchEngine = CategorySearchEngine(accessToken: accessToken, locationProvider: configuration.locationProvider)
-        self.searchEngine = SearchEngine(accessToken: accessToken, locationProvider: configuration.locationProvider)
-        self.configuration = configuration
-
-        super.init(nibName: nil, bundle: .mapboxSearchUI)
-
-        self.searchEngine.delegate = self
-    }
-
     /// MapboxSearchController initializer with accessToken taken from application Info.plist
     ///
     /// Access token is expected to be at `MGLMapboxAccessToken` key in application Info.plist.

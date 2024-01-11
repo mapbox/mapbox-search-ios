@@ -80,18 +80,20 @@ private extension PlaceAutocompleteResultViewController {
     }
 
     func showAnnotation() {
+        guard let coordinate = result.coordinate else { return }
+
         let annotation = MKPointAnnotation()
-        annotation.coordinate = result.coordinate
+        annotation.coordinate = coordinate
         annotation.title = result.name
 
         mapView.addAnnotation(annotation)
     }
 
     func showSuggestionRegion() {
-        guard result != nil else { return }
+        guard let coordinate = result.coordinate else { return }
 
         let region = MKCoordinateRegion(
-            center: result.coordinate,
+            center: coordinate,
             span: .init(latitudeDelta: 0.001, longitudeDelta: 0.001)
         )
         mapView.setRegion(region, animated: true)

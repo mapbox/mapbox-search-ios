@@ -25,7 +25,8 @@ extension AddressAutofill.Suggestion {
             name: searchResult.name,
             formattedAddress: formattedAddress,
             coordinate: searchResult.coordinate,
-            addressComponents: try address.toAutofillComponents()
+            addressComponents: try address.toAutofillComponents(),
+            underlying: .result(searchResult)
         )
     }
 }

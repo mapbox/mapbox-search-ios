@@ -406,14 +406,14 @@ extension SearchEngine {
     /// - Parameter suggestions: suggestions list to resolve. All suggestions must originate from the same search request.
     public func select(suggestions: [SearchSuggestion]) {
         for suggestion in suggestions {
-            let supported = (suggestion as? CoreResponseProvider)?.originalResponse.coreResult.action?.isMultiRetrievable == true
+            let supported = (suggestion as? CoreResponseProvider)?.originalResponse.coreResult.action?.multiRetrievable == true
             if !supported {
                 _Logger.searchSDK.warning("Unsupported suggestion: \(suggestion.name) of type: \(suggestion.suggestionType)")
             }
         }
         let suggestionsImpls = suggestions
             .compactMap({ $0 as? CoreResponseProvider })
-            .filter({ $0.originalResponse.coreResult.action?.isMultiRetrievable == true })
+            .filter({ $0.originalResponse.coreResult.action?.multiRetrievable == true })
 
         guard suggestionsImpls.isEmpty == false else {
             return

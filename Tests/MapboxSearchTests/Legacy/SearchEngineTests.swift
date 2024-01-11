@@ -15,7 +15,7 @@ class SearchEngineTests: XCTestCase {
     }
 
     func testEmptySearch() throws {
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
         searchEngine.delegate = delegate
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         let results = [CoreSearchResultStub]()
@@ -34,7 +34,7 @@ class SearchEngineTests: XCTestCase {
     }
 
     func testMixedSearch() throws {
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
         searchEngine.delegate = delegate
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         let results = CoreSearchResultStub.makeMixedResultsSet()
@@ -52,7 +52,7 @@ class SearchEngineTests: XCTestCase {
     }
 
     func testReverseGeocodingSearch() throws {
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
         searchEngine.delegate = delegate
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         let results = CoreSearchResultStub.makeMixedResultsSet()
@@ -71,7 +71,7 @@ class SearchEngineTests: XCTestCase {
     }
 
     func testErrorSearch() throws {
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
         searchEngine.delegate = delegate
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         let coreResponse = CoreSearchResponseStub.failureSample
@@ -84,7 +84,7 @@ class SearchEngineTests: XCTestCase {
     }
 
     func testIgnoreResultsForOutdatedSearchQuery() throws {
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
         searchEngine.delegate = delegate
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         let results = CoreSearchResultStub.makeMixedResultsSet()
@@ -114,7 +114,7 @@ class SearchEngineTests: XCTestCase {
     }
 
     func testIgnoreErrorForOutdatedSearchQuery() throws {
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
         searchEngine.delegate = delegate
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         let results = CoreSearchResultStub.makeMixedResultsSet()
@@ -140,7 +140,7 @@ class SearchEngineTests: XCTestCase {
     }
 
     func testResolvedSearchResult() throws {
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
         searchEngine.delegate = delegate
 
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
@@ -174,7 +174,7 @@ class SearchEngineTests: XCTestCase {
 
         let serviceProvider = provider
         serviceProvider.dataLayerProviders.append(dataLayerProvider)
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: serviceProvider, locationProvider: DefaultLocationProvider())
+        let searchEngine = SearchEngine(serviceProvider: serviceProvider, locationProvider: DefaultLocationProvider())
         searchEngine.delegate = delegate
 
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
@@ -200,7 +200,7 @@ class SearchEngineTests: XCTestCase {
     }
 
     func testBatchResolve() throws {
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
         searchEngine.delegate = delegate
 
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
@@ -220,7 +220,7 @@ class SearchEngineTests: XCTestCase {
     }
 
     func testEmptyBatchResolve() throws {
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
         searchEngine.delegate = delegate
 
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
@@ -237,7 +237,7 @@ class SearchEngineTests: XCTestCase {
     }
 
     func testSuggestionTypeQuery() throws {
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
         searchEngine.delegate = delegate
 
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
@@ -248,7 +248,7 @@ class SearchEngineTests: XCTestCase {
         let updateExpectation = delegate.updateExpectation
 
         let coreSuggestion = CoreSearchResultStub.makeSuggestionTypeQuery()
-        coreSuggestion.center = nil
+        coreSuggestion.centerLocation = nil
         let suggestion = try XCTUnwrap(SearchResultSuggestionImpl(coreResult: coreSuggestion, response: coreResponse))
         searchEngine.query = "sample-1"
         searchEngine.select(suggestion: suggestion)
@@ -260,7 +260,7 @@ class SearchEngineTests: XCTestCase {
     }
 
     func testBatchResolveFailedResponse() throws {
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
         searchEngine.delegate = delegate
 
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
@@ -294,7 +294,7 @@ class SearchEngineTests: XCTestCase {
             throw XCTSkip("Unsupported architecture")
         #else
 
-            let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
+            let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
             searchEngine.delegate = delegate
 
             let expectation = delegate.errorExpectation
@@ -325,7 +325,7 @@ class SearchEngineTests: XCTestCase {
             throw XCTSkip("Unsupported architecture")
         #else
 
-            let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
+            let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
 
             let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
             engine.callbackWrapper = { callback in
@@ -353,7 +353,7 @@ class SearchEngineTests: XCTestCase {
     }
 
     func testReverseGeocodingFailedResponse() throws {
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         let expectedError = NSError(domain: mapboxCoreSearchErrorDomain,
                                     code: 500,
@@ -405,7 +405,7 @@ class SearchEngineTests: XCTestCase {
     }
 
     func testQueryGetterSetter() {
-        let searchEngine = SearchEngine(accessToken: "mapbox-access-token", serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
 
         XCTAssertEqual(searchEngine.query, "")
 

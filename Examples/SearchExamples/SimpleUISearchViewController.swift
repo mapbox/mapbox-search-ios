@@ -1,5 +1,6 @@
 import UIKit
 import MapboxMaps
+import MapboxSearch
 import MapboxSearchUI
 
 class SimpleUISearchViewController: MapsViewController {

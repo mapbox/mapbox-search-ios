@@ -283,7 +283,7 @@ commands:
     steps:
       - run:
           name: pre-start simulator
-          command: xcrun instruments -w "iPhone 11 Pro (14.0) [" || true
+          command: xcrun instruments -w "iPhone 13 Pro (15.0) [" || true
 
   upgrade-carthage:
     steps:

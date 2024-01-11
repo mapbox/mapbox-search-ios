@@ -26,9 +26,9 @@ class SearchResultSuggestionImpl: SearchResultSuggestion, CoreResponseProvider {
     let batchResolveSupported: Bool
 
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
-        assert(coreResult.center == nil, "CoreSearchResult should not contain coordinate. Instantiate \(ServerSearchResult.self) instead.")
+        assert(coreResult.centerLocation == nil, "CoreSearchResult should not contain coordinate. Instantiate \(ServerSearchResult.self) instead.")
 
-        guard coreResult.center == nil else { return nil }
+        guard coreResult.centerLocation == nil else { return nil }
 
         switch coreResult.resultTypes {
         case _ where CoreResultType.hasOnlyAddressSubtypes(types: coreResult.resultTypes):
@@ -48,7 +48,7 @@ class SearchResultSuggestionImpl: SearchResultSuggestion, CoreResponseProvider {
         self.serverIndex = coreResult.serverIndex?.intValue
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
         self.distance = coreResult.distanceToProximity
-        self.batchResolveSupported = coreResult.action?.isMultiRetrievable ?? false
+        self.batchResolveSupported = coreResult.action?.multiRetrievable ?? false
         self.categories = coreResult.categories
 
         self.descriptionText = coreResult.addressDescription

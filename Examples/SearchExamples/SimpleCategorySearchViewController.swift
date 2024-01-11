@@ -3,7 +3,6 @@ import MapboxSearch
 
 class SimpleCategorySearchViewController: MapsViewController {
     let searchEngine = CategorySearchEngine()
-//    let searchEngine = CategorySearchEngine(accessToken: "<#You can pass access token manually#>")
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

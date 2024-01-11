@@ -61,7 +61,7 @@ public class FeedbackManager {
         }
 
         if let proximity = response.request.options.proximity {
-            attributes["proximity"] = [proximity.coordinate.longitude, proximity.coordinate.latitude]
+            attributes["proximity"] = [proximity.value.longitude, proximity.value.latitude]
         }
 
         attributes["responseUuid"] = response.responseUUID
@@ -74,7 +74,7 @@ public class FeedbackManager {
         attributes["language"] = result?.languages
         attributes["resultId"] = result?.id ?? attributePlaceholder
 
-        if let center = result?.center {
+        if let center = result?.centerLocation {
             attributes["resultCoordinates"] = [center.coordinate.longitude, center.coordinate.latitude]
         }
     }
@@ -99,7 +99,7 @@ public class FeedbackManager {
             attributes["external_ids"] = result.externalIDs
             attributes["category"] = result.categories
 
-            if let center = result.center {
+            if let center = result.centerLocation {
                 attributes["coordinates"] = [center.coordinate.longitude, center.coordinate.latitude]
             }
 

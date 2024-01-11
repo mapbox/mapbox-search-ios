@@ -12,7 +12,7 @@ public extension PlaceAutocomplete {
         public let type: SearchResultType
 
         /// result geographic point.
-        public let coordinate: CLLocationCoordinate2D
+        public let coordinate: CLLocationCoordinate2D?
 
         /// Icon name according to [Mapbox Maki icon set](https://github.com/mapbox/maki/)
         public let iconName: String?

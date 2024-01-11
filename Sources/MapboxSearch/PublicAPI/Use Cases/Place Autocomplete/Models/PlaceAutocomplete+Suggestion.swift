@@ -10,7 +10,7 @@ public extension PlaceAutocomplete {
         public let description: String?
 
         /// Geographic point.
-        public let coordinate: CLLocationCoordinate2D
+        public let coordinate: CLLocationCoordinate2D?
 
         /// Icon name according to [Mapbox Maki icon set](https://github.com/mapbox/maki/)
         public let iconName: String?
@@ -30,12 +30,14 @@ public extension PlaceAutocomplete {
         /// List of points near `coordinate`, that represents entries to associated building.
         public let routablePoints: [RoutablePoint]
 
+        /// Underlying data provided by core SDK and API used to construct this Suggestion instance.
+        /// Useful for any follow-up API calls or unit test validation.
         let underlying: Underlying
 
         init(
             name: String,
             description: String?,
-            coordinate: CLLocationCoordinate2D,
+            coordinate: CLLocationCoordinate2D?,
             iconName: String?,
             distance: CLLocationDistance?,
             estimatedTime: Measurement<UnitDuration>?,
@@ -126,7 +128,7 @@ extension PlaceAutocomplete.Suggestion {
             throw Error.invalidResultType
         }
 
-        guard let coordinate = searchSuggestion.center?.coordinate,
+        guard let coordinate = searchSuggestion.centerLocation?.coordinate,
               CLLocationCoordinate2DIsValid(coordinate) else {
             throw Error.invalidCoordinates
         }

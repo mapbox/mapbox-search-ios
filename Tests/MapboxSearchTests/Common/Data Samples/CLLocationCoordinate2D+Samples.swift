@@ -18,3 +18,8 @@ extension CLLocationCoordinate2DCodable {
     static let sample1 = CLLocationCoordinate2DCodable(.sample1)
     static let sample2 = CLLocationCoordinate2DCodable(.sample2)
 }
+
+extension Coordinate2D {
+    static let sample1 = Coordinate2D(value: .sample1)
+    static let sample2 = Coordinate2D(value: .sample2)
+}

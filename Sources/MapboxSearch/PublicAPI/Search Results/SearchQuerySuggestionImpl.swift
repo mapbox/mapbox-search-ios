@@ -25,7 +25,7 @@ class SearchQuerySuggestionImpl: SearchQuerySuggestion, CoreResponseProvider {
     let batchResolveSupported: Bool
 
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
-        assert(coreResult.center == nil)
+        assert(coreResult.centerLocation == nil)
 
         guard coreResult.resultTypes == [.query] else { return nil }
 
@@ -36,7 +36,7 @@ class SearchQuerySuggestionImpl: SearchQuerySuggestion, CoreResponseProvider {
         self.iconName = nil // Queries should use it's special icon
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
         self.distance = coreResult.distanceToProximity
-        self.batchResolveSupported = coreResult.action?.isMultiRetrievable ?? false
+        self.batchResolveSupported = coreResult.action?.multiRetrievable ?? false
         self.categories = coreResult.categories
 
         self.descriptionText = coreResult.addressDescription

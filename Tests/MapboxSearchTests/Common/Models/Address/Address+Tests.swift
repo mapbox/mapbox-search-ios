@@ -77,8 +77,8 @@ class AddressFormatterTests: XCTestCase {
         XCTAssertEqual(coreAddress.postcode, address.postcode)
         XCTAssertEqual(coreAddress.place, address.place)
         XCTAssertEqual(coreAddress.district, address.district)
-        XCTAssertEqual(coreAddress.region, address.region)
-        XCTAssertEqual(coreAddress.country, address.country)
+        XCTAssertEqual(coreAddress.region, address.searchAddressRegion?.toCore())
+        XCTAssertEqual(coreAddress.country, address.searchAddressCountry?.toCore())
     }
 
     func testEmptyCoreAddressConversion() {
