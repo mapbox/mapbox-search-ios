@@ -9,26 +9,18 @@ public final class Discover {
     
     /// Basic internal initializer
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     public convenience init(
-        accessToken: String? = nil,
         locationProvider: LocationProvider? = DefaultLocationProvider()
     ) {
-        guard let accessToken = accessToken ?? ServiceProvider.shared.getStoredAccessToken() else {
-            fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
-        }
-
         let searchEngine = CategorySearchEngine(
-            accessToken: accessToken,
             locationProvider: locationProvider,
             supportSBS: true
         )
         
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(
             for: CoreUserActivityReporterOptions(
-                accessToken: accessToken,
-                userAgent: defaultUserAgent,
+                sdkInformation: SdkInformation.defaultInfo,
                 eventsUrl: nil
             )
         )

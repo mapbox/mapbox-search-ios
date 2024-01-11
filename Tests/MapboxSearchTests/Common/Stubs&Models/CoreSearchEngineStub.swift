@@ -4,7 +4,6 @@ import Foundation
 import CoreLocation
 
 class CoreSearchEngineStub {
-    var accessToken: String
     let locationProvider: CoreLocationProvider?
 
     var searchResponse: CoreSearchResponseProtocol?
@@ -27,8 +26,7 @@ class CoreSearchEngineStub {
     
     var callbackWrapper: (@escaping () -> Void) -> Void = { $0() }
     
-    init(accessToken: String, location: CoreLocationProvider?) {
-        self.accessToken = accessToken
+    init(location: CoreLocationProvider?) {
         self.locationProvider = location
     }
 }
@@ -48,8 +46,8 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
                                 "lat": 53.92068293258732,
                                 "lng": 27.587735185708915,
                                 "proximity":
-                                    [\(request.options.proximity?.coordinate.longitude ?? -1),
-                                     \(request.options.proximity?.coordinate.latitude ?? -1)],
+                                    [\(request.options.proximity?.value.longitude ?? -1),
+                                     \(request.options.proximity?.value.latitude ?? -1)],
                                 "queryString": "\(request.query)",
                                 "resultId": "\(result?.id ?? "nope")",
                                 "resultIndex": \(result?.serverIndex ?? -1),
@@ -69,10 +67,6 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
     func setTileStore(_ tileStore: MapboxCommon.TileStore, completion: (() -> Void)?) {
         assertionFailure("Not Implemented")
         completion?()
-    }
-    
-    func setAccessTokenForToken(_ token: String) {
-        accessToken = token
     }
 
     func createUserLayer(_ layer: String, priority: Int32) -> CoreUserRecordsLayerProtocol {

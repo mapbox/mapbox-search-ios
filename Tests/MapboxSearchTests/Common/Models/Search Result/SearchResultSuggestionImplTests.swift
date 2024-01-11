@@ -7,7 +7,7 @@ class SearchResultSuggestionImplTests: XCTestCase {
     func testSuccessfulInitForAddressType() throws {
         let suggestionImpl = try XCTUnwrap(SearchResultSuggestionImpl(coreResult: CoreSearchResultStub(id: "sample-2",
                                                                                                          type: .address,
-                                                                                                         center: nil),
+                                                                                                         centerLocation: nil),
                                                                         response: CoreSearchResponseStub(id: 42,
                                                                                                          options: .sample1,
                                                                                                          result: .success([]))))
@@ -17,7 +17,7 @@ class SearchResultSuggestionImplTests: XCTestCase {
     func testSuccessfulInitForPOIType() throws {
         let suggestionImpl = try XCTUnwrap(SearchResultSuggestionImpl(coreResult: CoreSearchResultStub(id: "sample-2",
                                                                                                          type: .poi,
-                                                                                                         center: nil),
+                                                                                                         centerLocation: nil),
                                                                         response: CoreSearchResponseStub(id: 42,
                                                                                                          options: .sample1,
                                                                                                          result: .success([]))))
@@ -27,7 +27,7 @@ class SearchResultSuggestionImplTests: XCTestCase {
     func testFailedInit() throws {
         XCTAssertNil(SearchResultSuggestionImpl(coreResult: CoreSearchResultStub(id: "sample-2",
                                                                                  type: .category,
-                                                                                 center: nil),
+                                                                                 centerLocation: nil),
                                                 response: CoreSearchResponseStub(id: 42,
                                                                                  options: .sample1,
                                                                                  result: .success([]))))
@@ -41,7 +41,7 @@ class SearchResultSuggestionImplTests: XCTestCase {
         let exception = catchBadInstruction {
             _ = SearchResultSuggestionImpl(coreResult: CoreSearchResultStub(id: "sample-2",
                                                                             type: .category,
-                                                                            center: .sample1),
+                                                                            centerLocation: .sample1),
                                            response: CoreSearchResponseStub(id: 42,
                                                                             options: .sample1,
                                                                             result: .success([])))

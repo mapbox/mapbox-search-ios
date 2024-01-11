@@ -39,7 +39,7 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
         self.serverIndex = coreResult.serverIndex?.intValue
         
         self.descriptionText = coreResult.addresses?.first.map(Address.init)?.formattedAddress(style: .medium)
-        self.batchResolveSupported = coreResult.action?.isMultiRetrievable ?? false
+        self.batchResolveSupported = coreResult.action?.multiRetrievable ?? false
         
         switch layerIdentifier {
         case HistoryProvider.providerIdentifier:

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04F0A1612B4F276D0097D316 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 04F0A1602B4F276D0097D316 /* MapboxMaps */; };
 		FE00067F26FDCB9E00846819 /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE00067E26FDCB9E00846819 /* Examples.swift */; };
 		FE0720BE26FC86C70065A273 /* MapboxSearch in Frameworks */ = {isa = PBXBuildFile; productRef = FE0720BD26FC86C70065A273 /* MapboxSearch */; };
 		FE0720C026FC86C70065A273 /* MapboxSearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = FE0720BF26FC86C70065A273 /* MapboxSearchUI */; };
@@ -21,7 +22,6 @@
 		FE8295832701E46D001005B4 /* MapboxBoundingBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE780E3124C9B3D000C62400 /* MapboxBoundingBoxController.swift */; };
 		FE849B5626FC9E63001CBC27 /* ExamplesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE849B5526FC9E63001CBC27 /* ExamplesTableViewController.swift */; };
 		FE849B5A26FCBCEC001CBC27 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE849B5926FCBCEC001CBC27 /* MapsViewController.swift */; };
-		FE93032526F8D87A00644DF6 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = FE93032426F8D87A00644DF6 /* MapboxMaps */; };
 		FE9DFDAA26F8D9A60021375F /* MapboxSearch in Frameworks */ = {isa = PBXBuildFile; productRef = FE9DFDA926F8D9A60021375F /* MapboxSearch */; };
 		FE9DFDAC26F8DA0F0021375F /* MapboxSearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = FE9DFDAB26F8DA0F0021375F /* MapboxSearchUI */; };
 		FEF1D1BA26FDF642004AE229 /* TextViewLoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF1D1B926FDF642004AE229 /* TextViewLoggerViewController.swift */; };
@@ -52,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE93032526F8D87A00644DF6 /* MapboxMaps in Frameworks */,
+				04F0A1612B4F276D0097D316 /* MapboxMaps in Frameworks */,
 				FE0720C026FC86C70065A273 /* MapboxSearchUI in Frameworks */,
 				FE0720BE26FC86C70065A273 /* MapboxSearch in Frameworks */,
 				FE9DFDAC26F8DA0F0021375F /* MapboxSearchUI in Frameworks */,
@@ -144,12 +144,12 @@
 			);
 			name = SearchExamples;
 			packageProductDependencies = (
-				FE93032426F8D87A00644DF6 /* MapboxMaps */,
 				FE9DFDA926F8D9A60021375F /* MapboxSearch */,
 				FE9DFDAB26F8DA0F0021375F /* MapboxSearchUI */,
 				FE0720BD26FC86C70065A273 /* MapboxSearch */,
 				FE0720BF26FC86C70065A273 /* MapboxSearchUI */,
 				FEF1D1BC26FDFB1F004AE229 /* Atlantis */,
+				04F0A1602B4F276D0097D316 /* MapboxMaps */,
 			);
 			productName = SearchExamples;
 			productReference = FE114AA424C10B88001B2CE8 /* SearchExamples.app */;
@@ -180,9 +180,9 @@
 			);
 			mainGroup = FE114A9B24C10B88001B2CE8;
 			packageReferences = (
-				FE93032326F8D87A00644DF6 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
 				FE0720BC26FC86C70065A273 /* XCRemoteSwiftPackageReference "search-ios" */,
 				FEF1D1BB26FDFB1F004AE229 /* XCRemoteSwiftPackageReference "atlantis" */,
+				04F0A15F2B4F276D0097D316 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
 			);
 			productRefGroup = FE114AA524C10B88001B2CE8 /* Products */;
 			projectDirPath = "";
@@ -382,7 +382,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GJZR2MEM28;
 				INFOPLIST_FILE = SearchExamples/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -402,7 +401,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GJZR2MEM28;
 				INFOPLIST_FILE = SearchExamples/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -439,20 +437,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		04F0A15F2B4F276D0097D316 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		FE0720BC26FC86C70065A273 /* XCRemoteSwiftPackageReference "search-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mapbox/search-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = "1.0.0-beta";
-			};
-		};
-		FE93032326F8D87A00644DF6 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:mapbox/mapbox-maps-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = "10.0.0-rc";
+				minimumVersion = "1.0.0-rc.8";
 			};
 		};
 		FEF1D1BB26FDFB1F004AE229 /* XCRemoteSwiftPackageReference "atlantis" */ = {
@@ -460,12 +458,17 @@
 			repositoryURL = "https://github.com/ProxymanApp/atlantis";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 1.11.2;
+				minimumVersion = 1.23.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		04F0A1602B4F276D0097D316 /* MapboxMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04F0A15F2B4F276D0097D316 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
+			productName = MapboxMaps;
+		};
 		FE0720BD26FC86C70065A273 /* MapboxSearch */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FE0720BC26FC86C70065A273 /* XCRemoteSwiftPackageReference "search-ios" */;
@@ -475,11 +478,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FE0720BC26FC86C70065A273 /* XCRemoteSwiftPackageReference "search-ios" */;
 			productName = MapboxSearchUI;
-		};
-		FE93032426F8D87A00644DF6 /* MapboxMaps */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FE93032326F8D87A00644DF6 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
-			productName = MapboxMaps;
 		};
 		FE9DFDA926F8D9A60021375F /* MapboxSearch */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -15,10 +15,10 @@ class WrapperLocationProvider: CoreLocationProvider {
         self.locationProvider = locationProvider
     }
 
-    func getLocation() -> CLLocation? {
+    func getLocation() -> Coordinate2D? {
         guard let location = locationProvider.currentLocation() else {
             return nil
         }
-        return CLLocation(latitude: location.latitude, longitude: location.longitude)
+        return Coordinate2D(value: location)
     }
 }

@@ -33,10 +33,9 @@ public class SearchOfflineManager {
     /// Sets custom tile store.
     /// - Parameters:
     ///   - tileStore: TileStore to set into SearchEngine.
-    ///   - accessToken: Mapbox Access Token.
     ///   - completion: this completion called right after SearchEngine finished consuming data from provided TileStore. One can start using offline search after that.
-    public func setTileStore(_ tileStore: MapboxCommon.TileStore, accessToken: String, completion: (() -> Void)? = nil) {
-        let searchTileStore = SearchTileStore(commonTileStore: tileStore, accessToken: accessToken)
+    public func setTileStore(_ tileStore: MapboxCommon.TileStore, completion: (() -> Void)? = nil) {
+        let searchTileStore = SearchTileStore(commonTileStore: tileStore)
         self.tileStore = searchTileStore
         engine.setTileStore(searchTileStore.commonTileStore, completion: completion)
     }
