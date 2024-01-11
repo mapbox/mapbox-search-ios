@@ -42,6 +42,12 @@ extension XCUIElement {
     }
 }
 
+extension XCUIElementQuery {
+    var isEmpty: Bool {
+        count == 0
+    }
+}
+
 
 extension XCTestCase {
     @discardableResult func waitForHittable(
