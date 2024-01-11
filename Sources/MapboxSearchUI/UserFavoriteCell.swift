@@ -76,22 +76,30 @@ class UserFavoriteCell: UITableViewCell {
     @IBAction func moreButtonTap() {
         let actionSheetController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
-        actionSheetController.addAction(UIAlertAction(title: Strings.UserFavoriteCell.renameAction, style: .default, handler: { _ in
-            self.renameFavorite()
-        }))
+        actionSheetController.addAction(UIAlertAction(title: Strings.UserFavoriteCell.renameAction,
+                                                      style: .default,
+                                                      handler: { _ in
+                                                          self.renameFavorite()
+                                                      }))
 
-        actionSheetController.addAction(UIAlertAction(title: Strings.UserFavoriteCell.editLocationAction, style: .default, handler: { _ in
-            self.delegate?.userRequestedFavoriteLocationUpdate(favoriteRecord: self.favorite)
-        }))
+        actionSheetController.addAction(UIAlertAction(title: Strings.UserFavoriteCell.editLocationAction,
+                                                      style: .default,
+                                                      handler: { _ in
+                                                          self.delegate?.userRequestedFavoriteLocationUpdate(favoriteRecord: self.favorite)
+                                                      }))
 
         if let favoriteTemplate = favorite as? FavoriteEntryTemplate {
-            actionSheetController.addAction(UIAlertAction(title: Strings.UserFavoriteCell.removeLocationAction, style: .destructive, handler: { _ in
-                self.delegate?.userRequestedFavoriteTemplateAddressReset(template: favoriteTemplate)
-            }))
+            actionSheetController.addAction(UIAlertAction(title: Strings.UserFavoriteCell.removeLocationAction,
+                                                          style: .destructive,
+                                                          handler: { _ in
+                                                              self.delegate?.userRequestedFavoriteTemplateAddressReset(template: favoriteTemplate)
+                                                          }))
         } else {
-            actionSheetController.addAction(UIAlertAction(title: Strings.UserFavoriteCell.deleteAction, style: .destructive, handler: { _ in
-                self.delegate?.userRequestedFavoriteDeletion(favoriteRecord: self.favorite)
-            }))
+            actionSheetController.addAction(UIAlertAction(title: Strings.UserFavoriteCell.deleteAction,
+                                                          style: .destructive,
+                                                          handler: { _ in
+                                                              self.delegate?.userRequestedFavoriteDeletion(favoriteRecord: self.favorite)
+                                                          }))
         }
 
         actionSheetController.addAction(UIAlertAction(title: Strings.UserFavoriteCell.cancelAction, style: .cancel))

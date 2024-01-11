@@ -118,7 +118,7 @@ extension PlaceAutocomplete.Result {
     func toComponents() -> [(name: String, value: String)] {
         var components = [
             (name: "Name", value: name),
-            (name: "Type", value: "\(type == .POI ? "POI" : "Address")"),
+            (name: "Type", value: "\(type == .POI ? "POI" : "Address")")
         ]
 
         if let address = address, let formattedAddress = address.formattedAddress(style: .short) {
@@ -135,7 +135,8 @@ extension PlaceAutocomplete.Result {
 
         if let estimatedTime = estimatedTime {
             components.append(
-                (name: "Estimated time", value: PlaceAutocomplete.Result.measurumentFormatter.string(from: estimatedTime))
+                (name: "Estimated time",
+                 value: PlaceAutocomplete.Result.measurumentFormatter.string(from: estimatedTime))
             )
         }
 

@@ -28,6 +28,8 @@ modifier_order:
   preferred_modifier_order: [acl, setterACL, override, dynamic, mutators, lazy, final, required, convenience, typeMethods, owned]
 line_length:
     ignores_comments: true
+    ignores_interpolated_strings: true
+    ignores_function_declarations: true
 
 disabled_rules:
   - large_tuple

@@ -56,7 +56,7 @@ private extension DiscoverViewController {
         let allCategories: [Discover.Query] = [
             .Category.parking,
             .Category.restaurants,
-            .Category.museums,
+            .Category.museums
         ]
 
         return allCategories[segmentedControl.selectedSegmentIndex]

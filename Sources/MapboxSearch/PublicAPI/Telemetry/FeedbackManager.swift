@@ -56,7 +56,7 @@ public class FeedbackManager {
         if let bbox = response.request.options.bbox {
             attributes["bbox"] = [
                 bbox.min.longitude, bbox.min.latitude,
-                bbox.max.longitude, bbox.max.latitude,
+                bbox.max.longitude, bbox.max.latitude
             ]
         }
 

@@ -23,7 +23,7 @@ final class LanguageTests: XCTestCase {
         [
             Locale(identifier: "en-US"),
             Locale(identifier: "en"),
-            Locale(identifier: "en-UK"),
+            Locale(identifier: "en-UK")
         ].forEach { locale in
             XCTAssertNotNil(locale)
 

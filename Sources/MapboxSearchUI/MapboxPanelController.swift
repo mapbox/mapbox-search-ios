@@ -160,7 +160,7 @@ public class MapboxPanelController: UIViewController {
         dragIndicator.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             dragIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            dragIndicator.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            dragIndicator.topAnchor.constraint(equalTo: view.topAnchor, constant: 10)
         ])
 
         view.addSubview(panelNavigationController.view)
@@ -248,7 +248,7 @@ public class MapboxPanelController: UIViewController {
             view.leadingAnchor.constraint(lessThanOrEqualTo: presentationView.layoutMarginsGuide.leadingAnchor),
             view.trailingAnchor.constraint(greaterThanOrEqualTo: presentationView.layoutMarginsGuide.trailingAnchor),
             view.heightAnchor.constraint(greaterThanOrEqualTo: presentationView.layoutMarginsGuide.heightAnchor,
-                                         constant: -configuration.topOffset),
+                                         constant: -configuration.topOffset)
         ]
         presentationConstraints.forEach({ $0.priority = .defaultHigh })
 
@@ -277,7 +277,7 @@ public class MapboxPanelController: UIViewController {
             panelNavigationController.view.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             panelNavigationController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             panelNavigationController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            panelNavigationController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            panelNavigationController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ]
 
         NSLayoutConstraint.activate(presentationConstraints + embeddedNavigationConstraints)

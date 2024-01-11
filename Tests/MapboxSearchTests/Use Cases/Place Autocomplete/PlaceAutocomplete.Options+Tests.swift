@@ -15,7 +15,7 @@ final class PlaceAutocompleteOptionsTests: XCTestCase {
         let countries = [
             Country(countryCode: Country.ISO3166_1_alpha2.fr.rawValue),
             Country(countryCode: Country.ISO3166_1_alpha2.de.rawValue),
-            Country(countryCode: Country.ISO3166_1_alpha2.us.rawValue),
+            Country(countryCode: Country.ISO3166_1_alpha2.us.rawValue)
         ].compactMap { $0 }
 
         XCTAssertEqual(countries.count, 3)
@@ -34,7 +34,7 @@ final class PlaceAutocompleteOptionsTests: XCTestCase {
 
     func testThatOptionsInitializedWithAdministrativeTypes() {
         let placeTypes: [PlaceAutocomplete.PlaceType] = [
-            .administrativeUnit(.region), .administrativeUnit(.address), .administrativeUnit(.chome),
+            .administrativeUnit(.region), .administrativeUnit(.address), .administrativeUnit(.chome)
         ]
 
         let options = PlaceAutocomplete.Options(types: placeTypes)

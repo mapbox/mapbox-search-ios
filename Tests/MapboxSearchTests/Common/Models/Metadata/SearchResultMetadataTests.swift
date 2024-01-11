@@ -52,12 +52,12 @@ class SearchResultMetadataTests: XCTestCase {
             "phone": "+1 23 34 5648",
             "website": "https://mapbox.com",
             "review_count": "42",
-            "average_rating": "3.97",
+            "average_rating": "3.97"
         ],
         primaryImage: [
             CoreImageInfoStub.sample1,
             CoreImageInfoStub.sample2,
-            CoreImageInfoStub.sample3,
+            CoreImageInfoStub.sample3
         ],
         otherImage: [CoreImageInfoStub.sample4],
         description: "Test Description",
@@ -74,12 +74,12 @@ class SearchResultMetadataTests: XCTestCase {
             "phone": "+1 23 24 5648",
             "website": "https://mapbox.com",
             "review_count": "41",
-            "average_rating": "3.99",
+            "average_rating": "3.99"
         ],
         primaryImage: [
             CoreImageInfoStub.sample1,
             CoreImageInfoStub.sample2,
-            CoreImageInfoStub.sample3,
+            CoreImageInfoStub.sample3
         ],
         otherImage: [CoreImageInfoStub.sample4],
         description: "Test Description",
@@ -143,7 +143,7 @@ class SearchResultMetadataTests: XCTestCase {
             "phone": "+1 23 34 5648",
             "website": "https://mapbox.com",
             "review_count": "42",
-            "average_rating": "3.97",
+            "average_rating": "3.97"
         ],
         primaryImage: [],
         otherImage: [CoreImageInfoStub.sample4],

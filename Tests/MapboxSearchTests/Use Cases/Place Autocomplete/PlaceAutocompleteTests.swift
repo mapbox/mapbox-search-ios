@@ -91,7 +91,7 @@ final class PlaceAutocompleteTests: XCTestCase {
             CoreSearchResultStub.makeAddress(),
             CoreSearchResultStub.makeSuggestion(),
             CoreSearchResultStub.makeCategory(),
-            CoreSearchResultStub.makeSuggestionTypeQuery(),
+            CoreSearchResultStub.makeSuggestionTypeQuery()
         ].map { $0.asCoreSearchResult }
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: results)
 
@@ -119,7 +119,7 @@ final class PlaceAutocompleteTests: XCTestCase {
         let results = [
             CoreSearchResultStub.makePOI(),
             CoreSearchResultStub.makePlace(),
-            CoreSearchResultStub.makeAddress(),
+            CoreSearchResultStub.makeAddress()
         ].map { $0.asCoreSearchResult }
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: results)
         placeAutocomplete.suggestions(for: "query") { result in
@@ -171,7 +171,7 @@ final class PlaceAutocompleteTests: XCTestCase {
     func testReverseGeocodingReturnsAutocompleteSuggestionsAsResults() {
         let results = [
             CoreSearchResultStub.makePlace(),
-            CoreSearchResultStub.makeAddress(),
+            CoreSearchResultStub.makeAddress()
         ].map { $0.asCoreSearchResult }
 
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: results)

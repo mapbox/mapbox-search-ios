@@ -64,7 +64,7 @@ public class EventsManager: NSObject {
         return [
             "event": event,
             "created": ISO8601DateFormatter().string(from: Date()),
-            "userAgent": userAgentName,
+            "userAgent": userAgentName
         ]
     }
 }

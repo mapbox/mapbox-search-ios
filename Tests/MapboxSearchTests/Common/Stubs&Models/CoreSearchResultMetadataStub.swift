@@ -37,12 +37,12 @@ class CoreSearchResultMetadataStub: CoreResultMetadataProtocol {
         "phone": "+1 23 34 5648",
         "website": "https://mapbox.com",
         "review_count": "42",
-        "average_rating": "3.97",
+        "average_rating": "3.97"
     ],
     primaryImage: [
         CoreImageInfoStub.sample1,
         CoreImageInfoStub.sample2,
-        CoreImageInfoStub.sample3,
+        CoreImageInfoStub.sample3
     ],
     otherImage: [CoreImageInfoStub.sample4],
     description: "Test Description",

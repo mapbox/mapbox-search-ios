@@ -43,7 +43,7 @@ final class AddressAutofillTests: XCTestCase {
         let countries: [Country] = [
             .init(countryCode: Country.ISO3166_1_alpha2.au.rawValue)!,
             .init(countryCode: Country.ISO3166_1_alpha2.ca.rawValue)!,
-            .init(countryCode: Country.ISO3166_1_alpha2.de.rawValue)!,
+            .init(countryCode: Country.ISO3166_1_alpha2.de.rawValue)!
         ]
         let language = Language(languageCode: Language.ISO639_1.ja.rawValue)!
 
@@ -73,7 +73,7 @@ final class AddressAutofillTests: XCTestCase {
         let countries: [Country] = [
             .init(countryCode: Country.ISO3166_1_alpha2.au.rawValue)!,
             .init(countryCode: Country.ISO3166_1_alpha2.ca.rawValue)!,
-            .init(countryCode: Country.ISO3166_1_alpha2.de.rawValue)!,
+            .init(countryCode: Country.ISO3166_1_alpha2.de.rawValue)!
         ]
         let language = Language(languageCode: Language.ISO639_1.ja.rawValue)!
 

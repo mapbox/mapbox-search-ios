@@ -31,7 +31,7 @@ public class CategoriesProvider {
             .autoRepair,
             .atm,
             .hospital,
-            .emergencyRoom,
+            .emergencyRoom
         ]
     }
 }

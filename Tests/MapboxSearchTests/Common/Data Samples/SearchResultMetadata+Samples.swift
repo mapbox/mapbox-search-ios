@@ -7,11 +7,11 @@ extension SearchResultMetadata {
             "phone": "+14157953040",
             "website": "https://www.montesacropinseria.com/san-francisco",
             "review_count": "955",
-            "average_rating": "4.6",
+            "average_rating": "4.6"
         ],
         primaryImage: [
             CoreImageInfoStub.sample1,
-            CoreImageInfoStub.sample3,
+            CoreImageInfoStub.sample3
         ],
         otherImage: [CoreImageInfoStub.sample4],
         description: "Pizza description",

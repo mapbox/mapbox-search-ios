@@ -42,7 +42,7 @@ public struct SearchResultMetadata: Codable, Hashable {
 
         if let others = metadata.otherImage, !others.isEmpty {
             self.otherImages = [
-                Image(sizes: others.map(Image.SizedImage.init)),
+                Image(sizes: others.map(Image.SizedImage.init))
             ]
         }
     }

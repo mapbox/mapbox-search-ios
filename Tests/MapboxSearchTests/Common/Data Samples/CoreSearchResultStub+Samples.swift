@@ -49,7 +49,7 @@ extension CoreSearchResultStub {
             CoreSearchResultStub.makeAddress(),
             CoreSearchResultStub.makePOI(),
             CoreSearchResultStub.makeFavorite(),
-            CoreSearchResultStub.makeHistory(),
+            CoreSearchResultStub.makeHistory()
         ]
     }
 
@@ -57,7 +57,7 @@ extension CoreSearchResultStub {
         [
             CoreSearchResultStub.makePlace(),
             CoreSearchResultStub.makeAddress(),
-            CoreSearchResultStub.makePOI(),
+            CoreSearchResultStub.makePOI()
         ]
     }
 

@@ -26,7 +26,7 @@ enum Fonts {
             .subheadline: UIFont(name: fontName, size: 15)!,
             .footnote: UIFont(name: fontName, size: 13)!,
             .caption1: UIFont(name: fontName, size: 12)!,
-            .caption2: UIFont(name: fontName, size: 11)!,
+            .caption2: UIFont(name: fontName, size: 11)!
         ]
     }
 }

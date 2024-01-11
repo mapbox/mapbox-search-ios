@@ -34,7 +34,7 @@ extension CoreResultType {
         .district,
         .locality,
         .neighborhood,
-        .block,
+        .block
     ]
 
     /// Validate that all input types are specific address subtypes (like country, district or concrete address)
