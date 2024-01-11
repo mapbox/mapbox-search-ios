@@ -1893,7 +1893,6 @@
 				FEBC00E2243C6D32000B268B /* Embed Frameworks */,
 				FEBC00E5243C6D96000B268B /* Inject Mapbox API key */,
 				FEBC00E6243C6DE4000B268B /* SwiftLint */,
-				FE91DEBC2627470F00887981 /* Integrate Reveal Server */,
 			);
 			buildRules = (
 			);
@@ -2261,24 +2260,6 @@
 			shellPath = /bin/sh;
 			shellScript = "# Source: https://docs.mapbox.com/help/troubleshooting/private-access-token-android-and-ios/#ios\n# Look for a global file named 'mapbox' or '.mapbox' within the home directory\ntoken_file=\"${SCRIPT_INPUT_FILE_1}\"\ntoken_file2=\"${SCRIPT_INPUT_FILE_2}\"\ntoken_file3=\"${SCRIPT_INPUT_FILE_3}\"\ntoken=\"$(cat \"$token_file3\" 2>/dev/null || cat \"$token_file\" 2>/dev/null || cat \"$token_file2\" 2>/dev/null)\"\nif [ \"$token\" ]; then\n  plutil -replace MGLMapboxAccessToken -string \"$token\" \"$SCRIPT_INPUT_FILE_0\"\nelse\n  echo 'warning: Missing Mapbox access token'\n  open 'https://www.mapbox.com/account/access-tokens/'\n  echo \"warning: Get an access token from <https://www.mapbox.com/account/access-tokens/>, then create a new file at \"$token_file3\" or \"$token_file\" or \"$token_file2\" that contains the access token.\"\nfi\n";
 			showEnvVarsInLog = 0;
-		};
-		FE91DEBC2627470F00887981 /* Integrate Reveal Server */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Integrate Reveal Server";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = " REVEAL_APP_PATH=$(mdfind kMDItemCFBundleIdentifier=\"com.ittybittyapps.Reveal2\" | head -n 1)\n BUILD_SCRIPT_PATH=\"${REVEAL_APP_PATH}/Contents/SharedSupport/Scripts/reveal_server_build_phase.sh\"\n if [ \"${REVEAL_APP_PATH}\" -a -e \"${BUILD_SCRIPT_PATH}\" ]; then\n \"${BUILD_SCRIPT_PATH}\"\n else\n echo \"Reveal Server not loaded: Cannot find a compatible Reveal app.\"\n fi\n";
 		};
 		FEBC00E5243C6D96000B268B /* Inject Mapbox API key */ = {
 			isa = PBXShellScriptBuildPhase;
