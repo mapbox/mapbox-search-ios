@@ -33,12 +33,14 @@ public struct Address: Codable, Hashable {
     /// Top-level sub-national administrative features, such as states in the United States or provinces in Canada or China.
     public var region: String?
 
+    /// Top-level sub-national administrative feature object containing the name (required) and ISO 3166-2 subdivision code identifiers.
     public var searchAddressRegion: SearchAddressRegion?
     
     /// Generally recognized countries or, in some cases like Hong Kong, an area of quasi-national administrative status
     /// that has been given a designated country code under ISO 3166-1.
     public var country: String?
 
+    /// Generally recognized country object containing the name (required) and ISO 3166-1 country code identifiers.
     public var searchAddressCountry: SearchAddressCountry?
 
     /// The postal address associated with the location, formatted for use with the Contacts framework.
