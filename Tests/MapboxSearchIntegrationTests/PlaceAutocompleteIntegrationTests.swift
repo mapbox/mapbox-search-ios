@@ -11,7 +11,6 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
         super.setUp()
 
         placeAutocomplete = PlaceAutocomplete(
-            accessToken: "access-token",
             locationProvider: DefaultLocationProvider()
         )
     }
@@ -75,7 +74,7 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
                 }
                 suggestion = suggestions[0]
                 let coordinate = CLLocationCoordinate2D(latitude: 38.900017, longitude: -77.032161)
-                XCTAssertEqual(coreSuggestion.center?.coordinate, coordinate)
+                XCTAssertEqual(coreSuggestion.centerLocation?.coordinate, coordinate)
                 XCTAssertEqual(suggestion?.coordinate, coordinate)
                 let point = RoutablePoint(
                     name: "POI",
@@ -188,7 +187,7 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
                 }
                 suggestion = suggestions[0]
                 let coordinate = CLLocationCoordinate2D(latitude: 38.900017, longitude: -77.032161)
-                XCTAssertEqual(coreSuggestion.center?.coordinate, coordinate)
+                XCTAssertEqual(coreSuggestion.centerLocation?.coordinate, coordinate)
                 XCTAssertEqual(suggestion?.coordinate, coordinate)
                 let point = RoutablePoint(
                     name: "POI",

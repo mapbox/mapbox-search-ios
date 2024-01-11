@@ -3,7 +3,8 @@
 import Foundation
 
 protocol CoreUserActivityReporterOptionsProtocol {
-    init(accessToken: String, userAgent: String, eventsUrl: String?)
+    init(sdkInformation: SdkInformation, eventsUrl: String?)
+    init(sdkInformation: SdkInformation, eventsUrl: String?, sendEventsDebounce: UInt64, sendEventsInterval: UInt64)
 }
 
 protocol CoreUserActivityReporterProtocol {

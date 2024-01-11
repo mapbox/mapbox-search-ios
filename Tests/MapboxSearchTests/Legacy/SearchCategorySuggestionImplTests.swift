@@ -6,7 +6,7 @@ class SearchCategorySuggestionImplTests: XCTestCase {
     func testSuccessfulInit() throws {
         let suggestionImpl = try XCTUnwrap(SearchCategorySuggestionImpl(coreResult: CoreSearchResultStub(id: "sample-2",
                                                                                                          type: .category,
-                                                                                                         center: nil),
+                                                                                                         centerLocation: nil),
                                                                         response: CoreSearchResponseStub(id: 42,
                                                                                                          options: .sample1,
                                                                                                          result: .success([]))))
@@ -14,7 +14,7 @@ class SearchCategorySuggestionImplTests: XCTestCase {
     }
     
     func testFailedInitForPOI() throws {
-        XCTAssertNil(SearchCategorySuggestionImpl(coreResult: CoreSearchResultStub(id: "sample-1", type: .poi, center: nil),
+        XCTAssertNil(SearchCategorySuggestionImpl(coreResult: CoreSearchResultStub(id: "sample-1", type: .poi, centerLocation: nil),
                                                   response: CoreSearchResponseStub(id: 42,
                                                                                    options: .sample1,
                                                                                    result: .success([]))))

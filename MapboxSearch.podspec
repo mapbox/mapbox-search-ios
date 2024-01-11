@@ -19,10 +19,10 @@ Some iOS platform specifics applies.
   s.author           = { 'Mapbox' => 'mobile@mapbox.com'  }
   s.source           = { :http => "https://api.mapbox.com/downloads/v2/search-sdk/releases/ios/packages/#{s.version.to_s}/#{s.name}.zip" }
 
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '12.0'
   s.swift_versions = [5.2]
 
   s.vendored_frameworks = "**/#{s.name}.xcframework"
 
-  s.dependency "MapboxCommon", '~> 23.6'
+  s.dependency "MapboxCommon", '~> 24.0'
 end

@@ -27,7 +27,7 @@ final class PlaceAutocompleteSuggestionTests: XCTestCase {
     func testCreationFromCoreSuggestion() {
         let coreSuggestion = CoreSearchResultStub.makeSuggestion()
         coreSuggestion.resultTypes = [.poi]
-        coreSuggestion.center = CLLocation(latitude: 10.0, longitude: 20.0)
+        coreSuggestion.centerLocation = CLLocation(latitude: 10.0, longitude: 20.0)
 
         let suggestion = try? PlaceAutocomplete.Suggestion.from(
             searchSuggestion: coreSuggestion,

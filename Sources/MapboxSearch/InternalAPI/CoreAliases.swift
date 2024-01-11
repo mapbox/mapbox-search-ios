@@ -24,6 +24,8 @@ typealias CoreImageInfo = MapboxCoreSearch.ImageInfo
 typealias CoreOpenHours = MapboxCoreSearch.OpenHours
 typealias CoreOpenPeriod = MapboxCoreSearch.OpenPeriod
 typealias CoreAccuracy = MapboxCoreSearch.ResultAccuracy
+typealias CoreSearchAddressRegion = MapboxCoreSearch.SearchAddressRegion
+typealias CoreSearchAddressCountry = MapboxCoreSearch.SearchAddressCountry
 
 typealias CoreUserActivityReporter = MapboxCoreSearch.UserActivityReporter
 typealias CoreUserActivityReporterOptions = MapboxCoreSearch.UserActivityReporterOptions
@@ -38,6 +40,7 @@ extension CoreSearchEngine {
 }
 
 typealias CoreExpected = MapboxCommon_Private.Expected
+typealias CoreSdkInformation = MapboxCommon_Private.SdkInformation
 
 // MARK: - Public
 @_exported import MapboxCommon

@@ -11,7 +11,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         addresses: [CoreAddress]? = [Address.mapboxDCOffice.coreAddress()],
         addressDescription: String? = nil,
         matchingName: String? = nil,
-        center: CLLocation? = .sample1,
+        centerLocation: CLLocation? = .sample1,
         categories: [String]? = nil,
         routablePoints: [CoreRoutablePoint]? = nil,
         icon: String? = nil,
@@ -30,7 +30,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         self.languages = languages
         self.addresses = addresses
         self.addressDescription = addressDescription
-        self.center = center
+        self.centerLocation = centerLocation
         self.categories = categories
         self.routablePoints = routablePoints
         self.icon = icon
@@ -61,7 +61,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
     var addresses: [CoreAddress]?
     var addressDescription: String?
     var matchingName: String?
-    var center: CLLocation?
+    var centerLocation: CLLocation?
     var categories: [String]?
     var routablePoints: [CoreRoutablePoint]?
     var icon: String?
@@ -102,7 +102,7 @@ extension CoreSearchResultStub: Equatable {
         && lhs.names == rhs.names
         && lhs.languages == rhs.languages
         && lhs.addresses == rhs.addresses
-        && lhs.center == rhs.center
+        && lhs.centerLocation == rhs.centerLocation
         && lhs.categories == rhs.categories
         && lhs.icon == rhs.icon
         && lhs.layer == rhs.layer
@@ -125,10 +125,13 @@ extension CoreSearchResultProtocol {
                          fullAddress: nil,
                          distance: distance,
                          eta: nil,
-                         center: center,
+                         center: centerLocation.map { Coordinate2D(value: $0.coordinate) },
                          accuracy: 100,
                          routablePoints: routablePoints,
                          categories: categories,
+                         categoryIDs: [],
+                         brand: [],
+                         brandID: nil,
                          icon: icon,
                          metadata: nil,
                          externalIDs: nil,

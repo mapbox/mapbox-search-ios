@@ -20,26 +20,16 @@ public final class PlaceAutocomplete {
 
     /// Basic internal initializer
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MBXAccessToken` will be used for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
-    public convenience init(
-        accessToken: String? = nil,
-        locationProvider: LocationProvider? = DefaultLocationProvider()
-    ) {
-        guard let accessToken = accessToken ?? ServiceProvider.shared.getStoredAccessToken() else {
-            fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
-        }
-        
+    public convenience init(locationProvider: LocationProvider? = DefaultLocationProvider()) {
         let searchEngine = ServiceProvider.shared.createEngine(
             apiType: Self.apiType,
-            accessToken: accessToken,
             locationProvider: WrapperLocationProvider(wrapping: locationProvider)
         )
         
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(
             for: CoreUserActivityReporterOptions(
-                accessToken: accessToken,
-                userAgent: defaultUserAgent,
+                sdkInformation: SdkInformation.defaultInfo,
                 eventsUrl: nil
             )
         )
@@ -303,7 +293,7 @@ private extension PlaceAutocomplete {
 
             return Suggestion(name: name,
                               description: result.addressDescription,
-                              coordinate: result.center?.coordinate,
+                              coordinate: result.center?.value,
                               iconName: result.icon,
                               distance: distance,
                               estimatedTime: result.estimatedTime,

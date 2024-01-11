@@ -55,11 +55,11 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
     }
     
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
-        guard let coordinate = coreResult.center?.coordinate else { return nil }
+        guard let center = coreResult.centerLocation else { return nil }
 
         guard let type = SearchResultType(coreResultTypes: coreResult.resultTypes) else { return nil }
         self.type = type
-        
+
         self.id = coreResult.id
         self.name = coreResult.names[0]
         self.matchingName = coreResult.matchingName
@@ -70,12 +70,14 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
         self.accuracy = coreResult.resultAccuracy.flatMap(SearchResultAccuracy.from(coreAccuracy:))
         self.address = coreResult.addresses?.first.map(Address.init)
         self.categories = coreResult.categories
-        self.coordinateCodable = .init(coordinate)
+        self.coordinateCodable = .init(center.coordinate)
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
-        self.distance = coreResult.distanceToProximity ??
-            response.request.options.proximity?.distance(from: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude))
+
+        let proximityValue = response.request.options.proximity?.value
+        let proximityLocation = proximityValue.map { CLLocation(latitude: $0.latitude, longitude: $0.longitude) }
+        self.distance = coreResult.distanceToProximity ?? proximityLocation?.distance(from: center)
         self.routablePoints = coreResult.routablePoints?.map(RoutablePoint.init)
-        self.batchResolveSupported = coreResult.action?.isMultiRetrievable ?? false
+        self.batchResolveSupported = coreResult.action?.multiRetrievable ?? false
         self.descriptionText = coreResult.addressDescription
         
         assert(!id.isEmpty)

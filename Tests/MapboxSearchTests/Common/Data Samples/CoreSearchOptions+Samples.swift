@@ -19,8 +19,8 @@ extension CoreSearchOptions {
                                            urDistanceThreshold: NSNumber(value: 300),
                                            requestDebounce: 1,
                                            route: [
-                                            CLLocation(latitude: 11.65, longitude: 12.14),
-                                            CLLocation(latitude: 11.66, longitude: 12.15)
+                                            Coordinate2D(value: CLLocationCoordinate2D(latitude: 11.65, longitude: 12.14)),
+                                            Coordinate2D(value: CLLocationCoordinate2D(latitude: 11.66, longitude: 12.15))
                                            ],
                                            sarType: "isochrone",
                                            timeDeviation: 10, addonAPI: nil)
@@ -39,9 +39,9 @@ extension CoreSearchOptions {
                                            urDistanceThreshold: NSNumber(value: 300),
                                            requestDebounce: 0,
                                            route: [
-                                            CLLocation(latitude: 11.65, longitude: 12.14),
-                                            CLLocation(latitude: 11.66, longitude: 12.15),
-                                            CLLocation(latitude: 11.20, longitude: 12.02)
+                                            Coordinate2D(value: CLLocationCoordinate2D(latitude: 11.65, longitude: 12.14)),
+                                            Coordinate2D(value: CLLocationCoordinate2D(latitude: 11.66, longitude: 12.15)),
+                                            Coordinate2D(value: CLLocationCoordinate2D(latitude: 11.20, longitude: 12.02))
                                            ],
                                            sarType: "isochrone",
                                            timeDeviation: 10, addonAPI: nil)
