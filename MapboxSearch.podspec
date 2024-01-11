@@ -20,7 +20,7 @@ Some iOS platform specifics applies.
   s.source           = { :http => "https://api.mapbox.com/downloads/v2/search-sdk/releases/ios/packages/#{s.version.to_s}/#{s.name}.zip" }
 
   s.ios.deployment_target = '12.0'
-  s.swift_versions = [5.7.1]
+  s.swift_versions = [5.7]
 
   s.vendored_frameworks = "**/#{s.name}.xcframework"
 
