@@ -5,6 +5,7 @@
 --ranges no-space
 --header strip
 --commas inline
+--maxwidth 120
 
 # Enabled rules
 --rules anyObjectProtocol,blankLineAfterImports,blankLinesAroundMark,blankLinesAtEndOfScope,blankLinesAtStartOfScope,blankLinesBetweenScopes,duplicateImports,elseOnSameLine,emptyBraces,fileHeader,indent,isEmpty,leadingDelimiters,linebreakAtEndOfFile,redundantBackticks,redundantBreak,redundantFileprivate,redundantGet,redundantInit,redundantLet,redundantLetError,redundantNilInit,redundantObjc,redundantParens,redundantPattern,redundantRawValues,redundantVoidReturnType,semicolons,spaceAroundBraces,spaceAroundBrackets,spaceAroundComments,spaceAroundGenerics,spaceAroundOperators,spaceAroundParens,spaceInsideBraces,spaceInsideBrackets,spaceInsideComments,spaceInsideGenerics,spaceInsideParens,strongOutlets,strongifiedSelf,todos,trailingCommas,trailingSpace,typeSugar,void,wrapArguments,yodaConditions

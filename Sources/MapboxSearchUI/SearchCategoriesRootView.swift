@@ -28,8 +28,15 @@ class SearchCategoriesRootView: UIView {
     @IBOutlet private var favoritesTableView: UITableView!
     @IBOutlet private var segmentedControl: CategoriesFavoritesSegmentControl!
 
-    lazy var categoriesDataSource = CategoriesTableViewSource(tableView: categoriesTableView, configuration: configuration)
-    lazy var favoritesDataSource = FavoritesTableViewSource(favoritesProvider: favoritesProvider, tableView: favoritesTableView, configuration: configuration)
+    lazy var categoriesDataSource = CategoriesTableViewSource(
+        tableView: categoriesTableView,
+        configuration: configuration
+    )
+    lazy var favoritesDataSource = FavoritesTableViewSource(
+        favoritesProvider: favoritesProvider,
+        tableView: favoritesTableView,
+        configuration: configuration
+    )
 
     weak var delegate: SearchCategoriesRootViewDelegate?
 
@@ -86,7 +93,8 @@ class SearchCategoriesRootView: UIView {
         self.hotCategoryButtonsSuperview.isHidden = configuration.hideCategorySlots
         self.buttonsTopConstraint.isActive = !configuration.hideCategorySlots
 
-        for configurableView in [self, contentScrollView, favoritesTableView, categoriesTableView, contentViewScrollView] {
+        let views = [self, contentScrollView, favoritesTableView, categoriesTableView, contentViewScrollView]
+        for configurableView in views {
             configurableView?.backgroundColor = configuration.style.primaryBackgroundColor
         }
 
@@ -147,8 +155,13 @@ extension SearchCategoriesRootView: UIScrollViewDelegate {
 extension SearchCategoriesRootView {
     @objc
     func handleTabSwitch() {
-        UIView.animate(withDuration: 0.25, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction, .curveEaseInOut], animations: {
-            self.contentScrollView.contentOffset.x = self.segmentedControl.selectedTab.horizontalOffsetFor(scrollView: self.contentScrollView)
+        UIView.animate(withDuration: 0.25, delay: 0, options: [
+            .beginFromCurrentState,
+            .allowUserInteraction,
+            .curveEaseInOut
+        ], animations: {
+            self.contentScrollView.contentOffset.x = self.segmentedControl.selectedTab.horizontalOffsetFor(scrollView:
+                self.contentScrollView)
         })
     }
 }

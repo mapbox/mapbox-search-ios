@@ -83,7 +83,6 @@ class CodablePersistentServiceTests: XCTestCase {
     }
 }
 
-
 private struct TestRecord: Codable, Equatable {
     var iconName: String?
     var id: String
@@ -103,7 +102,6 @@ private struct TestRecord: Codable, Equatable {
         categories = ["One", "Two", "Three"]
     }
 }
-
 
 private struct TestAddress: Codable, Equatable {
     var houseNumber: String? = "houseNumber"

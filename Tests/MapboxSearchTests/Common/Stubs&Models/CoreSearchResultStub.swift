@@ -80,14 +80,9 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
     var dataLayerIdentifier: String { customDataLayerIdentifier ?? getLayerIdentifier() }
     var customDataLayerIdentifier: String?
 
-
     func getLayerIdentifier() -> String {
         switch type {
-        case .place:
-            fallthrough
-        case .address:
-            fallthrough
-        case .poi:
+        case .place, .address, .poi:
             return SearchEngine.providerIdentifier
         default:
             fatalError("No identifier")

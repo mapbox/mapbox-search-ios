@@ -70,7 +70,7 @@ public enum SearchQueryType {
         }
     }
 
-    // swiftlint:disable cyclomatic_complexity
+    // swiftlint:disable:next cyclomatic_complexity
     static func fromCoreValue(_ value: CoreQueryType) -> Self? {
         switch value {
         case .country:

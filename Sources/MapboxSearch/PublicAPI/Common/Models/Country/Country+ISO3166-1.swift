@@ -254,3 +254,6 @@ extension Country {
         case zw = "ZW"
     }
 }
+
+// swiftlint:enable identifier_name
+// swiftlint:enable type_name

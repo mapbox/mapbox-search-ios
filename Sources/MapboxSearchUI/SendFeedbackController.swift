@@ -76,7 +76,8 @@ class SendFeedbackController: UIViewController {
     }
 
     @objc func adjustForKeyboard(notification: Notification) {
-        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        else { return }
 
         let keyboardScreenFrame = keyboardValue.cgRectValue
         let keyboardFrame = view.convert(keyboardScreenFrame, from: view.window)
@@ -122,7 +123,11 @@ class SendFeedbackController: UIViewController {
     }
 
     func presentFeedbackError() {
-        let alert = UIAlertController(title: Strings.Feedback.errorTitle, message: Strings.Feedback.errorMessage, preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: Strings.Feedback.errorTitle,
+            message: Strings.Feedback.errorMessage,
+            preferredStyle: .alert
+        )
         alert.addAction(UIAlertAction(title: Strings.General.ok, style: .default, handler: { _ in
             alert.dismiss(animated: true, completion: nil)
         }))
@@ -130,7 +135,11 @@ class SendFeedbackController: UIViewController {
     }
 
     func presentFeedbackConfirmation() {
-        let alert = UIAlertController(title: Strings.Feedback.confirmTitle, message: Strings.Feedback.confirmMessage, preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: Strings.Feedback.confirmTitle,
+            message: Strings.Feedback.confirmMessage,
+            preferredStyle: .alert
+        )
         alert.addAction(UIAlertAction(title: Strings.General.ok, style: .default, handler: { _ in
             alert.dismiss(animated: true, completion: nil)
             self.delegate?.sendFeedbackDidReady()

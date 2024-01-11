@@ -111,7 +111,12 @@ class CategorySuggestionsController: UIViewController {
     }
 
     func setupNavigationItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: Images.cancelIcon, style: .plain, target: self, action: #selector(cancelAction))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: Images.cancelIcon,
+            style: .plain,
+            target: self,
+            action: #selector(cancelAction)
+        )
     }
 
     func setupForTesting() {
@@ -130,7 +135,7 @@ extension CategorySuggestionsController: UITableViewDataSource {
             assertionFailure("No suggestion found for this cell")
             return UITableViewCell()
         }
-        // swiftlint:disable:next force_cast
+        // swiftlint:disable:next force_cast line_length
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SearchSuggestionCell
         cell.configure(suggestion: searchSuggestion, hideQueryHighlights: true, configuration: configuration)
         cell.populateButtonEnabled = false
@@ -157,7 +162,8 @@ extension CategorySuggestionsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         guard allowsFeedbackUI, let suggestion = results?[indexPath.row] else { return nil }
 
-        let sendFeedback = UIContextualAction(style: .normal, title: Strings.Feedback.report) { [weak self] _, _, completion in
+        let sendFeedback = UIContextualAction(style: .normal,
+                                              title: Strings.Feedback.report) { [weak self] _, _, completion in
             self?.delegate?.categorySuggestionsFeedbackRequested(searchSuggestion: suggestion)
             completion(true)
         }

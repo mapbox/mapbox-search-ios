@@ -49,7 +49,8 @@ public class EventsManager: NSObject {
     /// - Parameter eventTemplate: feedbackEventTemplate from CoreSearchEngine
     func prepareEventTemplate(_ eventTemplate: String) throws -> (name: String, attributes: [String: Any]) {
         guard let jsonData = eventTemplate.data(using: .utf8),
-              var jsonObject = try? JSONSerialization.jsonObject(with: jsonData, options: [.mutableContainers]) as? [String: Any],
+              var jsonObject = try? JSONSerialization.jsonObject(with: jsonData,
+                                                                 options: [.mutableContainers]) as? [String: Any],
               let eventName = jsonObject.removeValue(forKey: "event") as? String else {
             reportError(SearchError.incorrectEventTemplate)
             throw SearchError.incorrectEventTemplate

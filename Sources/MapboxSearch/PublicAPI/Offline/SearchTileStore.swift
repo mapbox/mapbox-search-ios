@@ -65,9 +65,12 @@ public class SearchTileStore {
     public func loadTileRegion(id: String,
                                options: MapboxCommon.TileRegionLoadOptions,
                                progress: MapboxCommon.TileRegionLoadProgressCallback? = nil,
-                               completion: ((Result<MapboxCommon.TileRegion, TileRegionError>) -> Void)?) -> SearchCancelable {
+                               completion: ((Result<MapboxCommon.TileRegion, TileRegionError>) -> Void)?)
+        -> SearchCancelable {
         if let progress = progress {
-            let cancelable = commonTileStore.__loadTileRegion(forId: id, loadOptions: options, onProgress: progress) { expected in
+            let cancelable = commonTileStore.__loadTileRegion(forId: id,
+                                                              loadOptions: options,
+                                                              onProgress: progress) { expected in
                 completion?(makeResult(expected: expected, fallbackError: TileRegionError.other("Unexpected")))
             }
             return CommonCancelableWrapper(cancelable)
@@ -108,7 +111,10 @@ public class SearchTileStore {
     }
 }
 
-private func makeResult<Value>(expected: CoreExpected<TileRegion, MapboxCommon.TileRegionError>, fallbackError: TileRegionError) -> Result<Value, TileRegionError> {
+private func makeResult<Value>(
+    expected: CoreExpected<TileRegion, MapboxCommon.TileRegionError>,
+    fallbackError: TileRegionError
+) -> Result<Value, TileRegionError> {
     if expected.isValue(), let value = expected.value as? Value {
         return .success(value)
     } else if expected.isError() {

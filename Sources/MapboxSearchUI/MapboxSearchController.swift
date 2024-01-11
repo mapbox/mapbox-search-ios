@@ -266,21 +266,27 @@ public class MapboxSearchController: UIViewController {
         tableController.view.frame = categoriesRootView.frame
         let animationDuration = animated ? 0.25 : 0
 
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: animationDuration, delay: 0, options: [.curveEaseInOut], animations: {
-            self.categoriesRootView.alpha = 0
-            self.categoriesRootView.bounds.origin.y += -10
-            self.tableController.view.alpha = 1
-        })
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: animationDuration,
+                                                       delay: 0,
+                                                       options: [.curveEaseInOut],
+                                                       animations: {
+                                                           self.categoriesRootView.alpha = 0
+                                                           self.categoriesRootView.bounds.origin.y += -10
+                                                           self.tableController.view.alpha = 1
+                                                       })
     }
 
     func hideTableController(animated: Bool = true, completion: ((UIViewAnimatingPosition) -> Void)? = nil) {
         let animationDuration = animated ? 0.25 : 0
 
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: animationDuration, delay: 0, options: [.curveEaseInOut], animations: {
-            self.categoriesRootView.alpha = 1
-            self.categoriesRootView.bounds.origin.y = 0
-            self.tableController.view.alpha = 0
-        }, completion: completion)
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: animationDuration,
+                                                       delay: 0,
+                                                       options: [.curveEaseInOut],
+                                                       animations: {
+                                                           self.categoriesRootView.alpha = 1
+                                                           self.categoriesRootView.bounds.origin.y = 0
+                                                           self.tableController.view.alpha = 0
+                                                       }, completion: completion)
     }
 
     func handleLocalSearch(_ searchResult: SearchResult) {
@@ -301,12 +307,21 @@ public class MapboxSearchController: UIViewController {
 
     func handleUpdateFavoriteSearchResult(_ searchResult: SearchResult, favoriteRecord: FavoriteEntry) {
         if let favoriteRecord = favoriteRecord.userFavorite {
-            let updatedRecord = FavoriteRecord(id: favoriteRecord.id, name: favoriteRecord.name, searchResult: searchResult)
+            let updatedRecord = FavoriteRecord(
+                id: favoriteRecord.id,
+                name: favoriteRecord.name,
+                searchResult: searchResult
+            )
             favoritesProvider.update(record: updatedRecord)
         } else if let favoriteTemplate = favoriteRecord as? FavoriteEntryTemplate {
-            let favoriteRecord = FavoriteRecord(id: type(of: favoriteTemplate).identifier, name: favoriteRecord.name, searchResult: searchResult)
+            let favoriteRecord = FavoriteRecord(
+                id: type(of: favoriteTemplate).identifier,
+                name: favoriteRecord.name,
+                searchResult: searchResult
+            )
             favoritesProvider.add(record: favoriteRecord)
         } else {
+            // swiftlint:disable:next line_length
             fatalError("Invalid case. The function is designed to update address for usual favorites or set address for templates")
         }
 
@@ -433,7 +448,11 @@ extension MapboxSearchController: SearchEngineDelegate {
         tableController.tableView.reloadData()
     }
 
-    public func offlineResultsUpdated(_ results: [SearchResult], suggestions: [SearchSuggestion], searchEngine: SearchEngine) {
+    public func offlineResultsUpdated(
+        _ results: [SearchResult],
+        suggestions: [SearchSuggestion],
+        searchEngine: SearchEngine
+    ) {
         assert(Thread.isMainThread)
         assert(results.count == suggestions.count)
 
@@ -611,7 +630,11 @@ extension MapboxSearchController: SearchCategoriesRootViewDelegate {
     func userRequestedFavoriteRenaming(favoriteRecord: FavoriteEntry) {
         assert(mapboxPanelController != nil)
 
-        let detailsVC = FavoriteDetailsController(favorite: favoriteRecord, favoritesProvider: favoritesProvider, configuration: configuration)
+        let detailsVC = FavoriteDetailsController(
+            favorite: favoriteRecord,
+            favoritesProvider: favoritesProvider,
+            configuration: configuration
+        )
         favoriteDetailsController = detailsVC
         mapboxPanelController?.push(viewController: detailsVC, animated: true)
     }
@@ -620,7 +643,10 @@ extension MapboxSearchController: SearchCategoriesRootViewDelegate {
 // MARK: - History Source Delegate
 
 extension MapboxSearchController: SearchHistoryTableViewSourceDelegate {
-    func searchHistoryTableSource(_ historySource: SearchHistoryTableViewSource, didSelectHistoryEntry historyEntry: HistoryRecord) {
+    func searchHistoryTableSource(
+        _ historySource: SearchHistoryTableViewSource,
+        didSelectHistoryEntry historyEntry: HistoryRecord
+    ) {
         let panel = mapboxPanelController
         assert(panel != nil)
         panel?.setState(.opened)

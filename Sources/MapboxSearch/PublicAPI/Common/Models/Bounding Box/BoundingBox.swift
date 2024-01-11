@@ -27,9 +27,15 @@ public struct BoundingBox: Codable, Hashable {
         guard coordinates?.count ?? 0 > 0 else {
             return nil
         }
-        let startValue = (minLat: coordinates!.first!.latitude, maxLat: coordinates!.first!.latitude, minLon: coordinates!.first!.longitude, maxLon: coordinates!.first!.longitude)
+        let startValue = (
+            minLat: coordinates!.first!.latitude,
+            maxLat: coordinates!.first!.latitude,
+            minLon: coordinates!.first!.longitude,
+            maxLon: coordinates!.first!.longitude
+        )
+        typealias RangeBox = (minLat: Double, maxLat: Double, minLon: Double, maxLon: Double)
         let (minLat, maxLat, minLon, maxLon) = coordinates!
-            .reduce(startValue) { result, coordinate -> (minLat: Double, maxLat: Double, minLon: Double, maxLon: Double) in
+            .reduce(startValue) { result, coordinate -> RangeBox in
                 let minLat = min(coordinate.latitude, result.0)
                 let maxLat = max(coordinate.latitude, result.1)
                 let minLon = min(coordinate.longitude, result.2)

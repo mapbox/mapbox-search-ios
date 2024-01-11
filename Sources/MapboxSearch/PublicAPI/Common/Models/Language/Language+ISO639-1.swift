@@ -2,7 +2,6 @@ import Foundation
 
 // swiftlint:disable type_name
 // swiftlint:disable identifier_name
-// swiftlint:disable redundant_string_enum_value
 
 extension Language {
     public enum ISO639_1: String, CaseIterable {
@@ -193,3 +192,6 @@ extension Language {
         case zu
     }
 }
+
+// swiftlint:enable type_name
+// swiftlint:enable identifier_name

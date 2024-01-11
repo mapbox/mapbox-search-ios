@@ -46,8 +46,10 @@ class SearchTextField: UIView {
         textField.adjustsFontForContentSizeCategory = true
         iconView.adjustsImageSizeForAccessibilityContentSizeCategory = true
 
-        textField.attributedPlaceholder = NSAttributedString(string: customPlaceholder ?? Strings.SearchTextField.placeholder,
-                                                             attributes: [.foregroundColor: configuration.style.primaryInactiveElementColor])
+        let text = customPlaceholder ?? Strings.SearchTextField.placeholder
+        let attributes = [NSAttributedString.Key.foregroundColor: configuration.style.primaryInactiveElementColor]
+        textField.attributedPlaceholder = NSAttributedString(string: text,
+                                                             attributes: attributes)
     }
 
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {

@@ -59,7 +59,8 @@ class SearchEngineTests: XCTestCase {
         let coreResponse = CoreSearchResponseStub.successSample(results: results)
         engine.searchResponse = coreResponse
         let expectation = XCTestExpectation()
-        searchEngine.reverseGeocoding(options: .init(point: CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0))) { result in
+        let point = CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0)
+        searchEngine.reverseGeocoding(options: .init(point: point)) { result in
             if case .success(let reverseGeocodingResults) = result {
                 XCTAssertEqual(results.map({ $0.id }), reverseGeocodingResults.map({ $0.id }))
             } else {
@@ -337,7 +338,8 @@ class SearchEngineTests: XCTestCase {
 
             let expectation = XCTestExpectation()
             var error: SearchError?
-            searchEngine.reverseGeocoding(options: .init(point: CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0))) { result in
+            let point = CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0)
+            searchEngine.reverseGeocoding(options: .init(point: point)) { result in
                 if case .failure(let searchError) = result {
                     error = searchError
                 } else {
@@ -363,7 +365,8 @@ class SearchEngineTests: XCTestCase {
 
         let expectation = XCTestExpectation()
         var error: SearchError?
-        searchEngine.reverseGeocoding(options: .init(point: CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0))) { result in
+        let point = CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0)
+        searchEngine.reverseGeocoding(options: .init(point: point)) { result in
             if case .failure(let searchError) = result {
                 error = searchError
             } else {

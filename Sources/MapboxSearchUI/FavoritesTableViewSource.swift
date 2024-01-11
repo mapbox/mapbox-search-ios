@@ -28,9 +28,15 @@ final class FavoritesTableViewSource: NSObject, UITableViewDataSource, UITableVi
         func register(in tableView: UITableView) {
             switch self {
             case .favorite:
-                tableView.register(UINib(nibName: "UserFavoriteCell", bundle: .mapboxSearchUI), forCellReuseIdentifier: cellIdentifier)
+                tableView.register(
+                    UINib(nibName: "UserFavoriteCell", bundle: .mapboxSearchUI),
+                    forCellReuseIdentifier: cellIdentifier
+                )
             case .addFavorite:
-                tableView.register(UINib(nibName: "AddToFavoritesCell", bundle: .mapboxSearchUI), forCellReuseIdentifier: cellIdentifier)
+                tableView.register(
+                    UINib(nibName: "AddToFavoritesCell", bundle: .mapboxSearchUI),
+                    forCellReuseIdentifier: cellIdentifier
+                )
             }
         }
 
@@ -54,7 +60,10 @@ final class FavoritesTableViewSource: NSObject, UITableViewDataSource, UITableVi
     }
 
     /// The order will be preserved
-    static var favoriteRecordTemplates: [FavoriteEntryTemplate.Type] = [HomeFavoriteTemplate.self, WorkFavoriteTemplate.self]
+    static var favoriteRecordTemplates: [FavoriteEntryTemplate.Type] = [
+        HomeFavoriteTemplate.self,
+        WorkFavoriteTemplate.self
+    ]
     private let favoritesProvider: FavoritesProvider
 
     init(favoritesProvider: FavoritesProvider, tableView: UITableView, configuration: Configuration) {
@@ -68,7 +77,12 @@ final class FavoritesTableViewSource: NSObject, UITableViewDataSource, UITableVi
         super.init()
         updateFavorites()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(updateFavorites), name: type(of: favoritesProvider).updateNotificationName, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateFavorites),
+            name: type(of: favoritesProvider).updateNotificationName,
+            object: nil
+        )
     }
 
     @objc
@@ -105,7 +119,7 @@ final class FavoritesTableViewSource: NSObject, UITableViewDataSource, UITableVi
     }
 
     func userFavoriteCell(forRowAt indexPath: IndexPath, in tableView: UITableView) -> UserFavoriteCell {
-        // swiftlint:disable:next force_cast
+        // swiftlint:disable:next force_cast line_length
         let cell = tableView.dequeueReusableCell(withIdentifier: Cell.favorite.cellIdentifier, for: indexPath) as! UserFavoriteCell
 
         cell.delegate = self
@@ -115,7 +129,7 @@ final class FavoritesTableViewSource: NSObject, UITableViewDataSource, UITableVi
     }
 
     func addFavoriteCell(forRowAt indexPath: IndexPath, in tableView: UITableView) -> UITableViewCell {
-        // swiftlint:disable:next force_cast
+        // swiftlint:disable:next force_cast line_length
         let cell = tableView.dequeueReusableCell(withIdentifier: Cell.addFavorite.cellIdentifier, for: indexPath) as! AddToFavoritesCell
         cell.configure(configuration: configuration)
         return cell

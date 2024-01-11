@@ -32,7 +32,13 @@ struct IndexableRecordStub: IndexableRecord {
         )
     }
 
-    init(id: String, name: String, coordinate: CLLocationCoordinate2DCodable, address: Address? = nil, additionalTokens: Set<String>? = nil) {
+    init(
+        id: String,
+        name: String,
+        coordinate: CLLocationCoordinate2DCodable,
+        address: Address? = nil,
+        additionalTokens: Set<String>? = nil
+    ) {
         self.id = id
         self.name = name
         self.coordinateCodable = coordinate
@@ -41,6 +47,12 @@ struct IndexableRecordStub: IndexableRecord {
     }
 
     init() {
-        self.init(id: UUID().uuidString, name: UUID().uuidString, coordinate: .sample1, address: .fullAddress, additionalTokens: ["unit-test", "unit test", "tests"])
+        self.init(
+            id: UUID().uuidString,
+            name: UUID().uuidString,
+            coordinate: .sample1,
+            address: .fullAddress,
+            additionalTokens: ["unit-test", "unit test", "tests"]
+        )
     }
 }

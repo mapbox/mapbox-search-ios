@@ -16,7 +16,8 @@ class CategoriesFavoritesSegmentControl: UIControl {
 
             self.selectionSegment.frame.origin.x = offsetX
 
-            let forceExplicitAnimations = CATransaction.value(forKey: self.forceExplicitAnimationTransactionKey) as? Bool == true
+            let forceExplicitAnimations = CATransaction.value(forKey: forceExplicitAnimationTransactionKey)
+                as? Bool == true
 
             CATransaction.begin()
             if forceExplicitAnimations {
@@ -163,7 +164,7 @@ class CategoriesFavoritesSegmentControl: UIControl {
     @available(iOS 13.0, *)
     struct TabsSegmentControlRepresentable: UIViewRepresentable {
         func makeUIView(context: Context) -> UIView {
-            // swiftlint:disable:next force_cast
+            // swiftlint:disable:next force_cast line_length
             UINib(nibName: "CategoriesFavoritesSegmentControl", bundle: .mapboxSearchUI).instantiate(withOwner: nil, options: nil)[0] as! UIView
         }
 

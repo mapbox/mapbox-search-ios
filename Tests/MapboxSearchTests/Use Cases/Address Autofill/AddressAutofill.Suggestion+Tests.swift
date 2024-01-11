@@ -62,10 +62,11 @@ final class AddressAutofillSuggestionsTests: XCTestCase {
 
         XCTAssertEqual(suggestion.addressComponents.all.count, AddressAutofill.AddressComponent.Kind.allCases.count)
 
-        let addressComponentCheck: (AddressAutofill.AddressComponent, AddressAutofill.AddressComponent.Kind) -> Void = { candidate, match in
-            XCTAssertEqual(candidate.kind, match)
-            XCTAssertEqual(candidate.value, match.rawValue)
-        }
+        let addressComponentCheck: (AddressAutofill.AddressComponent, AddressAutofill.AddressComponent.Kind) -> Void
+            = { candidate, match in
+                XCTAssertEqual(candidate.kind, match)
+                XCTAssertEqual(candidate.value, match.rawValue)
+            }
 
         suggestion.addressComponents.all.forEach { addressComponent in
             switch addressComponent.kind {

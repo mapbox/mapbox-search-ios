@@ -4,9 +4,11 @@ import CwlPreconditionTesting
 
 class SearchResponseTests: XCTestCase {
     func testResolvedAddressResult() throws {
+        let successResult = Result<[CoreSearchResult], SearchError>
+            .success([CoreSearchResultStub.makeAddress().asCoreSearchResult])
         let coreResponse = CoreSearchResponseStub(id: 377,
                                                   options: .sample1,
-                                                  result: .success([CoreSearchResultStub.makeAddress().asCoreSearchResult]))
+                                                  result: successResult)
         let response = SearchResponse(coreResponse: coreResponse)
 
         let processedResponse = try response.process().get()
@@ -72,7 +74,10 @@ class SearchResponseTests: XCTestCase {
         let response = SearchResponse(coreResponse: coreResponse)
 
         let processedResponse = try response.process().get()
-        XCTAssertEqual(processedResponse.results.map({ $0.id }), expectedResults.filter({ $0.center != nil }).map({ $0.id }))
+        XCTAssertEqual(
+            processedResponse.results.map({ $0.id }),
+            expectedResults.filter({ $0.center != nil }).map({ $0.id })
+        )
         XCTAssertEqual(processedResponse.suggestions.map({ $0.id }), expectedResults.map({ $0.id }))
     }
 

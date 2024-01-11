@@ -65,7 +65,7 @@ public struct ReverseGeocodingOptions {
             reverseMode: mode.map({ NSNumber(value: $0.rawValue) }),
             countries: countries,
             language: languages,
-            limit: limit.map(NSNumber.init),
+            limit: limit.map(NSNumber.init(value:)),
             types: types.map { $0.map { NSNumber(value: $0.coreValue.rawValue) } }
         )
     }

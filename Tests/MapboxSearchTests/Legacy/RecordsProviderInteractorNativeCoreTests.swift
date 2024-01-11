@@ -11,7 +11,10 @@ class RecordsProviderInteractorNativeCoreTests: XCTestCase {
         try super.setUpWithError()
 
         layerStub = CoreUserRecordsLayerStub(name: interactorIdentifier)
-        interactor = RecordsProviderInteractorNativeCore(userRecordsLayer: layerStub, registeredIdentifier: interactorIdentifier)
+        interactor = RecordsProviderInteractorNativeCore(
+            userRecordsLayer: layerStub,
+            registeredIdentifier: interactorIdentifier
+        )
     }
 
     func testInteractorAddNewRecord() {
@@ -70,6 +73,8 @@ class RecordsProviderInteractorNativeCoreTests: XCTestCase {
 
         XCTAssertEqual(layerStub.records.count, 1)
     }
+
+    // swiftlint:enable identifier_name
 
     func testInteractorDeleteAllRecords() {
         for _ in 0..<3 {

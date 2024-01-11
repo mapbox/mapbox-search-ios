@@ -1,7 +1,6 @@
 import Foundation
 import MapKit
 
-
 /// Declares the list of methods for receiving result of search and resolve operations
 public protocol SearchEngineDelegate: AnyObject {
     /// Search Engine calls this method for every search update
@@ -192,11 +191,13 @@ public class SearchEngine: AbstractSearchEngine {
 
     override var dataResolvers: [IndexableDataResolver] { super.dataResolvers + [self] }
 
-    var engineSearchFunction: (String, [String], CoreSearchOptions, @escaping (CoreSearchResponseProtocol?) -> Void) -> Void {
+    var engineSearchFunction: (String, [String], CoreSearchOptions, @escaping (CoreSearchResponseProtocol?) -> Void)
+        -> Void {
         offlineMode == .disabled ? engine.search : engine.searchOffline
     }
 
-    var engineReverseGeocodingFunction: (CoreReverseGeoOptions, @escaping (CoreSearchResponseProtocol?) -> Void) -> Void {
+    var engineReverseGeocodingFunction: (CoreReverseGeoOptions, @escaping (CoreSearchResponseProtocol?) -> Void)
+        -> Void {
         offlineMode == .disabled ? engine.reverseGeocoding : engine.reverseGeocodingOffline
     }
 
@@ -406,7 +407,8 @@ extension SearchEngine {
     /// - Parameter suggestions: suggestions list to resolve. All suggestions must originate from the same search request.
     public func select(suggestions: [SearchSuggestion]) {
         for suggestion in suggestions {
-            let supported = (suggestion as? CoreResponseProvider)?.originalResponse.coreResult.action?.multiRetrievable == true
+            let supported = (suggestion as? CoreResponseProvider)?.originalResponse.coreResult.action?.multiRetrievable
+                == true
             if !supported {
                 _Logger.searchSDK.warning("Unsupported suggestion: \(suggestion.name) of type: \(suggestion.suggestionType)")
             }
@@ -433,7 +435,10 @@ extension SearchEngine {
     /// - Parameters:
     ///   - options: Options with coordinates, mode, limits and query types for reverse geocoding.
     ///   - completion: completion handler with either reverse geocoding Resuts or Error.
-    public func reverseGeocoding(options: ReverseGeocodingOptions, completion: @escaping (Result<[SearchResult], SearchError>) -> Void) {
+    public func reverseGeocoding(
+        options: ReverseGeocodingOptions,
+        completion: @escaping (Result<[SearchResult], SearchError>) -> Void
+    ) {
         assert(Thread.isMainThread)
 
         if offlineMode == .enabled {

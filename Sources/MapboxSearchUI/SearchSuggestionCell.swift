@@ -34,6 +34,8 @@ class SearchSuggestionCell: UITableViewCell {
         enableDynamicTypeSupport()
     }
 
+    // swiftlint:enable _preferWillMoveToWindow
+
     func enableDynamicTypeSupport() {
         nameLabel.font = Fonts.default(style: .headline, traits: traitCollection)
         nameLabel.adjustsFontForContentSizeCategory = true
@@ -66,8 +68,15 @@ class SearchSuggestionCell: UITableViewCell {
         if hideQueryHighlights == false {
             let attributedNameRange = NSRange(location: 0, length: attributedName.length)
 
-            for range in HighlightsCalculator.calculate(for: suggestion.searchRequest.query, in: suggestion.name).compactMap(attributedNameRange.intersection) {
-                attributedName.addAttribute(.foregroundColor, value: configuration.style.primaryAccentColor, range: range)
+            let intersectingHighlights = HighlightsCalculator.calculate(for: suggestion.searchRequest.query,
+                                                                        in: suggestion.name)
+                .compactMap(attributedNameRange.intersection)
+            for range in intersectingHighlights {
+                attributedName.addAttribute(
+                    .foregroundColor,
+                    value: configuration.style.primaryAccentColor,
+                    range: range
+                )
             }
         }
         nameLabel.attributedText = attributedName
@@ -78,7 +87,8 @@ class SearchSuggestionCell: UITableViewCell {
         addressLabel.accessibilityIdentifier = "address"
 
         // Hide arrow button on the right if name is the same as query it the textfield
-        let resultNameSameAsQuery = suggestion.name.caseInsensitiveCompare(suggestion.searchRequest.query.trimmingCharacters(in: .whitespaces)) == .orderedSame
+        let resultNameSameAsQuery = suggestion.name.caseInsensitiveCompare(suggestion
+            .searchRequest.query.trimmingCharacters(in: .whitespaces)) == .orderedSame
         populateSuggestionButton.isHidden = resultNameSameAsQuery
 
         if let distanceString = suggestion.distance.map(SearchSuggestionCell.distanceFormatter.string) {
@@ -128,7 +138,7 @@ extension SearchSuggestType {
     @available(iOS 13.0, *)
     struct SearchSuggestionCellRepresentable: UIViewRepresentable {
         func makeUIView(context: Context) -> UIView {
-            // swiftlint:disable:next force_cast
+            // swiftlint:disable:next force_cast line_length
             UINib(nibName: "SearchSuggestionCell", bundle: .mapboxSearchUI).instantiate(withOwner: nil, options: nil)[0] as! UIView
         }
 

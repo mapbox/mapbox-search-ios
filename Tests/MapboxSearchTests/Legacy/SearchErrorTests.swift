@@ -4,7 +4,11 @@ import CoreLocation
 
 class SearchErrorTests: XCTestCase {
     func testGenericSearchError() {
-        let genericError = NSError(domain: mapboxCoreSearchErrorDomain, code: 404, userInfo: [NSLocalizedDescriptionKey: "some-localized-description"])
+        let genericError = NSError(
+            domain: mapboxCoreSearchErrorDomain,
+            code: 404,
+            userInfo: [NSLocalizedDescriptionKey: "some-localized-description"]
+        )
         let searchError = SearchError(genericError)
 
         guard case let .generic(code, domain, message) = searchError else {
@@ -53,7 +57,10 @@ class SearchErrorTests: XCTestCase {
 
     func testErrorFailedToRegisterDataProvider() {
         let reason = SearchError.incorrectEventTemplate
-        let error = SearchError.failedToRegisterDataProvider(reason: reason, dataProvider: LocalDataProvider<HistoryRecord>()) as NSError
+        let error = SearchError.failedToRegisterDataProvider(
+            reason: reason,
+            dataProvider: LocalDataProvider<HistoryRecord>()
+        ) as NSError
 
         XCTAssertEqual(error.domain, mapboxSearchErrorDomain)
         XCTAssertEqual(error.code, -5)

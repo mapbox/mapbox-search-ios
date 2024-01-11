@@ -39,7 +39,8 @@ public class FeedbackManager {
         attributes["country"] = response.request.options.countries
         attributes["fuzzyMatch"] = response.request.options.fuzzyMatch?.boolValue
         attributes["limit"] = response.request.options.limit?.intValue
-        attributes["types"] = response.request.options.types?.map({ (CoreResultType(rawValue: $0.intValue) ?? .unknown).stringValue })
+        attributes["types"] = response.request.options.types?
+            .map({ (CoreResultType(rawValue: $0.intValue) ?? .unknown).stringValue })
         attributes["sessionIdentifier"] = response.request.sessionID
 
         // `searchResultsJSON` required for `cant find` and `suggestion feedbacks`.
@@ -108,7 +109,10 @@ public class FeedbackManager {
         root["results"] = searchResults
         root["multiStepSearch"] = !isReproducible
 
-        let searchResultsJSON = (try? JSONSerialization.data(withJSONObject: root, options: [])).flatMap { String(data: $0, encoding: .utf8) }
+        let searchResultsJSON = (try? JSONSerialization.data(withJSONObject: root, options: [])).flatMap { String(
+            data: $0,
+            encoding: .utf8
+        ) }
         return searchResultsJSON
     }
 

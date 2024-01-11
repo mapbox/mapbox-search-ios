@@ -24,8 +24,12 @@ class ServerSearchResultTests: XCTestCase {
     }
 
     func testServerSearchResultNilForMissingCoordinates() {
-        let result = ServerSearchResult(coreResult: CoreSearchResultStub(id: UUID().uuidString, type: .userRecord, centerLocation: nil),
-                                        response: CoreSearchResponseStub.failureSample)
+        let result = ServerSearchResult(coreResult: CoreSearchResultStub(
+            id: UUID().uuidString,
+            type: .userRecord,
+            centerLocation: nil
+        ),
+        response: CoreSearchResponseStub.failureSample)
 
         XCTAssertNil(result)
     }

@@ -21,11 +21,17 @@ class AddressFormatterTests: XCTestCase {
     }
 
     func testLongStyle() {
-        XCTAssertEqual(address.formattedAddress(style: .long), "$houseNumber $street, $neighborhood, $locality, $place, $district, $region, $country")
+        XCTAssertEqual(
+            address.formattedAddress(style: .long),
+            "$houseNumber $street, $neighborhood, $locality, $place, $district, $region, $country"
+        )
     }
 
     func testFullStyle() {
-        XCTAssertEqual(address.formattedAddress(style: .full), "$houseNumber $street, $neighborhood, $locality, $place, $district, $region, $country, $postcode")
+        XCTAssertEqual(
+            address.formattedAddress(style: .full),
+            "$houseNumber $street, $neighborhood, $locality, $place, $district, $region, $country, $postcode"
+        )
     }
 
     func testLonelyHouseNumberStyle() {
@@ -33,7 +39,10 @@ class AddressFormatterTests: XCTestCase {
     }
 
     func testCustomFormatForHouseNumberAndStreet() {
-        XCTAssertEqual(address.formattedAddress(style: .custom(components: [\.houseNumber, \.street])), "$houseNumber $street")
+        XCTAssertEqual(
+            address.formattedAddress(style: .custom(components: [\.houseNumber, \.street])),
+            "$houseNumber $street"
+        )
     }
 
     func testCustomFormatForStreetAndRegion() {

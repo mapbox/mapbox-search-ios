@@ -15,7 +15,10 @@ class CategorySearchEngineTests: XCTestCase {
     }
 
     func testEmptySearch() throws {
-        let categorySearchEngine = CategorySearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let categorySearchEngine = CategorySearchEngine(
+            serviceProvider: provider,
+            locationProvider: DefaultLocationProvider()
+        )
         let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
         let expectedResults = [CoreSearchResultStub]()
         let response = CoreSearchResponseStub.successSample(results: expectedResults)
@@ -37,7 +40,10 @@ class CategorySearchEngineTests: XCTestCase {
     }
 
     func testCategorySearch() throws {
-        let categorySearchEngine = CategorySearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let categorySearchEngine = CategorySearchEngine(
+            serviceProvider: provider,
+            locationProvider: DefaultLocationProvider()
+        )
         let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
         let expectedResults = CoreSearchResultStub.makeCategoryResultsSet()
         let response = CoreSearchResponseStub.successSample(results: expectedResults)
@@ -58,7 +64,10 @@ class CategorySearchEngineTests: XCTestCase {
     }
 
     func testErrorSearch() throws {
-        let categorySearchEngine = CategorySearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let categorySearchEngine = CategorySearchEngine(
+            serviceProvider: provider,
+            locationProvider: DefaultLocationProvider()
+        )
         let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
         let response = CoreSearchResponseStub.failureSample
         engine.searchResponse = response
@@ -86,7 +95,10 @@ class CategorySearchEngineTests: XCTestCase {
         #if !arch(x86_64)
             throw XCTSkip("Unsupported architecture")
         #else
-            let categorySearchEngine = CategorySearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
+            let categorySearchEngine = CategorySearchEngine(
+                serviceProvider: provider,
+                locationProvider: DefaultLocationProvider()
+            )
 
             let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
             engine.callbackWrapper = { callback in

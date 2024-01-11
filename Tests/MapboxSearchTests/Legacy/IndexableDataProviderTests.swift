@@ -61,7 +61,8 @@ class IndexableDataProviderTests: XCTestCase {
         let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
         searchEngine.delegate = delegate
 
-        for (index, dataProvider) in [dataProviderNoRecords, dataProviderSomeRecords, dataProviderManyRecords].enumerated() {
+        let dataProviders = [dataProviderNoRecords, dataProviderSomeRecords, dataProviderManyRecords]
+        for (index, dataProvider) in dataProviders.enumerated() {
             let interactor = try searchEngine.register(dataProvider: dataProvider, priority: 10 + index)
             dataProvider.registerProviderInteractor(interactor: interactor)
         }

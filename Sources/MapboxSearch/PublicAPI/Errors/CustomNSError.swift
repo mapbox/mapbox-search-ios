@@ -29,29 +29,50 @@ extension SearchError: CustomNSError {
             return [NSLocalizedDescriptionKey: message, NSLocalizedFailureReasonErrorKey: ""]
 
         case .incorrectEventTemplate:
-            return [NSLocalizedDescriptionKey: "SearchEngine unable create event template", NSLocalizedFailureReasonErrorKey: ""]
+            return [
+                NSLocalizedDescriptionKey: "SearchEngine unable create event template",
+                NSLocalizedFailureReasonErrorKey: ""
+            ]
 
         case .incorrectSearchResultForFeedback:
-            return [NSLocalizedDescriptionKey: "Passed SearchResult invalid for feedback", NSLocalizedFailureReasonErrorKey: ""]
+            return [
+                NSLocalizedDescriptionKey: "Passed SearchResult invalid for feedback",
+                NSLocalizedFailureReasonErrorKey: ""
+            ]
 
         case .searchRequestFailed(let error as NSError):
-            return [NSLocalizedDescriptionKey: "Search Request Failed,", NSLocalizedFailureReasonErrorKey: "Error:[\(error.description)]"]
+            return [
+                NSLocalizedDescriptionKey: "Search Request Failed,",
+                NSLocalizedFailureReasonErrorKey: "Error:[\(error.description)]"
+            ]
 
         case .searchRequestCancelled:
             return [NSLocalizedDescriptionKey: "Search Request Cancelled,", NSLocalizedFailureReasonErrorKey: ""]
 
         case .internalSearchRequestError(let message):
-            return [NSLocalizedDescriptionKey: "Internal Search Request Error,", NSLocalizedFailureReasonErrorKey: "Error:[\(message)]"]
+            return [
+                NSLocalizedDescriptionKey: "Internal Search Request Error,",
+                NSLocalizedFailureReasonErrorKey: "Error:[\(message)]"
+            ]
 
         case .categorySearchRequestFailed(let error as NSError):
-            return [NSLocalizedDescriptionKey: "Category Search Request Failed,", NSLocalizedFailureReasonErrorKey: "Error:[\(error.description)]"]
+            return [
+                NSLocalizedDescriptionKey: "Category Search Request Failed,",
+                NSLocalizedFailureReasonErrorKey: "Error:[\(error.description)]"
+            ]
 
         case .failedToRegisterDataProvider(let error as NSError, let dataProvider):
             let description = "Failed To Register DataProvider:[\(type(of: dataProvider).providerIdentifier)],"
-            return [NSLocalizedDescriptionKey: description, NSLocalizedFailureReasonErrorKey: "Error:[\(error.description)]"]
+            return [
+                NSLocalizedDescriptionKey: description,
+                NSLocalizedFailureReasonErrorKey: "Error:[\(error.description)]"
+            ]
 
         case .responseProcessingFailed:
-            return [NSLocalizedDescriptionKey: "Search Response Processing Failed,", NSLocalizedFailureReasonErrorKey: "Probably got Nil CoreResponse"]
+            return [
+                NSLocalizedDescriptionKey: "Search Response Processing Failed,",
+                NSLocalizedFailureReasonErrorKey: "Probably got Nil CoreResponse"
+            ]
 
         case .resultResolutionFailed(let suggestion):
             let description = "Search Result resolution failed, Layer:[\(suggestion.dataLayerIdentifier)], Name:[\(suggestion.name)]"
@@ -63,7 +84,10 @@ extension SearchError: CustomNSError {
 
         case .reverseGeocodingFailed(let error as NSError, let options):
             let description = "Reverse geocoding failed, Point:[\(options.point)],"
-            return [NSLocalizedDescriptionKey: description, NSLocalizedFailureReasonErrorKey: "Error:[\(error.description)]"]
+            return [
+                NSLocalizedDescriptionKey: description,
+                NSLocalizedFailureReasonErrorKey: "Error:[\(error.description)]"
+            ]
         }
     }
 }

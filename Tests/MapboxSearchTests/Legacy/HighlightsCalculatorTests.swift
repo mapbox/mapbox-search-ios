@@ -15,7 +15,10 @@ class HighlightsCalculatorTests: XCTestCase {
     }
 
     func testNormalizedHighlightFor_ß() {
-        let highlightRanges = HighlightsCalculator.calculate(for: "Hohenzollernstrasse", in: "Some Test Hohenzollernstraße")
+        let highlightRanges = HighlightsCalculator.calculate(
+            for: "Hohenzollernstrasse",
+            in: "Some Test Hohenzollernstraße"
+        )
 
         XCTAssertEqual(highlightRanges, [NSRange(location: 10, length: 18)])
     }

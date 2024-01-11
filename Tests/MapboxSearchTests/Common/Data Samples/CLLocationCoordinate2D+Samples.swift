@@ -10,8 +10,14 @@ extension CLLocationCoordinate2D {
 }
 
 extension CLLocation {
-    static let sample1 = CLLocation(latitude: CLLocationCoordinate2D.sample1.latitude, longitude: CLLocationCoordinate2D.sample1.longitude)
-    static let sample2 = CLLocation(latitude: CLLocationCoordinate2D.sample2.latitude, longitude: CLLocationCoordinate2D.sample2.longitude)
+    static let sample1 = CLLocation(
+        latitude: CLLocationCoordinate2D.sample1.latitude,
+        longitude: CLLocationCoordinate2D.sample1.longitude
+    )
+    static let sample2 = CLLocation(
+        latitude: CLLocationCoordinate2D.sample2.latitude,
+        longitude: CLLocationCoordinate2D.sample2.longitude
+    )
 }
 
 extension CLLocationCoordinate2DCodable {

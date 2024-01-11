@@ -90,7 +90,6 @@ extension CoreSearchResultStub {
         return result
     }
 
-
     static func makeAddress() -> CoreSearchResultStub {
         let result = CoreSearchResultStub(
             id: UUID().uuidString,

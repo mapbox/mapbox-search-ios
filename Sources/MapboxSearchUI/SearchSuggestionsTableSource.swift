@@ -44,7 +44,7 @@ extension SearchSuggestionsTableSource: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let searchSuggestion = suggestions[indexPath.row]
-        // swiftlint:disable:next force_cast
+        // swiftlint:disable:next force_cast line_length
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SearchSuggestionCell
         cell.delegate = self
         cell.configure(suggestion: searchSuggestion, configuration: configuration)
@@ -64,7 +64,8 @@ extension SearchSuggestionsTableSource: UITableViewDelegate {
 
         let suggestion = suggestions[indexPath.row]
 
-        let sendFeedback = UIContextualAction(style: .normal, title: Strings.Feedback.report) { [weak self] _, _, completion in
+        let sendFeedback = UIContextualAction(style: .normal,
+                                              title: Strings.Feedback.report) { [weak self] _, _, completion in
             self?.delegate?.reportIssue(suggestion)
             completion(true)
         }

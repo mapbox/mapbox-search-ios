@@ -25,7 +25,10 @@ final class SearchResponse {
 // MARK: - Private
 
 private extension SearchResponse {
-    func processResults(_ responseResults: [CoreSearchResult]) -> (suggestions: [SearchSuggestion], results: [SearchResult]) {
+    func processResults(_ responseResults: [CoreSearchResult]) -> (
+        suggestions: [SearchSuggestion],
+        results: [SearchResult]
+    ) {
         var results = [SearchResult]()
         let suggestions = responseResults.compactMap { coreResult -> SearchSuggestion? in
             let suggestion: SearchSuggestion?
@@ -43,7 +46,10 @@ private extension SearchResponse {
                 suggestion = nil
 
             default:
-                if coreResult.center != nil, let serverSearchResult = ServerSearchResult(coreResult: coreResult, response: coreResponse) {
+                if coreResult.center != nil, let serverSearchResult = ServerSearchResult(
+                    coreResult: coreResult,
+                    response: coreResponse
+                ) {
                     results.append(serverSearchResult)
 
                     // All results should go to suggestions as well. They are stored in SearchEngine.items field

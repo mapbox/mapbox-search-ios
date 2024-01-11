@@ -4,7 +4,10 @@ import CwlPreconditionTesting
 
 class SearchSuggestTypeTests: XCTestCase {
     func testAddressCaseAssociatedValues() throws {
-        XCTAssertEqual(SearchSuggestType.address(subtypes: [.country, .place, .street]).addressSubtypes, [.country, .place, .street])
+        XCTAssertEqual(
+            SearchSuggestType.address(subtypes: [.country, .place, .street]).addressSubtypes,
+            [.country, .place, .street]
+        )
     }
 
     func testPOICaseMissingAssociatedAddressValues() {
@@ -17,7 +20,10 @@ class SearchSuggestTypeTests: XCTestCase {
 
     func testSearchSuggestTypeAddressInit() throws {
         let addressResultType = try XCTUnwrap(SearchResultType(coreResultTypes: CoreResultType.allAddressTypes))
-        XCTAssertEqual(SearchSuggestType(resultType: addressResultType).addressSubtypes?.count, CoreResultType.allAddressTypes.count)
+        XCTAssertEqual(
+            SearchSuggestType(resultType: addressResultType).addressSubtypes?.count,
+            CoreResultType.allAddressTypes.count
+        )
     }
 }
 

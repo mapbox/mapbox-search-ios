@@ -132,7 +132,11 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
                                                    registeredIdentifier: providerIdentifier)
     }
 
-    func resolve(suggestion: SearchResultSuggestion, completionQueue: DispatchQueue = .main, completion: @escaping (Result<SearchResult, SearchError>) -> Void) {
+    func resolve(
+        suggestion: SearchResultSuggestion,
+        completionQueue: DispatchQueue = .main,
+        completion: @escaping (Result<SearchResult, SearchError>) -> Void
+    ) {
         guard let resolver = dataResolver(for: suggestion.dataLayerIdentifier) else {
             assertionFailure("No corresponding provider was found for identifier \(suggestion.dataLayerIdentifier)")
             completion(.failure(.dataResolverNotFound(suggestion)))
@@ -151,13 +155,16 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
         }
     }
 
-    func resolve(suggestions: [SearchResultSuggestion], completionQueue: DispatchQueue = .main, completion: @escaping ([SearchResult]) -> Void) {
+    func resolve(
+        suggestions: [SearchResultSuggestion],
+        completionQueue: DispatchQueue = .main,
+        completion: @escaping ([SearchResult]) -> Void
+    ) {
         let resolvedResultsQueue = DispatchQueue(label: "com.mapbox.search.category.resolvedResults")
         let resolutionDispatchGroup = DispatchGroup()
 
         /// Accumulate searchResults in this collection to follow the origin order
         var resultsBuffer: [SearchResult?] = Array(repeating: nil, count: suggestions.count)
-
 
         func addResolvedResultAndLeaveGroup(_ result: SearchResult, at index: Int) {
             resolvedResultsQueue.async {

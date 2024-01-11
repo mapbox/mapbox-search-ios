@@ -51,6 +51,20 @@ public struct AdministrativeUnit: Equatable {
     public static let chome: AdministrativeUnit = .init(rawValue: .neighborhood)
 
     public static var all: [AdministrativeUnit] {
-        [.country, .region, .postcode, .district, .place, .locality, .neighborhood, .street, .address, .city, prefecture, .oaza, chome]
+        [
+            .country,
+            .region,
+            .postcode,
+            .district,
+            .place,
+            .locality,
+            .neighborhood,
+            .street,
+            .address,
+            .city,
+            prefecture,
+            .oaza,
+            chome
+        ]
     }
 }

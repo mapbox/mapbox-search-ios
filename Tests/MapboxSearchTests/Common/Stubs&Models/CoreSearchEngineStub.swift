@@ -79,7 +79,12 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
         assertionFailure("Not Implemented")
     }
 
-    func search(forQuery query: String, categories: [String], options: CoreSearchOptions, completion: @escaping (CoreSearchResponseProtocol?) -> Void) {
+    func search(
+        forQuery query: String,
+        categories: [String],
+        options: CoreSearchOptions,
+        completion: @escaping (CoreSearchResponseProtocol?) -> Void
+    ) {
         self.searchOptions = options
         self.query = query
         self.categories = categories
@@ -91,7 +96,11 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
         }
     }
 
-    func nextSearch(for result: CoreSearchResultProtocol, with originalRequest: CoreRequestOptions, callback: @escaping (CoreSearchResponseProtocol?) -> Void) {
+    func nextSearch(
+        for result: CoreSearchResultProtocol,
+        with originalRequest: CoreRequestOptions,
+        callback: @escaping (CoreSearchResponseProtocol?) -> Void
+    ) {
         nextSearchCalled = true
         DispatchQueue.main.async {
             self.callbackWrapper {
@@ -100,7 +109,11 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
         }
     }
 
-    func batchResolve(results: [CoreSearchResultProtocol], with originalRequest: CoreRequestOptions, callback: @escaping (CoreSearchResponseProtocol?) -> Void) {
+    func batchResolve(
+        results: [CoreSearchResultProtocol],
+        with originalRequest: CoreRequestOptions,
+        callback: @escaping (CoreSearchResponseProtocol?) -> Void
+    ) {
         DispatchQueue.main.async {
             self.callbackWrapper {
                 callback(self.searchResponse)
@@ -116,7 +129,10 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
         return eventTemplate.replacingOccurrences(of: "__event_name", with: name)
     }
 
-    func reverseGeocoding(for options: CoreReverseGeoOptions, completion: @escaping (CoreSearchResponseProtocol?) -> Void) {
+    func reverseGeocoding(
+        for options: CoreReverseGeoOptions,
+        completion: @escaping (CoreSearchResponseProtocol?) -> Void
+    ) {
         self.reverseGeocodingOptions = options
 
         DispatchQueue.main.async {
@@ -130,11 +146,21 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
         return .success(())
     }
 
-    func searchOffline(query: String, categories: [String], options: CoreSearchOptions, completion: @escaping (CoreSearchResponseProtocol?) -> Void) {
+    func searchOffline(
+        query: String,
+        categories: [String],
+        options: CoreSearchOptions,
+        completion: @escaping (CoreSearchResponseProtocol?) -> Void
+    ) {
         search(forQuery: query, categories: categories, options: options, completion: completion)
     }
 
-    func getOfflineAddress(street: String, proximity: CLLocationCoordinate2D, radius: Double, completion: @escaping (CoreSearchResponseProtocol?) -> Void) {
+    func getOfflineAddress(
+        street: String,
+        proximity: CLLocationCoordinate2D,
+        radius: Double,
+        completion: @escaping (CoreSearchResponseProtocol?) -> Void
+    ) {
         DispatchQueue.main.async {
             self.callbackWrapper {
                 completion(self.searchResponse)
@@ -142,11 +168,18 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
         }
     }
 
-    func retrieveOffline(for result: CoreSearchResultProtocol, with originalRequest: CoreRequestOptions, callback: @escaping (CoreSearchResponseProtocol?) -> Void) {
+    func retrieveOffline(
+        for result: CoreSearchResultProtocol,
+        with originalRequest: CoreRequestOptions,
+        callback: @escaping (CoreSearchResponseProtocol?) -> Void
+    ) {
         nextSearch(for: result, with: originalRequest, callback: callback)
     }
 
-    func reverseGeocodingOffline(for options: CoreReverseGeoOptions, completion: @escaping (CoreSearchResponseProtocol?) -> Void) {
+    func reverseGeocodingOffline(
+        for options: CoreReverseGeoOptions,
+        completion: @escaping (CoreSearchResponseProtocol?) -> Void
+    ) {
         reverseGeocoding(for: options, completion: completion)
     }
 }

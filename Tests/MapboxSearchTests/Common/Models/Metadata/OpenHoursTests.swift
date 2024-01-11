@@ -23,7 +23,6 @@ class OpenHoursTests: XCTestCase {
         XCTAssertEqual(hours, .permanentlyClosed)
     }
 
-
     func testScheduledCoreConversion() throws {
         let coreHours = CoreOpenHours(mode: .scheduled, periods: .coreOpenHourPeriods())
         let hours = OpenHours(coreHours)

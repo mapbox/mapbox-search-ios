@@ -5,22 +5,28 @@ import CwlPreconditionTesting
 
 class SearchResultSuggestionImplTests: XCTestCase {
     func testSuccessfulInitForAddressType() throws {
-        let suggestionImpl = try XCTUnwrap(SearchResultSuggestionImpl(coreResult: CoreSearchResultStub(id: "sample-2",
-                                                                                                       type: .address,
-                                                                                                       centerLocation: nil),
-                                                                      response: CoreSearchResponseStub(id: 42,
-                                                                                                       options: .sample1,
-                                                                                                       result: .success([]))))
+        let suggestionImpl = try XCTUnwrap(SearchResultSuggestionImpl(
+            coreResult: CoreSearchResultStub(id: "sample-2",
+                                             type: .address,
+                                             centerLocation: nil),
+
+            response: CoreSearchResponseStub(id: 42,
+                                             options: .sample1,
+                                             result: .success([]))
+        ))
         XCTAssertEqual(suggestionImpl.suggestionType, .address(subtypes: [.address]))
     }
 
     func testSuccessfulInitForPOIType() throws {
-        let suggestionImpl = try XCTUnwrap(SearchResultSuggestionImpl(coreResult: CoreSearchResultStub(id: "sample-2",
-                                                                                                       type: .poi,
-                                                                                                       centerLocation: nil),
-                                                                      response: CoreSearchResponseStub(id: 42,
-                                                                                                       options: .sample1,
-                                                                                                       result: .success([]))))
+        let suggestionImpl = try XCTUnwrap(SearchResultSuggestionImpl(
+            coreResult: CoreSearchResultStub(id: "sample-2",
+                                             type: .poi,
+                                             centerLocation: nil),
+
+            response: CoreSearchResponseStub(id: 42,
+                                             options: .sample1,
+                                             result: .success([]))
+        ))
         XCTAssertEqual(suggestionImpl.suggestionType, .POI)
     }
 

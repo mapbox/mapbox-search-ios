@@ -48,7 +48,10 @@ class SearchBar: UIView {
     }
 
     func cancelSearch(animated: Bool = true) {
-        UIView.animate(withDuration: animated ? 0.25 : 0, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
+        UIView.animate(withDuration: animated ? 0.25 : 0, delay: 0, options: [
+            .beginFromCurrentState,
+            .allowUserInteraction
+        ], animations: {
             self.textFieldInSearchTrailingConstraint.isActive = false
             self.textFieldDefaultTrailingConstraint.isActive = true
             self.cancelButton.alpha = 0
@@ -76,12 +79,15 @@ class SearchBar: UIView {
 
 extension SearchBar: SearchTextFieldDelegate {
     func searchTextFieldBeginEditing(_ textfield: SearchTextField) {
-        UIView.animate(withDuration: 0.25, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
-            self.textFieldDefaultTrailingConstraint.isActive = false
-            self.textFieldInSearchTrailingConstraint.isActive = true
-            self.cancelButton.alpha = 1.0
-            self.layoutIfNeeded()
-        })
+        UIView.animate(withDuration: 0.25,
+                       delay: 0,
+                       options: [.beginFromCurrentState, .allowUserInteraction],
+                       animations: {
+                           self.textFieldDefaultTrailingConstraint.isActive = false
+                           self.textFieldInSearchTrailingConstraint.isActive = true
+                           self.cancelButton.alpha = 1.0
+                           self.layoutIfNeeded()
+                       })
 
         delegate?.searchTextFieldBeginEditing()
     }

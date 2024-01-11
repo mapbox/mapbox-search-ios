@@ -44,7 +44,6 @@ public class MapboxPanelController: UIViewController {
 
     var configuration: Configuration
 
-
     /// Damping ration animation parameter
     public var dampingRatio: CGFloat = 0.7
 
@@ -85,7 +84,10 @@ public class MapboxPanelController: UIViewController {
         self.state = toState
 
         if animated {
-            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: animationDuration, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: animationDuration, delay: 0, options: [
+                .beginFromCurrentState,
+                .allowUserInteraction
+            ], animations: {
                 self.view.superview?.layoutIfNeeded()
             })
         }
@@ -252,7 +254,8 @@ public class MapboxPanelController: UIViewController {
         ]
         presentationConstraints.forEach({ $0.priority = .defaultHigh })
 
-        let widthLimitConstraint = view.widthAnchor.constraint(lessThanOrEqualToConstant: configuration.maximumPanelWidth)
+        let widthLimitConstraint = view.widthAnchor.constraint(lessThanOrEqualToConstant:
+            configuration.maximumPanelWidth)
         presentationConstraints.append(widthLimitConstraint)
 
         let bottomConstraint = view.bottomAnchor.constraint(equalTo: presentationView.bottomAnchor)
@@ -283,9 +286,12 @@ public class MapboxPanelController: UIViewController {
         NSLayoutConstraint.activate(presentationConstraints + embeddedNavigationConstraints)
 
         // Setup alignment constraints
-        leadingAlignmentConstraint = view.leadingAnchor.constraint(equalTo: presentationView.layoutMarginsGuide.leadingAnchor)
-        centerAlignmentConstraint = view.centerXAnchor.constraint(equalTo: presentationView.centerXAnchor)
-        trailingAlignmentConstraint = view.trailingAnchor.constraint(equalTo: presentationView.layoutMarginsGuide.trailingAnchor)
+        leadingAlignmentConstraint = view.leadingAnchor
+            .constraint(equalTo: presentationView.layoutMarginsGuide.leadingAnchor)
+        centerAlignmentConstraint = view.centerXAnchor
+            .constraint(equalTo: presentationView.centerXAnchor)
+        trailingAlignmentConstraint = view.trailingAnchor
+            .constraint(equalTo: presentationView.layoutMarginsGuide.trailingAnchor)
 
         updateHorizontalAlignmentConstraints()
     }
@@ -323,7 +329,6 @@ public class MapboxPanelController: UIViewController {
     /// - Author:  https://gist.github.com/originell/6961057
     private let decelerationResistance: CGFloat = 0.55
 
-
     @IBAction
     private func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {
         guard let topConstraint = topConstraint else {
@@ -350,7 +355,8 @@ public class MapboxPanelController: UIViewController {
         let finalDecelerationPoint = topConstraintConstant + decelerationLength
 
         let limitedFinalConstant: CGFloat
-        if abs(finalDecelerationPoint - configuration.topOffset) <= abs(finalDecelerationPoint - bottomConstantFromTopEdge) {
+        if abs(finalDecelerationPoint - configuration.topOffset)
+            <= abs(finalDecelerationPoint - bottomConstantFromTopEdge) {
             limitedFinalConstant = configuration.topOffset
             self.state = .opened
         } else {
@@ -388,7 +394,8 @@ extension MapboxPanelController: UIGestureRecognizerDelegate {
     /// Disable vertical UIPanGestureRecognizer to fail on horizontal gestures.
     /// This is required for others horizontal gesture recognizers like UITableViewCell leading/trailing swipe actions
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        guard let gestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer, gestureRecognizer == panGestureRecognizer else {
+        guard let gestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer,
+              gestureRecognizer == panGestureRecognizer else {
             return true
         }
         let velocity = gestureRecognizer.velocity(in: gestureRecognizer.view)

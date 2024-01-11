@@ -41,7 +41,7 @@ extension TileRegionLoadOptions {
                                      acceptExpired: acceptExpired,
                                      networkRestriction: networkRestriction,
                                      startLocation: nil,
-                                     averageBytesPerSecond: averageBytesPerSecond.map(NSNumber.init),
+                                     averageBytesPerSecond: averageBytesPerSecond.map(NSNumber.init(value:)),
                                      extraOptions: nil)
     }
 }

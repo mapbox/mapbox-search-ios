@@ -13,7 +13,8 @@ class CoreResponseProviderStub: CoreResponseProvider {
 class CoreResponseProviderTests: XCTestCase {
     func testSearchRequestComputedVariable() throws {
         let coreResponse = CoreSearchResultResponse(coreResult: CoreSearchResultStub.sample1,
-                                                    response: CoreSearchResponseStub.successSample(results: [CoreSearchResultStub.sample1]))
+                                                    response: CoreSearchResponseStub
+                                                        .successSample(results: [CoreSearchResultStub.sample1]))
 
         let responseProvider = CoreResponseProviderStub(originalResponse: coreResponse)
 

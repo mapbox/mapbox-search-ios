@@ -42,7 +42,10 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
             case .success(let resolvedSuggestion):
                 XCTAssertEqual(resolvedSuggestion.name, "San Francisco")
                 XCTAssertEqual(resolvedSuggestion.description, "California, United States")
-                XCTAssertEqual(resolvedSuggestion.coordinate, CLLocationCoordinate2D(latitude: 37.7648, longitude: -122.463))
+                XCTAssertEqual(
+                    resolvedSuggestion.coordinate,
+                    CLLocationCoordinate2D(latitude: 37.7648, longitude: -122.463)
+                )
             case .failure:
                 XCTFail("Should return success")
             }
@@ -93,7 +96,10 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
             case .success(let resolvedSuggestion):
                 XCTAssertEqual(resolvedSuggestion.name, "Minsk")
                 XCTAssertEqual(resolvedSuggestion.description, "Belarus")
-                XCTAssertEqual(resolvedSuggestion.coordinate, CLLocationCoordinate2D(latitude: 53.90225, longitude: 27.56184))
+                XCTAssertEqual(
+                    resolvedSuggestion.coordinate,
+                    CLLocationCoordinate2D(latitude: 53.90225, longitude: 27.56184)
+                )
             case .failure:
                 XCTFail("Should return success")
             }
@@ -128,8 +134,14 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
                     return
                 }
                 XCTAssertEqual(suggestions[1].name, "Starbucks")
-                XCTAssertEqual(suggestions[1].description, "901 15th St NW, Washington, District of Columbia 20005, United States of America")
-                XCTAssertEqual(suggestions[1].coordinate, CLLocationCoordinate2D(latitude: 38.90143, longitude: -77.033568))
+                XCTAssertEqual(
+                    suggestions[1].description,
+                    "901 15th St NW, Washington, District of Columbia 20005, United States of America"
+                )
+                XCTAssertEqual(
+                    suggestions[1].coordinate,
+                    CLLocationCoordinate2D(latitude: 38.90143, longitude: -77.033568)
+                )
                 let point = RoutablePoint(
                     name: "POI",
                     point: CLLocationCoordinate2DCodable(latitude: 38.90143, longitude: -77.033568)
@@ -152,9 +164,15 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
             switch result {
             case .success(let resolvedSuggestion):
                 XCTAssertEqual(resolvedSuggestion.name, "Starbucks")
-                XCTAssertEqual(resolvedSuggestion.description, "901 15th St NW, Washington, District of Columbia 20005, United States of America")
+                XCTAssertEqual(
+                    resolvedSuggestion.description,
+                    "901 15th St NW, Washington, District of Columbia 20005, United States of America"
+                )
                 XCTAssertEqual(resolvedSuggestion.phone, "+1 123-456-789")
-                XCTAssertEqual(resolvedSuggestion.coordinate, CLLocationCoordinate2D(latitude: 38.90143, longitude: -77.033568))
+                XCTAssertEqual(
+                    resolvedSuggestion.coordinate,
+                    CLLocationCoordinate2D(latitude: 38.90143, longitude: -77.033568)
+                )
             case .failure:
                 XCTFail("Should return success")
             }
@@ -193,7 +211,10 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
                 )
                 XCTAssertEqual(suggestion?.routablePoints, [point])
                 XCTAssertEqual(suggestion?.name, "Starbucks")
-                XCTAssertEqual(suggestion?.description, "1401 New York Ave NW, Washington, District of Columbia 20005, United States of America")
+                XCTAssertEqual(
+                    suggestion?.description,
+                    "1401 New York Ave NW, Washington, District of Columbia 20005, United States of America"
+                )
             case .failure:
                 XCTFail("Should return success")
             }
@@ -207,9 +228,15 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
             switch result {
             case .success(let resolvedSuggestion):
                 XCTAssertEqual(resolvedSuggestion.name, "Starbucks")
-                XCTAssertEqual(resolvedSuggestion.description, "901 15th St NW, Washington, District of Columbia 20005, United States of America")
+                XCTAssertEqual(
+                    resolvedSuggestion.description,
+                    "901 15th St NW, Washington, District of Columbia 20005, United States of America"
+                )
                 XCTAssertEqual(resolvedSuggestion.phone, "+1 123-456-789")
-                XCTAssertEqual(resolvedSuggestion.coordinate, CLLocationCoordinate2D(latitude: 38.90143, longitude: -77.033568))
+                XCTAssertEqual(
+                    resolvedSuggestion.coordinate,
+                    CLLocationCoordinate2D(latitude: 38.90143, longitude: -77.033568)
+                )
             case .failure:
                 XCTFail("Should return success")
             }

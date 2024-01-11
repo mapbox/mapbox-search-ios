@@ -11,7 +11,10 @@ extension XCUIApplication {
 
     var searchBar: XCUIElement {
         XCTAssertTrue(isMapboxSearchController, "Can't find MapboxSearchController on screen")
-        XCTAssertTrue(mapboxSearchController.otherElements["MapboxSearchController.searchBar"].waitForExistence(timeout: BaseTestCase.defaultTimeout), "SearchBar not exist")
+        XCTAssertTrue(
+            mapboxSearchController.otherElements["MapboxSearchController.searchBar"].waitForExistence(timeout: BaseTestCase.defaultTimeout),
+            "SearchBar not exist"
+        )
         return mapboxSearchController.otherElements["MapboxSearchController.searchBar"]
     }
 
@@ -41,8 +44,15 @@ extension XCUIElement {
 
 
 extension XCTestCase {
-    @discardableResult func waitForHittable(_ element: XCUIElement, timeout: TimeInterval = BaseTestCase.defaultTimeout, message: String? = nil) -> XCUIElement {
-        let elementIsHittable = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isHittable == true"), object: element)
+    @discardableResult func waitForHittable(
+        _ element: XCUIElement,
+        timeout: TimeInterval = BaseTestCase.defaultTimeout,
+        message: String? = nil
+    ) -> XCUIElement {
+        let elementIsHittable = XCTNSPredicateExpectation(
+            predicate: NSPredicate(format: "isHittable == true"),
+            object: element
+        )
         if let description = message {
             elementIsHittable.expectationDescription = description
         }
@@ -50,8 +60,16 @@ extension XCTestCase {
         return element
     }
 
-    @discardableResult func waitForEnabled(_ enabled: Bool, for element: XCUIElement, timeout: TimeInterval = BaseTestCase.defaultTimeout, message: String? = nil) -> XCUIElement {
-        let elementIsEnabled = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isEnabled == \(enabled)"), object: element)
+    @discardableResult func waitForEnabled(
+        _ enabled: Bool,
+        for element: XCUIElement,
+        timeout: TimeInterval = BaseTestCase.defaultTimeout,
+        message: String? = nil
+    ) -> XCUIElement {
+        let elementIsEnabled = XCTNSPredicateExpectation(
+            predicate: NSPredicate(format: "isEnabled == \(enabled)"),
+            object: element
+        )
         if let description = message {
             elementIsEnabled.expectationDescription = description
         }

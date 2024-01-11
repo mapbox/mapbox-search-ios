@@ -122,7 +122,10 @@ extension FeedbackEvent {
     public convenience init(record: SearchResult, reason: String?, text: String?) {
         switch record {
         case let provider as CoreResponseProvider:
-            let type = EventType.coreResult(response: provider.originalResponse.coreResponse, result: provider.originalResponse.coreResult)
+            let type = EventType.coreResult(
+                response: provider.originalResponse.coreResponse,
+                result: provider.originalResponse.coreResult
+            )
             self.init(type: type, reason: reason, text: text, isReproducible: true)
 
         case let record as HistoryRecord:
@@ -155,10 +158,13 @@ extension FeedbackEvent {
     ///   - text: Issue additional description
     public convenience init(suggestion: SearchSuggestion, reason: String?, text: String?) {
         if let provider = suggestion as? CoreResponseProvider {
-            self.init(type: .coreResult(response: provider.originalResponse.coreResponse, result: provider.originalResponse.coreResult),
-                      reason: reason,
-                      text: text,
-                      isReproducible: true)
+            self.init(type: .coreResult(
+                response: provider.originalResponse.coreResponse,
+                result: provider.originalResponse.coreResult
+            ),
+            reason: reason,
+            text: text,
+            isReproducible: true)
         } else {
             self.init(type: .suggestion(record: suggestion), reason: reason, text: text)
         }
@@ -170,6 +176,11 @@ extension FeedbackEvent {
     ///   - text: Issue additional description
     public convenience init(response: SearchResponseInfo, text: String?) {
         let isReproducible = response.suggestion?.suggestionType != .category
-        self.init(type: .missingResult(response: response.coreResponse), reason: Reason.missingResult.rawValue, text: text, isReproducible: isReproducible)
+        self.init(
+            type: .missingResult(response: response.coreResponse),
+            reason: Reason.missingResult.rawValue,
+            text: text,
+            isReproducible: isReproducible
+        )
     }
 }

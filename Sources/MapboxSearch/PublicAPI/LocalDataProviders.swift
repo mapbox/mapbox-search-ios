@@ -20,7 +20,9 @@ public class LocalDataProvider<Record: Codable & SearchResult & IndexableRecord>
 
     /// Make your own data provider of local data with built-in load/save support for Codable results.
     public init() {
-        persistentService = CodablePersistentService(filename: String(describing: Record.self).lowercased() + "s.bplist")
+        persistentService = CodablePersistentService(filename:
+            String(describing: Record.self).lowercased() + "s.bplist"
+        )
     }
 
     private var didLoadInitialData = false

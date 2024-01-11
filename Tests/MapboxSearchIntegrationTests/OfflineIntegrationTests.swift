@@ -37,7 +37,11 @@ class OfflineIntegrationTests: MockServerTestCase {
     func loadData(completion: @escaping (Result<MapboxCommon.TileRegion, MapboxSearch.TileRegionError>) -> Void) -> SearchCancelable {
         let descriptor = SearchOfflineManager.createDefaultTilesetDescriptor()
         let dcLocationValue = NSValue(cgPoint: dcLocation)
-        let options = MapboxCommon.TileRegionLoadOptions.build(geometry: Geometry(point: dcLocationValue), descriptors: [descriptor], acceptExpired: true)!
+        let options = MapboxCommon.TileRegionLoadOptions.build(
+            geometry: Geometry(point: dcLocationValue),
+            descriptors: [descriptor],
+            acceptExpired: true
+        )!
         let cancelable = searchEngine.offlineManager.tileStore.loadTileRegion(id: regionId, options: options) { progress in
         } completion: { result in
             completion(result)

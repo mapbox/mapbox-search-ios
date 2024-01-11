@@ -17,7 +17,10 @@ class SearchIntegrationTestCase: MockServerTestCase {
 
         let recentSearchTable = app.searchResultTableView
         let recentSearchCell = recentSearchTable.cells["San Francisco"].firstMatch
-        XCTAssertTrue(recentSearchCell.waitForExistence(timeout: BaseTestCase.defaultTimeout), "No San Francisco item in recent search")
+        XCTAssertTrue(
+            recentSearchCell.waitForExistence(timeout: BaseTestCase.defaultTimeout),
+            "No San Francisco item in recent search"
+        )
 
         let cellCount = recentSearchTable.cells.count
         recentSearchCell.swipeLeft()

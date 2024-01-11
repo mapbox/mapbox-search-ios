@@ -52,9 +52,20 @@ class SearchHistoryTableViewSource: NSObject {
         super.init()
 
         // Load IBOutlets
-        UINib(nibName: Defaults.historyHeaderNibName, bundle: .mapboxSearchUI).instantiate(withOwner: self, options: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateHistory), name: type(of: historyProvider).updateNotificationName, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateHistory), name: type(of: favoritesProvider).updateNotificationName, object: nil)
+        UINib(nibName: Defaults.historyHeaderNibName, bundle: .mapboxSearchUI)
+            .instantiate(withOwner: self, options: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateHistory),
+            name: type(of: historyProvider).updateNotificationName,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateHistory),
+            name: type(of: favoritesProvider).updateNotificationName,
+            object: nil
+        )
     }
 
     private func deleteHistoryEntry(at indexPath: IndexPath) {
@@ -86,7 +97,7 @@ extension SearchHistoryTableViewSource: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let historyEntry = history[indexPath.row]
-        // swiftlint:disable:next force_cast
+        // swiftlint:disable:next force_cast line_length
         let cell = tableView.dequeueReusableCell(withIdentifier: Defaults.historyCellReuseIdentifier, for: indexPath) as! SearchHistoryCell
         let isFavorite = favoritesProvider.isAlsoFavorite(history: historyEntry)
         cell.configure(historyEntry: historyEntry, isFavorite: isFavorite, configuration: configuration)
@@ -116,7 +127,8 @@ extension SearchHistoryTableViewSource: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let title = Strings.SearchHistory.deleteActionTitle
-        let deleteAction = UIContextualAction(style: .destructive, title: title) { [weak self] _, _, completionHandler in
+        let deleteAction = UIContextualAction(style: .destructive,
+                                              title: title) { [weak self] _, _, completionHandler in
             self?.deleteHistoryEntry(at: indexPath)
             completionHandler(true)
         }

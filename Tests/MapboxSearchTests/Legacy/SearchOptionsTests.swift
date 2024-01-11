@@ -61,7 +61,10 @@ class SearchOptionsTests: XCTestCase {
     }
 
     func testSearchOptionsNavigationConstructors() {
-        let navigationOptions = SearchOptions(navigationOptions: SearchNavigationOptions(profile: .driving, etaType: .navigation), origin: .sample2)
+        let navigationOptions = SearchOptions(
+            navigationOptions: SearchNavigationOptions(profile: .driving, etaType: .navigation),
+            origin: .sample2
+        )
 
         XCTAssertNil(navigationOptions.countries)
         XCTAssertEqual(navigationOptions.languages, ["en"])
@@ -118,7 +121,10 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertEqual(fromCoreSearchOptions.unsafeParameters, searchOptions.unsafeParameters)
         XCTAssertEqual(fromCoreSearchOptions.filterTypes, searchOptions.filterTypes)
         XCTAssertEqual(fromCoreSearchOptions.ignoreIndexableRecords, searchOptions.ignoreIndexableRecords)
-        XCTAssertEqual(fromCoreSearchOptions.indexableRecordsDistanceThreshold, searchOptions.indexableRecordsDistanceThreshold)
+        XCTAssertEqual(
+            fromCoreSearchOptions.indexableRecordsDistanceThreshold,
+            searchOptions.indexableRecordsDistanceThreshold
+        )
     }
 
     func testSearchOptionsConversionForSBSAPI() {
@@ -138,11 +144,17 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertEqual(fromCoreSearchOptions.navigationOptions?.etaType, searchOptions.navigationOptions?.etaType)
         XCTAssertEqual(fromCoreSearchOptions.routeOptions?.route, searchOptions.routeOptions?.route)
         XCTAssertEqual(fromCoreSearchOptions.routeOptions?.deviation.time, searchOptions.routeOptions?.deviation.time)
-        XCTAssertEqual(fromCoreSearchOptions.routeOptions?.deviation.sarType, searchOptions.routeOptions?.deviation.sarType)
+        XCTAssertEqual(
+            fromCoreSearchOptions.routeOptions?.deviation.sarType,
+            searchOptions.routeOptions?.deviation.sarType
+        )
         XCTAssertEqual(fromCoreSearchOptions.unsafeParameters, searchOptions.unsafeParameters)
         XCTAssertEqual(fromCoreSearchOptions.filterTypes, searchOptions.filterTypes)
         XCTAssertEqual(fromCoreSearchOptions.ignoreIndexableRecords, searchOptions.ignoreIndexableRecords)
-        XCTAssertEqual(fromCoreSearchOptions.indexableRecordsDistanceThreshold, searchOptions.indexableRecordsDistanceThreshold)
+        XCTAssertEqual(
+            fromCoreSearchOptions.indexableRecordsDistanceThreshold,
+            searchOptions.indexableRecordsDistanceThreshold
+        )
     }
 
     func testSearchOptionsUsesLocale() {
@@ -205,8 +217,14 @@ extension SearchOptions {
                                        proximity: .sample1,
                                        boundingBox: .sample1,
                                        origin: .sample2,
-                                       navigationOptions: SearchNavigationOptions(profile: .driving, etaType: .navigation),
-                                       routeOptions: RouteOptions(route: .sample1, deviation: .time(.init(value: 5, unit: .minutes), .isochrone)),
+                                       navigationOptions: SearchNavigationOptions(
+                                           profile: .driving,
+                                           etaType: .navigation
+                                       ),
+                                       routeOptions: RouteOptions(
+                                           route: .sample1,
+                                           deviation: .time(.init(value: 5, unit: .minutes), .isochrone)
+                                       ),
                                        filterTypes: [.poi, .address, .place],
                                        ignoreIndexableRecords: false,
                                        indexableRecordsDistanceThreshold: 2000,

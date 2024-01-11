@@ -28,10 +28,19 @@ class MapsViewController: UIViewController, ExampleController {
 
     func cameraToAnnotations(_ annotations: [PointAnnotation]) {
         if annotations.count == 1, let annotation = annotations.first {
-            mapView.camera.fly(to: .init(center: annotation.point.coordinates, zoom: 15), duration: 0.25, completion: nil)
+            mapView.camera.fly(
+                to: .init(center: annotation.point.coordinates, zoom: 15),
+                duration: 0.25,
+                completion: nil
+            )
         } else {
             let coordinatesCamera = mapView.mapboxMap.camera(for: annotations.map(\.point.coordinates),
-                                                             padding: UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24),
+                                                             padding: UIEdgeInsets(
+                                                                 top: 24,
+                                                                 left: 24,
+                                                                 bottom: 24,
+                                                                 right: 24
+                                                             ),
                                                              bearing: nil,
                                                              pitch: nil)
             mapView.camera.fly(to: coordinatesCamera, duration: 0.25, completion: nil)

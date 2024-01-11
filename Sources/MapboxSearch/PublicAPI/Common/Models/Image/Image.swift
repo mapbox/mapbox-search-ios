@@ -4,10 +4,6 @@ import CoreGraphics
 /// SearchResultMetadata Image collection. Contains array of image urls for different sizes.
 public struct Image: Codable, Hashable {
     public let sizes: [SizedImage]
-
-    init(sizes: [SizedImage]) {
-        self.sizes = sizes
-    }
 }
 
 public extension Image {

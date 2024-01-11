@@ -6,7 +6,6 @@ public protocol LocationProvider {
     func currentLocation() -> CLLocationCoordinate2D?
 }
 
-
 /// Basic location provider which returns the same coordinate on each request
 open class PointLocationProvider: LocationProvider {
     /// Pinned coordinate for Location Provider

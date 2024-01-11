@@ -55,7 +55,10 @@ final class AddressAutofillIntegrationTests: MockServerTestCase {
             case .success(let resolvedSuggestion):
                 XCTAssertEqual(resolvedSuggestion.name, "701 Steiner Street")
                 XCTAssertEqual(resolvedSuggestion.formattedAddress, expectedAddress.formattedAddress(style: .full))
-                XCTAssertEqual(resolvedSuggestion.coordinate, CLLocationCoordinate2D(latitude: 37.784592, longitude: -122.434671))
+                XCTAssertEqual(
+                    resolvedSuggestion.coordinate,
+                    CLLocationCoordinate2D(latitude: 37.784592, longitude: -122.434671)
+                )
                 XCTAssertEqual(resolvedSuggestion.addressComponents, expectedAddressComponents)
             case .failure:
                 XCTFail("Should return success")
@@ -109,7 +112,10 @@ final class AddressAutofillIntegrationTests: MockServerTestCase {
             case .success(let resolvedSuggestion):
                 XCTAssertEqual(resolvedSuggestion.name, "701 Steiner Street")
                 XCTAssertEqual(resolvedSuggestion.formattedAddress, expectedAddress.formattedAddress(style: .full))
-                XCTAssertEqual(resolvedSuggestion.coordinate, CLLocationCoordinate2D(latitude: 37.784592, longitude: -122.434671))
+                XCTAssertEqual(
+                    resolvedSuggestion.coordinate,
+                    CLLocationCoordinate2D(latitude: 37.784592, longitude: -122.434671)
+                )
                 XCTAssertEqual(resolvedSuggestion.addressComponents, expectedAddressComponents)
             case .failure:
                 XCTFail("Should return success")

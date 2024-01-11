@@ -85,20 +85,23 @@ class UserFavoriteCell: UITableViewCell {
         actionSheetController.addAction(UIAlertAction(title: Strings.UserFavoriteCell.editLocationAction,
                                                       style: .default,
                                                       handler: { _ in
-                                                          self.delegate?.userRequestedFavoriteLocationUpdate(favoriteRecord: self.favorite)
+                                                          self.delegate?
+                                                              .userRequestedFavoriteLocationUpdate(favoriteRecord: self.favorite)
                                                       }))
 
         if let favoriteTemplate = favorite as? FavoriteEntryTemplate {
             actionSheetController.addAction(UIAlertAction(title: Strings.UserFavoriteCell.removeLocationAction,
                                                           style: .destructive,
                                                           handler: { _ in
-                                                              self.delegate?.userRequestedFavoriteTemplateAddressReset(template: favoriteTemplate)
+                                                              self.delegate?
+                                                                  .userRequestedFavoriteTemplateAddressReset(template: favoriteTemplate)
                                                           }))
         } else {
             actionSheetController.addAction(UIAlertAction(title: Strings.UserFavoriteCell.deleteAction,
                                                           style: .destructive,
                                                           handler: { _ in
-                                                              self.delegate?.userRequestedFavoriteDeletion(favoriteRecord: self.favorite)
+                                                              self.delegate?
+                                                                  .userRequestedFavoriteDeletion(favoriteRecord: self.favorite)
                                                           }))
         }
 

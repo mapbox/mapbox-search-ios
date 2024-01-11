@@ -162,21 +162,31 @@ public struct SearchOptions {
     public var defaultDebounce: TimeInterval = 300
 
     init(coreSearchOptions options: CoreSearchOptions) {
-        let proximity = options.proximity.map { CLLocationCoordinate2D(latitude: $0.value.latitude, longitude: $0.value.longitude) }
-        let origin = options.origin.map { CLLocationCoordinate2D(latitude: $0.value.latitude, longitude: $0.value.longitude) }
+        let proximity = options.proximity.map { CLLocationCoordinate2D(
+            latitude: $0.value.latitude,
+            longitude: $0.value.longitude
+        ) }
+        let origin = options.origin.map { CLLocationCoordinate2D(
+            latitude: $0.value.latitude,
+            longitude: $0.value.longitude
+        ) }
         let filterTypes: [SearchQueryType]? = options.types?
             .compactMap({ CoreQueryType(rawValue: $0.intValue) })
             .compactMap({ SearchQueryType.fromCoreValue($0) })
 
         var routeOptions: RouteOptions?
         let coordinates = options.route?.map({ $0.value })
-        if let route = coordinates.map({ Route(coordinates: $0) }), let time = options.timeDeviation.map({ TimeInterval($0.floatValue * 60) }) {
+        if let route = coordinates.map({ Route(coordinates: $0) }),
+           let time = options.timeDeviation.map({ TimeInterval($0.floatValue * 60) }) {
             let sarType = RouteOptions.Deviation.SARType(coreValue: options.sarType)
             routeOptions = RouteOptions(route: route, time: time, sarType: sarType)
         }
 
         let etaType = SearchNavigationOptions.ETAType(coreValue: options.etaType)
-        let profile = options.navProfile.map({ SearchNavigationOptions(profile: SearchNavigationProfile(coreValue: $0), etaType: etaType) })
+        let profile = options.navProfile.map({ SearchNavigationOptions(
+            profile: SearchNavigationProfile(coreValue: $0),
+            etaType: etaType
+        ) })
 
         self.init(countries: options.countries,
                   languages: options.language,
@@ -205,22 +215,23 @@ public struct SearchOptions {
             searchLanguages = languages
         }
 
+        let timeDeviation = routeOptions?.deviation.time.map({ $0 / 60 }).map(NSNumber.init(value:))
         return CoreSearchOptions(proximity: proximity.map(Coordinate2D.init(value:)),
                                  origin: origin.map(Coordinate2D.init(value:)),
                                  navProfile: navigationOptions?.profile.string,
                                  etaType: navigationOptions?.etaType.toCore(),
                                  bbox: boundingBox.map(CoreBoundingBox.init),
                                  countries: countries,
-                                 fuzzyMatch: fuzzyMatch.map(NSNumber.init),
+                                 fuzzyMatch: fuzzyMatch.map(NSNumber.init(value:)),
                                  language: searchLanguages,
-                                 limit: limit.map(NSNumber.init),
+                                 limit: limit.map(NSNumber.init(value:)),
                                  types: filterTypes.map { $0.map { NSNumber(value: $0.coreValue.rawValue) } },
                                  ignoreUR: ignoreIndexableRecords,
-                                 urDistanceThreshold: indexableRecordsDistanceThreshold.map(NSNumber.init),
+                                 urDistanceThreshold: indexableRecordsDistanceThreshold.map(NSNumber.init(value:)),
                                  requestDebounce: NSNumber(value: defaultDebounce),
                                  route: routeOptions?.route.coordinates.map(Coordinate2D.init(value:)),
                                  sarType: routeOptions?.deviation.sarType?.toCore(),
-                                 timeDeviation: routeOptions?.deviation.time.map({ $0 / 60 }).map(NSNumber.init),
+                                 timeDeviation: timeDeviation,
                                  addonAPI: unsafeParameters)
     }
 
@@ -253,9 +264,15 @@ public struct SearchOptions {
                 info("Geocoding API supports as maximum as \(topLimit) limit.")
             }
 
-            validSearchOptions.forceNilArg(\.navigationOptions, message: "Geocoding API doesn't support navigation options")
+            validSearchOptions.forceNilArg(
+                \.navigationOptions,
+                message: "Geocoding API doesn't support navigation options"
+            )
             validSearchOptions.forceNilArg(\.routeOptions, message: "Geocoding API doesn't support route options")
-            validSearchOptions.forceNilArg(\.origin, message: "Geocoding API doesn't support proximity point. Please, use 'proximity' instead.")
+            validSearchOptions.forceNilArg(
+                \.origin,
+                message: "Geocoding API doesn't support proximity point. Please, use 'proximity' instead."
+            )
 
         case .SBS:
             validSearchOptions.forceNilArg(\.fuzzyMatch, message: "SBS API doesn't support fuzzyMatch mode")
@@ -300,7 +317,8 @@ public struct SearchOptions {
                              routeOptions: routeOptions ?? with.routeOptions,
                              filterTypes: filterTypes ?? with.filterTypes,
                              ignoreIndexableRecords: ignoreIndexableRecords,
-                             indexableRecordsDistanceThreshold: indexableRecordsDistanceThreshold ?? with.indexableRecordsDistanceThreshold,
+                             indexableRecordsDistanceThreshold: indexableRecordsDistanceThreshold ??
+                                 with.indexableRecordsDistanceThreshold,
                              unsafeParameters: unsafeParameters ?? with.unsafeParameters)
     }
 }

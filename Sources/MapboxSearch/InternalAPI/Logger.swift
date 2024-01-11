@@ -122,6 +122,8 @@ public class _Logger {
     }
 }
 
+// swiftlint:enable type_name
+
 /// Logger levels
 public enum LoggerLevel: Comparable {
     /// Debug logger level. The lowest one

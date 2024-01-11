@@ -131,9 +131,28 @@ public extension AddressComponents {
                 componentPaths = [\.houseNumber, \.street, \.place]
             }
         case .long:
-            componentPaths = [\.houseNumber, \.street, \.neighborhood, \.locality, \.place, \.district, \.region, \.country]
+            componentPaths = [
+                \.houseNumber,
+                \.street,
+                \.neighborhood,
+                \.locality,
+                \.place,
+                \.district,
+                \.region,
+                \.country
+            ]
         case .full:
-            componentPaths = [\.houseNumber, \.street, \.neighborhood, \.locality, \.place, \.district, \.region, \.country, \.postcode]
+            componentPaths = [
+                \.houseNumber,
+                \.street,
+                \.neighborhood,
+                \.locality,
+                \.place,
+                \.district,
+                \.region,
+                \.country,
+                \.postcode
+            ]
         case .custom(let components):
             componentPaths = components
         }

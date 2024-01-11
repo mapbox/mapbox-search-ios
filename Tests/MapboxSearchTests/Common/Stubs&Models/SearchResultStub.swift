@@ -62,7 +62,6 @@ class SearchResultStub: SearchResult {
     var searchRequest: SearchRequestOptions
 }
 
-
 // MARK: - SearchResultStub
 
 extension SearchResultStub {

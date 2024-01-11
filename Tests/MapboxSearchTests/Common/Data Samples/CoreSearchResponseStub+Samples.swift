@@ -28,7 +28,11 @@ extension CoreSearchResponseStub {
         )
     }
 
-    static func successSample(id: UInt32 = 8253, options: CoreRequestOptions = .sample1, results: [CoreSearchResultProtocol]) -> CoreSearchResponseStub {
+    static func successSample(
+        id: UInt32 = 8253,
+        options: CoreRequestOptions = .sample1,
+        results: [CoreSearchResultProtocol]
+    ) -> CoreSearchResponseStub {
         CoreSearchResponseStub(
             id: id,
             options: .sample1,

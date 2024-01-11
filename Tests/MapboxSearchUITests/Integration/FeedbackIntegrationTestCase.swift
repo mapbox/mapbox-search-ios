@@ -22,7 +22,10 @@ class FeedbackIntegrationTestCase: MockServerTestCase {
 
         let recentSearchTable = app.searchResultTableView
         let recentSearchCell = recentSearchTable.cells["San Francisco"].firstMatch
-        XCTAssertTrue(recentSearchCell.waitForExistence(timeout: BaseTestCase.defaultTimeout), "Con't find San Francisco item")
+        XCTAssertTrue(
+            recentSearchCell.waitForExistence(timeout: BaseTestCase.defaultTimeout),
+            "Con't find San Francisco item"
+        )
 
         recentSearchCell.swipeLeft()
         waitForHittable(app.searchResultTableView.buttons["Report"]).tap()
@@ -54,7 +57,10 @@ class FeedbackIntegrationTestCase: MockServerTestCase {
 
         let recentSearchTable = app.searchResultTableView
         let recentSearchCell = recentSearchTable.cells.firstMatch
-        XCTAssertTrue(recentSearchCell.waitForExistence(timeout: BaseTestCase.defaultTimeout), "Con't find San Francisco item")
+        XCTAssertTrue(
+            recentSearchCell.waitForExistence(timeout: BaseTestCase.defaultTimeout),
+            "Con't find San Francisco item"
+        )
 
         recentSearchCell.swipeLeft()
         waitForHittable(app.searchResultTableView.buttons["Report"]).tap()

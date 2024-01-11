@@ -19,11 +19,9 @@ public protocol RecordsProviderInteractor {
     /// Engine would drop search index for  identifiers
     func delete(identifiers: [String])
 
-
     /// Notify about record alteration.
     /// Engine would update search index for corresponding identifier asap.
     func update(record: IndexableRecord)
-
 
     /// Notify about database drop.
     /// Engine would drop layer related search indexes.

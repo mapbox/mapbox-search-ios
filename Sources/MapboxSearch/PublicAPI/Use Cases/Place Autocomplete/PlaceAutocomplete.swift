@@ -146,7 +146,10 @@ public extension PlaceAutocomplete {
 // MARK: - Reverse geocoding query
 
 private extension PlaceAutocomplete {
-    func fetchSuggestions(using options: CoreReverseGeoOptions, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
+    func fetchSuggestions(
+        using options: CoreReverseGeoOptions,
+        completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
+    ) {
         searchEngine.reverseGeocoding(for: options) { response in
             guard let response = Self.preprocessResponse(response) else {
                 return
@@ -168,11 +171,14 @@ private extension PlaceAutocomplete {
     }
 }
 
-
 // MARK: - Text query handling
 
 private extension PlaceAutocomplete {
-    func fetchSuggestions(for query: String, with options: CoreSearchOptions, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
+    func fetchSuggestions(
+        for query: String,
+        with options: CoreSearchOptions,
+        completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
+    ) {
         searchEngine.search(
             forQuery: query,
             categories: [],

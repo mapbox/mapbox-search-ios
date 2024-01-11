@@ -63,7 +63,10 @@ final class PlaceAutocompleteTests: XCTestCase {
             for: "query",
             proximity: coordinate,
             filterBy: .init(
-                countries: [.init(countryCode: Country.ISO3166_1_alpha2.us.rawValue)!, .init(countryCode: Country.ISO3166_1_alpha2.gb.rawValue)!],
+                countries: [
+                    .init(countryCode: Country.ISO3166_1_alpha2.us.rawValue)!,
+                    .init(countryCode: Country.ISO3166_1_alpha2.gb.rawValue)!
+                ],
                 language: .init(languageCode: Language.ISO639_1.en.rawValue),
                 types: types,
                 navigationProfile: .cycling

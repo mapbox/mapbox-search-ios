@@ -26,7 +26,6 @@ class ActivityProgressView: UIView {
     }
 }
 
-
 #if canImport(SwiftUI) && DEBUG
     import SwiftUI
 

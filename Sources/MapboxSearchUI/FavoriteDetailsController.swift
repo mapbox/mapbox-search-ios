@@ -12,8 +12,18 @@ class FavoriteDetailsController: UIViewController {
 
     let favorite: FavoriteEntry
     let favoritesProvider: FavoritesProvider
-    lazy var rightButtonItem = UIBarButtonItem(title: Strings.FavoriteDetails.doneButton, style: .done, target: self, action: #selector(done))
-    lazy var leftButtonItem = UIBarButtonItem(title: Strings.FavoriteDetails.cancelButton, style: .plain, target: self, action: #selector(cancel))
+    lazy var rightButtonItem = UIBarButtonItem(
+        title: Strings.FavoriteDetails.doneButton,
+        style: .done,
+        target: self,
+        action: #selector(done)
+    )
+    lazy var leftButtonItem = UIBarButtonItem(
+        title: Strings.FavoriteDetails.cancelButton,
+        style: .plain,
+        target: self,
+        action: #selector(cancel)
+    )
 
     var configuration: Configuration {
         didSet {
@@ -113,7 +123,9 @@ class FavoriteDetailsController: UIViewController {
 
         navigationController?.navigationBar.barTintColor = configuration.style.primaryBackgroundColor
         navigationController?.navigationBar.tintColor = configuration.style.primaryAccentColor
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: configuration.style.primaryTextColor]
+        navigationController?.navigationBar.titleTextAttributes = [
+            .foregroundColor: configuration.style.primaryTextColor
+        ]
 
         if isViewLoaded {
             view.backgroundColor = configuration.style.primaryBackgroundColor

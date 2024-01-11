@@ -51,7 +51,11 @@ class Reachability {
     private func notifyReachabilityChanged() {
         DispatchQueue.main.async {
             self.statusChangeHandler?(self.status)
-            let notification = Notification(name: .ReachabilityStatusChanged, object: self, userInfo: [Reachability.userInfoKey: self.status])
+            let notification = Notification(
+                name: .ReachabilityStatusChanged,
+                object: self,
+                userInfo: [Reachability.userInfoKey: self.status]
+            )
             NotificationQueue.default.enqueue(notification, postingStyle: .asap)
         }
     }

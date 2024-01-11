@@ -25,7 +25,11 @@ class DefaultLocationProviderTests: XCTestCase {
     }
 
     func testParametersForDefaultLocationProvider() {
-        let defaultLocationProvider = DefaultLocationProvider(distanceFilter: CLLocationDistanceMax, desiredAccuracy: kCLLocationAccuracyBestForNavigation, activityType: .fitness)
+        let defaultLocationProvider = DefaultLocationProvider(
+            distanceFilter: CLLocationDistanceMax,
+            desiredAccuracy: kCLLocationAccuracyBestForNavigation,
+            activityType: .fitness
+        )
 
         XCTAssertEqual(defaultLocationProvider.locationManager.distanceFilter, CLLocationDistanceMax)
         XCTAssertEqual(defaultLocationProvider.locationManager.desiredAccuracy, kCLLocationAccuracyBestForNavigation)

@@ -38,14 +38,12 @@ protocol CoreSearchResultProtocol {
      */
     var layer: String? { get }
 
-
     var userRecordID: String? { get }
 
     /**
      @name Private parameters.
      */
     var action: CoreSuggestAction? { get }
-
 
     /** @brief Index in response from server (rank?). */
     var serverIndex: NSNumber? { get }
