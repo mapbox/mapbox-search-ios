@@ -35,7 +35,7 @@ The Search SDK is pre-configured for autocomplete, local search biasing, and inc
 ## Requirements
 
 - iOS 12.0 and newer
-- Xcode 14 and newer
+- Xcode 14.1 and newer
 - Swift 5.7.1 and newer
 - Objective-C is not supported
 - macOS/tvOS/watchOS platforms currently are not supported
@@ -104,13 +104,13 @@ MapboxSearchDemoApplication provides a Demo app wih MapboxSearchUI.framework pre
 ##### MapboxSearch
 To integrate latest preview version of `MapboxSearch` into your Xcode project using CocoaPods, specify it in your `Podfile`:  
 ```
-pod 'MapboxSearch', ">= 1.0.0-rc.8", "< 2.0"
+pod 'MapboxSearch', ">= 2.0.0-alpha.1", "< 3.0"
 ```
 
 ##### MapboxSearchUI
 To integrate latest preview version of `MapboxSearchUI` into your Xcode project using CocoaPods, specify it in your `Podfile`:  
 ```
-pod 'MapboxSearchUI', ">= 1.0.0-rc.8", "< 2.0"
+pod 'MapboxSearchUI', ">= 2.0.0-alpha.1", "< 3.0"
 ```
 
 ### Swift Package Manager
