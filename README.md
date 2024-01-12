@@ -60,18 +60,19 @@ The SDK requires Carthage which you can install using Homebrew.
 1. Setup .netrc file for sdk registry access
     1. Create .netrc file in user home directory (`$HOME/.netrc`, e.g. `/Users/victorprivalov/.netrc`)
     2. File content:
-```
-machine api.mapbox.com
-login mapbox
-password sk.ey_your_access_token_wit_Read_permission
-```
+    ```
+    machine api.mapbox.com
+    login mapbox
+    password sk.ey_Your_Access_Token_With_Read_permission
+    ```
 1. Build dependencies:
     `make dependencies`
 1. Mapbox APIs require a Mapbox account and access token. Get an access token from the [Mapbox account page](https://account.mapbox.com/access-tokens/). To run a Demo you can provide a token in different ways:
     1. Create a new file named `mapbox` or `.mapbox` in your home directory with content of your access token. We also support `.mapbox` file in the repository root folder. MapboxSearchDemoApplication will automatically handle this key and insert it in corresponding place.
 
         _Note: Run `pbpaste > ~/.mapbox` in Terminal.app to insert you Pastebord (Command+C buffer) into `.mapbox` in Home directory._
-    1. Open the Workspace, choose `MapboxSearchDemoApplication` project and select "Info" tab for "MapboxSearchDemoApplication" target. Here you must set your accessToken for `MBXAccessToken` key in "Custom iOS Target Properties" section.
+    1. Open the Workspace, choose `MapboxSearchDemoApplication` project and select "Info" tab for "MapboxSearchDemoApplication" target. Here you may set your accessToken for `MBXAccessToken` key in "Custom iOS Target Properties" section.
+    1. Alternatively you could provide your accessToken as a parameter to `SearchEngine.init` and peer initializers
 
 ## Getting Started
 

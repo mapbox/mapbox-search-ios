@@ -14,7 +14,7 @@ final class PlaceAutocompleteTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        searchEngine = CoreSearchEngineStub(location: nil)
+        searchEngine = CoreSearchEngineStub(accessToken: "test", location: nil)
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: [])
         userActivityReporter = CoreUserActivityReporterStub()
         coordinate = CLLocationCoordinate2D(latitude: 40.730610, longitude: -73.935242)

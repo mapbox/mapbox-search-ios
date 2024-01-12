@@ -9,7 +9,7 @@ In this article we would get through initialization phase, run our first request
 #### Instantiate SearchEngine
 After you successfully install the SDK (<doc:Installation>), you are able to run a simple Search example. First of all, you have to initialize
 ``SearchEngine`` instance.
-> Tip: It's recommended to include your access token through the `MBXAccessToken` key in the application `Info.plist` file.
+> Tip: It's possible to pass access token through `MBXAccessToken` key in application `Info.plist` file.
 
 **Option 1**:
 
