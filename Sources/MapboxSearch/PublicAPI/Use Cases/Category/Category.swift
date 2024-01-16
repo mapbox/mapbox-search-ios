@@ -55,7 +55,7 @@ public extension Category {
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
-        userActivityReporter.reportActivity(forComponent: "discover-search-nearby")
+        userActivityReporter.reportActivity(forComponent: "category-search-nearby")
         
         let searchOptions = SearchOptions(
             languages: [options.language.languageCode],
@@ -81,7 +81,7 @@ public extension Category {
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
-        userActivityReporter.reportActivity(forComponent: "discover-search-in-area")
+        userActivityReporter.reportActivity(forComponent: "category-search-in-area")
         
         let searchOptions = SearchOptions(
             languages: [options.language.languageCode],
@@ -106,7 +106,7 @@ public extension Category {
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
-        userActivityReporter.reportActivity(forComponent: "discover-search-along-the-route")
+        userActivityReporter.reportActivity(forComponent: "category-search-along-the-route")
         
         let searchOptions = SearchOptions(
             languages: [options.language.languageCode],
@@ -131,8 +131,8 @@ private extension Category {
         ) { result in
             switch result {
             case .success(let searchResults):
-                let discoverResults = searchResults.map(Category.Result.from(_:))
-                completion(.success(discoverResults))
+                let categoryResults = searchResults.map(Category.Result.from(_:))
+                completion(.success(categoryResults))
                 
             case .failure(let error):
                 completion(.failure(error))

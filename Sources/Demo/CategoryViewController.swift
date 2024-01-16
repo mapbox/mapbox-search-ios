@@ -3,11 +3,11 @@
 import UIKit
 import MapKit
 
-final class DiscoverViewController: UIViewController {
+final class CategoryViewController: UIViewController {
     @IBOutlet private var mapView: MKMapView!
     @IBOutlet private var segmentedControl: UISegmentedControl!
     
-    private let discover = Category()
+    private let category = Category()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,20 +17,20 @@ final class DiscoverViewController: UIViewController {
 }
 
 // MARK: - Actions
-private extension DiscoverViewController {
+private extension CategoryViewController {
     enum Constants {
         static let regionResultsLimit = 50
     }
     
     @IBAction func handleSearchInRegionAction() {
-        discover.search(
+        category.search(
             for: currentSelectedCategory,
             in: currentBoundingBox,
             options: .init(limit: Constants.regionResultsLimit)
         ) { result in
             switch result {
             case .success(let results):
-                self.showDiscoverResults(results)
+                self.showCategoryResults(results)
                 
             case .failure(let error):
                 debugPrint(error)
@@ -40,7 +40,7 @@ private extension DiscoverViewController {
 }
 
 // MARK: - Private
-private extension DiscoverViewController {
+private extension CategoryViewController {
     var currentBoundingBox: BoundingBox {
         let rect = mapView.visibleMapRect
         let neMapPoint = MKMapPoint(x: rect.maxX, y: rect.origin.y)
@@ -73,7 +73,7 @@ private extension DiscoverViewController {
         mapView.setRegion(region, animated: false)
     }
     
-    func showDiscoverResults(_ results: [Category.Result]) {
+    func showCategoryResults(_ results: [Category.Result]) {
         mapView.removeAnnotations(mapView.annotations)
         
         let annotations: [MKPointAnnotation] = results.map {
