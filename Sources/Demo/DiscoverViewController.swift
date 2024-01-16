@@ -52,14 +52,14 @@ private extension DiscoverViewController {
         return .init(swCoordinate, neCoordinate)
     }
     
-    var currentSelectedCategory: Discover.Query {
-        let allCategories: [Discover.Query] = [
-            .Item.parking,
-            .Item.restaurants,
-            .Item.museums
+    var currentSelectedCategory: Discover.Item {
+        let allDemoCategories: [Discover.Item] = [
+            .parking,
+            .restaurant,
+            .museum
         ]
         
-        return allCategories[segmentedControl.selectedSegmentIndex]
+        return allDemoCategories[segmentedControl.selectedSegmentIndex]
     }
     
     func configureDefaultMapRegion() {
