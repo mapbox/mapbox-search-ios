@@ -8,7 +8,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
-- [Core] Remove legacy `MGLMapboxAccessToken`. Support `MBXAccessToken` key in Info.plist exclusively.
+- [Core] Remove legacy `MGLMapboxAccessToken`.
 
 ## 2.0.0-alpha.1
 
