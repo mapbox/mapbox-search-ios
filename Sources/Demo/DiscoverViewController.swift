@@ -7,7 +7,7 @@ final class DiscoverViewController: UIViewController {
     @IBOutlet private var mapView: MKMapView!
     @IBOutlet private var segmentedControl: UISegmentedControl!
     
-    private let discover = Discover()
+    private let discover = Category()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +52,8 @@ private extension DiscoverViewController {
         return .init(swCoordinate, neCoordinate)
     }
     
-    var currentSelectedCategory: Discover.Item {
-        let allDemoCategories: [Discover.Item] = [
+    var currentSelectedCategory: Category.Item {
+        let allDemoCategories: [Category.Item] = [
             .parking,
             .restaurant,
             .museum
@@ -73,7 +73,7 @@ private extension DiscoverViewController {
         mapView.setRegion(region, animated: false)
     }
     
-    func showDiscoverResults(_ results: [Discover.Result]) {
+    func showDiscoverResults(_ results: [Category.Result]) {
         mapView.removeAnnotations(mapView.annotations)
         
         let annotations: [MKPointAnnotation] = results.map {

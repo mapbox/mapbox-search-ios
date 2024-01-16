@@ -2,7 +2,7 @@
 
 import Foundation
 
-public extension Discover {
+public extension Category {
     struct Options {
         /// Maximum number of results to return.
         public let limit: Int
