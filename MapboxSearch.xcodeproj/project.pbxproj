@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043A3D4D2B30F38300DB681B /* CoreAddress+AddressComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A3D4C2B30F38300DB681B /* CoreAddress+AddressComponents.swift */; };
 		04C0848D2B4C82F3002F9C69 /* SdkInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0848C2B4C82F3002F9C69 /* SdkInformation.swift */; };
 		04E5FF962B48828500DADC18 /* SearchAddressCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5FF952B48828500DADC18 /* SearchAddressCountry.swift */; };
 		04E5FF992B48829200DADC18 /* SearchAddressRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5FF982B48829200DADC18 /* SearchAddressRegion.swift */; };
-		043A3D4D2B30F38300DB681B /* CoreAddress+AddressComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A3D4C2B30F38300DB681B /* CoreAddress+AddressComponents.swift */; };
 		140D1BDC286DB479001A51C2 /* SearchResultAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */; };
-		140E47A2298BC90E00677E30 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A1298BC90E00677E30 /* Discover.swift */; };
-		140E47A5298BC94D00677E30 /* Discover+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A4298BC94D00677E30 /* Discover+Options.swift */; };
-		140E47A7298BCBDF00677E30 /* Discover+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A6298BCBDF00677E30 /* Discover+Query.swift */; };
-		140E47AA298BE3A200677E30 /* Discover+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A9298BE3A200677E30 /* Discover+Result.swift */; };
+		140E47A2298BC90E00677E30 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A1298BC90E00677E30 /* Category.swift */; };
+		140E47A5298BC94D00677E30 /* Category+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A4298BC94D00677E30 /* Category+Options.swift */; };
+		140E47A7298BCBDF00677E30 /* Category+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A6298BCBDF00677E30 /* Category+Query.swift */; };
+		140E47AA298BE3A200677E30 /* Category+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A9298BE3A200677E30 /* Category+Result.swift */; };
 		14173C2E28783E1000B20E1C /* Country+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14173C2D28783E1000B20E1C /* Country+Tests.swift */; };
 		14173C302878437D00B20E1C /* Country+ISO3166-1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14173C2F2878437D00B20E1C /* Country+ISO3166-1.swift */; };
 		14173C332878476400B20E1C /* Language+ISO639-1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14173C322878476400B20E1C /* Language+ISO639-1.swift */; };
@@ -32,7 +32,7 @@
 		143695F72899291200861F1A /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143695F5289927FD00861F1A /* UIApplication+Extensions.swift */; };
 		1440BF4D28FD75A9009B3679 /* AddressAutofillMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1440BF4C28FD75A9009B3679 /* AddressAutofillMainViewController.swift */; };
 		1440BF4F290019AD009B3679 /* AddressAutofillResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1440BF4E290019AD009B3679 /* AddressAutofillResultViewController.swift */; };
-		144F32F2298D1FCD0082B2D5 /* Discover+Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F32F1298D1FCD0082B2D5 /* Discover+Address.swift */; };
+		144F32F2298D1FCD0082B2D5 /* Category+Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F32F1298D1FCD0082B2D5 /* Category+Address.swift */; };
 		144F32F5298D21E70082B2D5 /* AddressComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F32F4298D21E70082B2D5 /* AddressComponents.swift */; };
 		1488F78329A7AD5800CF373B /* CoreUserActivityReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1488F78229A7AD5800CF373B /* CoreUserActivityReporter.swift */; };
 		1488F78629A7C23500CF373B /* CoreUserActivityReporterStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1488F78429A7C22F00CF373B /* CoreUserActivityReporterStub.swift */; };
@@ -479,15 +479,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		043A3D4C2B30F38300DB681B /* CoreAddress+AddressComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreAddress+AddressComponents.swift"; sourceTree = "<group>"; };
 		04C0848C2B4C82F3002F9C69 /* SdkInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkInformation.swift; sourceTree = "<group>"; };
 		04E5FF952B48828500DADC18 /* SearchAddressCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressCountry.swift; sourceTree = "<group>"; };
 		04E5FF982B48829200DADC18 /* SearchAddressRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressRegion.swift; sourceTree = "<group>"; };
-		043A3D4C2B30F38300DB681B /* CoreAddress+AddressComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreAddress+AddressComponents.swift"; sourceTree = "<group>"; };
 		140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAccuracy.swift; sourceTree = "<group>"; };
-		140E47A1298BC90E00677E30 /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
-		140E47A4298BC94D00677E30 /* Discover+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discover+Options.swift"; sourceTree = "<group>"; };
-		140E47A6298BCBDF00677E30 /* Discover+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discover+Query.swift"; sourceTree = "<group>"; };
-		140E47A9298BE3A200677E30 /* Discover+Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discover+Result.swift"; sourceTree = "<group>"; };
+		140E47A1298BC90E00677E30 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		140E47A4298BC94D00677E30 /* Category+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+Options.swift"; sourceTree = "<group>"; };
+		140E47A6298BCBDF00677E30 /* Category+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+Query.swift"; sourceTree = "<group>"; };
+		140E47A9298BE3A200677E30 /* Category+Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+Result.swift"; sourceTree = "<group>"; };
 		14173C2D28783E1000B20E1C /* Country+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+Tests.swift"; sourceTree = "<group>"; };
 		14173C2F2878437D00B20E1C /* Country+ISO3166-1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+ISO3166-1.swift"; sourceTree = "<group>"; };
 		14173C322878476400B20E1C /* Language+ISO639-1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Language+ISO639-1.swift"; sourceTree = "<group>"; };
@@ -503,7 +503,7 @@
 		143695F5289927FD00861F1A /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		1440BF4C28FD75A9009B3679 /* AddressAutofillMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAutofillMainViewController.swift; sourceTree = "<group>"; };
 		1440BF4E290019AD009B3679 /* AddressAutofillResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAutofillResultViewController.swift; sourceTree = "<group>"; };
-		144F32F1298D1FCD0082B2D5 /* Discover+Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discover+Address.swift"; sourceTree = "<group>"; };
+		144F32F1298D1FCD0082B2D5 /* Category+Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+Address.swift"; sourceTree = "<group>"; };
 		144F32F4298D21E70082B2D5 /* AddressComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressComponents.swift; sourceTree = "<group>"; };
 		1488F78229A7AD5800CF373B /* CoreUserActivityReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreUserActivityReporter.swift; sourceTree = "<group>"; };
 		1488F78429A7C22F00CF373B /* CoreUserActivityReporterStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreUserActivityReporterStub.swift; sourceTree = "<group>"; };
@@ -905,22 +905,22 @@
 			path = Region;
 			sourceTree = "<group>";
 		};
-		140E47A0298BC8F800677E30 /* Discover API */ = {
+		140E47A0298BC8F800677E30 /* Category */ = {
 			isa = PBXGroup;
 			children = (
 				140E47A3298BC94000677E30 /* Models */,
-				140E47A1298BC90E00677E30 /* Discover.swift */,
+				140E47A1298BC90E00677E30 /* Category.swift */,
 			);
-			path = "Discover API";
+			path = Category;
 			sourceTree = "<group>";
 		};
 		140E47A3298BC94000677E30 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				140E47A4298BC94D00677E30 /* Discover+Options.swift */,
-				140E47A6298BCBDF00677E30 /* Discover+Query.swift */,
-				140E47A9298BE3A200677E30 /* Discover+Result.swift */,
-				144F32F1298D1FCD0082B2D5 /* Discover+Address.swift */,
+				140E47A4298BC94D00677E30 /* Category+Options.swift */,
+				140E47A6298BCBDF00677E30 /* Category+Query.swift */,
+				140E47A9298BE3A200677E30 /* Category+Result.swift */,
+				144F32F1298D1FCD0082B2D5 /* Category+Address.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1129,7 +1129,7 @@
 			isa = PBXGroup;
 			children = (
 				144F32F3298D21D70082B2D5 /* Address Components */,
-				140E47A0298BC8F800677E30 /* Discover API */,
+				140E47A0298BC8F800677E30 /* Category */,
 				142141672953447D00774439 /* Place Autocomplete */,
 				148DE65B28574E560085684D /* Address Autofill */,
 			);
@@ -2351,7 +2351,7 @@
 				14F71865299FD4BD00D5BC2E /* PlaceAutocomplete+PlaceType.swift in Sources */,
 				F9F6378A25DD6A4E00C99904 /* FeedbackManager.swift in Sources */,
 				148DE65D28574E6E0085684D /* AddressAutofill.swift in Sources */,
-				140E47A7298BCBDF00677E30 /* Discover+Query.swift in Sources */,
+				140E47A7298BCBDF00677E30 /* Category+Query.swift in Sources */,
 				FEEDD3092508DFE400DC0A98 /* CodablePersistentService.swift in Sources */,
 				FEEDD3192508DFE400DC0A98 /* IndexableDataProvider.swift in Sources */,
 				04C0848D2B4C82F3002F9C69 /* SdkInformation.swift in Sources */,
@@ -2375,7 +2375,7 @@
 				FEEDD2FA2508DFE400DC0A98 /* CoreSearchEngineProtocol.swift in Sources */,
 				FEEDD3052508DFE400DC0A98 /* BoundingBox.swift in Sources */,
 				FEEDD2FE2508DFE400DC0A98 /* CoreSearchResultProtocol.swift in Sources */,
-				140E47A5298BC94D00677E30 /* Discover+Options.swift in Sources */,
+				140E47A5298BC94D00677E30 /* Category+Options.swift in Sources */,
 				DFBC8A6D2AD42F5F00D394EF /* Any+dumpAsString.swift in Sources */,
 				F914EE642743E4F400D4F173 /* CoreAliases.swift in Sources */,
 				F998AED825D17DFF00230F34 /* SearchResponseInfo.swift in Sources */,
@@ -2393,7 +2393,7 @@
 				F931B35225A32CC400AA1674 /* SearchQuerySuggestion.swift in Sources */,
 				F9F88289258227D200062A82 /* CoreImageInfoProtocol.swift in Sources */,
 				FEEDD2FC2508DFE400DC0A98 /* CoreSearchResponseProtocol.swift in Sources */,
-				144F32F2298D1FCD0082B2D5 /* Discover+Address.swift in Sources */,
+				144F32F2298D1FCD0082B2D5 /* Category+Address.swift in Sources */,
 				FEEDD2FB2508DFE400DC0A98 /* WrapperLocationProvider.swift in Sources */,
 				FE7C73A62566804E0047CA20 /* CoreUserRecordsLayerProtocol.swift in Sources */,
 				04E5FF992B48829200DADC18 /* SearchAddressRegion.swift in Sources */,
@@ -2409,7 +2409,7 @@
 				14FA6590295454F100056E5B /* Image.swift in Sources */,
 				148DE6642857503A0085684D /* AddressAutofill+Options.swift in Sources */,
 				148DE666285750710085684D /* Language.swift in Sources */,
-				140E47AA298BE3A200677E30 /* Discover+Result.swift in Sources */,
+				140E47AA298BE3A200677E30 /* Category+Result.swift in Sources */,
 				FE059C61251A0E27001F7701 /* SearchSuggestType.swift in Sources */,
 				FEEDD3112508DFE400DC0A98 /* AbstractSearchEngine.swift in Sources */,
 				148DE68B285A18900085684D /* AddressAutofill+AddressComponent.swift in Sources */,
@@ -2441,7 +2441,7 @@
 				FEEDD3042508DFE400DC0A98 /* SearchResultType.swift in Sources */,
 				F91FD66C258CCB41008CB8E1 /* CoreResultType+Extensions.swift in Sources */,
 				FEEDD3152508DFE400DC0A98 /* ServerSearchResult.swift in Sources */,
-				140E47A2298BC90E00677E30 /* Discover.swift in Sources */,
+				140E47A2298BC90E00677E30 /* Category.swift in Sources */,
 				14FA65872953644400056E5B /* PlaceAutocomplete+Suggestion.swift in Sources */,
 				FE059C5A251A0AE6001F7701 /* SearchCategorySuggestionImpl.swift in Sources */,
 				FEEDD2F62508DFE400DC0A98 /* CoreSearchResultResponse.swift in Sources */,
