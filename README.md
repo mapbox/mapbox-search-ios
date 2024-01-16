@@ -80,7 +80,10 @@ Once you've installed the prerequisites, no additional steps are needed: Open th
 
 ## Documentation
 
-_The link to iOS documentation will be added soon (instruction on how to build, usage the API, ready-to-use examples)._
+You can find the following documentation pages helpful:
+- [Search SDK for iOS guide](https://docs.mapbox.com/ios/search/guides/)
+- [MapboxSearch reference](https://docs.mapbox.com/ios/search/api/core/2.0.0-alpha.1/)
+- [MapboxSearchUI reference](https://docs.mapbox.com/ios/search/api/ui/2.0.0-alpha.1/)
 
 ## Project structure overview
 
