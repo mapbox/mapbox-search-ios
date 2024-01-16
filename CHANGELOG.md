@@ -6,6 +6,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+<!-- Add changes for active work here -->
+
 - [Core] Updated to Xcode 14.1 minimum version
 - [Core] Updated deployment target to iOS 12
 - [Address Autofill] Suggestions no longer perform a `retrieve` call.
@@ -14,6 +16,23 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Place Autocomplete] Suggestions no longer perform a `retrieve` call.
 - [Place Autocomplete] `Suggestion.coordinate` is now an optional.
 - [Place Autocomplete] `Result.coordinate` is now an optional.
+- [Core] Remove legacy `MGLMapboxAccessToken`.
+- [Core] Remove bitcode support
+- [Core] Updated API usage:
+	- Removed parameter-based Access Token. Be sure to provide your token in Info.plist.
+	- Renamed `CoreSuggestAction.isMultiRetrivable` to `multiRetrievable`.
+	- Renamed `CoreSearchResult.center` to `.centerLocation`.
+	- Renamed `CoreSearchOptions.isIgnoreUR` to `ignoreUR`.
+	- Renamed `TileRegionLoadOptions` initializer parameter `start` to `startLocation`.
+	- Replace some `CLLocation` fields with `Coordinate2D` wrapper containing a value of `CLLocationCoordinate2D`. This changes the call-site from `.coordinate` to `.value`.
+	- Added `SdkInformation.defaultInfo` default value for various Core initializer parameters.
+	- Added `SearchAddressRegion` containing `name`, `regionCode`, and `regionCodeFull` fields.
+	- Added `SearchAddressCountry` containing `name`, `countryCode`, and `regionCodeFull` fields.
+	- Added fields `searchAddressRegion` and `searchAddressCountry` to `Address` alongside existing `country` and `region`.
+	- Remove access token parameter from `SearchTileStore`.
+
+**MapboxCommon**: v23.0.0
+**MapboxCoreSearch**: v2.0.0
 
 ## 1.0.0-rc.8 - 2023-10-09
 

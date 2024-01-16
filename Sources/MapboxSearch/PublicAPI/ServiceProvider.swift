@@ -1,7 +1,6 @@
 import Foundation
 
 let accessTokenPlistKey = "MBXAccessToken"
-let legacyAccessTokenPlistKey = "MGLMapboxAccessToken"
 let baseURLPlistKey = "MapboxAPIBaseURL"
 
 protocol ServiceProviderProtocol {
@@ -54,9 +53,8 @@ public class ServiceProvider: ServiceProviderProtocol {
 extension ServiceProvider: EngineProviderProtocol {
     func getStoredAccessToken() -> String? {
         Bundle.main.object(forInfoDictionaryKey: accessTokenPlistKey) as? String
-        ?? Bundle.main.object(forInfoDictionaryKey: legacyAccessTokenPlistKey) as? String
     }
-    
+
     func createEngine(
         apiType: CoreSearchEngine.ApiType,
         accessToken: String,
@@ -66,7 +64,7 @@ extension ServiceProvider: EngineProviderProtocol {
         // UserDefaults can be used to setup base url in runtime (e.g. UI tests)
         let defaultsBaseURL = UserDefaults.standard.value(forKey: baseURLPlistKey) as? String
         let bundleBaseURL = Bundle.main.object(forInfoDictionaryKey: baseURLPlistKey) as? String
-       
+
         let engineOptions = CoreSearchEngine.Options(
             accessToken: accessToken,
             baseUrl: bundleBaseURL ?? defaultsBaseURL,

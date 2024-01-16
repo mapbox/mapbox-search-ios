@@ -22,7 +22,7 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>MGLMapboxAccessToken</key>
+	<key>MBXAccessToken</key>
 	<string></string>
 	<key>NSAppTransportSecurity</key>
 	<dict>

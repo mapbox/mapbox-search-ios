@@ -59,7 +59,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
          defaultSearchOptions: SearchOptions = SearchOptions(),
          supportSBS: Bool = false
     ) {
-        
+
         guard let accessToken = accessToken ?? serviceProvider.getStoredAccessToken() else {
             fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
         }
