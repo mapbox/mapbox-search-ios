@@ -9,7 +9,7 @@ public extension Discover {
 }
 
 public extension Discover.Query {
-    enum Category {
+    enum Item {
         public static var restaurants: Discover.Query { .init(rawValue: "restaurant") }
 
         public static var bars: Discover.Query { .init(rawValue: "bar") }
