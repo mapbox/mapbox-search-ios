@@ -1,7 +1,7 @@
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/mapbox/mapbox-search-ios/tree/main.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/mapbox/mapbox-search-ios/tree/main)
-[![Swift version](https://img.shields.io/badge/swift-4.2+-orange.svg?style=flat&logo=swift)](https://developer.apple.com/swift)
-[![iOS version](https://img.shields.io/badge/iOS-11.0+-green.svg?style=flat&logo=apple)](https://developer.apple.com/ios/)
-[![Xcode version](https://img.shields.io/badge/Xcode-11.3+-DeepSkyBlue.svg?style=flat&logo=xcode&logoColor=lightGray)](https://developer.apple.com/xcode/)
+[![Swift version](https://img.shields.io/badge/swift-5.7.1+-orange.svg?style=flat&logo=swift)](https://developer.apple.com/swift)
+[![iOS version](https://img.shields.io/badge/iOS-12.0+-green.svg?style=flat&logo=apple)](https://developer.apple.com/ios/)
+[![Xcode version](https://img.shields.io/badge/Xcode-14.1+-DeepSkyBlue.svg?style=flat&logo=xcode&logoColor=lightGray)](https://developer.apple.com/xcode/)
 [![codecov](https://codecov.io/gh/mapbox/mapbox-search-ios/branch/develop/graph/badge.svg?token=js3DSKdda4)](https://codecov.io/gh/mapbox/mapbox-search-ios)
 [![swift-doc](https://img.shields.io/badge/swift--doc-64.94%25-orange?logo=read-the-docs)](https://github.com/SwiftDocOrg/swift-doc)
 # Mapbox Search SDK for iOS
@@ -34,9 +34,9 @@ The Search SDK is pre-configured for autocomplete, local search biasing, and inc
 
 ## Requirements
 
-- iOS 11.0 and newer
-- Xcode 11.3 and newer
-- Swift 4.2 and newer
+- iOS 12.0 and newer
+- Xcode 14.1 and newer
+- Swift 5.7.1 and newer
 - Objective-C is not supported
 - macOS/tvOS/watchOS platforms currently are not supported
 
@@ -71,8 +71,7 @@ password sk.ey_your_access_token_wit_Read_permission
     1. Create a new file named `mapbox` or `.mapbox` in your home directory with content of your access token. We also support `.mapbox` file in the repository root folder. MapboxSearchDemoApplication will automatically handle this key and insert it in corresponding place.
 
         _Note: Run `pbpaste > ~/.mapbox` in Terminal.app to insert you Pastebord (Command+C buffer) into `.mapbox` in Home directory._
-    1. Open the Workspace, choose `MapboxSearchDemoApplication` project and select "Info" tab for "MapboxSearchDemoApplication" target. Here you can set your accessToken for `MGLMapboxAccessToken` key in "Custom iOS Target Properties" section.
-    1. Provide your accessToken directly in argument named `accessToken` in `SearchDrawer.make(:)` method
+    1. Open the Workspace, choose `MapboxSearchDemoApplication` project and select "Info" tab for "MapboxSearchDemoApplication" target. Here you should set your accessToken for `MGLMapboxAccessToken` key in "Custom iOS Target Properties" section.
 
 ## Getting Started
 
@@ -105,13 +104,13 @@ MapboxSearchDemoApplication provides a Demo app wih MapboxSearchUI.framework pre
 ##### MapboxSearch
 To integrate latest preview version of `MapboxSearch` into your Xcode project using CocoaPods, specify it in your `Podfile`:  
 ```
-pod 'MapboxSearch', ">= 1.0.0-beta", "< 2.0"
+pod 'MapboxSearch', ">= 2.0.0-alpha.1", "< 3.0"
 ```
 
 ##### MapboxSearchUI
 To integrate latest preview version of `MapboxSearchUI` into your Xcode project using CocoaPods, specify it in your `Podfile`:  
 ```
-pod 'MapboxSearchUI', ">= 1.0.0-beta", "< 2.0"
+pod 'MapboxSearchUI', ">= 2.0.0-alpha.1", "< 3.0"
 ```
 
 ### Swift Package Manager

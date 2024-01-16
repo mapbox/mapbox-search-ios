@@ -162,14 +162,14 @@ public struct SearchOptions {
     public var defaultDebounce: TimeInterval = 300
     
     init(coreSearchOptions options: CoreSearchOptions) {
-        let proximity = options.proximity.map { CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude) }
-        let origin = options.origin.map { CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude) }
+        let proximity = options.proximity.map { CLLocationCoordinate2D(latitude: $0.value.latitude, longitude: $0.value.longitude) }
+        let origin = options.origin.map { CLLocationCoordinate2D(latitude: $0.value.latitude, longitude: $0.value.longitude) }
         let filterTypes: [SearchQueryType]? = options.types?
             .compactMap({ CoreQueryType(rawValue: $0.intValue) })
             .compactMap({ SearchQueryType.fromCoreValue($0) })
         
         var routeOptions: RouteOptions?
-        let coordinates = options.route?.map({ $0.coordinate })
+        let coordinates = options.route?.map({ $0.value })
         if let route = coordinates.map({ Route(coordinates: $0) }), let time = options.timeDeviation.map({ TimeInterval($0.floatValue * 60) }) {
             let sarType = RouteOptions.Deviation.SARType(coreValue: options.sarType)
             routeOptions = RouteOptions(route: route, time: time, sarType: sarType)
@@ -188,7 +188,7 @@ public struct SearchOptions {
                   navigationOptions: profile,
                   routeOptions: routeOptions,
                   filterTypes: filterTypes,
-                  ignoreIndexableRecords: options.isIgnoreUR,
+                  ignoreIndexableRecords: options.ignoreUR,
                   indexableRecordsDistanceThreshold: options.urDistanceThreshold?.doubleValue,
                   unsafeParameters: options.addonAPI)
     }
@@ -204,9 +204,9 @@ public struct SearchOptions {
         } else {
             searchLanguages = languages
         }
-        
-        return CoreSearchOptions(proximity: proximity.flatMap({ CLLocation(latitude: $0.latitude, longitude: $0.longitude) }),
-                                 origin: origin.flatMap({ CLLocation(latitude: $0.latitude, longitude: $0.longitude) }),
+
+        return CoreSearchOptions(proximity: proximity.map(Coordinate2D.init(value:)),
+                                 origin: origin.map(Coordinate2D.init(value:)),
                                  navProfile: navigationOptions?.profile.string,
                                  etaType: navigationOptions?.etaType.toCore(),
                                  bbox: boundingBox.map(CoreBoundingBox.init),
@@ -218,7 +218,7 @@ public struct SearchOptions {
                                  ignoreUR: ignoreIndexableRecords,
                                  urDistanceThreshold: indexableRecordsDistanceThreshold.map(NSNumber.init),
                                  requestDebounce: NSNumber(value: defaultDebounce),
-                                 route: routeOptions?.route.coordinates.map({ CLLocation(latitude: $0.latitude, longitude: $0.longitude) }),
+                                 route: routeOptions?.route.coordinates.map(Coordinate2D.init(value:)),
                                  sarType: routeOptions?.deviation.sarType?.toCore(),
                                  timeDeviation: routeOptions?.deviation.time.map({ $0 / 60 }).map(NSNumber.init),
                                  addonAPI: unsafeParameters)
@@ -272,6 +272,9 @@ public struct SearchOptions {
             if validSearchOptions.filterTypes?.count != filterTypes?.count {
                 info("Autofill API doesn't support following filter types: \(unsupportedFilterTypes)")
             }
+            
+        case .searchBox:
+            _Logger.searchSDK.warning("SearchBox API is not supported yet.")
             
         @unknown default:
             _Logger.searchSDK.warning("Unexpected engine API Type: \(apiType)")

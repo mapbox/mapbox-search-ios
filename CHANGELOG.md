@@ -4,6 +4,69 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
+## Unreleased
+
+<!-- Add changes for active work here -->
+
+## 2.0.0-alpha.1
+
+### Breaking changes
+
+- [Address Autofill] Suggestions no longer perform a `retrieve` call.
+- [Address Autofill] `AddressAutofill.Suggestion` field `coordinate: CLLocationCoordinate2D?` is now an optional.
+- [Address Autofill] `AddressAutofill.Suggestion.init` now requires an `AddressAutofill.Suggestion.Underlying` enum parameter.
+- [Address Autofill] Added new AddressAutofill.Suggestion.Underlying enum parameter with cases for suggestion and result inputs.
+- [Place Autocomplete] Suggestions no longer perform a `retrieve` call.
+- [Place Autocomplete] `PlaceAutocomplete.Suggestion` field `coordinate: CLLocationCoordinate2D?` is now an optional.
+- [Place Autocomplete] `Result.coordinate` is now an optional.
+- [Core] Updated to Xcode 14.1 minimum version
+- [Core] Updated deployment target to iOS 12
+- [Core] Remove bitcode support
+- [Core] Updated API usage:
+	- Removed parameter-based Access Token. Be sure to provide your token in Info.plist.
+	- Renamed `CoreSuggestAction.isMultiRetrivable` to `multiRetrievable`.
+	- Renamed `CoreSearchResult.center` to `.centerLocation`.
+	- Renamed `CoreSearchOptions.isIgnoreUR` to `ignoreUR`.
+	- Renamed `TileRegionLoadOptions` initializer parameter `start` to `startLocation`.
+	- Replace some `CLLocation` fields with `Coordinate2D` wrapper containing a value of `CLLocationCoordinate2D`. This changes the call-site from `.coordinate` to `.value`.
+	- Added `SdkInformation.defaultInfo` default value for various Core initializer parameters.
+	- Added `SearchAddressRegion` containing `name`, `regionCode`, and `regionCodeFull` fields.
+	- Added `SearchAddressCountry` containing `name`, `countryCode`, and `regionCodeFull` fields.
+	- Added fields `searchAddressRegion` and `searchAddressCountry` to `Address` alongside existing `country` and `region`.
+	- Remove access token parameter from `SearchTileStore`.
+
+**MapboxCommon**: v24.0.0
+**MapboxCoreSearch**: v2.0.0
+
+## 1.0.0-rc.8 - 2023-10-09
+
+### Fixed
+- [Core]: removed unnecessary log statement that didn't respect the `LoggerLevel` setting.
+
+## 1.0.0-rc.7 - 2023-07-13
+
+### Added
+- [PlaceAutocomplete]: added `formattedAddress` function to perform default address formatting.
+- [PlaceAutocomplete]: added `countryISO1` and `countryISO2` properties in the resul's address.
+
+### Fixed
+- [Core]: Fixed street name capitalization for names with numbers.
+
+### Breaking changes
+- [PlaceAutocomplete]: replaced `Address` type of the `Result` to the `AddressComponents`.
+
+## 1.0.0-rc.6 - 2023-06-29
+
+### Fixed
+- [Core]: removed assertion for unsupported search result types.
+
+## 1.0.0-rc.5 - 2023-06-26
+
+### Fixed
+- [Place Autocomplete]: request all possible `PlaceType` values in case if types were not specified in a search query options.
+- [Place Autocomplete]: fixed an issue when reverevse geocoding suggestion returns error on `select` request.
+- [Address Autofill]: fixed reverse geocoding query, removed unsupported types from query.
+
 ## 1.0.0-rc.4 - 2023-05-19
 
 ### Added

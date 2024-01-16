@@ -39,7 +39,6 @@ private extension SearchResponse {
                 suggestion = ExternalRecordPlaceholder(coreResult: coreResult, response: coreResponse)
 
             case _ where coreResult.resultTypes.contains(.unknown):
-                assertionFailure("Unsupported configuration")
                 suggestion = nil
 
             default:
@@ -53,7 +52,7 @@ private extension SearchResponse {
                     suggestion = SearchResultSuggestionImpl(coreResult: coreResult, response: coreResponse)
                 }
             }
-            assert(suggestion != nil, "Nil searchResult means missing business logic. Please, review current implementation")
+
             return suggestion
         }
         

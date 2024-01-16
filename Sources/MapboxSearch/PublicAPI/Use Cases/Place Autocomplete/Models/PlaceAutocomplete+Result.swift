@@ -14,7 +14,7 @@ public extension PlaceAutocomplete {
         public let type: SearchResultType
 
         /// result geographic point.
-        public let coordinate: CLLocationCoordinate2D
+        public let coordinate: CLLocationCoordinate2D?
         
         /// Icon name according to [Mapbox Maki icon set](https://github.com/mapbox/maki/)
         public let iconName: String?
@@ -31,8 +31,8 @@ public extension PlaceAutocomplete {
         /// Poi categories. Always empty for non-POI suggestions.
         public let categories: [String]
         
-        /// Textual representation of the address.
-        public let address: Address?
+        /// Type representing address components.
+        public let address: AddressComponents?
         
         /// Business phone number
         public let phone: String?

@@ -10,7 +10,7 @@ final class AddressAutofillTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        searchEngine = CoreSearchEngineStub(accessToken: "test", location: nil)
+        searchEngine = CoreSearchEngineStub(location: nil)
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: [])
         
         addressAutofill = AddressAutofill(
@@ -30,10 +30,8 @@ final class AddressAutofillTests: XCTestCase {
     
     func testThatCorrectAcceptedTypesAreUsedForSuggestionsByQuery() {
         addressAutofill.suggestions(for: .init(value: "query")!) { _ in }
-        
-        let acceptedTypes: [SearchQueryType] = [.country, .region, .postcode, .district, .place, .locality, .neighborhood, .address, .street, .poi]
-        
-        XCTAssertEqual(searchEngine.searchOptions?.types, acceptedTypes.map { NSNumber(value: $0.coreValue.rawValue) })
+
+        XCTAssertNil(searchEngine.searchOptions!.types)
     }
     
     func testThatDefaultOptionsArePassedForSuggestionsByQuery() {
@@ -63,9 +61,7 @@ final class AddressAutofillTests: XCTestCase {
     func testThatCorrectAcceptedTypesAreUsedForSuggestionsByCoordinate() {
         addressAutofill.suggestions(for: kCLLocationCoordinate2DInvalid) { _ in }
         
-        let acceptedTypes: [SearchQueryType] = [.country, .region, .postcode, .district, .place, .locality, .neighborhood, .address, .street, .poi]
-        
-        XCTAssertEqual(searchEngine.reverseGeocodingOptions?.types, acceptedTypes.map { NSNumber(value: $0.coreValue.rawValue) })
+        XCTAssertNil(searchEngine.reverseGeocodingOptions!.types)
     }
     
     func testThatDefaultOptionsArePassedForSuggestionsByCoordinate() {

@@ -95,6 +95,11 @@ public enum SearchQueryType {
             return .street
         case .category:
             return category
+        case .brand:
+            /*
+             Brand type query is not supported.
+            */
+            return .poi
         @unknown default:
             return nil
         }

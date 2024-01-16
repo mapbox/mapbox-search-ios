@@ -26,10 +26,8 @@ class OfflineIntegrationTests: MockServerTestCase {
         }
         wait(for: [enableOfflineExpectation], timeout: 10)
         
-        // Integration offline tests requires tileStore with valid access token.
-        // TestTileStore builds TileStore with stored access or nil if none found
         // TestTileStore builds tileStores with unique path allowing runs tests in parallel
-        let tileStore = try XCTUnwrap(TestTileStore.build())
+        let tileStore = TestTileStore.build()
         let setTileStoreExpectation = expectation(description: "TileStore setup completion")
         searchEngine.offlineManager.setTileStore(tileStore) {
             setTileStoreExpectation.fulfill()
@@ -85,7 +83,6 @@ class OfflineIntegrationTests: MockServerTestCase {
         wait(for: [errorExpectation], timeout: 10)
         
         XCTAssertTrue(searchEngine.suggestions.isEmpty)
-        
     }
     
     func testCancelDownload() {

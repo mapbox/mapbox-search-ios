@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/mattgallagher/CwlCatchException.git",
         "state": {
           "branch": null,
-          "revision": "35f9e770f54ce62dd8526470f14c6e137cef3eea",
-          "version": "2.1.1"
+          "revision": "3b123999de19bf04905bc1dfdb76f817b0f2cc00",
+          "version": "2.1.2"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/mattgallagher/CwlPreconditionTesting.git",
         "state": {
           "branch": null,
-          "revision": "c21f7bab5ca8eee0a9998bbd17ca1d0eb45d4688",
-          "version": "2.1.0"
+          "revision": "dc9af4781f2afdd1e68e90f80b8603be73ea7abc",
+          "version": "2.2.0"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/mapbox/mapbox-common-ios.git",
         "state": {
           "branch": null,
-          "revision": "012a2082e005e7fb375ca2743f6f921109f37d32",
-          "version": "23.3.2"
+          "revision": "66c604ce480a5d2e98dbe017b49886652d4d89a2",
+          "version": "24.0.0"
         }
       }
     ]

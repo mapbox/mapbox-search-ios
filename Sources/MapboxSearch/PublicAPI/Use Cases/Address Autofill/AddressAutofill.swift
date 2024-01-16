@@ -19,26 +19,16 @@ public final class AddressAutofill {
     
     /// Basic internal initializer
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
-    public convenience init(
-        accessToken: String? = nil,
-        locationProvider: LocationProvider? = DefaultLocationProvider()
-    ) {
-        guard let accessToken = accessToken ?? ServiceProvider.shared.getStoredAccessToken() else {
-            fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
-        }
-        
+    public convenience init(locationProvider: LocationProvider? = DefaultLocationProvider()) {
         let searchEngine = ServiceProvider.shared.createEngine(
             apiType: Self.apiType,
-            accessToken: accessToken,
             locationProvider: WrapperLocationProvider(wrapping: locationProvider)
         )
-        
+
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(
             for: CoreUserActivityReporterOptions(
-                accessToken: accessToken,
-                userAgent: defaultUserAgent,
+                sdkInformation: SdkInformation.defaultInfo,
                 eventsUrl: nil
             )
         )
@@ -65,7 +55,6 @@ public extension AddressAutofill {
             countries: options?.countries.map { $0.countryCode },
             languages: options.map { [$0.language.languageCode] },
             limit: Constants.defaultSuggestionsLimit,
-            filterTypes: acceptedTypes,
             ignoreIndexableRecords: true
         ).toCore(apiType: Self.apiType)
         
@@ -81,7 +70,6 @@ public extension AddressAutofill {
         
         let searchOptions = ReverseGeocodingOptions(
             point: coordinate,
-            types: acceptedTypes,
             countries: options?.countries.map { $0.countryCode },
             languages: options.map { [$0.language.languageCode] }
         ).toCore()
@@ -107,13 +95,26 @@ public extension AddressAutofill {
     ) {
         userActivityReporter.reportActivity(forComponent: "address-autofill-suggestion-select")
 
-        let result = AddressAutofill.Result(
-            name: suggestion.name,
-            formattedAddress: suggestion.formattedAddress,
-            coordinate: suggestion.coordinate,
-            addressComponents: suggestion.addressComponents
-        )
-        completion(.success(result))
+        switch suggestion.underlying {
+        case let .suggestion(coreSearch, coreOptions):
+            searchEngine.nextSearch(for: coreSearch, with: coreOptions) { [weak self] coreResponse in
+                guard let self = self else { return }
+
+                self.manage(response: coreResponse, completion: completion)
+            }
+        case .result:
+            guard let coordinate = suggestion.coordinate else {
+                completion(.failure(SearchError.responseProcessingFailed))
+                return
+            }
+            let result = AddressAutofill.Result(
+                 name: suggestion.name,
+                 formattedAddress: suggestion.formattedAddress,
+                 coordinate: coordinate,
+                 addressComponents: suggestion.addressComponents
+             )
+            completion(.success(result))
+        }
     }
 }
 
@@ -149,12 +150,8 @@ private extension AddressAutofill {
     }
 }
 
-// MARK: - Text query
+// MARK: - Suggestion Text query
 private extension AddressAutofill {
-    var acceptedTypes: [SearchQueryType] {
-        [.country, .region, .postcode, .district, .place, .locality, .neighborhood, .address, .street, .poi]
-    }
-
     func fetchSuggestions(for query: String, with options: CoreSearchOptions, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
         searchEngine.search(
             forQuery: query,
@@ -203,56 +200,59 @@ private extension AddressAutofill {
         with options: CoreRequestOptions,
         completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
     ) {
-        guard !suggestions.isEmpty else {
-            return completion(.success([]))
-        }
-        
-        let dispatchGroup = DispatchGroup()
-        
-        var resolvedResultsUnsafe: [SearchResult?] = Array(repeating: nil, count: suggestions.count)
-        let lock = NSLock()
+        let resolvedSuggestions = suggestions.compactMap { result -> Suggestion? in
+            guard let name = result.names.first,
+                  let address = result.addresses?.first,
+                  let resultAddress = try? address.toAutofillComponents() else {
+                return nil
+            }
 
-        suggestions.enumerated().forEach { iterator in
-            dispatchGroup.enter()
-            
-            searchEngine.nextSearch(for: iterator.element, with: options) { response in
-                defer { dispatchGroup.leave() }
-                
-                guard let coreResponse = response else {
-                    assertionFailure("Response should never be nil")
-                    return
-                }
-                
-                guard let response = Self.preprocessResponse(coreResponse) else {
-                    return
-                }
-                
-                switch response.process() {
-                case .success(let processedResponse):
-                    guard let result = processedResponse.results.first else {
-                        return
-                    }
-                
-                    lock.sync {
-                        resolvedResultsUnsafe[iterator.offset] = result
-                    }
-                    
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
+            let fullAddress = result.fullAddress ?? ""
+            let underlying: Suggestion.Underlying = .suggestion(result, options)
+
+            return Suggestion(name: name,
+                              formattedAddress: fullAddress,
+                              coordinate: result.center?.value,
+                              addressComponents: resultAddress,
+                              underlying: underlying)
         }
-        
-        dispatchGroup.notify(queue: .main) {
-            let resolvedSuggestions: [Suggestion] = resolvedResultsUnsafe.compactMap {
-                do {
-                    return try $0.map(Suggestion.from(_:))
-                } catch {
-                    return nil
-                }
+
+        completion(.success(resolvedSuggestions))
+    }
+}
+
+// MARK: - Suggestion Retrieval Query
+private extension AddressAutofill {
+    /// Manage responses from retrieve invocations.
+    /// - Parameters:
+    ///   - coreResponse: Response from retrieve endpoint for a given suggestion.
+    ///   - completion: Completion to execute when done processing response.
+    func manage(
+        response coreResponse: CoreSearchResponseProtocol?,
+        completion: @escaping (Swift.Result<AddressAutofill.Result, Error>) -> Void
+    ) {
+        guard let response = Self.preprocessResponse(coreResponse) else {
+            completion(.failure(SearchError.responseProcessingFailed))
+            return
+        }
+
+        switch response.process() {
+        case .success(let success):
+            guard let result = success.results.first,
+                  let formattedAddress = result.address?.formattedAddress(style: .full),
+                  let addressComponents = try? result.address?.toAutofillComponents() else {
+                completion(.failure(SearchError.responseProcessingFailed))
+                return
             }
-            
-            completion(.success(resolvedSuggestions))
+
+            let autofillResult = AddressAutofill.Result(name: result.name,
+                                                        formattedAddress: formattedAddress,
+                                                        coordinate: result.coordinate,
+                                                        addressComponents: addressComponents)
+
+            completion(.success(autofillResult))
+        case .failure(let failure):
+            completion(.failure(failure))
         }
     }
 }

@@ -4,15 +4,15 @@
 import PackageDescription
 import Foundation
 
-let (coreSearchVersion, coreSearchVersionHash) = ("0.68.0", "da06b5ef808eb94a1c4f16f3e9be0172cf0fd4c167575ab89553deeaffac8563")
+let (coreSearchVersion, coreSearchVersionHash) = ("2.0.0-alpha.4", "09077bc9eee2b163964c470dfab1f2ff23b2ab9cf83813aba74b3f7b656d9579")
 
-let commonMinVersion = Version("23.3.1")
-let commonMaxVersion = Version("24.0.0")
+let commonMinVersion = Version("24.0.0")
+let commonMaxVersion = Version("25.0.0")
 
 let package = Package(
     name: "MapboxSearch",
     defaultLocalization: "en",
-    platforms: [.iOS(.v11), .macOS(.v10_15)],
+    platforms: [.iOS(.v12), .macOS(.v10_15)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(

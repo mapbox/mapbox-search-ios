@@ -26,8 +26,8 @@ pushd "${PROJECT_ROOT}" > /dev/null
 SIMULATOR_ARCHIVE_NAME="${RESULT_PRODUCTS_DIR}/Search-iphonesimulator.xcarchive"
 DEVICE_ARCHIVE_NAME="${RESULT_PRODUCTS_DIR}/Search-iphoneos.xcarchive"
 
-xcodebuild archive -scheme "MapboxSearchUI" -destination "generic/platform=iOS Simulator" SKIP_INSTALL=NO ${MARKETING_VERSION:+MARKETING_VERSION=${MARKETING_VERSION}} -archivePath "${SIMULATOR_ARCHIVE_NAME}"
-xcodebuild archive -scheme "MapboxSearchUI" -destination "generic/platform=iOS" SKIP_INSTALL=NO ${MARKETING_VERSION:+MARKETING_VERSION=${MARKETING_VERSION}}  -archivePath "${DEVICE_ARCHIVE_NAME}"
+xcodebuild archive -scheme "MapboxSearchUI" -destination "generic/platform=iOS Simulator" SKIP_INSTALL=NO ${MARKETING_VERSION:+MARKETING_VERSION=${MARKETING_VERSION}} -archivePath "${SIMULATOR_ARCHIVE_NAME}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+xcodebuild archive -scheme "MapboxSearchUI" -destination "generic/platform=iOS" SKIP_INSTALL=NO ${MARKETING_VERSION:+MARKETING_VERSION=${MARKETING_VERSION}}  -archivePath "${DEVICE_ARCHIVE_NAME}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 
 for frameworkName in "MapboxSearch" "MapboxSearchUI"
 do
@@ -57,7 +57,6 @@ do
     xcodebuild -create-xcframework -output "${RESULT_PRODUCTS_DIR}/${frameworkName}.xcframework" \
       -framework "${DEVICE_ARCHIVE_NAME}/Products/Library/Frameworks/${frameworkName}.framework" \
           -debug-symbols "${DEVICE_ARCHIVE_NAME}/dSYMs/${frameworkName}.framework.dSYM" \
-          -debug-symbols "${DEVICE_ARCHIVE_NAME}/BCSymbolMaps/${DSYM_UUID}.bcsymbolmap" \
       -framework "${SIMULATOR_ARCHIVE_NAME}/Products/Library/Frameworks/${frameworkName}.framework" \
           -debug-symbols "${SIMULATOR_ARCHIVE_NAME}/dSYMs/${frameworkName}.framework.dSYM"
 

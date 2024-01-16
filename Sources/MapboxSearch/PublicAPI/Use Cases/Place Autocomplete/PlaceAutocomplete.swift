@@ -20,26 +20,16 @@ public final class PlaceAutocomplete {
 
     /// Basic internal initializer
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
-    public convenience init(
-        accessToken: String? = nil,
-        locationProvider: LocationProvider? = DefaultLocationProvider()
-    ) {
-        guard let accessToken = accessToken ?? ServiceProvider.shared.getStoredAccessToken() else {
-            fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
-        }
-        
+    public convenience init(locationProvider: LocationProvider? = DefaultLocationProvider()) {
         let searchEngine = ServiceProvider.shared.createEngine(
             apiType: Self.apiType,
-            accessToken: accessToken,
             locationProvider: WrapperLocationProvider(wrapping: locationProvider)
         )
         
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(
             for: CoreUserActivityReporterOptions(
-                accessToken: accessToken,
-                userAgent: defaultUserAgent,
+                sdkInformation: SdkInformation.defaultInfo,
                 eventsUrl: nil
             )
         )
@@ -75,6 +65,13 @@ public extension PlaceAutocomplete {
         if let navigationProfiler = options.navigationProfile {
             navigationOptions = .init(profile: navigationProfiler, etaType: .navigation)
         }
+        
+        // We should not leave core types list empty or null in order to avoid unsupported types being requested
+        var filterTypes = options.types
+        if filterTypes.isEmpty {
+            filterTypes = PlaceType.allTypes
+        }
+        
         let searchOptions = SearchOptions(
             countries: options.countries.map { $0.countryCode },
             languages: [options.language.languageCode],
@@ -83,7 +80,7 @@ public extension PlaceAutocomplete {
             boundingBox: region,
             origin: proximity,
             navigationOptions: navigationOptions,
-            filterTypes: options.types.isEmpty ? nil : options.types.map { $0.coreType },
+            filterTypes: filterTypes.map { $0.coreType },
             ignoreIndexableRecords: true
         ).toCore(apiType: Self.apiType)
         
@@ -102,9 +99,15 @@ public extension PlaceAutocomplete {
     ) {
         userActivityReporter.reportActivity(forComponent: "place-autocomplete-reverse-geocoding")
         
+        // We should not leave core types list empty or null in order to avoid unsupported types being requested
+        var filterTypes = options.types
+        if filterTypes.isEmpty {
+            filterTypes = PlaceType.allTypes
+        }
+        
         let searchOptions = ReverseGeocodingOptions(
             point: query,
-            types: options.types.map { $0.coreType },
+            types: filterTypes.map { $0.coreType },
             countries: options.countries.map { $0.countryCode },
             languages: [options.language.languageCode]
         ).toCore()
@@ -144,19 +147,22 @@ public extension PlaceAutocomplete {
 // MARK: - Reverse geocoding query
 private extension PlaceAutocomplete {
     func fetchSuggestions(using options: CoreReverseGeoOptions, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
-        searchEngine.reverseGeocoding(for: options) { [weak self] response in
+        searchEngine.reverseGeocoding(for: options) { response in
             guard let response = Self.preprocessResponse(response) else {
                 return
             }
             
-            switch response.coreResponse.result {
-            case .success(let results):
-                self?.resolve(suggestions: results, with: response.coreResponse.request, completion: completion)
+            switch response.process() {
+            case .success(let processedResponse):
+                do {
+                    let suggestions = try processedResponse.results.map { try Suggestion.from($0) }
+                    completion(.success(suggestions))
+                } catch {
+                    completion(.failure(error))
+                }
 
-            case .failure(let responseError):
-                completion(
-                    .failure(responseError)
-                )
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }
@@ -275,52 +281,28 @@ private extension PlaceAutocomplete {
         let filteredSuggestions = suggestions.filter {
             !$0.resultTypes.contains(.category) && !$0.resultTypes.contains(.query)
         }
-        guard !filteredSuggestions.isEmpty else {
-            return completion(.success([]))
-        }
-        
-        let dispatchGroup = DispatchGroup()
-        var resolvingError: Error?
-        
-        var resolvedSuggestions: [Suggestion?] = Array(repeating: nil, count: filteredSuggestions.count)
-        let lock = NSLock()
 
-        filteredSuggestions.enumerated().forEach { iterator in
-            dispatchGroup.enter()
+        let resolvedSuggestions = filteredSuggestions.compactMap { result -> Suggestion? in
+            let name = result.names.first ?? ""
+            let distance = result.distance.flatMap { CLLocationDistance(integerLiteral: $0.int64Value) }
+            let coreResultTypes = result.types.compactMap { CoreResultType(rawValue: $0.intValue) }
+            let placeTypes = SearchResultType(coreResultTypes: coreResultTypes)
+            let categories = result.categories ?? []
+            let routablePoints = result.routablePoints?.compactMap { RoutablePoint(routablePoint: $0) } ?? []
+            let underlying: Suggestion.Underlying = .suggestion(result, options)
 
-            if iterator.element.center != nil {
-                do {
-                    let resolvedSuggestion = try Suggestion.from(searchSuggestion: iterator.element, options: options)
-                    lock.sync {
-                        resolvedSuggestions[iterator.offset] = resolvedSuggestion
-                    }
-                } catch {
-                    resolvingError = error
-                }
-                dispatchGroup.leave()
-            } else {
-                retrieve(suggestion: iterator.element, with: options) { result in
-                    defer { dispatchGroup.leave() }
+            return Suggestion(name: name,
+                              description: result.addressDescription,
+                              coordinate: result.center?.value,
+                              iconName: result.icon,
+                              distance: distance,
+                              estimatedTime: result.estimatedTime,
+                              placeType: placeTypes ?? .POI,
+                              categories: categories,
+                              routablePoints: routablePoints,
+                              underlying: underlying)
+        }
 
-                    switch result {
-                    case .success(let suggestion):
-                        lock.sync {
-                            resolvedSuggestions[iterator.offset] = suggestion
-                        }
-                    case .failure(let error):
-                        resolvingError = error
-                    }
-                }
-            }
-        }
-        
-        dispatchGroup.notify(queue: .main) {
-            let results = resolvedSuggestions.compactMap({ $0 })
-            if results.isEmpty {
-                completion(.failure(resolvingError ?? SearchError.responseProcessingFailed))
-            } else {
-                completion(.success(results))
-            }
-        }
+        completion(.success(resolvedSuggestions))
     }
 }

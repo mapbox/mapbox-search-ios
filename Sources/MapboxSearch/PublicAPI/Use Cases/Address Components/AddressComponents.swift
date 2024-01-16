@@ -92,3 +92,70 @@ public extension AddressComponents {
         return address
     }
 }
+
+// MARK: - Formatted Address
+public extension AddressComponents {
+    /// Address format style manage address string representation
+    enum FormatStyle {
+        /// House number and street name
+        case short
+        
+        /// House number, street name and place name (city). For region-based contries (like USA), the State name will be appended
+        case medium
+        
+        /// All address components (if available) without postcode
+        case long
+        
+        /// All available address components
+        case full
+        
+        /// Provide `Address` keypaths to build your own format. No additional country-based logic would be applied
+        case custom(components: [KeyPath<AddressComponents, String?>])
+    }
+    
+    /// Build address string in requested style. All empty components will be skipped.
+    /// Separator ", " would be used to join all the components. House number will separated with " " separator
+    /// For example, for `.short` style: "50 Beale St, 9th Floor" and for `.medium` – "50 Beale St, 9th Floor, San Francisco, California"
+    /// - Parameter style: address style to be used
+    /// - Returns: Address string
+    func formattedAddress(style: FormatStyle) -> String? {
+        // All styles will include \.houseNumber if it exist
+        let componentPaths: [KeyPath<AddressComponents, String?>]
+        switch style {
+        case .short:
+            componentPaths = [\.houseNumber, \.street]
+        case .medium:
+            if let country = country, regionBasedCountry(country) {
+                componentPaths = [\.houseNumber, \.street, \.place, \.region]
+            } else {
+                componentPaths = [\.houseNumber, \.street, \.place]
+            }
+        case .long:
+            componentPaths = [\.houseNumber, \.street, \.neighborhood, \.locality, \.place, \.district, \.region, \.country]
+        case .full:
+            componentPaths = [\.houseNumber, \.street, \.neighborhood, \.locality, \.place, \.district, \.region, \.country, \.postcode]
+        case .custom(let components):
+            componentPaths = components
+        }
+        
+        // Take actual non-nil components
+        let components = componentPaths.map({ self[keyPath: $0] }).compactMap({ $0 }).filter({ !$0.isEmpty })
+        guard !components.isEmpty else { return nil }
+        
+        let separator = ", "
+        
+        if componentPaths.first == \.houseNumber, let houseNumber = houseNumber {
+            if components.count == 1 {
+                return houseNumber
+            } else {
+                return houseNumber + " " + components.dropFirst().joined(separator: separator)
+            }
+        } else {
+            return components.joined(separator: separator)
+        }
+    }
+    
+    private func regionBasedCountry(_ country: String) -> Bool {
+         ["united states of america", "usa"].contains(country.lowercased())
+    }
+}

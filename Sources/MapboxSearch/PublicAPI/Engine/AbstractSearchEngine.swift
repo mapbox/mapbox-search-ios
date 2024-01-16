@@ -49,21 +49,20 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     
     /// Basic internal initializer
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     ///   - serviceProvider: Internal `ServiceProvider` for sharing common dependencies like favoritesService or eventsManager
     ///   - supportSBS: enable support the latest Single-Box Search APIs
-    init(accessToken: String? = nil,
-         serviceProvider: ServiceProviderProtocol & EngineProviderProtocol,
+    init(serviceProvider: ServiceProviderProtocol & EngineProviderProtocol,
          locationProvider: LocationProvider? = DefaultLocationProvider(),
          defaultSearchOptions: SearchOptions = SearchOptions(),
          supportSBS: Bool = false
     ) {
-        
-        guard let accessToken = accessToken ?? serviceProvider.getStoredAccessToken() else {
+        guard let accessToken = serviceProvider.getStoredAccessToken() else {
             fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
         }
-        
+
+        MapboxOptions.accessToken = accessToken
+
         self.supportSBS = supportSBS
         self.locationProvider = locationProvider
         self.locationProviderWrapper = WrapperLocationProvider(wrapping: locationProvider)
@@ -74,18 +73,16 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
         
         self.userActivityReporter = .getOrCreate(
             for: .init(
-                accessToken: accessToken,
-                userAgent: defaultUserAgent,
+                sdkInformation: SdkInformation.defaultInfo,
                 eventsUrl: nil
             )
         )
 
         self.engine = serviceProvider.createEngine(
             apiType: engineApi,
-            accessToken: accessToken,
             locationProvider: self.locationProviderWrapper
         )
-        self.offlineManager = SearchOfflineManager(engine: engine, tileStore: SearchTileStore(accessToken: accessToken))
+        self.offlineManager = SearchOfflineManager(engine: engine, tileStore: SearchTileStore())
         
         self.feedbackManager.delegate = self
         _Logger.searchSDK.info("Init \(self) for API v.\(engineApi)")
@@ -103,18 +100,15 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     
     /// Initializer with safe-to-go defaults
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     ///   - defaultSearchOptions: Default options to use when `nil` was passed to the `search(…: options:)` call
     ///   - supportSBS: enable support the latest Single-Box Search APIs
     public convenience init(
-        accessToken: String? = nil,
         locationProvider: LocationProvider? = DefaultLocationProvider(),
         defaultSearchOptions: SearchOptions = SearchOptions(),
         supportSBS: Bool = false
     ) {
         self.init(
-            accessToken: accessToken,
             serviceProvider: ServiceProvider.shared,
             locationProvider: locationProvider,
             defaultSearchOptions: defaultSearchOptions,
