@@ -72,7 +72,7 @@ The SDK requires Carthage which you can install using Homebrew.
 
         _Note: Run `pbpaste > ~/.mapbox` in Terminal.app to insert you Pastebord (Command+C buffer) into `.mapbox` in Home directory._
     1. Open the Workspace, choose `MapboxSearchDemoApplication` project and select "Info" tab for "MapboxSearchDemoApplication" target. Here you may set your accessToken for `MBXAccessToken` key in "Custom iOS Target Properties" section.
-    1. Alternatively you could provide your accessToken as a parameter to `SearchEngine.init` and peer initializers
+1. Alternatively, you could provide your accessToken as a parameter to `SearchEngine.init` and other initializers that accept an `accessToken` parameter. Use this approach to deliver your key dynamically and implement a key rotation schedule.
 
 ## Getting Started
 
