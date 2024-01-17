@@ -5,6 +5,7 @@ import CoreLocation
 class SearchCategorySuggestionImplTests: XCTestCase {
     func testSuccessfulInit() throws {
         let suggestionImpl = try XCTUnwrap(SearchCategorySuggestionImpl(coreResult: CoreSearchResultStub(id: "sample-2",
+                                                                                                         mapboxId: "sample-2",
                                                                                                          type: .category,
                                                                                                          centerLocation: nil),
                                                                         response: CoreSearchResponseStub(id: 42,
@@ -14,7 +15,7 @@ class SearchCategorySuggestionImplTests: XCTestCase {
     }
     
     func testFailedInitForPOI() throws {
-        XCTAssertNil(SearchCategorySuggestionImpl(coreResult: CoreSearchResultStub(id: "sample-1", type: .poi, centerLocation: nil),
+        XCTAssertNil(SearchCategorySuggestionImpl(coreResult: CoreSearchResultStub(id: "sample-1", mapboxId: "", type: .poi, centerLocation: nil),
                                                   response: CoreSearchResponseStub(id: 42,
                                                                                    options: .sample1,
                                                                                    result: .success([]))))

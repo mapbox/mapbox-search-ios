@@ -4,6 +4,8 @@ import CoreLocation
 protocol CoreSearchResultProtocol {
     var id: String { get }
 
+    var mapboxId: String? { get }
+
     var resultTypes: [CoreResultType] { get }
 
     /**
