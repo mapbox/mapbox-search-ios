@@ -1,5 +1,9 @@
 import UIKit
 
+extension SearchCategory {
+    static let empty = SearchCategory(canonicalId: "", name: "?", legacyName: "unknown", iconName: "unknown icon")
+}
+
 class HotCategoryButton: UIControl {
     @IBOutlet private var categoryButton: UIButton!
     @IBOutlet private var textLabel: UILabel!

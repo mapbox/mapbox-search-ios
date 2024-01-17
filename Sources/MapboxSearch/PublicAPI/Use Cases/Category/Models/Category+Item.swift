@@ -3,7 +3,7 @@
 import Foundation
 
 public extension Category {
-    struct Item: Codable, Hashable {
+    public struct Item: Codable, Hashable {
 
         public let name: String
 
@@ -11,11 +11,11 @@ public extension Category {
             canonicalId
         }
 
-        let iconName: String
-        let legacyName: String
-        let canonicalId: String
+        public let iconName: String
+        public let legacyName: String
+        public let canonicalId: String
 
-        init(canonicalId: String, name: String, legacyName: String, iconName: String) {
+        public init(canonicalId: String, name: String, legacyName: String, iconName: String) {
             self.canonicalId = canonicalId
             self.name = name
             self.legacyName = legacyName

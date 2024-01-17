@@ -1,4 +1,5 @@
 import Foundation
+import MapboxSearch
 
 /// Default categories for horizontal categories and vertical list.
 public class DefaultCategoryDataProvider: CategoryDataProvider {
