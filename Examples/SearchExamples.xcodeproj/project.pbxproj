@@ -22,8 +22,6 @@
 		FE8295832701E46D001005B4 /* MapboxBoundingBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE780E3124C9B3D000C62400 /* MapboxBoundingBoxController.swift */; };
 		FE849B5626FC9E63001CBC27 /* ExamplesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE849B5526FC9E63001CBC27 /* ExamplesTableViewController.swift */; };
 		FE849B5A26FCBCEC001CBC27 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE849B5926FCBCEC001CBC27 /* MapsViewController.swift */; };
-		FE9DFDAA26F8D9A60021375F /* MapboxSearch in Frameworks */ = {isa = PBXBuildFile; productRef = FE9DFDA926F8D9A60021375F /* MapboxSearch */; };
-		FE9DFDAC26F8DA0F0021375F /* MapboxSearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = FE9DFDAB26F8DA0F0021375F /* MapboxSearchUI */; };
 		FEF1D1BA26FDF642004AE229 /* TextViewLoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF1D1B926FDF642004AE229 /* TextViewLoggerViewController.swift */; };
 		FEF1D1BD26FDFB1F004AE229 /* Atlantis in Frameworks */ = {isa = PBXBuildFile; productRef = FEF1D1BC26FDFB1F004AE229 /* Atlantis */; };
 /* End PBXBuildFile section */
@@ -55,9 +53,7 @@
 				04F0A1612B4F276D0097D316 /* MapboxMaps in Frameworks */,
 				FE0720C026FC86C70065A273 /* MapboxSearchUI in Frameworks */,
 				FE0720BE26FC86C70065A273 /* MapboxSearch in Frameworks */,
-				FE9DFDAC26F8DA0F0021375F /* MapboxSearchUI in Frameworks */,
 				FEF1D1BD26FDFB1F004AE229 /* Atlantis in Frameworks */,
-				FE9DFDAA26F8D9A60021375F /* MapboxSearch in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,8 +140,6 @@
 			);
 			name = SearchExamples;
 			packageProductDependencies = (
-				FE9DFDA926F8D9A60021375F /* MapboxSearch */,
-				FE9DFDAB26F8DA0F0021375F /* MapboxSearchUI */,
 				FE0720BD26FC86C70065A273 /* MapboxSearch */,
 				FE0720BF26FC86C70065A273 /* MapboxSearchUI */,
 				FEF1D1BC26FDFB1F004AE229 /* Atlantis */,
@@ -477,14 +471,6 @@
 		FE0720BF26FC86C70065A273 /* MapboxSearchUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FE0720BC26FC86C70065A273 /* XCRemoteSwiftPackageReference "search-ios" */;
-			productName = MapboxSearchUI;
-		};
-		FE9DFDA926F8D9A60021375F /* MapboxSearch */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MapboxSearch;
-		};
-		FE9DFDAB26F8DA0F0021375F /* MapboxSearchUI */ = {
-			isa = XCSwiftPackageProductDependency;
 			productName = MapboxSearchUI;
 		};
 		FEF1D1BC26FDFB1F004AE229 /* Atlantis */ = {
