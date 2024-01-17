@@ -411,7 +411,10 @@ public enum Maki: String, CaseIterable, Codable {
     case windmill = "windmill"
     /// Maki icon "zoo"
     case zoo = "zoo"
-    
+
+    /// Unknown icon
+    case unknown = ""
+
     /// Original name used in Maki icon set
     public var name: String { rawValue }
 }
