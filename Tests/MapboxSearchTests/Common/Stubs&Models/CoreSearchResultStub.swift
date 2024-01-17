@@ -116,6 +116,7 @@ extension CoreSearchResultStub: Equatable {
 extension CoreSearchResultProtocol {
     var asCoreSearchResult: CoreSearchResult {
         CoreSearchResult(id: id,
+                         mapboxId: nil,
                          types: resultTypes.map({ NSNumber(value: $0.rawValue) }),
                          names: names,
                          languages: languages,

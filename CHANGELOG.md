@@ -9,6 +9,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 <!-- Add changes for active work here -->
 
 - [Core] Remove legacy `MGLMapboxAccessToken`.
+- [Core] Update MapboxCoreSearch to alpha 7
+
+**MapboxCoreSearch**: v2.0.0-alpha.7
 
 ## 2.0.0-alpha.1
 
