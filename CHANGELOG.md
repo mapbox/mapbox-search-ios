@@ -9,6 +9,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 <!-- Add changes for active work here -->
 
 - [Core] Remove legacy `MGLMapboxAccessToken`.
+- [SearchExample] Update Examples/SearchExample.xcworkspace to use MapboxMaps v11, MapboxCommon v24, and the local package (parent directory) for MapboxSearch.
 
 ## 2.0.0-alpha.1
 

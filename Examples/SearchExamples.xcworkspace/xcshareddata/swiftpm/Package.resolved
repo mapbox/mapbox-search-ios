@@ -1,59 +1,70 @@
 {
-  "pins" : [
-    {
-      "identity" : "atlantis",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ProxymanApp/atlantis",
-      "state" : {
-        "revision" : "131d757cf8e6e368ad338728379174f7cfff9326",
-        "version" : "1.23.0"
+  "object": {
+    "pins": [
+      {
+        "package": "Atlantis",
+        "repositoryURL": "https://github.com/ProxymanApp/atlantis",
+        "state": {
+          "branch": null,
+          "revision": "131d757cf8e6e368ad338728379174f7cfff9326",
+          "version": "1.23.0"
+        }
+      },
+      {
+        "package": "CwlCatchException",
+        "repositoryURL": "https://github.com/mattgallagher/CwlCatchException.git",
+        "state": {
+          "branch": null,
+          "revision": "3b123999de19bf04905bc1dfdb76f817b0f2cc00",
+          "version": "2.1.2"
+        }
+      },
+      {
+        "package": "CwlPreconditionTesting",
+        "repositoryURL": "https://github.com/mattgallagher/CwlPreconditionTesting.git",
+        "state": {
+          "branch": null,
+          "revision": "dc9af4781f2afdd1e68e90f80b8603be73ea7abc",
+          "version": "2.2.0"
+        }
+      },
+      {
+        "package": "MapboxCommon",
+        "repositoryURL": "https://github.com/mapbox/mapbox-common-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "6ed3e33b51d3e3162843885f6914d7fb175609c6",
+          "version": "24.1.0"
+        }
+      },
+      {
+        "package": "MapboxCoreMaps",
+        "repositoryURL": "https://github.com/mapbox/mapbox-core-maps-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "d9cdf51cf4b897811a5c5d5135d3c772830e2b7c",
+          "version": "11.1.0"
+        }
+      },
+      {
+        "package": "MapboxMaps",
+        "repositoryURL": "https://github.com/mapbox/mapbox-maps-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "3fa9b6660abca863f0a2eccfe3a4001904b2120b",
+          "version": "11.1.0"
+        }
+      },
+      {
+        "package": "Turf",
+        "repositoryURL": "https://github.com/mapbox/turf-swift.git",
+        "state": {
+          "branch": null,
+          "revision": "f0afe204b4266337066a436becab62fdd2b32378",
+          "version": "2.7.0"
+        }
       }
-    },
-    {
-      "identity" : "mapbox-common-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mapbox/mapbox-common-ios.git",
-      "state" : {
-        "revision" : "065cb97a83b8bf8d8584ab56cb6ebed898cc0c97",
-        "version" : "23.8.6"
-      }
-    },
-    {
-      "identity" : "mapbox-core-maps-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mapbox/mapbox-core-maps-ios.git",
-      "state" : {
-        "revision" : "798644dafccc37c3be17127e39638f39d6cd57e3",
-        "version" : "10.16.4"
-      }
-    },
-    {
-      "identity" : "mapbox-maps-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mapbox/mapbox-maps-ios.git",
-      "state" : {
-        "revision" : "05a275f685ac95982716d87ccb677ebad417c252",
-        "version" : "10.16.4"
-      }
-    },
-    {
-      "identity" : "search-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mapbox/search-ios",
-      "state" : {
-        "revision" : "ecd3aa0f782aa0a27267c7118dd6ebd391ea7f82",
-        "version" : "1.0.0-rc.8"
-      }
-    },
-    {
-      "identity" : "turf-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mapbox/turf-swift.git",
-      "state" : {
-        "revision" : "f0afe204b4266337066a436becab62fdd2b32378",
-        "version" : "2.7.0"
-      }
-    }
-  ],
-  "version" : 2
+    ]
+  },
+  "version": 1
 }
