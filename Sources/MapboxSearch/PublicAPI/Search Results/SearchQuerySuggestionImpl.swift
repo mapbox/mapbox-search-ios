@@ -6,6 +6,8 @@ class SearchQuerySuggestionImpl: SearchQuerySuggestion, CoreResponseProvider {
     var originalResponse: CoreSearchResultResponse
     
     var id: String
+
+    var mapboxId: String?
     
     var name: String
     
@@ -31,6 +33,7 @@ class SearchQuerySuggestionImpl: SearchQuerySuggestion, CoreResponseProvider {
         guard coreResult.resultTypes == [.query] else { return nil }
         
         self.id = coreResult.id
+        self.mapboxId = coreResult.mapboxId
         self.suggestionType = .query
         self.name = coreResult.names[0]
         self.address = coreResult.addresses?.first.map(Address.init)

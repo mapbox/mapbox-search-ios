@@ -2,6 +2,8 @@ import Foundation
 import CoreLocation
 
 class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProvider {
+    var mapboxId: String?
+
     var distance: CLLocationDistance?
     
     var originalResponse: CoreSearchResultResponse
@@ -61,6 +63,7 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
         self.type = type
 
         self.id = coreResult.id
+        self.mapboxId = coreResult.mapboxId
         self.name = coreResult.names[0]
         self.matchingName = coreResult.matchingName
         self.iconName = coreResult.icon
