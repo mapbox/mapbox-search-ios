@@ -10,6 +10,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 - [Core] Remove legacy `MGLMapboxAccessToken`.
 - [SearchExample] Update Examples/SearchExample.xcworkspace to use MapboxMaps v11, MapboxCommon v24, and the local package (parent directory) for MapboxSearch.
+- [Address Autofill] Add support for `mapboxId` field.
+- [Discover] (aka Category) Add support for `mapboxId` field.
+- [Place Autocomplete] Add support for `mapboxId` field.
 - [Core] Update MapboxCoreSearch to alpha 8
 
 **MapboxCoreSearch**: v2.0.0-alpha.8

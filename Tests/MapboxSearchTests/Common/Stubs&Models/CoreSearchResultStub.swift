@@ -4,6 +4,7 @@ import CoreLocation
 class CoreSearchResultStub: CoreSearchResultProtocol {
     init(
         id: String,
+        mapboxId: String?,
         resultAccuracy: CoreAccuracy? = nil,
         type: CoreResultType,
         names: [String] = ["sample-name1", "sample-name2"],
@@ -24,6 +25,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         estimatedTime: Measurement<UnitDuration>? = nil
     ) {
         self.id = id
+        self.mapboxId = mapboxId
         self.resultAccuracy = resultAccuracy
         self.resultTypes = [type]
         self.names = names
@@ -46,6 +48,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
     convenience init(dataProviderRecord: TestDataProviderRecord) {
         self.init(
             id: dataProviderRecord.id,
+            mapboxId: dataProviderRecord.mapboxId,
             type: dataProviderRecord.type.coreType,
             names: [dataProviderRecord.name],
             languages: ["en"]
@@ -53,6 +56,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
     }
     
     var id: String
+    var mapboxId: String?
     var resultAccuracy: CoreAccuracy?
     var resultTypes: [CoreResultType]
     var type: CoreResultType { resultTypes.first ?? .unknown }
@@ -98,6 +102,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
 extension CoreSearchResultStub: Equatable {
     static func == (lhs: CoreSearchResultStub, rhs: CoreSearchResultStub) -> Bool {
         return lhs.id == rhs.id
+        && lhs.mapboxId == rhs.mapboxId
         && lhs.type == rhs.type
         && lhs.names == rhs.names
         && lhs.languages == rhs.languages
@@ -116,7 +121,7 @@ extension CoreSearchResultStub: Equatable {
 extension CoreSearchResultProtocol {
     var asCoreSearchResult: CoreSearchResult {
         CoreSearchResult(id: id,
-                         mapboxId: nil,
+                         mapboxId: mapboxId,
                          types: resultTypes.map({ NSNumber(value: $0.rawValue) }),
                          names: names,
                          languages: languages,

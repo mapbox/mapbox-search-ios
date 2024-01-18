@@ -4,6 +4,7 @@ import CoreLocation
 struct TestDataProviderRecord: IndexableRecord, SearchResult {
     var type: SearchResultType
     var id: String = UUID().uuidString
+    var mapboxId: String = UUID().uuidString // TODO: Revisit
     var accuracy: SearchResultAccuracy?
     var name: String
     var matchingName: String?

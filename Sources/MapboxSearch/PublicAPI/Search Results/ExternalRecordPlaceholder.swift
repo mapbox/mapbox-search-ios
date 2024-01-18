@@ -2,6 +2,8 @@ import Foundation
 import CoreLocation
 
 class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
+    var mapboxId: String?
+
     var originalResponse: CoreSearchResultResponse
     
     var dataLayerIdentifier: String
@@ -30,6 +32,7 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
         guard let layerIdentifier = coreResult.layer, coreResult.resultTypes == [.userRecord] else { return nil }
         
         self.id = coreResult.userRecordID ?? coreResult.id
+        self.mapboxId = coreResult.mapboxId
         self.name = coreResult.names[0]
         self.address = coreResult.addresses?.first.map(Address.init)
         self.dataLayerIdentifier = layerIdentifier
