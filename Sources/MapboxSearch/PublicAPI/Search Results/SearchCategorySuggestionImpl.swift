@@ -2,6 +2,8 @@ import Foundation
 import CoreLocation
 
 class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvider {
+    var mapboxId: String?
+
     var originalResponse: CoreSearchResultResponse
 
     var id: String
@@ -30,6 +32,7 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
         guard coreResult.resultTypes == [.category] else { return nil }
 
         self.id = coreResult.id
+        self.mapboxId = coreResult.mapboxId
         self.suggestionType = .category
         self.name = coreResult.names[0]
         self.address = coreResult.addresses?.first.map(Address.init)

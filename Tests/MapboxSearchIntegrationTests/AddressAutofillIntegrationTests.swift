@@ -9,6 +9,7 @@ final class AddressAutofillIntegrationTests: MockServerTestCase {
         super.setUp()
 
         addressAutofill = AddressAutofill(
+            accessToken: "access-token",
             locationProvider: DefaultLocationProvider()
         )
     }

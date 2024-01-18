@@ -5,16 +5,19 @@ import CoreLocation
 extension CoreSearchResultStub {
     static let sample1 = CoreSearchResultStub(
         id: "sample-1",
+        mapboxId: "sample-1",
         type: .poi,
         distance: 4200,
         estimatedTime: Measurement(value: 10.5, unit: .minutes)
     )
     static let sample2 = CoreSearchResultStub(
         id: "sample-2",
+        mapboxId: "sample-3",
         type: .category
     )
 
     static let externalRecordSample = CoreSearchResultStub(id: "sample-3",
+                                                           mapboxId: "sample-3",
                                                            type: .userRecord,
                                                            centerLocation: .sample1,
                                                            layer: FavoritesProvider.providerIdentifier,
@@ -32,6 +35,7 @@ extension CoreSearchResultStub {
     static func makeSuggestion(metadata: CoreResultMetadata? = nil) -> CoreSearchResultStub {
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
+            mapboxId: "",
             type: .place,
             names: ["Some Place Name"],
             languages: ["en"],
@@ -62,12 +66,13 @@ extension CoreSearchResultStub {
     }
 
     static func makeSuggestionTypeQuery() -> CoreSearchResultStub {
-        CoreSearchResultStub(id: "recursion", type: .query, centerLocation: nil)
+        CoreSearchResultStub(id: "recursion", mapboxId: "", type: .query, centerLocation: nil)
     }
 
     static func makeCategory() -> CoreSearchResultStub {
         CoreSearchResultStub(
             id: UUID().uuidString,
+            mapboxId: "",
             type: .category,
             names: ["Bar"],
             languages: ["en"],
@@ -80,6 +85,7 @@ extension CoreSearchResultStub {
         let center = CLLocation(latitude: 12.0000, longitude: 10.0000)
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
+            mapboxId: "",
             type: .place,
             names: ["Some Place Name"],
             languages: ["en"],
@@ -93,6 +99,7 @@ extension CoreSearchResultStub {
     static func makeAddress() -> CoreSearchResultStub {
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
+            mapboxId: "",
             type: .address,
             names: ["Some Place Name"],
             languages: ["en"],
@@ -122,6 +129,7 @@ extension CoreSearchResultStub {
         )
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
+            mapboxId: "",
             type: .place,
             names: ["Some Place Name"],
             languages: ["en"],
@@ -152,6 +160,7 @@ extension CoreSearchResultStub {
         )
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
+            mapboxId: "",
             type: .place,
             names: ["Some Place Name"],
             languages: ["en"],
@@ -182,6 +191,7 @@ extension CoreSearchResultStub {
         )
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
+            mapboxId: "",
             type: .place,
             names: ["Some Place Name"],
             languages: ["en"],

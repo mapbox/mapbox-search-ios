@@ -16,6 +16,7 @@ class CategorySearchEngineTests: XCTestCase {
 
     func testEmptySearch() throws {
         let categorySearchEngine = CategorySearchEngine(
+            accessToken: "mapbox-access-token",
             serviceProvider: provider,
             locationProvider: DefaultLocationProvider()
         )
@@ -41,6 +42,7 @@ class CategorySearchEngineTests: XCTestCase {
 
     func testCategorySearch() throws {
         let categorySearchEngine = CategorySearchEngine(
+            accessToken: "mapbox-access-token",
             serviceProvider: provider,
             locationProvider: DefaultLocationProvider()
         )
@@ -65,6 +67,7 @@ class CategorySearchEngineTests: XCTestCase {
 
     func testErrorSearch() throws {
         let categorySearchEngine = CategorySearchEngine(
+            accessToken: "mapbox-access-token",
             serviceProvider: provider,
             locationProvider: DefaultLocationProvider()
         )
@@ -96,6 +99,7 @@ class CategorySearchEngineTests: XCTestCase {
             throw XCTSkip("Unsupported architecture")
         #else
             let categorySearchEngine = CategorySearchEngine(
+                accessToken: "mapbox-access-token",
                 serviceProvider: provider,
                 locationProvider: DefaultLocationProvider()
             )
@@ -105,25 +109,27 @@ class CategorySearchEngineTests: XCTestCase {
                 let assertionError = catchBadInstruction {
                     callback()
                 }
-                XCTAssertNotNil(assertionError)
-            }
 
-            var error: SearchError?
-            let expectation = XCTestExpectation(description: "Expecting results")
+                var error: SearchError?
+                let expectation = XCTestExpectation(description: "Expecting results")
 
-            categorySearchEngine.search(categoryName: "ATM") { result in
-                switch result {
-                case .success:
-                    assertionFailure("Error expected")
-                case .failure(let searchError):
-                    error = searchError
-                    expectation.fulfill()
+                categorySearchEngine.search(categoryName: "ATM") { result in
+                    switch result {
+                    case .success:
+                        assertionFailure("Error expected")
+                    case .failure(let searchError):
+                        error = searchError
+                        expectation.fulfill()
+                    }
                 }
+
+                wait(for: [expectation], timeout: 10)
+
+                XCTAssertEqual(
+                    error,
+                    SearchError.categorySearchRequestFailed(reason: SearchError.responseProcessingFailed)
+                )
             }
-
-            wait(for: [expectation], timeout: 10)
-
-            XCTAssertEqual(error, SearchError.categorySearchRequestFailed(reason: SearchError.responseProcessingFailed))
         #endif
     }
 

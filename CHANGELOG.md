@@ -8,6 +8,18 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Core] Update SwiftLint to 0.54.0 and SwiftFormat to 0.52.11
+- [Core] Fix project compliance with linter, reformat Swift files
+- [Core] Add Brewfile for project
+- [Core] Remove legacy `MGLMapboxAccessToken`.
+- [SearchExample] Update Examples/SearchExample.xcworkspace to use MapboxMaps v11, MapboxCommon v24, and the local package (parent directory) for MapboxSearch.
+- [Address Autofill] Add support for `mapboxId` field.
+- [Discover] (aka Category) Add support for `mapboxId` field.
+- [Place Autocomplete] Add support for `mapboxId` field.
+- [Core] Update MapboxCoreSearch to alpha 8
+
+**MapboxCoreSearch**: v2.0.0-alpha.8
+
 ## 2.0.0-alpha.1
 
 ### Breaking changes
@@ -19,11 +31,6 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Place Autocomplete] Suggestions no longer perform a `retrieve` call.
 - [Place Autocomplete] `PlaceAutocomplete.Suggestion` field `coordinate: CLLocationCoordinate2D?` is now an optional.
 - [Place Autocomplete] `Result.coordinate` is now an optional.
-- [Core] Updated to Xcode 14.1 minimum version
-- [Core] Updated deployment target to iOS 12
-- [Core] Update SwiftLint to 0.54.0 and SwiftFormat to 0.52.11
-- [Core] Fix project compliance with linter, reformat Swift files
-- [Core] Add Brewfile for project
 - [Core] Remove bitcode support
 - [Core] Updated API usage:
 	- Removed parameter-based Access Token. Be sure to provide your token in Info.plist.

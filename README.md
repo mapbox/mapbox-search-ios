@@ -61,7 +61,7 @@ The SDK requires Carthage which you can install using Homebrew.
     ```
     machine api.mapbox.com
     login mapbox
-    password sk.ey_your_access_token_wit_Read_permission
+    password sk.ey_Your_Access_Token_With_Read_permission
     ```
 1. Set up commit hooks with
     `./scripts/install_git_hooks`
@@ -71,7 +71,8 @@ The SDK requires Carthage which you can install using Homebrew.
     1. Create a new file named `mapbox` or `.mapbox` in your home directory with content of your access token. We also support `.mapbox` file in the repository root folder. MapboxSearchDemoApplication will automatically handle this key and insert it in corresponding place.
 
         _Note: Run `pbpaste > ~/.mapbox` in Terminal.app to insert you Pastebord (Command+C buffer) into `.mapbox` in Home directory._
-    1. Open the Workspace, choose `MapboxSearchDemoApplication` project and select "Info" tab for "MapboxSearchDemoApplication" target. Here you should set your accessToken for `MGLMapboxAccessToken` key in "Custom iOS Target Properties" section.
+    1. Open the Workspace, choose `MapboxSearchDemoApplication` project and select "Info" tab for "MapboxSearchDemoApplication" target. Here you may set your accessToken for `MBXAccessToken` key in "Custom iOS Target Properties" section.
+1. Alternatively, you could provide your accessToken as a parameter to `SearchEngine.init` and other initializers that accept an `accessToken` parameter. Use this approach to deliver your key dynamically and implement a key rotation schedule.
 
 ## Getting Started
 
@@ -79,7 +80,10 @@ Once you've installed the prerequisites, no additional steps are needed: Open th
 
 ## Documentation
 
-_The link to iOS documentation will be added soon (instruction on how to build, usage the API, ready-to-use examples)._
+You can find the following documentation pages helpful:
+- [Search SDK for iOS guide](https://docs.mapbox.com/ios/search/guides/)
+- [MapboxSearch reference](https://docs.mapbox.com/ios/search/api/core/2.0.0-alpha.1/)
+- [MapboxSearchUI reference](https://docs.mapbox.com/ios/search/api/ui/2.0.0-alpha.1/)
 
 ## Project structure overview
 

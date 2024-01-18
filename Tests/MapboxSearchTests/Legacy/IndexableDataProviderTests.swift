@@ -8,7 +8,11 @@ class IndexableDataProviderTests: XCTestCase {
 
     func testOneDataProvider() throws {
         let dataProvider = TestDataProvider()
-        let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let searchEngine = SearchEngine(
+            accessToken: "Stub_token",
+            serviceProvider: provider,
+            locationProvider: DefaultLocationProvider()
+        )
         searchEngine.delegate = delegate
         dataProvider.records = TestDataProviderRecord.testData(count: 2)
         let interactor = try searchEngine.register(dataProvider: dataProvider, priority: 10)
@@ -31,7 +35,11 @@ class IndexableDataProviderTests: XCTestCase {
 
     func testDataProviderWithNoRecords() throws {
         let dataProvider = TestDataProvider()
-        let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let searchEngine = SearchEngine(
+            accessToken: "Stub_token",
+            serviceProvider: provider,
+            locationProvider: DefaultLocationProvider()
+        )
         searchEngine.delegate = delegate
         let interactor = try searchEngine.register(dataProvider: dataProvider, priority: 10)
         dataProvider.registerProviderInteractor(interactor: interactor)
@@ -58,7 +66,11 @@ class IndexableDataProviderTests: XCTestCase {
         let dataProviderManyRecords = TestDataProvider()
         dataProviderManyRecords.records = TestDataProviderRecord.testData(count: 10000)
 
-        let searchEngine = SearchEngine(serviceProvider: provider, locationProvider: DefaultLocationProvider())
+        let searchEngine = SearchEngine(
+            accessToken: "Stub_token",
+            serviceProvider: provider,
+            locationProvider: DefaultLocationProvider()
+        )
         searchEngine.delegate = delegate
 
         let dataProviders = [dataProviderNoRecords, dataProviderSomeRecords, dataProviderManyRecords]

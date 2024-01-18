@@ -5,6 +5,7 @@ import CoreLocation
 class SearchEngineIntegrationTests: MockServerTestCase {
     let delegate = SearchEngineDelegateStub()
     lazy var searchEngine = SearchEngine(
+        accessToken: "access-token",
         locationProvider: DefaultLocationProvider(),
         supportSBS: true
     )

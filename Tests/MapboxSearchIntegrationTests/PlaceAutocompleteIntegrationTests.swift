@@ -9,6 +9,7 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
         super.setUp()
 
         placeAutocomplete = PlaceAutocomplete(
+            accessToken: "access-token",
             locationProvider: DefaultLocationProvider()
         )
     }

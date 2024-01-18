@@ -8,6 +8,8 @@ struct SearchResultSuggestionStub: SearchResultSuggestion {
 
     var id: String = UUID().uuidString
 
+    var mapboxId: String? = ""
+
     var name: String = "Name for UnitTests"
 
     var address: Address?

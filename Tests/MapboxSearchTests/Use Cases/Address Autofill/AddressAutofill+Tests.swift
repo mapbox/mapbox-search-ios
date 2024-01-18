@@ -8,7 +8,7 @@ final class AddressAutofillTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        searchEngine = CoreSearchEngineStub(location: nil)
+        searchEngine = CoreSearchEngineStub(accessToken: "test", location: nil)
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: [])
 
         addressAutofill = AddressAutofill(

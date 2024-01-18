@@ -3,7 +3,12 @@ import MapboxSearch
 
 class SimpleListSearchViewController: MapsViewController {
     let searchEngine = SearchEngine()
+<<<<<<< HEAD
 
+=======
+//    let searchEngine = SearchEngine(accessToken: "<#You can pass access token manually#>")
+    
+>>>>>>> 6290e886416f70e5f4a1044878d96b3fff2c3ca3
     override func viewDidLoad() {
         super.viewDidLoad()
 

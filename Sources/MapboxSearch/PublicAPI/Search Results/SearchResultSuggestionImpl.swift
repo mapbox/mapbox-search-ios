@@ -2,6 +2,8 @@ import Foundation
 import CoreLocation
 
 class SearchResultSuggestionImpl: SearchResultSuggestion, CoreResponseProvider {
+    var mapboxId: String?
+
     var originalResponse: CoreSearchResultResponse
 
     let dataLayerIdentifier = SearchEngine.providerIdentifier
@@ -45,6 +47,7 @@ class SearchResultSuggestionImpl: SearchResultSuggestion, CoreResponseProvider {
         }
 
         self.id = coreResult.id
+        self.mapboxId = coreResult.mapboxId
         self.name = coreResult.names[0]
         self.address = coreResult.addresses?.first.map(Address.init)
         self.iconName = coreResult.icon

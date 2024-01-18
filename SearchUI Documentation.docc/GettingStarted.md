@@ -14,8 +14,7 @@ Built-in UI is implemented via ``MapboxSearchController`` and provides options t
 #### Instantiate Mapbox Search Controller
 First, to start Search UI integration, you have to instantiate ``MapboxSearchController``:
 
-
-> Tip: It's possible to pass access token through `MBXAccessToken` key in application `Info.plist` file.
+> Tip: It's recommended to include your access token through the `MBXAccessToken` key in application `Info.plist` file.
 
 **Option 1**:
 
