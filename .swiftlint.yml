@@ -1,66 +1,39 @@
-analyzer_rules:
- - unused_import # All imported modules should be required to make the file compile.
- - explicit_self # Instance variables and functions should be explicitly accessed with 'self.'.
-
-opt_in_rules:
-  - modifier_order
-  - closure_body_length
-
-# Configuration for rules
-closure_body_length:
-    warning: 50
-identifier_name: # Identifier names should only contain alphanumeric characters and start with a lowercase character or should only contain capital letters. In an exception to the above, variable names may start with a capital letter when they are declared static and immutable. Variable names should not be too long or too short.
-  excluded:
-    - dt
-    - id
-    - t
-    - p0
-    - p1
-    - p2
-    - p3
-file_length:
-    warning: 1000
-function_body_length:
-    warning: 100
-type_body_length:
-    warning: 500
-modifier_order:
-  preferred_modifier_order: [acl, setterACL, override, dynamic, mutators, lazy, final, required, convenience, typeMethods, owned]
-line_length:
-    ignores_comments: true
-    ignores_interpolated_strings: true
-    ignores_function_declarations: true
-
 disabled_rules:
+  - trailing_comma
+  - opening_brace
+  - todo
+  - redundant_string_enum_value
+  - type_body_length
+  - file_length
+  - closure_parameter_position
+  - multiple_closures_with_trailing_closure
   - large_tuple
+  - identifier_name
+  - type_name
+  - function_body_length
+  - line_length
+  - function_parameter_count
+  - statement_position
+excluded:
+  - Modules/Firebase
+  - vendored
+  - fastlane
+  - Carthage
+  - vendor
+  - scripts
+  - Danger
+  - mapbox-navigation-ios
 
-excluded: # paths to ignore during linting. Takes precedence over `included`.
- - build-ios
+nesting:
+  type_level: 2
 
-# Custom regex-based rules
 custom_rules:
-  comments_space:
-    name: "Space After Comment"
-    regex: '(//\w+)'
-    message: "There should be a space after //"
-    match_kinds: comment
-    severity: warning
-  multiple_empty_lines:
-    name: "Multiple Empty Lines"
-    regex: '((?:\s*\n){4,})'
-    message: "There are too many line breaks"
-    severity: warning
-  unnecessary_type:
-    name: "Unnecessary Type"
-    regex: '[ a-zA-Z0-9]*(?:let|var) [ a-zA-Z0-9]*: ([a-zA-Z0-9]*)[\? ]*= \1'
-    message: "Type Definition Not Needed"
-    severity: warning
-  _preferWillMoveToWindow:
-    name: Warning on willMove(toSuperview:)
-    regex: '(override func willMove\(toSuperview|override func awakeFromNib\(\))'
-    message: "'configuration' variable is not accessible yet. Use `willMove(toWindow:)` instead"
+  dont_use_print:
+    included: ".*\\.swift"
+    name: "Don't use `print`"
+    regex: "(^|[^\\w])(print)\\("
     match_kinds:
-      - attribute.builtin
-      - keyword
       - identifier
-
+    capture_group: 2
+    message: "Use Log[<category>] from Common shared library (not MapboxCommon) instead of `print`s."
+    severity: warning
