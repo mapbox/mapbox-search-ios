@@ -1,14 +1,10 @@
-import UIKit
 import MapboxSearch
+import UIKit
 
 class SimpleListSearchViewController: MapsViewController {
     let searchEngine = SearchEngine()
-<<<<<<< HEAD
-
-=======
 //    let searchEngine = SearchEngine(accessToken: "<#You can pass access token manually#>")
-    
->>>>>>> 6290e886416f70e5f4a1044878d96b3fff2c3ca3
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,12 +32,15 @@ extension SimpleListSearchViewController: SearchEngineDelegate {
         searchEngine.select(suggestion: randomSuggestion)
 
         /// We may expect `resolvedResult(result:)` to be called next
-        /// or the new round of `resultsUpdated(searchEngine:)` in case if randomSuggestion represents category suggestion (like a 'bar' or 'cafe')
+        /// or the new round of `resultsUpdated(searchEngine:)` in case if randomSuggestion represents category
+        /// suggestion (like a 'bar' or 'cafe')
     }
 
     func resultResolved(result: SearchResult, searchEngine: SearchEngine) {
         /// WooHoo, we retrieved the resolved `SearchResult`
-        print("Resolved result: coordinate: \(result.coordinate), address: \(result.address?.formattedAddress(style: .medium) ?? "N/A")")
+        print(
+            "Resolved result: coordinate: \(result.coordinate), address: \(result.address?.formattedAddress(style: .medium) ?? "N/A")"
+        )
 
         print("Dumping resolved result:", dump(result))
 
