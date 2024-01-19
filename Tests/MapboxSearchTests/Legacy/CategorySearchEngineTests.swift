@@ -95,9 +95,6 @@ class CategorySearchEngineTests: XCTestCase {
     }
 
     func testCategorySearchFailedNoResponse() throws {
-#if !arch(x86_64)
-        throw XCTSkip("Unsupported architecture")
-#else
         let categorySearchEngine = CategorySearchEngine(
             accessToken: "mapbox-access-token",
             serviceProvider: provider,
@@ -105,7 +102,7 @@ class CategorySearchEngineTests: XCTestCase {
         )
 
         let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
-        engine.callbackWrapper = { callback in
+        engine.callbackWrapper = { [weak self] callback in
             let assertionError = catchBadInstruction {
                 callback()
             }
@@ -123,14 +120,13 @@ class CategorySearchEngineTests: XCTestCase {
                 }
             }
 
-            wait(for: [expectation], timeout: 10)
+            self?.wait(for: [expectation], timeout: 10)
 
             XCTAssertEqual(
                 error,
                 SearchError.categorySearchRequestFailed(reason: SearchError.responseProcessingFailed)
             )
         }
-#endif
     }
 
     func testRequestOptionsInit() throws {
