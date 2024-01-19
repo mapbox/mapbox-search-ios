@@ -55,10 +55,6 @@ class SearchResultSuggestionImplTests: XCTestCase {
     }
 
     func testMore() throws {
-#if !arch(x86_64)
-        throw XCTSkip("Unsupported architecture")
-#else
-
         let exception = catchBadInstruction {
             _ = SearchResultSuggestionImpl(
                 coreResult: CoreSearchResultStub(
@@ -76,6 +72,5 @@ class SearchResultSuggestionImplTests: XCTestCase {
         }
 
         XCTAssertNotNil(exception)
-#endif
     }
 }

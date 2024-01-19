@@ -341,10 +341,6 @@ class SearchEngineTests: XCTestCase {
     }
 
     func testBatchResolveNoResponse() throws {
-#if !arch(x86_64)
-        throw XCTSkip("Unsupported architecture")
-#else
-
         let searchEngine = SearchEngine(
             accessToken: "mapbox-access-token",
             serviceProvider: provider,
@@ -360,32 +356,31 @@ class SearchEngineTests: XCTestCase {
             SearchResultSuggestionImpl(coreResult: $0, response: coreResponse)
         }
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
-        engine.callbackWrapper = { callback in
+        engine.callbackWrapper = { [weak self] callback in
             let assertionError = catchBadInstruction {
                 callback()
             }
-            let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
-            engine.callbackWrapper = { callback in
-                let assertionError = catchBadInstruction {
-                    callback()
+            do {
+                let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
+                engine.callbackWrapper = { callback in
+                    let assertionError = catchBadInstruction {
+                        callback()
+                    }
+                    XCTAssertNotNil(assertionError)
                 }
-                XCTAssertNotNil(assertionError)
+            } catch {
+                XCTFail(error.localizedDescription)
             }
             searchEngine.select(suggestions: suggestions)
 
-            wait(for: [expectation], timeout: 10)
+            self?.wait(for: [expectation], timeout: 10)
 
             let expectedError = SearchError.responseProcessingFailed
-            XCTAssertEqual(expectedError, delegate.error)
+            XCTAssertEqual(expectedError, self?.delegate.error)
         }
-#endif
     }
 
     func testReverseGeocodingNoResponse() throws {
-#if !arch(x86_64)
-        throw XCTSkip("Unsupported architecture")
-#else
-
         let searchEngine = SearchEngine(
             accessToken: "mapbox-access-token",
             serviceProvider: provider,
@@ -393,7 +388,7 @@ class SearchEngineTests: XCTestCase {
         )
 
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
-        engine.callbackWrapper = { callback in
+        engine.callbackWrapper = { [weak self] callback in
             let assertionError = catchBadInstruction {
                 callback()
             }
@@ -410,11 +405,10 @@ class SearchEngineTests: XCTestCase {
                 expectation.fulfill()
             }
 
-            wait(for: [expectation], timeout: 10)
+            self?.wait(for: [expectation], timeout: 10)
 
             XCTAssertEqual(error, SearchError.responseProcessingFailed)
         }
-#endif
     }
 
     func testReverseGeocodingFailedResponse() throws {

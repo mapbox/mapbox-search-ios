@@ -79,10 +79,6 @@ extension SearchSuggestTypeTests {
     }
 
     func testDecodableWithCorruptedData() throws {
-#if !arch(x86_64)
-        throw XCTSkip("Unsupported architecture")
-#else
-
         let data = "{}".data(using: .utf8)!
 
         let assertionError = catchBadInstruction {
@@ -91,7 +87,5 @@ extension SearchSuggestTypeTests {
             _ = try! decoder.decode(SearchSuggestType.self, from: data)
         }
         XCTAssertNotNil(assertionError)
-
-#endif
     }
 }

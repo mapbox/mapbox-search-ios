@@ -189,14 +189,9 @@ class SearchResultMetadataTests: XCTestCase {
     }
 
     func testIncorrectImageInfoURL() throws {
-#if !arch(x86_64)
-        throw XCTSkip("Unsupported architecture")
-#else
-
         let assertionError = catchBadInstruction {
             _ = Image.SizedImage(coreImageInfo: CoreImageInfoStub(url: "", width: 42, height: 88))
         }
         XCTAssertNotNil(assertionError)
-#endif
     }
 }

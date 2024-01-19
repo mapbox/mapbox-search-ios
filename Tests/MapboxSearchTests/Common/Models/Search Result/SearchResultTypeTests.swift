@@ -19,16 +19,10 @@ class SearchResultTypeTests: XCTestCase {
     }
 
     func testMixedPOIInit() throws {
-#if !arch(x86_64)
-        throw XCTSkip("Unsupported architecture")
-#else
-
         let assertionError = catchBadInstruction {
             _ = SearchResultType(coreResultTypes: [.poi, .place])
         }
         XCTAssertNotNil(assertionError)
-
-#endif
     }
 
     func testAddressInit() {
@@ -39,16 +33,10 @@ class SearchResultTypeTests: XCTestCase {
     }
 
     func testAddressWithPOIInit() throws {
-#if !arch(x86_64)
-        throw XCTSkip("Unsupported architecture")
-#else
-
         let assertionError = catchBadInstruction {
             _ = SearchResultType(coreResultTypes: [.place, .unknown])
         }
         XCTAssertNotNil(assertionError)
-
-#endif
     }
 
     func testInappropriateTypesInInit() {
@@ -86,10 +74,6 @@ extension SearchResultTypeTests {
     }
 
     func testDecodableWithCorruptedData() throws {
-#if !arch(x86_64)
-        throw XCTSkip("Unsupported architecture")
-#else
-
         let fakeObject = SearchRequestOptions(query: "query", proximity: .sample1)
 
         let encoder = JSONEncoder()
@@ -101,7 +85,5 @@ extension SearchResultTypeTests {
             _ = try! decoder.decode(SearchResultType.self, from: data)
         }
         XCTAssertNotNil(assertionError)
-
-#endif
     }
 }
