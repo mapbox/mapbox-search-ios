@@ -1,24 +1,23 @@
-// Copyright © 2022 Mapbox. All rights reserved.
-
-import UIKit
 import MapboxSearch
+import UIKit
 
 final class AddressAutofillMainViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var messageLabel: UILabel!
-    
+
     private lazy var addressAutofill = AddressAutofill()
-    
+
     private var cachedSuggestions: [AddressAutofill.Suggestion] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         configureUI()
     }
 }
 
 // MARK: - UISearchResultsUpdating
+
 extension AddressAutofillMainViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard
@@ -26,19 +25,19 @@ extension AddressAutofillMainViewController: UISearchResultsUpdating {
             let query = AddressAutofill.Query(value: text)
         else {
             cachedSuggestions = []
-            
+
             reloadData()
             return
         }
-        
+
         addressAutofill.suggestions(for: query) { [weak self] result in
-            guard let self = self else { return }
-            
+            guard let self else { return }
+
             switch result {
             case .success(let suggestions):
                 self.cachedSuggestions = suggestions
                 self.reloadData()
-                
+
             case .failure(let error):
                 print(error)
             }
@@ -47,21 +46,22 @@ extension AddressAutofillMainViewController: UISearchResultsUpdating {
 }
 
 // MARK: - UITableViewDataSource & UITableViewDelegate
+
 extension AddressAutofillMainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         cachedSuggestions.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "suggestion-tableview-cell"
-        
+
         let tableViewCell: UITableViewCell
         if let cachedTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
             tableViewCell = cachedTableViewCell
         } else {
             tableViewCell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
         }
-        
+
         let suggestion = cachedSuggestions[indexPath.row]
 
         tableViewCell.textLabel?.text = suggestion.name
@@ -70,10 +70,10 @@ extension AddressAutofillMainViewController: UITableViewDataSource, UITableViewD
         tableViewCell.detailTextLabel?.text = suggestion.formattedAddress
         tableViewCell.detailTextLabel?.textColor = UIColor.darkGray
         tableViewCell.detailTextLabel?.numberOfLines = 2
-        
+
         return tableViewCell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
@@ -88,28 +88,29 @@ extension AddressAutofillMainViewController: UITableViewDataSource, UITableViewD
             }
         }
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         60
     }
 }
 
 // MARK: - Private
-private extension AddressAutofillMainViewController {
-    func reloadData() {
+
+extension AddressAutofillMainViewController {
+    private func reloadData() {
         messageLabel.isHidden = !cachedSuggestions.isEmpty
         tableView.isHidden = cachedSuggestions.isEmpty
 
         tableView.reloadData()
     }
-    
-    func configureUI() {
+
+    private func configureUI() {
         configureSearchController()
         configureTableView()
         configureMessageLabel()
     }
-    
-    func configureSearchController() {
+
+    private func configureSearchController() {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -118,17 +119,19 @@ private extension AddressAutofillMainViewController {
 
         navigationItem.searchController = searchController
     }
-    
-    func configureMessageLabel() {
-        messageLabel.text = "Type at least \(AddressAutofill.Query.Requirements.queryLength) symbols to get Address Autofill suggestions"
+
+    private func configureMessageLabel() {
+        messageLabel
+            .text =
+            "Type at least \(AddressAutofill.Query.Requirements.queryLength) symbols to get Address Autofill suggestions"
     }
-    
-    func configureTableView() {
+
+    private func configureTableView() {
         tableView.tableFooterView = UIView(frame: .zero)
-        
+
         tableView.delegate = self
         tableView.dataSource = self
-        
+
         tableView.isHidden = true
     }
 }

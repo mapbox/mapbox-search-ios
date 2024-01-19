@@ -1,5 +1,5 @@
-@testable import MapboxSearch
 import CoreLocation
+@testable import MapboxSearch
 
 struct TestDataProviderRecord: IndexableRecord, SearchResult {
     var type: SearchResultType

@@ -1,4 +1,4 @@
 import Foundation
 
 /// Suggestion of the Query type
-public protocol SearchQuerySuggestion: SearchSuggestion { }
+public protocol SearchQuerySuggestion: SearchSuggestion {}

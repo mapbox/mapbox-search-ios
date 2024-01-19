@@ -33,20 +33,20 @@ public class ServiceProvider: ServiceProviderProtocol {
     public static var customBaseURL: String? {
         Bundle.main.object(forInfoDictionaryKey: baseURLPlistKey) as? String
     }
-    
+
     /// LocalDataProvider for favorites records
     public let localFavoritesProvider = FavoritesProvider()
     /// LocalDataProvider for history records
     public let localHistoryProvider = HistoryProvider()
     /// MapboxMobileEvents manager for analytics usage
     public let eventsManager = EventsManager()
-    
+
     /// Responsible for sending feedback related events.
     public private(set) lazy var feedbackManager = FeedbackManager(eventsManager: eventsManager)
-    
+
     /// Shared instance of ServiceProvider
     public static let shared = ServiceProvider()
-    
+
     var dataLayerProviders: [IndexableDataProvider] { [localHistoryProvider, localFavoritesProvider] }
 }
 

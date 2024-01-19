@@ -1,8 +1,6 @@
-// Copyright © 2023 Mapbox. All rights reserved.
-
-import XCTest
 import CoreLocation
 @testable import MapboxSearch
+import XCTest
 
 final class AddressAutofillIntegrationTests: MockServerTestCase {
     private var addressAutofill: AddressAutofill!
@@ -15,7 +13,7 @@ final class AddressAutofillIntegrationTests: MockServerTestCase {
             locationProvider: DefaultLocationProvider()
         )
     }
-    
+
     func testSelectSuggestion() throws {
         let expectation = XCTestExpectation(description: "Expecting results")
 
@@ -47,7 +45,7 @@ final class AddressAutofillIntegrationTests: MockServerTestCase {
             region: "California",
             country: "United States"
         )
-        let expectedAddressComponents = try! expectedAddress.toAutofillComponents()
+        let expectedAddressComponents = try expectedAddress.toAutofillComponents()
 
         let actualSuggestion = try! XCTUnwrap(suggestion, "Should return non-nil suggestion")
 
@@ -58,7 +56,10 @@ final class AddressAutofillIntegrationTests: MockServerTestCase {
             case .success(let resolvedSuggestion):
                 XCTAssertEqual(resolvedSuggestion.name, "701 Steiner Street")
                 XCTAssertEqual(resolvedSuggestion.formattedAddress, expectedAddress.formattedAddress(style: .full))
-                XCTAssertEqual(resolvedSuggestion.coordinate, CLLocationCoordinate2D(latitude: 37.784592, longitude: -122.434671))
+                XCTAssertEqual(
+                    resolvedSuggestion.coordinate,
+                    CLLocationCoordinate2D(latitude: 37.784592, longitude: -122.434671)
+                )
                 XCTAssertEqual(resolvedSuggestion.addressComponents, expectedAddressComponents)
             case .failure:
                 XCTFail("Should return success")
@@ -76,7 +77,7 @@ final class AddressAutofillIntegrationTests: MockServerTestCase {
 
         var suggestion: AddressAutofill.Suggestion?
         let query = CLLocationCoordinate2D(latitude: 37.784592, longitude: -122.434671)
-        addressAutofill.suggestions(for: query)  { result in
+        addressAutofill.suggestions(for: query) { result in
             switch result {
             case .success(let success):
                 XCTAssertEqual(success.first?.name, "701 Steiner Street")
@@ -112,7 +113,10 @@ final class AddressAutofillIntegrationTests: MockServerTestCase {
             case .success(let resolvedSuggestion):
                 XCTAssertEqual(resolvedSuggestion.name, "701 Steiner Street")
                 XCTAssertEqual(resolvedSuggestion.formattedAddress, expectedAddress.formattedAddress(style: .full))
-                XCTAssertEqual(resolvedSuggestion.coordinate, CLLocationCoordinate2D(latitude: 37.784592, longitude: -122.434671))
+                XCTAssertEqual(
+                    resolvedSuggestion.coordinate,
+                    CLLocationCoordinate2D(latitude: 37.784592, longitude: -122.434671)
+                )
                 XCTAssertEqual(resolvedSuggestion.addressComponents, expectedAddressComponents)
             case .failure:
                 XCTFail("Should return success")

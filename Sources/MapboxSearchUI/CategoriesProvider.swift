@@ -4,12 +4,12 @@ import Foundation
 public class CategoriesProvider {
     /// List of all available categories.
     public let categories: [SearchCategory]
-    
+
     /// Shared instance of ``CategoriesProvider``
     public static let shared = CategoriesProvider()
-    
+
     private init() {
-        categories = [
+        self.categories = [
             .restaurant,
             .bar,
             .coffeeShop,
@@ -31,7 +31,7 @@ public class CategoriesProvider {
             .autoRepair,
             .atm,
             .hospital,
-            .emergencyRoom
+            .emergencyRoom,
         ]
     }
 }

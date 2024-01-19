@@ -11,6 +11,11 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Core] Updated to Xcode 14.1 minimum version
 - [Core] Updated deployment target to iOS 12
 
+- [Core] Update SwiftLint to 0.54.0 and SwiftFormat to 0.52.11
+- [Core] Fix project compliance with linter, reformat Swift files
+- [Core] Add Brewfile for project
+- [Core] Remove legacy `MGLMapboxAccessToken`.
+
 - [SearchExample] Update Examples/SearchExample.xcworkspace to use the local package (parent directory) for MapboxSearch.
 
 - [Address Autofill] Suggestions no longer perform a `retrieve` call.
@@ -40,89 +45,89 @@ Guide: https://keepachangelog.com/en/1.0.0/
 ## 1.0.0-rc.8 - 2023-10-09
 
 ### Fixed
-- [Core]: removed unnecessary log statement that didn't respect the `LoggerLevel` setting.
+- [Core] removed unnecessary log statement that didn't respect the `LoggerLevel` setting.
 
 ## 1.0.0-rc.7 - 2023-07-13
 
 ### Added
-- [PlaceAutocomplete]: added `formattedAddress` function to perform default address formatting.
-- [PlaceAutocomplete]: added `countryISO1` and `countryISO2` properties in the resul's address.
+- [PlaceAutocomplete] added `formattedAddress` function to perform default address formatting.
+- [PlaceAutocomplete] added `countryISO1` and `countryISO2` properties in the resul's address.
 
 ### Fixed
-- [Core]: Fixed street name capitalization for names with numbers.
+- [Core] Fixed street name capitalization for names with numbers.
 
 ### Breaking changes
-- [PlaceAutocomplete]: replaced `Address` type of the `Result` to the `AddressComponents`.
+- [PlaceAutocomplete] replaced `Address` type of the `Result` to the `AddressComponents`.
 
 ## 1.0.0-rc.6 - 2023-06-29
 
 ### Fixed
-- [Core]: removed assertion for unsupported search result types.
+- [Core] removed assertion for unsupported search result types.
 
 ## 1.0.0-rc.5 - 2023-06-26
 
 ### Fixed
-- [Place Autocomplete]: request all possible `PlaceType` values in case if types were not specified in a search query options.
-- [Place Autocomplete]: fixed an issue when reverevse geocoding suggestion returns error on `select` request.
-- [Address Autofill]: fixed reverse geocoding query, removed unsupported types from query.
+- [Place Autocomplete] request all possible `PlaceType` values in case if types were not specified in a search query options.
+- [Place Autocomplete] fixed an issue when reverevse geocoding suggestion returns error on `select` request.
+- [Address Autofill] fixed reverse geocoding query, removed unsupported types from query.
 
 ## 1.0.0-rc.4 - 2023-05-19
 
 ### Added
-- [Place Autocomplete]: added `estimatedTime` property to the `PlaceAutocomplete.Suggestion` and `PlaceAutocomplete.Result`.
-- [Place Autocomplete]: added `navigationProfile` property to the `PlaceAutocomplete.Options` to determine how distance and estimatedTime are calculated.
+- [Place Autocomplete] added `estimatedTime` property to the `PlaceAutocomplete.Suggestion` and `PlaceAutocomplete.Result`.
+- [Place Autocomplete] added `navigationProfile` property to the `PlaceAutocomplete.Options` to determine how distance and estimatedTime are calculated.
 
 ### Fixed
 - [Place Autocomplete] fixed a bug with missing `PlaceAutocomplete.Suggestion.distance`.
-- [Core]: fixed possibly incorrect data about POI opening hours. Fixed weekday conversion to the Gregorian calendar with Sunday as the first weekday.
+- [Core] fixed possibly incorrect data about POI opening hours. Fixed weekday conversion to the Gregorian calendar with Sunday as the first weekday.
 
 ### Breaking changes
-- [Address Autofill]: `AddressAutofill.Suggestion.result()` method has been removed.
+- [Address Autofill] `AddressAutofill.Suggestion.result()` method has been removed.
 Use `AddressAutofill.select(AddressAutofill.Suggestion)` instead. Note that developers must call this method when a user selects a search suggestion in the UI.
 
 ## 1.0.0-rc.3 - 2023-04-21
 
 ### Added
-- [Place Autocomplete]: added `routablePoints` property to the `PlaceAutocomplete.Suggestion`.
+- [Place Autocomplete] added `routablePoints` property to the `PlaceAutocomplete.Suggestion`.
 
 ### Breaking changes
-- [Place Autocomplete]: `PlaceAutocomplete.Suggestion.result()` method has been removed.
+- [Place Autocomplete] `PlaceAutocomplete.Suggestion.result()` method has been removed.
 Use `PlaceAutocomplete.select(PlaceAutocomplete.Suggestion)` instead. Note that developers must call this method when a user selects a search suggestion in the UI.
 
 ### Updated
-- [Tech]: added SDK version to the Telemetry User Agent.
+- [Tech] added SDK version to the Telemetry User Agent.
 
 ## 1.0.0-rc.2 - 2023-03-17
 
 ### Fixed
-- [Core]: partially fixed a bug when indexable records couldn't be matched with corresponding search results which caused duplicated search results.
+- [Core] partially fixed a bug when indexable records couldn't be matched with corresponding search results which caused duplicated search results.
 
 ## [1.0.0-rc.1] - 2023-02-19
 
 ## [1.0.0-beta.42] - 2023-02-06
 
 ### Added
-- [Discover]: added Discover use case for searching POIs nearby/in region by a category.
+- [Discover] added Discover use case for searching POIs nearby/in region by a category.
 
 ## [1.0.0-beta.41] - 2023-01-17
 
 ### Updated
-- [Autofill]: added example of the Address Autofill reverse geocoding requests.
+- [Autofill] added example of the Address Autofill reverse geocoding requests.
 
 ### Fixed
-- [Autofill]: fixed retrieving reverse geocoding suggestions.
+- [Autofill] fixed retrieving reverse geocoding suggestions.
 
 ## [1.0.0-beta.40] - 2022-12-5
 
 ### Updated
-- [Tech]: added version range support for `MapboxCommon` dependency in `SPM`/`Cocoapods`.
+- [Tech] added version range support for `MapboxCommon` dependency in `SPM`/`Cocoapods`.
 
 ### Fixed
-- [Autofill]: fixed retrieving reverse geocoding suggestions.
+- [Autofill] fixed retrieving reverse geocoding suggestions.
 
 ## [1.0.0-beta.39] - 2022-11-14
 
-- [Common]: fixed errors related to Xcode 14, updated unit tests and removed dead code.
+- [Common] fixed errors related to Xcode 14, updated unit tests and removed dead code.
 
 ## [1.0.0-beta.38] - 2022-10-26
 
@@ -130,43 +135,43 @@ Use `PlaceAutocomplete.select(PlaceAutocomplete.Suggestion)` instead. Note that 
 - Fixed the issue when `defaultSearchOptions` were ignored for the `CategorySearchEngine`.
 
 ### Updated
-- [Autofill]: `name` field exposed for the `AddressAutofill.Suggestion`.
-- [Autofill]: exposed query requirements constant in `AddressAutofill.Query.Requirements`.
-- [Autofill]: added example to the Demo project
+- [Autofill] `name` field exposed for the `AddressAutofill.Suggestion`.
+- [Autofill] exposed query requirements constant in `AddressAutofill.Query.Requirements`.
+- [Autofill] added example to the Demo project
 
-- [Common]: added support to initialize `Language` with the `Locale` object.
-- [Common]: added support to pass `Locale` object to the `SearchOptions`. Language code will be used for a search request if present.
+- [Common] added support to initialize `Language` with the `Locale` object.
+- [Common] added support to pass `Locale` object to the `SearchOptions`. Language code will be used for a search request if present.
 
 ## [1.0.0-beta.37] - 2022-10-14
 
 ### Fixed
-- [Core]: fixed an issue related to suggestion resolving, when the request was failed in case `searchEngine.query` is changed during resolving.
-- [UI]: fixed `hospital` category icon.
+- [Core] fixed an issue related to suggestion resolving, when the request was failed in case `searchEngine.query` is changed during resolving.
+- [UI] fixed `hospital` category icon.
 
 ### Updated
-- [Autofill]: `AddressAutofill` now returns up to 10 suggestions.
-- [Autofill]: Now it is possible to provide custom implementation of `LocationProvider`.
+- [Autofill] `AddressAutofill` now returns up to 10 suggestions.
+- [Autofill] Now it is possible to provide custom implementation of `LocationProvider`.
 
 ## [1.0.0-beta.36] - 2022-09-22
 
 ### Updated
-- [Core]: updated module dependencies
+- [Core] updated module dependencies
 
 ## [1.0.0-beta.35] - 2022-08-24
 
 ### Fixed
-- [Core]: Don't use languages list as default languages parameter. Use only first languages from system settings if available.
+- [Core] Don't use languages list as default languages parameter. Use only first languages from system settings if available.
 
 ## [1.0.0-beta.34] - 2022-08-24
 
 ### Breaking changes
-- [Core]: `SearchEngine.setAccessToken(_: String)` has been removed.
+- [Core] `SearchEngine.setAccessToken(_: String)` has been removed.
 
 ### Added
-- [Core]: SearchResultType provides a new value - `block` which represents the block number. Available specifically for Japan.
+- [Core] SearchResultType provides a new value - `block` which represents the block number. Available specifically for Japan.
 
 ### Fixed
-- [UI]: fixed UIViewController presentation on SDK side. [#7 ](https://github.com/mapbox/mapbox-search-ios/issues/7)
+- [UI] fixed UIViewController presentation on SDK side. [#7 ](https://github.com/mapbox/mapbox-search-ios/issues/7)
 
 ## [1.0.0-beta.33] - 2022-07-20
 

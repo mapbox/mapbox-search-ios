@@ -1,22 +1,23 @@
-// Copyright © 2023 Mapbox. All rights reserved.
-
-import Foundation
 import CoreLocation
+import Foundation
 
 public final class Discover {
     private let searchEngine: CategorySearchEngine
     private let userActivityReporter: CoreUserActivityReporter
-    
+
     /// Basic internal initializer
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
+    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used
+    /// for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     public convenience init(
         accessToken: String? = nil,
         locationProvider: LocationProvider? = DefaultLocationProvider()
     ) {
         guard let accessToken = accessToken ?? ServiceProvider.shared.getStoredAccessToken() else {
-            fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
+            fatalError(
+                "No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key"
+            )
         }
 
         let searchEngine = CategorySearchEngine(
@@ -24,7 +25,7 @@ public final class Discover {
             locationProvider: locationProvider,
             supportSBS: true
         )
-        
+
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(
             for: CoreUserActivityReporterOptions(
                 accessToken: accessToken,
@@ -32,17 +33,17 @@ public final class Discover {
                 eventsUrl: nil
             )
         )
-        
+
         self.init(searchEngine: searchEngine, userActivityReporter: userActivityReporter)
     }
-    
+
     init(searchEngine: CategorySearchEngine, userActivityReporter: CoreUserActivityReporter) {
         self.searchEngine = searchEngine
         self.userActivityReporter = userActivityReporter
     }
 }
 
-public extension Discover {
+extension Discover {
     /// Search for places nearby the specified geographic point.
     /// - Parameters:
     ///   - query: Search query
@@ -50,14 +51,14 @@ public extension Discover {
     ///   - options: Search options
     ///   - completion: Result of the search request, one of error or value.
     ///
-    func search(
+    public func search(
         for query: Query,
         proximity: CLLocationCoordinate2D,
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
         userActivityReporter.reportActivity(forComponent: "discover-search-nearby")
-        
+
         let searchOptions = SearchOptions(
             languages: [options.language.languageCode],
             limit: options.limit,
@@ -66,7 +67,7 @@ public extension Discover {
 
         search(for: query, with: searchOptions, completion: completion)
     }
-    
+
     /// Search for places nearby the specified geographic point.
     /// - Parameters:
     ///   - query: Search query
@@ -75,7 +76,7 @@ public extension Discover {
     ///   - options: Search options
     ///   - completion: Result of the search request, one of error or value.
     ///
-    func search(
+    public func search(
         for query: Query,
         in region: BoundingBox,
         proximity: CLLocationCoordinate2D? = nil,
@@ -83,7 +84,7 @@ public extension Discover {
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
         userActivityReporter.reportActivity(forComponent: "discover-search-in-area")
-        
+
         let searchOptions = SearchOptions(
             languages: [options.language.languageCode],
             limit: options.limit,
@@ -93,7 +94,7 @@ public extension Discover {
 
         search(for: query, with: searchOptions, completion: completion)
     }
-    
+
     /// Search for places nearby the specified geographic point.
     /// - Parameters:
     ///   - query: Search query
@@ -101,14 +102,14 @@ public extension Discover {
     ///   - options: Search options
     ///   - completion: Result of the search request, one of error or value.
     ///
-    func search(
+    public func search(
         for query: Query,
         route: RouteOptions,
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
         userActivityReporter.reportActivity(forComponent: "discover-search-along-the-route")
-        
+
         let searchOptions = SearchOptions(
             languages: [options.language.languageCode],
             limit: options.limit,
@@ -120,8 +121,9 @@ public extension Discover {
 }
 
 // MARK: - Private
-private extension Discover {
-    func search(
+
+extension Discover {
+    private func search(
         for query: Query,
         with searchOptions: SearchOptions,
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
@@ -134,7 +136,7 @@ private extension Discover {
             case .success(let searchResults):
                 let discoverResults = searchResults.map(Discover.Result.from(_:))
                 completion(.success(discoverResults))
-                
+
             case .failure(let error):
                 completion(.failure(error))
             }

@@ -1,12 +1,12 @@
 class RecordsProviderInteractorNativeCore: RecordsProviderInteractor {
     private(set) var providerIdentifier: String
     private var userRecordsLayer: CoreUserRecordsLayerProtocol
-    
+
     init(userRecordsLayer: CoreUserRecordsLayerProtocol, registeredIdentifier: String) {
         self.providerIdentifier = registeredIdentifier
         self.userRecordsLayer = userRecordsLayer
     }
-    
+
     func add(record: IndexableRecord) {
         do {
             try userRecordsLayer.upsert(for: record.coreUserRecord())
@@ -14,7 +14,7 @@ class RecordsProviderInteractorNativeCore: RecordsProviderInteractor {
             _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
         }
     }
-    
+
     func add(records: [IndexableRecord]) {
         do {
             let coreRecords = records.map { $0.coreUserRecord() }
@@ -23,7 +23,7 @@ class RecordsProviderInteractorNativeCore: RecordsProviderInteractor {
             _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
         }
     }
-    
+
     func update(record: IndexableRecord) {
         do {
             try userRecordsLayer.upsert(for: record.coreUserRecord())
@@ -31,7 +31,7 @@ class RecordsProviderInteractorNativeCore: RecordsProviderInteractor {
             _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
         }
     }
-    
+
     func delete(identifier: String) {
         do {
             try userRecordsLayer.remove(forId: identifier)
@@ -39,6 +39,7 @@ class RecordsProviderInteractorNativeCore: RecordsProviderInteractor {
             _Logger.searchSDK.error("Failed to call \(#function) due to error: \(error)", category: .userRecords)
         }
     }
+
     func delete(identifiers: [String]) {
         do {
             try userRecordsLayer.removeMulti(forIds: identifiers)

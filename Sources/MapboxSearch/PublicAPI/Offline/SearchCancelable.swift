@@ -6,14 +6,14 @@ public protocol SearchCancelable: AnyObject {
     func cancel()
 }
 
-internal final class CommonCancelableWrapper: SearchCancelable {
+final class CommonCancelableWrapper: SearchCancelable {
     private let cancelable: MapboxCommon.Cancelable
 
-    internal init(_ cancelable: MapboxCommon.Cancelable) {
+    init(_ cancelable: MapboxCommon.Cancelable) {
         self.cancelable = cancelable
     }
 
-    internal func cancel() {
+    func cancel() {
         cancelable.cancel()
     }
 }

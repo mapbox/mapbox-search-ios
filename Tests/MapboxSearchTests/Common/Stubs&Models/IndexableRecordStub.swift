@@ -12,11 +12,11 @@ struct IndexableRecordStub: IndexableRecord {
             coordinateCodable = .init(newValue)
         }
     }
-    
+
     var coordinateCodable: CLLocationCoordinate2DCodable
     var address: Address?
     var additionalTokens: Set<String>?
-    
+
     var asResolved: SearchResult {
         SearchResultStub(
             id: id,
@@ -31,16 +31,28 @@ struct IndexableRecordStub: IndexableRecord {
             metadata: nil
         )
     }
-    
-    init(id: String, name: String, coordinate: CLLocationCoordinate2DCodable, address: Address? = nil, additionalTokens: Set<String>? = nil) {
+
+    init(
+        id: String,
+        name: String,
+        coordinate: CLLocationCoordinate2DCodable,
+        address: Address? = nil,
+        additionalTokens: Set<String>? = nil
+    ) {
         self.id = id
         self.name = name
         self.coordinateCodable = coordinate
         self.address = address
         self.additionalTokens = additionalTokens
     }
-    
+
     init() {
-        self.init(id: UUID().uuidString, name: UUID().uuidString, coordinate: .sample1, address: .fullAddress, additionalTokens: ["unit-test", "unit test", "tests"])
+        self.init(
+            id: UUID().uuidString,
+            name: UUID().uuidString,
+            coordinate: .sample1,
+            address: .fullAddress,
+            additionalTokens: ["unit-test", "unit test", "tests"]
+        )
     }
 }

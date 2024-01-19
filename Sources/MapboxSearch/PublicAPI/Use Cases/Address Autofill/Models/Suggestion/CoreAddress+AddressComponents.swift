@@ -1,5 +1,3 @@
-// Copyright © 2023 Mapbox. All rights reserved.
-
 import Foundation
 
 extension CoreAddress {
@@ -29,5 +27,4 @@ extension CoreAddress {
             others: Array(components.dropFirst())
         )
     }
-
 }

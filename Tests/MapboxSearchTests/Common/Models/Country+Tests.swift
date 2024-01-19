@@ -1,7 +1,5 @@
-// Copyright © 2022 Mapbox. All rights reserved.
-
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 final class CountryTests: XCTestCase {
     func testThatCountryIsInitializedWithCorrectIdentifier() {
@@ -10,11 +8,11 @@ final class CountryTests: XCTestCase {
 
         XCTAssertNotNil(uppercasedIdentifier)
         XCTAssertTrue(uppercasedIdentifier?.countryCode == "us")
-        
+
         XCTAssertNotNil(lowercasedIdentifier)
         XCTAssertTrue(lowercasedIdentifier?.countryCode == "us")
     }
-    
+
     func testThatCountryIsNotInitializedWithIncorrectIdentifier() {
         let invalidIdentifier = Country(countryCode: "invalid")
 
