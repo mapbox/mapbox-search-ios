@@ -13,7 +13,7 @@ extension CoreSearchResponseStub {
             )
         )
     )
-    
+
     static func failureSample(error: NSError) -> CoreSearchResponseStub {
         CoreSearchResponseStub(
             id: 377,
@@ -27,13 +27,17 @@ extension CoreSearchResponseStub {
             )
         )
     }
-    
-    static func successSample(id: UInt32 = 8253, options: CoreRequestOptions = .sample1, results: [CoreSearchResultProtocol]) -> CoreSearchResponseStub {
+
+    static func successSample(
+        id: UInt32 = 8253,
+        options: CoreRequestOptions = .sample1,
+        results: [CoreSearchResultProtocol]
+    ) -> CoreSearchResponseStub {
         CoreSearchResponseStub(
             id: id,
             options: .sample1,
             result: .success(
-                results.map { $0.asCoreSearchResult }
+                results.map(\.asCoreSearchResult)
             )
         )
     }

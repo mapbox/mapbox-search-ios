@@ -2,7 +2,7 @@ import Foundation
 
 protocol CoreUserRecordsLayerProtocol {
     var name: String { get }
-    
+
     func upsert(for record: CoreUserRecord) throws
     func upsertMulti(forRecord: [CoreUserRecord]) throws
 

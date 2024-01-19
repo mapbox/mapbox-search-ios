@@ -4,4 +4,4 @@ protocol CoreImageInfoProtocol {
     var height: UInt32 { get }
 }
 
-extension CoreImageInfo: CoreImageInfoProtocol { }
+extension CoreImageInfo: CoreImageInfoProtocol {}

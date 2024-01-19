@@ -10,12 +10,12 @@ struct EventAppMetadata {
 extension EventAppMetadata {
     var dictionary: [String: String]? {
         var dict = [String: String]()
-        
+
         dict["name"] = name
         dict["version"] = version
         dict["userId"] = userId
         dict["sessionId"] = sessionId
-        
-        return dict.keys.isEmpty ? nil: dict
+
+        return dict.keys.isEmpty ? nil : dict
     }
 }

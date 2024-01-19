@@ -1,5 +1,5 @@
-@testable import MapboxSearch
 import CoreLocation
+@testable import MapboxSearch
 
 class CoreSearchResultStub: CoreSearchResultProtocol {
     init(
@@ -44,7 +44,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         self.metadata = metadata
         self.estimatedTime = estimatedTime
     }
-    
+
     convenience init(dataProviderRecord: TestDataProviderRecord) {
         self.init(
             id: dataProviderRecord.id,
@@ -54,7 +54,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
             languages: ["en"]
         )
     }
-    
+
     var id: String
     var mapboxId: String?
     var resultAccuracy: CoreAccuracy?
@@ -76,22 +76,17 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
     var distance: NSNumber?
     var metadata: CoreResultMetadata?
     var estimatedTime: Measurement<UnitDuration>?
-    
+
     var distanceToProximity: CLLocationDistance? {
-        distance.map({ $0.doubleValue })
+        distance.map(\.doubleValue)
     }
-    
+
     var dataLayerIdentifier: String { customDataLayerIdentifier ?? getLayerIdentifier() }
     var customDataLayerIdentifier: String?
-    
-    
+
     func getLayerIdentifier() -> String {
         switch type {
-        case .place:
-            fallthrough
-        case .address:
-            fallthrough
-        case .poi:
+        case .place, .address, .poi:
             return SearchEngine.providerIdentifier
         default:
             fatalError("No identifier")
@@ -102,49 +97,51 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
 extension CoreSearchResultStub: Equatable {
     static func == (lhs: CoreSearchResultStub, rhs: CoreSearchResultStub) -> Bool {
         return lhs.id == rhs.id
-        && lhs.mapboxId == rhs.mapboxId
-        && lhs.type == rhs.type
-        && lhs.names == rhs.names
-        && lhs.languages == rhs.languages
-        && lhs.addresses == rhs.addresses
-        && lhs.centerLocation == rhs.centerLocation
-        && lhs.categories == rhs.categories
-        && lhs.icon == rhs.icon
-        && lhs.layer == rhs.layer
-        && lhs.userRecordID == rhs.userRecordID
-        && lhs.action == rhs.action
-        && lhs.serverIndex == rhs.serverIndex
-        && lhs.distance == rhs.distance
+            && lhs.mapboxId == rhs.mapboxId
+            && lhs.type == rhs.type
+            && lhs.names == rhs.names
+            && lhs.languages == rhs.languages
+            && lhs.addresses == rhs.addresses
+            && lhs.centerLocation == rhs.centerLocation
+            && lhs.categories == rhs.categories
+            && lhs.icon == rhs.icon
+            && lhs.layer == rhs.layer
+            && lhs.userRecordID == rhs.userRecordID
+            && lhs.action == rhs.action
+            && lhs.serverIndex == rhs.serverIndex
+            && lhs.distance == rhs.distance
     }
 }
 
 extension CoreSearchResultProtocol {
     var asCoreSearchResult: CoreSearchResult {
-        CoreSearchResult(id: id,
-                         mapboxId: mapboxId,
-                         types: resultTypes.map({ NSNumber(value: $0.rawValue) }),
-                         names: names,
-                         languages: languages,
-                         addresses: addresses,
-                         descrAddress: addressDescription,
-                         matchingName: matchingName,
-                         fullAddress: nil,
-                         distance: distance,
-                         eta: nil,
-                         center: centerLocation.map { Coordinate2D(value: $0.coordinate) },
-                         accuracy: 100,
-                         routablePoints: routablePoints,
-                         categories: categories,
-                         categoryIDs: [],
-                         brand: [],
-                         brandID: nil,
-                         icon: icon,
-                         metadata: nil,
-                         externalIDs: nil,
-                         layer: layer,
-                         userRecordID: userRecordID,
-                         userRecordPriority: 100,
-                         action: action,
-                         serverIndex: serverIndex)
+        CoreSearchResult(
+            id: id,
+            mapboxId: mapboxId,
+            types: resultTypes.map { NSNumber(value: $0.rawValue) },
+            names: names,
+            languages: languages,
+            addresses: addresses,
+            descrAddress: addressDescription,
+            matchingName: matchingName,
+            fullAddress: nil,
+            distance: distance,
+            eta: nil,
+            center: centerLocation.map { Coordinate2D(value: $0.coordinate) },
+            accuracy: 100,
+            routablePoints: routablePoints,
+            categories: categories,
+            categoryIDs: [],
+            brand: [],
+            brandID: nil,
+            icon: icon,
+            metadata: nil,
+            externalIDs: nil,
+            layer: layer,
+            userRecordID: userRecordID,
+            userRecordPriority: 100,
+            action: action,
+            serverIndex: serverIndex
+        )
     }
 }

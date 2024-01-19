@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+
+set -eu
+
+# Check if folder exist
+
+hook_folder=".git/hooks"
+
+if [ -d "${hook_folder}" ]; then
+ echo "Directory ${hook_folder} exists"
+else
+ echo "Directory not found. Creating ${hook_folder} directory"
+ mkdir -p "${hook_folder}"
+fi
+
+# Link the pre-commit hook
+
+pre_commit=".git/hooks/pre-commit"
+
+if [ -h "${pre_commit}" ]; then
+  unlink "${pre_commit}"
+elif [ -f "${pre_commit}" ]; then
+  echo "${pre_commit} exists and isn't symlinked. Making a backup…"
+  mv -v "${pre_commit}" "${pre_commit}.bak.$(date +%s)"
+fi
+
+ln -s -v "../../Scripts/pre-commit-hook" "${pre_commit}"

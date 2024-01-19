@@ -1,17 +1,15 @@
-import XCTest
 import CoreLocation
 @testable import MapboxSearch
+import XCTest
 
 class CategorySearchEngineIntegrationTests: MockServerTestCase {
-    
     lazy var searchEngine = CategorySearchEngine(
         accessToken: "access-token",
         locationProvider: DefaultLocationProvider(),
         supportSBS: true
     )
-    
+
     func testCategorySearch() throws {
-        
         try server.setResponse(.categoryCafe)
 
         let expectation = XCTestExpectation(description: "Expecting results")
@@ -27,11 +25,10 @@ class CategorySearchEngineIntegrationTests: MockServerTestCase {
         }
         wait(for: [expectation], timeout: 10)
     }
-    
+
     func testCategorySearchFailed() throws {
-        
         try server.setResponse(.categoryCafe, statusCode: 500)
-        
+
         let expectation = XCTestExpectation(description: "Expecting failure")
         searchEngine.search(categoryName: "ATM") { result in
             switch result {

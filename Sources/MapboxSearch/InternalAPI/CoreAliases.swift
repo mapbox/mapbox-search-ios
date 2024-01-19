@@ -1,6 +1,6 @@
+@_implementationOnly import MapboxCommon_Private
 /// https://forums.swift.org/t/update-on-implementation-only-imports/26996
 @_implementationOnly import MapboxCoreSearch
-@_implementationOnly import MapboxCommon_Private
 @_implementationOnly import MapboxCoreSearch_Private
 
 // Note: This file included in MapboxSearch and MapboxSearchTests targets
@@ -43,4 +43,5 @@ typealias CoreExpected = MapboxCommon_Private.Expected
 typealias CoreSdkInformation = MapboxCommon_Private.SdkInformation
 
 // MARK: - Public
+
 @_exported import MapboxCommon

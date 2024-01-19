@@ -2,7 +2,7 @@ import CoreLocation
 @testable import MapboxSearch
 
 extension CoreBoundingBox {
-    open override func isEqual(_ object: Any?) -> Bool {
+    override open func isEqual(_ object: Any?) -> Bool {
         if let rhs = object as? CoreBoundingBox {
             return min == rhs.min && max == rhs.max
         } else {
