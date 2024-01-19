@@ -117,6 +117,7 @@ public class _Logger {
 #endif
         default:
 
+            // swiftlint:disable:next dont_use_print
             print("\(logLevel):\(category.rawValue) >>>", message)
         }
     }

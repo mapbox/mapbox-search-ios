@@ -428,11 +428,13 @@ extension SearchEngine {
             .compactMap { $0 as? CoreResponseProvider }
             .filter { $0.originalResponse.coreResult.action?.multiRetrievable == true }
 
+        // let coreSearchResults = suggestionsImpls.compactMap { $0.originalResponse.coreResult }
+
         guard suggestionsImpls.isEmpty == false else {
             return
         }
         let options = suggestionsImpls[0].originalResponse.requestOptions
-        let coreSearchResults = suggestionsImpls.compactMap(\.originalResponse.coreResult)
+        let coreSearchResults = suggestionsImpls.map(\.originalResponse.coreResult)
 
         engine.batchResolve(results: coreSearchResults, with: options) { response in
             self.processBatchResponse(response)
