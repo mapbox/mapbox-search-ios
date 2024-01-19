@@ -52,17 +52,16 @@ jobs:
         # For more details on CodeQL's query packs, refer to: https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
         # queries: security-extended,security-and-quality
 
-    - run:
-        name: Prepare .netrc file
-        command: |
-          echo "machine api.mapbox.com" >> ~/.netrc
-          echo "login mapbox" >> ~/.netrc
-          echo "password $SDK_REGISTRY_TOKEN" >> ~/.netrc
-          chmod 0600 ~/.netrc
+    - name: Prepare .netrc file
+      run: |
+        echo "machine api.mapbox.com" >> ~/.netrc
+        echo "login mapbox" >> ~/.netrc
+        echo "password $SDK_REGISTRY_TOKEN" >> ~/.netrc
+        chmod 0600 ~/.netrc
 
     - run: |
         echo "Run, Build Application using script"
-        ./scirpts/build_spm_sample.sh
+        ./scripts/build_spm_sample.sh
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
