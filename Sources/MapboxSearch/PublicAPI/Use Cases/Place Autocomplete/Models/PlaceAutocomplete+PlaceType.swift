@@ -1,8 +1,9 @@
 import Foundation
 
-public extension PlaceAutocomplete {
-    /// Values to filter Place Autocomplete results to include only a subset (one or more) of the available feature types.
-    enum PlaceType: Equatable {
+extension PlaceAutocomplete {
+    /// Values to filter Place Autocomplete results to include only a subset (one or more) of the available feature
+    /// types.
+    public enum PlaceType: Equatable {
         /// Poi query type.
         case POI
         case administrativeUnit(AdministrativeUnit)

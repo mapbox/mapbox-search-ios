@@ -1,7 +1,7 @@
-import XCTest
 import CoreLocation
-@testable import MapboxSearch
 import CwlPreconditionTesting
+@testable import MapboxSearch
+import XCTest
 
 class SearchEngineTests: XCTestCase {
     var delegate = SearchEngineDelegateStub()
@@ -31,7 +31,7 @@ class SearchEngineTests: XCTestCase {
         searchEngine.search(query: "sample-1")
         wait(for: [expectation], timeout: 10)
         if case .success(let results) = response.process() {
-            XCTAssertEqual(results.suggestions.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
+            XCTAssertEqual(results.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
         } else {
             XCTFail("impossible")
         }
@@ -53,7 +53,7 @@ class SearchEngineTests: XCTestCase {
         searchEngine.search(query: "sample-1")
         wait(for: [expectation], timeout: 10)
         if case .success(let results) = response.process() {
-            XCTAssertEqual(results.suggestions.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
+            XCTAssertEqual(results.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
         } else {
             XCTFail("impossible")
         }
@@ -74,7 +74,7 @@ class SearchEngineTests: XCTestCase {
         let point = CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0)
         searchEngine.reverseGeocoding(options: .init(point: point)) { result in
             if case .success(let reverseGeocodingResults) = result {
-                XCTAssertEqual(results.map({ $0.id }), reverseGeocodingResults.map({ $0.id }))
+                XCTAssertEqual(results.map(\.id), reverseGeocodingResults.map(\.id))
             } else {
                 XCTFail("impossible")
             }
@@ -97,7 +97,7 @@ class SearchEngineTests: XCTestCase {
         searchEngine.search(query: coreResponse.request.query)
         wait(for: [expectation], timeout: 10)
 
-        XCTAssertEqual([], searchEngine.suggestions.map({ $0.id }))
+        XCTAssertEqual([], searchEngine.suggestions.map(\.id))
     }
 
     func testIgnoreResultsForOutdatedSearchQuery() throws {
@@ -116,7 +116,7 @@ class SearchEngineTests: XCTestCase {
         searchEngine.search(query: "sample-1")
         wait(for: [updateExpectation], timeout: 10)
         if case .success(let results) = response.process() {
-            XCTAssertEqual(results.suggestions.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
+            XCTAssertEqual(results.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
         } else {
             XCTFail("impossible")
         }
@@ -124,11 +124,11 @@ class SearchEngineTests: XCTestCase {
         engine.searchResponse = CoreSearchResponseStub.successSample(options: .sample2, results: [])
 
         let expetations = [delegate.updateExpectation, delegate.successExpectation, delegate.errorExpectation]
-        expetations.forEach({ $0.isInverted = true })
+        expetations.forEach { $0.isInverted = true }
         searchEngine.search(query: "sample-2")
         wait(for: expetations, timeout: 1)
         if case .success(let results) = response.process() {
-            XCTAssertEqual(results.suggestions.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
+            XCTAssertEqual(results.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
         } else {
             XCTFail("impossible")
         }
@@ -151,17 +151,17 @@ class SearchEngineTests: XCTestCase {
         wait(for: [updateExpectation], timeout: 10)
 
         if case .success(let results) = response.process() {
-            XCTAssertEqual(results.suggestions.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
+            XCTAssertEqual(results.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
         } else {
             XCTFail("impossible")
         }
 
         engine.searchResponse = CoreSearchResponseStub.failureSample
         let expectations = [delegate.updateExpectation, delegate.successExpectation, delegate.errorExpectation]
-        expectations.forEach({ $0.isInverted = true })
+        expectations.forEach { $0.isInverted = true }
         searchEngine.search(query: "new_query")
         wait(for: expectations, timeout: 1)
-        XCTAssertEqual(results.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
+        XCTAssertEqual(results.map(\.id), searchEngine.suggestions.map(\.id))
     }
 
     func testResolvedSearchResult() throws {
@@ -181,7 +181,7 @@ class SearchEngineTests: XCTestCase {
         searchEngine.search(query: "sample-1")
         wait(for: [updateExpectation], timeout: 10)
         if case .success(let results) = response.process() {
-            XCTAssertEqual(results.suggestions.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
+            XCTAssertEqual(results.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
         } else {
             XCTFail("impossible")
         }
@@ -197,7 +197,7 @@ class SearchEngineTests: XCTestCase {
 
     func testDataLayerProvider() throws {
         let results = CoreSearchResultStub.makeMixedResultsSet()
-        results.forEach({ $0.customDataLayerIdentifier = DataLayerProviderStub.providerIdentifier })
+        results.forEach { $0.customDataLayerIdentifier = DataLayerProviderStub.providerIdentifier }
         let records = [IndexableRecordStub(), IndexableRecordStub(), IndexableRecordStub()]
         let dataLayerProvider = DataLayerProviderStub(records: records)
 
@@ -218,7 +218,7 @@ class SearchEngineTests: XCTestCase {
         searchEngine.search(query: "sample-1")
         wait(for: [updateExpectation], timeout: 10)
         if case .success(let results) = response.process() {
-            XCTAssertEqual(results.suggestions.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
+            XCTAssertEqual(results.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
         } else {
             XCTFail("impossible")
         }
@@ -253,7 +253,7 @@ class SearchEngineTests: XCTestCase {
         searchEngine.select(suggestions: suggestions)
 
         wait(for: [expectation], timeout: 10)
-        XCTAssertEqual(results.map { $0.id }, delegate.resolvedResults.map { $0.id })
+        XCTAssertEqual(results.map(\.id), delegate.resolvedResults.map(\.id))
     }
 
     func testEmptyBatchResolve() throws {
@@ -301,7 +301,7 @@ class SearchEngineTests: XCTestCase {
         wait(for: [updateExpectation], timeout: 10)
         let results = searchEngine.suggestions
 
-        XCTAssertEqual(expectedResults.map { $0.id }, results.map { $0.id })
+        XCTAssertEqual(expectedResults.map(\.id), results.map(\.id))
     }
 
     func testBatchResolveFailedResponse() throws {
@@ -314,9 +314,11 @@ class SearchEngineTests: XCTestCase {
 
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
 
-        let expectedError = NSError(domain: mapboxCoreSearchErrorDomain,
-                                    code: 500,
-                                    userInfo: [NSLocalizedDescriptionKey: "Server Internal error"])
+        let expectedError = NSError(
+            domain: mapboxCoreSearchErrorDomain,
+            code: 500,
+            userInfo: [NSLocalizedDescriptionKey: "Server Internal error"]
+        )
         let coreResponse = CoreSearchResponseStub.failureSample(error: expectedError)
         engine.searchResponse = coreResponse
         let expectation = delegate.errorExpectation
@@ -329,7 +331,7 @@ class SearchEngineTests: XCTestCase {
 
         wait(for: [expectation], timeout: 10)
 
-        guard case let .generic(code, domain, message) = delegate.error else {
+        guard case .generic(let code, let domain, let message) = delegate.error else {
             XCTFail("Generic error expected")
             return
         }
@@ -339,80 +341,80 @@ class SearchEngineTests: XCTestCase {
     }
 
     func testBatchResolveNoResponse() throws {
-        #if !arch(x86_64)
-            throw XCTSkip("Unsupported architecture")
-        #else
+#if !arch(x86_64)
+        throw XCTSkip("Unsupported architecture")
+#else
 
-            let searchEngine = SearchEngine(
-                accessToken: "mapbox-access-token",
-                serviceProvider: provider,
-                locationProvider: DefaultLocationProvider()
-            )
-            searchEngine.delegate = delegate
+        let searchEngine = SearchEngine(
+            accessToken: "mapbox-access-token",
+            serviceProvider: provider,
+            locationProvider: DefaultLocationProvider()
+        )
+        searchEngine.delegate = delegate
 
-            let expectation = delegate.errorExpectation
+        let expectation = delegate.errorExpectation
 
-            let results = CoreSearchResultStub.makeMixedResultsSet()
-            let coreResponse = CoreSearchResponseStub.successSample(results: results)
-            let suggestions = CoreSearchResultStub.makeSuggestionsSet().compactMap {
-                SearchResultSuggestionImpl(coreResult: $0, response: coreResponse)
+        let results = CoreSearchResultStub.makeMixedResultsSet()
+        let coreResponse = CoreSearchResponseStub.successSample(results: results)
+        let suggestions = CoreSearchResultStub.makeSuggestionsSet().compactMap {
+            SearchResultSuggestionImpl(coreResult: $0, response: coreResponse)
+        }
+        let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
+        engine.callbackWrapper = { callback in
+            let assertionError = catchBadInstruction {
+                callback()
             }
             let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
             engine.callbackWrapper = { callback in
                 let assertionError = catchBadInstruction {
                     callback()
                 }
-                let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
-                engine.callbackWrapper = { callback in
-                    let assertionError = catchBadInstruction {
-                        callback()
-                    }
-                    XCTAssertNotNil(assertionError)
-                }
-                searchEngine.select(suggestions: suggestions)
-
-                wait(for: [expectation], timeout: 10)
-
-                let expectedError = SearchError.responseProcessingFailed
-                XCTAssertEqual(expectedError, delegate.error)
+                XCTAssertNotNil(assertionError)
             }
-        #endif
+            searchEngine.select(suggestions: suggestions)
+
+            wait(for: [expectation], timeout: 10)
+
+            let expectedError = SearchError.responseProcessingFailed
+            XCTAssertEqual(expectedError, delegate.error)
+        }
+#endif
     }
 
     func testReverseGeocodingNoResponse() throws {
-        #if !arch(x86_64)
-            throw XCTSkip("Unsupported architecture")
-        #else
+#if !arch(x86_64)
+        throw XCTSkip("Unsupported architecture")
+#else
 
-            let searchEngine = SearchEngine(
-                accessToken: "mapbox-access-token",
-                serviceProvider: provider,
-                locationProvider: DefaultLocationProvider()
-            )
+        let searchEngine = SearchEngine(
+            accessToken: "mapbox-access-token",
+            serviceProvider: provider,
+            locationProvider: DefaultLocationProvider()
+        )
 
-            let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
-            engine.callbackWrapper = { callback in
-                let assertionError = catchBadInstruction {
-                    callback()
-                }
-
-                let expectation = XCTestExpectation()
-                var error: SearchError?
-                let point = CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0)
-                searchEngine.reverseGeocoding(options: .init(point: point)) { result in
-                    if case .failure(let searchError) = result {
-                        error = searchError
-                    } else {
-                        XCTFail("impossible")
-                    }
-                    expectation.fulfill()
-                }
-
-                wait(for: [expectation], timeout: 10)
-
-                XCTAssertEqual(error, SearchError.responseProcessingFailed)
+        let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
+        engine.callbackWrapper = { callback in
+            let assertionError = catchBadInstruction {
+                callback()
             }
-        #endif
+
+            let expectation = XCTestExpectation()
+            var error: SearchError?
+            let point = CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0)
+            searchEngine.reverseGeocoding(options: .init(point: point)) { result in
+                if case .failure(let searchError) = result {
+                    error = searchError
+                } else {
+                    XCTFail("impossible")
+                }
+                expectation.fulfill()
+            }
+
+            wait(for: [expectation], timeout: 10)
+
+            XCTAssertEqual(error, SearchError.responseProcessingFailed)
+        }
+#endif
     }
 
     func testReverseGeocodingFailedResponse() throws {
@@ -422,9 +424,11 @@ class SearchEngineTests: XCTestCase {
             locationProvider: DefaultLocationProvider()
         )
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
-        let expectedError = NSError(domain: mapboxCoreSearchErrorDomain,
-                                    code: 500,
-                                    userInfo: [NSLocalizedDescriptionKey: "Server Internal error"])
+        let expectedError = NSError(
+            domain: mapboxCoreSearchErrorDomain,
+            code: 500,
+            userInfo: [NSLocalizedDescriptionKey: "Server Internal error"]
+        )
         let coreResponse = CoreSearchResponseStub.failureSample(error: expectedError)
         engine.searchResponse = coreResponse
 
@@ -442,12 +446,12 @@ class SearchEngineTests: XCTestCase {
 
         wait(for: [expectation], timeout: 10)
 
-        guard case let .reverseGeocodingFailed(reason, options) = error else {
+        guard case .reverseGeocodingFailed(let reason, let options) = error else {
             XCTFail("reverseGeocodingFailed error expected")
             return
         }
 
-        guard case let .generic(code, domain, message) = reason as? SearchError else {
+        guard case .generic(let code, let domain, let message) = reason as? SearchError else {
             XCTFail("Generic error expected")
             return
         }

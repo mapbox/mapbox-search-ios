@@ -24,8 +24,8 @@ final class SearchResponse {
 
 // MARK: - Private
 
-private extension SearchResponse {
-    func processResults(_ responseResults: [CoreSearchResult]) -> (
+extension SearchResponse {
+    private func processResults(_ responseResults: [CoreSearchResult]) -> (
         suggestions: [SearchSuggestion],
         results: [SearchResult]
     ) {

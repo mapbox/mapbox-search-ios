@@ -1,5 +1,5 @@
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 final class PlaceAutocompleteResultTests: XCTestCase {
     func testResultContainsISOCountryCodes() throws {
@@ -10,7 +10,7 @@ final class PlaceAutocompleteResultTests: XCTestCase {
         )
         coreResult.metadata = .make(data: [
             "iso_3166_1": "US",
-            "iso_3166_2": "US-NY"
+            "iso_3166_2": "US-NY",
         ])
 
         let searchResult = ServerSearchResult(

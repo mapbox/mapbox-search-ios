@@ -1,5 +1,5 @@
-import Foundation
 import CoreLocation
+import Foundation
 
 /// Point on the road the feature fronts.
 public struct RoutablePoint: Codable, Hashable {

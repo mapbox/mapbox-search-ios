@@ -1,5 +1,5 @@
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 class OpenHoursTests: XCTestCase {
     func testAlwaysOpenedCoreConversion() throws {
@@ -27,7 +27,7 @@ class OpenHoursTests: XCTestCase {
         let coreHours = CoreOpenHours(mode: .scheduled, periods: .coreOpenHourPeriods())
         let hours = OpenHours(coreHours)
 
-        if case  let .scheduled(periods) = hours {
+        if case .scheduled(let periods) = hours {
             XCTAssertEqual(periods.count, 7)
         } else {
             XCTFail("Expected `.scheduled` case")
@@ -50,7 +50,7 @@ class OpenHoursTests: XCTestCase {
         let data = try jsonEncoder.encode(scheduled)
         let decodedScheduled = try jsonDecoder.decode(OpenHours.self, from: data)
 
-        if case let .scheduled(periods) = decodedScheduled {
+        if case .scheduled(let periods) = decodedScheduled {
             XCTAssertEqual(periods, .fullWeekPeriodsSample())
         } else {
             XCTFail("Expected `.scheduled` case")

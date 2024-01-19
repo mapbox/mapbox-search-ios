@@ -1,6 +1,6 @@
-import UIKit
 import MapboxSearch
 import MapKit
+import UIKit
 
 final class AddressAutofillResultViewController: UIViewController {
     fileprivate enum ViewState {
@@ -27,7 +27,7 @@ final class AddressAutofillResultViewController: UIViewController {
             withIdentifier: "AddressAutofillResultViewController"
         ) as? AddressAutofillResultViewController
 
-        guard let viewController = viewController else {
+        guard let viewController else {
             preconditionFailure()
         }
 
@@ -72,8 +72,8 @@ extension AddressAutofillResultViewController: UITableViewDataSource {
 
 // MARK: - Private
 
-private extension AddressAutofillResultViewController {
-    func attachAdjustLocationButtonToNavigationItem() {
+extension AddressAutofillResultViewController {
+    private func attachAdjustLocationButtonToNavigationItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Adjust",
             style: .plain,
@@ -82,7 +82,7 @@ private extension AddressAutofillResultViewController {
         )
     }
 
-    func attachDoneButtonToNavigationItem() {
+    private func attachDoneButtonToNavigationItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Done",
             style: .done,
@@ -91,7 +91,8 @@ private extension AddressAutofillResultViewController {
         )
     }
 
-    @objc func onStartAdjustLocationAction() {
+    @objc
+    private func onStartAdjustLocationAction() {
         result = nil
         mapView.removeAnnotations(mapView.annotations)
 
@@ -99,15 +100,16 @@ private extension AddressAutofillResultViewController {
         attachDoneButtonToNavigationItem()
     }
 
-    @objc func onFinishAdjustLocationAction() {
+    @objc
+    private func onFinishAdjustLocationAction() {
         performAutofillRequest()
     }
 }
 
 // MARK: - Private
 
-private extension AddressAutofillResultViewController {
-    func prepare() {
+extension AddressAutofillResultViewController {
+    private func prepare() {
         title = "Address"
 
         updateViewState(to: .result)
@@ -115,7 +117,7 @@ private extension AddressAutofillResultViewController {
         attachAdjustLocationButtonToNavigationItem()
     }
 
-    func updateViewState(to viewState: ViewState) {
+    private func updateViewState(to viewState: ViewState) {
         switch viewState {
         case .result:
             mapView.isUserInteractionEnabled = false
@@ -145,14 +147,14 @@ private extension AddressAutofillResultViewController {
         updateScreenData()
     }
 
-    func updateScreenData() {
+    private func updateScreenData() {
         showCurrentAutofillAnnotation()
         showSuggestionRegion()
 
         tableView.reloadData()
     }
 
-    func showCurrentAutofillAnnotation() {
+    private func showCurrentAutofillAnnotation() {
         guard result != nil else { return }
 
         let annotation = MKPointAnnotation()
@@ -162,7 +164,7 @@ private extension AddressAutofillResultViewController {
         mapView.addAnnotation(annotation)
     }
 
-    func showSuggestionRegion() {
+    private func showSuggestionRegion() {
         guard result != nil else { return }
 
         let region = MKCoordinateRegion(
@@ -172,21 +174,21 @@ private extension AddressAutofillResultViewController {
         mapView.setRegion(region, animated: true)
     }
 
-    func performAutofillRequest() {
+    private func performAutofillRequest() {
         result = nil
 
         updateViewState(to: .loading)
 
         addressAutofill.suggestions(for: mapView.centerCoordinate) { [weak self] result in
-            guard let self = self else { return }
+            guard let self else { return }
 
             switch result {
             case .success(let suggestions):
                 if let first = suggestions.first {
                     self.addressAutofill.select(suggestion: first) { [weak self] result in
-                        guard let self = self else { return }
+                        guard let self else { return }
 
-                        if case let .success(suggestionResult) = result {
+                        if case .success(let suggestionResult) = result {
                             self.result = suggestionResult
                             self.updateViewState(to: .result)
                         } else {

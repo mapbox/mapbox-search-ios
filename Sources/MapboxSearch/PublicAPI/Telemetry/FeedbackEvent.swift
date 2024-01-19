@@ -1,8 +1,9 @@
-import Foundation
 import CoreLocation
+import Foundation
 
 /// User Feedback event build based on SearchSuggestion or SearchResult.
-/// Does a result or suggestion have any problem with naming, location or something else? Please send feedback describing the issue!
+/// Does a result or suggestion have any problem with naming, location or something else? Please send feedback
+/// describing the issue!
 /// Can be sent by calling `sendFeedback(event:)` method of any SearchEngine instance.
 public class FeedbackEvent {
     /// Built-in set of reasons for feedback
@@ -41,22 +42,22 @@ public class FeedbackEvent {
         var proximity: CLLocationCoordinate2D?
 
         init(record: IndexableRecord) {
-            id = record.id
-            name = record.address?.formattedAddress(style: .full) ?? "<No address>"
-            coordinate = record.coordinate
+            self.id = record.id
+            self.name = record.address?.formattedAddress(style: .full) ?? "<No address>"
+            self.coordinate = record.coordinate
         }
 
         init(record: SearchSuggestion) {
-            id = record.id
-            name = record.name
-            query = record.searchRequest.query
-            proximity = record.searchRequest.proximity
+            self.id = record.id
+            self.name = record.name
+            self.query = record.searchRequest.query
+            self.proximity = record.searchRequest.proximity
         }
 
         init(record: SearchResult) {
-            id = record.id
-            name = record.name
-            coordinate = record.coordinate
+            self.id = record.id
+            self.name = record.name
+            self.coordinate = record.coordinate
         }
     }
 
@@ -108,7 +109,8 @@ extension FeedbackEvent {
     /// Consider using `init(record: SearchResult, reason: String?, text: String?)` for submitting feedbacks please.
     /// - Parameters:
     ///   - userRecord: userRecord to send feedback about
-    ///   - reason: feedback reason string, FeedbackEvent.Reason enum has few default values( e.g. incorrect name, position, address ...)
+    ///   - reason: feedback reason string, FeedbackEvent.Reason enum has few default values( e.g. incorrect name,
+    /// position, address ...)
     ///   - text: an issue description
     public convenience init(userRecord: IndexableRecord, reason: String?, text: String?) {
         self.init(type: .userRecord(record: userRecord), reason: reason, text: text)
@@ -117,7 +119,8 @@ extension FeedbackEvent {
     /// Build feedback event based on SearchResult.
     /// - Parameters:
     ///   - result: `SearchResult` to send feedback about.
-    ///   - reason: feedback reason string, `FeedbackEvent.Reason` enum has few default values( e.g. incorrect name, position, address ...)
+    ///   - reason: feedback reason string, `FeedbackEvent.Reason` enum has few default values( e.g. incorrect name,
+    /// position, address ...)
     ///   - text: an issue description
     public convenience init(record: SearchResult, reason: String?, text: String?) {
         switch record {
@@ -158,21 +161,25 @@ extension FeedbackEvent {
     ///   - text: Issue additional description
     public convenience init(suggestion: SearchSuggestion, reason: String?, text: String?) {
         if let provider = suggestion as? CoreResponseProvider {
-            self.init(type: .coreResult(
-                response: provider.originalResponse.coreResponse,
-                result: provider.originalResponse.coreResult
-            ),
-            reason: reason,
-            text: text,
-            isReproducible: true)
+            self.init(
+                type: .coreResult(
+                    response: provider.originalResponse.coreResponse,
+                    result: provider.originalResponse.coreResult
+                ),
+                reason: reason,
+                text: text,
+                isReproducible: true
+            )
         } else {
             self.init(type: .suggestion(record: suggestion), reason: reason, text: text)
         }
     }
 
-    /// Build feedback event of `Missing Search Result` type. This kind of event is used for reporting search issues where a user can’t find what he's looking for.
+    /// Build feedback event of `Missing Search Result` type. This kind of event is used for reporting search issues
+    /// where a user can’t find what he's looking for.
     /// - Parameters:
-    ///   - response: `SearchResponseInfo` can be found in SearchEngine.responseInfo. Response info related to last search response.
+    ///   - response: `SearchResponseInfo` can be found in SearchEngine.responseInfo. Response info related to last
+    /// search response.
     ///   - text: Issue additional description
     public convenience init(response: SearchResponseInfo, text: String?) {
         let isReproducible = response.suggestion?.suggestionType != .category

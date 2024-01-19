@@ -1,5 +1,5 @@
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 class CoreResultTypeTests: XCTestCase {
     func testMultipleAddressTypes() throws {

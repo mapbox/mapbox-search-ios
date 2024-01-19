@@ -1,12 +1,16 @@
 /// Type of the search result
 ///
-/// Address types can have multiple subtypes. For example, `[.country]` for Country result like Germany or `[.address]` for a concrete address.
-/// Sometimes server may respond with multiple address subtypes for the result. For example, Seoul would have `[.region, .place]`.
+/// Address types can have multiple subtypes. For example, `[.country]` for Country result like Germany or `[.address]`
+/// for a concrete address.
+/// Sometimes server may respond with multiple address subtypes for the result. For example, Seoul would have `[.region,
+/// .place]`.
 public enum SearchResultType: Codable, Hashable {
     /// Represents address type.
     ///
-    /// Can have multiple subtypes. For example, `[.country]` for Country result like Germany or `[.address]` for a concrete address.
-    /// Sometimes server may respond with multiple address subtypes for the result. For example, Seoul would have `[.region, .place]`.
+    /// Can have multiple subtypes. For example, `[.country]` for Country result like Germany or `[.address]` for a
+    /// concrete address.
+    /// Sometimes server may respond with multiple address subtypes for the result. For example, Seoul would have
+    /// `[.region, .place]`.
     case address(subtypes: [SearchAddressType])
 
     /// Point of Interest – like restaurant, hotel or ATM

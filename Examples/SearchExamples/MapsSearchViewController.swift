@@ -1,7 +1,7 @@
-import UIKit
 import MapboxMaps
 import MapboxSearch
 import MapboxSearchUI
+import UIKit
 
 class MapsSearchViewController: UIViewController {
     var searchController = MapboxSearchController()
@@ -36,7 +36,7 @@ class MapsSearchViewController: UIViewController {
         }
 
         annotationManager?.syncAnnotations(annotations)
-        if case let .point(point) = annotations.first?.feature.geometry {
+        if case .point(let point) = annotations.first?.feature.geometry {
             let options = CameraOptions(center: point.coordinates)
             mapView?.mapboxMap.setCamera(to: options)
         }

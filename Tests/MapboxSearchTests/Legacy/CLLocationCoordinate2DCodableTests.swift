@@ -1,5 +1,5 @@
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 class CLLocationCoordinate2DCodableTests: XCTestCase {
     func testExample() throws {

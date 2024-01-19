@@ -1,6 +1,6 @@
-import XCTest
-@testable import MapboxSearch
 import CwlPreconditionTesting
+@testable import MapboxSearch
+import XCTest
 
 class SearchResultMetadataTests: XCTestCase {
     // Important: Having this as a class field will stop tests from execution.
@@ -48,65 +48,71 @@ class SearchResultMetadataTests: XCTestCase {
     }
 
     func testEqualMetadata() {
-        let stub = CoreSearchResultMetadataStub(data: [
-            "phone": "+1 23 34 5648",
-            "website": "https://mapbox.com",
-            "review_count": "42",
-            "average_rating": "3.97"
-        ],
-        primaryImage: [
-            CoreImageInfoStub.sample1,
-            CoreImageInfoStub.sample2,
-            CoreImageInfoStub.sample3
-        ],
-        otherImage: [CoreImageInfoStub.sample4],
-        description: "Test Description",
-        averageRating: 4.5,
-        reviewCount: 200,
-        phone: "+ 000 00 000 00 00",
-        website: "https://www.google.com")
+        let stub = CoreSearchResultMetadataStub(
+            data: [
+                "phone": "+1 23 34 5648",
+                "website": "https://mapbox.com",
+                "review_count": "42",
+                "average_rating": "3.97",
+            ],
+            primaryImage: [
+                CoreImageInfoStub.sample1,
+                CoreImageInfoStub.sample2,
+                CoreImageInfoStub.sample3,
+            ],
+            otherImage: [CoreImageInfoStub.sample4],
+            description: "Test Description",
+            averageRating: 4.5,
+            reviewCount: 200,
+            phone: "+ 000 00 000 00 00",
+            website: "https://www.google.com"
+        )
         let metadata2 = SearchResultMetadata(metadata: stub)
         XCTAssertEqual(metadata(), metadata2)
     }
 
     func testNonEqualMetadata() {
-        let stub = CoreSearchResultMetadataStub(data: [
-            "phone": "+1 23 24 5648",
-            "website": "https://mapbox.com",
-            "review_count": "41",
-            "average_rating": "3.99"
-        ],
-        primaryImage: [
-            CoreImageInfoStub.sample1,
-            CoreImageInfoStub.sample2,
-            CoreImageInfoStub.sample3
-        ],
-        otherImage: [CoreImageInfoStub.sample4],
-        description: "Test Description",
-        averageRating: 4.1,
-        reviewCount: 400,
-        phone: "+ 000 00 000 00 20",
-        website: "https://www.google.com")
+        let stub = CoreSearchResultMetadataStub(
+            data: [
+                "phone": "+1 23 24 5648",
+                "website": "https://mapbox.com",
+                "review_count": "41",
+                "average_rating": "3.99",
+            ],
+            primaryImage: [
+                CoreImageInfoStub.sample1,
+                CoreImageInfoStub.sample2,
+                CoreImageInfoStub.sample3,
+            ],
+            otherImage: [CoreImageInfoStub.sample4],
+            description: "Test Description",
+            averageRating: 4.1,
+            reviewCount: 400,
+            phone: "+ 000 00 000 00 20",
+            website: "https://www.google.com"
+        )
         let metadata3 = SearchResultMetadata(metadata: stub)
         XCTAssertNotEqual(metadata(), metadata3)
     }
 
     func testEqualImageInfo() {
-        let sample = Image.SizedImage(coreImageInfo: CoreImageInfoStub(
-            url: "https://mapbox.com/assets/small_fake_image.png",
-            width: 40,
-            height: 80
-        )
+        let sample = Image.SizedImage(
+            coreImageInfo: CoreImageInfoStub(
+                url: "https://mapbox.com/assets/small_fake_image.png",
+                width: 40,
+                height: 80
+            )
         )
         XCTAssertEqual(sample, Image.SizedImage(coreImageInfo: CoreImageInfoStub.sample1))
     }
 
     func testNonEqualImageInfo() {
-        let sample = Image.SizedImage(coreImageInfo: CoreImageInfoStub(
-            url: "https://mapbox.com/assets/Big_fake_image.png",
-            width: 42,
-            height: 88
-        )
+        let sample = Image.SizedImage(
+            coreImageInfo: CoreImageInfoStub(
+                url: "https://mapbox.com/assets/Big_fake_image.png",
+                width: 42,
+                height: 88
+            )
         )
         XCTAssertNotEqual(sample, Image.SizedImage(coreImageInfo: CoreImageInfoStub.sample1))
     }
@@ -147,19 +153,21 @@ class SearchResultMetadataTests: XCTestCase {
     }
 
     func testPrimaryImageInitializationFailed() {
-        let stub = CoreSearchResultMetadataStub(data: [
-            "phone": "+1 23 34 5648",
-            "website": "https://mapbox.com",
-            "review_count": "42",
-            "average_rating": "3.97"
-        ],
-        primaryImage: [],
-        otherImage: [CoreImageInfoStub.sample4],
-        description: "Test Description",
-        averageRating: 4.5,
-        reviewCount: 200,
-        phone: "+ 000 00 000 00 00",
-        website: "https://www.google.com")
+        let stub = CoreSearchResultMetadataStub(
+            data: [
+                "phone": "+1 23 34 5648",
+                "website": "https://mapbox.com",
+                "review_count": "42",
+                "average_rating": "3.97",
+            ],
+            primaryImage: [],
+            otherImage: [CoreImageInfoStub.sample4],
+            description: "Test Description",
+            averageRating: 4.5,
+            reviewCount: 200,
+            phone: "+ 000 00 000 00 00",
+            website: "https://www.google.com"
+        )
 
         let metadata = SearchResultMetadata(metadata: stub)
         XCTAssertNil(metadata.primaryImage)
@@ -181,14 +189,14 @@ class SearchResultMetadataTests: XCTestCase {
     }
 
     func testIncorrectImageInfoURL() throws {
-        #if !arch(x86_64)
-            throw XCTSkip("Unsupported architecture")
-        #else
+#if !arch(x86_64)
+        throw XCTSkip("Unsupported architecture")
+#else
 
-            let assertionError = catchBadInstruction {
-                _ = Image.SizedImage(coreImageInfo: CoreImageInfoStub(url: "", width: 42, height: 88))
-            }
-            XCTAssertNotNil(assertionError)
-        #endif
+        let assertionError = catchBadInstruction {
+            _ = Image.SizedImage(coreImageInfo: CoreImageInfoStub(url: "", width: 42, height: 88))
+        }
+        XCTAssertNotNil(assertionError)
+#endif
     }
 }

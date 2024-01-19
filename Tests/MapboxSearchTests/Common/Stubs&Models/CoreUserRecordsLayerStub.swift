@@ -1,5 +1,5 @@
-@testable import MapboxSearch
 @_implementationOnly import MapboxCoreSearch
+@testable import MapboxSearch
 
 class CoreUserRecordsLayerStub: CoreUserRecordsLayerProtocol {
     var records: [UserRecord] = []

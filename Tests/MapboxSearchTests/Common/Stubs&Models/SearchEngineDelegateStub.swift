@@ -1,5 +1,5 @@
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 class SearchEngineDelegateStub: SearchEngineDelegate {
     var resolvedResult: SearchResult?
@@ -28,22 +28,30 @@ class SearchEngineDelegateStub: SearchEngineDelegate {
     }
 
     func subscribe(listener: Any, selector: Selector) {
-        NotificationCenter.default.addObserver(listener,
-                                               selector: selector,
-                                               name: successNotificationName,
-                                               object: self)
-        NotificationCenter.default.addObserver(listener,
-                                               selector: selector,
-                                               name: updateNotificationName,
-                                               object: self)
-        NotificationCenter.default.addObserver(listener,
-                                               selector: selector,
-                                               name: errorNotificationName,
-                                               object: self)
-        NotificationCenter.default.addObserver(listener,
-                                               selector: selector,
-                                               name: batchUpdateNotificationName,
-                                               object: self)
+        NotificationCenter.default.addObserver(
+            listener,
+            selector: selector,
+            name: successNotificationName,
+            object: self
+        )
+        NotificationCenter.default.addObserver(
+            listener,
+            selector: selector,
+            name: updateNotificationName,
+            object: self
+        )
+        NotificationCenter.default.addObserver(
+            listener,
+            selector: selector,
+            name: errorNotificationName,
+            object: self
+        )
+        NotificationCenter.default.addObserver(
+            listener,
+            selector: selector,
+            name: batchUpdateNotificationName,
+            object: self
+        )
     }
 
     func resultsResolved(results: [SearchResult], searchEngine: SearchEngine) {

@@ -19,10 +19,12 @@ public class CategorySearchEngine: AbstractSearchEngine {
 
         let options = options?.merged(defaultSearchOptions) ?? defaultSearchOptions
         let coreOptions = options.toCore(apiType: engineApi)
-        engine.search(forQuery: "",
-                      categories: [categoryName],
-                      options: coreOptions) { [weak self, weak eventsManager] coreResponse in
-            guard let self = self, let coreResponse = coreResponse else {
+        engine.search(
+            forQuery: "",
+            categories: [categoryName],
+            options: coreOptions
+        ) { [weak self, weak eventsManager] coreResponse in
+            guard let self, let coreResponse else {
                 let error = SearchError.categorySearchRequestFailed(reason: SearchError.responseProcessingFailed)
                 eventsManager?.reportError(error)
 
@@ -37,7 +39,7 @@ public class CategorySearchEngine: AbstractSearchEngine {
             let response = SearchResponse(coreResponse: coreResponse)
             switch response.process() {
             case .success(let result):
-                let resultSuggestions = result.suggestions.compactMap({ $0 as? SearchResultSuggestion })
+                let resultSuggestions = result.suggestions.compactMap { $0 as? SearchResultSuggestion }
                 assert(
                     result.suggestions.count == resultSuggestions.count,
                     "Every search result in Category search must conform SearchResultSuggestion requirements"

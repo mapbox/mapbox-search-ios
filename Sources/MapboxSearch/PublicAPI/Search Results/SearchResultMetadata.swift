@@ -1,5 +1,5 @@
-import Foundation
 import CoreGraphics
+import Foundation
 
 /// SearchResult additional information, such as phone, website and etc.
 /// Extra metadata contained in data field as dictionary.
@@ -31,7 +31,7 @@ public struct SearchResultMetadata: Codable, Hashable {
     init(metadata: CoreResultMetadataProtocol) {
         self.data = metadata.data
         self.phone = metadata.phone
-        self.website = metadata.website.flatMap({ URL(string: $0) })
+        self.website = metadata.website.flatMap { URL(string: $0) }
         self.reviewCount = metadata.reviewCount?.intValue
         self.averageRating = metadata.averageRating?.doubleValue
         self.openHours = metadata.openHours.flatMap(OpenHours.init)
@@ -42,7 +42,7 @@ public struct SearchResultMetadata: Codable, Hashable {
 
         if let others = metadata.otherImage, !others.isEmpty {
             self.otherImages = [
-                Image(sizes: others.map(Image.SizedImage.init))
+                Image(sizes: others.map(Image.SizedImage.init)),
             ]
         }
     }

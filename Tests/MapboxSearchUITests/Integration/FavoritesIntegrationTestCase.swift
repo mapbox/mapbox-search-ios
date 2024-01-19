@@ -150,7 +150,8 @@ class FavoritesIntegrationTestCase: MockServerTestCase {
         searchBar.typeText(favoriteName)
 
         XCTAssertTrue(
-            app.searchResultTableView.cells[favoriteName].firstMatch.waitForExistence(timeout: BaseTestCase.defaultTimeout),
+            app.searchResultTableView.cells[favoriteName].firstMatch
+                .waitForExistence(timeout: BaseTestCase.defaultTimeout),
             "Search for favorite failed"
         )
         app.searchResultTableView.cells[favoriteName].firstMatch.tap()
@@ -167,7 +168,8 @@ class FavoritesIntegrationTestCase: MockServerTestCase {
         searchBar.typeText(newFavoriteName)
 
         XCTAssertTrue(
-            app.searchResultTableView.cells[newFavoriteName].firstMatch.waitForExistence(timeout: BaseTestCase.defaultTimeout),
+            app.searchResultTableView.cells[newFavoriteName].firstMatch
+                .waitForExistence(timeout: BaseTestCase.defaultTimeout),
             "Search for favorite failed"
         )
         let addressToChange = app.searchResultTableView.cells[newFavoriteName].firstMatch.staticTexts["address"].title
@@ -199,7 +201,8 @@ class FavoritesIntegrationTestCase: MockServerTestCase {
         searchBar.typeText("Minsk")
         app.searchResultTableView.cells["Minsk"].firstMatch.tap()
         XCTAssertTrue(
-            favoritesTableView.cells["Work"].buttons["moreButton"].waitForExistence(timeout: BaseTestCase.defaultTimeout),
+            favoritesTableView.cells["Work"].buttons["moreButton"]
+                .waitForExistence(timeout: BaseTestCase.defaultTimeout),
             "Work favorites no moreButton"
         )
         removeFavorite(element: favoritesTableView.cells["Work"].firstMatch)
@@ -221,7 +224,8 @@ class FavoritesIntegrationTestCase: MockServerTestCase {
         searchBar.typeText("Minsk")
         app.searchResultTableView.cells["Minsk"].firstMatch.tap()
         XCTAssertTrue(
-            favoritesTableView.cells["Home"].buttons["moreButton"].waitForExistence(timeout: BaseTestCase.defaultTimeout),
+            favoritesTableView.cells["Home"].buttons["moreButton"]
+                .waitForExistence(timeout: BaseTestCase.defaultTimeout),
             "Home favorites no moreButton"
         )
         removeFavorite(element: favoritesTableView.cells["Home"].firstMatch)
@@ -234,7 +238,10 @@ extension FavoritesIntegrationTestCase {
         // No legal way to set accessibilityIdentifier for UIAlertAction
         // Remove location expected to be 3rd
         let removeLocation = app.sheets.buttons.element(boundBy: 2)
-        XCTAssertTrue(removeLocation.waitForExistence(timeout: BaseTestCase.defaultTimeout), "No remove location action")
+        XCTAssertTrue(
+            removeLocation.waitForExistence(timeout: BaseTestCase.defaultTimeout),
+            "No remove location action"
+        )
         removeLocation.tap()
         sleep(1)
         XCTAssertFalse(element.buttons["moreButton"].exists)

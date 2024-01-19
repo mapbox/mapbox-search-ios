@@ -1,7 +1,7 @@
-import UIKit
 import CoreLocation
 import MapboxMaps
 import MapboxSearch
+import UIKit
 
 class MapboxBoundingBoxController: MapsViewController {
     let searchEngine = CategorySearchEngine()
@@ -21,14 +21,16 @@ class MapboxBoundingBoxController: MapsViewController {
 
         updateSearchResults(proximity: mapboxSFOfficeCoordinate)
 
-        mapDraggingSubscription = mapView.mapboxMap.onEvery(event: .cameraChanged) { [weak self] cameraChanged in
+        mapDraggingSubscription = mapView.mapboxMap.onEvery(event: .cameraChanged) { [weak self] _ in
             guard let self else { return }
             self.draggingRefreshTimer?.invalidate()
-            self.draggingRefreshTimer = Timer.scheduledTimer(timeInterval: 1,
-                                                             target: self,
-                                                             selector: #selector(self.reloadResultInMapBounds),
-                                                             userInfo: nil,
-                                                             repeats: false)
+            self.draggingRefreshTimer = Timer.scheduledTimer(
+                timeInterval: 1,
+                target: self,
+                selector: #selector(self.reloadResultInMapBounds),
+                userInfo: nil,
+                repeats: false
+            )
         }
     }
 
@@ -56,8 +58,10 @@ class MapboxBoundingBoxController: MapsViewController {
         let cameraOptions = CameraOptions(cameraState: mapView.mapboxMap.cameraState, anchor: nil)
         let cameraBounds = mapView.mapboxMap.coordinateBounds(for: cameraOptions)
 
-        let boundingBox = MapboxSearch.BoundingBox(cameraBounds.southwest,
-                                                   cameraBounds.northeast)
+        let boundingBox = MapboxSearch.BoundingBox(
+            cameraBounds.southwest,
+            cameraBounds.northeast
+        )
         updateSearchResults(boundingBox: boundingBox)
         shouldSkipNextCameraChangedUpdate = true
     }

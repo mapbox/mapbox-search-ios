@@ -40,12 +40,12 @@ public class FeedbackManager {
         attributes["fuzzyMatch"] = response.request.options.fuzzyMatch?.boolValue
         attributes["limit"] = response.request.options.limit?.intValue
         attributes["types"] = response.request.options.types?
-            .map({ (CoreResultType(rawValue: $0.intValue) ?? .unknown).stringValue })
+            .map { (CoreResultType(rawValue: $0.intValue) ?? .unknown).stringValue }
         attributes["sessionIdentifier"] = response.request.sessionID
 
         // `searchResultsJSON` required for `cant find` and `suggestion feedbacks`.
         // Single, resolved search result don't need it.
-        if case let .success(results) = response.result {
+        if case .success(let results) = response.result {
             if results.count > 1 || result == nil {
                 attributes["searchResultsJSON"] = buildSearchResultsJSON(
                     results: results,
@@ -57,7 +57,7 @@ public class FeedbackManager {
         if let bbox = response.request.options.bbox {
             attributes["bbox"] = [
                 bbox.min.longitude, bbox.min.latitude,
-                bbox.max.longitude, bbox.max.latitude
+                bbox.max.longitude, bbox.max.latitude,
             ]
         }
 
@@ -96,7 +96,7 @@ public class FeedbackManager {
             attributes["address"] = result.addressDescription
             attributes["id"] = result.id
             attributes["language"] = result.languages
-            attributes["result_type"] = result.resultTypes.map { $0.stringValue }
+            attributes["result_type"] = result.resultTypes.map(\.stringValue)
             attributes["external_ids"] = result.externalIDs
             attributes["category"] = result.categories
 
@@ -156,9 +156,9 @@ public class FeedbackManager {
         attributes["screenshot"] = event.screenshotData?.base64EncodedString()
         attributes["feedbackId"] = UUID().uuidString
 
-        #if DEBUG
-            attributes["isTest"] = true
-        #endif
+#if DEBUG
+        attributes["isTest"] = true
+#endif
 
         // v2.2
         attributes["appMetadata"] = event.metadata.dictionary
@@ -174,7 +174,7 @@ public class FeedbackManager {
         event: FeedbackEvent,
         completion: @escaping ([String: Any]) -> Void
     ) throws {
-        guard let delegate = delegate else {
+        guard let delegate else {
             assertionFailure("Delegate with Engine is required")
             _Logger.searchSDK.debug("Cant build FeedbackEvent, wouldn't send", category: .telemetry)
             throw SearchError.incorrectEventTemplate
@@ -232,12 +232,13 @@ public class FeedbackManager {
 
 extension FeedbackManager {
     /// Send user feedback events.
-    /// Does a result or suggestion have any problem with naming, location or something else? Please send feedback describing the issue!
+    /// Does a result or suggestion have any problem with naming, location or something else? Please send feedback
+    /// describing the issue!
     /// - Parameter event: Feedback event
     /// - Parameter autoFlush: sends feedback right after submitting, true by default
     /// - Throws: CoreSearchEngines errors and`SearchError.incorrectEventTemplate`
     public func sendEvent(_ event: FeedbackEvent, autoFlush: Bool = true) throws {
-        guard let delegate = delegate else {
+        guard let delegate else {
             assertionFailure("Delegate with Engine is required")
             _Logger.searchSDK.debug("Cant build FeedbackEvent, wouldn't send", category: .telemetry)
             return
@@ -248,7 +249,7 @@ extension FeedbackManager {
             try buildTemplate(
                 event: event,
                 completion: { [weak self] template in
-                    guard let self = self else { return }
+                    guard let self else { return }
 
                     do {
                         let attributes = try self.buildFeedbackAttributes(template, event: event)

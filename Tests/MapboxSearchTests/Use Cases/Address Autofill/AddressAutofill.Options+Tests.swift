@@ -1,5 +1,5 @@
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 final class AddressAutofillOptionsTests: XCTestCase {
     func testThatDefaultOptionsAreCorrect() {
@@ -13,7 +13,7 @@ final class AddressAutofillOptionsTests: XCTestCase {
         let countries = [
             Country(countryCode: Country.ISO3166_1_alpha2.fr.rawValue),
             Country(countryCode: Country.ISO3166_1_alpha2.de.rawValue),
-            Country(countryCode: Country.ISO3166_1_alpha2.us.rawValue)
+            Country(countryCode: Country.ISO3166_1_alpha2.us.rawValue),
         ].compactMap { $0 }
 
         XCTAssertEqual(countries.count, 3)

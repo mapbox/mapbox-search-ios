@@ -1,7 +1,7 @@
-import UIKit
 import MapboxMaps
 import MapboxSearch
 import MapboxSearchUI
+import UIKit
 
 class SimpleUISearchViewController: MapsViewController {
     lazy var searchController: MapboxSearchController = {

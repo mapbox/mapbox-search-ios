@@ -1,5 +1,5 @@
-import UIKit
 import MapboxSearch
+import UIKit
 
 final class AddressAutofillMainViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
@@ -31,7 +31,7 @@ extension AddressAutofillMainViewController: UISearchResultsUpdating {
         }
 
         addressAutofill.suggestions(for: query) { [weak self] result in
-            guard let self = self else { return }
+            guard let self else { return }
 
             switch result {
             case .success(let suggestions):
@@ -96,21 +96,21 @@ extension AddressAutofillMainViewController: UITableViewDataSource, UITableViewD
 
 // MARK: - Private
 
-private extension AddressAutofillMainViewController {
-    func reloadData() {
+extension AddressAutofillMainViewController {
+    private func reloadData() {
         messageLabel.isHidden = !cachedSuggestions.isEmpty
         tableView.isHidden = cachedSuggestions.isEmpty
 
         tableView.reloadData()
     }
 
-    func configureUI() {
+    private func configureUI() {
         configureSearchController()
         configureTableView()
         configureMessageLabel()
     }
 
-    func configureSearchController() {
+    private func configureSearchController() {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -120,11 +120,13 @@ private extension AddressAutofillMainViewController {
         navigationItem.searchController = searchController
     }
 
-    func configureMessageLabel() {
-        messageLabel.text = "Type at least \(AddressAutofill.Query.Requirements.queryLength) symbols to get Address Autofill suggestions"
+    private func configureMessageLabel() {
+        messageLabel
+            .text =
+            "Type at least \(AddressAutofill.Query.Requirements.queryLength) symbols to get Address Autofill suggestions"
     }
 
-    func configureTableView() {
+    private func configureTableView() {
         tableView.tableFooterView = UIView(frame: .zero)
 
         tableView.delegate = self

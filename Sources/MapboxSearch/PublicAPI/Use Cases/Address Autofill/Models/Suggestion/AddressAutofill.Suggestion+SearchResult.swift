@@ -1,5 +1,5 @@
-import Foundation
 import CoreLocation
+import Foundation
 
 extension AddressAutofill.Suggestion {
     enum Error: Swift.Error {
@@ -21,11 +21,11 @@ extension AddressAutofill.Suggestion {
             throw Error.invalidCoordinates
         }
 
-        return .init(
+        return try .init(
             name: searchResult.name,
             formattedAddress: formattedAddress,
             coordinate: searchResult.coordinate,
-            addressComponents: try address.toAutofillComponents(),
+            addressComponents: address.toAutofillComponents(),
             underlying: .result(searchResult)
         )
     }

@@ -5,9 +5,9 @@ enum Query: Equatable {
         switch (lhs, rhs) {
         case (.none, .none):
             return true
-        case let (.historyEntry(lhsHistoryEntry), .historyEntry(rhsHistoryEntry)):
+        case (.historyEntry(let lhsHistoryEntry), .historyEntry(let rhsHistoryEntry)):
             return lhsHistoryEntry == rhsHistoryEntry
-        case let (.string(lhsString), .string(rhsString)):
+        case (.string(let lhsString), .string(let rhsString)):
             return lhsString == rhsString
         case (.none, .string(let value)), (.string(let value), .none):
             return value.isEmpty
@@ -24,9 +24,9 @@ enum Query: Equatable {
         switch self {
         case .none:
             return nil
-        case let .string(query):
+        case .string(let query):
             return query
-        case let .historyEntry(historyEntry):
+        case .historyEntry(let historyEntry):
             return historyEntry.name
         }
     }

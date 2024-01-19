@@ -1,5 +1,5 @@
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 class RecordsProviderInteractorNativeCoreTests: XCTestCase {
     let interactorIdentifier = "test-interactor-identifier"
@@ -33,11 +33,13 @@ class RecordsProviderInteractorNativeCoreTests: XCTestCase {
 
         XCTAssertFalse(originalRecord.id.isEmpty)
 
-        let updatedRecord = IndexableRecordStub(id: originalRecord.id,
-                                                name: "new-name",
-                                                coordinate: .sample2,
-                                                address: .mapboxDCOffice,
-                                                additionalTokens: originalRecord.additionalTokens)
+        let updatedRecord = IndexableRecordStub(
+            id: originalRecord.id,
+            name: "new-name",
+            coordinate: .sample2,
+            address: .mapboxDCOffice,
+            additionalTokens: originalRecord.additionalTokens
+        )
 
         interactor.update(record: updatedRecord)
 

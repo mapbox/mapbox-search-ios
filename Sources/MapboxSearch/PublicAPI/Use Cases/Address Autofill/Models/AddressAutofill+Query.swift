@@ -1,7 +1,7 @@
 import Foundation
 
-public extension AddressAutofill {
-    struct Query {
+extension AddressAutofill {
+    public struct Query {
         public enum Requirements {
             public static let queryLength: UInt = 2
         }

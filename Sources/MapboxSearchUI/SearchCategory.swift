@@ -1,6 +1,6 @@
 import Foundation
-import UIKit
 import MapboxSearch
+import UIKit
 
 /// Category entity to present on MapboxSearchController UI
 public struct SearchCategory: Codable, Hashable {
@@ -32,12 +32,18 @@ public struct SearchCategory: Codable, Hashable {
         return CategoriesProvider.shared.categories.first { $0.name == name }
     }
 
-    static func makeUnsafeCategory(canonicalId: String, name: String, legacyName: String, iconName: String) -> SearchCategory {
+    static func makeUnsafeCategory(
+        canonicalId: String,
+        name: String,
+        legacyName: String,
+        iconName: String
+    ) -> SearchCategory {
         let existingCategory = CategoriesProvider.shared.categories.first(where: { $0.canonicalId == canonicalId &&
                 $0.name == name &&
                 $0.iconName == iconName &&
-                $0.legacyName == legacyName })
-        if let existingCategory = existingCategory {
+                $0.legacyName == legacyName
+        })
+        if let existingCategory {
             return existingCategory
         }
 
@@ -117,10 +123,12 @@ extension SearchCategory {
 
     /// Hotel category.
     public static let hotel =
-        SearchCategory(canonicalId: "hotel",
-                       name: Strings.Categories.hotel,
-                       legacyName: "hotel",
-                       iconName: "maki/hotel")
+        SearchCategory(
+            canonicalId: "hotel",
+            name: Strings.Categories.hotel,
+            legacyName: "hotel",
+            iconName: "maki/hotel"
+        )
 
     /// Gas Station category.
     public static let gasStation =

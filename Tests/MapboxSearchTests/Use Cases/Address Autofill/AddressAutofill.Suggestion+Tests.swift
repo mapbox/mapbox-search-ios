@@ -1,5 +1,5 @@
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 final class AddressAutofillSuggestionsTests: XCTestCase {
     func testThatMappingFromSearchAddressThrowsErrorOfCaseIfEmptyAddress() {
@@ -103,8 +103,8 @@ final class AddressAutofillSuggestionsTests: XCTestCase {
 
 // MARK: - Address
 
-private extension Address {
-    static var invalid: Address {
+extension Address {
+    fileprivate static var invalid: Address {
         Address(
             houseNumber: nil,
             street: nil,
@@ -118,7 +118,7 @@ private extension Address {
         )
     }
 
-    static var valid: Address {
+    fileprivate static var valid: Address {
         Address(
             houseNumber: "houseNumber",
             street: "street",

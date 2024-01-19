@@ -1,7 +1,7 @@
-import UIKit
 import Atlantis
+import UIKit
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
 
@@ -22,4 +22,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-

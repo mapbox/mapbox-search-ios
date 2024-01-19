@@ -1,8 +1,8 @@
-import Foundation
 import CoreLocation
+import Foundation
 
-public extension PlaceAutocomplete {
-    struct Suggestion {
+extension PlaceAutocomplete {
+    public struct Suggestion {
         /// Place's name.
         public let name: String
 
@@ -129,7 +129,8 @@ extension PlaceAutocomplete.Suggestion {
         }
 
         guard let coordinate = searchSuggestion.centerLocation?.coordinate,
-              CLLocationCoordinate2DIsValid(coordinate) else {
+              CLLocationCoordinate2DIsValid(coordinate)
+        else {
             throw Error.invalidCoordinates
         }
 

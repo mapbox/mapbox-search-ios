@@ -38,7 +38,6 @@ class VisibilityTestCase: BaseTestCase {
         XCUIDevice.shared.orientation = .portrait
     }
 
-
     func testCategoriesHotButtons() throws {
         let searchBar = app.searchBar
         waitForHittable(searchBar)
@@ -51,12 +50,16 @@ class VisibilityTestCase: BaseTestCase {
         XCTAssertTrue(app.isCollapsed)
         waitForHittable(app.buttons["HotCategoryButton.parking"], message: "Parking category not hittable").tap()
         searchBar.swipeUp()
-        waitForHittable(app.buttons["HotCategoryButton.parking"], message: "SwipeUp Parking category not hittable").tap()
+        waitForHittable(app.buttons["HotCategoryButton.parking"], message: "SwipeUp Parking category not hittable")
+            .tap()
 
         XCTAssertTrue(app.isCollapsed)
         waitForHittable(app.buttons["HotCategoryButton.restaurant"], message: "Restaurant category not hittable").tap()
         searchBar.swipeUp()
-        waitForHittable(app.buttons["HotCategoryButton.restaurant"], message: "SwipeUp Restaurant category not hittable").tap()
+        waitForHittable(
+            app.buttons["HotCategoryButton.restaurant"],
+            message: "SwipeUp Restaurant category not hittable"
+        ).tap()
 
         XCTAssertTrue(app.isCollapsed)
         waitForHittable(app.buttons["HotCategoryButton.cafe"], message: "Cafe category not hittable").tap()

@@ -1,6 +1,6 @@
-import XCTest
 import CoreLocation
 @testable import MapboxSearch
+import XCTest
 
 final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
     private var placeAutocomplete: PlaceAutocomplete!
@@ -25,10 +25,10 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
             switch result {
             case .success(let suggestions):
                 XCTAssertEqual(suggestions.count, 10)
-                XCTAssertTrue(suggestions.allSatisfy({ suggestion in
+                XCTAssertTrue(suggestions.allSatisfy { suggestion in
                     if case .suggestion = suggestion.underlying { return true }
                     return false
-                }))
+                })
                 suggestion = suggestions[0]
             case .failure:
                 XCTFail("Should return success")
@@ -66,11 +66,11 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
             switch result {
             case .success(let suggestions):
                 XCTAssertEqual(suggestions.count, 3)
-                XCTAssertTrue(suggestions.allSatisfy({ suggestion in
+                XCTAssertTrue(suggestions.allSatisfy { suggestion in
                     if case .suggestion = suggestion.underlying { return true }
                     return false
-                }))
-                guard case let .suggestion(coreSuggestion, _) = suggestions[0].underlying else {
+                })
+                guard case .suggestion(let coreSuggestion, _) = suggestions[0].underlying else {
                     XCTFail("Not expected underlying type")
                     return
                 }
@@ -194,11 +194,11 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
             switch result {
             case .success(let suggestions):
                 XCTAssertEqual(suggestions.count, 1)
-                XCTAssertTrue(suggestions.allSatisfy({ suggestion in
+                XCTAssertTrue(suggestions.allSatisfy { suggestion in
                     if case .suggestion = suggestion.underlying { return true }
                     return false
-                }))
-                guard case let .suggestion(coreSuggestion, _) = suggestions[0].underlying else {
+                })
+                guard case .suggestion(let coreSuggestion, _) = suggestions[0].underlying else {
                     XCTFail("Not expected underlying type")
                     return
                 }

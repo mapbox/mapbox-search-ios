@@ -11,10 +11,10 @@ class CategoriesFavoritesSegmentControl: UIControl {
     var selectionSegmentProgress: CGFloat = 0 {
         didSet {
             let screenScale = (window?.screen ?? .main).scale
-            let maxSelectionOffsetX = self.bounds.width - self.selectionSegment.bounds.width
-            let offsetX = round(maxSelectionOffsetX * self.selectionSegmentProgress * screenScale) / screenScale
+            let maxSelectionOffsetX = bounds.width - selectionSegment.bounds.width
+            let offsetX = round(maxSelectionOffsetX * selectionSegmentProgress * screenScale) / screenScale
 
-            self.selectionSegment.frame.origin.x = offsetX
+            selectionSegment.frame.origin.x = offsetX
 
             let forceExplicitAnimations = CATransaction.value(forKey: forceExplicitAnimationTransactionKey)
                 as? Bool == true
@@ -27,7 +27,7 @@ class CategoriesFavoritesSegmentControl: UIControl {
                 CATransaction.setDisableActions(true)
             }
 
-            self.updateMasksOffsets()
+            updateMasksOffsets()
 
             CATransaction.commit()
         }
@@ -61,19 +61,23 @@ class CategoriesFavoritesSegmentControl: UIControl {
     override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: newWindow)
 
-        #if TARGET_INTERFACE_BUILDER
-            configuration = .init()
-        #endif
+#if TARGET_INTERFACE_BUILDER
+        configuration = .init()
+#endif
 
         assert(configuration != nil)
 
         categoriesTitle.titleLabel?.font = Fonts.bold(style: .caption2, traits: traitCollection)
-        categoriesTitle.setTitle(Strings.CategoriesFavoritesSegmentControl.categories,
-                                 for: .normal)
+        categoriesTitle.setTitle(
+            Strings.CategoriesFavoritesSegmentControl.categories,
+            for: .normal
+        )
 
         categoriesInactiveTitle.titleLabel?.font = Fonts.bold(style: .caption2, traits: traitCollection)
-        categoriesInactiveTitle.setTitle(Strings.CategoriesFavoritesSegmentControl.categories,
-                                         for: .normal)
+        categoriesInactiveTitle.setTitle(
+            Strings.CategoriesFavoritesSegmentControl.categories,
+            for: .normal
+        )
 
         favoritesTitle.titleLabel?.font = Fonts.bold(style: .caption2, traits: traitCollection)
         favoritesTitle.setTitle(Strings.CategoriesFavoritesSegmentControl.favorites, for: .normal)
@@ -121,13 +125,15 @@ class CategoriesFavoritesSegmentControl: UIControl {
         favoritesTitle.setTitleColor(configuration.style.activeSegmentTitleColor, for: .normal)
     }
 
-    @IBAction func tapCategoriesButton() {
+    @IBAction
+    func tapCategoriesButton() {
         CATransaction.setValue(true, forKey: forceExplicitAnimationTransactionKey)
         selectedTab = .categories
         sendActions(for: .valueChanged)
     }
 
-    @IBAction func tapFavoritesButton() {
+    @IBAction
+    func tapFavoritesButton() {
         CATransaction.setValue(true, forKey: forceExplicitAnimationTransactionKey)
         selectedTab = .favorites
         sendActions(for: .valueChanged)
@@ -159,30 +165,31 @@ class CategoriesFavoritesSegmentControl: UIControl {
 }
 
 #if canImport(SwiftUI) && DEBUG
-    import SwiftUI
+import SwiftUI
 
-    @available(iOS 13.0, *)
-    struct TabsSegmentControlRepresentable: UIViewRepresentable {
-        func makeUIView(context: Context) -> UIView {
-            // swiftlint:disable:next force_cast line_length
-            UINib(nibName: "CategoriesFavoritesSegmentControl", bundle: .mapboxSearchUI).instantiate(withOwner: nil, options: nil)[0] as! UIView
-        }
-
-        func updateUIView(_ view: UIView, context: Context) {}
+@available(iOS 13.0, *)
+struct TabsSegmentControlRepresentable: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIView {
+        UINib(nibName: "CategoriesFavoritesSegmentControl", bundle: .mapboxSearchUI)
+            .instantiate(withOwner: nil, options: nil)[0] as! UIView
+        // swiftlint:disable:previous force_cast
     }
 
-    @available(iOS 13.0, *)
-    struct CategoriesFavoritesSegmentControlPreview: PreviewProvider {
-        static var previews: some View {
-            Group {
-                TabsSegmentControlRepresentable()
-                    .previewDisplayName("Light Mode")
-                    .previewLayout(PreviewLayout.fixed(width: 202, height: 28))
-                TabsSegmentControlRepresentable()
-                    .previewDisplayName("Dark Mode")
-                    .preferredColorScheme(.dark)
-                    .previewLayout(PreviewLayout.fixed(width: 300, height: 40))
-            }
+    func updateUIView(_ view: UIView, context: Context) {}
+}
+
+@available(iOS 13.0, *)
+struct CategoriesFavoritesSegmentControlPreview: PreviewProvider {
+    static var previews: some View {
+        Group {
+            TabsSegmentControlRepresentable()
+                .previewDisplayName("Light Mode")
+                .previewLayout(PreviewLayout.fixed(width: 202, height: 28))
+            TabsSegmentControlRepresentable()
+                .previewDisplayName("Dark Mode")
+                .preferredColorScheme(.dark)
+                .previewLayout(PreviewLayout.fixed(width: 300, height: 40))
         }
     }
+}
 #endif

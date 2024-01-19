@@ -1,5 +1,5 @@
-import UIKit
 import MapboxSearch
+import UIKit
 
 protocol SendFeedbackControllerDelegate: AnyObject {
     func sendFeedbackDidReady()
@@ -55,9 +55,12 @@ class SendFeedbackController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         textView.becomeFirstResponder()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(adjustForKeyboard(notification:)),
-                                               name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(adjustForKeyboard(notification:)),
+            name: UIResponder.keyboardWillChangeFrameNotification,
+            object: nil
+        )
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -75,7 +78,8 @@ class SendFeedbackController: UIViewController {
         textView.backgroundColor = configuration.style.secondaryBackgroundColor
     }
 
-    @objc func adjustForKeyboard(notification: Notification) {
+    @objc
+    func adjustForKeyboard(notification: Notification) {
         guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
         else { return }
 
@@ -91,9 +95,11 @@ class SendFeedbackController: UIViewController {
 
         textViewHeightConstraint.constant = min(max(textView.frame.size.height - overlapValue, minHeight), maxHeight)
 
-        UIView.animate(withDuration: 0.3,
-                       delay: 0.0,
-                       options: [.beginFromCurrentState, .curveEaseOut]) {
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0.0,
+            options: [.beginFromCurrentState, .curveEaseOut]
+        ) {
             self.view.layoutIfNeeded()
         }
     }
@@ -152,19 +158,23 @@ class SendFeedbackController: UIViewController {
 }
 
 extension SendFeedbackController {
-    @IBAction func endEditingAction(_ sender: Any) {
+    @IBAction
+    func endEditingAction(_ sender: Any) {
         view.endEditing(true)
     }
 
-    @IBAction func backAction(_ sender: Any) {
+    @IBAction
+    func backAction(_ sender: Any) {
         delegate?.sendFeedbackDidCancel()
     }
 
-    @IBAction func closeAction(_ sender: Any) {
+    @IBAction
+    func closeAction(_ sender: Any) {
         delegate?.sendFeedbackDidClose()
     }
 
-    @IBAction func submitAction(_ sender: Any) {
+    @IBAction
+    func submitAction(_ sender: Any) {
         presentFeedbackConfirmation()
     }
 }

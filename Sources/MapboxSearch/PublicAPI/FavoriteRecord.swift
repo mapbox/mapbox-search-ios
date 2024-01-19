@@ -54,7 +54,8 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     /// Type of SearchResult. Should be one of address or POI.
     public var type: SearchResultType
 
-    /// Additional string literals that should be included in object index. For example, you may provide non-official names to force `SearchEngine` match them.
+    /// Additional string literals that should be included in object index. For example, you may provide non-official
+    /// names to force `SearchEngine` match them.
     public var additionalTokens: Set<String>?
 
     /// FavoriteRecord Always has estimatedTime as nil.
@@ -115,18 +116,20 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         name: String,
         searchResult: SearchResult
     ) {
-        self.init(id: id,
-                  name: name,
-                  matchingName: searchResult.matchingName,
-                  coordinate: searchResult.coordinate,
-                  address: searchResult.address,
-                  makiIcon: searchResult.iconName.flatMap(Maki.init),
-                  serverIndex: searchResult.serverIndex,
-                  accuracy: searchResult.accuracy,
-                  categories: searchResult.categories,
-                  routablePoints: searchResult.routablePoints,
-                  resultType: searchResult.type,
-                  searchRequest: searchResult.searchRequest,
-                  metadata: searchResult.metadata)
+        self.init(
+            id: id,
+            name: name,
+            matchingName: searchResult.matchingName,
+            coordinate: searchResult.coordinate,
+            address: searchResult.address,
+            makiIcon: searchResult.iconName.flatMap(Maki.init),
+            serverIndex: searchResult.serverIndex,
+            accuracy: searchResult.accuracy,
+            categories: searchResult.categories,
+            routablePoints: searchResult.routablePoints,
+            resultType: searchResult.type,
+            searchRequest: searchResult.searchRequest,
+            metadata: searchResult.metadata
+        )
     }
 }

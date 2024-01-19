@@ -1,5 +1,5 @@
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 class ArrayExtensionsTests: XCTestCase {
     func testRemoveSingleDuplicate() throws {

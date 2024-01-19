@@ -1,5 +1,5 @@
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 class SearchResultTests: XCTestCase {
     func testPlacemarkGeneration() throws {

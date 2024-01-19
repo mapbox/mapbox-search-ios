@@ -1,6 +1,6 @@
 import Foundation
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 class RouteTests: XCTestCase {
     func testRouteCoordinatesConversion() {

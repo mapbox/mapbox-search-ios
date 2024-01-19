@@ -1,5 +1,5 @@
-import Foundation
 import CoreLocation
+import Foundation
 
 protocol CoreSearchResultProtocol {
     var id: String { get }
@@ -60,15 +60,15 @@ extension CoreSearchResult: CoreSearchResultProtocol {
     }
 
     var resultTypes: [CoreResultType] {
-        types.compactMap({ CoreResultType(rawValue: $0.intValue) })
+        types.compactMap { CoreResultType(rawValue: $0.intValue) }
     }
 
     var estimatedTime: Measurement<UnitDuration>? {
-        eta.map({ Measurement(value: $0.doubleValue, unit: UnitDuration.minutes) })
+        eta.map { Measurement(value: $0.doubleValue, unit: UnitDuration.minutes) }
     }
 
     var distanceToProximity: CLLocationDistance? {
-        distance.map({ $0.doubleValue })
+        distance.map(\.doubleValue)
     }
 
     var resultAccuracy: CoreAccuracy? {

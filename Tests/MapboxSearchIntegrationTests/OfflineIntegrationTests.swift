@@ -1,10 +1,10 @@
 @testable import MapboxSearch
 
-import XCTest
-import CoreLocation
 import CoreGraphics
+import CoreLocation
 import MapboxCommon
 @testable import MapboxSearch
+import XCTest
 
 class OfflineIntegrationTests: MockServerTestCase {
     let delegate = SearchEngineDelegateStub()
@@ -34,7 +34,8 @@ class OfflineIntegrationTests: MockServerTestCase {
         wait(for: [setTileStoreExpectation], timeout: 10)
     }
 
-    func loadData(completion: @escaping (Result<MapboxCommon.TileRegion, MapboxSearch.TileRegionError>) -> Void) -> SearchCancelable {
+    func loadData(completion: @escaping (Result<MapboxCommon.TileRegion, MapboxSearch.TileRegionError>) -> Void)
+    -> SearchCancelable {
         let descriptor = SearchOfflineManager.createDefaultTilesetDescriptor()
         let dcLocationValue = NSValue(cgPoint: dcLocation)
         let options = MapboxCommon.TileRegionLoadOptions.build(
@@ -42,7 +43,7 @@ class OfflineIntegrationTests: MockServerTestCase {
             descriptors: [descriptor],
             acceptExpired: true
         )!
-        let cancelable = searchEngine.offlineManager.tileStore.loadTileRegion(id: regionId, options: options) { progress in
+        let cancelable = searchEngine.offlineManager.tileStore.loadTileRegion(id: regionId, options: options) { _ in
         } completion: { result in
             completion(result)
         }

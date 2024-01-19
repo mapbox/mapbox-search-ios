@@ -7,7 +7,7 @@ class PlaceholderView: UIView {
     }
 
     private func placeholdedView() -> UIView {
-        guard let restorationIdentifier = restorationIdentifier else {
+        guard let restorationIdentifier else {
             print("PlaceholderView: RestorationIdentifier is empty. Cannot instantiate an replacement")
             return self
         }

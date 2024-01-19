@@ -1,6 +1,6 @@
-import XCTest
 import CoreLocation
 @testable import MapboxSearch
+import XCTest
 
 class BoundingBoxTests: XCTestCase {
     func testContainsCoordinate() {

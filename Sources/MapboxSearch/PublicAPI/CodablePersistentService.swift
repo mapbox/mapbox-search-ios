@@ -8,7 +8,7 @@ open class CodablePersistentService<Record: Codable> {
     init?(filename: String) {
         do {
             let folderURL = try CodablePersistentService.applicationSupportURL()
-            fileURL = folderURL.appendingPathComponent(filename, isDirectory: false)
+            self.fileURL = folderURL.appendingPathComponent(filename, isDirectory: false)
         } catch {
             _Logger.searchSDK.error("Failed to access 'Application Support' folder: \(error)", category: .userRecords)
             return nil
@@ -28,8 +28,10 @@ open class CodablePersistentService<Record: Codable> {
             let decoder = PropertyListDecoder()
             return try decoder.decode(Record.self, from: recordData)
         } catch {
-            _Logger.searchSDK.error("Failed to initialize Data: \(error) for url: \(fileURL) for type \(Record.self)",
-                                    category: .userRecords)
+            _Logger.searchSDK.error(
+                "Failed to initialize Data: \(error) for url: \(fileURL) for type \(Record.self)",
+                category: .userRecords
+            )
             return nil
         }
     }

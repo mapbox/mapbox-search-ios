@@ -1,5 +1,5 @@
-import Foundation
 import CoreLocation
+import Foundation
 
 public final class Discover {
     private let searchEngine: CategorySearchEngine
@@ -7,14 +7,17 @@ public final class Discover {
 
     /// Basic internal initializer
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
+    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used
+    /// for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     public convenience init(
         accessToken: String? = nil,
         locationProvider: LocationProvider? = DefaultLocationProvider()
     ) {
         guard let accessToken = accessToken ?? ServiceProvider.shared.getStoredAccessToken() else {
-            fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
+            fatalError(
+                "No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key"
+            )
         }
 
         let searchEngine = CategorySearchEngine(
@@ -39,7 +42,7 @@ public final class Discover {
     }
 }
 
-public extension Discover {
+extension Discover {
     /// Search for places nearby the specified geographic point.
     /// - Parameters:
     ///   - query: Search query
@@ -47,7 +50,7 @@ public extension Discover {
     ///   - options: Search options
     ///   - completion: Result of the search request, one of error or value.
     ///
-    func search(
+    public func search(
         for query: Query,
         proximity: CLLocationCoordinate2D,
         options: Options = .init(),
@@ -72,7 +75,7 @@ public extension Discover {
     ///   - options: Search options
     ///   - completion: Result of the search request, one of error or value.
     ///
-    func search(
+    public func search(
         for query: Query,
         in region: BoundingBox,
         proximity: CLLocationCoordinate2D? = nil,
@@ -98,7 +101,7 @@ public extension Discover {
     ///   - options: Search options
     ///   - completion: Result of the search request, one of error or value.
     ///
-    func search(
+    public func search(
         for query: Query,
         route: RouteOptions,
         options: Options = .init(),
@@ -118,8 +121,8 @@ public extension Discover {
 
 // MARK: - Private
 
-private extension Discover {
-    func search(
+extension Discover {
+    private func search(
         for query: Query,
         with searchOptions: SearchOptions,
         completion: @escaping (Swift.Result<[Result], Error>) -> Void

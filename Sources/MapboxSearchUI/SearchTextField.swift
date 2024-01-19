@@ -29,9 +29,9 @@ class SearchTextField: UIView {
     override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: newWindow)
 
-        #if TARGET_INTERFACE_BUILDER
-            configuration = .init()
-        #endif
+#if TARGET_INTERFACE_BUILDER
+        configuration = .init()
+#endif
 
         assert(configuration != nil)
 
@@ -48,8 +48,10 @@ class SearchTextField: UIView {
 
         let text = customPlaceholder ?? Strings.SearchTextField.placeholder
         let attributes = [NSAttributedString.Key.foregroundColor: configuration.style.primaryInactiveElementColor]
-        textField.attributedPlaceholder = NSAttributedString(string: text,
-                                                             attributes: attributes)
+        textField.attributedPlaceholder = NSAttributedString(
+            string: text,
+            attributes: attributes
+        )
     }
 
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {

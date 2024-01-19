@@ -55,7 +55,6 @@ extension ServiceProvider: EngineProviderProtocol {
         Bundle.main.object(forInfoDictionaryKey: accessTokenPlistKey) as? String
     }
 
-
     func createEngine(
         apiType: CoreSearchEngine.ApiType,
         accessToken: String,

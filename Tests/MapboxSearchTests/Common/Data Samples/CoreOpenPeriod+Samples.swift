@@ -1,7 +1,7 @@
 import Foundation
 @testable import MapboxSearch
 
-extension Array where Element == CoreOpenPeriod {
+extension [CoreOpenPeriod] {
     /// Stub schedule:
     ///     Monday – Friday:    8:35 – 20:18
     ///     Saturday, Sunday:  10:00 – 19:00
@@ -14,17 +14,19 @@ extension Array where Element == CoreOpenPeriod {
         let saturdayPeriod = CoreOpenPeriod(openD: 5, openH: 10, openM: 00, closedD: 5, closedH: 19, closedM: 00)
         let sundayPeriod = CoreOpenPeriod(openD: 6, openH: 10, openM: 00, closedD: 6, closedH: 19, closedM: 00)
 
-        return [mondayPeriod,
-                tuesdayPeriod,
-                wednesdayPeriod,
-                thursdayPeriod,
-                fridayPeriod,
-                saturdayPeriod,
-                sundayPeriod]
+        return [
+            mondayPeriod,
+            tuesdayPeriod,
+            wednesdayPeriod,
+            thursdayPeriod,
+            fridayPeriod,
+            saturdayPeriod,
+            sundayPeriod,
+        ]
     }
 }
 
-extension Array where Element == OpenPeriod {
+extension [OpenPeriod] {
     static func fullWeekPeriodsSample() -> [OpenPeriod] {
         [CoreOpenPeriod].coreOpenHourPeriods().map(OpenPeriod.init)
     }

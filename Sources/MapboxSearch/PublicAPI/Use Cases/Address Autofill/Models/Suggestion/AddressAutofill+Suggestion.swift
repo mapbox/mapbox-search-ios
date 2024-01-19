@@ -1,8 +1,8 @@
-import Foundation
 import CoreLocation
+import Foundation
 
-public extension AddressAutofill {
-    struct Suggestion {
+extension AddressAutofill {
+    public struct Suggestion {
         /// Suggestion name.
         public let name: String
 
@@ -13,11 +13,11 @@ public extension AddressAutofill {
         public let coordinate: CLLocationCoordinate2D?
 
         /// The individual address components.
-        internal let addressComponents: NonEmptyArray<AddressComponent>
+        let addressComponents: NonEmptyArray<AddressComponent>
 
         /// Underlying data provided by core SDK and API used to construct this Suggestion instance.
         /// Useful for any follow-up API calls or unit test validation.
-        internal let underlying: Underlying
+        let underlying: Underlying
 
         init(
             name: String,

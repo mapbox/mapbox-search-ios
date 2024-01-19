@@ -13,21 +13,24 @@ public struct Style {
     ///   - secondaryBackgroundColor: Search Bar background, Category buttons background
     ///   - separatorColor: Separator color for UITableViews
     ///   - primaryAccentColor: Accent color is used is `UIView.tintColor`. By default is blue (mapbox style)
-    ///   - primaryInactiveElementColor: Color of non-active or non-important labels like placeholder in `SearchBar` or address label in `SearchSuggestionCell`
+    ///   - primaryInactiveElementColor: Color of non-active or non-important labels like placeholder in `SearchBar` or
+    /// address label in `SearchSuggestionCell`
     ///   - panelShadowColor: Shadow color for `MapboxPanelController`
     ///   - panelHandlerColor: Color of the small rectangle at the top of the `MapboxPanelController`
     ///   - iconTintColor: Tinting color for most icons like category icon or favorite record icon
     ///   - activeSegmentTitleColor: Title color for active element in SegmentedControl
-    public init(primaryTextColor: UIColor? = nil,
-                primaryBackgroundColor: UIColor? = nil,
-                secondaryBackgroundColor: UIColor? = nil,
-                separatorColor: UIColor? = nil,
-                primaryAccentColor: UIColor? = nil,
-                primaryInactiveElementColor: UIColor? = nil,
-                panelShadowColor: UIColor? = nil,
-                panelHandlerColor: UIColor? = nil,
-                iconTintColor: UIColor? = nil,
-                activeSegmentTitleColor: UIColor? = nil) {
+    public init(
+        primaryTextColor: UIColor? = nil,
+        primaryBackgroundColor: UIColor? = nil,
+        secondaryBackgroundColor: UIColor? = nil,
+        separatorColor: UIColor? = nil,
+        primaryAccentColor: UIColor? = nil,
+        primaryInactiveElementColor: UIColor? = nil,
+        panelShadowColor: UIColor? = nil,
+        panelHandlerColor: UIColor? = nil,
+        iconTintColor: UIColor? = nil,
+        activeSegmentTitleColor: UIColor? = nil
+    ) {
         self.primaryTextColor = primaryTextColor ?? Colors.text
         self.primaryBackgroundColor = primaryBackgroundColor ?? Colors.background
         self.secondaryBackgroundColor = secondaryBackgroundColor ?? Colors.searchBarBackground
@@ -58,7 +61,8 @@ public struct Style {
     /// Accent color is used is `UIView.tintColor`. By default is blue (mapbox style)
     public var primaryAccentColor: UIColor
 
-    /// Color of non-active or non-important labels like placeholder in `SearchBar` or address label in `SearchSuggestionCell`
+    /// Color of non-active or non-important labels like placeholder in `SearchBar` or address label in
+    /// `SearchSuggestionCell`
     public var primaryInactiveElementColor: UIColor
 
     /// Shadow color for `MapboxPanelController`

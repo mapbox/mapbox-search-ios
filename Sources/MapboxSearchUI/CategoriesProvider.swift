@@ -9,7 +9,7 @@ public class CategoriesProvider {
     public static let shared = CategoriesProvider()
 
     private init() {
-        categories = [
+        self.categories = [
             .restaurant,
             .bar,
             .coffeeShop,
@@ -31,7 +31,7 @@ public class CategoriesProvider {
             .autoRepair,
             .atm,
             .hospital,
-            .emergencyRoom
+            .emergencyRoom,
         ]
     }
 }

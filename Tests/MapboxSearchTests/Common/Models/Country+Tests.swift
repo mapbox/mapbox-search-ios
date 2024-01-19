@@ -1,5 +1,5 @@
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 final class CountryTests: XCTestCase {
     func testThatCountryIsInitializedWithCorrectIdentifier() {

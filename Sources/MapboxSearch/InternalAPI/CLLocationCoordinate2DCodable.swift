@@ -1,5 +1,5 @@
-import Foundation
 import CoreLocation
+import Foundation
 
 struct CLLocationCoordinate2DCodable: Codable, Hashable {
     var latitude: CLLocationDegrees
@@ -21,13 +21,13 @@ struct CLLocationCoordinate2DCodable: Codable, Hashable {
 
     init(from decoder: Decoder) throws {
         var container = try decoder.unkeyedContainer()
-        longitude = try container.decode(CLLocationDegrees.self)
-        latitude = try container.decode(CLLocationDegrees.self)
+        self.longitude = try container.decode(CLLocationDegrees.self)
+        self.latitude = try container.decode(CLLocationDegrees.self)
     }
 
     init(_ coordinate: CLLocationCoordinate2D) {
-        latitude = coordinate.latitude
-        longitude = coordinate.longitude
+        self.latitude = coordinate.latitude
+        self.longitude = coordinate.longitude
     }
 
     init(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {

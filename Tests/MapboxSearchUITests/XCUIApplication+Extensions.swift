@@ -12,14 +12,16 @@ extension XCUIApplication {
     var searchBar: XCUIElement {
         XCTAssertTrue(isMapboxSearchController, "Can't find MapboxSearchController on screen")
         XCTAssertTrue(
-            mapboxSearchController.otherElements["MapboxSearchController.searchBar"].waitForExistence(timeout: BaseTestCase.defaultTimeout),
+            mapboxSearchController.otherElements["MapboxSearchController.searchBar"]
+                .waitForExistence(timeout: BaseTestCase.defaultTimeout),
             "SearchBar not exist"
         )
         return mapboxSearchController.otherElements["MapboxSearchController.searchBar"]
     }
 
     var isCollapsed: Bool {
-        tables["CategoriesTableViewSource.tableView"].exists && !tables["CategoriesTableViewSource.tableView"].isHittable
+        tables["CategoriesTableViewSource.tableView"].exists && !tables["CategoriesTableViewSource.tableView"]
+            .isHittable
     }
 }
 
@@ -48,9 +50,9 @@ extension XCUIElementQuery {
     }
 }
 
-
 extension XCTestCase {
-    @discardableResult func waitForHittable(
+    @discardableResult
+    func waitForHittable(
         _ element: XCUIElement,
         timeout: TimeInterval = BaseTestCase.defaultTimeout,
         message: String? = nil
@@ -66,7 +68,8 @@ extension XCTestCase {
         return element
     }
 
-    @discardableResult func waitForEnabled(
+    @discardableResult
+    func waitForEnabled(
         _ enabled: Bool,
         for element: XCUIElement,
         timeout: TimeInterval = BaseTestCase.defaultTimeout,

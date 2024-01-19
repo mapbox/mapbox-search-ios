@@ -12,7 +12,7 @@ final class MockWebServer {
 
         let response = HttpResponse.raw(statusCode, "mocked response", nil) { writer in
             try writer.write(
-                try Data(contentsOf: URL(fileURLWithPath: response.path))
+                Data(contentsOf: URL(fileURLWithPath: response.path))
             )
         }
 
@@ -53,12 +53,12 @@ final class MockWebServer {
 
 // MARK: - private
 
-private extension MockWebServer {
-    enum HTTPMethod {
+extension MockWebServer {
+    fileprivate enum HTTPMethod {
         case get, post
     }
 
-    static func httpMethod(for endpoint: MockResponse.Endpoint) -> HTTPMethod {
+    fileprivate static func httpMethod(for endpoint: MockResponse.Endpoint) -> HTTPMethod {
         switch endpoint {
         case .suggest, .category, .reverse, .addressSuggest, .addressRetrieve:
             return .get
@@ -68,7 +68,7 @@ private extension MockWebServer {
         }
     }
 
-    static func path(for endpoint: MockResponse.Endpoint) -> String {
+    fileprivate static func path(for endpoint: MockResponse.Endpoint) -> String {
         var path = "/search/v1/\(endpoint.rawValue)"
 
         switch endpoint {

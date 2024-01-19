@@ -13,25 +13,25 @@ let defaultUserAgent: String = {
         let version = ProcessInfo.processInfo.operatingSystemVersion
         let versionString = "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
         let osName: String = {
-            #if os(iOS)
-                #if targetEnvironment(macCatalyst)
-                    return "macOS(Catalyst)"
-                #else
-                    return "iOS"
-                #endif
-            #elseif os(watchOS)
-                return "watchOS"
-            #elseif os(tvOS)
-                return "tvOS"
-            #elseif os(macOS)
-                return "macOS"
-            #elseif os(Linux)
-                return "Linux"
-            #elseif os(Windows)
-                return "Windows"
-            #else
-                return "Unknown"
-            #endif
+#if os(iOS)
+#if targetEnvironment(macCatalyst)
+            return "macOS(Catalyst)"
+#else
+            return "iOS"
+#endif
+#elseif os(watchOS)
+            return "watchOS"
+#elseif os(tvOS)
+            return "tvOS"
+#elseif os(macOS)
+            return "macOS"
+#elseif os(Linux)
+            return "Linux"
+#elseif os(Windows)
+            return "Windows"
+#else
+            return "Unknown"
+#endif
         }()
 
         return "\(osName) \(versionString)"

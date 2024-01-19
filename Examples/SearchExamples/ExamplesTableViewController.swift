@@ -8,12 +8,12 @@ class ExamplesTableViewController: UITableViewController {
             Example(title: "Get query results", screenType: SimpleListSearchViewController.self),
             Example(title: "Search for category", screenType: SimpleCategorySearchViewController.self),
             Example(title: "Integrate SearchUI module", screenType: SimpleUISearchViewController.self),
-            Example(title: "Continuous Search", screenType: ContinuousSearchViewController.self)
+            Example(title: "Continuous Search", screenType: ContinuousSearchViewController.self),
         ]),
         ExampleSection(title: "Results on the Map", examples: [
             Example(title: "Category Results on MapboxMaps", screenType: MapboxMapsCategoryResultsViewController.self),
-            Example(title: "Follow maps bounding box", screenType: MapboxBoundingBoxController.self)
-        ])
+            Example(title: "Follow maps bounding box", screenType: MapboxBoundingBoxController.self),
+        ]),
     ]
 
     override func viewDidLoad() {
@@ -62,4 +62,3 @@ extension ExamplesTableViewController {
         navigationController?.pushViewController(controller, animated: true)
     }
 }
-

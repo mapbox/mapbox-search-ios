@@ -1,6 +1,6 @@
+import CoreLocation
 @testable import MapboxSearch
 import XCTest
-import CoreLocation
 
 class SearchErrorTests: XCTestCase {
     func testGenericSearchError() {
@@ -11,7 +11,7 @@ class SearchErrorTests: XCTestCase {
         )
         let searchError = SearchError(genericError)
 
-        guard case let .generic(code, domain, message) = searchError else {
+        guard case .generic(let code, let domain, let message) = searchError else {
             XCTFail("Unexpected type of error: \(searchError). Expected: .generic(code, domain, message)")
             return
         }

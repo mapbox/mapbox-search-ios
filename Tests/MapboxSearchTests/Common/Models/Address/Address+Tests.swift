@@ -1,5 +1,5 @@
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 class AddressFormatterTests: XCTestCase {
     var address: Address {
@@ -91,15 +91,17 @@ class AddressFormatterTests: XCTestCase {
     }
 
     func testEmptyCoreAddressConversion() {
-        let coreAddress = CoreAddress(houseNumber: "",
-                                      street: "",
-                                      neighborhood: "",
-                                      locality: "",
-                                      postcode: "",
-                                      place: "",
-                                      district: "",
-                                      region: nil,
-                                      country: nil)
+        let coreAddress = CoreAddress(
+            houseNumber: "",
+            street: "",
+            neighborhood: "",
+            locality: "",
+            postcode: "",
+            place: "",
+            district: "",
+            region: nil,
+            country: nil
+        )
         let address = Address(coreAddress: coreAddress)
 
         XCTAssertNil(address.houseNumber)

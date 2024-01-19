@@ -49,17 +49,23 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
 
     /// Basic internal initializer
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
+    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used
+    /// for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
-    ///   - serviceProvider: Internal `ServiceProvider` for sharing common dependencies like favoritesService or eventsManager
+    ///   - serviceProvider: Internal `ServiceProvider` for sharing common dependencies like favoritesService or
+    /// eventsManager
     ///   - supportSBS: enable support the latest Single-Box Search APIs
-    init(accessToken: String? = nil,
-         serviceProvider: ServiceProviderProtocol & EngineProviderProtocol,
-         locationProvider: LocationProvider? = DefaultLocationProvider(),
-         defaultSearchOptions: SearchOptions = SearchOptions(),
-         supportSBS: Bool = false) {
+    init(
+        accessToken: String? = nil,
+        serviceProvider: ServiceProviderProtocol & EngineProviderProtocol,
+        locationProvider: LocationProvider? = DefaultLocationProvider(),
+        defaultSearchOptions: SearchOptions = SearchOptions(),
+        supportSBS: Bool = false
+    ) {
         guard let accessToken = accessToken ?? serviceProvider.getStoredAccessToken() else {
-            fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
+            fatalError(
+                "No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key"
+            )
         }
 
         self.supportSBS = supportSBS
@@ -80,11 +86,11 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
         self.engine = serviceProvider.createEngine(
             apiType: engineApi,
             accessToken: accessToken,
-            locationProvider: self.locationProviderWrapper
+            locationProvider: locationProviderWrapper
         )
         self.offlineManager = SearchOfflineManager(engine: engine, tileStore: SearchTileStore())
 
-        self.feedbackManager.delegate = self
+        feedbackManager.delegate = self
         _Logger.searchSDK.info("Init \(self) for API v.\(engineApi)")
 
         for (index, provider) in serviceProvider.dataLayerProviders.enumerated() {
@@ -100,7 +106,8 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
 
     /// Initializer with safe-to-go defaults
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
+    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used
+    /// for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     ///   - defaultSearchOptions: Default options to use when `nil` was passed to the `search(…: options:)` call
     ///   - supportSBS: enable support the latest Single-Box Search APIs
@@ -132,8 +139,10 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
         engine.addUserLayer(coreRecordsLayer)
         dataLayerProviders.append(dataProvider)
 
-        return RecordsProviderInteractorNativeCore(userRecordsLayer: coreRecordsLayer,
-                                                   registeredIdentifier: providerIdentifier)
+        return RecordsProviderInteractorNativeCore(
+            userRecordsLayer: coreRecordsLayer,
+            registeredIdentifier: providerIdentifier
+        )
     }
 
     func resolve(
@@ -149,7 +158,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
 
         resolver.resolve(suggestion: suggestion) { resolvedResult in
             completionQueue.async {
-                if let resolvedResult = resolvedResult {
+                if let resolvedResult {
                     completion(.success(resolvedResult))
                 } else {
                     _Logger.searchSDK.info("Failed to resolve result \(suggestion) in resolver \(resolver)")
@@ -187,7 +196,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
             if let resolver = dataResolver(for: suggestion.dataLayerIdentifier) {
                 resolutionDispatchGroup.enter()
                 resolver.resolve(suggestion: suggestion) { resolvedResult in
-                    guard let resolvedResult = resolvedResult else { return }
+                    guard let resolvedResult else { return }
 
                     addResolvedResultAndLeaveGroup(resolvedResult, at: index)
                 }
@@ -204,7 +213,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
             completionQueue.async {
                 assert(suggestions.count == resultsBuffer.count)
 
-                let resolvedResults = resultsBuffer.compactMap({ $0 })
+                let resolvedResults = resultsBuffer.compactMap { $0 }
                 assert(resultsBuffer.count == resolvedResults.count)
 
                 completion(resolvedResults)

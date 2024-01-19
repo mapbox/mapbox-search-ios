@@ -29,19 +29,21 @@ extension TileRegionLoadOptions {
         networkRestriction: NetworkRestriction = .none,
         averageBytesPerSecond: Int? = nil
     ) -> TileRegionLoadOptions? {
-        if let metadata = metadata {
+        if let metadata {
             guard JSONSerialization.isValidJSONObject(metadata) else {
                 return nil
             }
         }
 
-        return TileRegionLoadOptions(__geometry: geometry,
-                                     descriptors: descriptors,
-                                     metadata: metadata,
-                                     acceptExpired: acceptExpired,
-                                     networkRestriction: networkRestriction,
-                                     startLocation: nil,
-                                     averageBytesPerSecond: averageBytesPerSecond.map(NSNumber.init(value:)),
-                                     extraOptions: nil)
+        return TileRegionLoadOptions(
+            __geometry: geometry,
+            descriptors: descriptors,
+            metadata: metadata,
+            acceptExpired: acceptExpired,
+            networkRestriction: networkRestriction,
+            startLocation: nil,
+            averageBytesPerSecond: averageBytesPerSecond.map(NSNumber.init(value:)),
+            extraOptions: nil
+        )
     }
 }

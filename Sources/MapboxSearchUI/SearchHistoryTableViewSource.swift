@@ -1,5 +1,5 @@
-import MapboxSearch
 import CoreLocation
+import MapboxSearch
 import UIKit
 
 private enum Defaults {
@@ -35,11 +35,13 @@ class SearchHistoryTableViewSource: NSObject {
         historyProvider.recordsMap.values.sorted(by: { $1.timestamp < $0.timestamp }).unique(by: \.name)
     }
 
-    init(historyProvider: HistoryProvider,
-         favoritesProvider: FavoritesProvider,
-         registerCellsInTableView tableView: UITableView,
-         delegate: SearchHistoryTableViewSourceDelegate?,
-         configuration: Configuration) {
+    init(
+        historyProvider: HistoryProvider,
+        favoritesProvider: FavoritesProvider,
+        registerCellsInTableView tableView: UITableView,
+        delegate: SearchHistoryTableViewSourceDelegate?,
+        configuration: Configuration
+    ) {
         self.historyProvider = historyProvider
         self.favoritesProvider = favoritesProvider
         self.tableView = tableView
@@ -97,8 +99,12 @@ extension SearchHistoryTableViewSource: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let historyEntry = history[indexPath.row]
-        // swiftlint:disable:next force_cast line_length
-        let cell = tableView.dequeueReusableCell(withIdentifier: Defaults.historyCellReuseIdentifier, for: indexPath) as! SearchHistoryCell
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: Defaults.historyCellReuseIdentifier,
+            for: indexPath
+        ) as! SearchHistoryCell
+        // swiftlint:disable:previous force_cast
+
         let isFavorite = favoritesProvider.isAlsoFavorite(history: historyEntry)
         cell.configure(historyEntry: historyEntry, isFavorite: isFavorite, configuration: configuration)
 
@@ -125,10 +131,15 @@ extension SearchHistoryTableViewSource: UITableViewDelegate {
         delegate?.searchHistoryTableSource(self, didSelectHistoryEntry: historyEntry)
     }
 
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
         let title = Strings.SearchHistory.deleteActionTitle
-        let deleteAction = UIContextualAction(style: .destructive,
-                                              title: title) { [weak self] _, _, completionHandler in
+        let deleteAction = UIContextualAction(
+            style: .destructive,
+            title: title
+        ) { [weak self] _, _, completionHandler in
             self?.deleteHistoryEntry(at: indexPath)
             completionHandler(true)
         }
@@ -136,8 +147,8 @@ extension SearchHistoryTableViewSource: UITableViewDelegate {
     }
 }
 
-private extension FavoritesProvider {
-    func isAlsoFavorite(history: HistoryRecord) -> Bool {
+extension FavoritesProvider {
+    fileprivate func isAlsoFavorite(history: HistoryRecord) -> Bool {
         return recordsMap.contains { _, favorite in
             favorite.name == history.name && isEqualCoordinate(lhs: favorite.coordinate, rhs: history.coordinate)
         }

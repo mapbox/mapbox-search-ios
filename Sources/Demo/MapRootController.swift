@@ -32,9 +32,11 @@ class MapRootController: UIViewController {
         engine.setOfflineMode(.enabled) {
             let descriptor = SearchOfflineManager.createDefaultTilesetDescriptor()
             let dcLocation = NSValue(cgPoint: CGPoint(x: 38.89992081005698, y: -77.03399849939174))
-            guard let options = MapboxCommon.TileRegionLoadOptions.build(geometry: Geometry(point: dcLocation),
-                                                                         descriptors: [descriptor],
-                                                                         acceptExpired: true) else {
+            guard let options = MapboxCommon.TileRegionLoadOptions.build(
+                geometry: Geometry(point: dcLocation),
+                descriptors: [descriptor],
+                acceptExpired: true
+            ) else {
                 assertionFailure()
                 return
             }
@@ -109,14 +111,16 @@ extension MapRootController: SearchControllerDelegate {
 }
 
 extension Style {
-    static let clown = Style(primaryTextColor: .white,
-                             primaryBackgroundColor: .red,
-                             secondaryBackgroundColor: .systemBlue,
-                             separatorColor: .systemBlue,
-                             primaryAccentColor: .orange,
-                             primaryInactiveElementColor: .yellow,
-                             panelShadowColor: .green,
-                             panelHandlerColor: .black,
-                             iconTintColor: .cyan,
-                             activeSegmentTitleColor: .black)
+    static let clown = Style(
+        primaryTextColor: .white,
+        primaryBackgroundColor: .red,
+        secondaryBackgroundColor: .systemBlue,
+        separatorColor: .systemBlue,
+        primaryAccentColor: .orange,
+        primaryInactiveElementColor: .yellow,
+        panelShadowColor: .green,
+        panelHandlerColor: .black,
+        iconTintColor: .cyan,
+        activeSegmentTitleColor: .black
+    )
 }

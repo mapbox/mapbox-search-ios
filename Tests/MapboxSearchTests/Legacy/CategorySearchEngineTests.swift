@@ -1,7 +1,7 @@
-import XCTest
 import CoreLocation
-@testable import MapboxSearch
 import CwlPreconditionTesting
+@testable import MapboxSearch
+import XCTest
 
 class CategorySearchEngineTests: XCTestCase {
     var delegate = SearchEngineDelegateStub()
@@ -37,7 +37,7 @@ class CategorySearchEngineTests: XCTestCase {
             }
         }
         wait(for: [expectation], timeout: 10)
-        XCTAssertEqual(results.map({ $0.id }), expectedResults.map({ $0.id }))
+        XCTAssertEqual(results.map(\.id), expectedResults.map(\.id))
     }
 
     func testCategorySearch() throws {
@@ -62,7 +62,7 @@ class CategorySearchEngineTests: XCTestCase {
             }
         }
         wait(for: [expectation], timeout: 10)
-        XCTAssertEqual(results.map({ $0.id }), expectedResults.map({ $0.id }))
+        XCTAssertEqual(results.map(\.id), expectedResults.map(\.id))
     }
 
     func testErrorSearch() throws {
@@ -95,50 +95,52 @@ class CategorySearchEngineTests: XCTestCase {
     }
 
     func testCategorySearchFailedNoResponse() throws {
-        #if !arch(x86_64)
-            throw XCTSkip("Unsupported architecture")
-        #else
-            let categorySearchEngine = CategorySearchEngine(
-                accessToken: "mapbox-access-token",
-                serviceProvider: provider,
-                locationProvider: DefaultLocationProvider()
-            )
+#if !arch(x86_64)
+        throw XCTSkip("Unsupported architecture")
+#else
+        let categorySearchEngine = CategorySearchEngine(
+            accessToken: "mapbox-access-token",
+            serviceProvider: provider,
+            locationProvider: DefaultLocationProvider()
+        )
 
-            let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
-            engine.callbackWrapper = { callback in
-                let assertionError = catchBadInstruction {
-                    callback()
-                }
-
-                var error: SearchError?
-                let expectation = XCTestExpectation(description: "Expecting results")
-
-                categorySearchEngine.search(categoryName: "ATM") { result in
-                    switch result {
-                    case .success:
-                        assertionFailure("Error expected")
-                    case .failure(let searchError):
-                        error = searchError
-                        expectation.fulfill()
-                    }
-                }
-
-                wait(for: [expectation], timeout: 10)
-
-                XCTAssertEqual(
-                    error,
-                    SearchError.categorySearchRequestFailed(reason: SearchError.responseProcessingFailed)
-                )
+        let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
+        engine.callbackWrapper = { callback in
+            let assertionError = catchBadInstruction {
+                callback()
             }
-        #endif
+
+            var error: SearchError?
+            let expectation = XCTestExpectation(description: "Expecting results")
+
+            categorySearchEngine.search(categoryName: "ATM") { result in
+                switch result {
+                case .success:
+                    assertionFailure("Error expected")
+                case .failure(let searchError):
+                    error = searchError
+                    expectation.fulfill()
+                }
+            }
+
+            wait(for: [expectation], timeout: 10)
+
+            XCTAssertEqual(
+                error,
+                SearchError.categorySearchRequestFailed(reason: SearchError.responseProcessingFailed)
+            )
+        }
+#endif
     }
 
     func testRequestOptionsInit() throws {
-        let requestOptions = SearchOptions(proximity: .sample1,
-                                           boundingBox: .sample1,
-                                           origin: .sample2,
-                                           navigationOptions: .init(profile: .driving, etaType: .navigation),
-                                           routeOptions: .init(route: .sample1, time: 150))
+        let requestOptions = SearchOptions(
+            proximity: .sample1,
+            boundingBox: .sample1,
+            origin: .sample2,
+            navigationOptions: .init(profile: .driving, etaType: .navigation),
+            routeOptions: .init(route: .sample1, time: 150)
+        )
         XCTAssertEqual(requestOptions.proximity, .sample1)
         XCTAssertEqual(requestOptions.boundingBox, .sample1)
         XCTAssertEqual(requestOptions.origin, .sample2)

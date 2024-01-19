@@ -1,6 +1,6 @@
-import UIKit
 import MapboxMaps
 import MapboxSearch
+import UIKit
 
 class MapsViewController: UIViewController, ExampleController {
     let mapView = MapView(frame: .zero)
@@ -34,15 +34,17 @@ class MapsViewController: UIViewController, ExampleController {
                 completion: nil
             )
         } else {
-            let coordinatesCamera = mapView.mapboxMap.camera(for: annotations.map(\.point.coordinates),
-                                                             padding: UIEdgeInsets(
-                                                                 top: 24,
-                                                                 left: 24,
-                                                                 bottom: 24,
-                                                                 right: 24
-                                                             ),
-                                                             bearing: nil,
-                                                             pitch: nil)
+            let coordinatesCamera = mapView.mapboxMap.camera(
+                for: annotations.map(\.point.coordinates),
+                padding: UIEdgeInsets(
+                    top: 24,
+                    left: 24,
+                    bottom: 24,
+                    right: 24
+                ),
+                bearing: nil,
+                pitch: nil
+            )
             mapView.camera.fly(to: coordinatesCamera, duration: 0.25, completion: nil)
         }
     }
@@ -76,7 +78,6 @@ extension PointAnnotation {
         textField = favoriteRecord.name
     }
 }
-
 
 extension CLLocationCoordinate2D {
     static let sanFrancisco = CLLocationCoordinate2D(latitude: 37.7911551, longitude: -122.3966103)

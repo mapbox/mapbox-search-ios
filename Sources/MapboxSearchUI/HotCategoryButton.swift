@@ -13,9 +13,9 @@ class HotCategoryButton: UIControl {
     override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: newWindow)
 
-        #if TARGET_INTERFACE_BUILDER
-            configuration = .init()
-        #endif
+#if TARGET_INTERFACE_BUILDER
+        configuration = .init()
+#endif
 
         assert(configuration != nil)
 
@@ -46,7 +46,8 @@ class HotCategoryButton: UIControl {
         categoryButton.tintColor = configuration.style.iconTintColor
     }
 
-    @IBAction func categoryButtonTap() {
+    @IBAction
+    func categoryButtonTap() {
         sendActions(for: .touchUpInside)
     }
 }

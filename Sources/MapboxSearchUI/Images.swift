@@ -1,5 +1,5 @@
-import UIKit.UIImage
 import MapboxSearch
+import UIKit.UIImage
 
 enum Images {
     static let unknownIcon = UIImage(named: "unknown icon", in: .mapboxSearchUI, compatibleWith: nil)!

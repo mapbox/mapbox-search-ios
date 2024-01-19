@@ -11,7 +11,7 @@ class WrapperLocationProvider: CoreLocationProvider {
     private let locationProvider: LocationProvider
 
     init?(wrapping locationProvider: LocationProvider?) {
-        guard let locationProvider = locationProvider else { return nil }
+        guard let locationProvider else { return nil }
         self.locationProvider = locationProvider
     }
 

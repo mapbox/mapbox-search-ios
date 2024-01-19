@@ -1,5 +1,5 @@
-import Foundation
 import CoreLocation
+import Foundation
 
 /// Options to configure Route for search along the route functionality
 public struct RouteOptions: Hashable {

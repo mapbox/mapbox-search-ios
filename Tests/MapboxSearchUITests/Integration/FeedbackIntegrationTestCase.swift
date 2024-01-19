@@ -32,7 +32,6 @@ class FeedbackIntegrationTestCase: MockServerTestCase {
         let feedbackTextView = app.textViews["FeedbackDescription"]
         feedbackTextView.typeText("Hello, this is test Feedback")
 
-
         app.buttons["FeedbackSubmitButton"].tap()
 
         let alert = app.alerts.firstMatch
@@ -41,7 +40,6 @@ class FeedbackIntegrationTestCase: MockServerTestCase {
         waitForHittable(alert.buttons["OK"]).tap()
         waitForHittable(searchBar)
     }
-
 
     func testCollapseAndSendFeedback() throws {
         app.launch()
@@ -66,7 +64,6 @@ class FeedbackIntegrationTestCase: MockServerTestCase {
         waitForHittable(app.searchResultTableView.buttons["Report"]).tap()
         let feedbackTextView = app.textViews["FeedbackDescription"]
         feedbackTextView.typeText("Hello, this is test Feedback")
-
 
         app.buttons["FeedbackSubmitButton"].tap()
 

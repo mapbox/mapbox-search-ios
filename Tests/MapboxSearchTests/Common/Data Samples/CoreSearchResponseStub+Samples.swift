@@ -37,7 +37,7 @@ extension CoreSearchResponseStub {
             id: id,
             options: .sample1,
             result: .success(
-                results.map { $0.asCoreSearchResult }
+                results.map(\.asCoreSearchResult)
             )
         )
     }

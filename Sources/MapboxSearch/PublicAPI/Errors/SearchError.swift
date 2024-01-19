@@ -1,11 +1,11 @@
 import Foundation
 
 #if DEBUG
-    /// Mapbox Search SDK error domain – Debug version
-    public let mapboxSearchErrorDomain = "MapboxSearchErrorDomain_debug"
+/// Mapbox Search SDK error domain – Debug version
+public let mapboxSearchErrorDomain = "MapboxSearchErrorDomain_debug"
 #else
-    /// Mapbox Search SDK error domain
-    public let mapboxSearchErrorDomain = "MapboxSearchErrorDomain"
+/// Mapbox Search SDK error domain
+public let mapboxSearchErrorDomain = "MapboxSearchErrorDomain"
 #endif
 
 /// Common SearchSDK errors

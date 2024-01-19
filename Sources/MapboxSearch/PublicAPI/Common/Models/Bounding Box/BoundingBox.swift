@@ -1,5 +1,5 @@
-import Foundation
 import CoreLocation
+import Foundation
 
 /// Bounding box  is an area defined by two longitudes and two latitudes,
 /// where: Latitude is a decimal number between -90.0 and 90.0. Longitude is a decimal number between -180.0 and 180.0.
@@ -42,8 +42,8 @@ public struct BoundingBox: Codable, Hashable {
                 let maxLon = max(coordinate.longitude, result.3)
                 return (minLat: minLat, maxLat: maxLat, minLon: minLon, maxLon: maxLon)
             }
-        southWestCodable = CLLocationCoordinate2DCodable(latitude: minLat, longitude: minLon)
-        northEastCodable = CLLocationCoordinate2DCodable(latitude: maxLat, longitude: maxLon)
+        self.southWestCodable = CLLocationCoordinate2DCodable(latitude: minLat, longitude: minLon)
+        self.northEastCodable = CLLocationCoordinate2DCodable(latitude: maxLat, longitude: maxLon)
     }
 
     /// Build `BoundingBox` based on south-west (bottom-left) and north-east (top-right) coordinates

@@ -34,10 +34,10 @@ public class MapboxPanelController: UIViewController {
         /// Make new `Configuration` instance for `MapboxPanelController`
         /// - Parameter state: Initial state of `MapboxPanelController`
         public init(state: State? = nil) {
-            if let state = state {
-                initialState = state
+            if let state {
+                self.initialState = state
             } else {
-                initialState = UIDevice.current.userInterfaceIdiom == .pad ? .opened : .collapsed
+                self.initialState = UIDevice.current.userInterfaceIdiom == .pad ? .opened : .collapsed
             }
         }
     }
@@ -68,7 +68,7 @@ public class MapboxPanelController: UIViewController {
     ///   - animated: Animate changes
     func setState(_ toState: State, forced: Bool = false, animated: Bool = true) {
         if !forced {
-            guard toState != self.state else { return }
+            guard toState != state else { return }
         }
 
         let topConstant: CGFloat
@@ -81,12 +81,12 @@ public class MapboxPanelController: UIViewController {
             topConstant = view.superview?.bounds.height ?? UIScreen.main.bounds.height
         }
         topConstraint?.constant = topConstant
-        self.state = toState
+        state = toState
 
         if animated {
             UIViewPropertyAnimator.runningPropertyAnimator(withDuration: animationDuration, delay: 0, options: [
                 .beginFromCurrentState,
-                .allowUserInteraction
+                .allowUserInteraction,
             ], animations: {
                 self.view.superview?.layoutIfNeeded()
             })
@@ -108,7 +108,7 @@ public class MapboxPanelController: UIViewController {
     ///   - rootViewController: Root controller to be embedded into MapboxPanelController
     ///   - configuration: Configuration for MapboxPanelController. Defaults to `.default`
     public init(rootViewController: UIViewController, configuration: Configuration = .default) {
-        panelNavigationController = UINavigationController(rootViewController: rootViewController)
+        self.panelNavigationController = UINavigationController(rootViewController: rootViewController)
         panelNavigationController.isNavigationBarHidden = true
         self.configuration = configuration
         self.state = configuration.initialState
@@ -118,9 +118,9 @@ public class MapboxPanelController: UIViewController {
     }
 
     required init?(coder: NSCoder) {
-        configuration = .default
-        panelNavigationController = UINavigationController()
-        state = configuration.initialState
+        self.configuration = .default
+        self.panelNavigationController = UINavigationController()
+        self.state = configuration.initialState
         super.init(coder: coder)
 
         guard !children.isEmpty else { fatalError("\(MapboxPanelController.self) requires child controller") }
@@ -140,8 +140,8 @@ public class MapboxPanelController: UIViewController {
     private lazy var dragIndicator = DragIndicator()
 
     /// Make panel from the ground without XIB support.
-    public override func loadView() {
-        self.view = UIView()
+    override public func loadView() {
+        view = UIView()
 
         updateUI(for: searchConfiguration)
 
@@ -162,7 +162,7 @@ public class MapboxPanelController: UIViewController {
         dragIndicator.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             dragIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            dragIndicator.topAnchor.constraint(equalTo: view.topAnchor, constant: 10)
+            dragIndicator.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
         ])
 
         view.addSubview(panelNavigationController.view)
@@ -182,14 +182,14 @@ public class MapboxPanelController: UIViewController {
     }
 
     /// Update shadows on trait updates.
-    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
         updateShadowColor()
     }
 
     /// Recalculate shadows and layout margins.
-    public override func viewDidLayoutSubviews() {
+    override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
         view.layer.shadowPath = UIBezierPath(roundedRect: view.bounds, cornerRadius: view.layer.cornerRadius).cgPath
@@ -201,10 +201,10 @@ public class MapboxPanelController: UIViewController {
     }
 
     /// Simplify presentation with automatic adding subview to the parent view.
-    public override func willMove(toParent parent: UIViewController?) {
+    override public func willMove(toParent parent: UIViewController?) {
         super.willMove(toParent: parent)
 
-        if let parent = parent {
+        if let parent {
             parent.view.addSubview(view)
             addPresentationConstraints(presentationView: parent.view)
         } else {
@@ -249,13 +249,17 @@ public class MapboxPanelController: UIViewController {
         var presentationConstraints = [
             view.leadingAnchor.constraint(lessThanOrEqualTo: presentationView.layoutMarginsGuide.leadingAnchor),
             view.trailingAnchor.constraint(greaterThanOrEqualTo: presentationView.layoutMarginsGuide.trailingAnchor),
-            view.heightAnchor.constraint(greaterThanOrEqualTo: presentationView.layoutMarginsGuide.heightAnchor,
-                                         constant: -configuration.topOffset)
+            view.heightAnchor.constraint(
+                greaterThanOrEqualTo: presentationView.layoutMarginsGuide.heightAnchor,
+                constant: -configuration.topOffset
+            ),
         ]
-        presentationConstraints.forEach({ $0.priority = .defaultHigh })
+        presentationConstraints.forEach { $0.priority = .defaultHigh }
 
-        let widthLimitConstraint = view.widthAnchor.constraint(lessThanOrEqualToConstant:
-            configuration.maximumPanelWidth)
+        let widthLimitConstraint = view.widthAnchor.constraint(
+            lessThanOrEqualToConstant:
+            configuration.maximumPanelWidth
+        )
         presentationConstraints.append(widthLimitConstraint)
 
         let bottomConstraint = view.bottomAnchor.constraint(equalTo: presentationView.bottomAnchor)
@@ -280,7 +284,7 @@ public class MapboxPanelController: UIViewController {
             panelNavigationController.view.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             panelNavigationController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             panelNavigationController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            panelNavigationController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            panelNavigationController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ]
 
         NSLayoutConstraint.activate(presentationConstraints + embeddedNavigationConstraints)
@@ -308,9 +312,9 @@ public class MapboxPanelController: UIViewController {
             trailing = true
         }
 
-        self.leadingAlignmentConstraint?.isActive = leading
-        self.centerAlignmentConstraint?.isActive = center
-        self.trailingAlignmentConstraint?.isActive = trailing
+        leadingAlignmentConstraint?.isActive = leading
+        centerAlignmentConstraint?.isActive = center
+        trailingAlignmentConstraint?.isActive = trailing
 
         if animated {
             UIView.animate(withDuration: 0.25) {
@@ -320,7 +324,7 @@ public class MapboxPanelController: UIViewController {
     }
 
     private var bottomConstantFromTopEdge: CGFloat {
-        view.superview.map({ $0.bounds.height - configuration.bottomOffset - $0.safeAreaInsets.top }) ?? 0
+        view.superview.map { $0.bounds.height - configuration.bottomOffset - $0.safeAreaInsets.top } ?? 0
     }
 
     /// UIScrollView resistance constant
@@ -331,7 +335,7 @@ public class MapboxPanelController: UIViewController {
 
     @IBAction
     private func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {
-        guard let topConstraint = topConstraint else {
+        guard let topConstraint else {
             assertionFailure("Dragging started without self.topConstraint be set")
             return
         }
@@ -340,7 +344,7 @@ public class MapboxPanelController: UIViewController {
             initialDraggingTopConstraint = topConstraint.constant
         }
 
-        let translation = gestureRecognizer.translation(in: self.view)
+        let translation = gestureRecognizer.translation(in: view)
         let nextTopConstant = initialDraggingTopConstraint! + translation.y
         topConstraint.constant = max(configuration.topDraggingWall, nextTopConstant)
 
@@ -356,12 +360,13 @@ public class MapboxPanelController: UIViewController {
 
         let limitedFinalConstant: CGFloat
         if abs(finalDecelerationPoint - configuration.topOffset)
-            <= abs(finalDecelerationPoint - bottomConstantFromTopEdge) {
+            <= abs(finalDecelerationPoint - bottomConstantFromTopEdge)
+        {
             limitedFinalConstant = configuration.topOffset
-            self.state = .opened
+            state = .opened
         } else {
             limitedFinalConstant = bottomConstantFromTopEdge
-            self.state = .collapsed
+            state = .collapsed
         }
 
         let actualDecelerationLength = abs(limitedFinalConstant - topConstraintConstant)
@@ -395,7 +400,8 @@ extension MapboxPanelController: UIGestureRecognizerDelegate {
     /// This is required for others horizontal gesture recognizers like UITableViewCell leading/trailing swipe actions
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         guard let gestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer,
-              gestureRecognizer == panGestureRecognizer else {
+              gestureRecognizer == panGestureRecognizer
+        else {
             return true
         }
         let velocity = gestureRecognizer.velocity(in: gestureRecognizer.view)
@@ -407,7 +413,7 @@ extension UIViewController {
     var mapboxPanelController: MapboxPanelController? {
         sequence(first: self, next: ({ $0.parent }))
             .lazy
-            .compactMap({ $0 as? MapboxPanelController })
+            .compactMap { $0 as? MapboxPanelController }
             .first(where: { _ in return true })
     }
 }

@@ -1,7 +1,7 @@
 import CoreFoundation
 import Foundation
-import SystemConfiguration
 import MapboxSearch
+import SystemConfiguration
 
 private enum Defaults {
     static let queueName = "com.mapbox.search.reachability"
@@ -9,9 +9,9 @@ private enum Defaults {
     static let notificationKey = "ReachabilityStatusKey"
 }
 
-public extension Notification.Name {
+extension Notification.Name {
     /// Reachability state change notification name.
-    static let ReachabilityStatusChanged = Notification.Name(Defaults.notificationName)
+    public static let ReachabilityStatusChanged = Notification.Name(Defaults.notificationName)
 }
 
 class Reachability {
@@ -36,7 +36,7 @@ class Reachability {
     }
 
     var status: Status {
-        guard let flags = flags else { return .unknown }
+        guard let flags else { return .unknown }
         return flags.status
     }
 
@@ -74,7 +74,7 @@ extension Reachability {
         // A C function pointer cannot be formed from a closure that captures context
         // info parameter used to pass self pointer into callback
         let callback: SCNetworkReachabilityCallBack = { _, flags, info in
-            guard let info = info else { return }
+            guard let info else { return }
 
             let reachability = Unmanaged<Reachability>.fromOpaque(info).takeUnretainedValue()
             reachability.flags = flags
@@ -98,8 +98,8 @@ extension Reachability {
     }
 }
 
-private extension SCNetworkReachabilityFlags {
-    var status: Reachability.Status {
+extension SCNetworkReachabilityFlags {
+    fileprivate var status: Reachability.Status {
         guard contains(.reachable) else { return .unavailable }
         return .available
     }

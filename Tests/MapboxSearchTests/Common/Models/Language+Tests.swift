@@ -1,5 +1,5 @@
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 final class LanguageTests: XCTestCase {
     func testThatLanguageIsInitializedWithCorrectIdentifier() {
@@ -23,7 +23,7 @@ final class LanguageTests: XCTestCase {
         [
             Locale(identifier: "en-US"),
             Locale(identifier: "en"),
-            Locale(identifier: "en-UK")
+            Locale(identifier: "en-UK"),
         ].forEach { locale in
             XCTAssertNotNil(locale)
 

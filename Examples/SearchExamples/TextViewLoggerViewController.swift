@@ -1,5 +1,5 @@
-import UIKit
 import MapboxSearch
+import UIKit
 
 class TextViewLoggerViewController: UIViewController, ExampleController {
     let responseTextView = UITextView()
@@ -42,7 +42,7 @@ class TextViewLoggerViewController: UIViewController, ExampleController {
             responseTextView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             responseTextView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             responseTextView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
-            responseTextView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 60)
+            responseTextView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 60),
         ]
         responseTextView.translatesAutoresizingMaskIntoConstraints = false
 

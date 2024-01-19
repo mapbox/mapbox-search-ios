@@ -4,7 +4,8 @@ public enum SearchQueryType {
     /// that has been given a designated country code under ISO 3166-1.
     case country
 
-    /// Top-level sub-national administrative features, such as states in the United States or provinces in Canada or China.
+    /// Top-level sub-national administrative features, such as states in the United States or provinces in Canada or
+    /// China.
     case region
 
     /// Postal codes used in country-specific national addressing systems.
@@ -15,11 +16,13 @@ public enum SearchQueryType {
     case district
 
     /// Typically these are cities, villages, municipalities, etc.
-    /// They’re usually features used in postal addressing, and are suitable for display in ambient end-user applications
+    /// They’re usually features used in postal addressing, and are suitable for display in ambient end-user
+    /// applications
     /// where current-location context is needed (for example, in weather displays).
     case place
 
-    /// Official sub-city features present in countries where such an additional administrative layer is used in postal addressing,
+    /// Official sub-city features present in countries where such an additional administrative layer is used in postal
+    /// addressing,
     /// or where such features are commonly referred to in local parlance.
     /// Examples include city districts in Brazil and Chile and arrondissements in France.
     case locality

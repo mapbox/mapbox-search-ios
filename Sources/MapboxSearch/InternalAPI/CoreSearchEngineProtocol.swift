@@ -1,5 +1,5 @@
-import Foundation
 import CoreLocation
+import Foundation
 
 protocol CoreSearchEngineProtocol {
     /**
@@ -101,7 +101,7 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
         result: CoreSearchResultProtocol?,
         callback: @escaping (String) -> Void
     ) throws {
-        if let result = result {
+        if let result {
             if let coreResult = result as? CoreSearchResult {
                 return makeFeedbackEvent(
                     forRequest: request,
@@ -155,7 +155,9 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
             }
         } else {
             // swiftlint:disable:next line_length
-            assertionFailure("Unexpected type of CoreSearchResultProtocol. Engine doesn't support nothing but CoreSearchResult")
+            assertionFailure(
+                "Unexpected type of CoreSearchResultProtocol. Engine doesn't support nothing but CoreSearchResult"
+            )
             DispatchQueue.main.async {
                 callback(nil)
             }
@@ -167,7 +169,7 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
         with originalRequest: CoreRequestOptions,
         callback: @escaping (CoreSearchResponseProtocol?) -> Void
     ) {
-        let searchResults = results.compactMap({ $0 as? CoreSearchResult })
+        let searchResults = results.compactMap { $0 as? CoreSearchResult }
         assert(searchResults.count == results.count)
 
         retrieveBucket(forRequest: originalRequest, results: searchResults) { response in
@@ -185,7 +187,9 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
             }
         } else {
             // swiftlint:disable:next line_length
-            assertionFailure("Unexpected type of CoreSearchResultProtocol. Engine doesn't support nothing but CoreSearchResult")
+            assertionFailure(
+                "Unexpected type of CoreSearchResultProtocol. Engine doesn't support nothing but CoreSearchResult"
+            )
         }
     }
 

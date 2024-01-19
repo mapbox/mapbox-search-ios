@@ -4,7 +4,7 @@ import Foundation
 public class LocalDataProvider<Record: Codable & SearchResult & IndexableRecord>: IndexableDataProvider {
     /// NSNotification name for built-in update notifications.
     public static var updateNotificationName: Notification.Name {
-        Notification.Name(Self.providerIdentifier + "-UpdateNotification")
+        Notification.Name(providerIdentifier + "-UpdateNotification")
     }
 
     /// Provider identifier for concrete local provider
@@ -20,7 +20,8 @@ public class LocalDataProvider<Record: Codable & SearchResult & IndexableRecord>
 
     /// Make your own data provider of local data with built-in load/save support for Codable results.
     public init() {
-        persistentService = CodablePersistentService(filename:
+        self.persistentService = CodablePersistentService(
+            filename:
             String(describing: Record.self).lowercased() + "s.bplist"
         )
     }
@@ -33,7 +34,7 @@ public class LocalDataProvider<Record: Codable & SearchResult & IndexableRecord>
 
         let records = persistentService?.loadData()
 
-        let map = records.map({ Dictionary(grouping: $0, by: { $0.id }) })
+        let map = records.map { Dictionary(grouping: $0, by: { $0.id }) }
         assert(map?.contains(where: { $1.count > 1 }) != true)
 
         if let map = map?.compactMapValues({ $0.first }) {
@@ -46,7 +47,7 @@ public class LocalDataProvider<Record: Codable & SearchResult & IndexableRecord>
     /// Register custom data provider interactor to notify search engine about object additions or changes.
     public func registerProviderInteractor(interactor providerInteractor: RecordsProviderInteractor) {
         loadInitialDataIfNeeded()
-        self.providerInteractors.append(providerInteractor)
+        providerInteractors.append(providerInteractor)
 
         for record in recordsMap.values {
             providerInteractor.add(record: record)
@@ -82,8 +83,10 @@ public class LocalDataProvider<Record: Codable & SearchResult & IndexableRecord>
     /// - Parameter record: entity to add
     public func add(record: Record) {
         recordsMap[record.id] = record
-        _Logger.searchSDK.debug("New record [id='\(record.id)'] in \(self). Whole record: \(dumpAsString(record))",
-                                category: .userRecords)
+        _Logger.searchSDK.debug(
+            "New record [id='\(record.id)'] in \(self). Whole record: \(dumpAsString(record))",
+            category: .userRecords
+        )
 
         for interactor in providerInteractors {
             interactor.add(record: record)

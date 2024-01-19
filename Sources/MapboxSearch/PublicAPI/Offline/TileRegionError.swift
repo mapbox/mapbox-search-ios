@@ -20,7 +20,7 @@ public enum TileRegionError: LocalizedError, Equatable {
     /// The region contains more tiles than allowed
     case tileCountExceeded(String)
 
-    internal init(coreError: MapboxCommon.TileRegionError) {
+    init(coreError: MapboxCommon.TileRegionError) {
         let message = coreError.message
         switch coreError.type {
         case .canceled:
@@ -42,12 +42,12 @@ public enum TileRegionError: LocalizedError, Equatable {
 
     public var errorDescription: String? {
         switch self {
-        case let .canceled(message),
-             let .doesNotExist(message),
-             let .tilesetDescriptor(message),
-             let .diskFull(message),
-             let .other(message),
-             let .tileCountExceeded(message):
+        case .canceled(let message),
+             .doesNotExist(let message),
+             .tilesetDescriptor(let message),
+             .diskFull(let message),
+             .other(let message),
+             .tileCountExceeded(let message):
             return message
         }
     }

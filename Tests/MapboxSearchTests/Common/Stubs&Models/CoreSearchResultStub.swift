@@ -1,5 +1,5 @@
-@testable import MapboxSearch
 import CoreLocation
+@testable import MapboxSearch
 
 class CoreSearchResultStub: CoreSearchResultProtocol {
     init(
@@ -78,7 +78,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
     var estimatedTime: Measurement<UnitDuration>?
 
     var distanceToProximity: CLLocationDistance? {
-        distance.map({ $0.doubleValue })
+        distance.map(\.doubleValue)
     }
 
     var dataLayerIdentifier: String { customDataLayerIdentifier ?? getLayerIdentifier() }
@@ -115,31 +115,33 @@ extension CoreSearchResultStub: Equatable {
 
 extension CoreSearchResultProtocol {
     var asCoreSearchResult: CoreSearchResult {
-        CoreSearchResult(id: id,
-                         mapboxId: mapboxId,
-                         types: resultTypes.map({ NSNumber(value: $0.rawValue) }),
-                         names: names,
-                         languages: languages,
-                         addresses: addresses,
-                         descrAddress: addressDescription,
-                         matchingName: matchingName,
-                         fullAddress: nil,
-                         distance: distance,
-                         eta: nil,
-                         center: centerLocation.map { Coordinate2D(value: $0.coordinate) },
-                         accuracy: 100,
-                         routablePoints: routablePoints,
-                         categories: categories,
-                         categoryIDs: [],
-                         brand: [],
-                         brandID: nil,
-                         icon: icon,
-                         metadata: nil,
-                         externalIDs: nil,
-                         layer: layer,
-                         userRecordID: userRecordID,
-                         userRecordPriority: 100,
-                         action: action,
-                         serverIndex: serverIndex)
+        CoreSearchResult(
+            id: id,
+            mapboxId: mapboxId,
+            types: resultTypes.map { NSNumber(value: $0.rawValue) },
+            names: names,
+            languages: languages,
+            addresses: addresses,
+            descrAddress: addressDescription,
+            matchingName: matchingName,
+            fullAddress: nil,
+            distance: distance,
+            eta: nil,
+            center: centerLocation.map { Coordinate2D(value: $0.coordinate) },
+            accuracy: 100,
+            routablePoints: routablePoints,
+            categories: categories,
+            categoryIDs: [],
+            brand: [],
+            brandID: nil,
+            icon: icon,
+            metadata: nil,
+            externalIDs: nil,
+            layer: layer,
+            userRecordID: userRecordID,
+            userRecordPriority: 100,
+            action: action,
+            serverIndex: serverIndex
+        )
     }
 }

@@ -1,6 +1,6 @@
-import XCTest
 import CoreLocation
 @testable import MapboxSearch
+import XCTest
 
 final class AddressAutofillIntegrationTests: MockServerTestCase {
     private var addressAutofill: AddressAutofill!
@@ -77,7 +77,7 @@ final class AddressAutofillIntegrationTests: MockServerTestCase {
 
         var suggestion: AddressAutofill.Suggestion?
         let query = CLLocationCoordinate2D(latitude: 37.784592, longitude: -122.434671)
-        addressAutofill.suggestions(for: query)  { result in
+        addressAutofill.suggestions(for: query) { result in
             switch result {
             case .success(let success):
                 XCTAssertEqual(success.first?.name, "701 Steiner Street")

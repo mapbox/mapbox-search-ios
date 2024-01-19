@@ -1,5 +1,5 @@
-import UIKit
 import MapboxSearch
+import UIKit
 
 final class PlaceAutocompleteMainViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
@@ -38,7 +38,7 @@ extension PlaceAutocompleteMainViewController: UISearchResultsUpdating {
             proximity: locationManager.location?.coordinate,
             filterBy: .init(types: [.POI], navigationProfile: .driving)
         ) { [weak self] result in
-            guard let self = self else { return }
+            guard let self else { return }
 
             switch result {
             case .success(let suggestions):
@@ -107,21 +107,21 @@ extension PlaceAutocompleteMainViewController: UITableViewDataSource, UITableVie
 
 // MARK: - Private
 
-private extension PlaceAutocompleteMainViewController {
-    func reloadData() {
+extension PlaceAutocompleteMainViewController {
+    private func reloadData() {
         messageLabel.isHidden = !cachedSuggestions.isEmpty
         tableView.isHidden = cachedSuggestions.isEmpty
 
         tableView.reloadData()
     }
 
-    func configureUI() {
+    private func configureUI() {
         configureSearchController()
         configureTableView()
         configureMessageLabel()
     }
 
-    func configureSearchController() {
+    private func configureSearchController() {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -131,11 +131,11 @@ private extension PlaceAutocompleteMainViewController {
         navigationItem.searchController = searchController
     }
 
-    func configureMessageLabel() {
+    private func configureMessageLabel() {
         messageLabel.text = "Start typing to get autocomplete suggestions"
     }
 
-    func configureTableView() {
+    private func configureTableView() {
         tableView.tableFooterView = UIView(frame: .zero)
 
         tableView.delegate = self

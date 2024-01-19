@@ -13,7 +13,8 @@ public struct Address: Codable, Hashable {
     /// Unlike locality features, these typically lack official status and may lack universally agreed-upon boundaries.
     public var neighborhood: String?
 
-    /// Official sub-city features present in countries where such an additional administrative layer is used in postal addressing,
+    /// Official sub-city features present in countries where such an additional administrative layer is used in postal
+    /// addressing,
     /// or where such features are commonly referred to in local parlance.
     /// Examples include city districts in Brazil and Chile and arrondissements in France.
     public var locality: String?
@@ -22,7 +23,8 @@ public struct Address: Codable, Hashable {
     public var postcode: String?
 
     /// Typically these are cities, villages, municipalities, etc.
-    /// They’re usually features used in postal addressing, and are suitable for display in ambient end-user applications
+    /// They’re usually features used in postal addressing, and are suitable for display in ambient end-user
+    /// applications
     /// where current-location context is needed (for example, in weather displays).
     public var place: String?
 
@@ -30,10 +32,12 @@ public struct Address: Codable, Hashable {
     /// in countries that use such an additional layer in postal addressing (for example, prefectures in China).
     public var district: String?
 
-    /// Top-level sub-national administrative features, such as states in the United States or provinces in Canada or China.
+    /// Top-level sub-national administrative features, such as states in the United States or provinces in Canada or
+    /// China.
     public var region: String?
 
-    /// Top-level sub-national administrative feature object containing the name (required) and ISO 3166-2 subdivision code identifiers.
+    /// Top-level sub-national administrative feature object containing the name (required) and ISO 3166-2 subdivision
+    /// code identifiers.
     public var searchAddressRegion: SearchAddressRegion?
 
     /// Generally recognized countries or, in some cases like Hong Kong, an area of quasi-national administrative status
@@ -46,7 +50,7 @@ public struct Address: Codable, Hashable {
     /// The postal address associated with the location, formatted for use with the Contacts framework.
     public var postalAddress: CNPostalAddress {
         let streetNameAndNumber = [houseNumber, street]
-            .compactMap({ $0?.isEmpty == false ? $0 : nil })
+            .compactMap { $0?.isEmpty == false ? $0 : nil }
             .joined(separator: " ")
 
         let address = CNMutablePostalAddress()
@@ -100,15 +104,17 @@ extension Address {
     }
 
     func coreAddress() -> CoreAddress {
-        CoreAddress(houseNumber: houseNumber,
-                    street: street,
-                    neighborhood: neighborhood,
-                    locality: locality,
-                    postcode: postcode,
-                    place: place,
-                    district: district,
-                    region: searchAddressRegion?.toCore(),
-                    country: searchAddressCountry?.toCore())
+        CoreAddress(
+            houseNumber: houseNumber,
+            street: street,
+            neighborhood: neighborhood,
+            locality: locality,
+            postcode: postcode,
+            place: place,
+            district: district,
+            region: searchAddressRegion?.toCore(),
+            country: searchAddressCountry?.toCore()
+        )
     }
 }
 
@@ -123,7 +129,8 @@ extension Address {
         /// House number and street name
         case short
 
-        /// House number, street name and place name (city). For region-based contries (like USA), the State name will be appended
+        /// House number, street name and place name (city). For region-based contries (like USA), the State name will
+        /// be appended
         case medium
 
         /// All address components (if available) without postcode
@@ -138,7 +145,8 @@ extension Address {
 
     /// Build address string in requested style. All empty components will be skipped.
     /// Separator ", " would be used to join all the components. House number will separated with " " separator
-    /// For example, for `.short` style: "50 Beale St, 9th Floor" and for `.medium` – "50 Beale St, 9th Floor, San Francisco, California"
+    /// For example, for `.short` style: "50 Beale St, 9th Floor" and for `.medium` – "50 Beale St, 9th Floor, San
+    /// Francisco, California"
     /// - Parameter style: address style to be used
     /// - Returns: Address string
     public func formattedAddress(style: AddressFormatStyle) -> String? {
@@ -148,7 +156,7 @@ extension Address {
         case .short:
             componentPaths = [\.houseNumber, \.street]
         case .medium:
-            if let country = country, regionBasedCountry(country) {
+            if let country, regionBasedCountry(country) {
                 componentPaths = [\.houseNumber, \.street, \.place, \.region]
             } else {
                 componentPaths = [\.houseNumber, \.street, \.place]
@@ -162,7 +170,7 @@ extension Address {
                 \.place,
                 \.district,
                 \.region,
-                \.country
+                \.country,
             ]
         case .full:
             componentPaths = [
@@ -174,19 +182,19 @@ extension Address {
                 \.district,
                 \.region,
                 \.country,
-                \.postcode
+                \.postcode,
             ]
         case .custom(let components):
             componentPaths = components
         }
 
         // Take actual non-nil components
-        let components = componentPaths.map({ self[keyPath: $0] }).compactMap({ $0 }).filter({ !$0.isEmpty })
+        let components = componentPaths.map { self[keyPath: $0] }.compactMap { $0 }.filter { !$0.isEmpty }
         guard !components.isEmpty else { return nil }
 
         let separator = ", "
 
-        if componentPaths.first == \.houseNumber, let houseNumber = houseNumber {
+        if componentPaths.first == \.houseNumber, let houseNumber {
             if components.count == 1 {
                 return houseNumber
             } else {

@@ -1,5 +1,5 @@
-import Foundation
 import CoreLocation
+import Foundation
 
 class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProvider {
     var mapboxId: String?

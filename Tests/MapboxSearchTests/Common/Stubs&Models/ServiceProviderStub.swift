@@ -14,7 +14,11 @@ class ServiceProviderStub: ServiceProviderProtocol, EngineProviderProtocol {
 
     var latestCoreEngine: CoreSearchEngineStub!
 
-    func createEngine(apiType: CoreSearchEngine.ApiType, accessToken: String, locationProvider: CoreLocationProvider?) -> CoreSearchEngineProtocol {
+    func createEngine(
+        apiType: CoreSearchEngine.ApiType,
+        accessToken: String,
+        locationProvider: CoreLocationProvider?
+    ) -> CoreSearchEngineProtocol {
         let locationProvider: CoreLocationProvider? = WrapperLocationProvider(wrapping: DefaultLocationProvider())
         latestCoreEngine = CoreSearchEngineStub(accessToken: "mapbox-access-token", location: locationProvider)
         return latestCoreEngine

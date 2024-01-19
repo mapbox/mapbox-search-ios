@@ -79,5 +79,5 @@
 --xcodeindentation enabled
 --yodaswap always
 
---disable redundantReturn,hoistAwait,preferForLoop
---swiftversion 5.9
+--disable redundantReturn,hoistAwait
+--swiftversion 5.7

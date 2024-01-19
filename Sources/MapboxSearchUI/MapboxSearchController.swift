@@ -1,6 +1,6 @@
-import UIKit
 import CoreLocation
 @_exported import MapboxSearch
+import UIKit
 
 /// Defines methods to provide location results from ``MapboxSearchController``.
 public protocol SearchControllerDelegate: AnyObject {
@@ -17,9 +17,9 @@ public protocol SearchControllerDelegate: AnyObject {
     func shouldCollapseForSelection(_ searchResult: SearchResult) -> Bool
 }
 
-public extension SearchControllerDelegate {
+extension SearchControllerDelegate {
     /// Control auto-collapse behavior of the panel after result selection. Default `true`.
-    func shouldCollapseForSelection(_ searchResult: SearchResult) -> Bool {
+    public func shouldCollapseForSelection(_ searchResult: SearchResult) -> Bool {
         return true
     }
 }
@@ -114,23 +114,27 @@ public class MapboxSearchController: UIViewController {
     public weak var delegate: SearchControllerDelegate?
 
     private lazy var reachability = Reachability(hostname: ServiceProvider.customBaseURL ?? "api.mapbox.com")
-    private lazy var historySource = SearchHistoryTableViewSource(historyProvider: historyProvider,
-                                                                  favoritesProvider: favoritesProvider,
-                                                                  registerCellsInTableView: tableController.tableView,
-                                                                  delegate: self,
-                                                                  configuration: configuration)
+    private lazy var historySource = SearchHistoryTableViewSource(
+        historyProvider: historyProvider,
+        favoritesProvider: favoritesProvider,
+        registerCellsInTableView: tableController.tableView,
+        delegate: self,
+        configuration: configuration
+    )
 
-    private lazy var searchSuggestionsSource = SearchSuggestionsTableSource(tableView: tableController.tableView,
-                                                                            delegate: self,
-                                                                            configuration: configuration)
+    private lazy var searchSuggestionsSource = SearchSuggestionsTableSource(
+        tableView: tableController.tableView,
+        delegate: self,
+        configuration: configuration
+    )
 
     private lazy var reachabilityStatusChangeHandler: (Reachability.Status) -> Void = { [weak self] status in
-        guard let self = self, status == .available, self.query != Query.none else { return }
+        guard let self, status == .available, self.query != Query.none else { return }
         self.search(stringQuery: self.query.string)
     }
 
     private lazy var searchErrorViewRetryHandler = { [weak self] in
-        guard let self = self else { return }
+        guard let self else { return }
         self.search(stringQuery: self.query.string)
     }
 
@@ -157,7 +161,7 @@ public class MapboxSearchController: UIViewController {
 
         super.init(nibName: nil, bundle: .mapboxSearchUI)
 
-        self.searchEngine.delegate = self
+        searchEngine.delegate = self
     }
 
     /// MapboxSearchController initializer with accessToken taken from application Info.plist
@@ -173,7 +177,7 @@ public class MapboxSearchController: UIViewController {
 
         super.init(nibName: nil, bundle: .mapboxSearchUI)
 
-        self.searchEngine.delegate = self
+        searchEngine.delegate = self
     }
 
     required convenience init?(coder: NSCoder) {
@@ -181,7 +185,7 @@ public class MapboxSearchController: UIViewController {
     }
 
     /// Make initial UI
-    public override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         // Hides back button title to display back arrow only
@@ -234,13 +238,13 @@ public class MapboxSearchController: UIViewController {
     }
 
     /// Restart listening services on screen appearance
-    public override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         reachability.start()
     }
 
     /// Pause listening services on screen disappearance
-    public override func viewDidDisappear(_ animated: Bool) {
+    override public func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         reachability.stop()
     }
@@ -273,8 +277,8 @@ public class MapboxSearchController: UIViewController {
         } else if newState.isNone, !searchState.isNone {
             hideTableController()
 
-            self.tableState = .history
-            self.tableController.tableView.reloadData()
+            tableState = .history
+            tableController.tableView.reloadData()
         }
         searchState = newState
     }
@@ -283,27 +287,32 @@ public class MapboxSearchController: UIViewController {
         tableController.view.frame = categoriesRootView.frame
         let animationDuration = animated ? 0.25 : 0
 
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: animationDuration,
-                                                       delay: 0,
-                                                       options: [.curveEaseInOut],
-                                                       animations: {
-                                                           self.categoriesRootView.alpha = 0
-                                                           self.categoriesRootView.bounds.origin.y += -10
-                                                           self.tableController.view.alpha = 1
-                                                       })
+        UIViewPropertyAnimator.runningPropertyAnimator(
+            withDuration: animationDuration,
+            delay: 0,
+            options: [.curveEaseInOut],
+            animations: {
+                self.categoriesRootView.alpha = 0
+                self.categoriesRootView.bounds.origin.y += -10
+                self.tableController.view.alpha = 1
+            }
+        )
     }
 
     func hideTableController(animated: Bool = true, completion: ((UIViewAnimatingPosition) -> Void)? = nil) {
         let animationDuration = animated ? 0.25 : 0
 
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: animationDuration,
-                                                       delay: 0,
-                                                       options: [.curveEaseInOut],
-                                                       animations: {
-                                                           self.categoriesRootView.alpha = 1
-                                                           self.categoriesRootView.bounds.origin.y = 0
-                                                           self.tableController.view.alpha = 0
-                                                       }, completion: completion)
+        UIViewPropertyAnimator.runningPropertyAnimator(
+            withDuration: animationDuration,
+            delay: 0,
+            options: [.curveEaseInOut],
+            animations: {
+                self.categoriesRootView.alpha = 1
+                self.categoriesRootView.bounds.origin.y = 0
+                self.tableController.view.alpha = 0
+            },
+            completion: completion
+        )
     }
 
     func handleLocalSearch(_ searchResult: SearchResult) {
@@ -339,7 +348,9 @@ public class MapboxSearchController: UIViewController {
             favoritesProvider.add(record: favoriteRecord)
         } else {
             // swiftlint:disable:next line_length
-            fatalError("Invalid case. The function is designed to update address for usual favorites or set address for templates")
+            fatalError(
+                "Invalid case. The function is designed to update address for usual favorites or set address for templates"
+            )
         }
 
         resetSearch(animated: true)
@@ -406,21 +417,21 @@ public class MapboxSearchController: UIViewController {
     }
 }
 
-public extension MapboxSearchController {
+extension MapboxSearchController {
     /// Presentation styles for MapboxSearchController. Non-animated
-    enum PresentationStyle {
+    public enum PresentationStyle {
         /// Add `MapboxSearchController` inside of `MapboxPanelController`
         case panel
     }
 
     /// Get access to the `MapboxPanelController` for `.panel` presentation style
-    var panelController: MapboxPanelController? { mapboxPanelController }
+    public var panelController: MapboxPanelController? { mapboxPanelController }
 
     /// Show Mapbox Search Controller inside of target view controller
     /// - Parameters:
     ///   - rootVC: ViewController to be root of Search Controller
     ///   - presentationStyle: Choose one of the presentation styles. Default is `.panel`
-    func present(in rootVC: UIViewController, presentationStyle: PresentationStyle = .panel) {
+    public func present(in rootVC: UIViewController, presentationStyle: PresentationStyle = .panel) {
         switch presentationStyle {
         case .panel:
             let panelVC = MapboxPanelController(rootViewController: self)
@@ -433,11 +444,11 @@ public extension MapboxSearchController {
     ///   - animated: Should changes be animated
     ///   - collapse: Change the collapsing status. Pass `nil` to not apply status changes.
     ///               Default: `.collapsed`
-    func resetSearchUI(animated: Bool, collapse: MapboxPanelController.State? = .collapsed) {
+    public func resetSearchUI(animated: Bool, collapse: MapboxPanelController.State? = .collapsed) {
         resetSearch(animated: animated)
         categoriesRootView?.resetUI(animated: animated)
 
-        if let collapse = collapse {
+        if let collapse {
             mapboxPanelController?.setState(collapse, animated: animated)
         }
     }
@@ -493,7 +504,7 @@ extension MapboxSearchController: SearchEngineDelegate {
             handleLocalSearch(result)
         case .createFavorite:
             handleCreateFavoriteSearchResult(result)
-        case let .updateFavorite(favoriteRecord):
+        case .updateFavorite(let favoriteRecord):
             handleUpdateFavoriteSearchResult(result, favoriteRecord: favoriteRecord)
         case .none:
             assertionFailure("Unexpected searchState for searchResult selection")

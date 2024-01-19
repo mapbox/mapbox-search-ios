@@ -1,7 +1,7 @@
-@testable import MapboxSearch
-import MapboxCommon
-import Foundation
 import CoreLocation
+import Foundation
+import MapboxCommon
+@testable import MapboxSearch
 
 class CoreSearchEngineStub {
     var accessToken: String
@@ -91,7 +91,7 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
         options: CoreSearchOptions,
         completion: @escaping (CoreSearchResponseProtocol?) -> Void
     ) {
-        self.searchOptions = options
+        searchOptions = options
         self.query = query
         self.categories = categories
 
@@ -139,7 +139,7 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
         for options: CoreReverseGeoOptions,
         completion: @escaping (CoreSearchResponseProtocol?) -> Void
     ) {
-        self.reverseGeocodingOptions = options
+        reverseGeocodingOptions = options
 
         DispatchQueue.main.async {
             self.callbackWrapper {

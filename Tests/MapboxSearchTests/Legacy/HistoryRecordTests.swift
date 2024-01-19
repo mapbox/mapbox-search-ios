@@ -1,34 +1,38 @@
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 class HistoryRecordTests: XCTestCase {
     func testHistoryRecordCategories() throws {
-        let record = HistoryRecord(id: UUID().uuidString,
-                                   name: "DaName",
-                                   matchingName: nil,
-                                   serverIndex: nil,
-                                   accuracy: nil,
-                                   coordinate: .sample1,
-                                   timestamp: Date(),
-                                   historyType: .category,
-                                   type: .address(subtypes: [.address]),
-                                   address: nil,
-                                   searchRequest: .init(query: "Sample", proximity: nil))
+        let record = HistoryRecord(
+            id: UUID().uuidString,
+            name: "DaName",
+            matchingName: nil,
+            serverIndex: nil,
+            accuracy: nil,
+            coordinate: .sample1,
+            timestamp: Date(),
+            historyType: .category,
+            type: .address(subtypes: [.address]),
+            address: nil,
+            searchRequest: .init(query: "Sample", proximity: nil)
+        )
         XCTAssertNil(record.categories)
     }
 
     func testHistoryRecordCoordinates() {
-        var record = HistoryRecord(id: UUID().uuidString,
-                                   name: "DaName",
-                                   matchingName: nil,
-                                   serverIndex: nil,
-                                   accuracy: nil,
-                                   coordinate: .sample1,
-                                   timestamp: Date(),
-                                   historyType: .category,
-                                   type: .address(subtypes: [.address]),
-                                   address: nil,
-                                   searchRequest: .init(query: "Sample", proximity: nil))
+        var record = HistoryRecord(
+            id: UUID().uuidString,
+            name: "DaName",
+            matchingName: nil,
+            serverIndex: nil,
+            accuracy: nil,
+            coordinate: .sample1,
+            timestamp: Date(),
+            historyType: .category,
+            type: .address(subtypes: [.address]),
+            address: nil,
+            searchRequest: .init(query: "Sample", proximity: nil)
+        )
 
         XCTAssertEqual(record.coordinate, .sample1)
 
@@ -37,17 +41,19 @@ class HistoryRecordTests: XCTestCase {
     }
 
     func testHistoryRecordDescriptionText() {
-        let record = HistoryRecord(id: UUID().uuidString,
-                                   name: "DaName",
-                                   matchingName: nil,
-                                   serverIndex: nil,
-                                   accuracy: nil,
-                                   coordinate: .sample1,
-                                   timestamp: Date(),
-                                   historyType: .category,
-                                   type: .address(subtypes: [.address]),
-                                   address: .mapboxDCOffice,
-                                   searchRequest: .init(query: "Sample", proximity: nil))
+        let record = HistoryRecord(
+            id: UUID().uuidString,
+            name: "DaName",
+            matchingName: nil,
+            serverIndex: nil,
+            accuracy: nil,
+            coordinate: .sample1,
+            timestamp: Date(),
+            historyType: .category,
+            type: .address(subtypes: [.address]),
+            address: .mapboxDCOffice,
+            searchRequest: .init(query: "Sample", proximity: nil)
+        )
 
         XCTAssertEqual(record.descriptionText, "740 15th St NW, Washington")
     }

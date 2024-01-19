@@ -14,7 +14,8 @@ public protocol IndexableRecord {
     /// Record address
     var address: Address? { get }
 
-    /// Additional string literals that should be included in object index. For example, you may provide non-official names to force `SearchEngine` match them.
+    /// Additional string literals that should be included in object index. For example, you may provide non-official
+    /// names to force `SearchEngine` match them.
     var additionalTokens: Set<String>? { get }
 }
 
@@ -22,8 +23,8 @@ extension IndexableRecord {
     func coreUserRecord() -> CoreUserRecord {
         var tokens = additionalTokens ?? []
         [address?.houseNumber, address?.street, address?.place]
-            .compactMap({ $0 })
-            .forEach({ tokens.insert($0) })
+            .compactMap { $0 }
+            .forEach { tokens.insert($0) }
 
         return CoreUserRecord(
             id: id,

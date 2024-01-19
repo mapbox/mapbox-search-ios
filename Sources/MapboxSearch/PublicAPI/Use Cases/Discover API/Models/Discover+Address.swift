@@ -1,8 +1,8 @@
-import Foundation
 import Contacts
+import Foundation
 
-public extension Discover {
-    struct Address {
+extension Discover {
+    public struct Address {
         /// House number of the individual residential or business addresses.
         public let houseNumber: String?
 
@@ -10,10 +10,12 @@ public extension Discover {
         public let street: String?
 
         /// Colloquial sub-city features often referred to in local parlance.
-        /// Unlike locality features, these typically lack official status and may lack universally agreed-upon boundaries.
+        /// Unlike locality features, these typically lack official status and may lack universally agreed-upon
+        /// boundaries.
         public let neighborhood: String?
 
-        /// Official sub-city features present in countries where such an additional administrative layer is used in postal addressing,
+        /// Official sub-city features present in countries where such an additional administrative layer is used in
+        /// postal addressing,
         /// or where such features are commonly referred to in local parlance.
         /// Examples include city districts in Brazil and Chile and arrondissements in France.
         public let locality: String?
@@ -22,7 +24,8 @@ public extension Discover {
         public let postcode: String?
 
         /// Typically these are cities, villages, municipalities, etc.
-        /// They’re usually features used in postal addressing, and are suitable for display in ambient end-user applications
+        /// They’re usually features used in postal addressing, and are suitable for display in ambient end-user
+        /// applications
         /// where current-location context is needed (for example, in weather displays).
         public let place: String?
 
@@ -30,10 +33,12 @@ public extension Discover {
         /// in countries that use such an additional layer in postal addressing (for example, prefectures in China).
         public let district: String?
 
-        /// Top-level sub-national administrative features, such as states in the United States or provinces in Canada or China.
+        /// Top-level sub-national administrative features, such as states in the United States or provinces in Canada
+        /// or China.
         public let region: String?
 
-        /// Generally recognized countries or, in some cases like Hong Kong, an area of quasi-national administrative status
+        /// Generally recognized countries or, in some cases like Hong Kong, an area of quasi-national administrative
+        /// status
         /// that has been given a designated country code under ISO 3166-1.
         public let country: String?
 
@@ -75,11 +80,11 @@ public extension Discover {
 
 // MARK: - Contacts extension
 
-public extension Discover.Address {
+extension Discover.Address {
     /// The postal address associated with the location, formatted for use with the Contacts framework.
-    var postalAddress: CNPostalAddress {
+    public var postalAddress: CNPostalAddress {
         let streetNameAndNumber = [houseNumber, street]
-            .compactMap({ $0?.isEmpty == false ? $0 : nil })
+            .compactMap { $0?.isEmpty == false ? $0 : nil }
             .joined(separator: " ")
 
         let address = CNMutablePostalAddress()

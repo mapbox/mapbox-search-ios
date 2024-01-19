@@ -29,7 +29,8 @@ public struct SearchNavigationOptions: Hashable {
     public var profile: SearchNavigationProfile
 
     /// This indicates that the caller intends to perform a higher cost navigation ETA estimate.
-    /// This along with `SearchOptions.origin` and `SearchNavigationOptions.profile` is required in order receive ETA estimates.
+    /// This along with `SearchOptions.origin` and `SearchNavigationOptions.profile` is required in order receive ETA
+    /// estimates.
     public var etaType: ETAType
 
     /// Instantiate `SearchNavigationOptions` with optional ETA type (defaults to `.none`)

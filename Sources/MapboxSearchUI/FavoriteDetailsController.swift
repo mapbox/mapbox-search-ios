@@ -1,6 +1,6 @@
 import Foundation
-import UIKit
 import MapboxSearch
+import UIKit
 
 class FavoriteDetailsController: UIViewController {
     @IBOutlet private var textField: UITextField!
@@ -38,6 +38,7 @@ class FavoriteDetailsController: UIViewController {
         super.init(nibName: nil, bundle: .mapboxSearchUI)
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -124,7 +125,7 @@ class FavoriteDetailsController: UIViewController {
         navigationController?.navigationBar.barTintColor = configuration.style.primaryBackgroundColor
         navigationController?.navigationBar.tintColor = configuration.style.primaryAccentColor
         navigationController?.navigationBar.titleTextAttributes = [
-            .foregroundColor: configuration.style.primaryTextColor
+            .foregroundColor: configuration.style.primaryTextColor,
         ]
 
         if isViewLoaded {

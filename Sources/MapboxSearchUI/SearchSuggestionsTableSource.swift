@@ -1,6 +1,6 @@
 import Foundation
-import UIKit
 import MapboxSearch
+import UIKit
 
 protocol SearchResultsTableSourceDelegate: SearchSuggestionCellDelegate {
     func selectedSearchResult(_ searchResult: SearchSuggestion)
@@ -27,8 +27,10 @@ class SearchSuggestionsTableSource: NSObject {
         self.delegate = delegate
         self.configuration = configuration
         self.tableView = tableView
-        tableView.register(UINib(nibName: "SearchSuggestionCell", bundle: .mapboxSearchUI),
-                           forCellReuseIdentifier: cellIdentifier)
+        tableView.register(
+            UINib(nibName: "SearchSuggestionCell", bundle: .mapboxSearchUI),
+            forCellReuseIdentifier: cellIdentifier
+        )
     }
 
     func reset() {
@@ -44,8 +46,12 @@ extension SearchSuggestionsTableSource: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let searchSuggestion = suggestions[indexPath.row]
-        // swiftlint:disable:next force_cast line_length
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SearchSuggestionCell
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: cellIdentifier,
+            for: indexPath
+        ) as! SearchSuggestionCell
+        // swiftlint:disable:previous force_cast
+
         cell.delegate = self
         cell.configure(suggestion: searchSuggestion, configuration: configuration)
 
@@ -59,13 +65,18 @@ extension SearchSuggestionsTableSource: UITableViewDelegate {
         delegate?.selectedSearchResult(result)
     }
 
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
         guard configuration.allowsFeedbackUI else { return nil }
 
         let suggestion = suggestions[indexPath.row]
 
-        let sendFeedback = UIContextualAction(style: .normal,
-                                              title: Strings.Feedback.report) { [weak self] _, _, completion in
+        let sendFeedback = UIContextualAction(
+            style: .normal,
+            title: Strings.Feedback.report
+        ) { [weak self] _, _, completion in
             self?.delegate?.reportIssue(suggestion)
             completion(true)
         }

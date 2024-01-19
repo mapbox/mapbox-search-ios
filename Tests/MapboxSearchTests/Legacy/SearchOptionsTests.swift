@@ -1,5 +1,5 @@
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 class SearchOptionsTests: XCTestCase {
     func testSearchOptionsInit() {
@@ -210,23 +210,25 @@ class SearchOptionsTests: XCTestCase {
 }
 
 extension SearchOptions {
-    static let sample1 = SearchOptions(countries: ["US", "BY", "DE"],
-                                       languages: ["en", "ru"],
-                                       limit: 25,
-                                       fuzzyMatch: true,
-                                       proximity: .sample1,
-                                       boundingBox: .sample1,
-                                       origin: .sample2,
-                                       navigationOptions: SearchNavigationOptions(
-                                           profile: .driving,
-                                           etaType: .navigation
-                                       ),
-                                       routeOptions: RouteOptions(
-                                           route: .sample1,
-                                           deviation: .time(.init(value: 5, unit: .minutes), .isochrone)
-                                       ),
-                                       filterTypes: [.poi, .address, .place],
-                                       ignoreIndexableRecords: false,
-                                       indexableRecordsDistanceThreshold: 2000,
-                                       unsafeParameters: ["arg": "value"])
+    static let sample1 = SearchOptions(
+        countries: ["US", "BY", "DE"],
+        languages: ["en", "ru"],
+        limit: 25,
+        fuzzyMatch: true,
+        proximity: .sample1,
+        boundingBox: .sample1,
+        origin: .sample2,
+        navigationOptions: SearchNavigationOptions(
+            profile: .driving,
+            etaType: .navigation
+        ),
+        routeOptions: RouteOptions(
+            route: .sample1,
+            deviation: .time(.init(value: 5, unit: .minutes), .isochrone)
+        ),
+        filterTypes: [.poi, .address, .place],
+        ignoreIndexableRecords: false,
+        indexableRecordsDistanceThreshold: 2000,
+        unsafeParameters: ["arg": "value"]
+    )
 }

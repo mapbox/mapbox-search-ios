@@ -8,11 +8,11 @@ public class DefaultLocationProvider {
     // not used anywhere as public
     /* public */ let locationManager: CLLocationManager
 
-    #if FAST_LOCATION_CHANGES_TRACKING
-        let locationRequestFrequency: TimeInterval = 1
-    #else
-        let locationRequestFrequency: TimeInterval = 30
-    #endif
+#if FAST_LOCATION_CHANGES_TRACKING
+    let locationRequestFrequency: TimeInterval = 1
+#else
+    let locationRequestFrequency: TimeInterval = 30
+#endif
 
     fileprivate var cachedLocation: CLLocation?
     fileprivate var desiredAccuracy: CLLocationAccuracy
@@ -33,7 +33,8 @@ public class DefaultLocationProvider {
 
     /// Convenience DefaultLocationProvider constructor without CLLocationManager
     /// - Parameters:
-    ///   - distanceFilter: The minimum distance (measured in meters) a device must move horizontally before an update event is generated.
+    ///   - distanceFilter: The minimum distance (measured in meters) a device must move horizontally before an update
+    /// event is generated.
     ///   - desiredAccuracy: The accuracy of the location data.
     ///   - activityType: The type of user activity associated with the location updates.
     public convenience init(
@@ -69,7 +70,10 @@ public class DefaultLocationProvider {
         if haveLocationPermission() {
             locationManager.requestLocation()
         } else if CLLocationManager.authorizationStatus() != .notDetermined {
-            _Logger.searchSDK.warning("\(DefaultLocationProvider.self) have no permission for location. Please, request Location Permission to improve search quality")
+            _Logger.searchSDK
+                .warning(
+                    "\(DefaultLocationProvider.self) have no permission for location. Please, request Location Permission to improve search quality"
+                )
         }
     }
 

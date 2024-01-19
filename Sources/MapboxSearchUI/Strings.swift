@@ -391,9 +391,11 @@ enum Strings {
 
     enum General {
         // swiftlint:disable:next identifier_name
-        static let ok = NSLocalizedString("search.general.ok",
-                                          bundle: .mapboxSearchUI,
-                                          comment: "Ok button title")
+        static let ok = NSLocalizedString(
+            "search.general.ok",
+            bundle: .mapboxSearchUI,
+            comment: "Ok button title"
+        )
         static let cancel = NSLocalizedString(
             "search.general.cancel",
             bundle: .mapboxSearchUI,

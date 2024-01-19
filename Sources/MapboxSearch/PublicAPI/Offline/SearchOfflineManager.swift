@@ -23,7 +23,8 @@ public class SearchOfflineManager {
     /// `init(commonTileStore: CommonTileStore)`
     /// - Parameters:
     ///   - tileStore: TileStore to set into SearchEngine
-    ///   - completion: this completion called right after SearchEngine finished consuming data from provided TileStore. One can start using offline search after that.
+    ///   - completion: this completion called right after SearchEngine finished consuming data from provided TileStore.
+    /// One can start using offline search after that.
     public func setTileStore(_ tileStore: SearchTileStore, completion: (() -> Void)? = nil) {
         self.tileStore = tileStore
         engine.setTileStore(tileStore.commonTileStore, completion: completion)
@@ -32,7 +33,8 @@ public class SearchOfflineManager {
     /// Sets custom tile store.
     /// - Parameters:
     ///   - tileStore: TileStore to set into SearchEngine.
-    ///   - completion: this completion called right after SearchEngine finished consuming data from provided TileStore. One can start using offline search after that.
+    ///   - completion: this completion called right after SearchEngine finished consuming data from provided TileStore.
+    /// One can start using offline search after that.
     public func setTileStore(_ tileStore: MapboxCommon.TileStore, completion: (() -> Void)? = nil) {
         let searchTileStore = SearchTileStore(commonTileStore: tileStore)
         self.tileStore = searchTileStore
@@ -44,7 +46,8 @@ public class SearchOfflineManager {
     ///   - dataset: dataset name
     ///   - version: dataset version
     /// - Returns: TilesetDescriptor for TileStore
-    public static func createTilesetDescriptor(dataset: String, version: String? = nil) -> MapboxCommon.TilesetDescriptor {
+    public static func createTilesetDescriptor(dataset: String, version: String? = nil) -> MapboxCommon
+    .TilesetDescriptor {
         CoreSearchEngineStatics.createTilesetDescriptor(dataset: dataset, version: version ?? "")
     }
 
@@ -53,19 +56,20 @@ public class SearchOfflineManager {
     ///   - dataset: dataset name
     ///   - version: dataset version
     /// - Returns: TilesetDescriptor for TileStore
-    public static func createPlacesTilesetDescriptor(dataset: String, version: String? = nil) -> MapboxCommon.TilesetDescriptor {
+    public static func createPlacesTilesetDescriptor(dataset: String, version: String? = nil) -> MapboxCommon
+    .TilesetDescriptor {
         CoreSearchEngineStatics.createPlacesTilesetDescriptor(dataset: dataset, version: version ?? "")
     }
 
     /// Creates TilesetDescriptor for offline search index data using default dataset name.
     /// - Returns: TilesetDescriptor for TileStore
     public static func createDefaultTilesetDescriptor() -> MapboxCommon.TilesetDescriptor {
-        Self.createTilesetDescriptor(dataset: defaultDatasetName, version: nil)
+        createTilesetDescriptor(dataset: defaultDatasetName, version: nil)
     }
 
     /// Creates TilesetDescriptor for offline search boundaries using default dataset name.
     /// - Returns: TilesetDescriptor for TileStore
     public static func createDefaultPlacesTilesetDescriptor() -> MapboxCommon.TilesetDescriptor {
-        Self.createPlacesTilesetDescriptor(dataset: defaultDatasetName, version: nil)
+        createPlacesTilesetDescriptor(dataset: defaultDatasetName, version: nil)
     }
 }

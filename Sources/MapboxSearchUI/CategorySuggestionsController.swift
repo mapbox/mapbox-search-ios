@@ -1,5 +1,5 @@
-import UIKit
 import MapboxSearch
+import UIKit
 
 protocol CategorySuggestionsControllerDelegate: AnyObject {
     func categorySuggestionsSelected(searchSuggestion: SearchSuggestion)
@@ -44,6 +44,7 @@ class CategorySuggestionsController: UIViewController {
         super.init(nibName: nil, bundle: .mapboxSearchUI)
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -53,8 +54,10 @@ class CategorySuggestionsController: UIViewController {
 
         setVisible(view: tableView, visible: false, animated: false)
         setVisible(view: noSuggestionsLabel, visible: false, animated: false)
-        tableView.register(UINib(nibName: cellIdentifier, bundle: .mapboxSearchUI),
-                           forCellReuseIdentifier: cellIdentifier)
+        tableView.register(
+            UINib(nibName: cellIdentifier, bundle: .mapboxSearchUI),
+            forCellReuseIdentifier: cellIdentifier
+        )
 
         updateTitle()
         presentResults()
@@ -86,7 +89,7 @@ class CategorySuggestionsController: UIViewController {
     }
 
     func presentResults() {
-        guard isViewLoaded, let results = results else { return }
+        guard isViewLoaded, let results else { return }
 
         if results.isEmpty {
             setVisible(view: noSuggestionsLabel, visible: true)
@@ -99,14 +102,17 @@ class CategorySuggestionsController: UIViewController {
 
     func setVisible(view: UIView, visible: Bool, animated: Bool = true) {
         let alpha: CGFloat = visible ? 1.0 : 0.0
-        UIView.animate(withDuration: animated ? 0.2 : 0.0,
-                       delay: 0,
-                       options: [.beginFromCurrentState, .allowUserInteraction]) {
+        UIView.animate(
+            withDuration: animated ? 0.2 : 0.0,
+            delay: 0,
+            options: [.beginFromCurrentState, .allowUserInteraction]
+        ) {
             view.alpha = alpha
         }
     }
 
-    @objc func cancelAction() {
+    @objc
+    func cancelAction() {
         delegate?.categorySuggestionsCancelled()
     }
 
@@ -135,8 +141,13 @@ extension CategorySuggestionsController: UITableViewDataSource {
             assertionFailure("No suggestion found for this cell")
             return UITableViewCell()
         }
-        // swiftlint:disable:next force_cast line_length
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SearchSuggestionCell
+
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: cellIdentifier,
+            for: indexPath
+        ) as! SearchSuggestionCell
+        // swiftlint:disable:previous force_cast
+
         cell.configure(suggestion: searchSuggestion, hideQueryHighlights: true, configuration: configuration)
         cell.populateButtonEnabled = false
 
@@ -159,11 +170,16 @@ extension CategorySuggestionsController: UITableViewDelegate {
         nil
     }
 
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
         guard allowsFeedbackUI, let suggestion = results?[indexPath.row] else { return nil }
 
-        let sendFeedback = UIContextualAction(style: .normal,
-                                              title: Strings.Feedback.report) { [weak self] _, _, completion in
+        let sendFeedback = UIContextualAction(
+            style: .normal,
+            title: Strings.Feedback.report
+        ) { [weak self] _, _, completion in
             self?.delegate?.categorySuggestionsFeedbackRequested(searchSuggestion: suggestion)
             completion(true)
         }

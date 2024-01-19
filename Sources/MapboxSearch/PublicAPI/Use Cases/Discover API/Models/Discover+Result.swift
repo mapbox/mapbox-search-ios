@@ -1,8 +1,8 @@
-import Foundation
 import CoreLocation
+import Foundation
 
-public extension Discover {
-    struct Result {
+extension Discover {
+    public struct Result {
         /// Result's name
         public let name: String
 

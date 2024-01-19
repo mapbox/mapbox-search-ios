@@ -6,7 +6,8 @@ public enum SearchAddressType: String, Hashable, Codable {
     case address
 
     /// Typically these are cities, villages, municipalities, etc.
-    /// They’re usually features used in postal addressing, and are suitable for display in ambient end-user applications
+    /// They’re usually features used in postal addressing, and are suitable for display in ambient end-user
+    /// applications
     /// where current-location context is needed (for example, in weather displays).
     case place
 
@@ -20,14 +21,16 @@ public enum SearchAddressType: String, Hashable, Codable {
     /// that has been given a designated country code under ISO 3166-1.
     case country
 
-    /// Top-level sub-national administrative features, such as states in the United States or provinces in Canada or China.
+    /// Top-level sub-national administrative features, such as states in the United States or provinces in Canada or
+    /// China.
     case region
 
     /// Features that are smaller than top-level administrative features but typically larger than cities,
     /// in countries that use such an additional layer in postal addressing (for example, prefectures in China).
     case district
 
-    /// Official sub-city features present in countries where such an additional administrative layer is used in postal addressing,
+    /// Official sub-city features present in countries where such an additional administrative layer is used in postal
+    /// addressing,
     /// or where such features are commonly referred to in local parlance.
     /// Examples include city districts in Brazil and Chile and arrondissements in France.
     case locality

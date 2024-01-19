@@ -1,7 +1,7 @@
 import Foundation
 
-public extension AddressAutofill {
-    struct Result {
+extension AddressAutofill {
+    public struct Result {
         /// Result name.
         public let name: String
 

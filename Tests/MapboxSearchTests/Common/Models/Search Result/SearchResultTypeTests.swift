@@ -1,6 +1,6 @@
-import XCTest
-@testable import MapboxSearch
 import CwlPreconditionTesting
+@testable import MapboxSearch
+import XCTest
 
 class SearchResultTypeTests: XCTestCase {
     func testAddressCaseAssociatedValues() throws {
@@ -19,34 +19,36 @@ class SearchResultTypeTests: XCTestCase {
     }
 
     func testMixedPOIInit() throws {
-        #if !arch(x86_64)
-            throw XCTSkip("Unsupported architecture")
-        #else
+#if !arch(x86_64)
+        throw XCTSkip("Unsupported architecture")
+#else
 
-            let assertionError = catchBadInstruction {
-                _ = SearchResultType(coreResultTypes: [.poi, .place])
-            }
-            XCTAssertNotNil(assertionError)
+        let assertionError = catchBadInstruction {
+            _ = SearchResultType(coreResultTypes: [.poi, .place])
+        }
+        XCTAssertNotNil(assertionError)
 
-        #endif
+#endif
     }
 
     func testAddressInit() {
-        XCTAssertEqual(SearchResultType(coreResultTypes: [.place, .country])?.addressSubtypes,
-                       [.place, .country])
+        XCTAssertEqual(
+            SearchResultType(coreResultTypes: [.place, .country])?.addressSubtypes,
+            [.place, .country]
+        )
     }
 
     func testAddressWithPOIInit() throws {
-        #if !arch(x86_64)
-            throw XCTSkip("Unsupported architecture")
-        #else
+#if !arch(x86_64)
+        throw XCTSkip("Unsupported architecture")
+#else
 
-            let assertionError = catchBadInstruction {
-                _ = SearchResultType(coreResultTypes: [.place, .unknown])
-            }
-            XCTAssertNotNil(assertionError)
+        let assertionError = catchBadInstruction {
+            _ = SearchResultType(coreResultTypes: [.place, .unknown])
+        }
+        XCTAssertNotNil(assertionError)
 
-        #endif
+#endif
     }
 
     func testInappropriateTypesInInit() {
@@ -84,22 +86,22 @@ extension SearchResultTypeTests {
     }
 
     func testDecodableWithCorruptedData() throws {
-        #if !arch(x86_64)
-            throw XCTSkip("Unsupported architecture")
-        #else
+#if !arch(x86_64)
+        throw XCTSkip("Unsupported architecture")
+#else
 
-            let fakeObject = SearchRequestOptions(query: "query", proximity: .sample1)
+        let fakeObject = SearchRequestOptions(query: "query", proximity: .sample1)
 
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(fakeObject)
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(fakeObject)
 
-            let assertionError = catchBadInstruction {
-                let decoder = JSONDecoder()
-                // swiftlint:disable:next force_try
-                _ = try! decoder.decode(SearchResultType.self, from: data)
-            }
-            XCTAssertNotNil(assertionError)
+        let assertionError = catchBadInstruction {
+            let decoder = JSONDecoder()
+            // swiftlint:disable:next force_try
+            _ = try! decoder.decode(SearchResultType.self, from: data)
+        }
+        XCTAssertNotNil(assertionError)
 
-        #endif
+#endif
     }
 }

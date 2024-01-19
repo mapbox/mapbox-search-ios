@@ -9,7 +9,8 @@ class NoSuggestionsView: UIView {
 
     var missingResultHandler: (() -> Void)?
 
-    @IBAction private func missingResultAction() {
+    @IBAction
+    private func missingResultAction() {
         missingResultHandler?()
     }
 

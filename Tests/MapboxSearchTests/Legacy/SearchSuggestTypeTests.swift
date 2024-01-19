@@ -1,6 +1,6 @@
-import XCTest
-@testable import MapboxSearch
 import CwlPreconditionTesting
+@testable import MapboxSearch
+import XCTest
 
 class SearchSuggestTypeTests: XCTestCase {
     func testAddressCaseAssociatedValues() throws {
@@ -79,19 +79,19 @@ extension SearchSuggestTypeTests {
     }
 
     func testDecodableWithCorruptedData() throws {
-        #if !arch(x86_64)
-            throw XCTSkip("Unsupported architecture")
-        #else
+#if !arch(x86_64)
+        throw XCTSkip("Unsupported architecture")
+#else
 
-            let data = "{}".data(using: .utf8)!
+        let data = "{}".data(using: .utf8)!
 
-            let assertionError = catchBadInstruction {
-                let decoder = JSONDecoder()
-                // swiftlint:disable:next force_try
-                _ = try! decoder.decode(SearchSuggestType.self, from: data)
-            }
-            XCTAssertNotNil(assertionError)
+        let assertionError = catchBadInstruction {
+            let decoder = JSONDecoder()
+            // swiftlint:disable:next force_try
+            _ = try! decoder.decode(SearchSuggestType.self, from: data)
+        }
+        XCTAssertNotNil(assertionError)
 
-        #endif
+#endif
     }
 }

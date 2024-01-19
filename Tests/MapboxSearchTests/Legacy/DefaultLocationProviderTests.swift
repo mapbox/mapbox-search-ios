@@ -1,7 +1,7 @@
-import XCTest
-@testable import MapboxSearch
 import CoreLocation
+@testable import MapboxSearch
 import ObjectiveC
+import XCTest
 
 class DefaultLocationProviderTests: XCTestCase {
     var locationProvider: DefaultLocationProvider!

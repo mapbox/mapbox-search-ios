@@ -1,5 +1,5 @@
-import MapKit
 import CoreLocation
+import MapKit
 
 /// Resolved search object with populated fields
 public protocol SearchResult {

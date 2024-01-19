@@ -32,18 +32,22 @@ public protocol SearchEngineDelegate: AnyObject {
     func searchErrorHappened(searchError: SearchError, searchEngine: SearchEngine)
 }
 
-public extension SearchEngineDelegate {
+extension SearchEngineDelegate {
     /// Default implementation does nothing
     /// - Parameters:
     ///   - results: resolved search result
     ///   - searchEngine: calling engine
-    func resultsResolved(results: [SearchResult], searchEngine: SearchEngine) {}
+    public func resultsResolved(results: [SearchResult], searchEngine: SearchEngine) {}
 
     /// Default implementation does nothing
     /// - Parameter results: resolved search results
     /// - Parameter suggestions: suggestions for search results
     /// - Parameter searchEngine: calling engine
-    func offlineResultsUpdated(_ results: [SearchResult], suggestions: [SearchSuggestion], searchEngine: SearchEngine) {}
+    public func offlineResultsUpdated(
+        _ results: [SearchResult],
+        suggestions: [SearchSuggestion],
+        searchEngine: SearchEngine
+    ) {}
 }
 
 /**
@@ -192,12 +196,14 @@ public class SearchEngine: AbstractSearchEngine {
     override var dataResolvers: [IndexableDataResolver] { super.dataResolvers + [self] }
 
     var engineSearchFunction: (String, [String], CoreSearchOptions, @escaping (CoreSearchResponseProtocol?) -> Void)
-        -> Void {
+        -> Void
+    {
         offlineMode == .disabled ? engine.search : engine.searchOffline
     }
 
     var engineReverseGeocodingFunction: (CoreReverseGeoOptions, @escaping (CoreSearchResponseProtocol?) -> Void)
-        -> Void {
+        -> Void
+    {
         offlineMode == .disabled ? engine.reverseGeocoding : engine.reverseGeocodingOffline
     }
 
@@ -231,7 +237,7 @@ public class SearchEngine: AbstractSearchEngine {
     }
 
     private func processBatchResponse(_ coreResponse: CoreSearchResponseProtocol?) {
-        guard let coreResponse = coreResponse else {
+        guard let coreResponse else {
             eventsManager.reportError(.responseProcessingFailed)
             delegate?.searchErrorHappened(searchError: .responseProcessingFailed, searchEngine: self)
             assertionFailure("Response should never be nil")
@@ -251,7 +257,7 @@ public class SearchEngine: AbstractSearchEngine {
     private func preProcessResponse(_ coreResponse: CoreSearchResponseProtocol?) -> SearchResponse? {
         assert(Thread.isMainThread)
 
-        guard let coreResponse = coreResponse else {
+        guard let coreResponse else {
             assertionFailure("Response should never be nil")
             eventsManager.reportError(.responseProcessingFailed)
             delegate?.searchErrorHappened(searchError: .responseProcessingFailed, searchEngine: self)
@@ -276,7 +282,7 @@ public class SearchEngine: AbstractSearchEngine {
     private func preProcessRetrieveResponse(_ coreResponse: CoreSearchResponseProtocol?) -> SearchResponse? {
         assert(Thread.isMainThread)
 
-        guard let coreResponse = coreResponse else {
+        guard let coreResponse else {
             assertionFailure("Response should never be nil")
             eventsManager.reportError(.responseProcessingFailed)
             delegate?.searchErrorHappened(searchError: .responseProcessingFailed, searchEngine: self)
@@ -374,8 +380,10 @@ extension SearchEngine {
         // Call `onSelected` for only supported types
         // but avoid it for category suggestions (like Cafe category)
         if let responseProvider = suggestion as? CoreResponseProvider, !(suggestion is SearchCategorySuggestion) {
-            engine.onSelected(forRequest: responseProvider.originalResponse.requestOptions,
-                              result: responseProvider.originalResponse.coreResult)
+            engine.onSelected(
+                forRequest: responseProvider.originalResponse.requestOptions,
+                result: responseProvider.originalResponse.coreResult
+            )
         }
 
         switch suggestion {
@@ -385,7 +393,7 @@ extension SearchEngine {
             retrieve(suggestion: querySuggestion)
         case let resultSuggestion as SearchResultSuggestion:
             resolve(suggestion: resultSuggestion) { [weak self] (result: Result<SearchResult, SearchError>) in
-                guard let self = self else { return }
+                guard let self else { return }
 
                 switch result {
                 case .success(let resolvedResult):
@@ -403,25 +411,28 @@ extension SearchEngine {
     /// Function to select multiple suggestions at once.
     /// With the current implementation, only POI suggestions support batch resolving.
     /// All suggestions must originate from the same search request.
-    /// Suggestions with other types will be ignored. You can use `SearchSuggestion.batchResolveSupported` field for filtering.
-    /// - Parameter suggestions: suggestions list to resolve. All suggestions must originate from the same search request.
+    /// Suggestions with other types will be ignored. You can use `SearchSuggestion.batchResolveSupported` field for
+    /// filtering.
+    /// - Parameter suggestions: suggestions list to resolve. All suggestions must originate from the same search
+    /// request.
     public func select(suggestions: [SearchSuggestion]) {
         for suggestion in suggestions {
             let supported = (suggestion as? CoreResponseProvider)?.originalResponse.coreResult.action?.multiRetrievable
                 == true
             if !supported {
-                _Logger.searchSDK.warning("Unsupported suggestion: \(suggestion.name) of type: \(suggestion.suggestionType)")
+                _Logger.searchSDK
+                    .warning("Unsupported suggestion: \(suggestion.name) of type: \(suggestion.suggestionType)")
             }
         }
         let suggestionsImpls = suggestions
-            .compactMap({ $0 as? CoreResponseProvider })
-            .filter({ $0.originalResponse.coreResult.action?.multiRetrievable == true })
+            .compactMap { $0 as? CoreResponseProvider }
+            .filter { $0.originalResponse.coreResult.action?.multiRetrievable == true }
 
         guard suggestionsImpls.isEmpty == false else {
             return
         }
         let options = suggestionsImpls[0].originalResponse.requestOptions
-        let coreSearchResults = suggestionsImpls.compactMap({ $0.originalResponse.coreResult })
+        let coreSearchResults = suggestionsImpls.compactMap(\.originalResponse.coreResult)
 
         engine.batchResolve(results: coreSearchResults, with: options) { response in
             self.processBatchResponse(response)
@@ -429,8 +440,10 @@ extension SearchEngine {
     }
 
     /// Reverse geocoding of coordinates to addresses.
-    /// The default behavior in reverse geocoding is to return at most one feature at each of the multiple levels of the administrative hierarchy (for example, one address, one region, one country).
-    /// Increasing the limit allows returning multiple features of the same type, but only for one type (for example, multiple address results).
+    /// The default behavior in reverse geocoding is to return at most one feature at each of the multiple levels of the
+    /// administrative hierarchy (for example, one address, one region, one country).
+    /// Increasing the limit allows returning multiple features of the same type, but only for one type (for example,
+    /// multiple address results).
     /// Consequently, setting limit to a higher-than-default value requires specifying exactly one types parameter.
     /// - Parameters:
     ///   - options: Options with coordinates, mode, limits and query types for reverse geocoding.
@@ -448,9 +461,9 @@ extension SearchEngine {
         }
 
         engineReverseGeocodingFunction(options.toCore()) { [weak self] response in
-            guard let self = self else { return }
+            guard let self else { return }
 
-            guard let response = response else {
+            guard let response else {
                 self.eventsManager.reportError(.responseProcessingFailed)
                 completion(.failure(.responseProcessingFailed))
                 assertionFailure("Response should never be nil")
@@ -507,7 +520,9 @@ extension SearchEngine: IndexableDataResolver {
             completion(suggestion)
 
         default:
-            assertionFailure("Class `\(type(of: suggestion))` must confirm `\(SearchResult.self)` protocol in current SDK implementation")
+            assertionFailure(
+                "Class `\(type(of: suggestion))` must confirm `\(SearchResult.self)` protocol in current SDK implementation"
+            )
             // TODO: Should pass error here to IndexableDataResolver.
             // Breaking changes required. https://github.com/mapbox/mapbox-search-ios/issues/309
             completion(nil)

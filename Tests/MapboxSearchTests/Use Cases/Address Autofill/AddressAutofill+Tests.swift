@@ -1,5 +1,5 @@
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 final class AddressAutofillTests: XCTestCase {
     private var searchEngine: CoreSearchEngineStub!
@@ -43,14 +43,14 @@ final class AddressAutofillTests: XCTestCase {
         let countries: [Country] = [
             .init(countryCode: Country.ISO3166_1_alpha2.au.rawValue)!,
             .init(countryCode: Country.ISO3166_1_alpha2.ca.rawValue)!,
-            .init(countryCode: Country.ISO3166_1_alpha2.de.rawValue)!
+            .init(countryCode: Country.ISO3166_1_alpha2.de.rawValue)!,
         ]
         let language = Language(languageCode: Language.ISO639_1.ja.rawValue)!
 
         let autofillOptions = AddressAutofill.Options(countries: countries, language: language)
         addressAutofill.suggestions(for: .init(value: "query")!, with: autofillOptions) { _ in }
 
-        XCTAssertEqual(searchEngine.searchOptions?.countries, countries.map { $0.countryCode })
+        XCTAssertEqual(searchEngine.searchOptions?.countries, countries.map(\.countryCode))
         XCTAssertEqual(searchEngine.searchOptions?.language, [language.languageCode])
     }
 
@@ -73,14 +73,14 @@ final class AddressAutofillTests: XCTestCase {
         let countries: [Country] = [
             .init(countryCode: Country.ISO3166_1_alpha2.au.rawValue)!,
             .init(countryCode: Country.ISO3166_1_alpha2.ca.rawValue)!,
-            .init(countryCode: Country.ISO3166_1_alpha2.de.rawValue)!
+            .init(countryCode: Country.ISO3166_1_alpha2.de.rawValue)!,
         ]
         let language = Language(languageCode: Language.ISO639_1.ja.rawValue)!
 
         let autofillOptions = AddressAutofill.Options(countries: countries, language: language)
         addressAutofill.suggestions(for: kCLLocationCoordinate2DInvalid, with: autofillOptions) { _ in }
 
-        XCTAssertEqual(searchEngine.reverseGeocodingOptions?.countries, countries.map { $0.countryCode })
+        XCTAssertEqual(searchEngine.reverseGeocodingOptions?.countries, countries.map(\.countryCode))
         XCTAssertEqual(searchEngine.reverseGeocodingOptions?.language, [language.languageCode])
     }
 }

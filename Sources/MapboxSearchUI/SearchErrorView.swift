@@ -1,6 +1,6 @@
-import UIKit
 import Foundation
 import MapboxSearch
+import UIKit
 
 class SearchErrorView: UIView {
     enum ErrorType {
@@ -50,9 +50,9 @@ class SearchErrorView: UIView {
     override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: newWindow)
 
-        #if TARGET_INTERFACE_BUILDER
-            configuration = .init()
-        #endif
+#if TARGET_INTERFACE_BUILDER
+        configuration = .init()
+#endif
 
         assert(configuration != nil)
 
@@ -91,7 +91,8 @@ class SearchErrorView: UIView {
         subTitleLabel.text = type.subTitle
     }
 
-    @IBAction func retryAction() {
+    @IBAction
+    func retryAction() {
         retryHandler()
     }
 }

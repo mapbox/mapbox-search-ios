@@ -1,6 +1,6 @@
-import XCTest
-@testable import MapboxSearch
 import CoreLocation
+@testable import MapboxSearch
+import XCTest
 
 class SearchRequestOptionsTests: XCTestCase {
     func testInitCoordinatesTransformation() throws {

@@ -1,5 +1,5 @@
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 final class PlaceAutocompleteTests: XCTestCase {
     private var searchEngine: CoreSearchEngineStub!
@@ -65,7 +65,7 @@ final class PlaceAutocompleteTests: XCTestCase {
             filterBy: .init(
                 countries: [
                     .init(countryCode: Country.ISO3166_1_alpha2.us.rawValue)!,
-                    .init(countryCode: Country.ISO3166_1_alpha2.gb.rawValue)!
+                    .init(countryCode: Country.ISO3166_1_alpha2.gb.rawValue)!,
                 ],
                 language: .init(languageCode: Language.ISO639_1.en.rawValue),
                 types: types,
@@ -94,8 +94,8 @@ final class PlaceAutocompleteTests: XCTestCase {
             CoreSearchResultStub.makeAddress(),
             CoreSearchResultStub.makeSuggestion(),
             CoreSearchResultStub.makeCategory(),
-            CoreSearchResultStub.makeSuggestionTypeQuery()
-        ].map { $0.asCoreSearchResult }
+            CoreSearchResultStub.makeSuggestionTypeQuery(),
+        ].map(\.asCoreSearchResult)
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: results)
 
         placeAutocomplete.suggestions(for: "query") { result in
@@ -122,8 +122,8 @@ final class PlaceAutocompleteTests: XCTestCase {
         let results = [
             CoreSearchResultStub.makePOI(),
             CoreSearchResultStub.makePlace(),
-            CoreSearchResultStub.makeAddress()
-        ].map { $0.asCoreSearchResult }
+            CoreSearchResultStub.makeAddress(),
+        ].map(\.asCoreSearchResult)
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: results)
         placeAutocomplete.suggestions(for: "query") { result in
             switch result {
@@ -174,8 +174,8 @@ final class PlaceAutocompleteTests: XCTestCase {
     func testReverseGeocodingReturnsAutocompleteSuggestionsAsResults() {
         let results = [
             CoreSearchResultStub.makePlace(),
-            CoreSearchResultStub.makeAddress()
-        ].map { $0.asCoreSearchResult }
+            CoreSearchResultStub.makeAddress(),
+        ].map(\.asCoreSearchResult)
 
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: results)
 

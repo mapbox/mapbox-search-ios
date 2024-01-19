@@ -1,7 +1,8 @@
 import Foundation
 
 /// Search Response information. Contains search options.
-/// This response can be used for sending Missing Result feedback. One should build `FeedbackEvent` using `SearchResponseInfo`
+/// This response can be used for sending Missing Result feedback. One should build `FeedbackEvent` using
+/// `SearchResponseInfo`
 /// `SearchEngine.sendFeedback(event: FeedbackEvent, autoFlush: Bool = true) throws`
 public class SearchResponseInfo {
     let coreResponse: CoreSearchResponseProtocol

@@ -1,13 +1,13 @@
 import Foundation
 
-public extension Discover {
-    struct Query {
+extension Discover {
+    public struct Query {
         let rawValue: String
     }
 }
 
-public extension Discover.Query {
-    enum Category {
+extension Discover.Query {
+    public enum Category {
         public static var restaurants: Discover.Query { .init(rawValue: "restaurant") }
 
         public static var bars: Discover.Query { .init(rawValue: "bar") }

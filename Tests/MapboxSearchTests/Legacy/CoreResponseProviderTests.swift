@@ -1,6 +1,6 @@
-import XCTest
-@testable import MapboxSearch
 import CoreLocation
+@testable import MapboxSearch
+import XCTest
 
 class CoreResponseProviderStub: CoreResponseProvider {
     var originalResponse: CoreSearchResultResponse
@@ -12,9 +12,11 @@ class CoreResponseProviderStub: CoreResponseProvider {
 
 class CoreResponseProviderTests: XCTestCase {
     func testSearchRequestComputedVariable() throws {
-        let coreResponse = CoreSearchResultResponse(coreResult: CoreSearchResultStub.sample1,
-                                                    response: CoreSearchResponseStub
-                                                        .successSample(results: [CoreSearchResultStub.sample1]))
+        let coreResponse = CoreSearchResultResponse(
+            coreResult: CoreSearchResultStub.sample1,
+            response: CoreSearchResponseStub
+                .successSample(results: [CoreSearchResultStub.sample1])
+        )
 
         let responseProvider = CoreResponseProviderStub(originalResponse: coreResponse)
 

@@ -1,6 +1,6 @@
-import XCTest
 import CoreLocation
 @testable import MapboxSearch
+import XCTest
 
 extension CoreSearchResultStub {
     static let sample1 = CoreSearchResultStub(
@@ -16,19 +16,21 @@ extension CoreSearchResultStub {
         type: .category
     )
 
-    static let externalRecordSample = CoreSearchResultStub(id: "sample-3",
-                                                           mapboxId: "sample-3",
-                                                           type: .userRecord,
-                                                           centerLocation: .sample1,
-                                                           layer: FavoritesProvider.providerIdentifier,
-                                                           userRecordID: "external-record-1",
-                                                           action: .sample1,
-                                                           serverIndex: 3,
-                                                           distance: 97)
+    static let externalRecordSample = CoreSearchResultStub(
+        id: "sample-3",
+        mapboxId: "sample-3",
+        type: .userRecord,
+        centerLocation: .sample1,
+        layer: FavoritesProvider.providerIdentifier,
+        userRecordID: "external-record-1",
+        action: .sample1,
+        serverIndex: 3,
+        distance: 97
+    )
 
     static func makeSuggestionsSet() -> [CoreSearchResultStub] {
         let results = makeMixedResultsSet()
-        results.forEach({ $0.centerLocation = nil })
+        results.forEach { $0.centerLocation = nil }
         return results
     }
 
@@ -53,7 +55,7 @@ extension CoreSearchResultStub {
             CoreSearchResultStub.makeAddress(),
             CoreSearchResultStub.makePOI(),
             CoreSearchResultStub.makeFavorite(),
-            CoreSearchResultStub.makeHistory()
+            CoreSearchResultStub.makeHistory(),
         ]
     }
 
@@ -61,7 +63,7 @@ extension CoreSearchResultStub {
         [
             CoreSearchResultStub.makePlace(),
             CoreSearchResultStub.makeAddress(),
-            CoreSearchResultStub.makePOI()
+            CoreSearchResultStub.makePOI(),
         ]
     }
 
@@ -120,12 +122,16 @@ extension CoreSearchResultStub {
             postcode: nil,
             place: nil,
             district: "poi-land",
-            region: CoreSearchAddressRegion(name: "poi-region",
-                                            regionCode: nil,
-                                            regionCodeFull: nil),
-            country: CoreSearchAddressCountry(name: "poi-country",
-                                              countryCode: nil,
-                                              countryCodeAlpha3: nil)
+            region: CoreSearchAddressRegion(
+                name: "poi-region",
+                regionCode: nil,
+                regionCodeFull: nil
+            ),
+            country: CoreSearchAddressCountry(
+                name: "poi-country",
+                countryCode: nil,
+                countryCodeAlpha3: nil
+            )
         )
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
@@ -151,12 +157,16 @@ extension CoreSearchResultStub {
             postcode: nil,
             place: nil,
             district: "pizza-land",
-            region: CoreSearchAddressRegion(name: "pizza-region",
-                                            regionCode: nil,
-                                            regionCodeFull: nil),
-            country: CoreSearchAddressCountry(name: "pizza-country",
-                                              countryCode: nil,
-                                              countryCodeAlpha3: nil)
+            region: CoreSearchAddressRegion(
+                name: "pizza-region",
+                regionCode: nil,
+                regionCodeFull: nil
+            ),
+            country: CoreSearchAddressCountry(
+                name: "pizza-country",
+                countryCode: nil,
+                countryCodeAlpha3: nil
+            )
         )
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
@@ -182,12 +192,16 @@ extension CoreSearchResultStub {
             postcode: nil,
             place: nil,
             district: "history-land",
-            region: CoreSearchAddressRegion(name: "history-region",
-                                            regionCode: nil,
-                                            regionCodeFull: nil),
-            country: CoreSearchAddressCountry(name: "history-country",
-                                              countryCode: nil,
-                                              countryCodeAlpha3: nil)
+            region: CoreSearchAddressRegion(
+                name: "history-region",
+                regionCode: nil,
+                regionCodeFull: nil
+            ),
+            country: CoreSearchAddressCountry(
+                name: "history-country",
+                countryCode: nil,
+                countryCodeAlpha3: nil
+            )
         )
         let result = CoreSearchResultStub(
             id: UUID().uuidString,

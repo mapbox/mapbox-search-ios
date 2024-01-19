@@ -1,5 +1,5 @@
-import Foundation
 import Contacts
+import Foundation
 
 public struct AddressComponents {
     /// House number of the individual residential or business addresses.
@@ -12,7 +12,8 @@ public struct AddressComponents {
     /// Unlike locality features, these typically lack official status and may lack universally agreed-upon boundaries.
     public let neighborhood: String?
 
-    /// Official sub-city features present in countries where such an additional administrative layer is used in postal addressing,
+    /// Official sub-city features present in countries where such an additional administrative layer is used in postal
+    /// addressing,
     /// or where such features are commonly referred to in local parlance.
     /// Examples include city districts in Brazil and Chile and arrondissements in France.
     public let locality: String?
@@ -21,7 +22,8 @@ public struct AddressComponents {
     public let postcode: String?
 
     /// Typically these are cities, villages, municipalities, etc.
-    /// They’re usually features used in postal addressing, and are suitable for display in ambient end-user applications
+    /// They’re usually features used in postal addressing, and are suitable for display in ambient end-user
+    /// applications
     /// where current-location context is needed (for example, in weather displays).
     public let place: String?
 
@@ -29,7 +31,8 @@ public struct AddressComponents {
     /// in countries that use such an additional layer in postal addressing (for example, prefectures in China).
     public let district: String?
 
-    /// Top-level sub-national administrative features, such as states in the United States or provinces in Canada or China.
+    /// Top-level sub-national administrative features, such as states in the United States or provinces in Canada or
+    /// China.
     public let region: String?
 
     /// Generally recognized countries or, in some cases like Hong Kong, an area of quasi-national administrative status
@@ -73,11 +76,11 @@ public struct AddressComponents {
 
 // MARK: - Contacts extension
 
-public extension AddressComponents {
+extension AddressComponents {
     /// The postal address associated with the location, formatted for use with the Contacts framework.
-    var postalAddress: CNPostalAddress {
+    public var postalAddress: CNPostalAddress {
         let streetNameAndNumber = [houseNumber, street]
-            .compactMap({ $0?.isEmpty == false ? $0 : nil })
+            .compactMap { $0?.isEmpty == false ? $0 : nil }
             .joined(separator: " ")
 
         let address = CNMutablePostalAddress()
@@ -94,13 +97,14 @@ public extension AddressComponents {
 
 // MARK: - Formatted Address
 
-public extension AddressComponents {
+extension AddressComponents {
     /// Address format style manage address string representation
-    enum FormatStyle {
+    public enum FormatStyle {
         /// House number and street name
         case short
 
-        /// House number, street name and place name (city). For region-based contries (like USA), the State name will be appended
+        /// House number, street name and place name (city). For region-based contries (like USA), the State name will
+        /// be appended
         case medium
 
         /// All address components (if available) without postcode
@@ -115,17 +119,18 @@ public extension AddressComponents {
 
     /// Build address string in requested style. All empty components will be skipped.
     /// Separator ", " would be used to join all the components. House number will separated with " " separator
-    /// For example, for `.short` style: "50 Beale St, 9th Floor" and for `.medium` – "50 Beale St, 9th Floor, San Francisco, California"
+    /// For example, for `.short` style: "50 Beale St, 9th Floor" and for `.medium` – "50 Beale St, 9th Floor, San
+    /// Francisco, California"
     /// - Parameter style: address style to be used
     /// - Returns: Address string
-    func formattedAddress(style: FormatStyle) -> String? {
+    public func formattedAddress(style: FormatStyle) -> String? {
         // All styles will include \.houseNumber if it exist
         let componentPaths: [KeyPath<AddressComponents, String?>]
         switch style {
         case .short:
             componentPaths = [\.houseNumber, \.street]
         case .medium:
-            if let country = country, regionBasedCountry(country) {
+            if let country, regionBasedCountry(country) {
                 componentPaths = [\.houseNumber, \.street, \.place, \.region]
             } else {
                 componentPaths = [\.houseNumber, \.street, \.place]
@@ -139,7 +144,7 @@ public extension AddressComponents {
                 \.place,
                 \.district,
                 \.region,
-                \.country
+                \.country,
             ]
         case .full:
             componentPaths = [
@@ -151,19 +156,19 @@ public extension AddressComponents {
                 \.district,
                 \.region,
                 \.country,
-                \.postcode
+                \.postcode,
             ]
         case .custom(let components):
             componentPaths = components
         }
 
         // Take actual non-nil components
-        let components = componentPaths.map({ self[keyPath: $0] }).compactMap({ $0 }).filter({ !$0.isEmpty })
+        let components = componentPaths.map { self[keyPath: $0] }.compactMap { $0 }.filter { !$0.isEmpty }
         guard !components.isEmpty else { return nil }
 
         let separator = ", "
 
-        if componentPaths.first == \.houseNumber, let houseNumber = houseNumber {
+        if componentPaths.first == \.houseNumber, let houseNumber {
             if components.count == 1 {
                 return houseNumber
             } else {

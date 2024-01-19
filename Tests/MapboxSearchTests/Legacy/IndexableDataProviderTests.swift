@@ -1,6 +1,6 @@
-import XCTest
 import CoreLocation
 @testable import MapboxSearch
+import XCTest
 
 class IndexableDataProviderTests: XCTestCase {
     var delegate = SearchEngineDelegateStub()
@@ -27,7 +27,7 @@ class IndexableDataProviderTests: XCTestCase {
         searchEngine.search(query: "sample-1")
         wait(for: [expectation], timeout: 10)
         if case .success(let results) = response.process() {
-            XCTAssertEqual(results.suggestions.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
+            XCTAssertEqual(results.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
         } else {
             fatalError("impossible")
         }
@@ -53,7 +53,7 @@ class IndexableDataProviderTests: XCTestCase {
         searchEngine.search(query: "sample-1")
         wait(for: [expectation], timeout: 10)
         if case .success(let results) = response.process() {
-            XCTAssertEqual(results.suggestions.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
+            XCTAssertEqual(results.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
         } else {
             fatalError("impossible")
         }
@@ -81,7 +81,7 @@ class IndexableDataProviderTests: XCTestCase {
 
         let results = (
             dataProviderNoRecords.records + dataProviderSomeRecords.records + dataProviderManyRecords.records
-        ).map({ CoreSearchResultStub(dataProviderRecord: $0) })
+        ).map { CoreSearchResultStub(dataProviderRecord: $0) }
 
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         let coreResponse = CoreSearchResponseStub.successSample(results: results)
@@ -91,7 +91,7 @@ class IndexableDataProviderTests: XCTestCase {
         searchEngine.search(query: "sample-1")
         wait(for: [expectation], timeout: 10)
         if case .success(let results) = response.process() {
-            XCTAssertEqual(results.suggestions.map({ $0.id }), searchEngine.suggestions.map({ $0.id }))
+            XCTAssertEqual(results.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
         } else {
             fatalError("impossible")
         }

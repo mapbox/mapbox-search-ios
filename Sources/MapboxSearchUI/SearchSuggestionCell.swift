@@ -1,6 +1,6 @@
 import MapboxSearch
-import UIKit
 import MapKit
+import UIKit
 
 protocol SearchSuggestionCellDelegate: AnyObject {
     func populate(searchSuggestion: SearchSuggestion)
@@ -58,7 +58,7 @@ class SearchSuggestionCell: UITableViewCell {
     }
 
     func configure(suggestion: SearchSuggestion, hideQueryHighlights: Bool = false, configuration: Configuration) {
-        self.searchSuggestion = suggestion
+        searchSuggestion = suggestion
 
         backgroundColor = configuration.style.primaryBackgroundColor
         nameLabel.textColor = configuration.style.primaryTextColor
@@ -68,9 +68,11 @@ class SearchSuggestionCell: UITableViewCell {
         if hideQueryHighlights == false {
             let attributedNameRange = NSRange(location: 0, length: attributedName.length)
 
-            let intersectingHighlights = HighlightsCalculator.calculate(for: suggestion.searchRequest.query,
-                                                                        in: suggestion.name)
-                .compactMap(attributedNameRange.intersection)
+            let intersectingHighlights = HighlightsCalculator.calculate(
+                for: suggestion.searchRequest.query,
+                in: suggestion.name
+            )
+            .compactMap(attributedNameRange.intersection)
             for range in intersectingHighlights {
                 attributedName.addAttribute(
                     .foregroundColor,
@@ -87,8 +89,10 @@ class SearchSuggestionCell: UITableViewCell {
         addressLabel.accessibilityIdentifier = "address"
 
         // Hide arrow button on the right if name is the same as query it the textfield
-        let resultNameSameAsQuery = suggestion.name.caseInsensitiveCompare(suggestion
-            .searchRequest.query.trimmingCharacters(in: .whitespaces)) == .orderedSame
+        let resultNameSameAsQuery = suggestion.name.caseInsensitiveCompare(
+            suggestion
+                .searchRequest.query.trimmingCharacters(in: .whitespaces)
+        ) == .orderedSame
         populateSuggestionButton.isHidden = resultNameSameAsQuery
 
         if let distanceString = suggestion.distance.map(SearchSuggestionCell.distanceFormatter.string) {
@@ -99,7 +103,7 @@ class SearchSuggestionCell: UITableViewCell {
         }
 
         iconImageView.image = suggestion.iconName.flatMap(Maki.init)?.icon
-            ?? suggestion.iconName.flatMap({ UIImage(named: $0, in: .mapboxSearchUI, compatibleWith: nil) })
+            ?? suggestion.iconName.flatMap { UIImage(named: $0, in: .mapboxSearchUI, compatibleWith: nil) }
             ?? suggestion.suggestionType.icon
 
         // Show templated image for 'Category' type
@@ -110,7 +114,8 @@ class SearchSuggestionCell: UITableViewCell {
         }
     }
 
-    @IBAction func populateSuggestion(_ sender: UIButton) {
+    @IBAction
+    func populateSuggestion(_ sender: UIButton) {
         delegate?.populate(searchSuggestion: searchSuggestion)
     }
 }
@@ -133,30 +138,31 @@ extension SearchSuggestType {
 }
 
 #if canImport(SwiftUI) && DEBUG
-    import SwiftUI
+import SwiftUI
 
-    @available(iOS 13.0, *)
-    struct SearchSuggestionCellRepresentable: UIViewRepresentable {
-        func makeUIView(context: Context) -> UIView {
-            // swiftlint:disable:next force_cast line_length
-            UINib(nibName: "SearchSuggestionCell", bundle: .mapboxSearchUI).instantiate(withOwner: nil, options: nil)[0] as! UIView
-        }
-
-        func updateUIView(_ view: UIView, context: Context) {}
+@available(iOS 13.0, *)
+struct SearchSuggestionCellRepresentable: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIView {
+        UINib(nibName: "SearchSuggestionCell", bundle: .mapboxSearchUI)
+            .instantiate(withOwner: nil, options: nil)[0] as! UIView
+        // swiftlint:disable:previous force_cast
     }
 
-    @available(iOS 13.0, *)
-    struct SearchSuggestionCellPreview: PreviewProvider {
-        static var previews: some View {
-            Group {
-                SearchSuggestionCellRepresentable()
-                    .previewDisplayName("Light Mode")
-                    .previewLayout(.fixed(width: 320, height: 68))
-                SearchSuggestionCellRepresentable()
-                    .previewDisplayName("Dark Mode")
-                    .preferredColorScheme(.dark)
-                    .previewLayout(.fixed(width: 320, height: 68))
-            }
+    func updateUIView(_ view: UIView, context: Context) {}
+}
+
+@available(iOS 13.0, *)
+struct SearchSuggestionCellPreview: PreviewProvider {
+    static var previews: some View {
+        Group {
+            SearchSuggestionCellRepresentable()
+                .previewDisplayName("Light Mode")
+                .previewLayout(.fixed(width: 320, height: 68))
+            SearchSuggestionCellRepresentable()
+                .previewDisplayName("Dark Mode")
+                .preferredColorScheme(.dark)
+                .previewLayout(.fixed(width: 320, height: 68))
         }
     }
+}
 #endif

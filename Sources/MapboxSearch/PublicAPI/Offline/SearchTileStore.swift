@@ -15,7 +15,7 @@ public class SearchTileStore {
     /// Creates with shared `MapboxCommon.TileStore` instance at the default location.
     /// Creates a new `MapboxCommon.TileStore` if one doesn't yet exist.
     public init() {
-        commonTileStore = MapboxCommon.TileStore.__create()
+        self.commonTileStore = MapboxCommon.TileStore.__create()
         setup(tileStore: commonTileStore)
     }
 
@@ -32,16 +32,18 @@ public class SearchTileStore {
     /// - Parameters:
     ///   - path: The path on disk where tiles and metadata will be stored.
     public init(path: String) {
-        commonTileStore = MapboxCommon.TileStore.__create(forPath: path)
+        self.commonTileStore = MapboxCommon.TileStore.__create(forPath: path)
         setup(tileStore: commonTileStore)
     }
 
     // MARK: -
 
     func setup(tileStore: MapboxCommon.TileStore) {
-        tileStore.setOptionForKey(MapboxCommon.TileStoreOptions.mapboxAPIURL,
-                                  domain: MapboxCommon.TileDataDomain.search,
-                                  value: defaultEndPoint)
+        tileStore.setOptionForKey(
+            MapboxCommon.TileStoreOptions.mapboxAPIURL,
+            domain: MapboxCommon.TileDataDomain.search,
+            value: defaultEndPoint
+        )
     }
 
     /// Loads a new tile region or updates the existing one.
@@ -62,15 +64,19 @@ public class SearchTileStore {
     ///         of the loading operation. Any `Result` error could be of type
     ///         `TileRegionError`.
     /// - Returns: A `Cancelable` object to cancel the load request
-    public func loadTileRegion(id: String,
-                               options: MapboxCommon.TileRegionLoadOptions,
-                               progress: MapboxCommon.TileRegionLoadProgressCallback? = nil,
-                               completion: ((Result<MapboxCommon.TileRegion, TileRegionError>) -> Void)?)
-        -> SearchCancelable {
-        if let progress = progress {
-            let cancelable = commonTileStore.__loadTileRegion(forId: id,
-                                                              loadOptions: options,
-                                                              onProgress: progress) { expected in
+    public func loadTileRegion(
+        id: String,
+        options: MapboxCommon.TileRegionLoadOptions,
+        progress: MapboxCommon.TileRegionLoadProgressCallback? = nil,
+        completion: ((Result<MapboxCommon.TileRegion, TileRegionError>) -> Void)?
+    )
+    -> SearchCancelable {
+        if let progress {
+            let cancelable = commonTileStore.__loadTileRegion(
+                forId: id,
+                loadOptions: options,
+                onProgress: progress
+            ) { expected in
                 completion?(makeResult(expected: expected, fallbackError: TileRegionError.other("Unexpected")))
             }
             return CommonCancelableWrapper(cancelable)
@@ -102,7 +108,10 @@ public class SearchTileStore {
     /// - Parameters:
     ///   - id: The tile region identifier.
     ///   - completion: Completion with `Result`, error could be of type `TileRegionError`.
-    public func removeTileRegion(id: String, completion: ((Result<MapboxCommon.TileRegion, TileRegionError>) -> Void)?) {
+    public func removeTileRegion(
+        id: String,
+        completion: ((Result<MapboxCommon.TileRegion, TileRegionError>) -> Void)?
+    ) {
         commonTileStore.__removeTileRegion(forId: id) { expected in
             DispatchQueue.main.async {
                 completion?(makeResult(expected: expected, fallbackError: TileRegionError.other("Unexpected")))

@@ -1,5 +1,5 @@
-import UIKit
 import MapboxSearch
+import UIKit
 
 protocol UserFavoriteSelectionProtocol {
     func userFavoriteSelected(_ userFavorite: FavoriteRecord)
@@ -62,7 +62,7 @@ final class FavoritesTableViewSource: NSObject, UITableViewDataSource, UITableVi
     /// The order will be preserved
     static var favoriteRecordTemplates: [FavoriteEntryTemplate.Type] = [
         HomeFavoriteTemplate.self,
-        WorkFavoriteTemplate.self
+        WorkFavoriteTemplate.self,
     ]
     private let favoritesProvider: FavoritesProvider
 
@@ -71,7 +71,7 @@ final class FavoritesTableViewSource: NSObject, UITableViewDataSource, UITableVi
         self.tableView = tableView
         self.tableView?.accessibilityIdentifier = "FavoritesTableViewSource.tableView"
         self.configuration = configuration
-        Cell.allCases.forEach({ $0.register(in: tableView) })
+        Cell.allCases.forEach { $0.register(in: tableView) }
 
         self.favorites = []
         super.init()
@@ -101,7 +101,7 @@ final class FavoritesTableViewSource: NSObject, UITableViewDataSource, UITableVi
             .map(UserFavoriteEntry.init)
             .sorted(by: { $1.name > $0.name })
 
-        self.favorites = pinnedFavorites + usualFavorites
+        favorites = pinnedFavorites + usualFavorites
         tableView?.reloadData()
     }
 
@@ -119,8 +119,11 @@ final class FavoritesTableViewSource: NSObject, UITableViewDataSource, UITableVi
     }
 
     func userFavoriteCell(forRowAt indexPath: IndexPath, in tableView: UITableView) -> UserFavoriteCell {
-        // swiftlint:disable:next force_cast line_length
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cell.favorite.cellIdentifier, for: indexPath) as! UserFavoriteCell
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: Cell.favorite.cellIdentifier,
+            for: indexPath
+        ) as! UserFavoriteCell
+        // swiftlint:disable:previous force_cast
 
         cell.delegate = self
         cell.configure(favorite: favorites[indexPath.row], configuration: configuration)
@@ -129,8 +132,12 @@ final class FavoritesTableViewSource: NSObject, UITableViewDataSource, UITableVi
     }
 
     func addFavoriteCell(forRowAt indexPath: IndexPath, in tableView: UITableView) -> UITableViewCell {
-        // swiftlint:disable:next force_cast line_length
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cell.addFavorite.cellIdentifier, for: indexPath) as! AddToFavoritesCell
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: Cell.addFavorite.cellIdentifier,
+            for: indexPath
+        ) as! AddToFavoritesCell
+        // swiftlint:disable:previous force_cast
+
         cell.configure(configuration: configuration)
         return cell
     }

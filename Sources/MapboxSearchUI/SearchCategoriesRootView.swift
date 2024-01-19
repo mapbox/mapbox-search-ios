@@ -58,10 +58,10 @@ class SearchCategoriesRootView: UIView {
     override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: newWindow)
 
-        #if TARGET_INTERFACE_BUILDER
-            favoritesProvider = ServiceProvider.shared.localFavoritesProvider
-            configuration = .init()
-        #endif
+#if TARGET_INTERFACE_BUILDER
+        favoritesProvider = ServiceProvider.shared.localFavoritesProvider
+        configuration = .init()
+#endif
 
         assert(configuration != nil)
 
@@ -73,7 +73,7 @@ class SearchCategoriesRootView: UIView {
             tableView?.showsVerticalScrollIndicator = false
         }
 
-        zip(hotCategoryButtons, configuration.categoryDataProvider.categorySlots).forEach({ $0.category = $1 })
+        zip(hotCategoryButtons, configuration.categoryDataProvider.categorySlots).forEach { $0.category = $1 }
 
         for button in hotCategoryButtons {
             button.addTarget(self, action: #selector(handleHotCategoryButtonTap(button:)), for: .touchUpInside)
@@ -90,8 +90,8 @@ class SearchCategoriesRootView: UIView {
 
     func updateUI(for configuration: Configuration) {
         // Hide Category Slots
-        self.hotCategoryButtonsSuperview.isHidden = configuration.hideCategorySlots
-        self.buttonsTopConstraint.isActive = !configuration.hideCategorySlots
+        hotCategoryButtonsSuperview.isHidden = configuration.hideCategorySlots
+        buttonsTopConstraint.isActive = !configuration.hideCategorySlots
 
         let views = [self, contentScrollView, favoritesTableView, categoriesTableView, contentViewScrollView]
         for configurableView in views {
@@ -158,16 +158,18 @@ extension SearchCategoriesRootView {
         UIView.animate(withDuration: 0.25, delay: 0, options: [
             .beginFromCurrentState,
             .allowUserInteraction,
-            .curveEaseInOut
+            .curveEaseInOut,
         ], animations: {
-            self.contentScrollView.contentOffset.x = self.segmentedControl.selectedTab.horizontalOffsetFor(scrollView:
-                self.contentScrollView)
+            self.contentScrollView.contentOffset.x = self.segmentedControl.selectedTab.horizontalOffsetFor(
+                scrollView:
+                self.contentScrollView
+            )
         })
     }
 }
 
-private extension CategoriesFavoritesSegmentControl.Tab {
-    init(scrollViewPageProgress: CGFloat) {
+extension CategoriesFavoritesSegmentControl.Tab {
+    fileprivate init(scrollViewPageProgress: CGFloat) {
         if scrollViewPageProgress <= 0.5 {
             self = .categories
         } else {
@@ -175,7 +177,7 @@ private extension CategoriesFavoritesSegmentControl.Tab {
         }
     }
 
-    func horizontalOffsetFor(scrollView: UIScrollView) -> CGFloat {
+    fileprivate func horizontalOffsetFor(scrollView: UIScrollView) -> CGFloat {
         switch self {
         case .categories:
             return 0

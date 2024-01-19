@@ -1,6 +1,6 @@
-import UIKit
 import MapboxSearch
 import MapKit
+import UIKit
 
 final class PlaceAutocompleteResultViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
@@ -19,7 +19,7 @@ final class PlaceAutocompleteResultViewController: UIViewController {
             withIdentifier: "PlaceAutocompleteResultViewController"
         ) as? PlaceAutocompleteResultViewController
 
-        guard let viewController = viewController else {
+        guard let viewController else {
             preconditionFailure()
         }
 
@@ -65,21 +65,21 @@ extension PlaceAutocompleteResultViewController: UITableViewDataSource {
 
 // MARK: - Private
 
-private extension PlaceAutocompleteResultViewController {
-    func prepare() {
+extension PlaceAutocompleteResultViewController {
+    private func prepare() {
         title = "Address"
 
         updateScreenData()
     }
 
-    func updateScreenData() {
+    private func updateScreenData() {
         showAnnotation()
         showSuggestionRegion()
 
         tableView.reloadData()
     }
 
-    func showAnnotation() {
+    private func showAnnotation() {
         guard let coordinate = result.coordinate else { return }
 
         let annotation = MKPointAnnotation()
@@ -89,7 +89,7 @@ private extension PlaceAutocompleteResultViewController {
         mapView.addAnnotation(annotation)
     }
 
-    func showSuggestionRegion() {
+    private func showSuggestionRegion() {
         guard let coordinate = result.coordinate else { return }
 
         let region = MKCoordinateRegion(
@@ -118,29 +118,31 @@ extension PlaceAutocomplete.Result {
     func toComponents() -> [(name: String, value: String)] {
         var components = [
             (name: "Name", value: name),
-            (name: "Type", value: "\(type == .POI ? "POI" : "Address")")
+            (name: "Type", value: "\(type == .POI ? "POI" : "Address")"),
         ]
 
-        if let address = address, let formattedAddress = address.formattedAddress(style: .short) {
+        if let address, let formattedAddress = address.formattedAddress(style: .short) {
             components.append(
                 (name: "Address", value: formattedAddress)
             )
         }
 
-        if let distance = distance {
+        if let distance {
             components.append(
                 (name: "Distance", value: PlaceAutocomplete.Result.distanceFormatter.string(fromDistance: distance))
             )
         }
 
-        if let estimatedTime = estimatedTime {
+        if let estimatedTime {
             components.append(
-                (name: "Estimated time",
-                 value: PlaceAutocomplete.Result.measurumentFormatter.string(from: estimatedTime))
+                (
+                    name: "Estimated time",
+                    value: PlaceAutocomplete.Result.measurumentFormatter.string(from: estimatedTime)
+                )
             )
         }
 
-        if let phone = phone {
+        if let phone {
             components.append(
                 (name: "Phone", value: phone)
             )

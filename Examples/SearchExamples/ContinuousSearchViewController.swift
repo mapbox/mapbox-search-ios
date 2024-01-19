@@ -1,5 +1,5 @@
-import UIKit
 import MapboxSearch
+import UIKit
 
 class ContinuousSearchViewController: TextViewLoggerViewController {
     let searchEngine = SearchEngine()
@@ -37,7 +37,8 @@ class ContinuousSearchViewController: TextViewLoggerViewController {
 extension ContinuousSearchViewController {
     @objc
     func textFieldTextDidChanged() {
-        /// Update `SearchEngine.query` field as fast as you need. `SearchEngine` waits a short amount of time for the query string to optimize network usage.
+        /// Update `SearchEngine.query` field as fast as you need. `SearchEngine` waits a short amount of time for the
+        /// query string to optimize network usage.
         searchEngine.query = textField.text!
     }
 }

@@ -1,6 +1,6 @@
-import XCTest
 import CoreLocation
 @testable import MapboxSearch
+import XCTest
 
 class SearchEngineIntegrationTests: MockServerTestCase {
     let delegate = SearchEngineDelegateStub()
@@ -180,10 +180,10 @@ class SearchEngineIntegrationTests: MockServerTestCase {
     func testBatchResolve() throws {
         try server.setResponse(.multiRetrieve)
 
-        let results = CoreSearchResultStub.makeMixedResultsSet().map { $0.asCoreSearchResult }
+        let results = CoreSearchResultStub.makeMixedResultsSet().map(\.asCoreSearchResult)
         let coreResponse = CoreSearchResponseStub.successSample(results: results)
 
-        let suggestions = CoreSearchResultStub.makeSuggestionsSet().map({ $0.asCoreSearchResult }).compactMap {
+        let suggestions = CoreSearchResultStub.makeSuggestionsSet().map(\.asCoreSearchResult).compactMap {
             SearchResultSuggestionImpl(coreResult: $0, response: coreResponse)
         }
 
@@ -197,10 +197,10 @@ class SearchEngineIntegrationTests: MockServerTestCase {
     func testBatchResolveFailed() throws {
         try server.setResponse(.multiRetrieve, statusCode: 500)
 
-        let results = CoreSearchResultStub.makeMixedResultsSet().map { $0.asCoreSearchResult }
+        let results = CoreSearchResultStub.makeMixedResultsSet().map(\.asCoreSearchResult)
         let coreResponse = CoreSearchResponseStub.successSample(results: results)
 
-        let suggestions = CoreSearchResultStub.makeSuggestionsSet().map({ $0.asCoreSearchResult }).compactMap {
+        let suggestions = CoreSearchResultStub.makeSuggestionsSet().map(\.asCoreSearchResult).compactMap {
             SearchResultSuggestionImpl(coreResult: $0, response: coreResponse)
         }
 

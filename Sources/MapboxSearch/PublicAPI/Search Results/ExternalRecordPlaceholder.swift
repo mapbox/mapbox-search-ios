@@ -1,5 +1,5 @@
-import Foundation
 import CoreLocation
+import Foundation
 
 class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
     var mapboxId: String?

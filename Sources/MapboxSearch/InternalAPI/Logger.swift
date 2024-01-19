@@ -40,11 +40,11 @@ public class _Logger {
     init(subsystem: String) {
         self.subsystem = subsystem
 
-        #if DEBUG
-            level = .debug
-        #else
-            level = .warning
-        #endif
+#if DEBUG
+        self.level = .debug
+#else
+        self.level = .warning
+#endif
     }
 
     var categoryLevels: [LogCategory: LoggerLevel] = [:]
@@ -110,11 +110,11 @@ public class _Logger {
             // DO NOTHING
             break
         case .debug:
-            #if DEBUG
-                fallthrough
-            #else
-                break
-            #endif
+#if DEBUG
+            fallthrough
+#else
+            break
+#endif
         default:
 
             print("\(logLevel):\(category.rawValue) >>>", message)
