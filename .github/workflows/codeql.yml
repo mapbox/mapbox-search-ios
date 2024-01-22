@@ -60,6 +60,10 @@ jobs:
         chmod 0600 ~/.netrc
 
     - run: |
+        echo "Set up dependencies"
+        brew install xcodegen
+
+    - run: |
         echo "Run, Build Application using script"
         ./scripts/build_spm_sample.sh
 
