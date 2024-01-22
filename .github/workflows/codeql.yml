@@ -36,6 +36,9 @@ jobs:
         language: [ 'swift' ]
         # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
 
+    env:
+      SDK_REGISTRY_TOKEN: ${{ secrets.SDK_REGISTRY_TOKEN }}
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
