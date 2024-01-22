@@ -16,9 +16,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Address Autofill] Add support for `mapboxId` field.
 - [Discover] (aka Category) Add support for `mapboxId` field.
 - [Place Autocomplete] Add support for `mapboxId` field.
-- [Core] Update MapboxCoreSearch to alpha 8
+- [Core] Update MapboxCoreSearch
 
-**MapboxCoreSearch**: v2.0.0-alpha.8
+**MapboxCoreSearch**: v2.0.0-alpha.9
 
 ## 2.0.0-alpha.1
 
