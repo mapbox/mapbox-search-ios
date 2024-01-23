@@ -68,7 +68,7 @@ final class AddressAutofillSuggestionsTests: XCTestCase {
                 XCTAssertEqual(candidate.value, match.rawValue)
             }
 
-        suggestion.addressComponents.all.forEach { addressComponent in
+        for addressComponent in suggestion.addressComponents.all {
             switch addressComponent.kind {
             case .locality:
                 addressComponentCheck(addressComponent, .locality)

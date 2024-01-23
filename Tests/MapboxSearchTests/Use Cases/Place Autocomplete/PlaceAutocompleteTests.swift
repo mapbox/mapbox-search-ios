@@ -190,8 +190,8 @@ final class PlaceAutocompleteTests: XCTestCase {
                 let suggestions = try result.get()
                 XCTAssertEqual(suggestions.count, 2)
 
-                suggestions.forEach {
-                    if case .suggestion = $0.underlying {
+                for item in suggestions {
+                    if case .suggestion = item.underlying {
                         XCTFail("Geocoding suggestions should be resolved as results")
                     }
                 }
