@@ -6,7 +6,6 @@ TEMPORARY_DIR=$(mktemp -d)
 
 OUTPUT_PATH="${SCRIPT_PATH}/../Sources/MapboxSearch/PublicAPI/Maki.swift"
 GENERATED_MAKI_OUTPUT_PATH="${SCRIPT_PATH}/../Sources/MapboxSearchUI/Assets.xcassets/maki/"
-CUSTOM_MAKI_IMAGESETS_PATH="${SCRIPT_PATH}/../Sources/MapboxSearchUI/Assets.xcassets/Custom maki/maki/"
 PREV_GENERATED_MAKI_OUTPUT_PATH="${TEMPORARY_DIR}/prev_maki/"
 
 GENERATED_PNG_OUTPUT_SIZE_PT=24
@@ -47,7 +46,7 @@ for file in ${MAKI_ICON_PATHS}; do
 done
 
 cat <<EOF >> "${OUTPUT_PATH}"
-
+    
     /// Original name used in Maki icon set
     public var name: String { rawValue }
 }
@@ -58,20 +57,19 @@ echo "Validate Maki.swift"
 swiftc "${OUTPUT_PATH}" -o /dev/null
 
 
-
-echo "SVG-to-PNGs convertion"
+echo "Copy sources"
 generatePNGs() {
-    if ! [ -x "$(command -v rsvg-convert)" ]; then
-        echo -e '\033[93m\tSkipping PNGs generation\033[0m: rsvg-convert is not installed.' >&2
-        echo -e '\tInstallation: brew install librsvg' >&2
-        return
-    fi
+    # if ! [ -x "$(command -v rsvg-convert)" ]; then
+    #     echo -e '\033[93m\tSkipping PNGs generation\033[0m: rsvg-convert is not installed.' >&2
+    #     echo -e '\tInstallation: brew install librsvg' >&2
+    #     return
+    # fi
 
-    if ! [ -x "$(command -v convert)" ]; then
-        echo -e '\033[93m\tSkipping PNGs generation\033[0m: imagemagick is not installed.' >&2
-        echo -e '\tInstallation: brew install imagemagick' >&2
-        return
-    fi
+    # if ! [ -x "$(command -v convert)" ]; then
+    #     echo -e '\033[93m\tSkipping PNGs generation\033[0m: imagemagick is not installed.' >&2
+    #     echo -e '\tInstallation: brew install imagemagick' >&2
+    #     return
+    # fi
 
 
     # Clean xcassets Maki
@@ -81,48 +79,47 @@ generatePNGs() {
         filefolder=$(dirname "$file")
         filename=$(basename "$file" .svg)
 
-        if [ -d "${CUSTOM_MAKI_IMAGESETS_PATH}/${filename}.imageset/" ]; then
-            echo -e "\tFound custom Maki icon \033[1m${filename}\033[0m. Skipping"
-            continue
-        fi
-
+        echo "Created SVG file at path " ${filename}
         # Skip if exists in "Custom maki/maki/${filename}.imageset"
         local CURRENT_ICON_IMAGESET_OUTPUT_PATH="${GENERATED_MAKI_OUTPUT_PATH}/${filename}.imageset/"
         mkdir -p "${CURRENT_ICON_IMAGESET_OUTPUT_PATH}"
 
-        for scale in 1 2 3; do
-            local filename_scale="${filename}@${scale}x"
-            local output_path="${CURRENT_ICON_IMAGESET_OUTPUT_PATH}/${filename_scale}.png"
-            local tmp_output_path="${CURRENT_ICON_IMAGESET_OUTPUT_PATH}/${filename_scale}.png"
-            local heightSize=$(((GENERATED_PNG_OUTPUT_SIZE_PT-GENERATED_PNG_NONE_BORDER_WIDTH_PT*2)*scale))
+        mv -v ${file} ${CURRENT_ICON_IMAGESET_OUTPUT_PATH}
+
+        # for scale in 1 2 3; do
+            # local filename_scale="${filename}@${scale}x"
+            # local output_path="${CURRENT_ICON_IMAGESET_OUTPUT_PATH}/${filename_scale}.png"
+            # local tmp_output_path="${CURRENT_ICON_IMAGESET_OUTPUT_PATH}/${filename_scale}.png"
+            # local heightSize=$(((GENERATED_PNG_OUTPUT_SIZE_PT-GENERATED_PNG_NONE_BORDER_WIDTH_PT*2)*scale))
             
             # Convert SVG to PNG
-            rsvg-convert "${filefolder}/${filename}.svg" -h ${heightSize} -o "${tmp_output_path}"
+            # rsvg-convert "${filefolder}/${filename}.svg" -h ${heightSize} -o "${tmp_output_path}"
 
-            if [ "$GENERATED_PNG_NONE_BORDER_WIDTH_PT" != 0 ]; then
-                convert "${tmp_output_path}" -bordercolor none -border $GENERATED_PNG_NONE_BORDER_WIDTH_PT "${tmp_output_path}"
-            fi
+            # if [ "$GENERATED_PNG_NONE_BORDER_WIDTH_PT" != 0 ]; then
+            #     convert "${tmp_output_path}" -bordercolor none -border $GENERATED_PNG_NONE_BORDER_WIDTH_PT "${tmp_output_path}"
+            # fi
 
-            local prev_filepath="$PREV_GENERATED_MAKI_OUTPUT_PATH/${filename}.imageset/${filename}@${scale}x.png"
-            if [ -f "$prev_filepath" ]; then
-                DIFF_VALUE=$(compare -metric MAE "$prev_filepath" "$tmp_output_path" null: 2>&1) || true
+            # local prev_filepath="$PREV_GENERATED_MAKI_OUTPUT_PATH/${filename}.imageset/${filename}@${scale}x.png"
+            # if [ -f "$prev_filepath" ]; then
+            #     DIFF_VALUE=$(compare -metric MAE "$prev_filepath" "$tmp_output_path" null: 2>&1) || true
                 
-                if [ "$DIFF_VALUE" = "0 (0)" ]; then
-                    # Files are equal copy back original file
-                    rm "$tmp_output_path"
-                    cp "$prev_filepath" "$output_path"
-                else
-                    # Replace file if there is some diff
-                    mv "$tmp_output_path" "$output_path"
+            #     if [ "$DIFF_VALUE" = "0 (0)" ]; then
+            #         # Files are equal copy back original file
+            #         rm "$tmp_output_path"
+            #         cp "$prev_filepath" "$output_path"
+            #     else
+            #         # Replace file if there is some diff
+            #         mv "$tmp_output_path" "$output_path"
 
-                    if [ "$DEBUG" = "1" ]; then
-                        compare -metric MAE "$prev_filepath" "$tmp_output_path" "$output_path-diff.png" &>/dev/null || true
-                    fi
-                fi
-            fi
-        done
+            #         if [ "$DEBUG" = "1" ]; then
+            #             compare -metric MAE "$prev_filepath" "$tmp_output_path" "$output_path-diff.png" &>/dev/null || true
+            #         fi
+            #     fi
+            # fi
+        # done
 
-        IMAGESET_CONTENT_JSON='{"images":[{"filename":"'"${filename}@1x.png"'","idiom":"universal","scale":"1x"},{"filename":"'"${filename}@2x.png"'","idiom":"universal","scale":"2x"},{"filename":"'"${filename}@3x.png"'","idiom":"universal","scale":"3x"}],"info":{"author":"generate_maki.sh","version":1}}'
+        IMAGESET_CONTENT_JSON='{"images":[{"filename":"'"${filename}"'","idiom":"universal"}],"info":{"author":"xcode","version":1},"properties":{"preserves-vector-representation":true}}'
+        # IMAGESET_CONTENT_JSON='{"images":[{"filename":"'"${filename}@1x.png"'","idiom":"universal","scale":"1x"},{"filename":"'"${filename}@2x.png"'","idiom":"universal","scale":"2x"},{"filename":"'"${filename}@3x.png"'","idiom":"universal","scale":"3x"}],"info":{"author":"generate_maki.sh","version":1}}'
         echo "${IMAGESET_CONTENT_JSON}" > "${CURRENT_ICON_IMAGESET_OUTPUT_PATH}/Contents.json"
 
     done

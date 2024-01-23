@@ -1,1 +1,1 @@
-{"images":[{"filename":"baseball@1x.png","idiom":"universal","scale":"1x"},{"filename":"baseball@2x.png","idiom":"universal","scale":"2x"},{"filename":"baseball@3x.png","idiom":"universal","scale":"3x"}],"info":{"author":"generate_maki.sh","version":1}}
+{"images":[{"filename":"baseball","idiom":"universal"}],"info":{"author":"xcode","version":1},"properties":{"preserves-vector-representation":true}}
