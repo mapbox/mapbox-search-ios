@@ -23,7 +23,7 @@ on:
 jobs:
   analyze:
     name: Analyze
-    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
+    runs-on: macos-latest
     timeout-minutes: ${{ (matrix.language == 'swift' && 120) || 360 }}
     permissions:
       actions: read
@@ -38,6 +38,11 @@ jobs:
 
     env:
       SDK_REGISTRY_TOKEN: ${{ secrets.SDK_REGISTRY_TOKEN }}
+
+    steps:
+    - name: "Set Xcode version"
+      run: |
+        sudo xcode-select -s /Applications/Xcode_14.1.app
 
     steps:
     - name: Checkout repository
