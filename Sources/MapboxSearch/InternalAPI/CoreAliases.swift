@@ -1,4 +1,5 @@
 @_implementationOnly import MapboxCommon_Private
+
 /// https://forums.swift.org/t/update-on-implementation-only-imports/26996
 @_implementationOnly import MapboxCoreSearch
 @_implementationOnly import MapboxCoreSearch_Private

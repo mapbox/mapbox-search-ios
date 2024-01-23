@@ -74,7 +74,7 @@ class SearchHistoryTableViewSource: NSObject {
         let historyEntry = history[indexPath.row]
 
         let historyEntryToDelete = historyProvider.recordsMap.values.filter { $0.name == historyEntry.name }
-        historyEntryToDelete.forEach { record in
+        for record in historyEntryToDelete {
             historyProvider.delete(recordId: record.id)
         }
         shouldReload = false
