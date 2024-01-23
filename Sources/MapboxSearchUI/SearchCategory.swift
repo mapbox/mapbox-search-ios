@@ -127,7 +127,7 @@ extension SearchCategory {
             canonicalId: "hotel",
             name: Strings.Categories.hotel,
             legacyName: "hotel",
-            iconName: "maki/hotel"
+            iconName: Maki.lodging.xcassetName
         )
 
     /// Gas Station category.
@@ -253,7 +253,7 @@ extension SearchCategory {
             canonicalId: "auto_repair",
             name: Strings.Categories.autoRepair,
             legacyName: "auto repair",
-            iconName: "maki/auto-repair"
+            iconName: Maki.carRepair.xcassetName
         )
 
     /// ATM category.
