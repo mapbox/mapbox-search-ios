@@ -1,17 +1,17 @@
-import UIKit
 import MapboxSearch
+import UIKit
 
 class TextViewLoggerViewController: UIViewController, ExampleController {
     let responseTextView = UITextView()
-    
+
     func logUI(_ message: String) {
         responseTextView.text = message
     }
-    
+
     func dumpSuggestions(_ suggestions: [SearchSuggestion], query: String) {
         print("Number of search results: \(suggestions.count) for query: \(query)")
         let headerText = "query: \(query), count: \(suggestions.count)"
-        
+
         let suggestionsLog = suggestions.map { suggestion in
             var suggestionString = "\(suggestion.name)"
             if let description = suggestion.descriptionText {
@@ -24,28 +24,28 @@ class TextViewLoggerViewController: UIViewController, ExampleController {
             }
             return suggestionString + "\n"
         }.joined(separator: "\n")
-        
+
         logUI(headerText + "\n\n" + suggestionsLog)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         responseTextView.isEditable = false
         view.addSubview(responseTextView)
-        
+
         addConstraints()
     }
-    
+
     func addConstraints() {
         let textViewConstraints = [
             responseTextView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             responseTextView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             responseTextView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
-            responseTextView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 60)
+            responseTextView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 60),
         ]
         responseTextView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate(textViewConstraints)
     }
 }

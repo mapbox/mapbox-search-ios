@@ -8,7 +8,7 @@ class ValidateResources: XCTestCase {
             XCTAssertNotNil(makiIcon.icon)
         }
     }
-    
+
     func testBuiltinImages() throws {
         for image in Images.allImages {
             XCTAssertNotNil(image)

@@ -21,8 +21,10 @@ public struct SearchAddressCountry: Codable, Hashable, Equatable {
 extension SearchAddressCountry {
     /// Transform a ``SearchAddressCountry`` to an object compatible with the MapboxCommon framework.
     func toCore() -> CoreSearchAddressCountry {
-        CoreSearchAddressCountry(name: name,
-                                 countryCode: countryCode,
-                                 countryCodeAlpha3: countryCodeAlpha3)
+        CoreSearchAddressCountry(
+            name: name,
+            countryCode: countryCode,
+            countryCodeAlpha3: countryCodeAlpha3
+        )
     }
 }

@@ -10,6 +10,6 @@ extension Route {
         CLLocationCoordinate2D(latitude: 40.743428395734796, longitude: -73.99615891674387),
         CLLocationCoordinate2D(latitude: 40.742228888153456, longitude: -73.99328282552055),
         CLLocationCoordinate2D(latitude: 40.74725724348607, longitude: -73.98960408786986),
-        CLLocationCoordinate2D(latitude: 40.74640538527753, longitude: -73.98754457267172)
+        CLLocationCoordinate2D(latitude: 40.74640538527753, longitude: -73.98754457267172),
     ])
 }

@@ -1,8 +1,9 @@
-@testable import MapboxSearch
 import CoreLocation
+@testable import MapboxSearch
 
 struct SearchSuggestionStub: SearchSuggestion {
     var id: String = UUID().uuidString
+    var mapboxId: String? = ""
     var name: String = "Test Name"
     var categories: [String]?
     var descriptionText: String? = "Test Description"

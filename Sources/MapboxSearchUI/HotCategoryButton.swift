@@ -9,21 +9,21 @@ class HotCategoryButton: UIControl {
             updateUI()
         }
     }
-    
+
     override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: newWindow)
-        
-        #if TARGET_INTERFACE_BUILDER
+
+#if TARGET_INTERFACE_BUILDER
         configuration = .init()
-        #endif
-        
+#endif
+
         assert(configuration != nil)
-        
+
         updateUI()
-        
+
         enableDynamicTypeSupport()
     }
-    
+
     func enableDynamicTypeSupport() {
         textLabel.font = Fonts.default(style: .subheadline, traits: traitCollection)
         textLabel.adjustsFontForContentSizeCategory = true
@@ -35,18 +35,19 @@ class HotCategoryButton: UIControl {
             updateUI()
         }
     }
-    
+
     private func updateUI() {
         textLabel.text = category.name
         categoryButton.accessibilityIdentifier = "HotCategoryButton." + category.legacyName
         categoryButton.setImage(category.icon?.withRenderingMode(.alwaysTemplate), for: .normal)
-        
+
         textLabel.textColor = configuration.style.primaryTextColor
         categoryButton.backgroundColor = configuration.style.secondaryBackgroundColor
         categoryButton.tintColor = configuration.style.iconTintColor
     }
-    
-    @IBAction func categoryButtonTap() {
+
+    @IBAction
+    func categoryButtonTap() {
         sendActions(for: .touchUpInside)
     }
 }

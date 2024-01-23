@@ -1,13 +1,11 @@
-// Copyright © 2023 Mapbox. All rights reserved.
-
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 final class PlaceAutocompleteSuggestionTests: XCTestCase {
     private let options = CoreRequestOptions.sample1
 
     func testCreationFromCoreResult() {
-        let results = CoreSearchResultStub.makeMixedResultsSet().map { $0.asCoreSearchResult }
+        let results = CoreSearchResultStub.makeMixedResultsSet().map(\.asCoreSearchResult)
         let result = ServerSearchResult(
             coreResult: CoreSearchResultStub.sample1,
             response: CoreSearchResponseStub.successSample(results: results)

@@ -1,5 +1,3 @@
-// Copyright © 2022 Mapbox. All rights reserved.
-
 // swiftlint:disable identifier_name
 // swiftlint:disable type_name
 
@@ -256,3 +254,6 @@ extension Country {
         case zw = "ZW"
     }
 }
+
+// swiftlint:enable identifier_name
+// swiftlint:enable type_name

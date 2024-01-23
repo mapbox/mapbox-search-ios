@@ -1,35 +1,38 @@
-import Foundation
 import CoreLocation
+import Foundation
 
 class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvider {
+    var mapboxId: String?
+
     var originalResponse: CoreSearchResultResponse
-    
+
     var id: String
-    
+
     var name: String
-    
+
     var address: Address?
-    
+
     var descriptionText: String?
-    
+
     var iconName: String?
-    
+
     var serverIndex: Int?
-    
+
     var suggestionType: SearchSuggestType
-    
+
     var categories: [String]?
-    
+
     var distance: CLLocationDistance?
-    
+
     let batchResolveSupported: Bool
-    
+
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
         assert(coreResult.centerLocation == nil)
-        
+
         guard coreResult.resultTypes == [.category] else { return nil }
-        
+
         self.id = coreResult.id
+        self.mapboxId = coreResult.mapboxId
         self.suggestionType = .category
         self.name = coreResult.names[0]
         self.address = coreResult.addresses?.first.map(Address.init)
@@ -39,7 +42,7 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
         self.distance = coreResult.distanceToProximity
         self.batchResolveSupported = coreResult.action?.multiRetrievable ?? false
         self.categories = coreResult.categories
-        
+
         self.descriptionText = coreResult.addressDescription
     }
 }
