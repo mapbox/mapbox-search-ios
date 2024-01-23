@@ -16,7 +16,7 @@ public class MapboxPanelController: UIViewController {
     }
 
     /// Configuration for `MapboxPanelController` class. Use `.default` for default cases
-    public struct Configuration {
+    public struct PanelConfiguration {
         var topOffset: CGFloat = 40
 
         lazy var topDraggingWall = topOffset
@@ -29,7 +29,7 @@ public class MapboxPanelController: UIViewController {
         public var initialState: State
 
         /// Configuration with set of default values.
-        public static let `default` = Configuration()
+        public static let `default` = PanelConfiguration()
 
         /// Make new `Configuration` instance for `MapboxPanelController`
         /// - Parameter state: Initial state of `MapboxPanelController`
@@ -42,7 +42,7 @@ public class MapboxPanelController: UIViewController {
         }
     }
 
-    var configuration: Configuration
+    var configuration: PanelConfiguration
 
     /// Damping ration animation parameter
     public var dampingRatio: CGFloat = 0.7
@@ -103,11 +103,11 @@ public class MapboxPanelController: UIViewController {
         return searchController?.configuration
     }
 
-    /// Make new `MapboxPanelController` with custom `Configuration`
+    /// Make new `MapboxPanelController` with custom `PanelConfiguration`
     /// - Parameters:
     ///   - rootViewController: Root controller to be embedded into MapboxPanelController
-    ///   - configuration: Configuration for MapboxPanelController. Defaults to `.default`
-    public init(rootViewController: UIViewController, configuration: Configuration = .default) {
+    ///   - configuration: PanelConfiguration for MapboxPanelController. Defaults to `.default`
+    public init(rootViewController: UIViewController, configuration: PanelConfiguration = .default) {
         self.panelNavigationController = UINavigationController(rootViewController: rootViewController)
         panelNavigationController.isNavigationBarHidden = true
         self.configuration = configuration
