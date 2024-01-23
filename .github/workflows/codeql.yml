@@ -36,9 +36,6 @@ jobs:
         language: [ 'swift' ]
         # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
 
-    env:
-      SDK_REGISTRY_TOKEN: ${{ secrets.SDK_REGISTRY_TOKEN }}
-
     steps:
     - name: "Set Xcode version"
       run: |
@@ -63,7 +60,7 @@ jobs:
       run: |
         echo "machine api.mapbox.com" >> ~/.netrc
         echo "login mapbox" >> ~/.netrc
-        echo "password $SDK_REGISTRY_TOKEN" >> ~/.netrc
+        echo "password ${{ secrets.SDK_REGISTRY_TOKEN }}" >> ~/.netrc
         chmod 0600 ~/.netrc
 
     - run: |
