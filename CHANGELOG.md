@@ -8,6 +8,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [SearchUI] Rename MapboxPanelController.Configuration to .PanelConfiguration. This disambiguates PanelConfiguration from the broader Configuration struct.
 - [Core] Update SwiftLint to 0.54.0 and SwiftFormat to 0.52.11
 - [Core] Fix project compliance with linter, reformat Swift files
 - [Core] Add Brewfile for project
@@ -16,9 +17,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Address Autofill] Add support for `mapboxId` field.
 - [Discover] (aka Category) Add support for `mapboxId` field.
 - [Place Autocomplete] Add support for `mapboxId` field.
-- [Core] Update MapboxCoreSearch to alpha 8
+- [Core] Update MapboxCoreSearch
 
-**MapboxCoreSearch**: v2.0.0-alpha.8
+**MapboxCoreSearch**: v2.0.0-alpha.9
 
 ## 2.0.0-alpha.1
 
