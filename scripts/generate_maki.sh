@@ -29,6 +29,7 @@ cat <<EOF > "${OUTPUT_PATH}"
 
 /// Represents static enumeration for all available icons in Mapbox [Maki icon set](https://github.com/mapbox/maki/).
 /// Kebab-case was replaced with camelCase.
+// swiftformat:disable:next redundantRawValues
 public enum Maki: String, CaseIterable, Codable {
 EOF
 
@@ -46,7 +47,7 @@ for file in ${MAKI_ICON_PATHS}; do
 done
 
 cat <<EOF >> "${OUTPUT_PATH}"
-    
+
     /// Original name used in Maki icon set
     public var name: String { rawValue }
 }
