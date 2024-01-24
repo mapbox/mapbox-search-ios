@@ -35,7 +35,7 @@
   "testTargets" : [
     {
       "skippedTests" : [
-        "MockServerTestCase"
+        "MockServerIntegrationTestCase",
       ],
       "target" : {
         "containerPath" : "container:MapboxSearch.xcodeproj",
@@ -45,7 +45,6 @@
     },
     {
       "skippedTests" : [
-        "MockServerTestCase"
       ],
       "target" : {
         "containerPath" : "container:MapboxSearch.xcodeproj",
@@ -56,7 +55,7 @@
     {
       "skippedTests" : [
         "BaseTestCase",
-        "MockServerTestCase"
+        "MockServerUITestCase"
       ],
       "target" : {
         "containerPath" : "container:MapboxSearch.xcodeproj",

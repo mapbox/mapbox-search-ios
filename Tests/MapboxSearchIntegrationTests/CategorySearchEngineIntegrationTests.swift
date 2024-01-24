@@ -2,12 +2,27 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-class CategorySearchEngineIntegrationTests: MockServerTestCase {
-    lazy var searchEngine = CategorySearchEngine(
-        accessToken: "access-token",
-        locationProvider: DefaultLocationProvider(),
-        supportSBS: true
-    )
+final class CategorySearchEngineIntegrationTests: MockServerIntegrationTestCase {
+    private var searchEngine: CategorySearchEngine!
+
+    override func setUp() {
+        super.setUp()
+
+        let reporter = CoreUserActivityReporter.getOrCreate(
+            for: CoreUserActivityReporterOptions(
+                sdkInformation: SdkInformation.defaultInfo,
+                eventsUrl: nil
+            )
+        )
+
+        let supportSBS = true
+
+        searchEngine = CategorySearchEngine(
+            accessToken: "access-token",
+            serviceProvider: LocalhostMockServiceProvider.shared,
+            supportSBS: supportSBS
+        )
+    }
 
     func testCategorySearch() throws {
         try server.setResponse(.categoryCafe)
