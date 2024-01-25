@@ -64,6 +64,7 @@ workflows:
             tags:
               only: /v.*/
       - post-SDK_Registry-release:
+          context: CocoaPods trunk token
           requires:
             - request-post-SDK_Registry-release
           filters:
