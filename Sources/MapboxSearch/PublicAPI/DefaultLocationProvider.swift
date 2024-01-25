@@ -6,34 +6,35 @@ import CoreLocation
 /// Suitable for `SearchEngine` for providing user location by default without additional efforts.
 public class DefaultLocationProvider {
     // not used anywhere as public
-    /*public*/ let locationManager: CLLocationManager
+    /* public */ let locationManager: CLLocationManager
 
-    #if FAST_LOCATION_CHANGES_TRACKING
+#if FAST_LOCATION_CHANGES_TRACKING
     let locationRequestFrequency: TimeInterval = 1
-    #else
+#else
     let locationRequestFrequency: TimeInterval = 30
-    #endif
+#endif
 
     fileprivate var cachedLocation: CLLocation?
     fileprivate var desiredAccuracy: CLLocationAccuracy
-    
+
     private lazy var locationManagerDelegate = DefaultLocationManagerDelegate(unownedLocationProvider: self)
 
     // MARK: Public functions
-    
+
     /// DefaultLocationProvider constructor with CLLocationManager
     /// - Parameter locationManager: CLLocationManager to use
     public init(locationManager: CLLocationManager) {
         self.locationManager = locationManager
         self.desiredAccuracy = locationManager.desiredAccuracy
-        
+
         locationManager.delegate = locationManagerDelegate
         initializeLocation()
     }
-    
+
     /// Convenience DefaultLocationProvider constructor without CLLocationManager
     /// - Parameters:
-    ///   - distanceFilter: The minimum distance (measured in meters) a device must move horizontally before an update event is generated.
+    ///   - distanceFilter: The minimum distance (measured in meters) a device must move horizontally before an update
+    /// event is generated.
     ///   - desiredAccuracy: The accuracy of the location data.
     ///   - activityType: The type of user activity associated with the location updates.
     public convenience init(
@@ -50,7 +51,7 @@ public class DefaultLocationProvider {
     }
 
     // MARK: Private functions
-    
+
     private var locationServicesDisabled: Bool {
         if #available(iOS 14.0, *) {
             return locationManager.authorizationStatus == .denied
@@ -69,7 +70,10 @@ public class DefaultLocationProvider {
         if haveLocationPermission() {
             locationManager.requestLocation()
         } else if CLLocationManager.authorizationStatus() != .notDetermined {
-            _Logger.searchSDK.warning("\(DefaultLocationProvider.self) have no permission for location. Please, request Location Permission to improve search quality")
+            _Logger.searchSDK
+                .warning(
+                    "\(DefaultLocationProvider.self) have no permission for location. Please, request Location Permission to improve search quality"
+                )
         }
     }
 
@@ -107,32 +111,32 @@ extension DefaultLocationProvider: LocationProvider {
 
 private class DefaultLocationManagerDelegate: NSObject, CLLocationManagerDelegate {
     unowned var locationProvider: DefaultLocationProvider
-  
+
     init(unownedLocationProvider: DefaultLocationProvider) {
         self.locationProvider = unownedLocationProvider
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let newLocation = locations.last {
             locationProvider.cachedLocation = newLocation
             _Logger.searchSDK.info("New location retrieved: \(newLocation)")
         }
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         locationProvider.requestNewLocationIfNeeded()
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         _Logger.searchSDK.error("LocationManager failed with error: \(error)")
     }
-    
+
     func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager) {
         locationProvider.desiredAccuracy = locationProvider.locationManager.desiredAccuracy
         // https://web.archive.org/web/20191125093709/https://developer.apple.com/documentation/corelocation/cllocationmanager/1620553-pauseslocationupdatesautomatical
         locationProvider.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
     }
-    
+
     func locationManagerDidResumeLocationUpdates(_ manager: CLLocationManager) {
         locationProvider.locationManager.desiredAccuracy = locationProvider.desiredAccuracy
     }

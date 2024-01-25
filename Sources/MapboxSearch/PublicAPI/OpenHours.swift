@@ -4,16 +4,16 @@ import Foundation
 public enum OpenHours: Codable, Hashable {
     /// Indicates that POI is opened 24 hours a day
     case alwaysOpened
-    
+
     /// Data provider indicated that POI is temporarily closed
     case temporarilyClosed
-    
+
     /// Data provider indicated that POI is permanently closed
     case permanentlyClosed
-    
+
     /// The regular schedule by weekdays. Represents open periods only
     case scheduled(periods: [OpenPeriod])
-    
+
     init?(_ core: CoreOpenHours) {
         switch core.mode {
         case .alwaysOpen:
@@ -30,16 +30,16 @@ public enum OpenHours: Codable, Hashable {
             return nil
         }
     }
-    
+
     enum CodingKeys: CodingKey {
         case alwaysOpened, temporarilyClosed, permanentlyClosed, scheduled
     }
-    
+
     /// Initializer for custom Decoder
     /// - Parameter decoder: Decoder class
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
+
         switch container.allKeys.first {
         case .alwaysOpened where try container.decode(Bool.self, forKey: .alwaysOpened) == true:
             self = .alwaysOpened
@@ -48,7 +48,7 @@ public enum OpenHours: Codable, Hashable {
         case .permanentlyClosed where try container.decode(Bool.self, forKey: .permanentlyClosed) == true:
             self = .permanentlyClosed
         case .scheduled:
-            let periods = try container.decode(Array<OpenPeriod>.self, forKey: .scheduled)
+            let periods = try container.decode([OpenPeriod].self, forKey: .scheduled)
             self = .scheduled(periods: periods)
         default:
             var path = container.codingPath
@@ -63,12 +63,12 @@ public enum OpenHours: Codable, Hashable {
             )
         }
     }
-    
+
     /// Encode structure with your own Encoder
     /// - Parameter encoder: Custom encoder entity
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        
+
         switch self {
         case .alwaysOpened:
             try container.encode(true, forKey: .alwaysOpened)

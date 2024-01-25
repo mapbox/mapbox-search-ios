@@ -10,7 +10,7 @@ build products ios: dependencies
 
 carthage-min-version:
 # Test minimal Carthage version.
-#    1. Build a string "0.37.0\n0.38.0" (one value is actual version, second one – minimal)
+#    1. Build a string "0.39.1\n0.38.0" (one value is actual version, second one – minimal)
 #    2. Sort string with `sort -V` to apply SemVer sorting algo
 #    3. Get the first (minimal) version with `head -n1`
 #    4. Compare minimal version from the list with the required minimal.

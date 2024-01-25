@@ -1,22 +1,23 @@
-// Copyright © 2023 Mapbox. All rights reserved.
-
-import Foundation
 import CoreLocation
+import Foundation
 
 public final class Category {
     private let searchEngine: CategorySearchEngine
     private let userActivityReporter: CoreUserActivityReporter
-    
+
     /// Basic internal initializer
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
+    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used
+    /// for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     public convenience init(
         accessToken: String? = nil,
         locationProvider: LocationProvider? = DefaultLocationProvider()
     ) {
         guard let accessToken = accessToken ?? ServiceProvider.shared.getStoredAccessToken() else {
-            fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
+            fatalError(
+                "No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key"
+            )
         }
 
         let searchEngine = CategorySearchEngine(
@@ -24,24 +25,24 @@ public final class Category {
             locationProvider: locationProvider,
             supportSBS: true
         )
-        
+
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(
             for: CoreUserActivityReporterOptions(
                 sdkInformation: SdkInformation.defaultInfo,
                 eventsUrl: nil
             )
         )
-        
+
         self.init(searchEngine: searchEngine, userActivityReporter: userActivityReporter)
     }
-    
+
     init(searchEngine: CategorySearchEngine, userActivityReporter: CoreUserActivityReporter) {
         self.searchEngine = searchEngine
         self.userActivityReporter = userActivityReporter
     }
 }
 
-public extension Category {
+extension Category {
     /// Search for places nearby the specified geographic point.
     /// - Parameters:
     ///   - item: Search item
@@ -49,14 +50,13 @@ public extension Category {
     ///   - options: Search options
     ///   - completion: Result of the search request, one of error or value.
     ///
-    func search(
+    public func search(
         for item: Item,
         proximity: CLLocationCoordinate2D,
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
         userActivityReporter.reportActivity(forComponent: "category-search-nearby")
-        
         let searchOptions = SearchOptions(
             languages: [options.language.languageCode],
             limit: options.limit,
@@ -65,7 +65,7 @@ public extension Category {
 
         search(for: item, with: searchOptions, completion: completion)
     }
-    
+
     /// Search for places nearby the specified geographic point.
     /// - Parameters:
     ///   - query: Search query
@@ -74,7 +74,7 @@ public extension Category {
     ///   - options: Search options
     ///   - completion: Result of the search request, one of error or value.
     ///
-    func search(
+    public func search(
         for item: Item,
         in region: BoundingBox,
         proximity: CLLocationCoordinate2D? = nil,
@@ -82,7 +82,6 @@ public extension Category {
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
         userActivityReporter.reportActivity(forComponent: "category-search-in-area")
-        
         let searchOptions = SearchOptions(
             languages: [options.language.languageCode],
             limit: options.limit,
@@ -92,7 +91,7 @@ public extension Category {
 
         search(for: item, with: searchOptions, completion: completion)
     }
-    
+
     /// Search for places nearby the specified geographic point.
     /// - Parameters:
     ///   - item: Search item
@@ -100,14 +99,14 @@ public extension Category {
     ///   - options: Search options
     ///   - completion: Result of the search request, one of error or value.
     ///
-    func search(
+    public func search(
         for item: Item,
         route: RouteOptions,
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
         userActivityReporter.reportActivity(forComponent: "category-search-along-the-route")
-        
+
         let searchOptions = SearchOptions(
             languages: [options.language.languageCode],
             limit: options.limit,
@@ -119,8 +118,9 @@ public extension Category {
 }
 
 // MARK: - Private
-private extension Category {
-    func search(
+
+extension Category {
+    private func search(
         for item: Item,
         with searchOptions: SearchOptions,
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
@@ -133,7 +133,7 @@ private extension Category {
             case .success(let searchResults):
                 let categoryResults = searchResults.map(Category.Result.from(_:))
                 completion(.success(categoryResults))
-                
+
             case .failure(let error):
                 completion(.failure(error))
             }

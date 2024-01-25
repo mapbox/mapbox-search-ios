@@ -10,6 +10,4 @@ struct Example {
     let screenType: ExampleController.Type
 }
 
-protocol ExampleController: UIViewController {
-    
-}
+protocol ExampleController: UIViewController {}

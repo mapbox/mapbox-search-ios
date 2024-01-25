@@ -1,197 +1,197 @@
-// Copyright © 2022 Mapbox. All rights reserved.
-
 import Foundation
 
 // swiftlint:disable type_name
 // swiftlint:disable identifier_name
-// swiftlint:disable redundant_string_enum_value
 
 extension Language {
     public enum ISO639_1: String, CaseIterable {
-        case ab = "ab"
-        case aa = "aa"
-        case af = "af"
-        case ak = "ak"
-        case sq = "sq"
-        case am = "am"
-        case ar = "ar"
-        case an = "an"
-        case hy = "hy"
-        case `as` = "as"
-        case av = "av"
-        case ae = "ae"
-        case ay = "ay"
-        case az = "az"
-        case bm = "bm"
-        case ba = "ba"
-        case eu = "eu"
-        case be = "be"
-        case bn = "bn"
-        case bh = "bh"
-        case bi = "bi"
-        case bs = "bs"
-        case br = "br"
-        case bg = "bg"
-        case my = "my"
-        case ca = "ca"
-        case ch = "ch"
-        case ce = "ce"
-        case ny = "ny"
-        case zh = "zh"
-        case cv = "cv"
-        case kw = "kw"
-        case co = "co"
-        case cr = "cr"
-        case hr = "hr"
-        case cs = "cs"
-        case da = "da"
-        case dv = "dv"
-        case nl = "nl"
-        case dz = "dz"
-        case en = "en"
-        case eo = "eo"
-        case et = "et"
-        case ee = "ee"
-        case fo = "fo"
-        case fj = "fj"
-        case fi = "fi"
-        case fr = "fr"
-        case ff = "ff"
-        case gl = "gl"
-        case ka = "ka"
-        case de = "de"
-        case el = "el"
-        case gn = "gn"
-        case gu = "gu"
-        case ht = "ht"
-        case ha = "ha"
-        case he = "he"
-        case hz = "hz"
-        case hi = "hi"
-        case ho = "ho"
-        case hu = "hu"
-        case ia = "ia"
-        case id = "id"
-        case ie = "ie"
-        case ga = "ga"
-        case ig = "ig"
-        case ik = "ik"
-        case io = "io"
-        case `is` = "is"
-        case it = "it"
-        case iu = "iu"
-        case ja = "ja"
-        case jv = "jv"
-        case kl = "kl"
-        case kn = "kn"
-        case kr = "kr"
-        case ks = "ks"
-        case kk = "kk"
-        case km = "km"
-        case ki = "ki"
-        case rw = "rw"
-        case ky = "ky"
-        case kv = "kv"
-        case kg = "kg"
-        case ko = "ko"
-        case ku = "ku"
-        case kj = "kj"
-        case la = "la"
-        case lb = "lb"
-        case lg = "lg"
-        case li = "li"
-        case ln = "ln"
-        case lo = "lo"
-        case lt = "lt"
-        case lu = "lu"
-        case lv = "lv"
-        case gv = "gv"
-        case mk = "mk"
-        case mg = "mg"
-        case ms = "ms"
-        case ml = "ml"
-        case mt = "mt"
-        case mi = "mi"
-        case mr = "mr"
-        case mh = "mh"
-        case mn = "mn"
-        case na = "na"
-        case nv = "nv"
-        case nd = "nd"
-        case ne = "ne"
-        case ng = "ng"
-        case nb = "nb"
-        case nn = "nn"
-        case no = "no"
-        case ii = "ii"
-        case nr = "nr"
-        case oc = "oc"
-        case oj = "oj"
-        case cu = "cu"
-        case om = "om"
-        case or = "or"
-        case os = "os"
-        case pa = "pa"
-        case pi = "pi"
-        case fa = "fa"
-        case pox = "pox"
-        case pl = "pl"
-        case ps = "ps"
-        case pt = "pt"
-        case qu = "qu"
-        case rm = "rm"
-        case rn = "rn"
-        case ro = "ro"
-        case ru = "ru"
-        case sa = "sa"
-        case sc = "sc"
-        case sd = "sd"
-        case se = "se"
-        case sm = "sm"
-        case sg = "sg"
-        case sr = "sr"
-        case gd = "gd"
-        case sn = "sn"
-        case si = "si"
-        case sk = "sk"
-        case sl = "sl"
-        case so = "so"
-        case st = "st"
-        case es = "es"
-        case su = "su"
-        case sw = "sw"
-        case ss = "ss"
-        case sv = "sv"
-        case ta = "ta"
-        case te = "te"
-        case tg = "tg"
-        case th = "th"
-        case ti = "ti"
-        case bo = "bo"
-        case tk = "tk"
-        case tl = "tl"
-        case tn = "tn"
-        case to = "to"
-        case tr = "tr"
-        case ts = "ts"
-        case tt = "tt"
-        case tw = "tw"
-        case ty = "ty"
-        case ug = "ug"
-        case uk = "uk"
-        case ur = "ur"
-        case uz = "uz"
-        case ve = "ve"
-        case vi = "vi"
-        case vo = "vo"
-        case wa = "wa"
-        case cy = "cy"
-        case wo = "wo"
-        case fy = "fy"
-        case xh = "xh"
-        case yi = "yi"
-        case yo = "yo"
-        case za = "za"
-        case zu = "zu"
+        case ab
+        case aa
+        case af
+        case ak
+        case sq
+        case am
+        case ar
+        case an
+        case hy
+        case `as`
+        case av
+        case ae
+        case ay
+        case az
+        case bm
+        case ba
+        case eu
+        case be
+        case bn
+        case bh
+        case bi
+        case bs
+        case br
+        case bg
+        case my
+        case ca
+        case ch
+        case ce
+        case ny
+        case zh
+        case cv
+        case kw
+        case co
+        case cr
+        case hr
+        case cs
+        case da
+        case dv
+        case nl
+        case dz
+        case en
+        case eo
+        case et
+        case ee
+        case fo
+        case fj
+        case fi
+        case fr
+        case ff
+        case gl
+        case ka
+        case de
+        case el
+        case gn
+        case gu
+        case ht
+        case ha
+        case he
+        case hz
+        case hi
+        case ho
+        case hu
+        case ia
+        case id
+        case ie
+        case ga
+        case ig
+        case ik
+        case io
+        case `is`
+        case it
+        case iu
+        case ja
+        case jv
+        case kl
+        case kn
+        case kr
+        case ks
+        case kk
+        case km
+        case ki
+        case rw
+        case ky
+        case kv
+        case kg
+        case ko
+        case ku
+        case kj
+        case la
+        case lb
+        case lg
+        case li
+        case ln
+        case lo
+        case lt
+        case lu
+        case lv
+        case gv
+        case mk
+        case mg
+        case ms
+        case ml
+        case mt
+        case mi
+        case mr
+        case mh
+        case mn
+        case na
+        case nv
+        case nd
+        case ne
+        case ng
+        case nb
+        case nn
+        case no
+        case ii
+        case nr
+        case oc
+        case oj
+        case cu
+        case om
+        case or
+        case os
+        case pa
+        case pi
+        case fa
+        case pox
+        case pl
+        case ps
+        case pt
+        case qu
+        case rm
+        case rn
+        case ro
+        case ru
+        case sa
+        case sc
+        case sd
+        case se
+        case sm
+        case sg
+        case sr
+        case gd
+        case sn
+        case si
+        case sk
+        case sl
+        case so
+        case st
+        case es
+        case su
+        case sw
+        case ss
+        case sv
+        case ta
+        case te
+        case tg
+        case th
+        case ti
+        case bo
+        case tk
+        case tl
+        case tn
+        case to
+        case tr
+        case ts
+        case tt
+        case tw
+        case ty
+        case ug
+        case uk
+        case ur
+        case uz
+        case ve
+        case vi
+        case vo
+        case wa
+        case cy
+        case wo
+        case fy
+        case xh
+        case yi
+        case yo
+        case za
+        case zu
     }
 }
+
+// swiftlint:enable type_name
+// swiftlint:enable identifier_name

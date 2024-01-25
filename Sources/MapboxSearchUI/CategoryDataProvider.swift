@@ -6,7 +6,7 @@ public protocol CategoryDataProvider {
     /// Only first 4 categories would be used.
     /// Default values would be added if necessary.
     var categorySlots: [SearchCategory] { get }
-    
+
     /// Provide custom vertical list of categories
     var categoryList: [SearchCategory] { get }
 }

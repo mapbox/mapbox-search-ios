@@ -6,13 +6,13 @@ enum Fonts {
         let font = fontCollection(fontName: "AvenirNext-Medium")[style]!
         return metrics.scaledFont(for: font, compatibleWith: traits)
     }
-    
+
     static func bold(style: UIFont.TextStyle, traits: UITraitCollection?) -> UIFont {
         let metrics = UIFontMetrics(forTextStyle: style)
         let font = fontCollection(fontName: "AvenirNext-Bold")[style]!
         return metrics.scaledFont(for: font, compatibleWith: traits)
     }
-    
+
     // Based on https://sarunw.com/posts/scaling-custom-fonts-automatically-with-dynamic-type/
     private static func fontCollection(fontName: String) -> [UIFont.TextStyle: UIFont] {
         [
@@ -26,7 +26,7 @@ enum Fonts {
             .subheadline: UIFont(name: fontName, size: 15)!,
             .footnote: UIFont(name: fontName, size: 13)!,
             .caption1: UIFont(name: fontName, size: 12)!,
-            .caption2: UIFont(name: fontName, size: 11)!
+            .caption2: UIFont(name: fontName, size: 11)!,
         ]
     }
 }

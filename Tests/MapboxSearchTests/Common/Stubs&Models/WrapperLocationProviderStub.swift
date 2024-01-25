@@ -4,7 +4,7 @@ import Foundation
 
 class WrapperLocationProviderStub: WrapperLocationProvider {
     var viewport: CoreBoundingBox?
-    
+
     override func getViewport() -> CoreBoundingBox? {
         viewport
     }

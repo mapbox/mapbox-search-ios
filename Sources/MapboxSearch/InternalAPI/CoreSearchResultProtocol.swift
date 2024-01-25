@@ -1,8 +1,10 @@
-import Foundation
 import CoreLocation
+import Foundation
 
 protocol CoreSearchResultProtocol {
     var id: String { get }
+
+    var mapboxId: String? { get }
 
     var resultTypes: [CoreResultType] { get }
 
@@ -12,13 +14,13 @@ protocol CoreSearchResultProtocol {
     var names: [String] { get }
 
     var resultAccuracy: CoreAccuracy? { get }
-    
+
     var languages: [String] { get }
 
     var addresses: [CoreAddress]? { get }
-    
+
     var addressDescription: String? { get }
-    
+
     var matchingName: String? { get }
 
     var centerLocation: CLLocation? { get }
@@ -30,7 +32,7 @@ protocol CoreSearchResultProtocol {
     var categories: [String]? { get }
 
     var icon: String? { get }
-    
+
     var routablePoints: [CoreRoutablePoint]? { get }
 
     /**
@@ -38,7 +40,6 @@ protocol CoreSearchResultProtocol {
      */
     var layer: String? { get }
 
-    
     var userRecordID: String? { get }
 
     /**
@@ -46,10 +47,9 @@ protocol CoreSearchResultProtocol {
      */
     var action: CoreSuggestAction? { get }
 
-    
     /** @brief Index in response from server (rank?). */
     var serverIndex: NSNumber? { get }
-    
+
     var distance: NSNumber? { get }
     var distanceToProximity: CLLocationDistance? { get }
 }
@@ -60,20 +60,20 @@ extension CoreSearchResult: CoreSearchResultProtocol {
     }
 
     var resultTypes: [CoreResultType] {
-        types.compactMap({ CoreResultType(rawValue: $0.intValue) })
+        types.compactMap { CoreResultType(rawValue: $0.intValue) }
     }
-    
+
     var estimatedTime: Measurement<UnitDuration>? {
-        eta.map({ Measurement(value: $0.doubleValue, unit: UnitDuration.minutes) })
+        eta.map { Measurement(value: $0.doubleValue, unit: UnitDuration.minutes) }
     }
-    
+
     var distanceToProximity: CLLocationDistance? {
-        distance.map({ $0.doubleValue })
+        distance.map(\.doubleValue)
     }
-    
+
     var resultAccuracy: CoreAccuracy? {
         accuracy.flatMap { CoreAccuracy(rawValue: $0.intValue) }
     }
-    
+
     var addressDescription: String? { descrAddress }
 }

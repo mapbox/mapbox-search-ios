@@ -1,28 +1,28 @@
-// Copyright © 2023 Mapbox. All rights reserved.
-
-import UIKit
 import MapKit
+import UIKit
 
 final class CategoryViewController: UIViewController {
     @IBOutlet private var mapView: MKMapView!
     @IBOutlet private var segmentedControl: UISegmentedControl!
-    
+
     private let category = Category()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         configureDefaultMapRegion()
     }
 }
 
 // MARK: - Actions
-private extension CategoryViewController {
-    enum Constants {
+
+extension CategoryViewController {
+    fileprivate enum Constants {
         static let regionResultsLimit = 50
     }
-    
-    @IBAction func handleSearchInRegionAction() {
+
+    @IBAction
+    private func handleSearchInRegionAction() {
         category.search(
             for: currentSelectedCategory,
             in: currentBoundingBox,
@@ -31,7 +31,7 @@ private extension CategoryViewController {
             switch result {
             case .success(let results):
                 self.showCategoryResults(results)
-                
+
             case .failure(let error):
                 debugPrint(error)
             }
@@ -40,50 +40,51 @@ private extension CategoryViewController {
 }
 
 // MARK: - Private
-private extension CategoryViewController {
-    var currentBoundingBox: BoundingBox {
+
+extension CategoryViewController {
+    private var currentBoundingBox: BoundingBox {
         let rect = mapView.visibleMapRect
         let neMapPoint = MKMapPoint(x: rect.maxX, y: rect.origin.y)
         let swMapPoint = MKMapPoint(x: rect.origin.x, y: rect.maxY)
 
         let neCoordinate = neMapPoint.coordinate
         let swCoordinate = swMapPoint.coordinate
-        
+
         return .init(swCoordinate, neCoordinate)
     }
-    
-    var currentSelectedCategory: Category.Item {
+
+    private var currentSelectedCategory: Category.Item {
         let allDemoCategories: [Category.Item] = [
             .parking,
             .restaurant,
-            .museum
+            .museum,
         ]
-        
+
         return allDemoCategories[segmentedControl.selectedSegmentIndex]
     }
-    
-    func configureDefaultMapRegion() {
+
+    private func configureDefaultMapRegion() {
         let nyLocation = CLLocationCoordinate2D(latitude: 40.730610, longitude: -73.935242)
         let span = MKCoordinateSpan(latitudeDelta: 0.15, longitudeDelta: 0.15)
-        
+
         let region = MKCoordinateRegion(
             center: nyLocation,
             span: span
         )
         mapView.setRegion(region, animated: false)
     }
-    
-    func showCategoryResults(_ results: [Category.Result]) {
+
+    private func showCategoryResults(_ results: [Category.Result]) {
         mapView.removeAnnotations(mapView.annotations)
-        
+
         let annotations: [MKPointAnnotation] = results.map {
             let annotation = MKPointAnnotation()
             annotation.coordinate = $0.coordinate
             annotation.title = $0.name
-            
+
             return annotation
         }
-        
+
         mapView.showAnnotations(annotations, animated: true)
     }
 }

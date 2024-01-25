@@ -64,6 +64,7 @@ workflows:
             tags:
               only: /v.*/
       - post-SDK_Registry-release:
+          context: CocoaPods trunk token
           requires:
             - request-post-SDK_Registry-release
           filters:
@@ -235,7 +236,7 @@ jobs:
 
   spm-build:
     macos:
-      xcode: 14.3.1
+      xcode: 14.1
     steps:
       - checkout
       - setup-authentication
@@ -315,8 +316,8 @@ commands:
   install-swiftlint:
     steps:
       - run:
-          name: Install SwiftLint 0.44.0
+          name: Install SwiftLint 0.53.0
           command: |
-            curl -LO https://github.com/realm/SwiftLint/releases/download/0.44.0/SwiftLint.pkg
+            curl -LO https://github.com/realm/SwiftLint/releases/download/0.53.0/SwiftLint.pkg
             sudo installer -pkg SwiftLint.pkg -target /
             rm SwiftLint.pkg

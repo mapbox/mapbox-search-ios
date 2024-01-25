@@ -1843,6 +1843,7 @@
 				F9190D552453126600C169AB /* Sources */,
 				F9190D562453126600C169AB /* Frameworks */,
 				F9190D572453126600C169AB /* Resources */,
+				0474F7C92B4609610079D74D /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1892,7 +1893,6 @@
 				FEBC00E2243C6D32000B268B /* Embed Frameworks */,
 				FEBC00E5243C6D96000B268B /* Inject Mapbox API key */,
 				FEBC00E6243C6DE4000B268B /* SwiftLint */,
-				FE91DEBC2627470F00887981 /* Integrate Reveal Server */,
 			);
 			buildRules = (
 			);
@@ -2140,6 +2140,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0474F7C92B4609610079D74D /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == \"arm64\" ]]; then\n  export PATH=\"/opt/homebrew/bin:${PATH}\"\nfi\nif which swiftlint >/dev/null; then\n    swiftlint --config \"${SRCROOT}/.swiftlint.yml\" \"${SRCROOT}/Tests/MapboxSearchUITests/\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		3A2CBBD4238B0FF400A5BA69 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2156,7 +2174,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"$(uname -m)\" == \"arm64\" ]]; then\n  export PATH=\"/opt/homebrew/bin:${PATH}\"\nfi\nif which swiftlint >/dev/null; then\n    swiftlint --config \"${SRCROOT}/.swiftlint.yml\" --path \"${SRCROOT}/Sources/MapboxSearch/\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if [[ \"$(uname -m)\" == \"arm64\" ]]; then\n  export PATH=\"/opt/homebrew/bin:${PATH}\"\nfi\nif which swiftlint >/dev/null; then\n    swiftlint --config \"${SRCROOT}/.swiftlint.yml\" \"${SRCROOT}/Sources/MapboxSearch/\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		3A2CBBD5238B105500A5BA69 /* SwiftLint */ = {
@@ -2175,7 +2193,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"$(uname -m)\" == \"arm64\" ]]; then\n  export PATH=\"/opt/homebrew/bin:${PATH}\"\nfi\nif which swiftlint >/dev/null; then\n    swiftlint --config \"${SRCROOT}/.swiftlint.yml\" --path \"${SRCROOT}/Tests/MapboxSearchTests\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if [[ \"$(uname -m)\" == \"arm64\" ]]; then\n  export PATH=\"/opt/homebrew/bin:${PATH}\"\nfi\nif which swiftlint >/dev/null; then\n    swiftlint --config \"${SRCROOT}/.swiftlint.yml\" \"${SRCROOT}/Tests/MapboxSearchTests\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F9C557AB2670CB0400BE8B94 /* SwiftLint */ = {
@@ -2194,7 +2212,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"$(uname -m)\" == \"arm64\" ]]; then\n  export PATH=\"/opt/homebrew/bin:${PATH}\"\nfi\nif which swiftlint >/dev/null; then\n    swiftlint --config \"${SRCROOT}/.swiftlint.yml\" --path \"${SRCROOT}/Tests/MapboxSearchTests\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if [[ \"$(uname -m)\" == \"arm64\" ]]; then\n  export PATH=\"/opt/homebrew/bin:${PATH}\"\nfi\nif which swiftlint >/dev/null; then\n    swiftlint --config \"${SRCROOT}/.swiftlint.yml\" \"${SRCROOT}/Tests/MapboxSearchTests\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F9C557AC2670CB0400BE8B94 /* Inject Mapbox API key */ = {
@@ -2243,24 +2261,6 @@
 			shellScript = "# Source: https://docs.mapbox.com/help/troubleshooting/private-access-token-android-and-ios/#ios\n# Look for a global file named 'mapbox' or '.mapbox' within the home directory\ntoken_file=\"${SCRIPT_INPUT_FILE_1}\"\ntoken_file2=\"${SCRIPT_INPUT_FILE_2}\"\ntoken_file3=\"${SCRIPT_INPUT_FILE_3}\"\ntoken=\"$(cat \"$token_file3\" 2>/dev/null || cat \"$token_file\" 2>/dev/null || cat \"$token_file2\" 2>/dev/null)\"\nif [ \"$token\" ]; then\n  plutil -replace MBXAccessToken -string \"$token\" \"$SCRIPT_INPUT_FILE_0\"\nelse\n  echo 'warning: Missing Mapbox access token'\n  open 'https://www.mapbox.com/account/access-tokens/'\n  echo \"warning: Get an access token from <https://www.mapbox.com/account/access-tokens/>, then create a new file at \"$token_file3\" or \"$token_file\" or \"$token_file2\" that contains the access token.\"\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FE91DEBC2627470F00887981 /* Integrate Reveal Server */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Integrate Reveal Server";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = " REVEAL_APP_PATH=$(mdfind kMDItemCFBundleIdentifier=\"com.ittybittyapps.Reveal2\" | head -n 1)\n BUILD_SCRIPT_PATH=\"${REVEAL_APP_PATH}/Contents/SharedSupport/Scripts/reveal_server_build_phase.sh\"\n if [ \"${REVEAL_APP_PATH}\" -a -e \"${BUILD_SCRIPT_PATH}\" ]; then\n \"${BUILD_SCRIPT_PATH}\"\n else\n echo \"Reveal Server not loaded: Cannot find a compatible Reveal app.\"\n fi\n";
-		};
 		FEBC00E5243C6D96000B268B /* Inject Mapbox API key */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2300,7 +2300,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"$(uname -m)\" == \"arm64\" ]]; then\n  export PATH=\"/opt/homebrew/bin:${PATH}\"\nfi\nif which swiftlint >/dev/null; then\n    swiftlint --config \"${SRCROOT}/.swiftlint.yml\" --path \"${SRCROOT}/Sources/Demo\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if [[ \"$(uname -m)\" == \"arm64\" ]]; then\n  export PATH=\"/opt/homebrew/bin:${PATH}\"\nfi\nif which swiftlint >/dev/null; then\n    swiftlint --config \"${SRCROOT}/.swiftlint.yml\" \"${SRCROOT}/Sources/Demo\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		FECA460E26D3F76B00BC7B18 /* Generate MapboxSearchVersion.swift */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2337,7 +2337,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"$(uname -m)\" == \"arm64\" ]]; then\n  export PATH=\"/opt/homebrew/bin:${PATH}\"\nfi\nif which swiftlint >/dev/null; then\n    swiftlint --config \"${SRCROOT}/.swiftlint.yml\" --path \"${SRCROOT}/Sources/MapboxSearchUI/\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if [[ \"$(uname -m)\" == \"arm64\" ]]; then\n  export PATH=\"/opt/homebrew/bin:${PATH}\"\nfi\nif which swiftlint >/dev/null; then\n    swiftlint --config \"${SRCROOT}/.swiftlint.yml\" \"${SRCROOT}/Sources/MapboxSearchUI/\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

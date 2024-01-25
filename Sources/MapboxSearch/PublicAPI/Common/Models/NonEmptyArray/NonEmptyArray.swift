@@ -1,5 +1,3 @@
-// Copyright © 2022 Mapbox. All rights reserved.
-
 import Foundation
 
 public struct NonEmptyArray<T> {

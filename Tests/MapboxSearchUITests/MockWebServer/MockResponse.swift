@@ -1,17 +1,16 @@
 import Foundation
 
 enum MockResponse {
-    
     enum Endpoint: String {
-        case suggest = "suggest"
-        case retrieve = "retrieve"
-        case reverse = "reverse"
+        case suggest
+        case retrieve
+        case reverse
         case multiRetrieve = "retrieve/multi"
-        case category = "category"
+        case category
         case addressSuggest = "autofill/suggest"
         case addressRetrieve = "autofill/retrieve"
     }
-    
+
     case suggestEmpty
     case suggestMinsk
     case suggestSanFrancisco
@@ -20,18 +19,18 @@ enum MockResponse {
     case suggestWithMixedCoordinates
     case suggestCategoryWithCoordinates
     case suggestAddressSanFrancisco
-    
+
     case retrieveSanFrancisco
     case retrieveMinsk
     case retrieveCategory
     case retrievePoi
     case multiRetrieve
     case retrieveAddressSanFrancisco
-    
+
     case recursion
     case reverseGeocoding
     case categoryCafe
-    
+
     var path: String {
         let bundle = Bundle(for: MockWebServer.self)
         switch self {
@@ -71,7 +70,7 @@ enum MockResponse {
             return bundle.path(forResource: "address-retrieve-san-francisco", ofType: "json")!
         }
     }
-    
+
     var endpoint: Endpoint {
         switch self {
         case .suggestAddressSanFrancisco:
@@ -89,19 +88,19 @@ enum MockResponse {
              .suggestCategoryWithCoordinates,
              .recursion:
             return .suggest
-            
+
         case .retrieveSanFrancisco,
              .retrieveCategory,
              .retrieveMinsk,
              .retrievePoi:
             return .retrieve
-            
+
         case .reverseGeocoding:
             return .reverse
-            
+
         case .multiRetrieve:
             return .multiRetrieve
-            
+
         case .categoryCafe:
             return .category
         }

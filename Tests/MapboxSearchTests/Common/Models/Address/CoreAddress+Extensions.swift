@@ -1,2 +1,1 @@
 @testable import MapboxSearch
-
