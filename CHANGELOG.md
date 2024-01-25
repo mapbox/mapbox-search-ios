@@ -9,6 +9,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 <!-- Add changes for active work here -->
 
 - [Discover] Fix charging station category canonical ID
+- [Core] Change AbstractSearchEngine.init `supportSBS: Bool = false` parameter to `apiType: ApiType = .SBS`. This changes the default API engine for discover/category and other API requests to SBS. Add ApiType enum to represent non-Autofill and non-PlaceAutocomplete SearchEngine API types.
 - [SearchUI] Rename MapboxPanelController.Configuration to .PanelConfiguration. This disambiguates PanelConfiguration from the broader Configuration struct.
 - [Core] Update SwiftLint to 0.54.0 and SwiftFormat to 0.52.11
 - [Core] Fix project compliance with linter, reformat Swift files

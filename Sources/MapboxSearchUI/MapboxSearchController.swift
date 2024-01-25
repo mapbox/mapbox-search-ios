@@ -636,7 +636,7 @@ extension MapboxSearchController: SearchCategoriesRootViewDelegate {
     }
 
     func userSelectedCategory(_ category: SearchCategory) {
-        let categoryName = categorySearchEngine.supportSBS ? category.canonicalId : category.legacyName
+        let categoryName = categorySearchEngine.apiType == .geocoding ? category.legacyName : category.canonicalId
 
         categorySearchEngine.search(categoryName: categoryName, options: categorySearchOptions) { results in
             switch results {

@@ -7,7 +7,7 @@ class SearchEngineIntegrationTests: MockServerTestCase {
     lazy var searchEngine = SearchEngine(
         accessToken: "access-token",
         locationProvider: DefaultLocationProvider(),
-        supportSBS: true
+        apiType: .SBS
     )
 
     override func setUpWithError() throws {
