@@ -11,6 +11,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Core] Updated to Xcode 14.1 minimum version
 - [Core] Updated deployment target to iOS 12
 
+- [Discover] Fix charging station category canonical ID
+
 - [Core] Update SwiftLint to 0.54.0 and SwiftFormat to 0.52.11
 - [Core] Fix project compliance with linter, reformat Swift files
 - [Core] Add Brewfile for project
