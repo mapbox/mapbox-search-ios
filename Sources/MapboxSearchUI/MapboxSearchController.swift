@@ -154,7 +154,8 @@ public class MapboxSearchController: UIViewController {
     public required init(accessToken: String, configuration: Configuration = Configuration()) {
         self.categorySearchEngine = CategorySearchEngine(
             accessToken: accessToken,
-            locationProvider: configuration.locationProvider
+            locationProvider: configuration.locationProvider,
+            apiType: .SBS
         )
         self.searchEngine = SearchEngine(accessToken: accessToken, locationProvider: configuration.locationProvider)
         self.configuration = configuration
@@ -171,7 +172,10 @@ public class MapboxSearchController: UIViewController {
     /// - Parameters:
     ///   - configuration: configuration for search and categorySearch engines.
     public required init(configuration: Configuration = Configuration()) {
-        self.categorySearchEngine = CategorySearchEngine(locationProvider: configuration.locationProvider)
+        self.categorySearchEngine = CategorySearchEngine(
+            locationProvider: configuration.locationProvider,
+            apiType: .SBS
+        )
         self.searchEngine = SearchEngine(locationProvider: configuration.locationProvider)
         self.configuration = configuration
 

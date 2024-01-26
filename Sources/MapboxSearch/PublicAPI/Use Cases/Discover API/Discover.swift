@@ -5,6 +5,8 @@ public final class Discover {
     private let searchEngine: CategorySearchEngine
     private let userActivityReporter: CoreUserActivityReporter
 
+    public let apiType: ApiType
+
     /// Basic internal initializer
     /// - Parameters:
     ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used
@@ -12,7 +14,8 @@ public final class Discover {
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     public convenience init(
         accessToken: String? = nil,
-        locationProvider: LocationProvider? = DefaultLocationProvider()
+        locationProvider: LocationProvider? = DefaultLocationProvider(),
+        apiType: ApiType = .SBS
     ) {
         guard let accessToken = accessToken ?? ServiceProvider.shared.getStoredAccessToken() else {
             fatalError(
@@ -23,7 +26,7 @@ public final class Discover {
         let searchEngine = CategorySearchEngine(
             accessToken: accessToken,
             locationProvider: locationProvider,
-            apiType: .SBS
+            apiType: apiType
         )
 
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(
@@ -38,6 +41,7 @@ public final class Discover {
 
     init(searchEngine: CategorySearchEngine, userActivityReporter: CoreUserActivityReporter) {
         self.searchEngine = searchEngine
+        self.apiType = searchEngine.apiType
         self.userActivityReporter = userActivityReporter
     }
 }

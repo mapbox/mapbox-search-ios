@@ -318,7 +318,47 @@ public struct SearchOptions {
             }
 
         case .searchBox:
-            _Logger.searchSDK.warning("SearchBox API is not supported yet.")
+            _Logger.searchSDK.warning("SearchBox API is in alpha stage.")
+
+            let topLimit = 25
+            validSearchOptions.limit = limit.map { min($0, topLimit) }
+            if validSearchOptions.limit != limit {
+                info("search-box API supports as maximum as \(topLimit) limit.")
+            }
+
+            /*
+             validSearchOptions.languages
+             validSearchOptions.limit
+             validSearchOptions.proximity
+             validSearchOptions.origin
+             validSearchOptions.boundingBox
+              */
+
+            validSearchOptions.forceNilArg(
+                \.navigationOptions,
+                message: "Search-box does not support navigation options. Perhaps you meant navigation_profile?"
+            )
+            validSearchOptions.forceNilArg(
+                \.routeOptions,
+                message: "Search-box does not suport routeOptions. Perhaps you mean route?"
+            )
+
+            /*
+             +
+              validSearchOptions.route // includes route_geometry
+              validSearchOptions.sar // searchAlongRoute, included when route is included and should have value == isochrone
+               */
+
+            // validSearchOptions.navigationProfile
+            // validSearchOptions.time_deviation // inside navigation profile ?
+            // validSearchOptions.navigationOptions?.etaType // eta_type inside navigation profile?
+
+            let unsupportedFilterTypes: [SearchQueryType] = [.poi, .category]
+
+            validSearchOptions.filterTypes = filterTypes?.filter { !unsupportedFilterTypes.contains($0) }
+            if validSearchOptions.filterTypes?.count != filterTypes?.count {
+                info("Geocoding API doesn't support following filter types: \(unsupportedFilterTypes)")
+            }
 
         @unknown default:
             _Logger.searchSDK.warning("Unexpected engine API Type: \(apiType)")
