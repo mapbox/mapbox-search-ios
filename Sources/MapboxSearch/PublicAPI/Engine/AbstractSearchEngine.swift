@@ -68,12 +68,12 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
             )
         }
 
-        self.apiType = apiType
         self.locationProvider = locationProvider
         self.locationProviderWrapper = WrapperLocationProvider(wrapping: locationProvider)
         self.eventsManager = serviceProvider.eventsManager
         self.feedbackManager = serviceProvider.feedbackManager
         self.defaultSearchOptions = defaultSearchOptions
+        self.apiType = apiType
         self.engineApi = apiType.toCore()
 
         self.userActivityReporter = .getOrCreate(
