@@ -10,4 +10,6 @@ public enum ApiType {
 
     /// The Mapbox Single Box Search (a.k.a Federation API) - https://docs.mapbox.com/api/search/search/
     case SBS
+
+    case searchBox
 }
