@@ -13,7 +13,7 @@ public final class PlaceAutocomplete {
     private let userActivityReporter: CoreUserActivityReporterProtocol
 
     private static var apiType: CoreSearchEngine.ApiType {
-        return .searchBox
+        return .SBS
     }
 
     /// Basic internal initializer
