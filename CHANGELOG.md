@@ -10,6 +10,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## 2.0.0
 
+- [Discover] Fix charging station category canonical ID
 - [SearchUI] Rename MapboxPanelController.Configuration to .PanelConfiguration. This disambiguates PanelConfiguration from the broader Configuration struct.
 - [Core] Update SwiftLint to 0.54.0 and SwiftFormat to 0.52.11
 - [Core] Fix project compliance with linter, reformat Swift files

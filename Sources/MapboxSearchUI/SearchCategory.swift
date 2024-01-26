@@ -142,7 +142,7 @@ extension SearchCategory {
     /// EV Charging station category.
     public static let chargingStation =
         SearchCategory(
-            canonicalId: "ev_charging_station",
+            canonicalId: "charging_station",
             name: Strings.Categories.chargingStation,
             legacyName: "charging station",
             iconName: Maki.chargingStation.xcassetName
