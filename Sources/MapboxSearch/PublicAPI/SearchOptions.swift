@@ -309,6 +309,26 @@ public struct SearchOptions {
                 info("SBS API doesn't support multiple languages at once. Search SDK will use the first")
             }
 
+            if case .time(let value, _) = validSearchOptions.routeOptions?.deviation {
+                let minimumTime = Measurement(
+                    value: 1,
+                    unit: UnitDuration.minutes
+                )
+                .converted(to: .seconds)
+                let maximumTime = Measurement(
+                    value: 30,
+                    unit: UnitDuration.minutes
+                )
+                .converted(to: .seconds)
+                let timeRange = (minimumTime...maximumTime)
+
+                if !timeRange.contains(value) {
+                    info(
+                        "SBS API time_deviation must be within 1 minute and 30 minutes (found \(value.value) seconds)"
+                    )
+                }
+            }
+
         case .autofill:
             let unsupportedFilterTypes: [SearchQueryType] = [.category]
 
@@ -318,46 +338,38 @@ public struct SearchOptions {
             }
 
         case .searchBox:
-            _Logger.searchSDK.warning("SearchBox API is in alpha stage.")
+            let topLimit = 10
 
-            let topLimit = 25
             validSearchOptions.limit = limit.map { min($0, topLimit) }
             if validSearchOptions.limit != limit {
                 info("search-box API supports as maximum as \(topLimit) limit.")
             }
 
-            /*
-             validSearchOptions.languages
-             validSearchOptions.limit
-             validSearchOptions.proximity
-             validSearchOptions.origin
-             validSearchOptions.boundingBox
-              */
+            if languages.count > 1, let first = languages.first {
+                validSearchOptions.languages = [first]
+                info(
+                    "search-box API doesn't support multiple languages at once. Search SDK will use the first ('\(first)')"
+                )
+            }
 
-            validSearchOptions.forceNilArg(
-                \.navigationOptions,
-                message: "Search-box does not support navigation options. Perhaps you meant navigation_profile?"
-            )
-            validSearchOptions.forceNilArg(
-                \.routeOptions,
-                message: "Search-box does not suport routeOptions. Perhaps you mean route?"
-            )
+            if case .time(let value, _) = validSearchOptions.routeOptions?.deviation {
+                let minimumTime = Measurement(
+                    value: 1,
+                    unit: UnitDuration.minutes
+                )
+                .converted(to: .seconds)
+                let maximumTime = Measurement(
+                    value: 30,
+                    unit: UnitDuration.minutes
+                )
+                .converted(to: .seconds)
+                let timeRange = (minimumTime...maximumTime)
 
-            /*
-             +
-              validSearchOptions.route // includes route_geometry
-              validSearchOptions.sar // searchAlongRoute, included when route is included and should have value == isochrone
-               */
-
-            // validSearchOptions.navigationProfile
-            // validSearchOptions.time_deviation // inside navigation profile ?
-            // validSearchOptions.navigationOptions?.etaType // eta_type inside navigation profile?
-
-            let unsupportedFilterTypes: [SearchQueryType] = [.poi, .category]
-
-            validSearchOptions.filterTypes = filterTypes?.filter { !unsupportedFilterTypes.contains($0) }
-            if validSearchOptions.filterTypes?.count != filterTypes?.count {
-                info("Geocoding API doesn't support following filter types: \(unsupportedFilterTypes)")
+                if !timeRange.contains(value) {
+                    info(
+                        "search-box API time_deviation must be within 1 minute and 30 minutes (found \(value.value) seconds)"
+                    )
+                }
             }
 
         @unknown default:

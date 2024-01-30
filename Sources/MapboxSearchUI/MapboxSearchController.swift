@@ -180,7 +180,10 @@ public class MapboxSearchController: UIViewController {
             locationProvider: configuration.locationProvider,
             apiType: .searchBox
         )
-        self.searchEngine = SearchEngine(locationProvider: configuration.locationProvider, apiType: .searchBox)
+        self.searchEngine = SearchEngine(
+            locationProvider: configuration.locationProvider,
+            apiType: .searchBox
+        )
         self.configuration = configuration
 
         super.init(nibName: nil, bundle: .mapboxSearchUI)

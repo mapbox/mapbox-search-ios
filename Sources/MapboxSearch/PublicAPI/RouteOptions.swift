@@ -57,7 +57,7 @@ public struct RouteOptions: Hashable {
     /// Construct Route Options with Time route deviation
     /// - Parameters:
     ///   - route: Route with coordinates
-    ///   - time: Time route deviation
+    ///   - time: Time route deviation in seconds. Must be within 60 seconds (1 minute) and 1\_800 seconds (30 minutes)
     ///   - sarType: Quality of deviation calculation (better cost more). Defaults to `.isochrone`
     public init(route: Route, time: TimeInterval, sarType: Deviation.SARType = .isochrone) {
         self.init(route: route, deviation: .time(Measurement(value: time, unit: .seconds), sarType))
