@@ -1,4 +1,3 @@
-
 import XCTest
 
 class CategorySuggestionsNavigationIntegrationTestCase: MockServerUITestCase {
