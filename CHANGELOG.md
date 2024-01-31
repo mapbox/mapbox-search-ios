@@ -8,6 +8,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Core] Remove Swifter library dependency from MapboxSearch target (only used in Test targets)
 - [Discover] Fix charging station category canonical ID
 - [SearchUI] Rename MapboxPanelController.Configuration to .PanelConfiguration. This disambiguates PanelConfiguration from the broader Configuration struct.
 - [Core] Update SwiftLint to 0.54.0 and SwiftFormat to 0.52.11
