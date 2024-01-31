@@ -6,7 +6,8 @@ enum MockResponse {
         case retrieve
         case reverse
         case multiRetrieve = "retrieve/multi"
-        case category
+        case categoryCafe = "cafe"
+        case categoryHotel = "hotel"
         case addressSuggest = "autofill/suggest"
         case addressRetrieve = "autofill/retrieve"
     }
@@ -30,6 +31,7 @@ enum MockResponse {
     case recursion
     case reverseGeocoding
     case categoryCafe
+    case categoryHotelSearchAlongRoute_JP
 
     var path: String {
         let bundle = Bundle(for: MockWebServer.self)
@@ -64,6 +66,8 @@ enum MockResponse {
             return bundle.path(forResource: "retrieve-multi", ofType: "json")!
         case .categoryCafe:
             return bundle.path(forResource: "category-cafe", ofType: "json")!
+        case .categoryHotelSearchAlongRoute_JP:
+            return bundle.path(forResource: "category-hotel-search-along-route-jp", ofType: "json")!
         case .suggestAddressSanFrancisco:
             return bundle.path(forResource: "address-suggestions-san-francisco", ofType: "json")!
         case .retrieveAddressSanFrancisco:
@@ -102,7 +106,10 @@ enum MockResponse {
             return .multiRetrieve
 
         case .categoryCafe:
-            return .category
+            return .categoryCafe
+
+        case .categoryHotelSearchAlongRoute_JP:
+            return .categoryHotel
         }
     }
 }

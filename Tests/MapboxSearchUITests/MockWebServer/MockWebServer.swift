@@ -60,10 +60,10 @@ extension MockWebServer {
 
     fileprivate static func httpMethod(for endpoint: MockResponse.Endpoint) -> HTTPMethod {
         switch endpoint {
-        case .suggest, .category, .reverse, .addressSuggest, .addressRetrieve:
+        case .suggest, .categoryCafe, .reverse, .addressSuggest, .addressRetrieve:
             return .get
 
-        case .retrieve, .multiRetrieve:
+        case .retrieve, .multiRetrieve, .categoryHotel:
             return .post
         }
     }
@@ -75,8 +75,9 @@ extension MockWebServer {
         case .suggest:
             path += "/:query"
 
-        case .category:
-            path += "/:category"
+        case .categoryCafe,
+             .categoryHotel:
+            path = "search/v1/category/\(endpoint.rawValue)"
 
         case .multiRetrieve:
             break
