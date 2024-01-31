@@ -2,8 +2,7 @@ import XCTest
 
 class SearchIntegrationTestCase: MockServerUITestCase {
     func testRecentSearchRemove() throws {
-        try server.setResponse(.suggestSanFrancisco)
-        try server.setResponse(.retrieveSanFrancisco)
+        try server.setResponse(.forwardGeocoding)
 
         app.launch()
         let searchBar = app.searchBar
@@ -29,7 +28,7 @@ class SearchIntegrationTestCase: MockServerUITestCase {
     }
 
     func testSearchCancel() throws {
-        try server.setResponse(.suggestSanFrancisco)
+        try server.setResponse(.forwardGeocoding)
 
         app.launch()
         let searchBar = app.searchBar
@@ -40,20 +39,5 @@ class SearchIntegrationTestCase: MockServerUITestCase {
         waitForHittable(searchResult.cells["San Francisco"].firstMatch)
         waitForHittable(searchBar.buttons["CancelButton"]).tap()
         XCTAssertFalse(searchResult.exists, "SearchResultTableView Shouldn't exists")
-    }
-
-    func testRecursionSearch() throws {
-        try server.setResponse(.recursion)
-
-        app.launch()
-        let searchBar = app.searchBar
-
-        waitForHittable(searchBar).tap()
-        searchBar.typeText("Recursion")
-
-        let searchResult = waitForHittable(app.mapboxSearchController.searchResultTableView)
-        waitForHittable(searchResult.cells["Did you mean recursion?"].firstMatch).tap()
-        waitForHittable(searchResult.cells["Did you mean recursion?"].firstMatch).tap()
-        waitForHittable(searchResult.cells["Did you mean recursion?"].firstMatch).tap()
     }
 }

@@ -60,7 +60,7 @@ extension MockWebServer {
 
     fileprivate static func httpMethod(for endpoint: MockResponse.Endpoint) -> HTTPMethod {
         switch endpoint {
-        case .suggest, .category, .reverse, .addressSuggest, .addressRetrieve:
+        case .suggest, .category, .reverse, .addressSuggest, .addressRetrieve, .forwardGeocoding:
             return .get
 
         case .retrieve, .multiRetrieve:
@@ -86,6 +86,9 @@ extension MockWebServer {
 
         case .retrieve:
             break
+
+        case .forwardGeocoding:
+            path = "/geocoding/v5/mapbox.places/:query"
 
         case .addressSuggest:
             path = "/autofill/v1/suggest/:query"

@@ -5,6 +5,7 @@ enum MockResponse {
         case suggest
         case retrieve
         case reverse
+        case forwardGeocoding
         case multiRetrieve = "retrieve/multi"
         case category
         case addressSuggest = "autofill/suggest"
@@ -28,6 +29,7 @@ enum MockResponse {
     case retrieveAddressSanFrancisco
 
     case recursion
+    case forwardGeocoding
     case reverseGeocoding
     case categoryCafe
 
@@ -60,6 +62,8 @@ enum MockResponse {
             return bundle.path(forResource: "recursion", ofType: "json")!
         case .reverseGeocoding:
             return bundle.path(forResource: "reverse-geocoding", ofType: "json")!
+        case .forwardGeocoding:
+            return bundle.path(forResource: "mapbox.places.san.francisco", ofType: "json")!
         case .multiRetrieve:
             return bundle.path(forResource: "retrieve-multi", ofType: "json")!
         case .categoryCafe:
@@ -78,6 +82,9 @@ enum MockResponse {
 
         case .retrieveAddressSanFrancisco:
             return .addressRetrieve
+
+        case .forwardGeocoding:
+            return .forwardGeocoding
 
         case .suggestMinsk,
              .suggestEmpty,

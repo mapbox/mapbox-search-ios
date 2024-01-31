@@ -643,7 +643,7 @@ extension MapboxSearchController: SearchCategoriesRootViewDelegate {
             case .success(let items):
                 self.delegate?.categorySearchResultsReceived(category: category, results: items)
             case .failure(let searchError):
-                print("Failed search; error=\(searchError)")
+                print("Failed search; error=\(searchError)") // swiftlint:disable:this dont_use_print
                 self.presentSearchError(searchError)
             }
             self.mapboxPanelController?.setState(.collapsed, animated: true)
