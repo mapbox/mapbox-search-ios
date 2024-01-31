@@ -45,10 +45,9 @@
 		148DE66C285757AA0085684D /* AddressAutofill+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE66B285757AA0085684D /* AddressAutofill+Result.swift */; };
 		148DE671285777180085684D /* NSLocking+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE670285777180085684D /* NSLocking+Extensions.swift */; };
 		148DE68B285A18900085684D /* AddressAutofill+AddressComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DE68A285A18900085684D /* AddressAutofill+AddressComponent.swift */; };
-		149948E7290A8ACE00E7E619 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 149948E6290A8ACE00E7E619 /* Swifter */; };
 		149948ED290A8DCA00E7E619 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 149948EC290A8DCA00E7E619 /* Swifter */; };
 		149948EF290A8DD500E7E619 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 149948EE290A8DD500E7E619 /* Swifter */; };
-		149948F1290A8DF900E7E619 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 149948F0290A8DF900E7E619 /* Swifter */; };
+		149948F1290A8DF900E7E619 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 149948F0290A8DF900E7E619 /* Swifter */; settings = {ATTRIBUTES = (Required, ); }; };
 		14A0B83D2A5FF20B00D281F1 /* PlaceAutocomplet.Result+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A0B83B2A5FF1B300D281F1 /* PlaceAutocomplet.Result+Tests.swift */; };
 		14B92D5E298BFD19006003C1 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B92D5D298BFD19006003C1 /* DiscoverViewController.swift */; };
 		14F71865299FD4BD00D5BC2E /* PlaceAutocomplete+PlaceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F71864299FD4BD00D5BC2E /* PlaceAutocomplete+PlaceType.swift */; };
@@ -835,7 +834,6 @@
 				E648C0B626428D2B0044315F /* MapboxCoreSearch.xcframework in Frameworks */,
 				E648C0BA26428D3D0044315F /* MapboxCommon.xcframework in Frameworks */,
 				E648C0C9264297A10044315F /* libc++.1.tbd in Frameworks */,
-				149948E7290A8ACE00E7E619 /* Swifter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1805,7 +1803,6 @@
 			);
 			name = MapboxSearch;
 			packageProductDependencies = (
-				149948E6290A8ACE00E7E619 /* Swifter */,
 			);
 			productName = MapboxSearch;
 			productReference = 3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */;
@@ -3357,11 +3354,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		149948E6290A8ACE00E7E619 /* Swifter */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 149948E5290A8ACE00E7E619 /* XCRemoteSwiftPackageReference "swifter" */;
-			productName = Swifter;
-		};
 		149948EC290A8DCA00E7E619 /* Swifter */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 149948E5290A8ACE00E7E619 /* XCRemoteSwiftPackageReference "swifter" */;
