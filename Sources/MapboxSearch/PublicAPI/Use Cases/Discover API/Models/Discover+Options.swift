@@ -15,12 +15,27 @@ extension Discover {
         /// English (en) language parameter, but Frankreich (“France”) with a German (de) language parameter.
         public let language: Language
 
+        /// See ``MapboxSearch.Country.ISO3166_1_alpha2`` for the list of ISO 3166 alpha 2 country codes.
+        /// The default value will be selected from the Country.ISO3166\_1\_alpha2 identifiers based on the current
+        /// locale identifier or nil if no match is found.
+        public let country: Country?
+
+        public let proximity: CLLocationCoordinate2D?
+
+        public let origin: CLLocationCoordinate2D?
+
         public init(
             limit: Int = 10,
-            language: Language? = nil
+            language: Language? = nil,
+            country: Country? = nil,
+            proximity: CLLocationCoordinate2D? = nil,
+            origin: CLLocationCoordinate2D? = nil
         ) {
             self.limit = limit
             self.language = language ?? .default
+            self.country = country ?? .default
+            self.proximity = proximity
+            self.origin = origin
         }
     }
 }

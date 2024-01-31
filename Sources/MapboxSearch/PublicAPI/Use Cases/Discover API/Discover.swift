@@ -59,9 +59,11 @@ extension Discover {
         userActivityReporter.reportActivity(forComponent: "discover-search-nearby")
 
         let searchOptions = SearchOptions(
+            countries: [options.country?.countryCode].compactMap { $0 },
             languages: [options.language.languageCode],
             limit: options.limit,
-            proximity: proximity
+            proximity: proximity,
+            origin: options.origin
         )
 
         search(for: query, with: searchOptions, completion: completion)
@@ -85,10 +87,12 @@ extension Discover {
         userActivityReporter.reportActivity(forComponent: "discover-search-in-area")
 
         let searchOptions = SearchOptions(
+            countries: [options.country?.countryCode].compactMap { $0 },
             languages: [options.language.languageCode],
             limit: options.limit,
             proximity: proximity,
-            boundingBox: region
+            boundingBox: region,
+            origin: options.origin
         )
 
         search(for: query, with: searchOptions, completion: completion)
@@ -110,8 +114,11 @@ extension Discover {
         userActivityReporter.reportActivity(forComponent: "discover-search-along-the-route")
 
         let searchOptions = SearchOptions(
+            countries: [options.country?.countryCode].compactMap { $0 },
             languages: [options.language.languageCode],
             limit: options.limit,
+            proximity: options.proximity,
+            origin: options.origin,
             routeOptions: route
         )
 
