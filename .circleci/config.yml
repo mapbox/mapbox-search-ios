@@ -87,7 +87,8 @@ jobs:
       - parse-release-version
       - run:
           name: Check existing public release
-          command: curl -L https://api.mapbox.com/downloads/v2/carthage/search-sdk/MapboxSearch.json | grep -v "$VERSION"
+          # Escape the quotes to check for exact versions
+          command: curl -L https://api.mapbox.com/downloads/v2/carthage/search-sdk/MapboxSearch.json | grep -v \"$VERSION\"
 
   build:
     macos:
