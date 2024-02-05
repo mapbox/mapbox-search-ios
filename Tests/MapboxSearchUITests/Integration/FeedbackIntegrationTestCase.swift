@@ -6,7 +6,8 @@ class FeedbackIntegrationTestCase: MockServerUITestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
 
-        try server.setResponse(.forwardGeocoding)
+        try server.setResponse(.suggestSanFrancisco)
+        try server.setResponse(.retrieveSanFrancisco)
     }
 
     func testSendFeedback() throws {

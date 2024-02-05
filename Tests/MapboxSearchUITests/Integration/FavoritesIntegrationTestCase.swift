@@ -27,7 +27,7 @@ class FavoritesIntegrationTestCase: MockServerUITestCase {
             favoritesTableView.cells["Minsk"].firstMatch.waitForExistence(timeout: BaseTestCase.defaultTimeout),
             "Selected favorite item not in favorites list"
         )
-        removeFavorite(element: favoritesTableView.cells["Minsk"].firstMatch)
+        deleteFavorite(element: favoritesTableView.cells["Minsk"].firstMatch)
     }
 
     func testAddRenameRemoveFavorite() throws {
@@ -74,7 +74,7 @@ class FavoritesIntegrationTestCase: MockServerUITestCase {
             favoritesTableView.cells["Riga"].waitForExistence(timeout: BaseTestCase.defaultTimeout),
             "No renamed favorite in list"
         )
-        removeFavorite(element: favoritesTableView.cells["Riga"].firstMatch)
+        deleteFavorite(element: favoritesTableView.cells["Riga"].firstMatch)
     }
 
     func testAddRenameCancelRemoveFavorite() throws {
@@ -120,7 +120,7 @@ class FavoritesIntegrationTestCase: MockServerUITestCase {
             favoritesTableView.cells["Minsk"].waitForExistence(timeout: BaseTestCase.defaultTimeout),
             "Original favorite not in list"
         )
-        removeFavorite(element: favoritesTableView.cells["Minsk"].firstMatch)
+        deleteFavorite(element: favoritesTableView.cells["Minsk"].firstMatch)
     }
 
     func testAddEditLocationRemoveFavorite() throws {
@@ -182,7 +182,7 @@ class FavoritesIntegrationTestCase: MockServerUITestCase {
         let newAddress = favoritesTableView.cells[favoriteName].firstMatch.staticTexts["address"].title
         XCTAssertEqual(addressToChange, newAddress, "New address doesn't applied")
 
-        removeFavorite(element: favoritesTableView.cells[favoriteName].firstMatch)
+        deleteFavorite(element: favoritesTableView.cells[favoriteName].firstMatch)
     }
 
     func testAddRemoveWorkAddress() throws {
@@ -205,7 +205,7 @@ class FavoritesIntegrationTestCase: MockServerUITestCase {
                 .waitForExistence(timeout: BaseTestCase.defaultTimeout),
             "Work favorites no moreButton"
         )
-        removeFavorite(element: favoritesTableView.cells["Work"].firstMatch)
+        removeDefaultFavorite(element: favoritesTableView.cells["Work"].firstMatch)
     }
 
     func testAddRemoveHomeAddress() throws {
@@ -228,16 +228,27 @@ class FavoritesIntegrationTestCase: MockServerUITestCase {
                 .waitForExistence(timeout: BaseTestCase.defaultTimeout),
             "Home favorites no moreButton"
         )
-        removeFavorite(element: favoritesTableView.cells["Home"].firstMatch)
+        removeDefaultFavorite(element: favoritesTableView.cells["Home"].firstMatch)
     }
 }
 
 extension FavoritesIntegrationTestCase {
-    func removeFavorite(element: XCUIElement) {
+    func removeDefaultFavorite(element: XCUIElement) {
         element.buttons["moreButton"].tap()
-        // No legal way to set accessibilityIdentifier for UIAlertAction
-        // Remove location expected to be 3rd
-        let removeLocation = app.sheets.buttons.element(boundBy: 2)
+        let removeLocation = app.buttons["Remove location"]
+        XCTAssertTrue(
+            removeLocation.waitForExistence(timeout: BaseTestCase.defaultTimeout),
+            "No remove location action"
+        )
+        removeLocation.tap()
+        sleep(1)
+        XCTAssertFalse(element.buttons["moreButton"].exists)
+    }
+
+    /// Default favorites include Home and Work
+    func deleteFavorite(element: XCUIElement) {
+        element.buttons["moreButton"].tap()
+        let removeLocation = app.buttons["Delete"]
         XCTAssertTrue(
             removeLocation.waitForExistence(timeout: BaseTestCase.defaultTimeout),
             "No remove location action"
@@ -249,18 +260,14 @@ extension FavoritesIntegrationTestCase {
 
     func editFavoriteLocation(element: XCUIElement) {
         element.buttons["moreButton"].tap()
-        // No legal way to set accessibilityIdentifier for UIAlertAction
-        // Edit location expected to be 2rd
-        let editLocation = app.sheets.buttons.element(boundBy: 1)
+        let editLocation = app.buttons["Edit location"]
         XCTAssertTrue(editLocation.waitForExistence(timeout: BaseTestCase.defaultTimeout), "No edit location action")
         editLocation.tap()
     }
 
     func renameFavorite(element: XCUIElement) {
         element.buttons["moreButton"].tap()
-        // No legal way to set accessibilityIdentifier for UIAlertAction
-        // Rename expected to be 1st
-        let editLocation = app.sheets.buttons.element(boundBy: 0)
+        let editLocation = app.buttons["Rename"]
         XCTAssertTrue(editLocation.waitForExistence(timeout: BaseTestCase.defaultTimeout), "No edit location action")
         editLocation.tap()
     }

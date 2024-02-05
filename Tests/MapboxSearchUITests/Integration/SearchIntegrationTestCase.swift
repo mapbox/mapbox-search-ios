@@ -2,7 +2,8 @@ import XCTest
 
 class SearchIntegrationTestCase: MockServerUITestCase {
     func testRecentSearchRemove() throws {
-        try server.setResponse(.forwardGeocoding)
+        try server.setResponse(.suggestSanFrancisco)
+        try server.setResponse(.retrieveSanFrancisco)
 
         app.launch()
         let searchBar = app.searchBar
@@ -28,7 +29,8 @@ class SearchIntegrationTestCase: MockServerUITestCase {
     }
 
     func testSearchCancel() throws {
-        try server.setResponse(.forwardGeocoding)
+        try server.setResponse(.suggestSanFrancisco)
+        try server.setResponse(.retrieveSanFrancisco)
 
         app.launch()
         let searchBar = app.searchBar

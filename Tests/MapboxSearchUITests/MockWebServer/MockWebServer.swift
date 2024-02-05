@@ -69,11 +69,12 @@ extension MockWebServer {
     }
 
     fileprivate static func path(for endpoint: MockResponse.Endpoint) -> String {
-        var path = "/search/v1/\(endpoint.rawValue)"
+        var path = "/search/v1/\(endpoint.value)"
 
         switch endpoint {
         case .suggest:
-            path += "/:query"
+            // The suggest query is already added to the path via endpoint.value
+            break
 
         case .category:
             path += "/:category"

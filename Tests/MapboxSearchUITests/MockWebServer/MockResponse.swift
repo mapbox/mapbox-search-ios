@@ -1,15 +1,36 @@
 import Foundation
 
 enum MockResponse {
-    enum Endpoint: String {
-        case suggest
+    enum Endpoint {
+        case suggest(query: String)
         case retrieve
         case reverse
         case forwardGeocoding
-        case multiRetrieve = "retrieve/multi"
+        case multiRetrieve
         case category
-        case addressSuggest = "autofill/suggest"
-        case addressRetrieve = "autofill/retrieve"
+        case addressSuggest
+        case addressRetrieve
+
+        var value: String {
+            switch self {
+            case .suggest(let query):
+                return "suggest/\(query)"
+            case .retrieve:
+                return "retrieve"
+            case .reverse:
+                return "reverse"
+            case .forwardGeocoding:
+                return "forwardGeocoding"
+            case .multiRetrieve:
+                return "multiRetrieve"
+            case .category:
+                return "category"
+            case .addressSuggest:
+                return "addressSuggest"
+            case .addressRetrieve:
+                return "addressRetrieve"
+            }
+        }
     }
 
     case suggestEmpty
@@ -86,15 +107,19 @@ enum MockResponse {
         case .forwardGeocoding:
             return .forwardGeocoding
 
-        case .suggestMinsk,
-             .suggestEmpty,
-             .suggestSanFrancisco,
+        case .suggestMinsk:
+            return .suggest(query: "Minsk")
+
+        case .suggestSanFrancisco:
+            return .suggest(query: "San Francisco")
+
+        case .suggestEmpty,
              .suggestCategories,
              .suggestWithCoordinates,
              .suggestWithMixedCoordinates,
              .suggestCategoryWithCoordinates,
              .recursion:
-            return .suggest
+            return .suggest(query: "")
 
         case .retrieveSanFrancisco,
              .retrieveCategory,
