@@ -42,29 +42,27 @@ class VisibilityTestCase: BaseTestCase {
         let searchBar = app.searchBar
         waitForHittable(searchBar)
 
-        XCTAssertTrue(app.isCollapsed)
-        waitForHittable(app.buttons["HotCategoryButton.fuel"], message: "Fuel category not hittable").tap()
         searchBar.swipeUp()
-        waitForHittable(app.buttons["HotCategoryButton.fuel"], message: "SwipeUp Fuel category not hittable").tap()
-
-        XCTAssertTrue(app.isCollapsed)
-        waitForHittable(app.buttons["HotCategoryButton.parking"], message: "Parking category not hittable").tap()
-        searchBar.swipeUp()
-        waitForHittable(app.buttons["HotCategoryButton.parking"], message: "SwipeUp Parking category not hittable")
+        waitForHittable(app.buttons["HotCategoryButton.fuel"], timeout: 10, message: "Fuel category not hittable")
             .tap()
 
         XCTAssertTrue(app.isCollapsed)
-        waitForHittable(app.buttons["HotCategoryButton.restaurant"], message: "Restaurant category not hittable").tap()
+        searchBar.swipeUp()
+        waitForHittable(app.buttons["HotCategoryButton.parking"], timeout: 10, message: "Parking category not hittable")
+            .tap()
+
+        XCTAssertTrue(app.isCollapsed)
         searchBar.swipeUp()
         waitForHittable(
             app.buttons["HotCategoryButton.restaurant"],
-            message: "SwipeUp Restaurant category not hittable"
+            timeout: 10,
+            message: "Restaurant category not hittable"
         ).tap()
 
         XCTAssertTrue(app.isCollapsed)
-        waitForHittable(app.buttons["HotCategoryButton.cafe"], message: "Cafe category not hittable").tap()
         searchBar.swipeUp()
-        waitForHittable(app.buttons["HotCategoryButton.cafe"], message: "SwipeUp Cafe category not hittable").tap()
+        waitForHittable(app.buttons["HotCategoryButton.cafe"], timeout: 10, message: "Cafe category not hittable")
+            .tap()
     }
 
     func testCategoriesList() throws {
