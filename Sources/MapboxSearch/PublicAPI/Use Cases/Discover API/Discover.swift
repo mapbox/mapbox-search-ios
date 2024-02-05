@@ -23,7 +23,7 @@ public final class Discover {
         let searchEngine = CategorySearchEngine(
             accessToken: accessToken,
             locationProvider: locationProvider,
-            supportSBS: true
+            apiType: .SBS
         )
 
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(

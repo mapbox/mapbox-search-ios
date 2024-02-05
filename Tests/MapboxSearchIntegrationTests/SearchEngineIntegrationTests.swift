@@ -13,8 +13,9 @@ class SearchEngineIntegrationTests: MockServerIntegrationTestCase {
             accessToken: "access-token",
             serviceProvider: LocalhostMockServiceProvider.shared,
             locationProvider: DefaultLocationProvider(),
-            supportSBS: true
+            apiType: .SBS
         )
+
         searchEngine.delegate = delegate
     }
 

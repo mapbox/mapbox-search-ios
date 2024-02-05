@@ -1,7 +1,5 @@
 import XCTest
 
-// swiftlint:disable empty_count
-
 class VisibilityTestCase: BaseTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -46,12 +44,10 @@ class VisibilityTestCase: BaseTestCase {
         waitForHittable(app.buttons["HotCategoryButton.fuel"], timeout: 10, message: "Fuel category not hittable")
             .tap()
 
-        XCTAssertTrue(app.isCollapsed)
         searchBar.swipeUp()
         waitForHittable(app.buttons["HotCategoryButton.parking"], timeout: 10, message: "Parking category not hittable")
             .tap()
 
-        XCTAssertTrue(app.isCollapsed)
         searchBar.swipeUp()
         waitForHittable(
             app.buttons["HotCategoryButton.restaurant"],

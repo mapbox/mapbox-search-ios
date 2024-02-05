@@ -20,7 +20,7 @@ final class CategorySearchEngineIntegrationTests: MockServerIntegrationTestCase 
         searchEngine = CategorySearchEngine(
             accessToken: "access-token",
             serviceProvider: LocalhostMockServiceProvider.shared,
-            supportSBS: supportSBS
+            apiType: .SBS
         )
     }
 
