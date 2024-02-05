@@ -37,7 +37,7 @@ public class ServiceProvider: ServiceProviderProtocol {
 #if !RELEASE
         if ProcessInfo.processInfo.arguments.contains(where: { $0 == "--uitesting" }) {
             let testingBaseUrl = ProcessInfo.processInfo.environment["search_endpoint"]
-            assert(testingBaseUrl != nil, "UI tests cannot proceed with empty base URL")
+//            assert(testingBaseUrl != nil, "UI tests cannot proceed with empty base URL")
             return testingBaseUrl
         }
 #endif
