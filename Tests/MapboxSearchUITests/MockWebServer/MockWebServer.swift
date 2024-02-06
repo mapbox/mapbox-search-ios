@@ -124,7 +124,7 @@ extension MockWebServer {
             path += "/retrieve/multi"
 
         case .categoryCafe:
-            path += "/:category"
+            path += "/category/:category"
         }
 
         NSLog("@@ mocking path \(path) for endpoint \(response)")

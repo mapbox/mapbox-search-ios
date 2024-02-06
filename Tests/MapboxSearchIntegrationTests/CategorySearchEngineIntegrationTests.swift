@@ -8,15 +8,6 @@ final class CategorySearchEngineIntegrationTests: MockServerIntegrationTestCase 
     override func setUp() {
         super.setUp()
 
-        let reporter = CoreUserActivityReporter.getOrCreate(
-            for: CoreUserActivityReporterOptions(
-                sdkInformation: SdkInformation.defaultInfo,
-                eventsUrl: nil
-            )
-        )
-
-        let supportSBS = true
-
         searchEngine = CategorySearchEngine(
             accessToken: "access-token",
             serviceProvider: LocalhostMockServiceProvider.shared,
@@ -28,7 +19,7 @@ final class CategorySearchEngineIntegrationTests: MockServerIntegrationTestCase 
         try server.setResponse(.categoryCafe)
 
         let expectation = XCTestExpectation(description: "Expecting results")
-        searchEngine.search(categoryName: "ATM") { result in
+        searchEngine.search(categoryName: "cafe") { result in
             switch result {
             case .success(let searchResults):
                 XCTAssertFalse(searchResults.isEmpty)
@@ -45,7 +36,7 @@ final class CategorySearchEngineIntegrationTests: MockServerIntegrationTestCase 
         try server.setResponse(.categoryCafe, statusCode: 500)
 
         let expectation = XCTestExpectation(description: "Expecting failure")
-        searchEngine.search(categoryName: "ATM") { result in
+        searchEngine.search(categoryName: "cafe") { result in
             switch result {
             case .success:
                 XCTFail("Not expected")

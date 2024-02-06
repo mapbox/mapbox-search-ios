@@ -35,7 +35,7 @@ final class PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase {
         try server.setResponse(.retrieveSanFrancisco)
 
         var suggestion: PlaceAutocomplete.Suggestion?
-        placeAutocomplete.suggestions(for: "query") { result in
+        placeAutocomplete.suggestions(for: "San Francisco") { result in
             switch result {
             case .success(let suggestions):
                 XCTAssertEqual(suggestions.count, 10)
