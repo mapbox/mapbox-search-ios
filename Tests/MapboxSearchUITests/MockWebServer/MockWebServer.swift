@@ -72,6 +72,7 @@ extension MockWebServer {
              .suggestCategoryWithCoordinates,
              .recursion,
              .reverseGeocoding,
+             .reverseGeocodingSBS,
              .categoryCafe:
             return .get
 
@@ -118,6 +119,9 @@ extension MockWebServer {
             path += "/retrieve"
 
         case .reverseGeocoding:
+            path = "geocoding/v5/mapbox.places/:location"
+
+        case .reverseGeocodingSBS:
             path += "/:coordinates"
 
         case .multiRetrieve:
@@ -127,7 +131,6 @@ extension MockWebServer {
             path += "/category/:category"
         }
 
-        NSLog("@@ mocking path \(path) for endpoint \(response)")
         return path
     }
 }

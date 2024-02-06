@@ -4,6 +4,7 @@ import XCTest
 
 final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase {
     private var addressAutofill: AddressAutofill!
+    private let locationProvider = WrapperLocationProvider(wrapping: DefaultLocationProvider())
 
     override func setUp() {
         super.setUp()
@@ -19,7 +20,7 @@ final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase {
         let engine = LocalhostMockServiceProvider.shared.createEngine(
             apiType: CoreSearchEngine.ApiType.autofill,
             accessToken: "access-token",
-            locationProvider: WrapperLocationProvider(wrapping: DefaultLocationProvider())
+            locationProvider: locationProvider
         )
 
         addressAutofill = AddressAutofill(

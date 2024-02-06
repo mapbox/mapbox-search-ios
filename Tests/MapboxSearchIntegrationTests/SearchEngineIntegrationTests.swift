@@ -19,10 +19,6 @@ class SearchEngineIntegrationTests: MockServerIntegrationTestCase {
         searchEngine.delegate = delegate
     }
 
-    override func setUpWithError() throws {
-        try super.setUpWithError()
-    }
-
     func testNotFoundSearch() throws {
         // No server response set, 404 error should be received
         let expectation = delegate.errorExpectation
@@ -80,55 +76,17 @@ class SearchEngineIntegrationTests: MockServerIntegrationTestCase {
         XCTAssertNil(delegate.error)
     }
 
-    func testReverseGeocodingSearch() throws {
-        try server.setResponse(.reverseGeocoding)
-
-        let expectation = XCTestExpectation()
-        let options = ReverseGeocodingOptions(point: CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0))
-
-        searchEngine.reverseGeocoding(options: options) { result in
-            if case .success(let reverseGeocodingResults) = result {
-                XCTAssertFalse(reverseGeocodingResults.isEmpty)
-            } else {
-                XCTFail("No resolved result")
-            }
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 10)
-    }
-
-    func testReverseGeocodingSearchFailed() throws {
-        try server.setResponse(.reverseGeocoding, statusCode: 500)
-
-        let expectation = XCTestExpectation()
-        let options = ReverseGeocodingOptions(point: CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0))
-        searchEngine.reverseGeocoding(options: options) { result in
-            if case .failure(let error) = result {
-                if case .reverseGeocodingFailed(let reasonError as NSError, _) = error {
-                    XCTAssert(reasonError.code == 500)
-                } else {
-                    XCTFail("Not expected")
-                }
-            } else {
-                XCTFail("Not expected")
-            }
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 10)
-    }
-
     func testResolvedSearchResult() throws {
         try server.setResponse(.suggestMinsk)
         try server.setResponse(.retrieveMinsk)
 
         let updateExpectation = delegate.updateExpectation
-        searchEngine.search(query: "sample-1")
+        searchEngine.search(query: "Minsk")
         wait(for: [updateExpectation], timeout: 10)
         XCTAssertFalse(searchEngine.suggestions.isEmpty)
 
         let successExpectation = delegate.successExpectation
-        let selectedResult = searchEngine.suggestions.first!
+        let selectedResult = try XCTUnwrap(searchEngine.suggestions.first)
         searchEngine.select(suggestion: selectedResult)
 
         wait(for: [successExpectation], timeout: 10)
@@ -141,15 +99,15 @@ class SearchEngineIntegrationTests: MockServerIntegrationTestCase {
         try server.setResponse(.suggestMinsk)
         try server.setResponse(.retrieveMinsk)
 
-        searchEngine.search(query: "Mapbox")
+        searchEngine.search(query: "Minsk")
 
         let updateExpectation = delegate.updateExpectation
         wait(for: [updateExpectation], timeout: 10)
 
         XCTAssertFalse(searchEngine.suggestions.isEmpty)
-        let selectedResult = searchEngine.suggestions.first!
+        let selectedResult = try XCTUnwrap(searchEngine.suggestions.first)
 
-        searchEngine.search(query: "Mapbo")
+        searchEngine.search(query: "Min")
         searchEngine.select(suggestion: selectedResult)
 
         let successExpectation = delegate.successExpectation
@@ -164,12 +122,12 @@ class SearchEngineIntegrationTests: MockServerIntegrationTestCase {
         try server.setResponse(.retrieveMinsk, statusCode: 500)
 
         let updateExpectation = delegate.updateExpectation
-        searchEngine.search(query: "sample-1")
+        searchEngine.search(query: "Minsk")
         wait(for: [updateExpectation], timeout: 10)
         XCTAssertFalse(searchEngine.suggestions.isEmpty)
 
         let errorExpectation = delegate.errorExpectation
-        let selectedResult = searchEngine.suggestions.first!
+        let selectedResult = try XCTUnwrap(searchEngine.suggestions.first)
         searchEngine.select(suggestion: selectedResult)
         wait(for: [errorExpectation], timeout: 10)
 

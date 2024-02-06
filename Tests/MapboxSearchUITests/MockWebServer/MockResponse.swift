@@ -20,6 +20,7 @@ enum MockResponse {
     case recursion
     case forwardGeocoding
     case reverseGeocoding
+    case reverseGeocodingSBS
     case categoryCafe
 
     var filepath: String {
@@ -49,8 +50,10 @@ enum MockResponse {
             return bundle.path(forResource: "retrieve-poi", ofType: "json")!
         case .recursion:
             return bundle.path(forResource: "recursion", ofType: "json")!
+        case .reverseGeocodingSBS:
+            return bundle.path(forResource: "reverse-geocoding-sbs", ofType: "json")!
         case .reverseGeocoding:
-            return bundle.path(forResource: "reverse-geocoding", ofType: "json")!
+            return bundle.path(forResource: "geocoding-reverse-geocoding", ofType: "json")!
         case .forwardGeocoding:
             return bundle.path(forResource: "mapbox.places.san.francisco", ofType: "json")!
         case .multiRetrieve:
