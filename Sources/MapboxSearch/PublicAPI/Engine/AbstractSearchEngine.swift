@@ -20,8 +20,8 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
 
     var locationProviderWrapper: WrapperLocationProvider?
 
-    /// SearchEngine supports the latest Single-Box Search APIs
-    public let supportSBS: Bool
+    /// Provide a specific API type
+    public let apiType: ApiType
 
     /// Location provider for search results `proximity` argument
     public let locationProvider: LocationProvider?
@@ -54,13 +54,13 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     ///   - serviceProvider: Internal `ServiceProvider` for sharing common dependencies like favoritesService or
     /// eventsManager
-    ///   - supportSBS: enable support the latest Single-Box Search APIs
+    ///   - apiType: choose which API provider to use through this search engine
     init(
         accessToken: String? = nil,
         serviceProvider: ServiceProviderProtocol & EngineProviderProtocol,
         locationProvider: LocationProvider? = DefaultLocationProvider(),
         defaultSearchOptions: SearchOptions = SearchOptions(),
-        supportSBS: Bool = false
+        apiType: ApiType = .SBS
     ) {
         guard let accessToken = accessToken ?? serviceProvider.getStoredAccessToken() else {
             fatalError(
@@ -68,13 +68,13 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
             )
         }
 
-        self.supportSBS = supportSBS
         self.locationProvider = locationProvider
         self.locationProviderWrapper = WrapperLocationProvider(wrapping: locationProvider)
         self.eventsManager = serviceProvider.eventsManager
         self.feedbackManager = serviceProvider.feedbackManager
         self.defaultSearchOptions = defaultSearchOptions
-        self.engineApi = supportSBS ? .SBS : .geocoding
+        self.apiType = apiType
+        self.engineApi = apiType.toCore()
 
         self.userActivityReporter = .getOrCreate(
             for: .init(
@@ -110,19 +110,19 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     /// for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     ///   - defaultSearchOptions: Default options to use when `nil` was passed to the `search(…: options:)` call
-    ///   - supportSBS: enable support the latest Single-Box Search APIs
+    ///   - apiType: choose which API provider to use through this search engine
     public convenience init(
         accessToken: String? = nil,
         locationProvider: LocationProvider? = DefaultLocationProvider(),
         defaultSearchOptions: SearchOptions = SearchOptions(),
-        supportSBS: Bool = false
+        apiType: ApiType = .SBS
     ) {
         self.init(
             accessToken: accessToken,
             serviceProvider: ServiceProvider.shared,
             locationProvider: locationProvider,
             defaultSearchOptions: defaultSearchOptions,
-            supportSBS: supportSBS
+            apiType: apiType
         )
     }
 

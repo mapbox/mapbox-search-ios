@@ -10,6 +10,11 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 - [SearchUI] Update Maki icons to all SVG, latest versions from https://github.com/mapbox/maki
 - [SearchUI] Remove all custom Maki icons
+- [Core] Change AbstractSearchEngine.init `supportSBS: Bool = false` parameter to `apiType: ApiType = .SBS`. This changes the default API engine for discover/category and other API requests to SBS. Add ApiType enum to represent non-Autofill and non-PlaceAutocomplete SearchEngine API types.
+
+## 2.0.0-rc.1
+
+- [Discover] Fix charging station category canonical ID
 - [SearchUI] Rename MapboxPanelController.Configuration to .PanelConfiguration. This disambiguates PanelConfiguration from the broader Configuration struct.
 - [Core] Update SwiftLint to 0.54.0 and SwiftFormat to 0.52.11
 - [Core] Fix project compliance with linter, reformat Swift files

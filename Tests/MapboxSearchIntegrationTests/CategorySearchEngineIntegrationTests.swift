@@ -6,7 +6,7 @@ class CategorySearchEngineIntegrationTests: MockServerTestCase {
     lazy var searchEngine = CategorySearchEngine(
         accessToken: "access-token",
         locationProvider: DefaultLocationProvider(),
-        supportSBS: true
+        apiType: .SBS
     )
 
     func testCategorySearch() throws {
