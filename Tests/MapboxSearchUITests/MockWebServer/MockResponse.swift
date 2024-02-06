@@ -1,38 +1,6 @@
 import Foundation
 
 enum MockResponse {
-    enum Endpoint {
-        case suggest(query: String)
-        case retrieve
-        case reverse
-        case forwardGeocoding
-        case multiRetrieve
-        case category
-        case addressSuggest
-        case addressRetrieve
-
-        var value: String {
-            switch self {
-            case .suggest(let query):
-                return "suggest/\(query)"
-            case .retrieve:
-                return "retrieve"
-            case .reverse:
-                return "reverse"
-            case .forwardGeocoding:
-                return "forwardGeocoding"
-            case .multiRetrieve:
-                return "multiRetrieve"
-            case .category:
-                return "category"
-            case .addressSuggest:
-                return "addressSuggest"
-            case .addressRetrieve:
-                return "addressRetrieve"
-            }
-        }
-    }
-
     case suggestEmpty
     case suggestMinsk
     case suggestSanFrancisco
@@ -54,7 +22,7 @@ enum MockResponse {
     case reverseGeocoding
     case categoryCafe
 
-    var path: String {
+    var filepath: String {
         let bundle = Bundle(for: MockWebServer.self)
         switch self {
         case .suggestEmpty:
@@ -93,48 +61,6 @@ enum MockResponse {
             return bundle.path(forResource: "address-suggestions-san-francisco", ofType: "json")!
         case .retrieveAddressSanFrancisco:
             return bundle.path(forResource: "address-retrieve-san-francisco", ofType: "json")!
-        }
-    }
-
-    var endpoint: Endpoint {
-        switch self {
-        case .suggestAddressSanFrancisco:
-            return .addressSuggest
-
-        case .retrieveAddressSanFrancisco:
-            return .addressRetrieve
-
-        case .forwardGeocoding:
-            return .forwardGeocoding
-
-        case .suggestMinsk:
-            return .suggest(query: "Minsk")
-
-        case .suggestSanFrancisco:
-            return .suggest(query: "San Francisco")
-
-        case .suggestEmpty,
-             .suggestCategories,
-             .suggestWithCoordinates,
-             .suggestWithMixedCoordinates,
-             .suggestCategoryWithCoordinates,
-             .recursion:
-            return .suggest(query: "")
-
-        case .retrieveSanFrancisco,
-             .retrieveCategory,
-             .retrieveMinsk,
-             .retrievePoi:
-            return .retrieve
-
-        case .reverseGeocoding:
-            return .reverse
-
-        case .multiRetrieve:
-            return .multiRetrieve
-
-        case .categoryCafe:
-            return .category
         }
     }
 }

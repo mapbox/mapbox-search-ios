@@ -34,7 +34,7 @@ class SearchEngineIntegrationTests: MockServerIntegrationTestCase {
     }
 
     func testSearchBrokenResponse() throws {
-        server.setResponse(endpoint: .suggest(query: ""), body: "This is so sad!", statusCode: 200)
+        server.setResponse(endpoint: .suggestEmpty, body: "This is so sad!", statusCode: 200)
         let expectation = delegate.errorExpectation
         searchEngine.search(query: "some query")
         wait(for: [expectation], timeout: 10)
