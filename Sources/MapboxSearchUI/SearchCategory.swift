@@ -244,7 +244,7 @@ extension SearchCategory {
             canonicalId: "nightclub",
             name: Strings.Categories.nightclub,
             legacyName: "nightclub",
-            iconName: "maki/nightclub"
+            iconName: Maki.nightclub.xcassetName
         )
 
     /// Auto repair category.

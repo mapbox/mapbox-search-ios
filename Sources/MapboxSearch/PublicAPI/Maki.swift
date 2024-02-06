@@ -250,6 +250,8 @@ public enum Maki: String, CaseIterable, Codable {
     case music
     /// Maki icon "natural"
     case natural
+    /// Maki icon "nightclub"
+    case nightclub
     /// Maki icon "observation-tower"
     case observationTower = "observation-tower"
     /// Maki icon "optician"
