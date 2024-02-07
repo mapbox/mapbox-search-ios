@@ -9,6 +9,10 @@ Guide: https://keepachangelog.com/en/1.0.0/
 <!-- Add changes for active work here -->
 
 - [Discover] Add support for country, proximity, and origin parameters in Discover.Options search parameters. This fixes an issue when using search-along-route to query category results.
+- [Core] Change AbstractSearchEngine.init `supportSBS: Bool = false` parameter to `apiType: ApiType = .SBS`. This changes the default API engine for discover/category and other API requests to SBS. Add ApiType enum to represent non-Autofill and non-PlaceAutocomplete SearchEngine API types.
+
+## 2.0.0-rc.1
+
 - [Discover] Fix charging station category canonical ID
 - [SearchUI] Rename MapboxPanelController.Configuration to .PanelConfiguration. This disambiguates PanelConfiguration from the broader Configuration struct.
 - [Core] Update SwiftLint to 0.54.0 and SwiftFormat to 0.52.11

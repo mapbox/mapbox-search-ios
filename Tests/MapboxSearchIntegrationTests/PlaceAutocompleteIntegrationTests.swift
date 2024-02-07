@@ -38,7 +38,8 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
         wait(for: [expectation], timeout: 5)
 
         let selectionExpectation = XCTestExpectation(description: "Expecting selection result")
-        placeAutocomplete.select(suggestion: suggestion!) { result in
+        let unwrappedSuggestion = try XCTUnwrap(suggestion)
+        placeAutocomplete.select(suggestion: unwrappedSuggestion) { result in
             switch result {
             case .success(let resolvedSuggestion):
                 XCTAssertEqual(resolvedSuggestion.name, "San Francisco")
@@ -92,7 +93,8 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
 
         try server.setResponse(.retrieveMinsk)
         let selectionExpectation = XCTestExpectation(description: "Expecting selection result")
-        placeAutocomplete.select(suggestion: suggestion!) { result in
+        let unwrappedSuggestion = try XCTUnwrap(suggestion)
+        placeAutocomplete.select(suggestion: unwrappedSuggestion) { result in
             switch result {
             case .success(let resolvedSuggestion):
                 XCTAssertEqual(resolvedSuggestion.name, "Minsk")
@@ -225,7 +227,8 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
 
         try server.setResponse(.retrievePoi)
         let selectionExpectation = XCTestExpectation(description: "Expecting selection result")
-        placeAutocomplete.select(suggestion: suggestion!) { result in
+        let unwrappedSuggestion = try XCTUnwrap(suggestion)
+        placeAutocomplete.select(suggestion: unwrappedSuggestion) { result in
             switch result {
             case .success(let resolvedSuggestion):
                 XCTAssertEqual(resolvedSuggestion.name, "Starbucks")
