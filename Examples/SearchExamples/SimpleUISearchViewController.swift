@@ -8,8 +8,8 @@ class SimpleUISearchViewController: MapsViewController {
     lazy var searchController: MapboxSearchController = {
         let locationProvider = PointLocationProvider(coordinate: .sanFrancisco)
         let formatter = MKDistanceFormatter()
-        formatter.units = .imperial
-        formatter.unitStyle = .full
+        // formatter.units = .metric
+        formatter.unitStyle = .abbreviated
         var configuration = Configuration(
             locationProvider: locationProvider,
             distanceFormatter: formatter
