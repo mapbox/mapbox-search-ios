@@ -29,11 +29,13 @@ enum MockResponse {
     case retrieveAddressSanFrancisco
 
     case recursion
+    case forwardGeocoding
     case reverseGeocoding
+    case reverseGeocodingSBS
     case categoryCafe
     case categoryHotelSearchAlongRoute_JP
 
-    var path: String {
+    var filepath: String {
         let bundle = Bundle(for: MockWebServer.self)
         switch self {
         case .suggestEmpty:
@@ -60,8 +62,12 @@ enum MockResponse {
             return bundle.path(forResource: "retrieve-poi", ofType: "json")!
         case .recursion:
             return bundle.path(forResource: "recursion", ofType: "json")!
+        case .reverseGeocodingSBS:
+            return bundle.path(forResource: "reverse-geocoding-sbs", ofType: "json")!
         case .reverseGeocoding:
-            return bundle.path(forResource: "reverse-geocoding", ofType: "json")!
+            return bundle.path(forResource: "geocoding-reverse-geocoding", ofType: "json")!
+        case .forwardGeocoding:
+            return bundle.path(forResource: "mapbox.places.san.francisco", ofType: "json")!
         case .multiRetrieve:
             return bundle.path(forResource: "retrieve-multi", ofType: "json")!
         case .categoryCafe:
@@ -72,44 +78,6 @@ enum MockResponse {
             return bundle.path(forResource: "address-suggestions-san-francisco", ofType: "json")!
         case .retrieveAddressSanFrancisco:
             return bundle.path(forResource: "address-retrieve-san-francisco", ofType: "json")!
-        }
-    }
-
-    var endpoint: Endpoint {
-        switch self {
-        case .suggestAddressSanFrancisco:
-            return .addressSuggest
-
-        case .retrieveAddressSanFrancisco:
-            return .addressRetrieve
-
-        case .suggestMinsk,
-             .suggestEmpty,
-             .suggestSanFrancisco,
-             .suggestCategories,
-             .suggestWithCoordinates,
-             .suggestWithMixedCoordinates,
-             .suggestCategoryWithCoordinates,
-             .recursion:
-            return .suggest
-
-        case .retrieveSanFrancisco,
-             .retrieveCategory,
-             .retrieveMinsk,
-             .retrievePoi:
-            return .retrieve
-
-        case .reverseGeocoding:
-            return .reverse
-
-        case .multiRetrieve:
-            return .multiRetrieve
-
-        case .categoryCafe:
-            return .categoryCafe
-
-        case .categoryHotelSearchAlongRoute_JP:
-            return .categoryHotel
         }
     }
 }

@@ -2,15 +2,30 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-final class AddressAutofillIntegrationTests: MockServerTestCase {
+final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase {
     private var addressAutofill: AddressAutofill!
+    private let locationProvider = WrapperLocationProvider(wrapping: DefaultLocationProvider())
 
     override func setUp() {
         super.setUp()
 
-        addressAutofill = AddressAutofill(
+        let reporter = CoreUserActivityReporter.getOrCreate(
+            for: CoreUserActivityReporterOptions(
+                sdkInformation:
+                SdkInformation.defaultInfo,
+                eventsUrl: nil
+            )
+        )
+
+        let engine = LocalhostMockServiceProvider.shared.createEngine(
+            apiType: CoreSearchEngine.ApiType.autofill,
             accessToken: "access-token",
-            locationProvider: DefaultLocationProvider()
+            locationProvider: locationProvider
+        )
+
+        addressAutofill = AddressAutofill(
+            searchEngine: engine,
+            userActivityReporter: reporter
         )
     }
 
