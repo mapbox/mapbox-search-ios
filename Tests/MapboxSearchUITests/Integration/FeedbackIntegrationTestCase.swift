@@ -2,7 +2,7 @@ import XCTest
 
 // TODO: Analytics
 
-class FeedbackIntegrationTestCase: MockServerTestCase {
+class FeedbackIntegrationTestCase: MockServerUITestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
 
@@ -50,8 +50,6 @@ class FeedbackIntegrationTestCase: MockServerTestCase {
 
         let searchResult = app.mapboxSearchController.searchResultTableView
         waitForHittable(searchResult, message: "SearchResultTableView not hittable")
-
-        searchBar.swipeDown()
 
         let recentSearchTable = app.searchResultTableView
         let recentSearchCell = recentSearchTable.cells.firstMatch

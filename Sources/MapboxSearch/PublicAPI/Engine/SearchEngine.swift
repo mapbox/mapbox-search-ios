@@ -450,7 +450,7 @@ extension SearchEngine {
     /// - Parameters:
     ///   - options: Options with coordinates, mode, limits and query types for reverse geocoding.
     ///   - completion: completion handler with either reverse geocoding Resuts or Error.
-    public func reverseGeocoding(
+    public func reverse(
         options: ReverseGeocodingOptions,
         completion: @escaping (Result<[SearchResult], SearchError>) -> Void
     ) {

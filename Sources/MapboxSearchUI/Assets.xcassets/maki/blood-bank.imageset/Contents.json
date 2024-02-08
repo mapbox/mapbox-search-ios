@@ -1,1 +1,1 @@
-{"images":[{"filename":"blood-bank@1x.png","idiom":"universal","scale":"1x"},{"filename":"blood-bank@2x.png","idiom":"universal","scale":"2x"},{"filename":"blood-bank@3x.png","idiom":"universal","scale":"3x"}],"info":{"author":"generate_maki.sh","version":1}}
+{"images":[{"filename":"blood-bank.svg","idiom":"universal"}],"info":{"author":"xcode","version":1},"properties":{"preserves-vector-representation":true}}

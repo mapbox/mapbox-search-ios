@@ -32,7 +32,6 @@
   "testTargets" : [
     {
       "skippedTests" : [
-        "MockServerTestCase",
         "OfflineIntegrationTests"
       ],
       "target" : {
@@ -43,7 +42,6 @@
     },
     {
       "skippedTests" : [
-        "MockServerTestCase"
       ],
       "target" : {
         "containerPath" : "container:MapboxSearch.xcodeproj",
@@ -55,7 +53,6 @@
       "enabled" : false,
       "skippedTests" : [
         "BaseTestCase",
-        "MockServerTestCase"
       ],
       "target" : {
         "containerPath" : "container:MapboxSearch.xcodeproj",

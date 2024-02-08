@@ -1,1 +1,1 @@
-{"images":[{"filename":"heliport@1x.png","idiom":"universal","scale":"1x"},{"filename":"heliport@2x.png","idiom":"universal","scale":"2x"},{"filename":"heliport@3x.png","idiom":"universal","scale":"3x"}],"info":{"author":"generate_maki.sh","version":1}}
+{"images":[{"filename":"heliport.svg","idiom":"universal"}],"info":{"author":"xcode","version":1},"properties":{"preserves-vector-representation":true}}

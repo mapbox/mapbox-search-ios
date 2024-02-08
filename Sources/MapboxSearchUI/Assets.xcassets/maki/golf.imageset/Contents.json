@@ -1,1 +1,1 @@
-{"images":[{"filename":"golf@1x.png","idiom":"universal","scale":"1x"},{"filename":"golf@2x.png","idiom":"universal","scale":"2x"},{"filename":"golf@3x.png","idiom":"universal","scale":"3x"}],"info":{"author":"generate_maki.sh","version":1}}
+{"images":[{"filename":"golf.svg","idiom":"universal"}],"info":{"author":"xcode","version":1},"properties":{"preserves-vector-representation":true}}

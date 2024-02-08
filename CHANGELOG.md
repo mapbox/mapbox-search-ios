@@ -8,6 +8,13 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [SearchUI] Update Maki icons to all SVG, latest versions from https://github.com/mapbox/maki
+- [SearchUI] Remove all custom Maki icons
+- [Unit Tests] Update and correct tests for iOS 17 using all mocked data.
+- [UI Tests] Update and correct tests for iOS 17 using all mocked data.
+- [Search] Rename `SearchEngine.reverseGeocoding` function to `SearchEngine.reverse`.
+- [Core] Stop reading "MapboxAPIBaseURL" from UserDefaults in `ServiceProvider.createEngine`. (Providing a value in Info.plist is still supported).
+- [Core] Remove Swifter library dependency from MapboxSearch target (only used in Test targets)
 - [Core] Change AbstractSearchEngine.init `supportSBS: Bool = false` parameter to `apiType: ApiType = .SBS`. This changes the default API engine for discover/category and other API requests to SBS. Add ApiType enum to represent non-Autofill and non-PlaceAutocomplete SearchEngine API types.
 
 ## 2.0.0-rc.1

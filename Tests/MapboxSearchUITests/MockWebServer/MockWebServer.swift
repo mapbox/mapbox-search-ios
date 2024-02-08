@@ -7,12 +7,12 @@ final class MockWebServer {
     private let server = HttpServer()
 
     func setResponse(_ response: MockResponse, query: String? = nil, statusCode: Int = 200) throws {
-        let route = Self.path(for: response.endpoint)
-        let method = Self.httpMethod(for: response.endpoint)
+        let route = Self.path(for: response)
+        let method = Self.httpMethod(for: response)
 
         let response = HttpResponse.raw(statusCode, "mocked response", nil) { writer in
             try writer.write(
-                Data(contentsOf: URL(fileURLWithPath: response.path))
+                Data(contentsOf: URL(fileURLWithPath: response.filepath))
             )
         }
 
@@ -25,7 +25,7 @@ final class MockWebServer {
         }
     }
 
-    func setResponse(endpoint: MockResponse.Endpoint, query: String? = nil, body: String, statusCode: Int) {
+    func setResponse(endpoint: MockResponse, query: String? = nil, body: String, statusCode: Int) {
         let route = Self.path(for: endpoint)
         let method = Self.httpMethod(for: endpoint)
 
@@ -58,40 +58,77 @@ extension MockWebServer {
         case get, post
     }
 
-    fileprivate static func httpMethod(for endpoint: MockResponse.Endpoint) -> HTTPMethod {
-        switch endpoint {
-        case .suggest, .category, .reverse, .addressSuggest, .addressRetrieve:
+    fileprivate static func httpMethod(for response: MockResponse) -> HTTPMethod {
+        switch response {
+        case .suggestAddressSanFrancisco,
+             .retrieveAddressSanFrancisco,
+             .forwardGeocoding,
+             .suggestMinsk,
+             .suggestSanFrancisco,
+             .suggestEmpty,
+             .suggestCategories,
+             .suggestWithCoordinates,
+             .suggestWithMixedCoordinates,
+             .suggestCategoryWithCoordinates,
+             .recursion,
+             .reverseGeocoding,
+             .reverseGeocodingSBS,
+             .categoryCafe:
             return .get
 
-        case .retrieve, .multiRetrieve:
+        case .multiRetrieve,
+             .retrieveSanFrancisco,
+             .retrieveCategory,
+             .retrieveMinsk,
+             .retrievePoi:
             return .post
         }
     }
 
-    fileprivate static func path(for endpoint: MockResponse.Endpoint) -> String {
-        var path = "/search/v1/\(endpoint.rawValue)"
+    fileprivate static func path(for response: MockResponse) -> String {
+        var path = "/search/v1"
 
-        switch endpoint {
-        case .suggest:
-            path += "/:query"
-
-        case .category:
-            path += "/:category"
-
-        case .multiRetrieve:
-            break
-
-        case .reverse:
-            path += "/:coordinates"
-
-        case .retrieve:
-            break
-
-        case .addressSuggest:
+        switch response {
+        case .suggestAddressSanFrancisco:
             path = "/autofill/v1/suggest/:query"
 
-        case .addressRetrieve:
+        case .retrieveAddressSanFrancisco:
             path = "/autofill/v1/retrieve/:action.id"
+
+        case .forwardGeocoding:
+            path = "/geocoding/v5/mapbox.places/:query"
+
+        case .suggestMinsk:
+            path += "/suggest/Minsk"
+
+        case .suggestSanFrancisco:
+            path += "/suggest/San Francisco"
+
+        case .suggestEmpty,
+             .suggestCategories,
+             .suggestWithCoordinates,
+             .suggestWithMixedCoordinates,
+             .suggestCategoryWithCoordinates,
+             .recursion:
+            path += "/suggest/:query"
+
+        case .retrieveSanFrancisco,
+             .retrieveCategory,
+             .retrieveMinsk,
+             .retrievePoi:
+            path += "/retrieve"
+
+        case .reverseGeocoding:
+            path = "geocoding/v5/mapbox.places/:location"
+
+        case .reverseGeocodingSBS:
+            path += "/:coordinates"
+
+        case .multiRetrieve:
+            path += "/retrieve/multi"
+
+        case .categoryCafe:
+            path += "/category/:category"
         }
 
         return path
