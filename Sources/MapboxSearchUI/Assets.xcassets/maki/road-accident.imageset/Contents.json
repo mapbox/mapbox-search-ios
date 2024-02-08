@@ -1,1 +1,1 @@
-{"images":[{"filename":"road-accident@1x.png","idiom":"universal","scale":"1x"},{"filename":"road-accident@2x.png","idiom":"universal","scale":"2x"},{"filename":"road-accident@3x.png","idiom":"universal","scale":"3x"}],"info":{"author":"generate_maki.sh","version":1}}
+{"images":[{"filename":"road-accident.svg","idiom":"universal"}],"info":{"author":"xcode","version":1},"properties":{"preserves-vector-representation":true}}
