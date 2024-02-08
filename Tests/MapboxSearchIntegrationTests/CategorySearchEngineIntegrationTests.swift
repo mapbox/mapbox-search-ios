@@ -13,7 +13,7 @@ class CategorySearchEngineIntegrationTests: MockServerTestCase {
         try server.setResponse(.categoryCafe)
 
         let expectation = XCTestExpectation(description: "Expecting results")
-        searchEngine.search(categoryName: "ATM") { result in
+        searchEngine.search(categoryName: "cafe") { result in
             switch result {
             case .success(let searchResults):
                 XCTAssertFalse(searchResults.isEmpty)
@@ -30,7 +30,7 @@ class CategorySearchEngineIntegrationTests: MockServerTestCase {
         try server.setResponse(.categoryCafe, statusCode: 500)
 
         let expectation = XCTestExpectation(description: "Expecting failure")
-        searchEngine.search(categoryName: "ATM") { result in
+        searchEngine.search(categoryName: "cafe") { result in
             switch result {
             case .success:
                 XCTFail("Not expected")
