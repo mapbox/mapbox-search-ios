@@ -8,8 +8,11 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+
 - [Core] Updated to Xcode 14.1 minimum version
 - [Core] Updated deployment target to iOS 12
+
+- [Core] Remove Swifter library dependency from MapboxSearch target (only used in Test targets)
 
 - [Discover] Fix charging station category canonical ID
 
