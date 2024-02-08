@@ -490,25 +490,6 @@ extension SearchEngine {
             }
         }
     }
-
-    // MARK: - Deprecated functions
-
-    /// Reverse geocoding of coordinates to addresses.
-    /// The default behavior in reverse geocoding is to return at most one feature at each of the multiple levels of the
-    /// administrative hierarchy (for example, one address, one region, one country).
-    /// Increasing the limit allows returning multiple features of the same type, but only for one type (for example,
-    /// multiple address results).
-    /// Consequently, setting limit to a higher-than-default value requires specifying exactly one types parameter.
-    /// - Parameters:
-    ///   - options: Options with coordinates, mode, limits and query types for reverse geocoding.
-    ///   - completion: completion handler with either reverse geocoding Resuts or Error.
-    @available(*, deprecated, renamed: "reverse")
-    public func reverseGeocoding(
-        options: ReverseGeocodingOptions,
-        completion: @escaping (Result<[SearchResult], SearchError>) -> Void
-    ) {
-        reverse(options: options, completion: completion)
-    }
 }
 
 // MARK: - IndexableDataResolver

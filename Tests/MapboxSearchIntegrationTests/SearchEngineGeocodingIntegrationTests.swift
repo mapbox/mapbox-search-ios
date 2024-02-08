@@ -44,16 +44,10 @@ class SearchEngineGeocodingIntegrationTests: MockServerIntegrationTestCase {
         let expectation = XCTestExpectation()
         let options = ReverseGeocodingOptions(point: CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0))
         searchEngine.reverse(options: options) { result in
-            if case .failure(let error) = result {
-                if case .reverseGeocodingFailed(let reasonError as NSError, _) = error {
-                    XCTAssert(reasonError.code == 500)
-                } else {
-                    XCTFail("Not expected")
-                }
-            } else {
-                XCTFail("Not expected")
+            if case .failure(.reverseGeocodingFailed(let reasonError as NSError, _)) = result {
+                XCTAssert(reasonError.code == 500)
+                expectation.fulfill()
             }
-            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 10)
     }

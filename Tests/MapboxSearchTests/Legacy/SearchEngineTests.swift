@@ -72,7 +72,7 @@ class SearchEngineTests: XCTestCase {
         engine.searchResponse = coreResponse
         let expectation = XCTestExpectation()
         let point = CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0)
-        searchEngine.reverseGeocoding(options: .init(point: point)) { result in
+        searchEngine.reverse(options: .init(point: point)) { result in
             if case .success(let reverseGeocodingResults) = result {
                 XCTAssertEqual(results.map(\.id), reverseGeocodingResults.map(\.id))
             } else {
