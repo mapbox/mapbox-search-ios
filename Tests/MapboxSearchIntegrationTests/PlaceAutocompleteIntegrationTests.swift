@@ -2,15 +2,29 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
+final class PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase {
     private var placeAutocomplete: PlaceAutocomplete!
 
     override func setUp() {
         super.setUp()
 
-        placeAutocomplete = PlaceAutocomplete(
+        let reporter = CoreUserActivityReporter.getOrCreate(
+            for: CoreUserActivityReporterOptions(
+                accessToken: "access-token",
+                userAgent: "mapbox-search-ios-tests",
+                eventsUrl: nil
+            )
+        )
+
+        let engine = LocalhostMockServiceProvider.shared.createEngine(
+            apiType: CoreSearchEngine.ApiType.SBS,
             accessToken: "access-token",
-            locationProvider: DefaultLocationProvider()
+            locationProvider: WrapperLocationProvider(wrapping: DefaultLocationProvider())
+        )
+
+        placeAutocomplete = PlaceAutocomplete(
+            searchEngine: engine,
+            userActivityReporter: reporter
         )
     }
 
@@ -21,7 +35,7 @@ final class PlaceAutocompleteIntegrationTests: MockServerTestCase {
         try server.setResponse(.retrieveSanFrancisco)
 
         var suggestion: PlaceAutocomplete.Suggestion?
-        placeAutocomplete.suggestions(for: "query") { result in
+        placeAutocomplete.suggestions(for: "San Francisco") { result in
             switch result {
             case .success(let suggestions):
                 XCTAssertEqual(suggestions.count, 10)

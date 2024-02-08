@@ -8,6 +8,12 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Unit Tests] Update and correct tests for iOS 17 using all mocked data.
+- [UI Tests] Update and correct tests for iOS 17 using all mocked data.
+
+- [Search] Rename `SearchEngine.reverseGeocoding` function to `SearchEngine.reverse`.
+
+- [Core] Stop reading "MapboxAPIBaseURL" from UserDefaults in `ServiceProvider.createEngine`. (Providing a value in Info.plist is still supported).
 
 - [Core] Updated to Xcode 14.1 minimum version
 - [Core] Updated deployment target to iOS 12
