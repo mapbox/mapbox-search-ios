@@ -2,7 +2,7 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-class MockServerTestCase: XCTestCase {
+class MockServerIntegrationTestCase: XCTestCase {
     let server = MockWebServer()
 
     func setServerResponse(_ response: MockResponse, query: String? = nil) throws {
@@ -12,7 +12,7 @@ class MockServerTestCase: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
 
-        UserDefaults.standard.setValue(server.endpoint, forKey: "MapboxAPIBaseURL")
+        LocalhostMockServiceProvider.customBaseURL = server.endpoint
 
         try server.start()
     }

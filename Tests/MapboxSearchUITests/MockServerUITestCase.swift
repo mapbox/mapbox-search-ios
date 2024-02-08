@@ -1,6 +1,6 @@
 import Foundation
 
-class MockServerTestCase: BaseTestCase {
+class MockServerUITestCase: BaseTestCase {
     let server = MockWebServer()
 
     override func setUpWithError() throws {

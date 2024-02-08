@@ -6,6 +6,8 @@ class BaseTestCase: XCTestCase {
     var app: XCUIApplication!
 
     override func setUpWithError() throws {
+        try super.setUpWithError()
+
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments.append("--uitesting")
