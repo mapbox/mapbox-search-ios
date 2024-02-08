@@ -27,11 +27,21 @@ public typealias FavoritesProvider = LocalDataProvider<FavoriteRecord>
 /// Built-in local data provider for ``HistoryRecord`` data.
 public typealias HistoryProvider = LocalDataProvider<HistoryRecord>
 
+// MARK: - ServiceProvider
+
 /// Services provider for SearchEngine
 public class ServiceProvider: ServiceProviderProtocol {
-    /// Customize API host URL
+    /// Customize API host URL with a value from the Info.plist
+    /// Also supports reading a process argument when in non-Release UITest builds
     public static var customBaseURL: String? {
-        Bundle.main.object(forInfoDictionaryKey: baseURLPlistKey) as? String
+#if !RELEASE
+        if ProcessInfo.processInfo.arguments.contains(where: { $0 == "--uitesting" }) {
+            let testingBaseUrl = ProcessInfo.processInfo.environment["search_endpoint"]
+            return testingBaseUrl
+        }
+#endif
+
+        return Bundle.main.object(forInfoDictionaryKey: baseURLPlistKey) as? String
     }
 
     /// LocalDataProvider for favorites records
@@ -60,15 +70,10 @@ extension ServiceProvider: EngineProviderProtocol {
         accessToken: String,
         locationProvider: CoreLocationProvider?
     ) -> CoreSearchEngineProtocol {
-        // UserDefaults can be used to setup base url in runtime (e.g. UI tests)
-        // UserDefaults can be used to setup base url in runtime (e.g. UI tests)
-        let defaultsBaseURL = UserDefaults.standard.value(forKey: baseURLPlistKey) as? String
-        let bundleBaseURL = Bundle.main.object(forInfoDictionaryKey: baseURLPlistKey) as? String
-
         MapboxOptions.accessToken = accessToken
 
         let engineOptions = CoreSearchEngine.Options(
-            baseUrl: bundleBaseURL ?? defaultsBaseURL,
+            baseUrl: Self.customBaseURL,
             apiType: NSNumber(value: apiType.rawValue),
             sdkInformation: SdkInformation.defaultInfo,
             eventsUrl: nil

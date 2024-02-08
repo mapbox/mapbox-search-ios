@@ -1,0 +1,76 @@
+{
+  "type": "FeatureCollection",
+  "query": [
+    "san",
+    "francisco"
+  ],
+  "features": [
+    {
+      "id": "place.292358380",
+      "type": "Feature",
+      "place_type": [
+        "place"
+      ],
+      "relevance": 1,
+      "properties": {
+        "mapbox_id": "dXJuOm1ieHBsYzpFVzBJN0E",
+        "wikidata": "Q62"
+      },
+      "text_en": "San Francisco",
+      "language_en": "en",
+      "place_name_en": "San Francisco, California, United States",
+      "text": "San Francisco",
+      "language": "en",
+      "place_name": "San Francisco, California, United States",
+      "bbox": [
+        -122.5446375,
+        37.670769,
+        -122.3010701,
+        37.8664883
+      ],
+      "center": [
+        -122.419359,
+        37.7792376
+      ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.419359,
+          37.7792376
+        ]
+      },
+      "context": [
+        {
+          "id": "district.20547308",
+          "mapbox_id": "dXJuOm1ieHBsYzpBVG1HN0E",
+          "wikidata": "Q62",
+          "text_en": "San Francisco",
+          "language_en": "en",
+          "text": "San Francisco",
+          "language": "en"
+        },
+        {
+          "id": "region.419052",
+          "mapbox_id": "dXJuOm1ieHBsYzpCbVRz",
+          "wikidata": "Q99",
+          "short_code": "US-CA",
+          "text_en": "California",
+          "language_en": "en",
+          "text": "California",
+          "language": "en"
+        },
+        {
+          "id": "country.8940",
+          "mapbox_id": "dXJuOm1ieHBsYzpJdXc",
+          "wikidata": "Q30",
+          "short_code": "us",
+          "text_en": "United States",
+          "language_en": "en",
+          "text": "United States",
+          "language": "en"
+        }
+      ]
+    }
+  ],
+  "attribution": "NOTICE: © 2024 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/). This response and the information it contains may not be retained. POI(s) provided by Foursquare."
+}

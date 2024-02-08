@@ -638,14 +638,14 @@ extension MapboxSearchController: SearchCategoriesRootViewDelegate {
     }
 
     func userSelectedCategory(_ category: SearchCategory) {
-        let categoryName = categorySearchEngine.supportSBS ? category.canonicalId : category.legacyName
+        let categoryName = categorySearchEngine.apiType == .geocoding ? category.legacyName : category.canonicalId
 
         categorySearchEngine.search(categoryName: categoryName, options: categorySearchOptions) { results in
             switch results {
             case .success(let items):
                 self.delegate?.categorySearchResultsReceived(category: category, results: items)
             case .failure(let searchError):
-                print("Failed search; error=\(searchError)")
+                _Logger.searchSDK.error("Failed search; error=\(searchError)")
                 self.presentSearchError(searchError)
             }
             self.mapboxPanelController?.setState(.collapsed, animated: true)

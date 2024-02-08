@@ -2,16 +2,19 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-class SearchEngineIntegrationTests: MockServerTestCase {
+class SearchEngineIntegrationTests: MockServerIntegrationTestCase {
     let delegate = SearchEngineDelegateStub()
-    lazy var searchEngine = SearchEngine(
-        accessToken: "access-token",
-        locationProvider: DefaultLocationProvider(),
-        supportSBS: true
-    )
+    var searchEngine: SearchEngine!
 
-    override func setUpWithError() throws {
-        try super.setUpWithError()
+    override func setUp() {
+        super.setUp()
+
+        searchEngine = SearchEngine(
+            accessToken: "access-token",
+            serviceProvider: LocalhostMockServiceProvider.shared,
+            locationProvider: DefaultLocationProvider(),
+            apiType: .SBS
+        )
 
         searchEngine.delegate = delegate
     }
@@ -27,7 +30,7 @@ class SearchEngineIntegrationTests: MockServerTestCase {
     }
 
     func testSearchBrokenResponse() throws {
-        server.setResponse(endpoint: .suggest, body: "This is so sad!", statusCode: 200)
+        server.setResponse(endpoint: .suggestEmpty, body: "This is so sad!", statusCode: 200)
         let expectation = delegate.errorExpectation
         searchEngine.search(query: "some query")
         wait(for: [expectation], timeout: 10)
@@ -73,55 +76,17 @@ class SearchEngineIntegrationTests: MockServerTestCase {
         XCTAssertNil(delegate.error)
     }
 
-    func testReverseGeocodingSearch() throws {
-        try server.setResponse(.reverseGeocoding)
-
-        let expectation = XCTestExpectation()
-        let options = ReverseGeocodingOptions(point: CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0))
-
-        searchEngine.reverseGeocoding(options: options) { result in
-            if case .success(let reverseGeocodingResults) = result {
-                XCTAssertFalse(reverseGeocodingResults.isEmpty)
-            } else {
-                XCTFail("No resolved result")
-            }
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 10)
-    }
-
-    func testReverseGeocodingSearchFailed() throws {
-        try server.setResponse(.reverseGeocoding, statusCode: 500)
-
-        let expectation = XCTestExpectation()
-        let options = ReverseGeocodingOptions(point: CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0))
-        searchEngine.reverseGeocoding(options: options) { result in
-            if case .failure(let error) = result {
-                if case .reverseGeocodingFailed(let reasonError as NSError, _) = error {
-                    XCTAssert(reasonError.code == 500)
-                } else {
-                    XCTFail("Not expected")
-                }
-            } else {
-                XCTFail("Not expected")
-            }
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 10)
-    }
-
     func testResolvedSearchResult() throws {
         try server.setResponse(.suggestMinsk)
         try server.setResponse(.retrieveMinsk)
 
         let updateExpectation = delegate.updateExpectation
-        searchEngine.search(query: "sample-1")
+        searchEngine.search(query: "Minsk")
         wait(for: [updateExpectation], timeout: 10)
         XCTAssertFalse(searchEngine.suggestions.isEmpty)
 
         let successExpectation = delegate.successExpectation
-        let selectedResult = searchEngine.suggestions.first!
+        let selectedResult = try XCTUnwrap(searchEngine.suggestions.first)
         searchEngine.select(suggestion: selectedResult)
 
         wait(for: [successExpectation], timeout: 10)
@@ -134,15 +99,15 @@ class SearchEngineIntegrationTests: MockServerTestCase {
         try server.setResponse(.suggestMinsk)
         try server.setResponse(.retrieveMinsk)
 
-        searchEngine.search(query: "Mapbox")
+        searchEngine.search(query: "Minsk")
 
         let updateExpectation = delegate.updateExpectation
         wait(for: [updateExpectation], timeout: 10)
 
         XCTAssertFalse(searchEngine.suggestions.isEmpty)
-        let selectedResult = searchEngine.suggestions.first!
+        let selectedResult = try XCTUnwrap(searchEngine.suggestions.first)
 
-        searchEngine.search(query: "Mapbo")
+        searchEngine.search(query: "Min")
         searchEngine.select(suggestion: selectedResult)
 
         let successExpectation = delegate.successExpectation
@@ -157,12 +122,12 @@ class SearchEngineIntegrationTests: MockServerTestCase {
         try server.setResponse(.retrieveMinsk, statusCode: 500)
 
         let updateExpectation = delegate.updateExpectation
-        searchEngine.search(query: "sample-1")
+        searchEngine.search(query: "Minsk")
         wait(for: [updateExpectation], timeout: 10)
         XCTAssertFalse(searchEngine.suggestions.isEmpty)
 
         let errorExpectation = delegate.errorExpectation
-        let selectedResult = searchEngine.suggestions.first!
+        let selectedResult = try XCTUnwrap(searchEngine.suggestions.first)
         searchEngine.select(suggestion: selectedResult)
         wait(for: [errorExpectation], timeout: 10)
 

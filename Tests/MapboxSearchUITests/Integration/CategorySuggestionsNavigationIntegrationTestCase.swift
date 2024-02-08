@@ -1,7 +1,6 @@
-
 import XCTest
 
-class CategorySuggestionsNavigationIntegrationTestCase: MockServerTestCase {
+class CategorySuggestionsNavigationIntegrationTestCase: MockServerUITestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         app.launch()

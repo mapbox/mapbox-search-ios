@@ -43,7 +43,14 @@ class HotCategoryButton: UIControl {
     private func updateUI() {
         textLabel.text = category.name
         categoryButton.accessibilityIdentifier = "HotCategoryButton." + category.legacyName
-        categoryButton.setImage(category.icon?.withRenderingMode(.alwaysTemplate), for: .normal)
+        let image = category.icon?
+            .withRenderingMode(.alwaysTemplate)
+        categoryButton.setImage(image, for: .normal)
+
+        categoryButton.contentHorizontalAlignment = .fill
+        categoryButton.contentVerticalAlignment = .fill
+        categoryButton.imageView?.contentMode = .scaleAspectFit
+        categoryButton.imageEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
 
         textLabel.textColor = configuration.style.primaryTextColor
         categoryButton.backgroundColor = configuration.style.secondaryBackgroundColor
