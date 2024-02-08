@@ -5,7 +5,7 @@ import UIKit
 /// Category entity to present on MapboxSearchController UI
 extension MapboxSearch.Category.Item {
     /// Category icon from embedded bundle
-    public var icon: UIImage? { UIImage(named: iconName, in: .mapboxSearchUI, compatibleWith: nil) }
+    public var icon: UIImage? { UIImage(named: iconName.name, in: .mapboxSearchUI, compatibleWith: nil) }
 
     /// Make a category with existing name. Icon and metadata would be hooked from sdk bundle
     /// - Parameter name: Category name from embedded catalog
@@ -20,15 +20,21 @@ extension MapboxSearch.Category.Item {
         legacyName: String,
         iconName: String
     ) -> SearchCategory {
-        let existingCategory = CategoriesProvider.shared.categories.first(where: { $0.canonicalId == canonicalId &&
+        let existingCategory = CategoriesProvider.shared.categories.first(where: {
+            $0.canonicalId == canonicalId &&
                 $0.name == name &&
-                $0.iconName == iconName &&
+                $0.iconName.name == iconName &&
                 $0.legacyName == legacyName
         })
         if let existingCategory {
             return existingCategory
         }
 
-        return SearchCategory(canonicalId: canonicalId, name: name, legacyName: legacyName, iconName: iconName)
+        return SearchCategory(
+            canonicalId: canonicalId,
+            name: name,
+            legacyName: legacyName,
+            iconName: Maki(rawValue: iconName) ?? .marker
+        )
     }
 }

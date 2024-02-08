@@ -3,7 +3,7 @@
 // swiftformat:disable:next redundantRawValues
 /// Represents static enumeration for all available icons in Mapbox [Maki icon set](https://github.com/mapbox/maki/).
 /// Kebab-case was replaced with camelCase.
-public enum Maki: String, CaseIterable, Codable {
+public enum Maki: String, CaseIterable, Codable, Equatable {
     /// Maki icon "aerialway"
     case aerialway
     /// Maki icon "airfield"

@@ -1,7 +1,12 @@
 import UIKit
 
 extension SearchCategory {
-    static let empty = SearchCategory(canonicalId: "", name: "?", legacyName: "unknown", iconName: "unknown icon")
+    static let empty = SearchCategory(
+        canonicalId: "",
+        name: "?",
+        legacyName: "unknown",
+        iconName: Maki.marker
+    )
 }
 
 class HotCategoryButton: UIControl {
