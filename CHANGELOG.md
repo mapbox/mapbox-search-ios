@@ -9,6 +9,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 <!-- Add changes for active work here -->
 
 - [Discover] Add support for country, proximity, and origin parameters in Discover.Options search parameters. This fixes an issue when using search-along-route to query category results.
+
+- [SearchUI] Update Maki icons to all SVG, latest versions from https://github.com/mapbox/maki
+- [SearchUI] Remove all custom Maki icons
 - [Unit Tests] Update and correct tests for iOS 17 using all mocked data.
 - [UI Tests] Update and correct tests for iOS 17 using all mocked data.
 - [Search] Rename `SearchEngine.reverseGeocoding` function to `SearchEngine.reverse`.
