@@ -46,7 +46,10 @@ let package = Package(
         .target(
             name: "MapboxSearchUI",
             dependencies: ["MapboxSearch"],
-            exclude: ["Info.plist", "Resources-Info.plist"]
+            exclude: ["Info.plist", "Resources-Info.plist"],
+            resources: [
+                .copy("Resources/PrivacyInfo.xcprivacy"),
+            ]
         ),
 
         coreSearchTarget(
