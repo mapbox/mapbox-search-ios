@@ -644,7 +644,6 @@
 		FE114D8824C1A86A001B2CE8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		FE114D8924C1A86A001B2CE8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FE114D8A24C1A86A001B2CE8 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
-		FE114D8B24C1A86A001B2CE8 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
 		FE114D8C24C1A873001B2CE8 /* MapboxSearchUI.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = MapboxSearchUI.podspec; sourceTree = "<group>"; };
 		FE114D8D24C1A873001B2CE8 /* MapboxSearch.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = MapboxSearch.podspec; sourceTree = "<group>"; };
 		FE114D8E24C1A880001B2CE8 /* Gemfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Gemfile; sourceTree = "<group>"; };
@@ -1504,7 +1503,6 @@
 				FE114D8624C1A86A001B2CE8 /* .swift-version */,
 				FE114D8A24C1A86A001B2CE8 /* .swiftformat */,
 				FE114D8924C1A86A001B2CE8 /* .swiftlint.yml */,
-				FE114D8B24C1A86A001B2CE8 /* .travis.yml */,
 				FE114D8724C1A86A001B2CE8 /* Cartfile */,
 				FE114D8F24C1A880001B2CE8 /* CODEOWNERS */,
 				FE114D8E24C1A880001B2CE8 /* Gemfile */,
