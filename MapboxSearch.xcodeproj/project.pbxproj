@@ -498,6 +498,13 @@
 		04C127572B62FFDB00884325 /* ApiType+Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiType+Core.swift"; sourceTree = "<group>"; };
 		04E5FF952B48828500DADC18 /* SearchAddressCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressCountry.swift; sourceTree = "<group>"; };
 		04E5FF982B48829200DADC18 /* SearchAddressRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressRegion.swift; sourceTree = "<group>"; };
+		04E84CFD2B768EDA0056C269 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		04E84CFE2B768EDA0056C269 /* Brewfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Brewfile; sourceTree = "<group>"; };
+		04E84D012B768F210056C269 /* Pluginfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Pluginfile; sourceTree = "<group>"; };
+		04E84D022B768F210056C269 /* Appfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Appfile; sourceTree = "<group>"; };
+		04E84D032B768F210056C269 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fastfile; sourceTree = "<group>"; };
+		04E84D042B768F210056C269 /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
+		04E84D052B768F210056C269 /* Matchfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Matchfile; sourceTree = "<group>"; };
 		140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAccuracy.swift; sourceTree = "<group>"; };
 		140E47A1298BC90E00677E30 /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
 		140E47A4298BC94D00677E30 /* Discover+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discover+Options.swift"; sourceTree = "<group>"; };
@@ -923,6 +930,18 @@
 				04E5FF982B48829200DADC18 /* SearchAddressRegion.swift */,
 			);
 			path = Region;
+			sourceTree = "<group>";
+		};
+		04E84D002B768F210056C269 /* .fastlane */ = {
+			isa = PBXGroup;
+			children = (
+				04E84D012B768F210056C269 /* Pluginfile */,
+				04E84D022B768F210056C269 /* Appfile */,
+				04E84D032B768F210056C269 /* Fastfile */,
+				04E84D042B768F210056C269 /* .env */,
+				04E84D052B768F210056C269 /* Matchfile */,
+			);
+			path = .fastlane;
 			sourceTree = "<group>";
 		};
 		140E47A0298BC8F800677E30 /* Discover API */ = {
@@ -1498,6 +1517,9 @@
 		FE114D8524C1A857001B2CE8 /* Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				04E84D002B768F210056C269 /* .fastlane */,
+				04E84CFE2B768EDA0056C269 /* Brewfile */,
+				04E84CFD2B768EDA0056C269 /* CHANGELOG.md */,
 				FE529611253704F900F61A0F /* .circleci */,
 				FE114D8824C1A86A001B2CE8 /* .gitignore */,
 				FE114D8624C1A86A001B2CE8 /* .swift-version */,
