@@ -1,4 +1,3 @@
-import CoreLocation
 import MapboxSearch
 import UIKit
 

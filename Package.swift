@@ -38,6 +38,9 @@ let package = Package(
                 "MapboxCommon",
             ],
             exclude: ["Info.plist"],
+            resources: [
+                .copy("Resources/PrivacyInfo.xcprivacy"),
+            ],
             linkerSettings: [.linkedLibrary("c++")]
         ),
         .target(
