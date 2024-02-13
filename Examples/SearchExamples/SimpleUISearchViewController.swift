@@ -1,11 +1,17 @@
 import MapboxMaps
 import MapboxSearchUI
+import MapKit
 import UIKit
 
 class SimpleUISearchViewController: MapsViewController {
     lazy var searchController: MapboxSearchController = {
         let locationProvider = PointLocationProvider(coordinate: .sanFrancisco)
-        var configuration = Configuration(locationProvider: locationProvider)
+        let formatter = MKDistanceFormatter()
+        formatter.unitStyle = .abbreviated
+        var configuration = Configuration(
+            locationProvider: locationProvider,
+            distanceFormatter: formatter
+        )
 
         return MapboxSearchController(configuration: configuration)
     }()
