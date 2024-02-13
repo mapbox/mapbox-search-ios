@@ -8,6 +8,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Core] Add xcprivacy for MapboxSearch and MapboxSearchUI
+
 - [Unit Tests] Update and correct tests for iOS 17 using all mocked data.
 - [UI Tests] Update and correct tests for iOS 17 using all mocked data.
 
