@@ -10,6 +10,10 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 - [Discover] Add support for country, proximity, and origin parameters in Discover.Options search parameters. This fixes an issue when using search-along-route to query category results.
 
+- [SearchUI] Add `distanceFormatter` field to Configuration to support changing the search suggestions distance format. Nil values will use the default behavior.
+
+- [Core] Add xcprivacy for MapboxSearch and MapboxSearchUI
+
 - [SearchUI] Update Maki icons to all SVG, latest versions from https://github.com/mapbox/maki
 - [SearchUI] Remove all custom Maki icons
 - [Unit Tests] Update and correct tests for iOS 17 using all mocked data.

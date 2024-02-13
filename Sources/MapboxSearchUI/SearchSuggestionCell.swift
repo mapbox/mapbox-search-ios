@@ -95,7 +95,12 @@ class SearchSuggestionCell: UITableViewCell {
         ) == .orderedSame
         populateSuggestionButton.isHidden = resultNameSameAsQuery
 
-        if let distanceString = suggestion.distance.map(SearchSuggestionCell.distanceFormatter.string) {
+        if let distanceFormatter = configuration.distanceFormatter,
+           let distanceString = suggestion.distance.map(distanceFormatter.string)
+        {
+            distanceLabel.text = distanceString
+            distanceLabel.isHidden = false
+        } else if let distanceString = suggestion.distance.map(SearchSuggestionCell.distanceFormatter.string) {
             distanceLabel.text = distanceString
             distanceLabel.isHidden = false
         } else {
