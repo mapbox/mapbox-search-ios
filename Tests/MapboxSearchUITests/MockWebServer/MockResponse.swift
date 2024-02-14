@@ -19,7 +19,7 @@ protocol MockResponse {
     static var coreApiType: CoreSearchEngine.ApiType { get }
 }
 
-enum LegacyResponse: MockResponse {
+enum GeocodingMockResponse: MockResponse {
     case suggestEmpty
     case suggestMinsk
     case suggestSanFrancisco

@@ -1,7 +1,7 @@
 import Foundation
 
 class MockServerUITestCase: BaseTestCase {
-    let server = MockWebServer<LegacyResponse>()
+    let server = MockWebServer<GeocodingMockResponse>()
 
     override func setUpWithError() throws {
         try super.setUpWithError()

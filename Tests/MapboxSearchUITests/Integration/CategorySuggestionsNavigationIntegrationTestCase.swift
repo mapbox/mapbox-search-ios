@@ -5,8 +5,8 @@ class CategorySuggestionsNavigationIntegrationTestCase: MockServerUITestCase {
         try super.setUpWithError()
         app.launch()
 
-        try server.setResponse(LegacyResponse.suggestCategories)
-        try server.setResponse(LegacyResponse.retrieveCategory)
+        try server.setResponse(GeocodingMockResponse.suggestCategories)
+        try server.setResponse(GeocodingMockResponse.retrieveCategory)
     }
 
     func testCancelCategorySuggestionsSearch() {

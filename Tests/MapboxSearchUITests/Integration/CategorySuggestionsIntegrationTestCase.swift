@@ -1,13 +1,13 @@
 
 import XCTest
 
-class CategorySuggestionsIntegrationTestCase: MockServerUITestCase {
+class CategorySuggestionsIntegrationTestCase: MockServerUITestCase<SBSMockResponse> {
     override func setUpWithError() throws {
         try super.setUpWithError()
         app.launch()
 
-        try server.setResponse(LegacyResponse.suggestCategories)
-        try server.setResponse(LegacyResponse.retrieveCategory)
+        try server.setResponse(SBSMockResponse.suggestCategories)
+        try server.setResponse(SBSMockResponse.retrieveCategory)
     }
 
     func testCafeCategorySuggestions() throws {
