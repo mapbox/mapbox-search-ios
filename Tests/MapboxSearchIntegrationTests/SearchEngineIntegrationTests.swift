@@ -2,7 +2,7 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-class SearchEngineIntegrationTests: MockServerIntegrationTestCase {
+class SearchEngineIntegrationTests: MockServerIntegrationTestCase<LegacyResponse> {
     let delegate = SearchEngineDelegateStub()
     var searchEngine: SearchEngine!
 

@@ -6,7 +6,7 @@ import MapboxCommon
 @testable import MapboxSearch
 import XCTest
 
-class OfflineIntegrationTests: MockServerIntegrationTestCase {
+class OfflineIntegrationTests: MockServerIntegrationTestCase<LegacyResponse> {
     let delegate = SearchEngineDelegateStub()
     let searchEngine = SearchEngine()
 

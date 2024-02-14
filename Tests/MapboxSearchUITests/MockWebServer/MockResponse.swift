@@ -1,11 +1,12 @@
 import Foundation
+import Swifter
 
 protocol MockResponse {
     /// Resource from test bundle containing response JSON.
     var filepath: String { get }
 
     /// HTTP Method used for this request, "GET" or "POST".
-    var httpMethod: MockWebServer.HTTPMethod { get }
+    var httpMethod: HttpServer.HTTPMethod { get }
 
     /// URL path for this request.
     var path: String { get }
@@ -35,7 +36,7 @@ enum LegacyResponse: MockResponse {
     case categoryCafe
 
     var filepath: String {
-        let bundle = Bundle(for: MockWebServer.self)
+        let bundle = Bundle(for: MockWebServer<Self>.self)
         switch self {
         case .suggestEmpty:
             return bundle.path(forResource: "suggestions-empty", ofType: "json")!
@@ -127,7 +128,7 @@ enum LegacyResponse: MockResponse {
         return path
     }
 
-    var httpMethod: MockWebServer.HTTPMethod {
+    var httpMethod: HttpServer.HTTPMethod {
         switch self {
         case .suggestAddressSanFrancisco,
              .retrieveAddressSanFrancisco,

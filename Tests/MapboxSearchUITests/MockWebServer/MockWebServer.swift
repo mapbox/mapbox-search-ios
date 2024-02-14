@@ -51,7 +51,7 @@ final class MockWebServer<Mock: MockResponse> {
     }
 }
 
-extension MockWebServer {
+extension HttpServer {
     enum HTTPMethod {
         case get, post
     }

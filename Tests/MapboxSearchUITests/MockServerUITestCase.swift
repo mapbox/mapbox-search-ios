@@ -1,7 +1,7 @@
 import Foundation
 
 class MockServerUITestCase: BaseTestCase {
-    let server = MockWebServer()
+    let server = MockWebServer<LegacyResponse>()
 
     override func setUpWithError() throws {
         try super.setUpWithError()

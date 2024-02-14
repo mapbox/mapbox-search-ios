@@ -2,7 +2,7 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase {
+final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase<LegacyResponse> {
     private var addressAutofill: AddressAutofill!
     private let locationProvider = WrapperLocationProvider(wrapping: DefaultLocationProvider())
 
