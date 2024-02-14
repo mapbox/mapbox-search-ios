@@ -1,6 +1,17 @@
 import Foundation
 
-enum MockResponse {
+protocol MockResponse {
+    /// Resource from test bundle containing response JSON.
+    var filepath: String { get }
+
+    /// HTTP Method used for this request, "GET" or "POST".
+    var httpMethod: MockWebServer.HTTPMethod { get }
+
+    /// URL path for this request.
+    var path: String { get }
+}
+
+enum LegacyResponse: MockResponse {
     case suggestEmpty
     case suggestMinsk
     case suggestSanFrancisco
@@ -64,6 +75,82 @@ enum MockResponse {
             return bundle.path(forResource: "address-suggestions-san-francisco", ofType: "json")!
         case .retrieveAddressSanFrancisco:
             return bundle.path(forResource: "address-retrieve-san-francisco", ofType: "json")!
+        }
+    }
+
+    var path: String {
+        var path = "/search/v1"
+
+        switch self {
+        case .suggestAddressSanFrancisco:
+            path = "/autofill/v1/suggest/:query"
+
+        case .retrieveAddressSanFrancisco:
+            path = "/autofill/v1/retrieve/:action.id"
+
+        case .forwardGeocoding:
+            path = "/geocoding/v5/mapbox.places/:query"
+
+        case .suggestMinsk:
+            path += "/suggest/Minsk"
+
+        case .suggestSanFrancisco:
+            path += "/suggest/San Francisco"
+
+        case .suggestEmpty,
+             .suggestCategories,
+             .suggestWithCoordinates,
+             .suggestWithMixedCoordinates,
+             .suggestCategoryWithCoordinates,
+             .recursion:
+            path += "/suggest/:query"
+
+        case .retrieveSanFrancisco,
+             .retrieveCategory,
+             .retrieveMinsk,
+             .retrievePoi:
+            path += "/retrieve"
+
+        case .reverseGeocoding:
+            path = "geocoding/v5/mapbox.places/:location"
+
+        case .reverseGeocodingSBS:
+            path += "/:coordinates"
+
+        case .multiRetrieve:
+            path += "/retrieve/multi"
+
+        case .categoryCafe:
+            path += "/category/:category"
+        }
+
+        return path
+    }
+
+    var httpMethod: MockWebServer.HTTPMethod {
+        switch self {
+        case .suggestAddressSanFrancisco,
+             .retrieveAddressSanFrancisco,
+             .forwardGeocoding,
+             .suggestMinsk,
+             .suggestSanFrancisco,
+             .suggestEmpty,
+             .suggestCategories,
+             .suggestWithCoordinates,
+             .suggestWithMixedCoordinates,
+             .suggestCategoryWithCoordinates,
+             .recursion,
+             .reverseGeocoding,
+             .reverseGeocodingSBS,
+             .categoryCafe:
+            return .get
+
+        case .multiRetrieve,
+             .retrieveSanFrancisco,
+             .retrieveCategory,
+             .retrieveMinsk,
+             .retrievePoi:
+            return .post
         }
     }
 }

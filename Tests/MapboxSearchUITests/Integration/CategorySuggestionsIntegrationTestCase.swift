@@ -6,8 +6,8 @@ class CategorySuggestionsIntegrationTestCase: MockServerUITestCase {
         try super.setUpWithError()
         app.launch()
 
-        try server.setResponse(.suggestCategories)
-        try server.setResponse(.retrieveCategory)
+        try server.setResponse(LegacyResponse.suggestCategories)
+        try server.setResponse(LegacyResponse.retrieveCategory)
     }
 
     func testCafeCategorySuggestions() throws {

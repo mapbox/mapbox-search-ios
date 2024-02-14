@@ -5,7 +5,7 @@ import XCTest
 class MockServerIntegrationTestCase: XCTestCase {
     let server = MockWebServer()
 
-    func setServerResponse(_ response: MockResponse, query: String? = nil) throws {
+    func setServerResponse(_ response: LegacyResponse, query: String? = nil) throws {
         try server.setResponse(response, query: query)
     }
 

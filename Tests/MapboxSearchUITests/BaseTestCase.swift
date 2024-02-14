@@ -1,5 +1,6 @@
 import XCTest
 
+/// UI tests will always use the recommended API engine type for each provided SearchEngine and SearchEngine samples.
 class BaseTestCase: XCTestCase {
     static let defaultTimeout: TimeInterval = 10.0
 
