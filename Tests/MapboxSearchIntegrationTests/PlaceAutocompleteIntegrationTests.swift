@@ -2,7 +2,7 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-final class PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase<LegacyResponse> {
+final class PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
     private var placeAutocomplete: PlaceAutocomplete!
 
     override func setUp() {
