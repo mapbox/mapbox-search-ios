@@ -77,19 +77,14 @@ enum SBSMockResponse: MockResponse {
     case suggestWithCoordinates
     case suggestWithMixedCoordinates
     case suggestCategoryWithCoordinates
-    case suggestAddressSanFrancisco
 
     case retrieveSanFrancisco
     case retrieveMinsk
     case retrieveCategory
     case retrievePoi
     case multiRetrieve
-    case retrieveAddressSanFrancisco
 
     case recursion
-    case forwardGeocoding
-    case reverseGeocoding
-    case reverseGeocodingSBS
     case categoryCafe
 
     var filepath: String {
@@ -119,20 +114,10 @@ enum SBSMockResponse: MockResponse {
             return bundle.path(forResource: "retrieve-poi", ofType: "json")!
         case .recursion:
             return bundle.path(forResource: "recursion", ofType: "json")!
-        case .reverseGeocodingSBS:
-            return bundle.path(forResource: "reverse-geocoding-sbs", ofType: "json")!
-        case .reverseGeocoding:
-            return bundle.path(forResource: "geocoding-reverse-geocoding", ofType: "json")!
-        case .forwardGeocoding:
-            return bundle.path(forResource: "mapbox.places.san.francisco", ofType: "json")!
         case .multiRetrieve:
             return bundle.path(forResource: "retrieve-multi", ofType: "json")!
         case .categoryCafe:
             return bundle.path(forResource: "category-cafe", ofType: "json")!
-        case .suggestAddressSanFrancisco:
-            return bundle.path(forResource: "address-suggestions-san-francisco", ofType: "json")!
-        case .retrieveAddressSanFrancisco:
-            return bundle.path(forResource: "address-retrieve-san-francisco", ofType: "json")!
         }
     }
 
@@ -140,15 +125,6 @@ enum SBSMockResponse: MockResponse {
         var path = "/search/v1"
 
         switch self {
-        case .suggestAddressSanFrancisco:
-            path = "/autofill/v1/suggest/:query"
-
-        case .retrieveAddressSanFrancisco:
-            path = "/autofill/v1/retrieve/:action.id"
-
-        case .forwardGeocoding:
-            path = "/geocoding/v5/mapbox.places/:query"
-
         case .suggestMinsk:
             path += "/suggest/Minsk"
 
@@ -159,8 +135,8 @@ enum SBSMockResponse: MockResponse {
              .suggestCategories,
              .suggestWithCoordinates,
              .suggestWithMixedCoordinates,
-             .suggestCategoryWithCoordinates,
-             .recursion:
+             .recursion,
+             .suggestCategoryWithCoordinates:
             path += "/suggest/:query"
 
         case .retrieveSanFrancisco,
@@ -168,12 +144,6 @@ enum SBSMockResponse: MockResponse {
              .retrieveMinsk,
              .retrievePoi:
             path += "/retrieve"
-
-        case .reverseGeocoding:
-            path = "geocoding/v5/mapbox.places/:location"
-
-        case .reverseGeocodingSBS:
-            path += "/:coordinates"
 
         case .multiRetrieve:
             path += "/retrieve/multi"
@@ -187,10 +157,7 @@ enum SBSMockResponse: MockResponse {
 
     var httpMethod: HttpServer.HTTPMethod {
         switch self {
-        case .suggestAddressSanFrancisco,
-             .retrieveAddressSanFrancisco,
-             .forwardGeocoding,
-             .suggestMinsk,
+        case .suggestMinsk,
              .suggestSanFrancisco,
              .suggestEmpty,
              .suggestCategories,
@@ -198,8 +165,6 @@ enum SBSMockResponse: MockResponse {
              .suggestWithMixedCoordinates,
              .suggestCategoryWithCoordinates,
              .recursion,
-             .reverseGeocoding,
-             .reverseGeocodingSBS,
              .categoryCafe:
             return .get
 
