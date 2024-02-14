@@ -19,6 +19,8 @@ protocol MockResponse {
     static var coreApiType: CoreSearchEngine.ApiType { get }
 }
 
+// MARK: - Geocoding
+
 enum GeocodingMockResponse: MockResponse {
     case forwardGeocoding
     case reverseGeocoding
@@ -64,6 +66,8 @@ enum GeocodingMockResponse: MockResponse {
         .geocoding
     }
 }
+
+// MARK: - SBS
 
 enum SBSMockResponse: MockResponse {
     case suggestEmpty
@@ -212,6 +216,8 @@ enum SBSMockResponse: MockResponse {
         .SBS
     }
 }
+
+// MARK: - Autofill
 
 enum AutofillMockResponse: MockResponse {
     case suggestAddressSanFrancisco
