@@ -1,5 +1,8 @@
 import Foundation
+@_implementationOnly import MapboxCoreSearch
+@testable import MapboxSearch
 import Swifter
+import XCTest
 
 protocol MockResponse {
     /// Resource from test bundle containing response JSON.
@@ -10,6 +13,10 @@ protocol MockResponse {
 
     /// URL path for this request.
     var path: String { get }
+
+    /// The API type for this mock.
+    /// Uses Core types to support address autofill.
+    static var coreApiType: CoreSearchEngine.ApiType { get }
 }
 
 enum LegacyResponse: MockResponse {
@@ -153,5 +160,50 @@ enum LegacyResponse: MockResponse {
              .retrievePoi:
             return .post
         }
+    }
+
+    static var coreApiType: CoreSearchEngine.ApiType {
+        .geocoding
+    }
+}
+
+enum AutofillMockResponse: MockResponse {
+    case suggestAddressSanFrancisco
+    case retrieveAddressSanFrancisco
+
+    var filepath: String {
+        let bundle = Bundle(for: MockWebServer<Self>.self)
+        switch self {
+        case .retrieveAddressSanFrancisco:
+            return bundle.path(forResource: "address-retrieve-san-francisco", ofType: "json")!
+        case .suggestAddressSanFrancisco:
+            return bundle.path(forResource: "address-suggestions-san-francisco", ofType: "json")!
+        }
+    }
+
+    var path: String {
+        var path = "/search/v1"
+
+        switch self {
+        case .suggestAddressSanFrancisco:
+            path = "/autofill/v1/suggest/:query"
+
+        case .retrieveAddressSanFrancisco:
+            path = "/autofill/v1/retrieve/:action.id"
+        }
+
+        return path
+    }
+
+    var httpMethod: HttpServer.HTTPMethod {
+        switch self {
+        case .suggestAddressSanFrancisco,
+             .retrieveAddressSanFrancisco:
+            return .get
+        }
+    }
+
+    static var coreApiType: CoreSearchEngine.ApiType {
+        .autofill
     }
 }

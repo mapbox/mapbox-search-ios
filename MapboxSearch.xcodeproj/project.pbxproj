@@ -12,6 +12,9 @@
 		042477C62B72CCB000D870D5 /* geocoding-reverse-geocoding.json in Resources */ = {isa = PBXBuildFile; fileRef = 042477C42B72CCB000D870D5 /* geocoding-reverse-geocoding.json */; };
 		042477C72B72CCB000D870D5 /* geocoding-reverse-geocoding.json in Resources */ = {isa = PBXBuildFile; fileRef = 042477C42B72CCB000D870D5 /* geocoding-reverse-geocoding.json */; };
 		043A3D4D2B30F38300DB681B /* CoreAddress+AddressComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A3D4C2B30F38300DB681B /* CoreAddress+AddressComponents.swift */; };
+		045514C22B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045514C12B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift */; };
+		045514C32B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045514C12B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift */; };
+		045514C42B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045514C12B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift */; };
 		04970F8D2B7A97C900213763 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 04970F8C2B7A97C900213763 /* PrivacyInfo.xcprivacy */; };
 		04AB0B4B2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */; };
 		04AB0B4C2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */; };
@@ -494,6 +497,7 @@
 		042477C12B7290E700D870D5 /* SearchEngineGeocodingIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEngineGeocodingIntegrationTests.swift; sourceTree = "<group>"; };
 		042477C42B72CCB000D870D5 /* geocoding-reverse-geocoding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "geocoding-reverse-geocoding.json"; sourceTree = "<group>"; };
 		043A3D4C2B30F38300DB681B /* CoreAddress+AddressComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreAddress+AddressComponents.swift"; sourceTree = "<group>"; };
+		045514C12B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreApiType+ToSDKType.swift"; sourceTree = "<group>"; };
 		04970F8C2B7A97C900213763 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mapbox.places.san.francisco.json; sourceTree = "<group>"; };
 		04BBC6332B61898F00E24E99 /* LocalhostMockServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalhostMockServiceProvider.swift; sourceTree = "<group>"; };
@@ -1451,6 +1455,7 @@
 			children = (
 				FEEDD3882508E24900DC0A98 /* LotLan+Extensions.swift */,
 				F970FAD7252B14950000806B /* SearchResultType+Extensions.swift */,
+				045514C12B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2604,6 +2609,7 @@
 				F953A49325ECEB60003A3681 /* SearchCategorySuggestion+Samples.swift in Sources */,
 				F9F882962583779A00062A82 /* CoreImageInfoStub.swift in Sources */,
 				FEA92E712564149100427965 /* CoreSuggestAction+Samples.swift in Sources */,
+				045514C32B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift in Sources */,
 				2CA1E22129F09CD200A533CF /* PlaceAutocomplete.Suggestion+Tests.swift in Sources */,
 				FED7E1A825517C5100DA34D9 /* CoreBoundingBoxTests.swift in Sources */,
 				F9D70E5C252740DD0019105F /* IndexableDataProviderTests.swift in Sources */,
@@ -2652,6 +2658,7 @@
 				F9201ECA253EECE0002D141B /* CategorySuggestionsIntegrationTestCase.swift in Sources */,
 				F907443B261B13F40091899C /* MockServerUITestCase.swift in Sources */,
 				F9ACA6132642B66600F50CD4 /* MockWebServer.swift in Sources */,
+				045514C42B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift in Sources */,
 				FEEDD3D22508E45B00DC0A98 /* VisibilityTestCase.swift in Sources */,
 				F9AB03C3261DBD7F00EDF1E7 /* MockResponse.swift in Sources */,
 				FEEDD3CE2508E45B00DC0A98 /* BaseTestCase.swift in Sources */,
@@ -2667,6 +2674,7 @@
 			files = (
 				F9C557B62670CC4500BE8B94 /* SearchEngineDelegateStub.swift in Sources */,
 				F9C9461B2743CB1700763F2C /* TestTileStore.swift in Sources */,
+				045514C22B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift in Sources */,
 				F9C557C12670CD8C00BE8B94 /* CoreSearchOptions+Samples.swift in Sources */,
 				1420F31C29A2800300D4A511 /* CoreSearchResultStub+Samples.swift in Sources */,
 				F9C557B72670CC5600BE8B94 /* CoreSearchResultStub.swift in Sources */,

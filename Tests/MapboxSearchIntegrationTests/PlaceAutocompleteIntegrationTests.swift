@@ -17,7 +17,7 @@ final class PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase<Leg
         )
 
         let engine = LocalhostMockServiceProvider.shared.createEngine(
-            apiType: CoreSearchEngine.ApiType.SBS,
+            apiType: Mock.coreApiType,
             accessToken: "access-token",
             locationProvider: WrapperLocationProvider(wrapping: DefaultLocationProvider())
         )

@@ -3,6 +3,7 @@ import CoreLocation
 import XCTest
 
 class MockServerIntegrationTestCase<Mock: MockResponse>: XCTestCase {
+    typealias Mock = Mock
     let server = MockWebServer<Mock>()
 
     func setServerResponse(_ response: Mock, query: String? = nil) throws {
