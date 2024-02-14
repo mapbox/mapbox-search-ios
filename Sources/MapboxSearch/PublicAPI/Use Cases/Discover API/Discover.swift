@@ -62,7 +62,7 @@ extension Discover {
             countries: [options.country?.countryCode].compactMap { $0 },
             languages: [options.language.languageCode],
             limit: options.limit,
-            proximity: proximity
+            proximity: proximity,
             origin: options.origin
         )
 
