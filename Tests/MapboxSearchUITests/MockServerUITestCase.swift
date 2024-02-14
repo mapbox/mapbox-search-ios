@@ -1,7 +1,8 @@
 import Foundation
 
-class MockServerUITestCase: BaseTestCase {
-    let server = MockWebServer<GeocodingMockResponse>()
+class MockServerUITestCase<Mock: MockResponse>: BaseTestCase {
+    typealias Mock = Mock
+    let server = MockWebServer<Mock>()
 
     override func setUpWithError() throws {
         try super.setUpWithError()

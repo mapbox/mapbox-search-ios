@@ -1,12 +1,12 @@
 import XCTest
 
-class CategorySuggestionsNavigationIntegrationTestCase: MockServerUITestCase {
+class CategorySuggestionsNavigationIntegrationTestCase: MockServerUITestCase<SBSMockResponse> {
     override func setUpWithError() throws {
         try super.setUpWithError()
         app.launch()
 
-        try server.setResponse(GeocodingMockResponse.suggestCategories)
-        try server.setResponse(GeocodingMockResponse.retrieveCategory)
+        try server.setResponse(.suggestCategories)
+        try server.setResponse(.retrieveCategory)
     }
 
     func testCancelCategorySuggestionsSearch() {

@@ -2,12 +2,12 @@ import XCTest
 
 // TODO: Analytics
 
-class FeedbackIntegrationTestCase: MockServerUITestCase {
+class FeedbackIntegrationTestCase: MockServerUITestCase<SBSMockResponse> {
     override func setUpWithError() throws {
         try super.setUpWithError()
 
-        try server.setResponse(GeocodingMockResponse.suggestSanFrancisco)
-        try server.setResponse(GeocodingMockResponse.retrieveSanFrancisco)
+        try server.setResponse(.suggestSanFrancisco)
+        try server.setResponse(.retrieveSanFrancisco)
     }
 
     func testSendFeedback() throws {

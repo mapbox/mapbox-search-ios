@@ -1,6 +1,6 @@
 import XCTest
 
-class FavoritesIntegrationTestCase: MockServerUITestCase {
+class FavoritesIntegrationTestCase: MockServerUITestCase<SBSMockResponse> {
     func testAddRemoveFavorite() throws {
         try server.setResponse(.suggestMinsk)
         try server.setResponse(.retrieveMinsk)
