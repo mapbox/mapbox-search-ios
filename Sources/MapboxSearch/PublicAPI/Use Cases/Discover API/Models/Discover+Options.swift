@@ -16,12 +16,16 @@ extension Discover {
         public let language: Language
 
         /// See ``MapboxSearch.Country.ISO3166_1_alpha2`` for the list of ISO 3166 alpha 2 country codes.
-        /// The default value will be selected from the Country.ISO3166\_1\_alpha2 identifiers based on the current
-        /// locale identifier or nil if no match is found.
+        /// The default value is nil.
         public let country: Country?
 
+        /// Bias the response to favor results that are closer to a specific location.
+        /// When both proximity and origin are provided, origin is interpreted as the target of a route, while proximity
+        /// indicates the current user location.
         public let proximity: CLLocationCoordinate2D?
 
+        /// The location from which to calculate distance. When both proximity and origin are provided, origin is
+        /// interpreted as the target of a route, while proximity indicates the current user location.
         public let origin: CLLocationCoordinate2D?
 
         public init(
@@ -33,7 +37,7 @@ extension Discover {
         ) {
             self.limit = limit
             self.language = language ?? .default
-            self.country = country ?? .default
+            self.country = country
             self.proximity = proximity
             self.origin = origin
         }
