@@ -73,7 +73,8 @@ extension MockWebServer {
              .recursion,
              .reverseGeocoding,
              .reverseGeocodingSBS,
-             .categoryCafe:
+             .categoryCafe,
+             .categoryHotelSearchAlongRoute_JP:
             return .get
 
         case .multiRetrieve,
@@ -127,7 +128,7 @@ extension MockWebServer {
         case .multiRetrieve:
             path += "/retrieve/multi"
 
-        case .categoryCafe:
+        case .categoryCafe, .categoryHotelSearchAlongRoute_JP:
             path += "/category/:category"
         }
 

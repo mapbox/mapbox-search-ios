@@ -1,6 +1,17 @@
 import Foundation
 
 enum MockResponse {
+    enum Endpoint: String {
+        case suggest
+        case retrieve
+        case reverse
+        case multiRetrieve = "retrieve/multi"
+        case categoryCafe = "cafe"
+        case categoryHotel = "hotel"
+        case addressSuggest = "autofill/suggest"
+        case addressRetrieve = "autofill/retrieve"
+    }
+
     case suggestEmpty
     case suggestMinsk
     case suggestSanFrancisco
@@ -22,6 +33,7 @@ enum MockResponse {
     case reverseGeocoding
     case reverseGeocodingSBS
     case categoryCafe
+    case categoryHotelSearchAlongRoute_JP
 
     var filepath: String {
         let bundle = Bundle(for: MockWebServer.self)
@@ -60,6 +72,8 @@ enum MockResponse {
             return bundle.path(forResource: "retrieve-multi", ofType: "json")!
         case .categoryCafe:
             return bundle.path(forResource: "category-cafe", ofType: "json")!
+        case .categoryHotelSearchAlongRoute_JP:
+            return bundle.path(forResource: "category-hotel-search-along-route-jp", ofType: "json")!
         case .suggestAddressSanFrancisco:
             return bundle.path(forResource: "address-suggestions-san-francisco", ofType: "json")!
         case .retrieveAddressSanFrancisco:
