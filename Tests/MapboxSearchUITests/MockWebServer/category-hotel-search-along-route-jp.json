@@ -1,0 +1,687 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          139.73952222241294,
+          35.664124999576146
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "ホテルヴィラフォンテーヌグランド東京六本木",
+        "matching_name": "ホテルヴィラフォンテーヌグランド東京六本木",
+        "highlighted_name": "ホテルヴィラフォンテーヌグランド東京六本木",
+        "description": "東京都港区六本木１－６－２",
+        "place_name": "ホテルヴィラフォンテーヌグランド東京六本木, 東京都港区六本木１－６－２",
+        "id": "dXJuOm1ieHBvaS1qcG46NTdjYzExMWUzZTQ0NDYzOTczY2NkZTgwZmI4NWYyYTI4ZTYxYmYyNjQ0Y2MzZmU0N2Q0NDU0ZmIzM2ExNjlhNw",
+        "place_type": [
+          "poi"
+        ],
+        "context": [
+          {
+            "layer": "address",
+            "localized_layer": "address",
+            "name": "東京都港区六本木１－６－２"
+          },
+          {
+            "layer": "street",
+            "localized_layer": "street",
+            "name": "六本木１-６-２"
+          },
+          {
+            "layer": "postcode",
+            "localized_layer": "postcode",
+            "name": "106-0032"
+          },
+          {
+            "layer": "place",
+            "localized_layer": "place",
+            "name": "港区"
+          },
+          {
+            "layer": "region",
+            "localized_layer": "region",
+            "name": "東京都"
+          }
+        ],
+        "maki": "lodging",
+        "poi_category": [
+          "トラベル>ホテル",
+          "トラベル"
+        ],
+        "poi_category_ids": [
+          "トラベル>ホテル",
+          "トラベル"
+        ],
+        "internal_id": "Y2aAgIL8TAA=.42eAgMSCTN2C_Ezd4tSisszkVAA=.PcG5CQAgDABA57GQxI9sIwEtRE2R0ukVBO-seXYT7VImS12sw2HwgPeHiXyGCHQA",
+        "external_ids": {
+          "zenrin_landmark": "13201010000000000158260408",
+          "mbx_poi": "dXJuOm1ieHBvaS1qcG46NTdjYzExMWUzZTQ0NDYzOTczY2NkZTgwZmI4NWYyYTI4ZTYxYmYyNjQ0Y2MzZmU0N2Q0NDU0ZmIzM2ExNjlhNw"
+        },
+        "metadata": {
+          "iso_3166_1": "JP",
+          "iso_3166_2": "JP-13"
+        },
+        "routable_points": [
+          {
+            "name": "POI",
+            "coordinates": [
+              139.73991944419012,
+              35.66394444465637
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          139.739588,
+          35.66448
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "ヴィラフォンテーヌ六本木",
+        "matching_name": "ヴィラフォンテーヌ六本木",
+        "highlighted_name": "ヴィラフォンテーヌ六本木",
+        "description": "東京都港区六本木１－６－２",
+        "place_name": "ヴィラフォンテーヌ六本木, 東京都港区六本木１－６－２",
+        "id": "dXJuOm1ieHBvaS1qcG46OTBmNDBmOGZmZWI4Mzg2MmMzNjI3ZjJhZWFiODVhYmQ3MDg4ZTk3NmY4YzI2MjMzN2JlMGY3NzA4MDAzYzk0Nw",
+        "place_type": [
+          "poi"
+        ],
+        "context": [
+          {
+            "layer": "address",
+            "localized_layer": "address",
+            "name": "東京都港区六本木１－６－２"
+          },
+          {
+            "layer": "street",
+            "localized_layer": "street",
+            "name": "六本木１-６-２"
+          },
+          {
+            "layer": "postcode",
+            "localized_layer": "postcode",
+            "name": "106-0032"
+          },
+          {
+            "layer": "place",
+            "localized_layer": "place",
+            "name": "港区"
+          },
+          {
+            "layer": "region",
+            "localized_layer": "region",
+            "name": "東京都"
+          }
+        ],
+        "maki": "lodging",
+        "poi_category": [
+          "トラベル>ホテル",
+          "トラベル"
+        ],
+        "poi_category_ids": [
+          "トラベル>ホテル",
+          "トラベル"
+        ],
+        "internal_id": "Y2aAgIL8TAA=.42eAgMSCTN2C_Ezd4tSisszkVAA=.U2aAgLT80qLiwtLEolS95DRTCzNjU8Mk89REE2NjI8tEoIBRUhoA",
+        "external_ids": {
+          "foursquare": "cf586351b7ea43329af582bf",
+          "mbx_poi": "dXJuOm1ieHBvaS1qcG46OTBmNDBmOGZmZWI4Mzg2MmMzNjI3ZjJhZWFiODVhYmQ3MDg4ZTk3NmY4YzI2MjMzN2JlMGY3NzA4MDAzYzk0Nw"
+        },
+        "metadata": {
+          "iso_3166_1": "JP",
+          "iso_3166_2": "JP-13"
+        },
+        "routable_points": [
+          {
+            "name": "POI",
+            "coordinates": [
+              139.7399993461539,
+              35.66439773076928
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          139.738233,
+          35.663812
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "朝日六本木マンション",
+        "matching_name": "朝日六本木マンション",
+        "highlighted_name": "朝日六本木マンション",
+        "description": "東京都港区六本木３－２－１９",
+        "place_name": "朝日六本木マンション, 東京都港区六本木３－２－１９",
+        "id": "dXJuOm1ieHBvaS1qcG46NTJkYTI1ZDgxMDAzMDQzMTYzMThlOTNjYjM5MjljNTI2NTExYWFiZTk1YWNiNzY5NGQ0OGI2ODgzMzBmNzQ2Yg",
+        "place_type": [
+          "poi"
+        ],
+        "context": [
+          {
+            "layer": "address",
+            "localized_layer": "address",
+            "name": "東京都港区六本木３－２－１９"
+          },
+          {
+            "layer": "street",
+            "localized_layer": "street",
+            "name": "六本木３－２－１９"
+          },
+          {
+            "layer": "postcode",
+            "localized_layer": "postcode",
+            "name": "106-0032"
+          },
+          {
+            "layer": "place",
+            "localized_layer": "place",
+            "name": "港区"
+          },
+          {
+            "layer": "region",
+            "localized_layer": "region",
+            "name": "東京都"
+          }
+        ],
+        "maki": "lodging",
+        "poi_category": [
+          "トラベル>ホテル",
+          "トラベル"
+        ],
+        "poi_category_ids": [
+          "トラベル>ホテル",
+          "トラベル"
+        ],
+        "internal_id": "Y2aAgIL8TAA=.42eAgMSCTN2C_Ezd4tSisszkVAA=.U2aAgLT80qLiwtLEolQ9c1Mzk7Q0y2SzFBMjE8NkC6OUJDNLk-RkAA==",
+        "external_ids": {
+          "foursquare": "7564ff9c6d4241c82db694cc",
+          "mbx_poi": "dXJuOm1ieHBvaS1qcG46NTJkYTI1ZDgxMDAzMDQzMTYzMThlOTNjYjM5MjljNTI2NTExYWFiZTk1YWNiNzY5NGQ0OGI2ODgzMzBmNzQ2Yg"
+        },
+        "metadata": {
+          "iso_3166_1": "JP",
+          "iso_3166_2": "JP-13"
+        },
+        "routable_points": [
+          {
+            "name": "POI",
+            "coordinates": [
+              139.73824858754253,
+              35.66371691599058
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          139.738795,
+          35.664395
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "ホテルヴィラフォンテーヌ六本木",
+        "matching_name": "ホテルヴィラフォンテーヌ六本木",
+        "highlighted_name": "ホテルヴィラフォンテーヌ六本木",
+        "description": "東京都港区六本木１－６－２",
+        "place_name": "ホテルヴィラフォンテーヌ六本木, 東京都港区六本木１－６－２",
+        "id": "dXJuOm1ieHBvaS1qcG46YTRjOTFlNzQwZmI5MDZkYzRhNjM2MDZkM2M3OWEyNmExNWQ0NTg3NGQ1MTE2M2JjODc1MDUxNjNmOGNkMjgxNg",
+        "place_type": [
+          "poi"
+        ],
+        "context": [
+          {
+            "layer": "address",
+            "localized_layer": "address",
+            "name": "東京都港区六本木１－６－２"
+          },
+          {
+            "layer": "street",
+            "localized_layer": "street",
+            "name": "六本木１-６-２"
+          },
+          {
+            "layer": "postcode",
+            "localized_layer": "postcode",
+            "name": "106-0032"
+          },
+          {
+            "layer": "place",
+            "localized_layer": "place",
+            "name": "港区"
+          },
+          {
+            "layer": "region",
+            "localized_layer": "region",
+            "name": "東京都"
+          }
+        ],
+        "maki": "lodging",
+        "poi_category": [
+          "トラベル>ホテル",
+          "トラベル"
+        ],
+        "poi_category_ids": [
+          "トラベル>ホテル",
+          "トラベル"
+        ],
+        "internal_id": "Y2aAgIL8TAA=.42eAgMSCTN2C_Ezd4tSisszkVAA=.U2aAgLT80qLiwtLEolQ9k6RUUxOjNGMjE1PzRFNLY-NkE_PEJENTAA==",
+        "external_ids": {
+          "mbx_poi": "dXJuOm1ieHBvaS1qcG46YTRjOTFlNzQwZmI5MDZkYzRhNjM2MDZkM2M3OWEyNmExNWQ0NTg3NGQ1MTE2M2JjODc1MDUxNjNmOGNkMjgxNg",
+          "foursquare": "4be542f32457a5933c47ab15"
+        },
+        "metadata": {
+          "iso_3166_1": "JP",
+          "iso_3166_2": "JP-13"
+        },
+        "routable_points": [
+          {
+            "name": "POI",
+            "coordinates": [
+              139.73879371353684,
+              35.664395357647436
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          139.737644,
+          35.664943
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "ヴィラフォンテーヌ六本木ANNEX",
+        "matching_name": "ヴィラフォンテーヌ六本木ANNEX",
+        "highlighted_name": "ヴィラフォンテーヌ六本木ANNEX",
+        "description": "東京都港区六本木３－２－７",
+        "place_name": "ヴィラフォンテーヌ六本木ANNEX, 東京都港区六本木３－２－７",
+        "id": "dXJuOm1ieHBvaS1qcG46MWNiMWMzZmQwM2IzNDY5MGIwYzc2NjY3MjY0ZTkxZWY1ZjQyNmMxMDI3ZTgwYTAzNjUyOWM4M2Y4NzQ5YTQwMg",
+        "place_type": [
+          "poi"
+        ],
+        "context": [
+          {
+            "layer": "address",
+            "localized_layer": "address",
+            "name": "東京都港区六本木３－２－７"
+          },
+          {
+            "layer": "street",
+            "localized_layer": "street",
+            "name": "六本木３-２-７"
+          },
+          {
+            "layer": "postcode",
+            "localized_layer": "postcode",
+            "name": "106-0032"
+          },
+          {
+            "layer": "place",
+            "localized_layer": "place",
+            "name": "東京都"
+          },
+          {
+            "layer": "region",
+            "localized_layer": "region",
+            "name": "東京都"
+          }
+        ],
+        "maki": "lodging",
+        "poi_category": [
+          "トラベル>ホテル",
+          "トラベル"
+        ],
+        "poi_category_ids": [
+          "トラベル>ホテル",
+          "トラベル"
+        ],
+        "internal_id": "Y2aAgIL8TAA=.42eAgMSCTN2C_Ezd4tSisszkVAA=.U2aAgLT80qLiwtLEolQ94zRLi1TzpETTRIs0k2TDVGNzM5PUtERTAA==",
+        "external_ids": {
+          "foursquare": "3f98e7ba5a8f4c1e3764efa5",
+          "mbx_poi": "dXJuOm1ieHBvaS1qcG46MWNiMWMzZmQwM2IzNDY5MGIwYzc2NjY3MjY0ZTkxZWY1ZjQyNmMxMDI3ZTgwYTAzNjUyOWM4M2Y4NzQ5YTQwMg"
+        },
+        "metadata": {
+          "iso_3166_1": "JP",
+          "iso_3166_2": "JP-13"
+        },
+        "routable_points": [
+          {
+            "name": "POI",
+            "coordinates": [
+              139.7376750605189,
+              35.66520018109675
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          139.737505,
+          35.66491
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "六本木アネックス",
+        "matching_name": "六本木アネックス",
+        "highlighted_name": "六本木アネックス",
+        "description": "東京都港区六本木３－１３－３",
+        "place_name": "六本木アネックス, 東京都港区六本木３－１３－３",
+        "id": "dXJuOm1ieHBvaS1qcG46ZDZkMWE0NmQzMDZkNDFkMmZmNjJjMjY1OTRlZTllZTAxMzUyMzdjOTU3MWJhM2ZmOTUyYjYxNjVjNjRhODRhZg",
+        "place_type": [
+          "poi"
+        ],
+        "context": [
+          {
+            "layer": "address",
+            "localized_layer": "address",
+            "name": "東京都港区六本木３－１３－３"
+          },
+          {
+            "layer": "street",
+            "localized_layer": "street",
+            "name": "六本木３-１３-３"
+          },
+          {
+            "layer": "postcode",
+            "localized_layer": "postcode",
+            "name": "106-0032"
+          },
+          {
+            "layer": "place",
+            "localized_layer": "place",
+            "name": "東京都"
+          },
+          {
+            "layer": "region",
+            "localized_layer": "region",
+            "name": "東京都"
+          }
+        ],
+        "maki": "lodging",
+        "poi_category": [
+          "トラベル>ホテル",
+          "トラベル"
+        ],
+        "poi_category_ids": [
+          "トラベル>ホテル",
+          "トラベル"
+        ],
+        "internal_id": "Y2aAgIL8TAA=.42eAgMSCTN2C_Ezd4tSisszkVAA=.U2aAgLT80qLiwtLEolQ9kxRDU0vjZAMj0-SUREMTY-OUJCOzxBQzAA==",
+        "external_ids": {
+          "mbx_poi": "dXJuOm1ieHBvaS1qcG46ZDZkMWE0NmQzMDZkNDFkMmZmNjJjMjY1OTRlZTllZTAxMzUyMzdjOTU3MWJhM2ZmOTUyYjYxNjVjNjRhODRhZg",
+          "foursquare": "4d1593c025cda1433db26ad6"
+        },
+        "metadata": {
+          "iso_3166_1": "JP",
+          "iso_3166_2": "JP-13"
+        },
+        "routable_points": [
+          {
+            "name": "POI",
+            "coordinates": [
+              139.73754198704972,
+              35.66521625277177
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          139.7374694445398,
+          35.6616999997033
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "アパホテル&リゾート六本木駅東",
+        "matching_name": "アパホテル&リゾート六本木駅東",
+        "highlighted_name": "アパホテル&リゾート六本木駅東",
+        "description": "東京都港区六本木３－１８－６",
+        "place_name": "アパホテル&リゾート六本木駅東, 東京都港区六本木３－１８－６",
+        "id": "dXJuOm1ieHBvaS1qcG46ZTg3ODMxMjI4NTZkMzIyNzQ5YjUzZGQxMTRmYzU1OGFiYWMxZGE5N2JlNTllNjIwZmU2NDM3M2EyY2YxMjRlMA",
+        "place_type": [
+          "poi"
+        ],
+        "context": [
+          {
+            "layer": "address",
+            "localized_layer": "address",
+            "name": "東京都港区六本木３－１８－６"
+          },
+          {
+            "layer": "street",
+            "localized_layer": "street",
+            "name": "六本木３-１８-６"
+          },
+          {
+            "layer": "postcode",
+            "localized_layer": "postcode",
+            "name": "106-0032"
+          },
+          {
+            "layer": "place",
+            "localized_layer": "place",
+            "name": "東京都"
+          },
+          {
+            "layer": "region",
+            "localized_layer": "region",
+            "name": "東京都"
+          }
+        ],
+        "maki": "lodging",
+        "poi_category": [
+          "トラベル>ホテル",
+          "トラベル"
+        ],
+        "poi_category_ids": [
+          "トラベル>ホテル",
+          "トラベル"
+        ],
+        "internal_id": "Y2aAgIL8TAA=.42eAgMSCTN2C_Ezd4tSisszkVAA=.LcAxDgAQDABA_5FItQSvkSYMgg4dvd7AWfOcLjqkLpa2WafzhOAB4SPIKVLJGFK5",
+        "external_ids": {
+          "mbx_poi": "dXJuOm1ieHBvaS1qcG46ZTg3ODMxMjI4NTZkMzIyNzQ5YjUzZGQxMTRmYzU1OGFiYWMxZGE5N2JlNTllNjIwZmU2NDM3M2EyY2YxMjRlMA",
+          "zenrin_landmark": "132010200000000308753982479"
+        },
+        "metadata": {
+          "iso_3166_1": "JP",
+          "iso_3166_2": "JP-13"
+        },
+        "routable_points": [
+          {
+            "name": "POI",
+            "coordinates": [
+              139.73765833324856,
+              35.66126111136542
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          139.73579722219043,
+          35.66213611072964
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "三井ガーデンホテル六本木プレミア",
+        "matching_name": "三井ガーデンホテル六本木プレミア",
+        "highlighted_name": "三井ガーデンホテル六本木プレミア",
+        "description": "東京都港区六本木３－１５－１７",
+        "place_name": "三井ガーデンホテル六本木プレミア, 東京都港区六本木３－１５－１７",
+        "id": "dXJuOm1ieHBvaS1qcG46MzFkYWQ3MGQ3YWRiNWRiMDhhYjU2MmZkYzQyZmJhYzM3ZWQ3YzY5ZjQ4MWYwNTEwMTdiMWY0OWFiOGExN2QzMg",
+        "place_type": [
+          "poi"
+        ],
+        "context": [
+          {
+            "layer": "address",
+            "localized_layer": "address",
+            "name": "東京都港区六本木３－１５－１７"
+          },
+          {
+            "layer": "street",
+            "localized_layer": "street",
+            "name": "六本木３-１５-１７"
+          },
+          {
+            "layer": "postcode",
+            "localized_layer": "postcode",
+            "name": "106-0032"
+          },
+          {
+            "layer": "place",
+            "localized_layer": "place",
+            "name": "東京都"
+          },
+          {
+            "layer": "region",
+            "localized_layer": "region",
+            "name": "東京都"
+          }
+        ],
+        "maki": "lodging",
+        "poi_category": [
+          "トラベル>ホテル",
+          "トラベル"
+        ],
+        "poi_category_ids": [
+          "トラベル>ホテル",
+          "トラベル"
+        ],
+        "internal_id": "Y2aAgIL8TAA=.42eAgMSCTN2C_Ezd4tSisszkVAA=.U2aAgLT80qLiwtLEolQ901TDtFSTRCPTRGNDU2MDAwOL1OREQyMTAA==",
+        "external_ids": {
+          "zenrin_landmark": "132010100000000005763689853",
+          "mbx_poi": "dXJuOm1ieHBvaS1qcG46MzFkYWQ3MGQ3YWRiNWRiMDhhYjU2MmZkYzQyZmJhYzM3ZWQ3YzY5ZjQ4MWYwNTEwMTdiMWY0OWFiOGExN2QzMg",
+          "foursquare": "5e1fe4a25a31530008eca124"
+        },
+        "metadata": {
+          "iso_3166_1": "JP",
+          "iso_3166_2": "JP-13"
+        },
+        "routable_points": [
+          {
+            "name": "POI",
+            "coordinates": [
+              139.73587222231757,
+              35.66180555555555
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          139.737397222254,
+          35.666294444402055
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "feature_name": "アパホテル六本木SIX",
+        "matching_name": "アパホテル六本木SIX",
+        "highlighted_name": "アパホテル六本木SIX",
+        "description": "東京都港区六本木２－３－１１",
+        "place_name": "アパホテル六本木SIX, 東京都港区六本木２－３－１１",
+        "id": "dXJuOm1ieHBvaS1qcG46YTJmMGRhOTk4MmE5MTRmY2ExMTdlNjE4MjQ3YzkxMDA2NDczNGUzY2M1ZjM3NDU4YmQ3ZjMzNDNhMTgzMjYwNQ",
+        "place_type": [
+          "poi"
+        ],
+        "context": [
+          {
+            "layer": "address",
+            "localized_layer": "address",
+            "name": "東京都港区六本木２－３－１１"
+          },
+          {
+            "layer": "street",
+            "localized_layer": "street",
+            "name": ""
+          },
+          {
+            "layer": "postcode",
+            "localized_layer": "postcode",
+            "name": "106-0032"
+          },
+          {
+            "layer": "place",
+            "localized_layer": "place",
+            "name": "東京都"
+          },
+          {
+            "layer": "region",
+            "localized_layer": "region",
+            "name": "東京都"
+          }
+        ],
+        "maki": "lodging",
+        "poi_category": [
+          "トラベル>ホテル",
+          "トラベル",
+          "トラベル>民宿"
+        ],
+        "poi_category_ids": [
+          "トラベル>ホテル",
+          "トラベル",
+          "トラベル>民宿"
+        ],
+        "internal_id": "Y2aAgIL8TAA=.42eAgMSCTN2C_Ezd4tSisszkVAA=.U2aAgLT80qLiwtLEolQ9k9TkRNNUc8s0c0sDE0NjUyMDg5Qk42QzAA==",
+        "external_ids": {
+          "mbx_poi": "dXJuOm1ieHBvaS1qcG46YTJmMGRhOTk4MmE5MTRmY2ExMTdlNjE4MjQ3YzkxMDA2NDczNGUzY2M1ZjM3NDU4YmQ3ZjMzNDNhMTgzMjYwNQ",
+          "foursquare": "4eca5e79f7904135200db3c6",
+          "zenrin_landmark": "132010200000000308073739182"
+        },
+        "metadata": {
+          "iso_3166_1": "JP",
+          "iso_3166_2": "JP-13"
+        },
+        "routable_points": [
+          {
+            "name": "POI",
+            "coordinates": [
+              139.73753055546018,
+              35.66614166683621
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "attribution": "© 2023 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service. (https://www.mapbox.com/about/maps/)",
+  "version": "272:8f01e9d5fbb40d5c3596666f5f9e76f10d82d12b",
+  "response_uuid": "9bd717ca-da98-45e1-a292-b2348303c670"
+}

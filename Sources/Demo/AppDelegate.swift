@@ -12,7 +12,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if ProcessInfo.processInfo.arguments.contains("--uitesting") {
             ServiceProvider.shared.localFavoritesProvider.deleteAll()
             ServiceProvider.shared.localHistoryProvider.deleteAll()
-            UserDefaults.resetStandardUserDefaults()
         }
 
         return true
