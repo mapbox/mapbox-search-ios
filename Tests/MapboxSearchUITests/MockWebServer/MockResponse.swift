@@ -86,6 +86,7 @@ enum SBSMockResponse: MockResponse {
 
     case recursion
     case categoryCafe
+    case categoryHotelSearchAlongRoute_JP
 
     var filepath: String {
         let bundle = Bundle(for: MockWebServer<Self>.self)
@@ -118,6 +119,8 @@ enum SBSMockResponse: MockResponse {
             return bundle.path(forResource: "retrieve-multi", ofType: "json")!
         case .categoryCafe:
             return bundle.path(forResource: "category-cafe", ofType: "json")!
+        case .categoryHotelSearchAlongRoute_JP:
+            return bundle.path(forResource: "category-hotel-search-along-route-jp", ofType: "json")!
         }
     }
 
@@ -148,7 +151,8 @@ enum SBSMockResponse: MockResponse {
         case .multiRetrieve:
             path += "/retrieve/multi"
 
-        case .categoryCafe:
+        case .categoryCafe,
+             .categoryHotelSearchAlongRoute_JP:
             path += "/category/:category"
         }
 
@@ -165,7 +169,8 @@ enum SBSMockResponse: MockResponse {
              .suggestWithMixedCoordinates,
              .suggestCategoryWithCoordinates,
              .recursion,
-             .categoryCafe:
+             .categoryCafe,
+             .categoryHotelSearchAlongRoute_JP:
             return .get
 
         case .multiRetrieve,
