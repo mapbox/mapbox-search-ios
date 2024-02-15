@@ -79,7 +79,7 @@ extension PlaceAutocompleteMainViewController: UITableViewDataSource, UITableVie
             description += "\n\(PlaceAutocomplete.Result.distanceFormatter.string(fromDistance: distance))"
         }
         if let estimatedTime = suggestion.estimatedTime {
-            description += "\n\(PlaceAutocomplete.Result.measurumentFormatter.string(from: estimatedTime))"
+            description += "\n\(PlaceAutocomplete.Result.measurementFormatter.string(from: estimatedTime))"
         }
 
         tableViewCell.detailTextLabel?.text = description
