@@ -1,2 +1,2 @@
-# Make Search-SDK and Search-SDK-iOS teams owners for all the files in the repo
-*	@mapbox/search-sdk @mapbox/search-sdk-ios
+# Make Search-SDK, Search-SDK-iOS, and iOS teams owners for all the files in the repo
+*	@mapbox/search-sdk @mapbox/search-sdk-ios @mapbox/ios
