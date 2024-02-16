@@ -1,6 +1,6 @@
 import XCTest
 
-class SearchIntegrationTestCase: MockServerUITestCase<SBSMockResponse> {
+class SearchIntegrationTestCase: MockSBSServerUITestCase {
     func testRecentSearchRemove() throws {
         try server.setResponse(.suggestSanFrancisco)
         try server.setResponse(.retrieveSanFrancisco)

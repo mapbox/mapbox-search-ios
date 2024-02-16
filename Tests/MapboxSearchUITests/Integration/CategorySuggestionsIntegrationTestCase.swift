@@ -1,6 +1,6 @@
 import XCTest
 
-class CategorySuggestionsIntegrationTestCase: MockServerUITestCase<SBSMockResponse> {
+class CategorySuggestionsIntegrationTestCase: MockSBSServerUITestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         app.launch()
