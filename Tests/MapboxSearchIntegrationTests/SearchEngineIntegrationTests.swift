@@ -2,18 +2,19 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-class SearchEngineIntegrationTests: MockServerIntegrationTestCase {
+class SearchEngineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
     let delegate = SearchEngineDelegateStub()
     var searchEngine: SearchEngine!
 
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
 
+        let apiType = try XCTUnwrap(Mock.coreApiType.toSDKType())
         searchEngine = SearchEngine(
             accessToken: "access-token",
             serviceProvider: LocalhostMockServiceProvider.shared,
             locationProvider: DefaultLocationProvider(),
-            apiType: .SBS
+            apiType: apiType
         )
 
         searchEngine.delegate = delegate

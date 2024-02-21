@@ -2,18 +2,19 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-class SearchEngineGeocodingIntegrationTests: MockServerIntegrationTestCase {
+class SearchEngineGeocodingIntegrationTests: MockServerIntegrationTestCase<GeocodingMockResponse> {
     let delegate = SearchEngineDelegateStub()
     var searchEngine: SearchEngine!
 
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
 
+        let apiType = try XCTUnwrap(Mock.coreApiType.toSDKType())
         searchEngine = SearchEngine(
             accessToken: "access-token",
             serviceProvider: LocalhostMockServiceProvider.shared,
             locationProvider: DefaultLocationProvider(),
-            apiType: .geocoding
+            apiType: apiType
         )
 
         searchEngine.delegate = delegate

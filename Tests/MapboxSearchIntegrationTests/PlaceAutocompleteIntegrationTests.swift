@@ -2,7 +2,7 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-final class PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase {
+final class PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
     private var placeAutocomplete: PlaceAutocomplete!
 
     override func setUp() {
@@ -17,7 +17,7 @@ final class PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase {
         )
 
         let engine = LocalhostMockServiceProvider.shared.createEngine(
-            apiType: CoreSearchEngine.ApiType.SBS,
+            apiType: Mock.coreApiType,
             accessToken: "access-token",
             locationProvider: WrapperLocationProvider(wrapping: DefaultLocationProvider())
         )

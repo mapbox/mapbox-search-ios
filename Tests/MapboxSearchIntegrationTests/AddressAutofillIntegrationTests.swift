@@ -2,7 +2,7 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase {
+final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase<AutofillMockResponse> {
     private var addressAutofill: AddressAutofill!
     private let locationProvider = WrapperLocationProvider(wrapping: DefaultLocationProvider())
 
@@ -18,7 +18,7 @@ final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase {
         )
 
         let engine = LocalhostMockServiceProvider.shared.createEngine(
-            apiType: CoreSearchEngine.ApiType.autofill,
+            apiType: Mock.coreApiType,
             accessToken: "access-token",
             locationProvider: locationProvider
         )

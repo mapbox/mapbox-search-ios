@@ -6,7 +6,7 @@ import MapboxCommon
 @testable import MapboxSearch
 import XCTest
 
-class OfflineIntegrationTests: MockServerIntegrationTestCase {
+class OfflineIntegrationTests: MockServerIntegrationTestCase<GeocodingMockResponse> {
     let delegate = SearchEngineDelegateStub()
     let searchEngine = SearchEngine()
 
@@ -65,7 +65,7 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase {
                 XCTAssert(region.completedResourceCount > 0)
                 XCTAssertEqual(region.requiredResourceCount, region.completedResourceCount)
             case .failure(let error):
-                XCTFail("Unable to load Regin, \(error.localizedDescription)")
+                XCTFail("Unable to load Region, \(error.localizedDescription)")
             }
             loadDataExpectation.fulfill()
         }
