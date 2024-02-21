@@ -2,7 +2,7 @@ import XCTest
 
 // TODO: Analytics
 
-class FeedbackIntegrationTestCase: MockServerUITestCase {
+class FeedbackIntegrationTestCase: MockSBSServerUITestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
 

@@ -1,5 +1,7 @@
 import XCTest
 
+/// Base XCTestCase class that provides testable application behavior.
+/// Please use subclass ``MockServerUITestCase`` for tests.
 class BaseTestCase: XCTestCase {
     static let defaultTimeout: TimeInterval = 10.0
 

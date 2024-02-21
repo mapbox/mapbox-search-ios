@@ -2,12 +2,13 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-final class CategorySearchEngineIntegrationTests: MockServerIntegrationTestCase {
+final class CategorySearchEngineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
     private var searchEngine: CategorySearchEngine!
 
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
 
+        let apiType = try XCTUnwrap(Mock.coreApiType.toSDKType())
         searchEngine = CategorySearchEngine(
             accessToken: "access-token",
             serviceProvider: LocalhostMockServiceProvider.shared,
