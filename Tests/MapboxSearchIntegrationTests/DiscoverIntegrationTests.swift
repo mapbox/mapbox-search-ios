@@ -2,7 +2,7 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-class DiscoverIntegrationTests: MockServerIntegrationTestCase {
+class DiscoverIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
     lazy var searchEngine = Discover(locationProvider: DefaultLocationProvider())
 
     func testCategorySearchAlongRouteWithCountryProximityOrigin() throws {

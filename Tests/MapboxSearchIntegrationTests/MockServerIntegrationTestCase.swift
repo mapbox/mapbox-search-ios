@@ -2,10 +2,11 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-class MockServerIntegrationTestCase: XCTestCase {
-    let server = MockWebServer()
+class MockServerIntegrationTestCase<Mock: MockResponse>: XCTestCase {
+    typealias Mock = Mock
+    let server = MockWebServer<Mock>()
 
-    func setServerResponse(_ response: MockResponse, query: String? = nil) throws {
+    func setServerResponse(_ response: Mock, query: String? = nil) throws {
         try server.setResponse(response, query: query)
     }
 

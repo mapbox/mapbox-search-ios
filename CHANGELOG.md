@@ -8,12 +8,16 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+
+- [License] Update license to reflect 2024 usage
+
+- [Tests] Change MockResponse into a protocol, create separate enums conforming to MockResponse for each API type (geocoding, sbs, autofill), add MockResponse as generic to each test base class and MockWebServer.
+
+## 2.0.0-rc.2
+
 - [Discover] Add support for country, proximity, and origin parameters in Discover.Options search parameters. This fixes an issue when using search-along-route to query category results.
-
 - [SearchUI] Add `distanceFormatter` field to Configuration to support changing the search suggestions distance format. Nil values will use the default behavior.
-
 - [Core] Add xcprivacy for MapboxSearch and MapboxSearchUI
-
 - [SearchUI] Update Maki icons to all SVG, latest versions from https://github.com/mapbox/maki
 - [SearchUI] Remove all custom Maki icons
 - [Unit Tests] Update and correct tests for iOS 17 using all mocked data.
@@ -22,6 +26,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Core] Stop reading "MapboxAPIBaseURL" from UserDefaults in `ServiceProvider.createEngine`. (Providing a value in Info.plist is still supported).
 - [Core] Remove Swifter library dependency from MapboxSearch target (only used in Test targets)
 - [Core] Change AbstractSearchEngine.init `supportSBS: Bool = false` parameter to `apiType: ApiType = .SBS`. This changes the default API engine for discover/category and other API requests to SBS. Add ApiType enum to represent non-Autofill and non-PlaceAutocomplete SearchEngine API types.
+
+**MapboxCoreSearch**: v2.0.0-alpha.13
 
 ## 2.0.0-rc.1
 
