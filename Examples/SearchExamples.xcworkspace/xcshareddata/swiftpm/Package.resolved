@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "Atlantis",
-        "repositoryURL": "https://github.com/ProxymanApp/atlantis",
-        "state": {
-          "branch": null,
-          "revision": "131d757cf8e6e368ad338728379174f7cfff9326",
-          "version": "1.23.0"
-        }
-      },
-      {
         "package": "CwlCatchException",
         "repositoryURL": "https://github.com/mattgallagher/CwlCatchException.git",
         "state": {
