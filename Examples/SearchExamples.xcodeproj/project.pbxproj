@@ -24,7 +24,6 @@
 		FE849B5626FC9E63001CBC27 /* ExamplesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE849B5526FC9E63001CBC27 /* ExamplesTableViewController.swift */; };
 		FE849B5A26FCBCEC001CBC27 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE849B5926FCBCEC001CBC27 /* MapsViewController.swift */; };
 		FEF1D1BA26FDF642004AE229 /* TextViewLoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF1D1B926FDF642004AE229 /* TextViewLoggerViewController.swift */; };
-		FEF1D1BD26FDFB1F004AE229 /* Atlantis in Frameworks */ = {isa = PBXBuildFile; productRef = FEF1D1BC26FDFB1F004AE229 /* Atlantis */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,8 +54,6 @@
 				047D759E2B5850DB005182A3 /* MapboxSearch in Frameworks */,
 				047D75A02B5850DB005182A3 /* MapboxSearchUI in Frameworks */,
 				04F0A1612B4F276D0097D316 /* MapboxMaps in Frameworks */,
-				FEF1D1BD26FDFB1F004AE229 /* Atlantis in Frameworks */,
-				043FE02D2BBE135C00208709 /* MapboxMaps in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,7 +149,6 @@
 			);
 			name = SearchExamples;
 			packageProductDependencies = (
-				FEF1D1BC26FDFB1F004AE229 /* Atlantis */,
 				04F0A1602B4F276D0097D316 /* MapboxMaps */,
 				047D759D2B5850DB005182A3 /* MapboxSearch */,
 				047D759F2B5850DB005182A3 /* MapboxSearchUI */,
@@ -187,8 +183,7 @@
 			);
 			mainGroup = FE114A9B24C10B88001B2CE8;
 			packageReferences = (
-				FEF1D1BB26FDFB1F004AE229 /* XCRemoteSwiftPackageReference "atlantis" */,
-				043FE02B2BBE135C00208709 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
+				04F0A15F2B4F276D0097D316 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
 			);
 			productRefGroup = FE114AA524C10B88001B2CE8 /* Products */;
 			projectDirPath = "";
@@ -459,14 +454,6 @@
 				minimumVersion = 10.0.0;
 			};
 		};
-		FEF1D1BB26FDFB1F004AE229 /* XCRemoteSwiftPackageReference "atlantis" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ProxymanApp/atlantis";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 1.23.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -487,11 +474,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 04F0A15F2B4F276D0097D316 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
 			productName = MapboxMaps;
-		};
-		FEF1D1BC26FDFB1F004AE229 /* Atlantis */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FEF1D1BB26FDFB1F004AE229 /* XCRemoteSwiftPackageReference "atlantis" */;
-			productName = Atlantis;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

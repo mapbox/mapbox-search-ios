@@ -1,4 +1,3 @@
-import Atlantis
 import UIKit
 
 @main
@@ -16,8 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-
-        Atlantis.start()
 
         return true
     }
