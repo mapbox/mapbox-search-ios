@@ -2,7 +2,7 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-class SBS_SearchEngineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
+class SearchBox_SearchEngineIntegrationTests: MockServerIntegrationTestCase<SearchBoxMockResponse> {
     let delegate = SearchEngineDelegateStub()
     var searchEngine: SearchEngine!
 
@@ -184,7 +184,8 @@ class SBS_SearchEngineIntegrationTests: MockServerIntegrationTestCase<SBSMockRes
         searchEngine.query = "Recursion"
         wait(for: [updateExpectation], timeout: 10)
 
-        searchEngine.select(suggestion: searchEngine.suggestions.first!)
+        let firstSuggestion = try XCTUnwrap(searchEngine.suggestions.first)
+        searchEngine.select(suggestion: firstSuggestion)
 
         let nextUpdateExpectation = delegate.updateExpectation
         wait(for: [nextUpdateExpectation], timeout: 10)
