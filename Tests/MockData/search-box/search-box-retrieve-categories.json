@@ -1,0 +1,377 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -122.411161,
+          37.786801
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "name": "The Clift Royal Sonesta San Francisco",
+        "mapbox_id": "dXJuOm1ieHBvaTplZTc4YjQwZi00NTRmLTQyMTktOGFkOS1mZTJjNjFiZDViYWY",
+        "feature_type": "poi",
+        "address": "495 Geary St",
+        "full_address": "495 Geary St, San Francisco, California 94102, United States",
+        "place_formatted": "San Francisco, California 94102, United States",
+        "context": {
+          "country": {
+            "name": "United States",
+            "country_code": "US",
+            "country_code_alpha_3": "USA"
+          },
+          "region": {
+            "name": "California",
+            "region_code": "CA",
+            "region_code_full": "US-CA"
+          },
+          "postcode": {
+            "id": "dXJuOm1ieHBsYzpFcDh1N0E",
+            "name": "94102"
+          },
+          "place": {
+            "id": "dXJuOm1ieHBsYzpFVzBJN0E",
+            "name": "San Francisco"
+          },
+          "neighborhood": {
+            "id": "dXJuOm1ieHBsYzpKaXhNN0E",
+            "name": "Tenderloin"
+          },
+          "address": {
+            "name": "495 Geary St",
+            "address_number": "495",
+            "street_name": "geary st"
+          },
+          "street": {
+            "name": "geary st"
+          }
+        },
+        "coordinates": {
+          "latitude": 37.786801,
+          "longitude": -122.411161,
+          "routable_points": [
+            {
+              "name": "default",
+              "latitude": 37.7869916354588,
+              "longitude": -122.41118526045568
+            }
+          ]
+        },
+        "language": "",
+        "maki": "bar",
+        "poi_category": [
+          "bar",
+          "breakfast restaurant",
+          "food",
+          "food and drink",
+          "hotel",
+          "lodging",
+          "nightlife",
+          "restaurant"
+        ],
+        "poi_category_ids": [
+          "bar",
+          "breakfast_restaurant",
+          "food",
+          "food_and_drink",
+          "hotel",
+          "lodging",
+          "nightlife",
+          "restaurant"
+        ],
+        "brand": [
+          "Sonesta Hotels & Resorts"
+        ],
+        "brand_id": [
+          "sonesta_hotels__resorts"
+        ],
+        "external_ids": {
+          "safegraph": "zzw-22f@5vg-7gw-v4v",
+          "foursquare": "42accc80f964a52050251fe3"
+        },
+        "metadata": {
+          "phone": "+14157754700",
+          "website": "https://www.sonesta.com/royal-sonesta/ca/san-francisco/clift-royal-sonesta-hotel",
+          "open_hours": {}
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -122.40735626220705,
+          37.78680038452149
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "name": "Starbucks",
+        "mapbox_id": "dXJuOm1ieHBvaTpjN2RmMGU5NC1iYWIxLTQ3OTMtODg1OS1hZDljNjg5ZWY1Yjg",
+        "feature_type": "poi",
+        "address": "170 O'farrell Street",
+        "full_address": "170 O'farrell Street, San Francisco, California 94102, United States",
+        "place_formatted": "San Francisco, California 94102, United States",
+        "context": {
+          "country": {
+            "name": "United States",
+            "country_code": "US",
+            "country_code_alpha_3": "USA"
+          },
+          "region": {
+            "name": "California",
+            "region_code": "CA",
+            "region_code_full": "US-CA"
+          },
+          "postcode": {
+            "id": "dXJuOm1ieHBsYzpFcDh1N0E",
+            "name": "94102"
+          },
+          "place": {
+            "id": "dXJuOm1ieHBsYzpFVzBJN0E",
+            "name": "San Francisco"
+          },
+          "neighborhood": {
+            "id": "dXJuOm1ieHBsYzpDaTBzN0E",
+            "name": "Downtown"
+          },
+          "address": {
+            "name": "170 O'farrell Street",
+            "address_number": "170",
+            "street_name": "o'farrell street"
+          },
+          "street": {
+            "name": "o'farrell street"
+          }
+        },
+        "coordinates": {
+          "latitude": 37.78680038452149,
+          "longitude": -122.40735626220705,
+          "routable_points": [
+            {
+              "name": "default",
+              "latitude": 37.786528,
+              "longitude": -122.407305
+            }
+          ]
+        },
+        "language": "",
+        "maki": "restaurant",
+        "poi_category": [
+          "bakery",
+          "café",
+          "coffee",
+          "coffee shop",
+          "food",
+          "food and drink",
+          "teahouse"
+        ],
+        "poi_category_ids": [
+          "bakery",
+          "cafe",
+          "coffee",
+          "coffee_shop",
+          "food",
+          "food_and_drink",
+          "teahouse"
+        ],
+        "brand": [
+          "Starbucks",
+          "สตาร์บัคส์",
+          "星巴克",
+          "スターバックス",
+          "ستاربكس"
+        ],
+        "brand_id": [
+          "starbucks"
+        ],
+        "external_ids": {
+          "safegraph": "22c-222@5vg-7gw-v4v",
+          "foursquare": "4a6a452ef964a52001cd1fe3"
+        },
+        "metadata": {
+          "phone": "+14159229086",
+          "website": "https://www.starbucks.com/store-locator/store/11405",
+          "open_hours": {
+            "periods": [
+              {
+                "open": {
+                  "day": 0,
+                  "time": "0400"
+                },
+                "close": {
+                  "day": 0,
+                  "time": "2330"
+                }
+              },
+              {
+                "open": {
+                  "day": 1,
+                  "time": "0400"
+                },
+                "close": {
+                  "day": 1,
+                  "time": "2330"
+                }
+              },
+              {
+                "open": {
+                  "day": 2,
+                  "time": "0400"
+                },
+                "close": {
+                  "day": 2,
+                  "time": "2330"
+                }
+              },
+              {
+                "open": {
+                  "day": 3,
+                  "time": "0400"
+                },
+                "close": {
+                  "day": 3,
+                  "time": "2330"
+                }
+              },
+              {
+                "open": {
+                  "day": 4,
+                  "time": "0400"
+                },
+                "close": {
+                  "day": 4,
+                  "time": "2330"
+                }
+              },
+              {
+                "open": {
+                  "day": 5,
+                  "time": "0400"
+                },
+                "close": {
+                  "day": 5,
+                  "time": "2330"
+                }
+              },
+              {
+                "open": {
+                  "day": 6,
+                  "time": "0400"
+                },
+                "close": {
+                  "day": 6,
+                  "time": "2300"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -122.40466,
+          37.777383
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "name": "Chevron Extra Mile",
+        "mapbox_id": "dXJuOm1ieHBvaTo3ODBmNWJkNS1hNWQ4LTRkOTYtODJjZS01NmY2Yzk1MTNmNWE",
+        "feature_type": "poi",
+        "address": "1000 Harrison St",
+        "full_address": "1000 Harrison St, San Francisco, California 94103, United States",
+        "place_formatted": "San Francisco, California 94103, United States",
+        "context": {
+          "country": {
+            "name": "United States",
+            "country_code": "US",
+            "country_code_alpha_3": "USA"
+          },
+          "region": {
+            "name": "California",
+            "region_code": "CA",
+            "region_code_full": "US-CA"
+          },
+          "postcode": {
+            "id": "dXJuOm1ieHBsYzpFcDlPN0E",
+            "name": "94103"
+          },
+          "place": {
+            "id": "dXJuOm1ieHBsYzpFVzBJN0E",
+            "name": "San Francisco"
+          },
+          "neighborhood": {
+            "id": "dXJuOm1ieHBsYzpJOWtzN0E",
+            "name": "South of Market"
+          },
+          "address": {
+            "name": "1000 Harrison St",
+            "address_number": "1000",
+            "street_name": "harrison st"
+          },
+          "street": {
+            "name": "harrison st"
+          }
+        },
+        "coordinates": {
+          "latitude": 37.777383,
+          "longitude": -122.40466,
+          "routable_points": [
+            {
+              "name": "default",
+              "latitude": 37.777438227176035,
+              "longitude": -122.4047096345506
+            }
+          ]
+        },
+        "language": "",
+        "maki": "restaurant",
+        "poi_category": [
+          "café",
+          "coffee",
+          "coffee shop",
+          "convenience store",
+          "food",
+          "food and drink",
+          "gas station",
+          "grocery",
+          "restaurant",
+          "shopping"
+        ],
+        "poi_category_ids": [
+          "cafe",
+          "coffee",
+          "coffee_shop",
+          "convenience_store",
+          "food",
+          "food_and_drink",
+          "gas_station",
+          "grocery",
+          "restaurant",
+          "shopping"
+        ],
+        "brand": [
+          "Chevron Extra Mile"
+        ],
+        "brand_id": [
+          "chevron",
+          "chevron_extra_mile"
+        ],
+        "external_ids": {
+          "safegraph": "228-222@5vg-7gq-kcq"
+        },
+        "metadata": {
+          "phone": "+14158633001"
+        }
+      }
+    }
+  ],
+  "attribution": "© 2023 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service. (https://www.mapbox.com/about/maps/)"
+}

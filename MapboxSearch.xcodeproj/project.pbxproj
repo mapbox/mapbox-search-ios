@@ -42,6 +42,12 @@
 		04C0848D2B4C82F3002F9C69 /* SdkInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0848C2B4C82F3002F9C69 /* SdkInformation.swift */; };
 		04C127552B62F6BC00884325 /* ApiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C127542B62F6BC00884325 /* ApiType.swift */; };
 		04C127582B62FFDB00884325 /* ApiType+Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C127572B62FFDB00884325 /* ApiType+Core.swift */; };
+		04DFB40C2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */; };
+		04DFB40D2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */; };
+		04DFB40E2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */; };
+		04DFB4102B8CF46D00231830 /* search-box-retrieve-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */; };
+		04DFB4112B8CF46D00231830 /* search-box-retrieve-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */; };
+		04DFB4122B8CF46D00231830 /* search-box-retrieve-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */; };
 		04E5FF962B48828500DADC18 /* SearchAddressCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5FF952B48828500DADC18 /* SearchAddressCountry.swift */; };
 		04E5FF992B48829200DADC18 /* SearchAddressRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5FF982B48829200DADC18 /* SearchAddressRegion.swift */; };
 		04E84D122B76BA230056C269 /* Resources-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04E84D112B76BA230056C269 /* Resources-Info.plist */; };
@@ -531,6 +537,8 @@
 		04C0848C2B4C82F3002F9C69 /* SdkInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkInformation.swift; sourceTree = "<group>"; };
 		04C127542B62F6BC00884325 /* ApiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiType.swift; sourceTree = "<group>"; };
 		04C127572B62FFDB00884325 /* ApiType+Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiType+Core.swift"; sourceTree = "<group>"; };
+		04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-suggestions-categories.json"; sourceTree = "<group>"; };
+		04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-retrieve-categories.json"; sourceTree = "<group>"; };
 		04E5FF952B48828500DADC18 /* SearchAddressCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressCountry.swift; sourceTree = "<group>"; };
 		04E5FF982B48829200DADC18 /* SearchAddressRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressRegion.swift; sourceTree = "<group>"; };
 		04E84CFD2B768EDA0056C269 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
@@ -978,6 +986,8 @@
 				046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */,
 				047790482B890A8500A99528 /* search-box-recursion.json */,
 				0477904C2B890F4E00A99528 /* search-box-retrieve-minsk.json */,
+				04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */,
+				04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */,
 			);
 			path = "search-box";
 			sourceTree = "<group>";
@@ -2177,9 +2187,11 @@
 				042477C62B72CCB000D870D5 /* geocoding-reverse-geocoding.json in Resources */,
 				2CD8AC4429F1D38800C47BE4 /* suggestions-category-with-coordinates.json in Resources */,
 				0477904A2B890A8500A99528 /* search-box-recursion.json in Resources */,
+				04DFB40D2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */,
 				F9B62CCB264BCC2600492999 /* suggestions-empty.json in Resources */,
 				048823492B6B0A9D00C770AA /* category-hotel-search-along-route-jp.json in Resources */,
 				04AB0B4C2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json in Resources */,
+				04DFB4112B8CF46D00231830 /* search-box-retrieve-categories.json in Resources */,
 				046818DC2B87FAB20082B188 /* search-box-category.json in Resources */,
 				F9ACA6182642C48C00F50CD4 /* recursion.json in Resources */,
 				F9B62CC8264BC61600492999 /* category-cafe.json in Resources */,
@@ -2204,6 +2216,7 @@
 				F9AB03B2261DB50500EDF1E7 /* retrieve-category.json in Resources */,
 				F9074447261B192D0091899C /* recursion.json in Resources */,
 				F94FFA4B264547CD0019ED9B /* retrieve-multi.json in Resources */,
+				04DFB40E2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */,
 				2CD8AC4529F1D38800C47BE4 /* suggestions-category-with-coordinates.json in Resources */,
 				04AB0B4D2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json in Resources */,
 				F9B62CCC264BCC2600492999 /* suggestions-empty.json in Resources */,
@@ -2219,6 +2232,7 @@
 				046818DD2B87FAB20082B188 /* search-box-category.json in Resources */,
 				042477C72B72CCB000D870D5 /* geocoding-reverse-geocoding.json in Resources */,
 				F9074425261B0DF70091899C /* retrieve-san-francisco.json in Resources */,
+				04DFB4122B8CF46D00231830 /* search-box-retrieve-categories.json in Resources */,
 				2CD8AC4829F1D38800C47BE4 /* suggestions-with-coordinates.json in Resources */,
 				0477904F2B890F4E00A99528 /* search-box-retrieve-minsk.json in Resources */,
 			);
@@ -2237,9 +2251,11 @@
 				042477C52B72CCB000D870D5 /* geocoding-reverse-geocoding.json in Resources */,
 				2CD8AC4329F1D38800C47BE4 /* suggestions-category-with-coordinates.json in Resources */,
 				047790492B890A8500A99528 /* search-box-recursion.json in Resources */,
+				04DFB40C2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */,
 				F9C557A52670CB0400BE8B94 /* suggestions-empty.json in Resources */,
 				048823482B6B0A9D00C770AA /* category-hotel-search-along-route-jp.json in Resources */,
 				04AB0B4B2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json in Resources */,
+				04DFB4102B8CF46D00231830 /* search-box-retrieve-categories.json in Resources */,
 				046818DB2B87FAB20082B188 /* search-box-category.json in Resources */,
 				F9C557A62670CB0400BE8B94 /* recursion.json in Resources */,
 				F9C557A72670CB0400BE8B94 /* category-cafe.json in Resources */,

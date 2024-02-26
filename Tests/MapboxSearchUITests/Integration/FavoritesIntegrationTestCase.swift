@@ -1,6 +1,7 @@
 import XCTest
 
-class FavoritesIntegrationTestCase: MockSBSServerUITestCase {
+// Rename to UITestCase
+class FavoritesIntegrationTestCase: MockSearchBoxUITestCase {
     func testAddRemoveFavorite() throws {
         try server.setResponse(.suggestMinsk)
         try server.setResponse(.retrieveMinsk)
