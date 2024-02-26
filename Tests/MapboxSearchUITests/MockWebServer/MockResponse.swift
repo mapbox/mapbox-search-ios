@@ -204,7 +204,7 @@ enum SearchBoxMockResponse: MockResponse {
     case retrievePoi
     case multiRetrieve
 
-    case recursion
+    case recursion // Rename: suggestRecursion
     case categoryCafe
     case categoryHotelSearchAlongRoute_JP
 
