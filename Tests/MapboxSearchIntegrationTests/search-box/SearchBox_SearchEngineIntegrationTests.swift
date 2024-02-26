@@ -190,8 +190,8 @@ class SearchBox_SearchEngineIntegrationTests: MockServerIntegrationTestCase<Sear
         /// Mock that a subsequent retrieve call has been made and succeeds.
         /// This is not implemented in the stub delegate (it reports success).
         /// We have validated that the chained operations are connected.
-        let retrieveSuccessExpectation = delegate.successExpectation
-        wait(for: [retrieveSuccessExpectation], timeout: 10)
+        let nextUpdateExpectation = delegate.updateExpectation
+        wait(for: [nextUpdateExpectation], timeout: 10)
         XCTAssertFalse(searchEngine.suggestions.isEmpty)
     }
 }
