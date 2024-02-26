@@ -21,6 +21,7 @@ protocol MockResponse {
 
 // MARK: - Geocoding
 
+// Move to own file
 enum GeocodingMockResponse: MockResponse {
     case forwardGeocoding
     case reverseGeocoding
@@ -69,6 +70,7 @@ enum GeocodingMockResponse: MockResponse {
 
 // MARK: - SBS
 
+// Move to own file
 enum SBSMockResponse: MockResponse {
     case suggestEmpty
     case suggestMinsk
@@ -189,6 +191,7 @@ enum SBSMockResponse: MockResponse {
 
 // MARK: - search-box
 
+// Move to own file
 enum SearchBoxMockResponse: MockResponse {
     case suggestEmpty
     case suggestMinsk
@@ -216,7 +219,7 @@ enum SearchBoxMockResponse: MockResponse {
         case .suggestMinsk:
             return bundle.path(forResource: "search-box-suggestions-minsk", ofType: "json")!
         case .suggestSanFrancisco:
-            return bundle.path(forResource: "suggestions-san-francisco", ofType: "json")!
+            return bundle.path(forResource: "search-box-suggestions-san-francisco", ofType: "json")!
         case .suggestCategories:
             return bundle.path(forResource: "search-box-suggestions-categories", ofType: "json")!
         case .suggestWithCoordinates:
@@ -252,7 +255,7 @@ enum SearchBoxMockResponse: MockResponse {
             path += "/suggest?q=Minsk"
 
         case .suggestSanFrancisco:
-            path += "/suggest/San Francisco"
+            path += "/suggest?q=San Francisco"
 
         case .recursion:
             path += "/suggest?q=Recursion"
@@ -311,6 +314,7 @@ enum SearchBoxMockResponse: MockResponse {
 
 // MARK: - Autofill
 
+// Move to own file
 enum AutofillMockResponse: MockResponse {
     case suggestAddressSanFrancisco
     case retrieveAddressSanFrancisco

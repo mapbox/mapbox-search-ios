@@ -48,6 +48,9 @@
 		04DFB4102B8CF46D00231830 /* search-box-retrieve-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */; };
 		04DFB4112B8CF46D00231830 /* search-box-retrieve-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */; };
 		04DFB4122B8CF46D00231830 /* search-box-retrieve-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */; };
+		04DFB4142B8CFD4700231830 /* search-box-suggestions-san-francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB4132B8CFD4700231830 /* search-box-suggestions-san-francisco.json */; };
+		04DFB4152B8CFD4700231830 /* search-box-suggestions-san-francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB4132B8CFD4700231830 /* search-box-suggestions-san-francisco.json */; };
+		04DFB4162B8CFD4700231830 /* search-box-suggestions-san-francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB4132B8CFD4700231830 /* search-box-suggestions-san-francisco.json */; };
 		04E5FF962B48828500DADC18 /* SearchAddressCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5FF952B48828500DADC18 /* SearchAddressCountry.swift */; };
 		04E5FF992B48829200DADC18 /* SearchAddressRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5FF982B48829200DADC18 /* SearchAddressRegion.swift */; };
 		04E84D122B76BA230056C269 /* Resources-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04E84D112B76BA230056C269 /* Resources-Info.plist */; };
@@ -539,6 +542,7 @@
 		04C127572B62FFDB00884325 /* ApiType+Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiType+Core.swift"; sourceTree = "<group>"; };
 		04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-suggestions-categories.json"; sourceTree = "<group>"; };
 		04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-retrieve-categories.json"; sourceTree = "<group>"; };
+		04DFB4132B8CFD4700231830 /* search-box-suggestions-san-francisco.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-suggestions-san-francisco.json"; sourceTree = "<group>"; };
 		04E5FF952B48828500DADC18 /* SearchAddressCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressCountry.swift; sourceTree = "<group>"; };
 		04E5FF982B48829200DADC18 /* SearchAddressRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressRegion.swift; sourceTree = "<group>"; };
 		04E84CFD2B768EDA0056C269 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
@@ -988,6 +992,7 @@
 				0477904C2B890F4E00A99528 /* search-box-retrieve-minsk.json */,
 				04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */,
 				04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */,
+				04DFB4132B8CFD4700231830 /* search-box-suggestions-san-francisco.json */,
 			);
 			path = "search-box";
 			sourceTree = "<group>";
@@ -2186,6 +2191,7 @@
 				F94FFA4A264547CD0019ED9B /* retrieve-multi.json in Resources */,
 				042477C62B72CCB000D870D5 /* geocoding-reverse-geocoding.json in Resources */,
 				2CD8AC4429F1D38800C47BE4 /* suggestions-category-with-coordinates.json in Resources */,
+				04DFB4152B8CFD4700231830 /* search-box-suggestions-san-francisco.json in Resources */,
 				0477904A2B890A8500A99528 /* search-box-recursion.json in Resources */,
 				04DFB40D2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */,
 				F9B62CCB264BCC2600492999 /* suggestions-empty.json in Resources */,
@@ -2223,6 +2229,7 @@
 				F91D2D0B26174F5F00F7DFDF /* suggestions-minsk.json in Resources */,
 				F9B62CC9264BC61600492999 /* category-cafe.json in Resources */,
 				F907440F261B00000091899C /* suggestions-san-francisco.json in Resources */,
+				04DFB4162B8CFD4700231830 /* search-box-suggestions-san-francisco.json in Resources */,
 				F94FFA4826453D410019ED9B /* reverse-geocoding-sbs.json in Resources */,
 				046818E32B87FF5C0082B188 /* search-box-suggestions-minsk.json in Resources */,
 				2CD8AC4B29F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json in Resources */,
@@ -2250,6 +2257,7 @@
 				F9C557A42670CB0400BE8B94 /* retrieve-multi.json in Resources */,
 				042477C52B72CCB000D870D5 /* geocoding-reverse-geocoding.json in Resources */,
 				2CD8AC4329F1D38800C47BE4 /* suggestions-category-with-coordinates.json in Resources */,
+				04DFB4142B8CFD4700231830 /* search-box-suggestions-san-francisco.json in Resources */,
 				047790492B890A8500A99528 /* search-box-recursion.json in Resources */,
 				04DFB40C2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */,
 				F9C557A52670CB0400BE8B94 /* suggestions-empty.json in Resources */,

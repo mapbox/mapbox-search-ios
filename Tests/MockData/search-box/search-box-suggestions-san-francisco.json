@@ -1,0 +1,33 @@
+{
+  "suggestions": [
+    {
+      "name": "San Francisco",
+      "mapbox_id": "dXJuOm1ieHBsYzpFVzBJN0E",
+      "feature_type": "place",
+      "place_formatted": "California, United States",
+      "context": {
+        "country": {
+          "id": "dXJuOm1ieHBsYzpJdXc",
+          "name": "United States",
+          "country_code": "US",
+          "country_code_alpha_3": "USA"
+        },
+        "region": {
+          "id": "dXJuOm1ieHBsYzpCbVRz",
+          "name": "California",
+          "region_code": "CA",
+          "region_code_full": "US-CA"
+        },
+        "district": {
+          "id": "dXJuOm1ieHBsYzpBVG1HN0E",
+          "name": "San Francisco"
+        }
+      },
+      "language": "en",
+      "maki": "marker",
+      "metadata": {},
+      "distance": 1300
+    }
+  ],
+  "attribution": "© 2023 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service. (https://www.mapbox.com/about/maps/)"
+}
