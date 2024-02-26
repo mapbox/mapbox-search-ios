@@ -229,7 +229,7 @@ enum SearchBoxMockResponse: MockResponse {
         case .suggestCategoryWithCoordinates:
             return bundle.path(forResource: "suggestions-category-with-coordinates", ofType: "json")!
         case .retrieveSanFrancisco:
-            return bundle.path(forResource: "retrieve-san-francisco", ofType: "json")!
+            return bundle.path(forResource: "search-box-retrieve-san-francisco", ofType: "json")!
         case .retrieveMinsk:
             return bundle.path(forResource: "search-box-retrieve-minsk", ofType: "json")!
         case .retrieveCategory:
@@ -297,11 +297,11 @@ enum SearchBoxMockResponse: MockResponse {
              .categoryCafe,
              .categoryHotelSearchAlongRoute_JP,
              .retrieveMinsk,
-             .retrieveCategory:
+             .retrieveCategory,
+             .retrieveSanFrancisco:
             return .get
 
         case .multiRetrieve,
-             .retrieveSanFrancisco,
              .retrievePoi:
             return .post
         }
