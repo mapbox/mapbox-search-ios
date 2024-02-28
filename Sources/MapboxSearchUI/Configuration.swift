@@ -1,4 +1,5 @@
 import Foundation
+import MapKit
 import UIKit
 
 /// General structure to configure MapboxSearchController UI and logic
@@ -16,12 +17,14 @@ public struct Configuration {
         categoryDataProvider: CategoryDataProvider = DefaultCategoryDataProvider(),
         locationProvider: LocationProvider? = DefaultLocationProvider(),
         hideCategorySlots: Bool = false,
-        style: Style = .default
+        style: Style = .default,
+        distanceFormatter: MKDistanceFormatter? = nil
     ) {
         self.allowsFeedbackUI = allowsFeedbackUI
         self.categoryDataProvider = categoryDataProvider
         self.locationProvider = locationProvider
         self.hideCategorySlots = hideCategorySlots
+        self.distanceFormatter = distanceFormatter
     }
 
     /// Allow to show feedback related UI
@@ -44,4 +47,9 @@ public struct Configuration {
     /// Style to be used for Search UI elements.
     /// It's possible to change style on the fly. Non-animatable.
     public var style = Style()
+
+    /// Override the default ``MKDistanceFormatter`` behavior used by ``SearchSuggestionCell`` to display search
+    /// results in a specific unit system. A nil value will use the ``MKDistanceFormatter`` system behavior to infer
+    /// the unit system based on the device locale.
+    public var distanceFormatter: MKDistanceFormatter?
 }

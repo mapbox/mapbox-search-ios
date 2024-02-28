@@ -309,6 +309,26 @@ public struct SearchOptions {
                 info("SBS API doesn't support multiple languages at once. Search SDK will use the first")
             }
 
+            if case .time(let value, _) = validSearchOptions.routeOptions?.deviation {
+                let minimumTime = Measurement(
+                    value: 1,
+                    unit: UnitDuration.minutes
+                )
+                .converted(to: .seconds)
+                let maximumTime = Measurement(
+                    value: 30,
+                    unit: UnitDuration.minutes
+                )
+                .converted(to: .seconds)
+                let timeRange = (minimumTime...maximumTime)
+
+                if !timeRange.contains(value) {
+                    info(
+                        "SBS API time_deviation must be within 1 minute and 30 minutes (found \(value.value) seconds)"
+                    )
+                }
+            }
+
         case .autofill:
             let unsupportedFilterTypes: [SearchQueryType] = [.category]
 
@@ -318,7 +338,39 @@ public struct SearchOptions {
             }
 
         case .searchBox:
-            _Logger.searchSDK.warning("SearchBox API is not supported yet.")
+            let topLimit = 10
+
+            validSearchOptions.limit = limit.map { min($0, topLimit) }
+            if validSearchOptions.limit != limit {
+                info("search-box API supports as maximum as \(topLimit) limit.")
+            }
+
+            if languages.count > 1, let first = languages.first {
+                validSearchOptions.languages = [first]
+                info(
+                    "search-box API doesn't support multiple languages at once. Search SDK will use the first ('\(first)')"
+                )
+            }
+
+            if case .time(let value, _) = validSearchOptions.routeOptions?.deviation {
+                let minimumTime = Measurement(
+                    value: 1,
+                    unit: UnitDuration.minutes
+                )
+                .converted(to: .seconds)
+                let maximumTime = Measurement(
+                    value: 30,
+                    unit: UnitDuration.minutes
+                )
+                .converted(to: .seconds)
+                let timeRange = (minimumTime...maximumTime)
+
+                if !timeRange.contains(value) {
+                    info(
+                        "search-box API time_deviation must be within 1 minute and 30 minutes (found \(value.value) seconds)"
+                    )
+                }
+            }
 
         @unknown default:
             _Logger.searchSDK.warning("Unexpected engine API Type: \(apiType)")

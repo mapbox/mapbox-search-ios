@@ -12,16 +12,55 @@
 		042477C62B72CCB000D870D5 /* geocoding-reverse-geocoding.json in Resources */ = {isa = PBXBuildFile; fileRef = 042477C42B72CCB000D870D5 /* geocoding-reverse-geocoding.json */; };
 		042477C72B72CCB000D870D5 /* geocoding-reverse-geocoding.json in Resources */ = {isa = PBXBuildFile; fileRef = 042477C42B72CCB000D870D5 /* geocoding-reverse-geocoding.json */; };
 		043A3D4D2B30F38300DB681B /* CoreAddress+AddressComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A3D4C2B30F38300DB681B /* CoreAddress+AddressComponents.swift */; };
+		045514C22B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045514C12B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift */; };
+		045514C32B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045514C12B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift */; };
+		045514C42B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045514C12B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift */; };
+		046818D42B87F2A70082B188 /* SearchBox_CategorySearchEngineIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046818D32B87F2A70082B188 /* SearchBox_CategorySearchEngineIntegrationTests.swift */; };
+		046818DB2B87FAB20082B188 /* search-box-category.json in Resources */ = {isa = PBXBuildFile; fileRef = 046818DA2B87FAB20082B188 /* search-box-category.json */; };
+		046818DC2B87FAB20082B188 /* search-box-category.json in Resources */ = {isa = PBXBuildFile; fileRef = 046818DA2B87FAB20082B188 /* search-box-category.json */; };
+		046818DD2B87FAB20082B188 /* search-box-category.json in Resources */ = {isa = PBXBuildFile; fileRef = 046818DA2B87FAB20082B188 /* search-box-category.json */; };
+		046818DF2B87FDC00082B188 /* SearchBox_SearchEngineIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046818DE2B87FDC00082B188 /* SearchBox_SearchEngineIntegrationTests.swift */; };
+		046818E12B87FF5C0082B188 /* search-box-suggestions-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */; };
+		046818E22B87FF5C0082B188 /* search-box-suggestions-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */; };
+		046818E32B87FF5C0082B188 /* search-box-suggestions-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */; };
+		047790492B890A8500A99528 /* search-box-recursion.json in Resources */ = {isa = PBXBuildFile; fileRef = 047790482B890A8500A99528 /* search-box-recursion.json */; };
+		0477904A2B890A8500A99528 /* search-box-recursion.json in Resources */ = {isa = PBXBuildFile; fileRef = 047790482B890A8500A99528 /* search-box-recursion.json */; };
+		0477904B2B890A8500A99528 /* search-box-recursion.json in Resources */ = {isa = PBXBuildFile; fileRef = 047790482B890A8500A99528 /* search-box-recursion.json */; };
+		0477904D2B890F4E00A99528 /* search-box-retrieve-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 0477904C2B890F4E00A99528 /* search-box-retrieve-minsk.json */; };
+		0477904E2B890F4E00A99528 /* search-box-retrieve-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 0477904C2B890F4E00A99528 /* search-box-retrieve-minsk.json */; };
+		0477904F2B890F4E00A99528 /* search-box-retrieve-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 0477904C2B890F4E00A99528 /* search-box-retrieve-minsk.json */; };
+		048823482B6B0A9D00C770AA /* category-hotel-search-along-route-jp.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */; };
+		048823492B6B0A9D00C770AA /* category-hotel-search-along-route-jp.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */; };
+		0488234A2B6B0A9E00C770AA /* category-hotel-search-along-route-jp.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */; };
+		04970F8D2B7A97C900213763 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 04970F8C2B7A97C900213763 /* PrivacyInfo.xcprivacy */; };
 		04AB0B4B2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */; };
 		04AB0B4C2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */; };
 		04AB0B4D2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */; };
+		04AB0B7B2B6AF43E00FDE7D5 /* DiscoverIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB0B792B6AF37800FDE7D5 /* DiscoverIntegrationTests.swift */; };
 		04BBC6342B61898F00E24E99 /* LocalhostMockServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BBC6332B61898F00E24E99 /* LocalhostMockServiceProvider.swift */; };
 		04BBC6372B61ABA500E24E99 /* FeedbackIntegrationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BBFBD02604A4A500DE9C98 /* FeedbackIntegrationTestCase.swift */; };
 		04C0848D2B4C82F3002F9C69 /* SdkInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0848C2B4C82F3002F9C69 /* SdkInformation.swift */; };
 		04C127552B62F6BC00884325 /* ApiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C127542B62F6BC00884325 /* ApiType.swift */; };
 		04C127582B62FFDB00884325 /* ApiType+Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C127572B62FFDB00884325 /* ApiType+Core.swift */; };
+		04DFB40C2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */; };
+		04DFB40D2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */; };
+		04DFB40E2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */; };
+		04DFB4102B8CF46D00231830 /* search-box-retrieve-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */; };
+		04DFB4112B8CF46D00231830 /* search-box-retrieve-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */; };
+		04DFB4122B8CF46D00231830 /* search-box-retrieve-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */; };
+		04DFB4142B8CFD4700231830 /* search-box-suggestions-san-francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB4132B8CFD4700231830 /* search-box-suggestions-san-francisco.json */; };
+		04DFB4152B8CFD4700231830 /* search-box-suggestions-san-francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB4132B8CFD4700231830 /* search-box-suggestions-san-francisco.json */; };
+		04DFB4162B8CFD4700231830 /* search-box-suggestions-san-francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB4132B8CFD4700231830 /* search-box-suggestions-san-francisco.json */; };
+		04DFB41C2B8CFEC100231830 /* search-box-retrieve-san-francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB41B2B8CFEC100231830 /* search-box-retrieve-san-francisco.json */; };
+		04DFB41D2B8CFEC100231830 /* search-box-retrieve-san-francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB41B2B8CFEC100231830 /* search-box-retrieve-san-francisco.json */; };
+		04DFB41E2B8CFEC100231830 /* search-box-retrieve-san-francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB41B2B8CFEC100231830 /* search-box-retrieve-san-francisco.json */; };
+		04DFB4202B8D0ABE00231830 /* search-box-retrieve-recursion.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB41F2B8D0ABE00231830 /* search-box-retrieve-recursion.json */; };
+		04DFB4212B8D0ABE00231830 /* search-box-retrieve-recursion.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB41F2B8D0ABE00231830 /* search-box-retrieve-recursion.json */; };
+		04DFB4222B8D0ABE00231830 /* search-box-retrieve-recursion.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB41F2B8D0ABE00231830 /* search-box-retrieve-recursion.json */; };
 		04E5FF962B48828500DADC18 /* SearchAddressCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5FF952B48828500DADC18 /* SearchAddressCountry.swift */; };
 		04E5FF992B48829200DADC18 /* SearchAddressRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5FF982B48829200DADC18 /* SearchAddressRegion.swift */; };
+		04E84D122B76BA230056C269 /* Resources-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04E84D112B76BA230056C269 /* Resources-Info.plist */; };
+		04E84D132B7A8F4D0056C269 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 04E84D072B7691610056C269 /* PrivacyInfo.xcprivacy */; };
 		140D1BDC286DB479001A51C2 /* SearchResultAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */; };
 		140E47A2298BC90E00677E30 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A1298BC90E00677E30 /* Category.swift */; };
 		140E47A5298BC94D00677E30 /* Category+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E47A4298BC94D00677E30 /* Category+Options.swift */; };
@@ -36,7 +75,6 @@
 		141789BB2878AD9B0000AE79 /* AddressAutofill.Options+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141789BA2878AD9B0000AE79 /* AddressAutofill.Options+Tests.swift */; };
 		141789E7287C05060000AE79 /* AddressAutofill.Suggestion+SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141789E6287C05060000AE79 /* AddressAutofill.Suggestion+SearchResult.swift */; };
 		141789EE287C125E0000AE79 /* AddressAutofill.Suggestion+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141789E9287C115C0000AE79 /* AddressAutofill.Suggestion+Tests.swift */; };
-		1419EB6929670638009672CA /* Autofill.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1419EB6829670638009672CA /* Autofill.xcassets */; };
 		1420F31C29A2800300D4A511 /* CoreSearchResultStub+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1420F31729A25B5800D4A511 /* CoreSearchResultStub+Samples.swift */; };
 		1420F31D29A2800500D4A511 /* CoreSearchResultStub+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1420F31729A25B5800D4A511 /* CoreSearchResultStub+Samples.swift */; };
 		1421416A2953450C00774439 /* PlaceAutocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142141692953450C00774439 /* PlaceAutocomplete.swift */; };
@@ -492,13 +530,38 @@
 		042477C12B7290E700D870D5 /* SearchEngineGeocodingIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEngineGeocodingIntegrationTests.swift; sourceTree = "<group>"; };
 		042477C42B72CCB000D870D5 /* geocoding-reverse-geocoding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "geocoding-reverse-geocoding.json"; sourceTree = "<group>"; };
 		043A3D4C2B30F38300DB681B /* CoreAddress+AddressComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreAddress+AddressComponents.swift"; sourceTree = "<group>"; };
+		045514C12B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreApiType+ToSDKType.swift"; sourceTree = "<group>"; };
+		046818D32B87F2A70082B188 /* SearchBox_CategorySearchEngineIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBox_CategorySearchEngineIntegrationTests.swift; sourceTree = "<group>"; };
+		046818D82B87FA6E0082B188 /* move-existing-mocks-here.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "move-existing-mocks-here.txt"; sourceTree = "<group>"; };
+		046818DA2B87FAB20082B188 /* search-box-category.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = "search-box-category.json"; sourceTree = "<group>"; };
+		046818DE2B87FDC00082B188 /* SearchBox_SearchEngineIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBox_SearchEngineIntegrationTests.swift; sourceTree = "<group>"; };
+		046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-suggestions-minsk.json"; sourceTree = "<group>"; };
+		047790482B890A8500A99528 /* search-box-recursion.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-recursion.json"; sourceTree = "<group>"; };
+		0477904C2B890F4E00A99528 /* search-box-retrieve-minsk.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-retrieve-minsk.json"; sourceTree = "<group>"; };
+		04970F8C2B7A97C900213763 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mapbox.places.san.francisco.json; sourceTree = "<group>"; };
+		04AB0B792B6AF37800FDE7D5 /* DiscoverIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverIntegrationTests.swift; sourceTree = "<group>"; };
+		04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = "category-hotel-search-along-route-jp.json"; sourceTree = "<group>"; };
 		04BBC6332B61898F00E24E99 /* LocalhostMockServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalhostMockServiceProvider.swift; sourceTree = "<group>"; };
 		04C0848C2B4C82F3002F9C69 /* SdkInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkInformation.swift; sourceTree = "<group>"; };
 		04C127542B62F6BC00884325 /* ApiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiType.swift; sourceTree = "<group>"; };
 		04C127572B62FFDB00884325 /* ApiType+Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiType+Core.swift"; sourceTree = "<group>"; };
+		04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-suggestions-categories.json"; sourceTree = "<group>"; };
+		04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-retrieve-categories.json"; sourceTree = "<group>"; };
+		04DFB4132B8CFD4700231830 /* search-box-suggestions-san-francisco.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-suggestions-san-francisco.json"; sourceTree = "<group>"; };
+		04DFB41B2B8CFEC100231830 /* search-box-retrieve-san-francisco.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "search-box-retrieve-san-francisco.json"; sourceTree = "<group>"; };
+		04DFB41F2B8D0ABE00231830 /* search-box-retrieve-recursion.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-retrieve-recursion.json"; sourceTree = "<group>"; };
 		04E5FF952B48828500DADC18 /* SearchAddressCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressCountry.swift; sourceTree = "<group>"; };
 		04E5FF982B48829200DADC18 /* SearchAddressRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressRegion.swift; sourceTree = "<group>"; };
+		04E84CFD2B768EDA0056C269 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		04E84CFE2B768EDA0056C269 /* Brewfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Brewfile; sourceTree = "<group>"; };
+		04E84D012B768F210056C269 /* Pluginfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Pluginfile; sourceTree = "<group>"; };
+		04E84D022B768F210056C269 /* Appfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Appfile; sourceTree = "<group>"; };
+		04E84D032B768F210056C269 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fastfile; sourceTree = "<group>"; };
+		04E84D042B768F210056C269 /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
+		04E84D052B768F210056C269 /* Matchfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Matchfile; sourceTree = "<group>"; };
+		04E84D072B7691610056C269 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		04E84D112B76BA230056C269 /* Resources-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Resources-Info.plist"; sourceTree = "<group>"; };
 		140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAccuracy.swift; sourceTree = "<group>"; };
 		140E47A1298BC90E00677E30 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		140E47A4298BC94D00677E30 /* Category+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+Options.swift"; sourceTree = "<group>"; };
@@ -513,7 +576,6 @@
 		141789BA2878AD9B0000AE79 /* AddressAutofill.Options+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill.Options+Tests.swift"; sourceTree = "<group>"; };
 		141789E6287C05060000AE79 /* AddressAutofill.Suggestion+SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill.Suggestion+SearchResult.swift"; sourceTree = "<group>"; };
 		141789E9287C115C0000AE79 /* AddressAutofill.Suggestion+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressAutofill.Suggestion+Tests.swift"; sourceTree = "<group>"; };
-		1419EB6829670638009672CA /* Autofill.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Autofill.xcassets; sourceTree = "<group>"; };
 		1420F31729A25B5800D4A511 /* CoreSearchResultStub+Samples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreSearchResultStub+Samples.swift"; sourceTree = "<group>"; };
 		142141692953450C00774439 /* PlaceAutocomplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAutocomplete.swift; sourceTree = "<group>"; };
 		143695F5289927FD00861F1A /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
@@ -646,7 +708,6 @@
 		FE114D8824C1A86A001B2CE8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		FE114D8924C1A86A001B2CE8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FE114D8A24C1A86A001B2CE8 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
-		FE114D8B24C1A86A001B2CE8 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
 		FE114D8C24C1A873001B2CE8 /* MapboxSearchUI.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = MapboxSearchUI.podspec; sourceTree = "<group>"; };
 		FE114D8D24C1A873001B2CE8 /* MapboxSearch.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = MapboxSearch.podspec; sourceTree = "<group>"; };
 		FE114D8E24C1A880001B2CE8 /* Gemfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Gemfile; sourceTree = "<group>"; };
@@ -912,6 +973,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		046818D22B87F2810082B188 /* search-box */ = {
+			isa = PBXGroup;
+			children = (
+				046818D32B87F2A70082B188 /* SearchBox_CategorySearchEngineIntegrationTests.swift */,
+				046818DE2B87FDC00082B188 /* SearchBox_SearchEngineIntegrationTests.swift */,
+			);
+			path = "search-box";
+			sourceTree = "<group>";
+		};
+		046818D52B87FA2E0082B188 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				046818D72B87FA4F0082B188 /* sbs */,
+				046818D62B87FA450082B188 /* search-box */,
+			);
+			path = MockData;
+			sourceTree = "<group>";
+		};
+		046818D62B87FA450082B188 /* search-box */ = {
+			isa = PBXGroup;
+			children = (
+				04DFB41B2B8CFEC100231830 /* search-box-retrieve-san-francisco.json */,
+				046818DA2B87FAB20082B188 /* search-box-category.json */,
+				046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */,
+				047790482B890A8500A99528 /* search-box-recursion.json */,
+				0477904C2B890F4E00A99528 /* search-box-retrieve-minsk.json */,
+				04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */,
+				04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */,
+				04DFB4132B8CFD4700231830 /* search-box-suggestions-san-francisco.json */,
+				04DFB41F2B8D0ABE00231830 /* search-box-retrieve-recursion.json */,
+			);
+			path = "search-box";
+			sourceTree = "<group>";
+		};
+		046818D72B87FA4F0082B188 /* sbs */ = {
+			isa = PBXGroup;
+			children = (
+				046818D82B87FA6E0082B188 /* move-existing-mocks-here.txt */,
+			);
+			path = sbs;
+			sourceTree = "<group>";
+		};
+		04970F8B2B7A97C900213763 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				04970F8C2B7A97C900213763 /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		04C127562B62FFD000884325 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
@@ -926,6 +1037,26 @@
 				04E5FF982B48829200DADC18 /* SearchAddressRegion.swift */,
 			);
 			path = Region;
+			sourceTree = "<group>";
+		};
+		04E84D002B768F210056C269 /* .fastlane */ = {
+			isa = PBXGroup;
+			children = (
+				04E84D012B768F210056C269 /* Pluginfile */,
+				04E84D022B768F210056C269 /* Appfile */,
+				04E84D032B768F210056C269 /* Fastfile */,
+				04E84D042B768F210056C269 /* .env */,
+				04E84D052B768F210056C269 /* Matchfile */,
+			);
+			path = .fastlane;
+			sourceTree = "<group>";
+		};
+		04E84D062B7691420056C269 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				04E84D072B7691610056C269 /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		140E47A0298BC8F800677E30 /* Category */ = {
@@ -1065,7 +1196,6 @@
 		1419EB6729670629009672CA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1419EB6829670638009672CA /* Autofill.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1363,6 +1493,7 @@
 				2CE1B9FA2A13D412005B043F /* address-retrieve-san-francisco.json */,
 				2CE1B9F92A13D412005B043F /* address-suggestions-san-francisco.json */,
 				2CD8AC5129F28D6900C47BE4 /* retrieve-poi.json */,
+				04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */,
 				2CD8AC4029F1D38800C47BE4 /* suggestions-category-with-coordinates.json */,
 				2CD8AC4129F1D38800C47BE4 /* suggestions-with-coordinates.json */,
 				2CD8AC4229F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json */,
@@ -1414,6 +1545,7 @@
 			children = (
 				FEEDD3882508E24900DC0A98 /* LotLan+Extensions.swift */,
 				F970FAD7252B14950000806B /* SearchResultType+Extensions.swift */,
+				045514C12B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1484,6 +1616,8 @@
 				F9ACA6162642C18200F50CD4 /* SearchEngineIntegrationTests.swift */,
 				042477C12B7290E700D870D5 /* SearchEngineGeocodingIntegrationTests.swift */,
 				F99190422645ABE6009927A6 /* CategorySearchEngineIntegrationTests.swift */,
+				046818D22B87F2810082B188 /* search-box */,
+				04AB0B792B6AF37800FDE7D5 /* DiscoverIntegrationTests.swift */,
 				F9C5572C2670C88E00BE8B94 /* Info.plist */,
 			);
 			path = MapboxSearchIntegrationTests;
@@ -1502,12 +1636,14 @@
 		FE114D8524C1A857001B2CE8 /* Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				04E84D002B768F210056C269 /* .fastlane */,
+				04E84CFE2B768EDA0056C269 /* Brewfile */,
+				04E84CFD2B768EDA0056C269 /* CHANGELOG.md */,
 				FE529611253704F900F61A0F /* .circleci */,
 				FE114D8824C1A86A001B2CE8 /* .gitignore */,
 				FE114D8624C1A86A001B2CE8 /* .swift-version */,
 				FE114D8A24C1A86A001B2CE8 /* .swiftformat */,
 				FE114D8924C1A86A001B2CE8 /* .swiftlint.yml */,
-				FE114D8B24C1A86A001B2CE8 /* .travis.yml */,
 				FE114D8724C1A86A001B2CE8 /* Cartfile */,
 				FE114D8F24C1A880001B2CE8 /* CODEOWNERS */,
 				FE114D8E24C1A880001B2CE8 /* Gemfile */,
@@ -1565,6 +1701,7 @@
 		FEEDD2C02508DFE400DC0A98 /* MapboxSearch */ = {
 			isa = PBXGroup;
 			children = (
+				04E84D062B7691420056C269 /* Resources */,
 				FEEDD2C12508DFE400DC0A98 /* InternalAPI */,
 				FEEDD2D42508DFE400DC0A98 /* PublicAPI */,
 			);
@@ -1666,6 +1803,8 @@
 		FEEDD31E2508E02700DC0A98 /* MapboxSearchUI */ = {
 			isa = PBXGroup;
 			children = (
+				04E84D112B76BA230056C269 /* Resources-Info.plist */,
+				04970F8B2B7A97C900213763 /* Resources */,
 				FEEDD34E2508E02700DC0A98 /* ActivityProgressView.swift */,
 				FEEDD33F2508E02700DC0A98 /* ActivityProgressView.xib */,
 				FE4F260525F8E8B700454BC5 /* AddToFavoritesCell.swift */,
@@ -1745,6 +1884,7 @@
 		FEEDD3842508E22800DC0A98 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				046818D52B87FA2E0082B188 /* MockData */,
 				FEF87CF7254C362200AD97AB /* CI-dev.xctestplan */,
 				FEF87CEC254C35EC00AD97AB /* Demo.xctestplan */,
 				F9C557292670C88E00BE8B94 /* MapboxSearchIntegrationTests */,
@@ -2045,7 +2185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1419EB6929670638009672CA /* Autofill.xcassets in Resources */,
+				04E84D132B7A8F4D0056C269 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2058,11 +2198,19 @@
 				F9ACA61B2642C49600F50CD4 /* retrieve-minsk.json in Resources */,
 				F9ACA61C2642C49900F50CD4 /* suggestions-categories.json in Resources */,
 				F9ACA61E2642C4A000F50CD4 /* suggestions-san-francisco.json in Resources */,
+				04DFB41D2B8CFEC100231830 /* search-box-retrieve-san-francisco.json in Resources */,
 				F94FFA4A264547CD0019ED9B /* retrieve-multi.json in Resources */,
 				042477C62B72CCB000D870D5 /* geocoding-reverse-geocoding.json in Resources */,
 				2CD8AC4429F1D38800C47BE4 /* suggestions-category-with-coordinates.json in Resources */,
+				04DFB4152B8CFD4700231830 /* search-box-suggestions-san-francisco.json in Resources */,
+				0477904A2B890A8500A99528 /* search-box-recursion.json in Resources */,
+				04DFB40D2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */,
 				F9B62CCB264BCC2600492999 /* suggestions-empty.json in Resources */,
+				048823492B6B0A9D00C770AA /* category-hotel-search-along-route-jp.json in Resources */,
 				04AB0B4C2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json in Resources */,
+				04DFB4112B8CF46D00231830 /* search-box-retrieve-categories.json in Resources */,
+				04DFB4212B8D0ABE00231830 /* search-box-retrieve-recursion.json in Resources */,
+				046818DC2B87FAB20082B188 /* search-box-category.json in Resources */,
 				F9ACA6182642C48C00F50CD4 /* recursion.json in Resources */,
 				F9B62CC8264BC61600492999 /* category-cafe.json in Resources */,
 				F9ACA6192642C49000F50CD4 /* retrieve-category.json in Resources */,
@@ -2071,7 +2219,9 @@
 				2CD8AC4A29F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json in Resources */,
 				2CD8AC5329F28D6900C47BE4 /* retrieve-poi.json in Resources */,
 				F9ACA61A2642C49300F50CD4 /* retrieve-san-francisco.json in Resources */,
+				046818E22B87FF5C0082B188 /* search-box-suggestions-minsk.json in Resources */,
 				2CD8AC4729F1D38800C47BE4 /* suggestions-with-coordinates.json in Resources */,
+				0477904E2B890F4E00A99528 /* search-box-retrieve-minsk.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2084,18 +2234,28 @@
 				F9AB03B2261DB50500EDF1E7 /* retrieve-category.json in Resources */,
 				F9074447261B192D0091899C /* recursion.json in Resources */,
 				F94FFA4B264547CD0019ED9B /* retrieve-multi.json in Resources */,
+				04DFB40E2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */,
 				2CD8AC4529F1D38800C47BE4 /* suggestions-category-with-coordinates.json in Resources */,
 				04AB0B4D2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json in Resources */,
 				F9B62CCC264BCC2600492999 /* suggestions-empty.json in Resources */,
 				F91D2D0B26174F5F00F7DFDF /* suggestions-minsk.json in Resources */,
 				F9B62CC9264BC61600492999 /* category-cafe.json in Resources */,
 				F907440F261B00000091899C /* suggestions-san-francisco.json in Resources */,
+				04DFB4162B8CFD4700231830 /* search-box-suggestions-san-francisco.json in Resources */,
 				F94FFA4826453D410019ED9B /* reverse-geocoding-sbs.json in Resources */,
+				04DFB4222B8D0ABE00231830 /* search-box-retrieve-recursion.json in Resources */,
+				046818E32B87FF5C0082B188 /* search-box-suggestions-minsk.json in Resources */,
 				2CD8AC4B29F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json in Resources */,
+				0477904B2B890A8500A99528 /* search-box-recursion.json in Resources */,
+				0488234A2B6B0A9E00C770AA /* category-hotel-search-along-route-jp.json in Resources */,
 				2CD8AC5429F28D6900C47BE4 /* retrieve-poi.json in Resources */,
+				046818DD2B87FAB20082B188 /* search-box-category.json in Resources */,
 				042477C72B72CCB000D870D5 /* geocoding-reverse-geocoding.json in Resources */,
+				04DFB41E2B8CFEC100231830 /* search-box-retrieve-san-francisco.json in Resources */,
 				F9074425261B0DF70091899C /* retrieve-san-francisco.json in Resources */,
+				04DFB4122B8CF46D00231830 /* search-box-retrieve-categories.json in Resources */,
 				2CD8AC4829F1D38800C47BE4 /* suggestions-with-coordinates.json in Resources */,
+				0477904F2B890F4E00A99528 /* search-box-retrieve-minsk.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2108,11 +2268,19 @@
 				F9C557A12670CB0400BE8B94 /* retrieve-minsk.json in Resources */,
 				F9C557A22670CB0400BE8B94 /* suggestions-categories.json in Resources */,
 				F9C557A32670CB0400BE8B94 /* suggestions-san-francisco.json in Resources */,
+				04DFB41C2B8CFEC100231830 /* search-box-retrieve-san-francisco.json in Resources */,
 				F9C557A42670CB0400BE8B94 /* retrieve-multi.json in Resources */,
 				042477C52B72CCB000D870D5 /* geocoding-reverse-geocoding.json in Resources */,
 				2CD8AC4329F1D38800C47BE4 /* suggestions-category-with-coordinates.json in Resources */,
+				04DFB4142B8CFD4700231830 /* search-box-suggestions-san-francisco.json in Resources */,
+				047790492B890A8500A99528 /* search-box-recursion.json in Resources */,
+				04DFB40C2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */,
 				F9C557A52670CB0400BE8B94 /* suggestions-empty.json in Resources */,
+				048823482B6B0A9D00C770AA /* category-hotel-search-along-route-jp.json in Resources */,
 				04AB0B4B2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json in Resources */,
+				04DFB4102B8CF46D00231830 /* search-box-retrieve-categories.json in Resources */,
+				04DFB4202B8D0ABE00231830 /* search-box-retrieve-recursion.json in Resources */,
+				046818DB2B87FAB20082B188 /* search-box-category.json in Resources */,
 				F9C557A62670CB0400BE8B94 /* recursion.json in Resources */,
 				F9C557A72670CB0400BE8B94 /* category-cafe.json in Resources */,
 				F9C557A82670CB0400BE8B94 /* retrieve-category.json in Resources */,
@@ -2121,7 +2289,9 @@
 				2CD8AC4929F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json in Resources */,
 				2CD8AC5229F28D6900C47BE4 /* retrieve-poi.json in Resources */,
 				F9C557AA2670CB0400BE8B94 /* retrieve-san-francisco.json in Resources */,
+				046818E12B87FF5C0082B188 /* search-box-suggestions-minsk.json in Resources */,
 				2CD8AC4629F1D38800C47BE4 /* suggestions-with-coordinates.json in Resources */,
+				0477904D2B890F4E00A99528 /* search-box-retrieve-minsk.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2167,6 +2337,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E84D122B76BA230056C269 /* Resources-Info.plist in Resources */,
+				04970F8D2B7A97C900213763 /* PrivacyInfo.xcprivacy in Resources */,
 				FEC6EEE5246BFBB30051732D /* MapboxSearchUIResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2560,6 +2732,7 @@
 				F953A49325ECEB60003A3681 /* SearchCategorySuggestion+Samples.swift in Sources */,
 				F9F882962583779A00062A82 /* CoreImageInfoStub.swift in Sources */,
 				FEA92E712564149100427965 /* CoreSuggestAction+Samples.swift in Sources */,
+				045514C32B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift in Sources */,
 				2CA1E22129F09CD200A533CF /* PlaceAutocomplete.Suggestion+Tests.swift in Sources */,
 				FED7E1A825517C5100DA34D9 /* CoreBoundingBoxTests.swift in Sources */,
 				F9D70E5C252740DD0019105F /* IndexableDataProviderTests.swift in Sources */,
@@ -2608,6 +2781,7 @@
 				F9201ECA253EECE0002D141B /* CategorySuggestionsIntegrationTestCase.swift in Sources */,
 				F907443B261B13F40091899C /* MockServerUITestCase.swift in Sources */,
 				F9ACA6132642B66600F50CD4 /* MockWebServer.swift in Sources */,
+				045514C42B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift in Sources */,
 				FEEDD3D22508E45B00DC0A98 /* VisibilityTestCase.swift in Sources */,
 				F9AB03C3261DBD7F00EDF1E7 /* MockResponse.swift in Sources */,
 				FEEDD3CE2508E45B00DC0A98 /* BaseTestCase.swift in Sources */,
@@ -2623,9 +2797,11 @@
 			files = (
 				F9C557B62670CC4500BE8B94 /* SearchEngineDelegateStub.swift in Sources */,
 				F9C9461B2743CB1700763F2C /* TestTileStore.swift in Sources */,
+				045514C22B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift in Sources */,
 				F9C557C12670CD8C00BE8B94 /* CoreSearchOptions+Samples.swift in Sources */,
 				1420F31C29A2800300D4A511 /* CoreSearchResultStub+Samples.swift in Sources */,
 				F9C557B72670CC5600BE8B94 /* CoreSearchResultStub.swift in Sources */,
+				04AB0B7B2B6AF43E00FDE7D5 /* DiscoverIntegrationTests.swift in Sources */,
 				F9C557BF2670CD4300BE8B94 /* CoreRequestOptions+Samples.swift in Sources */,
 				F9C557BB2670CCC000BE8B94 /* SearchResultType+Extensions.swift in Sources */,
 				F9C557BA2670CCAB00BE8B94 /* TestDataProviderRecord.swift in Sources */,
@@ -2639,7 +2815,9 @@
 				14FA6589295368AF00056E5B /* CoreAddress+Extensions.swift in Sources */,
 				F9C557C02670CD5E00BE8B94 /* Address+Samples.swift in Sources */,
 				F914EE652743E4F400D4F173 /* CoreAliases.swift in Sources */,
+				046818DF2B87FDC00082B188 /* SearchBox_SearchEngineIntegrationTests.swift in Sources */,
 				F9C557B42670CB4000BE8B94 /* SearchEngineIntegrationTests.swift in Sources */,
+				046818D42B87F2A70082B188 /* SearchBox_CategorySearchEngineIntegrationTests.swift in Sources */,
 				F9274FF5273AA79700708F37 /* OfflineIntegrationTests.swift in Sources */,
 				F9C557BE2670CD2B00BE8B94 /* CoreSearchResponseStub+Samples.swift in Sources */,
 				F9C557B82670CC7700BE8B94 /* CoreSearchResponseStub.swift in Sources */,

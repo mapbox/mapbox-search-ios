@@ -1,0 +1,53 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          27.688183,
+          53.864527
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "name": "Минск",
+        "mapbox_id": "dXJuOm1ieHBsYzpDWWds",
+        "feature_type": "place",
+        "place_formatted": "Minsk, Belarus",
+        "context": {
+          "country": {
+            "id": "dXJuOm1ieHBsYzpJaVU",
+            "name": "Belarus",
+            "country_code": "BY",
+            "country_code_alpha_3": "BLR"
+          },
+          "region": {
+            "id": "dXJuOm1ieHBsYzo1Q1U",
+            "name": "Minsk",
+            "region_code": "HM",
+            "region_code_full": "BY-HM"
+          },
+          "place": {
+            "id": "dXJuOm1ieHBsYzpDWWds",
+            "name": "Минск"
+          }
+        },
+        "coordinates": {
+          "latitude": 53.864527,
+          "longitude": 27.688183
+        },
+        "bbox": [
+          27.019187,
+          53.625823,
+          27.96249,
+          54.254909
+        ],
+        "language": "en",
+        "maki": "marker",
+        "metadata": {}
+      }
+    }
+  ],
+  "attribution": "© 2023 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service. (https://www.mapbox.com/about/maps/)"
+}

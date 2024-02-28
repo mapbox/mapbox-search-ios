@@ -1,11 +1,14 @@
 import XCTest
 
-class VisibilityTestCase: BaseTestCase {
+// Rename to UITestCase
+class VisibilityTestCase: MockSearchBoxUITestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
-
         app.launch()
         XCUIDevice.shared.orientation = .portrait
+
+        try server.setResponse(.suggestCategories)
+        try server.setResponse(.retrieveCategory)
     }
 
     func testSearchBarVisibility() throws {

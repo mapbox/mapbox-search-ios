@@ -24,8 +24,6 @@
 	<array>
 		<string>_Proxyman._tcp</string>
 	</array>
-	<key>NSLocalNetworkUsageDescription</key>
-	<string>Atlantis would use Bonjour Service to discover Proxyman app from your local network.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Improve search results</string>
 	<key>UILaunchStoryboardName</key>

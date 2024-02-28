@@ -1,0 +1,819 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -122.40735626220705,
+          37.78680038452149
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "name": "Starbucks",
+        "mapbox_id": "dXJuOm1ieHBvaTpjN2RmMGU5NC1iYWIxLTQ3OTMtODg1OS1hZDljNjg5ZWY1Yjg",
+        "feature_type": "poi",
+        "address": "170 O'farrell Street",
+        "full_address": "170 O'farrell Street, San Francisco, California 94102, United States",
+        "place_formatted": "San Francisco, California 94102, United States",
+        "context": {
+          "country": {
+            "name": "United States",
+            "country_code": "US",
+            "country_code_alpha_3": "USA"
+          },
+          "region": {
+            "name": "California",
+            "region_code": "CA",
+            "region_code_full": "US-CA"
+          },
+          "postcode": {
+            "id": "dXJuOm1ieHBsYzpFcDh1N0E",
+            "name": "94102"
+          },
+          "place": {
+            "id": "dXJuOm1ieHBsYzpFVzBJN0E",
+            "name": "San Francisco"
+          },
+          "neighborhood": {
+            "id": "dXJuOm1ieHBsYzpDaTBzN0E",
+            "name": "Downtown"
+          },
+          "address": {
+            "name": "170 O'farrell Street",
+            "address_number": "170",
+            "street_name": "o'farrell street"
+          },
+          "street": {
+            "name": "o'farrell street"
+          }
+        },
+        "coordinates": {
+          "latitude": 37.78680038452149,
+          "longitude": -122.40735626220705,
+          "routable_points": [
+            {
+              "name": "default",
+              "latitude": 37.786528,
+              "longitude": -122.407305
+            }
+          ]
+        },
+        "language": "",
+        "maki": "restaurant",
+        "poi_category": [
+          "bakery",
+          "café",
+          "coffee",
+          "coffee shop",
+          "food",
+          "food and drink",
+          "teahouse"
+        ],
+        "poi_category_ids": [
+          "bakery",
+          "cafe",
+          "coffee",
+          "coffee_shop",
+          "food",
+          "food_and_drink",
+          "teahouse"
+        ],
+        "brand": [
+          "Starbucks",
+          "สตาร์บัคส์",
+          "星巴克",
+          "スターバックス",
+          "ستاربكس"
+        ],
+        "brand_id": [
+          "starbucks"
+        ],
+        "external_ids": {
+          "safegraph": "22c-222@5vg-7gw-v4v",
+          "foursquare": "4a6a452ef964a52001cd1fe3"
+        },
+        "metadata": {
+          "phone": "+14159229086",
+          "website": "https://www.starbucks.com/store-locator/store/11405",
+          "open_hours": {
+            "periods": [
+              {
+                "open": {
+                  "day": 0,
+                  "time": "0400"
+                },
+                "close": {
+                  "day": 0,
+                  "time": "2330"
+                }
+              },
+              {
+                "open": {
+                  "day": 1,
+                  "time": "0400"
+                },
+                "close": {
+                  "day": 1,
+                  "time": "2330"
+                }
+              },
+              {
+                "open": {
+                  "day": 2,
+                  "time": "0400"
+                },
+                "close": {
+                  "day": 2,
+                  "time": "2330"
+                }
+              },
+              {
+                "open": {
+                  "day": 3,
+                  "time": "0400"
+                },
+                "close": {
+                  "day": 3,
+                  "time": "2330"
+                }
+              },
+              {
+                "open": {
+                  "day": 4,
+                  "time": "0400"
+                },
+                "close": {
+                  "day": 4,
+                  "time": "2330"
+                }
+              },
+              {
+                "open": {
+                  "day": 5,
+                  "time": "0400"
+                },
+                "close": {
+                  "day": 5,
+                  "time": "2330"
+                }
+              },
+              {
+                "open": {
+                  "day": 6,
+                  "time": "0400"
+                },
+                "close": {
+                  "day": 6,
+                  "time": "2300"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -122.411212,
+          37.785707
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "name": "Taylor Street Coffee Shop",
+        "mapbox_id": "dXJuOm1ieHBvaTpmYTUxODI1ZS00NjgxLTQ4ZDQtYjUyZS1kODQ0NjJmOTBiZWE",
+        "feature_type": "poi",
+        "address": "375 Taylor St",
+        "full_address": "375 Taylor St, San Francisco, California 94102, United States",
+        "place_formatted": "San Francisco, California 94102, United States",
+        "context": {
+          "country": {
+            "name": "United States",
+            "country_code": "US",
+            "country_code_alpha_3": "USA"
+          },
+          "region": {
+            "name": "California",
+            "region_code": "CA",
+            "region_code_full": "US-CA"
+          },
+          "postcode": {
+            "id": "dXJuOm1ieHBsYzpFcDh1N0E",
+            "name": "94102"
+          },
+          "place": {
+            "id": "dXJuOm1ieHBsYzpFVzBJN0E",
+            "name": "San Francisco"
+          },
+          "neighborhood": {
+            "id": "dXJuOm1ieHBsYzpKaXhNN0E",
+            "name": "Tenderloin"
+          },
+          "address": {
+            "name": "375 Taylor St",
+            "address_number": "375",
+            "street_name": "taylor st"
+          },
+          "street": {
+            "name": "taylor st"
+          }
+        },
+        "coordinates": {
+          "latitude": 37.785707,
+          "longitude": -122.411212,
+          "routable_points": [
+            {
+              "name": "default",
+              "latitude": 37.78569263240253,
+              "longitude": -122.41128259224192
+            }
+          ]
+        },
+        "language": "",
+        "maki": "restaurant",
+        "poi_category": [
+          "café",
+          "coffee",
+          "coffee shop",
+          "food",
+          "food and drink"
+        ],
+        "poi_category_ids": [
+          "cafe",
+          "coffee",
+          "coffee_shop",
+          "food",
+          "food_and_drink"
+        ],
+        "external_ids": {
+          "foursquare": "4a671dbaf964a520edc81fe3",
+          "safegraph": "229-222@5vg-7gw-vfz"
+        },
+        "metadata": {
+          "phone": "+14155674031",
+          "website": "http://taylor-street-coffee-shop.cafes-city.com",
+          "open_hours": {
+            "periods": [
+              {
+                "open": {
+                  "day": 0,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 0,
+                  "time": "1400"
+                }
+              },
+              {
+                "open": {
+                  "day": 1,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 1,
+                  "time": "1400"
+                }
+              },
+              {
+                "open": {
+                  "day": 2,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 2,
+                  "time": "1400"
+                }
+              },
+              {
+                "open": {
+                  "day": 3,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 3,
+                  "time": "1400"
+                }
+              },
+              {
+                "open": {
+                  "day": 4,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 4,
+                  "time": "1400"
+                }
+              },
+              {
+                "open": {
+                  "day": 5,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 5,
+                  "time": "1400"
+                }
+              },
+              {
+                "open": {
+                  "day": 6,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 6,
+                  "time": "1400"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -122.403779,
+          37.787396
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "name": "Mazarine Coffee",
+        "mapbox_id": "dXJuOm1ieHBvaTo2NTllNzc5ZC1jNTJjLTQ1ZjktOWQ0OC00YzRlZGQ0MmI0YjU",
+        "feature_type": "poi",
+        "address": "720 Market St",
+        "full_address": "720 Market St, San Francisco, California 94103, United States",
+        "place_formatted": "San Francisco, California 94103, United States",
+        "context": {
+          "country": {
+            "name": "United States",
+            "country_code": "US",
+            "country_code_alpha_3": "USA"
+          },
+          "region": {
+            "name": "California",
+            "region_code": "CA",
+            "region_code_full": "US-CA"
+          },
+          "postcode": {
+            "id": "dXJuOm1ieHBsYzpFcDlPN0E",
+            "name": "94103"
+          },
+          "place": {
+            "id": "dXJuOm1ieHBsYzpFVzBJN0E",
+            "name": "San Francisco"
+          },
+          "neighborhood": {
+            "id": "dXJuOm1ieHBsYzpMQ2tzN0E",
+            "name": "Yerba Buena"
+          },
+          "address": {
+            "name": "720 Market St",
+            "address_number": "720",
+            "street_name": "market st"
+          },
+          "street": {
+            "name": "market st"
+          }
+        },
+        "coordinates": {
+          "latitude": 37.787396,
+          "longitude": -122.403779,
+          "routable_points": [
+            {
+              "name": "default",
+              "latitude": 37.78740092927761,
+              "longitude": -122.40378290421192
+            }
+          ]
+        },
+        "language": "",
+        "maki": "restaurant",
+        "poi_category": [
+          "café",
+          "coffee",
+          "coffee shop",
+          "food",
+          "food and drink"
+        ],
+        "poi_category_ids": [
+          "cafe",
+          "coffee",
+          "coffee_shop",
+          "food",
+          "food_and_drink"
+        ],
+        "external_ids": {
+          "foursquare": "547cac4d498ecfcb0018b838",
+          "safegraph": "23p-222@5vg-7gv-5fz"
+        },
+        "metadata": {
+          "phone": "(415) 398-7700",
+          "website": "http://www.mazarinecoffee.com",
+          "open_hours": {
+            "periods": [
+              {
+                "open": {
+                  "day": 0,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 0,
+                  "time": "1800"
+                }
+              },
+              {
+                "open": {
+                  "day": 1,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 1,
+                  "time": "1800"
+                }
+              },
+              {
+                "open": {
+                  "day": 2,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 2,
+                  "time": "1800"
+                }
+              },
+              {
+                "open": {
+                  "day": 3,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 3,
+                  "time": "1800"
+                }
+              },
+              {
+                "open": {
+                  "day": 4,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 4,
+                  "time": "1800"
+                }
+              },
+              {
+                "open": {
+                  "day": 5,
+                  "time": "0800"
+                },
+                "close": {
+                  "day": 5,
+                  "time": "1700"
+                }
+              },
+              {
+                "open": {
+                  "day": 6,
+                  "time": "0800"
+                },
+                "close": {
+                  "day": 6,
+                  "time": "1700"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -122.414318,
+          37.787682
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "name": "Farm Table",
+        "mapbox_id": "dXJuOm1ieHBvaTo4MmU0YzhiNC1iM2Y1LTQzZDItODZhNi1hMTFjNDM3ODIxNDI",
+        "feature_type": "poi",
+        "address": "754 Post St",
+        "full_address": "754 Post St, San Francisco, California 94109, United States",
+        "place_formatted": "San Francisco, California 94109, United States",
+        "context": {
+          "country": {
+            "name": "United States",
+            "country_code": "US",
+            "country_code_alpha_3": "USA"
+          },
+          "region": {
+            "name": "California",
+            "region_code": "CA",
+            "region_code_full": "US-CA"
+          },
+          "postcode": {
+            "id": "dXJuOm1ieHBsYzpFcC91N0E",
+            "name": "94109"
+          },
+          "place": {
+            "id": "dXJuOm1ieHBsYzpFVzBJN0E",
+            "name": "San Francisco"
+          },
+          "neighborhood": {
+            "id": "dXJuOm1ieHBsYzpGbFlNN0E",
+            "name": "Lower Nob Hill"
+          },
+          "address": {
+            "name": "754 Post St",
+            "address_number": "754",
+            "street_name": "post st"
+          },
+          "street": {
+            "name": "post st"
+          }
+        },
+        "coordinates": {
+          "latitude": 37.787682,
+          "longitude": -122.414318,
+          "routable_points": [
+            {
+              "name": "default",
+              "latitude": 37.78754840141576,
+              "longitude": -122.41430100137298
+            }
+          ]
+        },
+        "language": "",
+        "maki": "restaurant",
+        "poi_category": [
+          "brunch restaurant",
+          "café",
+          "coffee",
+          "coffee shop",
+          "food",
+          "food and drink",
+          "restaurant"
+        ],
+        "poi_category_ids": [
+          "brunch_restaurant",
+          "cafe",
+          "coffee",
+          "coffee_shop",
+          "food",
+          "food_and_drink",
+          "restaurant"
+        ],
+        "external_ids": {
+          "foursquare": "4b008eadf964a520733f22e3",
+          "safegraph": "22h-222@5vg-7gw-w49"
+        },
+        "metadata": {
+          "phone": "+14153005652",
+          "website": "https://www.farmtablesf.com",
+          "open_hours": {
+            "periods": [
+              {
+                "open": {
+                  "day": 0,
+                  "time": "0800"
+                },
+                "close": {
+                  "day": 0,
+                  "time": "1200"
+                }
+              },
+              {
+                "open": {
+                  "day": 1,
+                  "time": "0730"
+                },
+                "close": {
+                  "day": 1,
+                  "time": "1400"
+                }
+              },
+              {
+                "open": {
+                  "day": 2,
+                  "time": "0730"
+                },
+                "close": {
+                  "day": 2,
+                  "time": "1400"
+                }
+              },
+              {
+                "open": {
+                  "day": 3,
+                  "time": "0730"
+                },
+                "close": {
+                  "day": 3,
+                  "time": "1400"
+                }
+              },
+              {
+                "open": {
+                  "day": 4,
+                  "time": "0730"
+                },
+                "close": {
+                  "day": 4,
+                  "time": "1400"
+                }
+              },
+              {
+                "open": {
+                  "day": 5,
+                  "time": "0800"
+                },
+                "close": {
+                  "day": 5,
+                  "time": "1500"
+                }
+              },
+              {
+                "open": {
+                  "day": 6,
+                  "time": "0800"
+                },
+                "close": {
+                  "day": 6,
+                  "time": "1500"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -122.408545,
+          37.776987
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "name": "Sightglass Coffee",
+        "mapbox_id": "dXJuOm1ieHBvaTo4MWExYTU2OC05NjZkLTQxMTQtYjliYy1mMzk3NTRkNWYyMzM",
+        "feature_type": "poi",
+        "address": "270 7th St",
+        "full_address": "270 7th St, San Francisco, California 94103, United States",
+        "place_formatted": "San Francisco, California 94103, United States",
+        "context": {
+          "country": {
+            "name": "United States",
+            "country_code": "US",
+            "country_code_alpha_3": "USA"
+          },
+          "region": {
+            "name": "California",
+            "region_code": "CA",
+            "region_code_full": "US-CA"
+          },
+          "postcode": {
+            "id": "dXJuOm1ieHBsYzpFcDlPN0E",
+            "name": "94103"
+          },
+          "place": {
+            "id": "dXJuOm1ieHBsYzpFVzBJN0E",
+            "name": "San Francisco"
+          },
+          "neighborhood": {
+            "id": "dXJuOm1ieHBsYzpJOWtzN0E",
+            "name": "South of Market"
+          },
+          "address": {
+            "name": "270 7th St",
+            "address_number": "270",
+            "street_name": "7th st"
+          },
+          "street": {
+            "name": "7th st"
+          }
+        },
+        "coordinates": {
+          "latitude": 37.776987,
+          "longitude": -122.408545,
+          "routable_points": [
+            {
+              "name": "default",
+              "latitude": 37.77718105334916,
+              "longitude": -122.4083903722148
+            }
+          ]
+        },
+        "language": "",
+        "maki": "restaurant",
+        "poi_category": [
+          "café",
+          "coffee",
+          "coffee shop",
+          "food",
+          "food and drink"
+        ],
+        "poi_category_ids": [
+          "cafe",
+          "coffee",
+          "coffee_shop",
+          "food",
+          "food_and_drink"
+        ],
+        "external_ids": {
+          "foursquare": "4a4b8a43f964a5206fac1fe3",
+          "safegraph": "22s-222@5vg-7gq-j5f"
+        },
+        "metadata": {
+          "phone": "+14158611313",
+          "website": "http://sightglasscoffee.com",
+          "open_hours": {
+            "periods": [
+              {
+                "open": {
+                  "day": 0,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 0,
+                  "time": "1900"
+                }
+              },
+              {
+                "open": {
+                  "day": 1,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 1,
+                  "time": "1900"
+                }
+              },
+              {
+                "open": {
+                  "day": 2,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 2,
+                  "time": "1900"
+                }
+              },
+              {
+                "open": {
+                  "day": 3,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 3,
+                  "time": "1900"
+                }
+              },
+              {
+                "open": {
+                  "day": 4,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 4,
+                  "time": "1900"
+                }
+              },
+              {
+                "open": {
+                  "day": 5,
+                  "time": "0700"
+                },
+                "close": {
+                  "day": 5,
+                  "time": "1900"
+                }
+              },
+              {
+                "open": {
+                  "day": 6,
+                  "time": "0800"
+                },
+                "close": {
+                  "day": 6,
+                  "time": "1900"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "attribution": "© 2023 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service. (https://www.mapbox.com/about/maps/)"
+}

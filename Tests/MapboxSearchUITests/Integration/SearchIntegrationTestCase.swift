@@ -1,6 +1,7 @@
 import XCTest
 
-class SearchIntegrationTestCase: MockServerUITestCase {
+// Rename to UITestCase
+class SearchIntegrationTestCase: MockSearchBoxUITestCase {
     func testRecentSearchRemove() throws {
         try server.setResponse(.suggestSanFrancisco)
         try server.setResponse(.retrieveSanFrancisco)

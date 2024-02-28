@@ -1,6 +1,7 @@
 import XCTest
 
-class CategorySuggestionsNavigationIntegrationTestCase: MockServerUITestCase {
+// Rename to UITestCase
+class CategorySuggestionsNavigationIntegrationTestCase: MockSearchBoxUITestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         app.launch()
@@ -16,7 +17,7 @@ class CategorySuggestionsNavigationIntegrationTestCase: MockServerUITestCase {
 
         let searchResult = app.mapboxSearchController.searchResultTableView
         waitForHittable(searchResult, message: "SearchResultTableView not hittable")
-        waitForHittable(searchResult.cells["Cafe"].firstMatch).tap()
+        waitForHittable(searchResult.cells["Café"].firstMatch).tap()
 
         let suggestions = app.categorySuggestionsTableView
         waitForHittable(suggestions)

@@ -106,7 +106,7 @@ jobs:
           command: make dependencies
       - run:
           name: Test frameworks
-          command: make ci-dev-test
+          command: make ci-full-test
       - run: make codecov
       - run:
           name: Prepare artifacts

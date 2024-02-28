@@ -1,17 +1,18 @@
-
 import XCTest
 
-class CategorySuggestionsIntegrationTestCase: MockServerUITestCase {
+// Rename to UITestCase
+class CategorySuggestionsIntegrationTestCase: MockSearchBoxUITestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         app.launch()
 
+        /// To simplify tests these mocks have multiple category results and are re-used across tests
         try server.setResponse(.suggestCategories)
         try server.setResponse(.retrieveCategory)
     }
 
     func testCafeCategorySuggestions() throws {
-        categorySuggestionsTest(categoryName: "Cafe")
+        categorySuggestionsTest(categoryName: "Café")
     }
 
     func testBarCategorySuggestions() throws {

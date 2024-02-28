@@ -5,6 +5,8 @@ public final class Category {
     private let searchEngine: CategorySearchEngine
     private let userActivityReporter: CoreUserActivityReporter
 
+    public let apiType: ApiType
+
     /// Basic internal initializer
     /// - Parameters:
     ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used
@@ -12,7 +14,8 @@ public final class Category {
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     public convenience init(
         accessToken: String? = nil,
-        locationProvider: LocationProvider? = DefaultLocationProvider()
+        locationProvider: LocationProvider? = DefaultLocationProvider(),
+        apiType: ApiType = .SBS
     ) {
         guard let accessToken = accessToken ?? ServiceProvider.shared.getStoredAccessToken() else {
             fatalError(
@@ -23,7 +26,7 @@ public final class Category {
         let searchEngine = CategorySearchEngine(
             accessToken: accessToken,
             locationProvider: locationProvider,
-            apiType: .SBS
+            apiType: apiType
         )
 
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(
@@ -38,6 +41,7 @@ public final class Category {
 
     init(searchEngine: CategorySearchEngine, userActivityReporter: CoreUserActivityReporter) {
         self.searchEngine = searchEngine
+        self.apiType = searchEngine.apiType
         self.userActivityReporter = userActivityReporter
     }
 }
@@ -58,9 +62,11 @@ extension Category {
     ) {
         userActivityReporter.reportActivity(forComponent: "category-search-nearby")
         let searchOptions = SearchOptions(
+            countries: [options.country?.countryCode].compactMap { $0 },
             languages: [options.language.languageCode],
             limit: options.limit,
-            proximity: proximity
+            proximity: proximity,
+            origin: options.origin
         )
 
         search(for: item, with: searchOptions, completion: completion)
@@ -83,10 +89,12 @@ extension Category {
     ) {
         userActivityReporter.reportActivity(forComponent: "category-search-in-area")
         let searchOptions = SearchOptions(
+            countries: [options.country?.countryCode].compactMap { $0 },
             languages: [options.language.languageCode],
             limit: options.limit,
-            proximity: proximity,
-            boundingBox: region
+            proximity: proximity ?? options.proximity,
+            boundingBox: region,
+            origin: options.origin
         )
 
         search(for: item, with: searchOptions, completion: completion)
@@ -108,8 +116,11 @@ extension Category {
         userActivityReporter.reportActivity(forComponent: "category-search-along-the-route")
 
         let searchOptions = SearchOptions(
+            countries: [options.country?.countryCode].compactMap { $0 },
             languages: [options.language.languageCode],
             limit: options.limit,
+            proximity: options.proximity,
+            origin: options.origin,
             routeOptions: route
         )
 
