@@ -179,6 +179,7 @@ class SearchBox_SearchEngineIntegrationTests: MockServerIntegrationTestCase<Sear
 
     func testSuggestionTypeQuery() throws {
         try server.setResponse(.recursion)
+        try server.setResponse(.retrieveRecursion)
 
         let updateExpectation = delegate.updateExpectation
         searchEngine.query = "Recursion"

@@ -205,6 +205,7 @@ enum SearchBoxMockResponse: MockResponse {
     case retrieveMinsk
     case retrieveCategory
     case retrievePoi
+    case retrieveRecursion
     case multiRetrieve
 
     case recursion // Rename: suggestRecursion
@@ -222,6 +223,8 @@ enum SearchBoxMockResponse: MockResponse {
             return bundle.path(forResource: "search-box-suggestions-san-francisco", ofType: "json")!
         case .suggestCategories:
             return bundle.path(forResource: "search-box-suggestions-categories", ofType: "json")!
+        case .retrieveRecursion:
+            return bundle.path(forResource: "search-box-retrieve-recursion", ofType: "json")!
         case .suggestWithCoordinates:
             return bundle.path(forResource: "suggestions-with-coordinates", ofType: "json")!
         case .suggestWithMixedCoordinates:
@@ -270,7 +273,8 @@ enum SearchBoxMockResponse: MockResponse {
         case .retrieveSanFrancisco,
              .retrieveCategory,
              .retrieveMinsk,
-             .retrievePoi:
+             .retrievePoi,
+             .retrieveRecursion:
             path += "/retrieve/:identifier"
 
         case .multiRetrieve:
@@ -298,7 +302,8 @@ enum SearchBoxMockResponse: MockResponse {
              .categoryHotelSearchAlongRoute_JP,
              .retrieveMinsk,
              .retrieveCategory,
-             .retrieveSanFrancisco:
+             .retrieveSanFrancisco,
+             .retrieveRecursion:
             return .get
 
         case .multiRetrieve,

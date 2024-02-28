@@ -1,0 +1,87 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -96.737957,
+          33.058584
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "name": "Recursion Software Inc",
+        "mapbox_id": "dXJuOm1ieHBvaTozZTkxYzBlNC0yOWI0LTQzMTUtODIxNS02Njc2MGVjNjUyZTY",
+        "feature_type": "poi",
+        "address": "2121 W Spring Creek Pkwy Ste 108",
+        "full_address": "2121 W Spring Creek Pkwy Ste 108, Plano, Texas 75023, United States",
+        "place_formatted": "Plano, Texas 75023, United States",
+        "context": {
+          "country": {
+            "id": "",
+            "name": "United States",
+            "country_code": "US",
+            "country_code_alpha_3": "USA"
+          },
+          "region": {
+            "id": "",
+            "name": "Texas",
+            "region_code": "TX",
+            "region_code_full": "US-TX"
+          },
+          "postcode": {
+            "id": "dXJuOm1ieHBsYzpEMDN1N0E",
+            "name": "75023"
+          },
+          "place": {
+            "id": "dXJuOm1ieHBsYzpENWJJN0E",
+            "name": "Plano"
+          },
+          "neighborhood": {
+            "id": "dXJuOm1ieHBsYzpFbE9zN0E",
+            "name": "Hunters Glen"
+          },
+          "address": {
+            "id": "",
+            "name": "2121 W Spring Creek Pkwy Ste 108",
+            "address_number": "2121",
+            "street_name": "w spring creek pkwy"
+          },
+          "street": {
+            "id": "",
+            "name": "w spring creek pkwy"
+          }
+        },
+        "coordinates": {
+          "latitude": 33.058584,
+          "longitude": -96.737957,
+          "routable_points": [
+            {
+              "name": "default",
+              "latitude": 33.058395033749605,
+              "longitude": -96.73788552571877
+            }
+          ]
+        },
+        "language": "en",
+        "maki": "marker",
+        "poi_category": [
+          "information technology",
+          "office"
+        ],
+        "poi_category_ids": [
+          "information_technology_company",
+          "office"
+        ],
+        "external_ids": {
+          "safegraph": "22f-222@5qv-xm8-99f",
+          "foursquare": "54fdaf28498eee5c95f80fdd"
+        },
+        "metadata": {},
+        "operational_status": "active"
+      }
+    }
+  ],
+  "attribution": "© 2023 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service. (https://www.mapbox.com/about/maps/)"
+}
