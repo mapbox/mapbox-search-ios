@@ -5,7 +5,7 @@ final class DiscoverViewController: UIViewController {
     @IBOutlet private var mapView: MKMapView!
     @IBOutlet private var segmentedControl: UISegmentedControl!
 
-    private let discover = Discover()
+    private let discover = Discover(apiType: .searchBox)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,16 +17,20 @@ final class DiscoverViewController: UIViewController {
 // MARK: - Actions
 
 extension DiscoverViewController {
-    fileprivate enum Constants {
-        static let regionResultsLimit = 50
-    }
-
     @IBAction
     private func handleSearchInRegionAction() {
+        let regionResultsLimit: Int
+        switch discover.apiType {
+        case .geocoding:
+            regionResultsLimit = 10
+        default:
+            regionResultsLimit = 100
+        }
+
         discover.search(
             for: currentSelectedCategory,
             in: currentBoundingBox,
-            options: .init(limit: Constants.regionResultsLimit)
+            options: .init(limit: regionResultsLimit)
         ) { result in
             switch result {
             case .success(let results):

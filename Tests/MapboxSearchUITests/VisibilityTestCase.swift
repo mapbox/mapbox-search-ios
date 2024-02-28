@@ -1,6 +1,7 @@
 import XCTest
 
-class VisibilityTestCase: MockSBSServerUITestCase {
+// Rename to UITestCase
+class VisibilityTestCase: MockSearchBoxUITestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         app.launch()

@@ -2,7 +2,8 @@ import XCTest
 
 // TODO: Analytics
 
-class FeedbackIntegrationTestCase: MockSBSServerUITestCase {
+// Rename to UITestCase
+class FeedbackIntegrationTestCase: MockSearchBoxUITestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
 

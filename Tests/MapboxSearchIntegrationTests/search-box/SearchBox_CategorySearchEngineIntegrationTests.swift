@@ -2,7 +2,7 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-final class SBS_CategorySearchEngineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
+final class SearchBox_CategorySearchEngineIntegrationTests: MockServerIntegrationTestCase<SearchBoxMockResponse> {
     private var searchEngine: CategorySearchEngine!
 
     override func setUpWithError() throws {

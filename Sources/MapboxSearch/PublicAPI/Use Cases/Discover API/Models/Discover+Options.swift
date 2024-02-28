@@ -3,6 +3,8 @@ import Foundation
 extension Discover {
     public struct Options {
         /// Maximum number of results to return.
+        /// The maximum allowed value for SBS APIs is 100 results.
+        /// The maximum allowed value for geocoding APIs is 10 results.
         public let limit: Int
 
         /// List of  language codes which used to provide localized results, order matters.

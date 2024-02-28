@@ -9,6 +9,8 @@ extension ApiType {
             return .geocoding
         case .SBS:
             return .SBS
+        case .searchBox:
+            return .searchBox
         }
     }
 }

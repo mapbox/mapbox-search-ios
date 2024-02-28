@@ -6,13 +6,13 @@ final class MockWebServer<Mock: MockResponse> {
 
     private let server = HttpServer()
 
-    func setResponse(_ response: Mock, query: String? = nil, statusCode: Int = 200) throws {
-        let route = response.path
-        let method = response.httpMethod
+    func setResponse(_ endpoint: Mock, query: String? = nil, statusCode: Int = 200) throws {
+        let route = endpoint.path
+        let method = endpoint.httpMethod
 
         let response = HttpResponse.raw(statusCode, "mocked response", nil) { writer in
             try writer.write(
-                Data(contentsOf: URL(fileURLWithPath: response.filepath))
+                Data(contentsOf: URL(fileURLWithPath: endpoint.filepath))
             )
         }
 

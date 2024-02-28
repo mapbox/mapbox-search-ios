@@ -21,6 +21,7 @@ protocol MockResponse {
 
 // MARK: - Geocoding
 
+// Move to own file
 enum GeocodingMockResponse: MockResponse {
     case forwardGeocoding
     case reverseGeocoding
@@ -69,6 +70,7 @@ enum GeocodingMockResponse: MockResponse {
 
 // MARK: - SBS
 
+// Move to own file
 enum SBSMockResponse: MockResponse {
     case suggestEmpty
     case suggestMinsk
@@ -187,8 +189,137 @@ enum SBSMockResponse: MockResponse {
     }
 }
 
+// MARK: - search-box
+
+// Move to own file
+enum SearchBoxMockResponse: MockResponse {
+    case suggestEmpty
+    case suggestMinsk
+    case suggestSanFrancisco
+    case suggestCategories
+    case suggestWithCoordinates
+    case suggestWithMixedCoordinates
+    case suggestCategoryWithCoordinates
+
+    case retrieveSanFrancisco
+    case retrieveMinsk
+    case retrieveCategory
+    case retrievePoi
+    case retrieveRecursion
+    case multiRetrieve
+
+    case recursion // Rename: suggestRecursion
+    case categoryCafe
+    case categoryHotelSearchAlongRoute_JP
+
+    var filepath: String {
+        let bundle = Bundle(for: MockWebServer<Self>.self)
+        switch self {
+        case .suggestEmpty:
+            return bundle.path(forResource: "suggestions-empty", ofType: "json")!
+        case .suggestMinsk:
+            return bundle.path(forResource: "search-box-suggestions-minsk", ofType: "json")!
+        case .suggestSanFrancisco:
+            return bundle.path(forResource: "search-box-suggestions-san-francisco", ofType: "json")!
+        case .suggestCategories:
+            return bundle.path(forResource: "search-box-suggestions-categories", ofType: "json")!
+        case .retrieveRecursion:
+            return bundle.path(forResource: "search-box-retrieve-recursion", ofType: "json")!
+        case .suggestWithCoordinates:
+            return bundle.path(forResource: "suggestions-with-coordinates", ofType: "json")!
+        case .suggestWithMixedCoordinates:
+            return bundle.path(forResource: "suggestions-with-mixed-coordinates", ofType: "json")!
+        case .suggestCategoryWithCoordinates:
+            return bundle.path(forResource: "suggestions-category-with-coordinates", ofType: "json")!
+        case .retrieveSanFrancisco:
+            return bundle.path(forResource: "search-box-retrieve-san-francisco", ofType: "json")!
+        case .retrieveMinsk:
+            return bundle.path(forResource: "search-box-retrieve-minsk", ofType: "json")!
+        case .retrieveCategory:
+            return bundle.path(forResource: "search-box-retrieve-categories", ofType: "json")!
+        case .retrievePoi:
+            return bundle.path(forResource: "retrieve-poi", ofType: "json")!
+        case .recursion:
+            return bundle.path(forResource: "search-box-recursion", ofType: "json")!
+        case .multiRetrieve:
+            return bundle.path(forResource: "retrieve-multi", ofType: "json")!
+        case .categoryCafe:
+            return bundle.path(forResource: "search-box-category", ofType: "json")!
+        case .categoryHotelSearchAlongRoute_JP:
+            return bundle.path(forResource: "category-hotel-search-along-route-jp", ofType: "json")!
+        }
+    }
+
+    var path: String {
+        var path = "/search/searchbox/v1"
+
+        switch self {
+        case .suggestMinsk:
+            path += "/suggest?q=Minsk"
+
+        case .suggestSanFrancisco:
+            path += "/suggest?q=San Francisco"
+
+        case .recursion:
+            path += "/suggest?q=Recursion"
+
+        case .suggestEmpty,
+             .suggestCategories,
+             .suggestWithCoordinates,
+             .suggestWithMixedCoordinates,
+             .suggestCategoryWithCoordinates:
+            path += "/suggest?q=:query"
+
+        case .retrieveSanFrancisco,
+             .retrieveCategory,
+             .retrieveMinsk,
+             .retrievePoi,
+             .retrieveRecursion:
+            path += "/retrieve/:identifier"
+
+        case .multiRetrieve:
+            path += "/retrieve/multi"
+
+        case .categoryCafe,
+             .categoryHotelSearchAlongRoute_JP:
+            path += "/category/:category"
+        }
+
+        return path
+    }
+
+    var httpMethod: HttpServer.HTTPMethod {
+        switch self {
+        case .suggestMinsk,
+             .suggestSanFrancisco,
+             .suggestEmpty,
+             .suggestCategories,
+             .suggestWithCoordinates,
+             .suggestWithMixedCoordinates,
+             .suggestCategoryWithCoordinates,
+             .recursion,
+             .categoryCafe,
+             .categoryHotelSearchAlongRoute_JP,
+             .retrieveMinsk,
+             .retrieveCategory,
+             .retrieveSanFrancisco,
+             .retrieveRecursion:
+            return .get
+
+        case .multiRetrieve,
+             .retrievePoi:
+            return .post
+        }
+    }
+
+    static var coreApiType: CoreSearchEngine.ApiType {
+        .searchBox
+    }
+}
+
 // MARK: - Autofill
 
+// Move to own file
 enum AutofillMockResponse: MockResponse {
     case suggestAddressSanFrancisco
     case retrieveAddressSanFrancisco

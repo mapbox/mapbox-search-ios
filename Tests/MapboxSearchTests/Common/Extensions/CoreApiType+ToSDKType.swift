@@ -16,8 +16,9 @@ extension CoreSearchEngine.ApiType {
             return .geocoding
         case .SBS:
             return .SBS
-        case .autofill,
-             .searchBox:
+        case .searchBox:
+            return .searchBox
+        case .autofill:
             fallthrough
         @unknown default:
             fatalError()
