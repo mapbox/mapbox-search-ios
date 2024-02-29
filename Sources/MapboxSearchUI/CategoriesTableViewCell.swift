@@ -1,4 +1,3 @@
-import MapboxSearch
 import UIKit
 
 class CategoriesTableViewCell: UITableViewCell {
