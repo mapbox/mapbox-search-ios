@@ -39,6 +39,9 @@
 		04AB0B7B2B6AF43E00FDE7D5 /* CategoryIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB0B792B6AF37800FDE7D5 /* CategoryIntegrationTests.swift */; };
 		04BBC6342B61898F00E24E99 /* LocalhostMockServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BBC6332B61898F00E24E99 /* LocalhostMockServiceProvider.swift */; };
 		04BBC6372B61ABA500E24E99 /* FeedbackIntegrationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BBFBD02604A4A500DE9C98 /* FeedbackIntegrationTestCase.swift */; };
+		04BBF17C2B91180E00A056AD /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BBF17B2B91180E00A056AD /* Strings.swift */; };
+		04BBF17E2B9118B400A056AD /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BBF17D2B9118B400A056AD /* Bundle+Extensions.swift */; };
+		04BBF17F2B911C7800A056AD /* Categories.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE049959261CA44500E575A2 /* Categories.strings */; };
 		04C0848D2B4C82F3002F9C69 /* SdkInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0848C2B4C82F3002F9C69 /* SdkInformation.swift */; };
 		04C127552B62F6BC00884325 /* ApiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C127542B62F6BC00884325 /* ApiType.swift */; };
 		04C127582B62FFDB00884325 /* ApiType+Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C127572B62FFDB00884325 /* ApiType+Core.swift */; };
@@ -543,6 +546,8 @@
 		04AB0B792B6AF37800FDE7D5 /* CategoryIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIntegrationTests.swift; sourceTree = "<group>"; };
 		04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = "category-hotel-search-along-route-jp.json"; sourceTree = "<group>"; };
 		04BBC6332B61898F00E24E99 /* LocalhostMockServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalhostMockServiceProvider.swift; sourceTree = "<group>"; };
+		04BBF17B2B91180E00A056AD /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		04BBF17D2B9118B400A056AD /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		04C0848C2B4C82F3002F9C69 /* SdkInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkInformation.swift; sourceTree = "<group>"; };
 		04C127542B62F6BC00884325 /* ApiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiType.swift; sourceTree = "<group>"; };
 		04C127572B62FFDB00884325 /* ApiType+Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiType+Core.swift"; sourceTree = "<group>"; };
@@ -1314,6 +1319,7 @@
 			isa = PBXGroup;
 			children = (
 				148DE660285750100085684D /* Models */,
+				04BBF17D2B9118B400A056AD /* Bundle+Extensions.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1776,6 +1782,8 @@
 				F998AED725D17DFF00230F34 /* SearchResponseInfo.swift */,
 				FEEDD2DF2508DFE400DC0A98 /* ServiceProvider.swift */,
 				140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */,
+				04BBF17B2B91180E00A056AD /* Strings.swift */,
+				FE049959261CA44500E575A2 /* Categories.strings */,
 			);
 			path = PublicAPI;
 			sourceTree = "<group>";
@@ -2185,6 +2193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BBF17F2B911C7800A056AD /* Categories.strings in Resources */,
 				04E84D132B7A8F4D0056C269 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2556,6 +2565,7 @@
 				F93DA6FF274E4B86005595B5 /* CoreSearchEngineStatics.swift in Sources */,
 				14F71865299FD4BD00D5BC2E /* PlaceAutocomplete+PlaceType.swift in Sources */,
 				F9F6378A25DD6A4E00C99904 /* FeedbackManager.swift in Sources */,
+				04BBF17E2B9118B400A056AD /* Bundle+Extensions.swift in Sources */,
 				04C127582B62FFDB00884325 /* ApiType+Core.swift in Sources */,
 				148DE65D28574E6E0085684D /* AddressAutofill.swift in Sources */,
 				140E47A7298BCBDF00677E30 /* Category+Item.swift in Sources */,
@@ -2575,6 +2585,7 @@
 				F914EE5A2743E03B00D4F173 /* Array+Extensions.swift in Sources */,
 				FEEDD31B2508DFE400DC0A98 /* LocalDataProviders.swift in Sources */,
 				FEEDD2F42508DFE400DC0A98 /* CoreResponseProvider.swift in Sources */,
+				04BBF17C2B91180E00A056AD /* Strings.swift in Sources */,
 				FEEDD30C2508DFE400DC0A98 /* IndexableRecord.swift in Sources */,
 				043A3D4D2B30F38300DB681B /* CoreAddress+AddressComponents.swift in Sources */,
 				FE097B7B264EAA1A001EAC2F /* AddOfflineRegionError.swift in Sources */,
