@@ -135,7 +135,6 @@
 		2CD8AC5229F28D6900C47BE4 /* retrieve-poi.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8AC5129F28D6900C47BE4 /* retrieve-poi.json */; };
 		2CD8AC5329F28D6900C47BE4 /* retrieve-poi.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8AC5129F28D6900C47BE4 /* retrieve-poi.json */; };
 		2CD8AC5429F28D6900C47BE4 /* retrieve-poi.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8AC5129F28D6900C47BE4 /* retrieve-poi.json */; };
-		2CD8AC5529F28D6900C47BE4 /* retrieve-poi.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8AC5129F28D6900C47BE4 /* retrieve-poi.json */; };
 		2CE1B9F82A13C4E6005B043F /* AddressAutofillIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1B9F72A13C4E6005B043F /* AddressAutofillIntegrationTests.swift */; };
 		2CE1B9FB2A13D412005B043F /* address-suggestions-san-francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1B9F92A13D412005B043F /* address-suggestions-san-francisco.json */; };
 		2CE1B9FC2A13D412005B043F /* address-retrieve-san-francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1B9FA2A13D412005B043F /* address-retrieve-san-francisco.json */; };
@@ -256,7 +255,6 @@
 		FE006CF325FA680E00D44707 /* NoSuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE006CE225FA67A500D44707 /* NoSuggestionsView.swift */; };
 		FE006D0A25FB7A2F00D44707 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE006D0325FB7A2A00D44707 /* Style.swift */; };
 		FE049928261B650100E575A2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE049920261B64DA00E575A2 /* Localizable.strings */; };
-		FE04995B261CA44500E575A2 /* Categories.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE049959261CA44500E575A2 /* Categories.strings */; };
 		FE059C5A251A0AE6001F7701 /* SearchCategorySuggestionImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE059C59251A0AE6001F7701 /* SearchCategorySuggestionImpl.swift */; };
 		FE059C61251A0E27001F7701 /* SearchSuggestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE059C60251A0E27001F7701 /* SearchSuggestType.swift */; };
 		FE097B7B264EAA1A001EAC2F /* AddOfflineRegionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE097B78264EAA1A001EAC2F /* AddOfflineRegionError.swift */; };
@@ -1818,7 +1816,6 @@
 				FE4F260525F8E8B700454BC5 /* AddToFavoritesCell.swift */,
 				FEEDD3472508E02700DC0A98 /* AddToFavoritesCell.xib */,
 				FEEDD3352508E02700DC0A98 /* Assets.xcassets */,
-				FE049959261CA44500E575A2 /* Categories.strings */,
 				FEEDD3412508E02700DC0A98 /* CategoriesFavoritesSegmentControl.swift */,
 				FEEDD34C2508E02700DC0A98 /* CategoriesFavoritesSegmentControl.xib */,
 				FEEDD34B2508E02700DC0A98 /* CategoriesProvider.swift */,
@@ -2327,7 +2324,6 @@
 				FEBB7AE42508F16100B331C3 /* SearchErrorView.xib in Resources */,
 				FEBB7AE92508F19100B331C3 /* Assets.xcassets in Resources */,
 				FEBB7AE62508F16100B331C3 /* SearchSuggestionCell.xib in Resources */,
-				2CD8AC5529F28D6900C47BE4 /* retrieve-poi.json in Resources */,
 				FEBB7AE12508F16100B331C3 /* NoSuggestionsView.xib in Resources */,
 				FEBB7AE52508F16100B331C3 /* SearchHistoryCell.xib in Resources */,
 				FEBB7AE32508F16100B331C3 /* SearchCategoriesRootView.xib in Resources */,
@@ -2335,7 +2331,6 @@
 				F96535B82538B39D0066D699 /* CategorySuggestionsController.xib in Resources */,
 				FEBB7AE02508F16100B331C3 /* MapboxSearchController.xib in Resources */,
 				FEBB7ADC2508F16100B331C3 /* CategoriesFavoritesSegmentControl.xib in Resources */,
-				FE04995B261CA44500E575A2 /* Categories.strings in Resources */,
 				FEBB7ADD2508F16100B331C3 /* FavoriteDetails.xib in Resources */,
 				F9284FF625AC866400C74903 /* SendFeedbackController.xib in Resources */,
 				FEBB7ADE2508F16100B331C3 /* HistoryHeader.xib in Resources */,
