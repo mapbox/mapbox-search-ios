@@ -1,7 +1,6 @@
 import XCTest
 
-// Rename to UITestCase
-class CategorySuggestionsIntegrationTestCase: MockSearchBoxUITestCase {
+class CategorySuggestionsUITestCase: MockSearchBoxUITestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         app.launch()
