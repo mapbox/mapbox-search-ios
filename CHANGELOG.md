@@ -8,6 +8,14 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Discover, Category] Rename Discover to Category and update tests.
+- [Category] Rename Discover.Query.Category to Category.Item
+- [Category] Move Category.Item "Hot" suggested categories to MapboxSearch out of MapboxSearchUI.
+	- This adds legacyName (use with Geocoding API engine) and icon fields to the MapboxSearch suggested categories.
+	- Image assets for these categories remain in MapboxSearchUI.
+	- This Category.Item replaces MapboxSearchUI.SearchCategory.
+	- Add an alias for MapboxSearchUI.SearchCategory = MapboxSearch.Category.Item
+- [Core] Default API engine is now search-box replacing SBS.
 
 - [License] Update license to reflect 2024 usage
 

@@ -1,7 +1,7 @@
 import CoreLocation
 import Foundation
 
-extension Discover {
+extension Category {
     public struct Result {
         /// Result's name
         public let name: String
@@ -23,7 +23,7 @@ extension Discover {
     }
 }
 
-extension Discover.Result {
+extension Category.Result {
     static func from(_ searchResult: SearchResult) -> Self {
         var routablePointsArray: NonEmptyArray<RoutablePoint>?
         if let routablePoints = searchResult.routablePoints, let first = searchResult.routablePoints?.first {

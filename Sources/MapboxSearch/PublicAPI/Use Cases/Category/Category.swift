@@ -1,7 +1,7 @@
 import CoreLocation
 import Foundation
 
-public final class Discover {
+public final class Category {
     private let searchEngine: CategorySearchEngine
     private let userActivityReporter: CoreUserActivityReporter
 
@@ -46,22 +46,21 @@ public final class Discover {
     }
 }
 
-extension Discover {
+extension Category {
     /// Search for places nearby the specified geographic point.
     /// - Parameters:
-    ///   - query: Search query
+    ///   - item: Search item
     ///   - proximity: Geographic point to search nearby.
     ///   - options: Search options
     ///   - completion: Result of the search request, one of error or value.
     ///
     public func search(
-        for query: Query,
+        for item: Item,
         proximity: CLLocationCoordinate2D,
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
-        userActivityReporter.reportActivity(forComponent: "discover-search-nearby")
-
+        userActivityReporter.reportActivity(forComponent: "category-search-nearby")
         let searchOptions = SearchOptions(
             countries: [options.country?.countryCode].compactMap { $0 },
             languages: [options.language.languageCode],
@@ -70,7 +69,7 @@ extension Discover {
             origin: options.origin
         )
 
-        search(for: query, with: searchOptions, completion: completion)
+        search(for: item, with: searchOptions, completion: completion)
     }
 
     /// Search for places nearby the specified geographic point.
@@ -82,14 +81,13 @@ extension Discover {
     ///   - completion: Result of the search request, one of error or value.
     ///
     public func search(
-        for query: Query,
+        for item: Item,
         in region: BoundingBox,
         proximity: CLLocationCoordinate2D? = nil,
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
-        userActivityReporter.reportActivity(forComponent: "discover-search-in-area")
-
+        userActivityReporter.reportActivity(forComponent: "category-search-in-area")
         let searchOptions = SearchOptions(
             countries: [options.country?.countryCode].compactMap { $0 },
             languages: [options.language.languageCode],
@@ -99,23 +97,23 @@ extension Discover {
             origin: options.origin
         )
 
-        search(for: query, with: searchOptions, completion: completion)
+        search(for: item, with: searchOptions, completion: completion)
     }
 
     /// Search for places nearby the specified geographic point.
     /// - Parameters:
-    ///   - query: Search query
+    ///   - item: Search item
     ///   - route: Route to search across (points and deviation options).
     ///   - options: Search options
     ///   - completion: Result of the search request, one of error or value.
     ///
     public func search(
-        for query: Query,
+        for item: Item,
         route: RouteOptions,
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
-        userActivityReporter.reportActivity(forComponent: "discover-search-along-the-route")
+        userActivityReporter.reportActivity(forComponent: "category-search-along-the-route")
 
         let searchOptions = SearchOptions(
             countries: [options.country?.countryCode].compactMap { $0 },
@@ -126,26 +124,26 @@ extension Discover {
             routeOptions: route
         )
 
-        search(for: query, with: searchOptions, completion: completion)
+        search(for: item, with: searchOptions, completion: completion)
     }
 }
 
 // MARK: - Private
 
-extension Discover {
+extension Category {
     private func search(
-        for query: Query,
+        for item: Item,
         with searchOptions: SearchOptions,
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
         searchEngine.search(
-            categoryName: query.rawValue,
+            categoryName: item.canonicalId,
             options: searchOptions
         ) { result in
             switch result {
             case .success(let searchResults):
-                let discoverResults = searchResults.map(Discover.Result.from(_:))
-                completion(.success(discoverResults))
+                let categoryResults = searchResults.map(Category.Result.from(_:))
+                completion(.success(categoryResults))
 
             case .failure(let error):
                 completion(.failure(error))

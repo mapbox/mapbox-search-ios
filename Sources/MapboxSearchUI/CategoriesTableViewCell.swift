@@ -22,7 +22,8 @@ class CategoriesTableViewCell: UITableViewCell {
         backgroundColor = configuration.style.primaryBackgroundColor
         textLabel?.textColor = configuration.style.primaryTextColor
 
-        let icon = UIImage(named: category.iconName, in: .mapboxSearchUI, compatibleWith: nil) ?? Images.unknownIcon
+        let icon = UIImage(named: category.iconName.xcassetName, in: .mapboxSearchUI, compatibleWith: nil) ?? Images
+            .unknownIcon
         imageView?.image = icon.withRenderingMode(.alwaysTemplate)
         imageView?.tintColor = configuration.style.iconTintColor
 

@@ -80,4 +80,3 @@
 --yodaswap always
 
 --disable redundantReturn,hoistAwait
---swiftversion 5.7

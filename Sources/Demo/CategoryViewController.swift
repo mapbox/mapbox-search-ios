@@ -1,11 +1,11 @@
 import MapKit
 import UIKit
 
-final class DiscoverViewController: UIViewController {
+final class CategoryViewController: UIViewController {
     @IBOutlet private var mapView: MKMapView!
     @IBOutlet private var segmentedControl: UISegmentedControl!
 
-    private let discover = Discover(apiType: .searchBox)
+    private let category = Category()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,25 +16,25 @@ final class DiscoverViewController: UIViewController {
 
 // MARK: - Actions
 
-extension DiscoverViewController {
+extension CategoryViewController {
     @IBAction
     private func handleSearchInRegionAction() {
         let regionResultsLimit: Int
-        switch discover.apiType {
+        switch category.apiType {
         case .geocoding:
             regionResultsLimit = 10
         default:
             regionResultsLimit = 100
         }
 
-        discover.search(
+        category.search(
             for: currentSelectedCategory,
             in: currentBoundingBox,
             options: .init(limit: regionResultsLimit)
         ) { result in
             switch result {
             case .success(let results):
-                self.showDiscoverResults(results)
+                self.showCategoryResults(results)
 
             case .failure(let error):
                 debugPrint(error)
@@ -45,7 +45,7 @@ extension DiscoverViewController {
 
 // MARK: - Private
 
-extension DiscoverViewController {
+extension CategoryViewController {
     private var currentBoundingBox: BoundingBox {
         let rect = mapView.visibleMapRect
         let neMapPoint = MKMapPoint(x: rect.maxX, y: rect.origin.y)
@@ -57,14 +57,14 @@ extension DiscoverViewController {
         return .init(swCoordinate, neCoordinate)
     }
 
-    private var currentSelectedCategory: Discover.Query {
-        let allCategories: [Discover.Query] = [
-            .Category.parking,
-            .Category.restaurants,
-            .Category.museums,
+    private var currentSelectedCategory: Category.Item {
+        let allDemoCategories: [Category.Item] = [
+            .parking,
+            .restaurant,
+            .museum,
         ]
 
-        return allCategories[segmentedControl.selectedSegmentIndex]
+        return allDemoCategories[segmentedControl.selectedSegmentIndex]
     }
 
     private func configureDefaultMapRegion() {
@@ -78,7 +78,7 @@ extension DiscoverViewController {
         mapView.setRegion(region, animated: false)
     }
 
-    private func showDiscoverResults(_ results: [Discover.Result]) {
+    private func showCategoryResults(_ results: [Category.Result]) {
         mapView.removeAnnotations(mapView.annotations)
 
         let annotations: [MKPointAnnotation] = results.map {
