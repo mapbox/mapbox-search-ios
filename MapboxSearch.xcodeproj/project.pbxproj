@@ -533,7 +533,6 @@
 		043A3D4C2B30F38300DB681B /* CoreAddress+AddressComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreAddress+AddressComponents.swift"; sourceTree = "<group>"; };
 		045514C12B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreApiType+ToSDKType.swift"; sourceTree = "<group>"; };
 		046818D32B87F2A70082B188 /* SearchBox_CategorySearchEngineIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBox_CategorySearchEngineIntegrationTests.swift; sourceTree = "<group>"; };
-		046818D82B87FA6E0082B188 /* move-existing-mocks-here.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "move-existing-mocks-here.txt"; sourceTree = "<group>"; };
 		046818DA2B87FAB20082B188 /* search-box-category.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = "search-box-category.json"; sourceTree = "<group>"; };
 		046818DE2B87FDC00082B188 /* SearchBox_SearchEngineIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBox_SearchEngineIntegrationTests.swift; sourceTree = "<group>"; };
 		046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-suggestions-minsk.json"; sourceTree = "<group>"; };
@@ -1013,7 +1012,26 @@
 		046818D72B87FA4F0082B188 /* sbs */ = {
 			isa = PBXGroup;
 			children = (
-				046818D82B87FA6E0082B188 /* move-existing-mocks-here.txt */,
+				2CE1B9FA2A13D412005B043F /* address-retrieve-san-francisco.json */,
+				2CE1B9F92A13D412005B043F /* address-suggestions-san-francisco.json */,
+				2CD8AC5129F28D6900C47BE4 /* retrieve-poi.json */,
+				04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */,
+				2CD8AC4029F1D38800C47BE4 /* suggestions-category-with-coordinates.json */,
+				2CD8AC4129F1D38800C47BE4 /* suggestions-with-coordinates.json */,
+				2CD8AC4229F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json */,
+				F9074446261B192D0091899C /* recursion.json */,
+				F94FFA4626453D410019ED9B /* reverse-geocoding-sbs.json */,
+				F9B62CC7264BC61600492999 /* category-cafe.json */,
+				F94FFA49264547CD0019ED9B /* retrieve-multi.json */,
+				F9AB03B1261DB50500EDF1E7 /* retrieve-category.json */,
+				F9074424261B0DF70091899C /* retrieve-san-francisco.json */,
+				F9074457261B68B50091899C /* retrieve-minsk.json */,
+				F9AB03A5261DB37C00EDF1E7 /* suggestions-categories.json */,
+				F91D2D0A26174F5B00F7DFDF /* suggestions-minsk.json */,
+				F9B62CCA264BCC2600492999 /* suggestions-empty.json */,
+				F907440E261B00000091899C /* suggestions-san-francisco.json */,
+				04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */,
+				042477C42B72CCB000D870D5 /* geocoding-reverse-geocoding.json */,
 			);
 			path = sbs;
 			sourceTree = "<group>";
@@ -1494,28 +1512,8 @@
 		F91D2D162617513700F7DFDF /* MockWebServer */ = {
 			isa = PBXGroup;
 			children = (
-				2CE1B9FA2A13D412005B043F /* address-retrieve-san-francisco.json */,
-				2CE1B9F92A13D412005B043F /* address-suggestions-san-francisco.json */,
-				2CD8AC5129F28D6900C47BE4 /* retrieve-poi.json */,
-				04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */,
-				2CD8AC4029F1D38800C47BE4 /* suggestions-category-with-coordinates.json */,
-				2CD8AC4129F1D38800C47BE4 /* suggestions-with-coordinates.json */,
-				2CD8AC4229F1D38800C47BE4 /* suggestions-with-mixed-coordinates.json */,
 				F9AB03C2261DBD7F00EDF1E7 /* MockResponse.swift */,
 				F9ACA6112642B66600F50CD4 /* MockWebServer.swift */,
-				F9074446261B192D0091899C /* recursion.json */,
-				F94FFA4626453D410019ED9B /* reverse-geocoding-sbs.json */,
-				F9B62CC7264BC61600492999 /* category-cafe.json */,
-				F94FFA49264547CD0019ED9B /* retrieve-multi.json */,
-				F9AB03B1261DB50500EDF1E7 /* retrieve-category.json */,
-				F9074424261B0DF70091899C /* retrieve-san-francisco.json */,
-				F9074457261B68B50091899C /* retrieve-minsk.json */,
-				F9AB03A5261DB37C00EDF1E7 /* suggestions-categories.json */,
-				F91D2D0A26174F5B00F7DFDF /* suggestions-minsk.json */,
-				F9B62CCA264BCC2600492999 /* suggestions-empty.json */,
-				F907440E261B00000091899C /* suggestions-san-francisco.json */,
-				04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */,
-				042477C42B72CCB000D870D5 /* geocoding-reverse-geocoding.json */,
 			);
 			path = MockWebServer;
 			sourceTree = "<group>";
@@ -1890,6 +1888,7 @@
 		FEEDD3842508E22800DC0A98 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				F91D2D162617513700F7DFDF /* MockWebServer */,
 				046818D52B87FA2E0082B188 /* MockData */,
 				FEF87CF7254C362200AD97AB /* CI-dev.xctestplan */,
 				FEF87CEC254C35EC00AD97AB /* Demo.xctestplan */,
@@ -1940,7 +1939,6 @@
 		FEEDD3C72508E45B00DC0A98 /* MapboxSearchUITests */ = {
 			isa = PBXGroup;
 			children = (
-				F91D2D162617513700F7DFDF /* MockWebServer */,
 				F983EBDB2550171200CE13CD /* Tests */,
 				FEEDD3C92508E45B00DC0A98 /* XCUIApplication+Extensions.swift */,
 				F907443A261B13F40091899C /* MockServerUITestCase.swift */,
