@@ -1,6 +1,6 @@
 import XCTest
 
-class VisibilityTestCase: MockSBSServerUITestCase {
+class VisibilityUITestCase: MockSBSServerUITestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         app.launch()

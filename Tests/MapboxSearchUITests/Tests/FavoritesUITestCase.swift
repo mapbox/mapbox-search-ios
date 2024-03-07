@@ -1,6 +1,6 @@
 import XCTest
 
-class FavoritesIntegrationTestCase: MockSBSServerUITestCase {
+class FavoritesUITestCase: MockSBSServerUITestCase {
     func testAddRemoveFavorite() throws {
         try server.setResponse(.suggestMinsk)
         try server.setResponse(.retrieveMinsk)
@@ -232,7 +232,7 @@ class FavoritesIntegrationTestCase: MockSBSServerUITestCase {
     }
 }
 
-extension FavoritesIntegrationTestCase {
+extension FavoritesUITestCase {
     func removeDefaultFavorite(element: XCUIElement) {
         element.buttons["moreButton"].tap()
         let removeLocation = app.buttons["Remove location"]
