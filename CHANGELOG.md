@@ -8,6 +8,10 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Tests] Reorganize tests based on API type
+
+- [Privacy] Add Search history collected data for the purpose of product personalization (used for displaying the search history)
+
 - [Discover, Category] Rename Discover to Category and update tests.
 - [Category] Rename Discover.Query.Category to Category.Item
 - [Category] Move Category.Item "Hot" suggested categories to MapboxSearch out of MapboxSearchUI.
