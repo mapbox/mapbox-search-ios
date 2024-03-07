@@ -56,10 +56,10 @@
     {
       "skippedTests" : [
         "BaseTestCase",
-        "FavoritesIntegrationTestCase\/testAddEditLocationRemoveFavorite()",
-        "FavoritesIntegrationTestCase\/testAddRemoveFavorite()",
-        "FavoritesIntegrationTestCase\/testAddRenameCancelRemoveFavorite()",
-        "FavoritesIntegrationTestCase\/testAddRenameRemoveFavorite()",
+        "FavoritesUITestCase\/testAddEditLocationRemoveFavorite()",
+        "FavoritesUITestCase\/testAddRemoveFavorite()",
+        "FavoritesUITestCase\/testAddRenameCancelRemoveFavorite()",
+        "FavoritesUITestCase\/testAddRenameRemoveFavorite()",
         "MockServerUITestCase"
       ],
       "target" : {
