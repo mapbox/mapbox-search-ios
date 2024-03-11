@@ -11,7 +11,7 @@ class CategorySuggestionsUITestCase: MockSearchBoxUITestCase {
     }
 
     func testCafeCategorySuggestions() throws {
-        categorySuggestionsTest(categoryName: "Café")
+        categorySuggestionsTest(categoryName: "Cafe")
     }
 
     func testBarCategorySuggestions() throws {
