@@ -16,6 +16,12 @@ echo "login mapbox" >> ~/.netrc
 echo "password $MAPBOX_API_TOKEN" >> ~/.netrc
 chmod 0600 ~/.netrc
 
-# Fetch Carthage dependencies
+# Relocate to the top level directory
 cd ../../
+
+# Set up build dependencies
+brew update
+brew bundle install
+
+# Fetch Carthage package dependencies
 make dependencies
