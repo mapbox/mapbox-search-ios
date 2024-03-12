@@ -16,7 +16,7 @@ class CategorySuggestionsNavigationUITestCase: MockSearchBoxUITestCase {
 
         let searchResult = app.mapboxSearchController.searchResultTableView
         waitForHittable(searchResult, message: "SearchResultTableView not hittable")
-        waitForHittable(searchResult.cells["Café"].firstMatch).tap()
+        waitForHittable(searchResult.cells["Cafe"].firstMatch).tap()
 
         let suggestions = app.categorySuggestionsTableView
         waitForHittable(suggestions)

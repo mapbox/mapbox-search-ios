@@ -54,13 +54,13 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     ///   - serviceProvider: Internal `ServiceProvider` for sharing common dependencies like favoritesService or
     /// eventsManager
-    ///   - apiType: choose which API provider to use through this search engine
+    ///   - apiType: choose which API provider to use through this search engine. Currently defaults to SBS.
     init(
         accessToken: String? = nil,
         serviceProvider: ServiceProviderProtocol & EngineProviderProtocol,
         locationProvider: LocationProvider? = DefaultLocationProvider(),
         defaultSearchOptions: SearchOptions = SearchOptions(),
-        apiType: ApiType = .SBS
+        apiType: ApiType = .defaultType
     ) {
         guard let accessToken = accessToken ?? serviceProvider.getStoredAccessToken() else {
             fatalError(
@@ -110,12 +110,12 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     /// for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     ///   - defaultSearchOptions: Default options to use when `nil` was passed to the `search(…: options:)` call
-    ///   - apiType: choose which API provider to use through this search engine
+    ///   - apiType: choose which API provider to use through this search engine. Currently defaults to SBS.
     public convenience init(
         accessToken: String? = nil,
         locationProvider: LocationProvider? = DefaultLocationProvider(),
         defaultSearchOptions: SearchOptions = SearchOptions(),
-        apiType: ApiType = .SBS
+        apiType: ApiType = .defaultType
     ) {
         self.init(
             accessToken: accessToken,

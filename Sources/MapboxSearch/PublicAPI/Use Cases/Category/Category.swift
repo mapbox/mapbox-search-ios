@@ -12,10 +12,11 @@ public final class Category {
     ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used
     /// for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
+    ///   - apiType:
     public convenience init(
         accessToken: String? = nil,
         locationProvider: LocationProvider? = DefaultLocationProvider(),
-        apiType: ApiType = .SBS
+        apiType: ApiType = .defaultType
     ) {
         guard let accessToken = accessToken ?? ServiceProvider.shared.getStoredAccessToken() else {
             fatalError(

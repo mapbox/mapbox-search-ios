@@ -19,7 +19,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 	- Image assets for these categories remain in MapboxSearchUI.
 	- This Category.Item replaces MapboxSearchUI.SearchCategory.
 	- Add an alias for MapboxSearchUI.SearchCategory = MapboxSearch.Category.Item
-- [Core] Default API engine is now search-box replacing SBS.
+- [Core] Default API engine type remains SBS and search-box is available by opt-in.
 
 - [License] Update license to reflect 2024 usage
 
