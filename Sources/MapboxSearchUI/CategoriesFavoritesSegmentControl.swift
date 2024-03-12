@@ -107,11 +107,20 @@ class CategoriesFavoritesSegmentControl: UIControl {
     }
 
     func updateMasksOffsets() {
-        categoriesTitleMask.frame.origin.x = selectionSegment.frame.origin.x - categoriesTitle.frame.minX
-        categoriesInactiveTitleMask.frame.origin.x = selectionSegment.frame.origin.x - categoriesTitle.frame.minX
+        if effectiveUserInterfaceLayoutDirection == .leftToRight {
+            categoriesTitleMask.frame.origin.x = selectionSegment.frame.origin.x - categoriesTitle.frame.minX
+            categoriesInactiveTitleMask.frame.origin.x = selectionSegment.frame.origin.x - categoriesTitle.frame.minX
 
-        favoritesTitleMask.frame.origin.x = selectionSegment.frame.origin.x - favoritesTitle.frame.minX
-        favoritesInactiveTitleMask.frame.origin.x = selectionSegment.frame.origin.x - favoritesTitle.frame.minX
+            favoritesTitleMask.frame.origin.x = selectionSegment.frame.origin.x - favoritesTitle.frame.minX
+            favoritesInactiveTitleMask.frame.origin.x = selectionSegment.frame.origin.x - favoritesTitle.frame.minX
+        } else {
+            /// Flip our math for RTL languages
+            categoriesTitleMask.frame.origin.x = selectionSegment.frame.origin.x - favoritesTitle.frame.minX
+            categoriesInactiveTitleMask.frame.origin.x = selectionSegment.frame.origin.x - favoritesTitle.frame.minX
+
+            favoritesTitleMask.frame.origin.x = selectionSegment.frame.origin.x - categoriesTitle.frame.minX
+            favoritesInactiveTitleMask.frame.origin.x = selectionSegment.frame.origin.x - categoriesTitle.frame.minX
+        }
     }
 
     func updateUI() {
@@ -189,6 +198,9 @@ struct CategoriesFavoritesSegmentControlPreview: PreviewProvider {
                 .previewDisplayName("Dark Mode")
                 .preferredColorScheme(.dark)
                 .previewLayout(PreviewLayout.fixed(width: 300, height: 40))
+//            TabsSegmentControlRepresentable()
+//                .previewDisplayName("Right to Left")
+//                .environment(\.layoutDirection, .rightToLeft)
         }
     }
 }

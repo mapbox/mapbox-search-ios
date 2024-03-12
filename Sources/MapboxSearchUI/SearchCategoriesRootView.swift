@@ -139,7 +139,10 @@ extension SearchCategoriesRootView: FavoritesTableViewSourceDelegate {
 extension SearchCategoriesRootView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let page = scrollView.contentOffset.x / scrollView.bounds.width
-        let newTab = CategoriesFavoritesSegmentControl.Tab(scrollViewPageProgress: page)
+        let newTab = CategoriesFavoritesSegmentControl.Tab(
+            scrollViewPageProgress: page,
+            direction: scrollView.effectiveUserInterfaceLayoutDirection
+        )
 
         if segmentedControl.selectedTab != newTab {
             segmentedControl.selectedTab = newTab
@@ -159,7 +162,8 @@ extension SearchCategoriesRootView {
             .beginFromCurrentState,
             .allowUserInteraction,
             .curveEaseInOut,
-        ], animations: {
+        ], animations: { [weak self] in
+            guard let self else { return }
             self.contentScrollView.contentOffset.x = self.segmentedControl.selectedTab.horizontalOffsetFor(
                 scrollView:
                 self.contentScrollView
@@ -169,20 +173,27 @@ extension SearchCategoriesRootView {
 }
 
 extension CategoriesFavoritesSegmentControl.Tab {
-    fileprivate init(scrollViewPageProgress: CGFloat) {
+    /// When the scroll view is instantiated and at the default location, show the categories Tab
+    fileprivate init(scrollViewPageProgress: CGFloat, direction: UIUserInterfaceLayoutDirection) {
         if scrollViewPageProgress <= 0.5 {
-            self = .categories
+            self = direction == .leftToRight ? .categories : .favorites
         } else {
-            self = .favorites
+            self = direction == .rightToLeft ? .favorites : .categories
         }
     }
 
     fileprivate func horizontalOffsetFor(scrollView: UIScrollView) -> CGFloat {
-        switch self {
-        case .categories:
+        switch (self, scrollView.effectiveUserInterfaceLayoutDirection) {
+        case (.categories, .leftToRight):
             return 0
-        case .favorites:
+        case (.favorites, .leftToRight):
             return scrollView.bounds.width
+        case (.categories, .rightToLeft):
+            return scrollView.bounds.width
+        case (.favorites, .rightToLeft):
+            return 0
+        case (_, _):
+            fatalError("Unsupported text direction")
         }
     }
 }
