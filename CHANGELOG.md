@@ -8,10 +8,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
-- [Tests] Reorganize tests based on API type
+## 2.0.0-rc.3
 
 - [Privacy] Add Search history collected data for the purpose of product personalization (used for displaying the search history)
-
 - [Discover, Category] Rename Discover to Category and update tests.
 - [Category] Rename Discover.Query.Category to Category.Item
 - [Category] Move Category.Item "Hot" suggested categories to MapboxSearch out of MapboxSearchUI.
@@ -20,10 +19,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 	- This Category.Item replaces MapboxSearchUI.SearchCategory.
 	- Add an alias for MapboxSearchUI.SearchCategory = MapboxSearch.Category.Item
 - [Core] Default API engine type remains SBS and search-box is available by opt-in.
-
 - [License] Update license to reflect 2024 usage
-
 - [Tests] Change MockResponse into a protocol, create separate enums conforming to MockResponse for each API type (geocoding, sbs, autofill), add MockResponse as generic to each test base class and MockWebServer.
+- [Tests] Reorganize tests based on API type
 
 ## 2.0.0-rc.2
 
