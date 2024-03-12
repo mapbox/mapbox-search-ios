@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 # Support Xcode Cloud for Sources/Demo.xcodeproj
 
 # Propagate environment secrets
