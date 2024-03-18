@@ -11,10 +11,11 @@
         "type": "Point"
       },
       "properties": {
-        "name": "Минск",
+        "name": "Minsk",
         "mapbox_id": "dXJuOm1ieHBsYzpDWWds",
         "feature_type": "place",
-        "place_formatted": "Minsk, Belarus",
+        "full_address": "Minsk, Minsk Region, Belarus",
+        "place_formatted": "Minsk Region, Belarus",
         "context": {
           "country": {
             "id": "dXJuOm1ieHBsYzpJaVU",
@@ -23,14 +24,14 @@
             "country_code_alpha_3": "BLR"
           },
           "region": {
-            "id": "dXJuOm1ieHBsYzo1Q1U",
-            "name": "Minsk",
-            "region_code": "HM",
-            "region_code_full": "BY-HM"
+            "id": "dXJuOm1ieHBsYzp4Q1U",
+            "name": "Minsk Region",
+            "region_code": "MI",
+            "region_code_full": "BY-MI"
           },
           "place": {
             "id": "dXJuOm1ieHBsYzpDWWds",
-            "name": "Минск"
+            "name": "Minsk"
           }
         },
         "coordinates": {
