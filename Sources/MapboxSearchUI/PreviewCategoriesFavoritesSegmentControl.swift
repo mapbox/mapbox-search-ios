@@ -33,9 +33,11 @@ struct CategoriesFavoritesSegmentControlPreview: PreviewProvider {
             TabsSegmentControlRepresentable()
                 .previewDisplayName("Dark Mode")
                 .preferredColorScheme(.dark)
-                .previewLayout(PreviewLayout.fixed(width: 300, height: 40))
+                .previewLayout(PreviewLayout.fixed(width: 202, height: 28))
+                .previewLayout(.sizeThatFits)
             TabsSegmentControlRepresentable()
                 .previewDisplayName("Right to Left")
+                .previewLayout(PreviewLayout.fixed(width: 202, height: 28))
                 .environment(\.layoutDirection, .rightToLeft)
         }
     }
