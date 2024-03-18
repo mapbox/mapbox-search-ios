@@ -19,6 +19,7 @@ extension SearchError: CustomNSError {
         case .reverseGeocodingFailed: return -9
         case .searchRequestCancelled: return -10
         case .internalSearchRequestError: return -11
+        case .owningObjectDeallocated: return -12
         }
     }
 
@@ -89,6 +90,14 @@ extension SearchError: CustomNSError {
             return [
                 NSLocalizedDescriptionKey: description,
                 NSLocalizedFailureReasonErrorKey: "Error:[\(error.description)]",
+            ]
+        case .owningObjectDeallocated:
+            let description = "Owning object deallocated"
+            let reason =
+                "Weak-self could not be unwrapped because the owning reference was weak. Please replace with a strong-ownership reference."
+            return [
+                NSLocalizedDescriptionKey: description,
+                NSLocalizedFailureReasonErrorKey: reason,
             ]
         }
     }

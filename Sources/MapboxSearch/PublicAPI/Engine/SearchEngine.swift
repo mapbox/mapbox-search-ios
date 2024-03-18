@@ -393,7 +393,10 @@ extension SearchEngine {
             retrieve(suggestion: querySuggestion)
         case let resultSuggestion as SearchResultSuggestion:
             resolve(suggestion: resultSuggestion) { [weak self] (result: Result<SearchResult, SearchError>) in
-                guard let self else { return }
+                guard let self else {
+                    assertionFailure("Owning object was deallocated")
+                    return
+                }
 
                 switch result {
                 case .success(let resolvedResult):
@@ -463,7 +466,10 @@ extension SearchEngine {
         }
 
         engineReverseGeocodingFunction(options.toCore()) { [weak self] response in
-            guard let self else { return }
+            guard let self else {
+                assertionFailure("Owning object was deallocated")
+                return
+            }
 
             guard let response else {
                 self.eventsManager.reportError(.responseProcessingFailed)
