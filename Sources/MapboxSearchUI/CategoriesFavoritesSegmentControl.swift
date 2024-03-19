@@ -41,8 +41,6 @@ class CategoriesFavoritesSegmentControl: UIControl {
     @IBOutlet private var favoritesInactiveTitle: UIButton!
 
     @IBOutlet private var selectionSegment: UIView!
-    @IBOutlet private var selectionCategoriesHorizontalConstraint: NSLayoutConstraint!
-    @IBOutlet private var selectionFavoritesHorizontalConstraint: NSLayoutConstraint!
 
     var configuration: Configuration! {
         didSet {
