@@ -102,6 +102,40 @@ class SearchCategoriesRootView: UIView {
         categoriesTableView.separatorColor = configuration.style.separatorColor
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        /// Make sure that RTL users display the default tab
+        /// The scroll view will start at content offset (0, 0)
+        /// but the start tab will register as favorites.
+        /// When starting out with RTL, the current tab is favorites and != to `.categories` tab,
+        /// then manually set the content offset to the appropriate `.categories` default tab.
+        if effectiveUserInterfaceLayoutDirection == .rightToLeft {
+            let page = contentScrollView.contentOffset.x / contentScrollView.bounds.width
+            let currentTab = CategoriesFavoritesSegmentControl.Tab(
+                scrollViewPageProgress: page,
+                direction: effectiveUserInterfaceLayoutDirection
+            )
+
+            let defaultTab = CategoriesFavoritesSegmentControl.Tab.categories
+            guard currentTab != defaultTab else {
+                return
+            }
+
+            UIView.animate(withDuration: 0.25, delay: 0, options: [
+                .beginFromCurrentState,
+                .allowUserInteraction,
+                .curveEaseInOut,
+            ], animations: { [weak self] in
+                guard let self else { return }
+                self.contentScrollView.contentOffset.x = defaultTab.horizontalOffsetFor(
+                    scrollView:
+                    self.contentScrollView
+                )
+            })
+        }
+    }
+
     func resetUI(animated: Bool) {
         contentScrollView.setContentOffset(.zero, animated: animated)
     }
@@ -174,11 +208,21 @@ extension SearchCategoriesRootView {
 
 extension CategoriesFavoritesSegmentControl.Tab {
     /// When the scroll view is instantiated and at the default location, show the categories Tab
+    ///
     fileprivate init(scrollViewPageProgress: CGFloat, direction: UIUserInterfaceLayoutDirection) {
-        if scrollViewPageProgress <= 0.5 {
-            self = direction == .leftToRight ? .categories : .favorites
+        if direction == .leftToRight {
+            if scrollViewPageProgress <= 0.5 {
+                self = .categories
+            } else {
+                self = .favorites
+            }
         } else {
-            self = direction == .rightToLeft ? .favorites : .categories
+            /// Right to Left behavior
+            if scrollViewPageProgress <= 0.5 {
+                self = .favorites
+            } else {
+                self = .categories
+            }
         }
     }
 
