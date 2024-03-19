@@ -133,6 +133,12 @@ class SearchCategoriesRootView: UIView {
                     self.contentScrollView
                 )
 
+                // Without forcing a refresh the titles and masks will not display correctly (invisible or grayed-out)
+                // Force another layout pass to ensure these display correctly.
+                self.segmentedControl.setNeedsLayout()
+                self.segmentedControl.setNeedsDisplay()
+                self.segmentedControl.layoutIfNeeded()
+
                 // On first-draw we have just assigned the tab to the default and we know
                 // that this will render incorrectly for RTL users.
                 // Re-assigning the progress to the (backwards) location of the second tab

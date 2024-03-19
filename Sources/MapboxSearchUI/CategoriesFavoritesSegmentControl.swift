@@ -106,20 +106,11 @@ class CategoriesFavoritesSegmentControl: UIControl {
     }
 
     func updateMasksOffsets() {
-        if effectiveUserInterfaceLayoutDirection == .leftToRight {
-            categoriesTitleMask.frame.origin.x = selectionSegment.frame.origin.x - categoriesTitle.frame.minX
-            categoriesInactiveTitleMask.frame.origin.x = selectionSegment.frame.origin.x - categoriesTitle.frame.minX
+        categoriesTitleMask.frame.origin.x = selectionSegment.frame.origin.x - categoriesTitle.frame.minX
+        categoriesInactiveTitleMask.frame.origin.x = selectionSegment.frame.origin.x - categoriesTitle.frame.minX
 
-            favoritesTitleMask.frame.origin.x = selectionSegment.frame.origin.x - favoritesTitle.frame.minX
-            favoritesInactiveTitleMask.frame.origin.x = selectionSegment.frame.origin.x - favoritesTitle.frame.minX
-        } else {
-            /// Flip our math for RTL languages
-            categoriesTitleMask.frame.origin.x = selectionSegment.frame.origin.x - favoritesTitle.frame.minX
-            categoriesInactiveTitleMask.frame.origin.x = selectionSegment.frame.origin.x - favoritesTitle.frame.minX
-
-            favoritesTitleMask.frame.origin.x = selectionSegment.frame.origin.x - categoriesTitle.frame.minX
-            favoritesInactiveTitleMask.frame.origin.x = selectionSegment.frame.origin.x - categoriesTitle.frame.minX
-        }
+        favoritesTitleMask.frame.origin.x = selectionSegment.frame.origin.x - favoritesTitle.frame.minX
+        favoritesInactiveTitleMask.frame.origin.x = selectionSegment.frame.origin.x - favoritesTitle.frame.minX
     }
 
     func updateUI() {
