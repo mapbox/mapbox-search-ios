@@ -132,6 +132,12 @@ class SearchCategoriesRootView: UIView {
                     scrollView:
                     self.contentScrollView
                 )
+
+                // On first-draw we have just assigned the tab to the default and we know
+                // that this will render incorrectly for RTL users.
+                // Re-assigning the progress to the (backwards) location of the second tab
+                // (really "first tab" (which is zero-indexed)) will force it to redraw correctly.
+                self.segmentedControl.selectionSegmentProgress = 1
             })
         }
     }
