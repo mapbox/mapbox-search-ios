@@ -46,6 +46,10 @@ public enum SearchError: Error {
     /// Reverse geocoding request was failed. Checkout `reason` value for details.
     case reverseGeocodingFailed(reason: Error, options: ReverseGeocodingOptions)
 
+    /// Weak-self could not be unwrapped because the owning reference was weak. Please replace with a strong-ownership
+    /// reference.
+    case owningObjectDeallocated
+
     init(_ error: NSError) {
         self = .generic(code: error.code, domain: error.domain, message: error.description)
     }
