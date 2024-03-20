@@ -122,29 +122,19 @@ class SearchCategoriesRootView: UIView {
                 return
             }
 
-            UIView.animate(withDuration: 0.25, delay: 0, options: [
-                .beginFromCurrentState,
-                .allowUserInteraction,
-                .curveEaseInOut,
-            ], animations: { [weak self] in
-                guard let self else { return }
-                self.contentScrollView.contentOffset.x = defaultTab.horizontalOffsetFor(
-                    scrollView:
-                    self.contentScrollView
-                )
+            contentScrollView.contentOffset.x = defaultTab.horizontalOffsetFor(scrollView: contentScrollView)
 
-                // Without forcing a refresh the titles and masks will not display correctly (invisible or grayed-out)
-                // Force another layout pass to ensure these display correctly.
-                self.segmentedControl.setNeedsLayout()
-                self.segmentedControl.setNeedsDisplay()
-                self.segmentedControl.layoutIfNeeded()
+            // Without forcing a refresh the titles and masks will not display correctly (invisible or grayed-out)
+            // Force another layout pass to ensure these display correctly.
+            segmentedControl.setNeedsLayout()
+            segmentedControl.setNeedsDisplay()
+            segmentedControl.layoutIfNeeded()
 
-                // On first-draw we have just assigned the tab to the default and we know
-                // that this will render incorrectly for RTL users.
-                // Re-assigning the progress to the (backwards) location of the second tab
-                // (really "first tab" (which is zero-indexed)) will force it to redraw correctly.
-                self.segmentedControl.selectionSegmentProgress = 1
-            })
+            // On first-draw we have just assigned the tab to the default and we know
+            // that this will render incorrectly for RTL users.
+            // Re-assigning the progress to the (backwards) location of the second tab
+            // (really "first tab" (which is zero-indexed)) will force it to redraw correctly.
+            segmentedControl.selectionSegmentProgress = 1
         }
     }
 
