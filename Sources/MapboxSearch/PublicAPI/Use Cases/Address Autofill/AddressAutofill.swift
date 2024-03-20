@@ -118,7 +118,10 @@ extension AddressAutofill {
         switch suggestion.underlying {
         case .suggestion(let coreSearch, let coreOptions):
             searchEngine.nextSearch(for: coreSearch, with: coreOptions) { [weak self] coreResponse in
-                guard let self else { return }
+                guard let self else {
+                    completion(.failure(SearchError.owningObjectDeallocated))
+                    return
+                }
 
                 self.manage(response: coreResponse, completion: completion)
             }
@@ -187,7 +190,10 @@ extension AddressAutofill {
             categories: [],
             options: options
         ) { [weak self] response in
-            guard let self else { return }
+            guard let self else {
+                completion(.failure(SearchError.owningObjectDeallocated))
+                return
+            }
 
             self.manage(response: response, for: query, completion: completion)
         }
