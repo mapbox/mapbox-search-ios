@@ -14,7 +14,6 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [UI] Add Preview file for CategoriesFavoritesSegmentControl to fix compiler problems.
 - [Core] Add SearchError.owningObjectDeallocated when network responses fail to unwrap guard-let-self. If you encounter this error you must own the reference to the search engine.
 - [Tests] Add UnownedObjectError tests to validate behavior of SearchError.owningObjectDeallocated.
-- [Tests] Reorganize tests based on API type
 - [Privacy] Add Search history collected data for the purpose of product personalization (used for displaying the search history)
 - [Discover, Category] Rename Discover to Category and update tests.
 - [Category] Rename Discover.Query.Category to Category.Item
