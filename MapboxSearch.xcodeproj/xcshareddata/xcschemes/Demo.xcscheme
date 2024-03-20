@@ -118,12 +118,6 @@
             ReferencedContainer = "container:MapboxSearch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-com.mapbox.mapboxsearch.enableSBS YES"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "OS_ACTIVITY_DT_MODE"
