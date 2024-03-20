@@ -8,6 +8,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [UI] Add Right-to-Left language support for Categories/Favorites segment control and fix xib errors.
+- [UI] Add Preview file for CategoriesFavoritesSegmentControl to fix compiler problems.
+
 - [Core] Add SearchError.owningObjectDeallocated when network responses fail to unwrap guard-let-self. If you encounter this error you must own the reference to the search engine.
 - [Tests] Add UnownedObjectError tests to validate behavior of SearchError.owningObjectDeallocated.
 

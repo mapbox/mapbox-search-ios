@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -43,19 +43,19 @@
                         <constraint firstItem="Feo-4t-hL3" firstAttribute="height" secondItem="EeJ-Pr-68t" secondAttribute="height" id="mcZ-9I-5hW"/>
                     </constraints>
                 </stackView>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9D-J2-ZgY">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9D-J2-ZgY">
                     <rect key="frame" x="16" y="148.66666666666669" width="343" height="663.33333333333326"/>
                     <subviews>
-                        <view contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OuV-Ju-JWA">
+                        <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OuV-Ju-JWA">
                             <rect key="frame" x="0.0" y="0.0" width="686" height="663.33333333333337"/>
                             <subviews>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ce7-2P-7hl">
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ce7-2P-7hl">
                                     <rect key="frame" x="0.0" y="0.0" width="343" height="663.33333333333337"/>
                                     <color key="backgroundColor" name="mapbox background"/>
                                     <color key="separatorColor" name="mapbox separator"/>
                                     <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </tableView>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7w2-Vh-qmn">
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7w2-Vh-qmn">
                                     <rect key="frame" x="343" y="0.0" width="343" height="663.33333333333337"/>
                                     <color key="backgroundColor" name="mapbox background"/>
                                     <color key="separatorColor" name="mapbox separator"/>
@@ -90,9 +90,12 @@
                         <outlet property="delegate" destination="iN0-l3-epB" id="rwA-mI-D8Q"/>
                     </connections>
                 </scrollView>
-                <view contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="CategoriesFavoritesSegmentControl" translatesAutoresizingMaskIntoConstraints="NO" id="hGT-OH-Edh" customClass="PlaceholderView" customModule="MapboxSearchUI">
+                <view contentMode="scaleToFill" restorationIdentifier="CategoriesFavoritesSegmentControl" translatesAutoresizingMaskIntoConstraints="NO" id="hGT-OH-Edh" customClass="PlaceholderView" customModule="MapboxSearchUI">
                     <rect key="frame" x="86.666666666666686" y="110.66666666666667" width="202" height="28.000000000000014"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="ag7-gv-xib"/>
+                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

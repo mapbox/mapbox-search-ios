@@ -1,5 +1,6 @@
 import UIKit
 
+// Preview available in PreviewCategoriesFavoritesSegmentControl.swift
 class CategoriesFavoritesSegmentControl: UIControl {
     enum Tab {
         case categories
@@ -40,8 +41,6 @@ class CategoriesFavoritesSegmentControl: UIControl {
     @IBOutlet private var favoritesInactiveTitle: UIButton!
 
     @IBOutlet private var selectionSegment: UIView!
-    @IBOutlet private var selectionCategoriesHorizontalConstraint: NSLayoutConstraint!
-    @IBOutlet private var selectionFavoritesHorizontalConstraint: NSLayoutConstraint!
 
     var configuration: Configuration! {
         didSet {
@@ -163,33 +162,3 @@ class CategoriesFavoritesSegmentControl: UIControl {
         favoritesInactiveTitleMask.path = selectionSegmentPath
     }
 }
-
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-
-@available(iOS 13.0, *)
-struct TabsSegmentControlRepresentable: UIViewRepresentable {
-    func makeUIView(context: Context) -> UIView {
-        UINib(nibName: "CategoriesFavoritesSegmentControl", bundle: .mapboxSearchUI)
-            .instantiate(withOwner: nil, options: nil)[0] as! UIView
-        // swiftlint:disable:previous force_cast
-    }
-
-    func updateUIView(_ view: UIView, context: Context) {}
-}
-
-@available(iOS 13.0, *)
-struct CategoriesFavoritesSegmentControlPreview: PreviewProvider {
-    static var previews: some View {
-        Group {
-            TabsSegmentControlRepresentable()
-                .previewDisplayName("Light Mode")
-                .previewLayout(PreviewLayout.fixed(width: 202, height: 28))
-            TabsSegmentControlRepresentable()
-                .previewDisplayName("Dark Mode")
-                .preferredColorScheme(.dark)
-                .previewLayout(PreviewLayout.fixed(width: 300, height: 40))
-        }
-    }
-}
-#endif
