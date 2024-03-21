@@ -8,6 +8,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Core] Add `SearchResultAccuracy.proximate` case which "is a known address point but does not intersect a known rooftop/parcel."
+
 - [UI] Add Right-to-Left language support for Categories/Favorites segment control and fix xib errors.
 - [UI] Add Preview file for CategoriesFavoritesSegmentControl to fix compiler problems.
 
