@@ -8,6 +8,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Core] Add `SearchResultAccuracy.proximate` case which "is a known address point but does not intersect a known rooftop/parcel."
+
 - [UI] Add Right-to-Left language support for Categories/Favorites segment control and fix xib errors.
 - [UI] Add Preview file for CategoriesFavoritesSegmentControl to fix compiler problems.
 
@@ -30,6 +32,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [License] Update license to reflect 2024 usage
 
 - [Tests] Change MockResponse into a protocol, create separate enums conforming to MockResponse for each API type (geocoding, sbs, autofill), add MockResponse as generic to each test base class and MockWebServer.
+
+**MapboxCoreSearch**: v2.0.0-alpha.14
 
 ## 2.0.0-rc.2
 
