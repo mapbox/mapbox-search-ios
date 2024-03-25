@@ -1,7 +1,7 @@
 import Contacts
 import Foundation
 
-extension Category {
+extension Discover {
     public struct Address {
         /// House number of the individual residential or business addresses.
         public let houseNumber: String?
@@ -80,7 +80,7 @@ extension Category {
 
 // MARK: - Contacts extension
 
-extension Category.Address {
+extension Discover.Address {
     /// The postal address associated with the location, formatted for use with the Contacts framework.
     public var postalAddress: CNPostalAddress {
         let streetNameAndNumber = [houseNumber, street]

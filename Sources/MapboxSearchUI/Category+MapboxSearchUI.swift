@@ -2,8 +2,8 @@ import Foundation
 import MapboxSearch
 import UIKit
 
-/// Category entity to present on MapboxSearchController UI
-extension MapboxSearch.Category.Item {
+/// Discover entity to present on MapboxSearchController UI
+extension MapboxSearch.Discover.Item {
     /// Category icon from embedded bundle
     public var icon: UIImage? { UIImage(named: iconName.name, in: .mapboxSearchUI, compatibleWith: nil) }
 

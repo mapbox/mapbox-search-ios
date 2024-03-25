@@ -1,7 +1,7 @@
 import CoreLocation
 import Foundation
 
-public final class Category {
+public final class Discover {
     private let searchEngine: CategorySearchEngine
     private let userActivityReporter: CoreUserActivityReporter
 
@@ -47,7 +47,7 @@ public final class Category {
     }
 }
 
-extension Category {
+extension Discover {
     /// Search for places nearby the specified geographic point.
     /// - Parameters:
     ///   - item: Search item
@@ -131,7 +131,7 @@ extension Category {
 
 // MARK: - Private
 
-extension Category {
+extension Discover {
     private func search(
         for item: Item,
         with searchOptions: SearchOptions,
@@ -143,7 +143,7 @@ extension Category {
         ) { result in
             switch result {
             case .success(let searchResults):
-                let categoryResults = searchResults.map(Category.Result.from(_:))
+                let categoryResults = searchResults.map(Discover.Result.from(_:))
                 completion(.success(categoryResults))
 
             case .failure(let error):

@@ -2,7 +2,7 @@
 
 import Foundation
 
-extension Category {
+extension Discover {
     public struct Item: Codable, Hashable {
         public let name: String
 
@@ -23,18 +23,18 @@ extension Category {
     }
 }
 
-extension Category.Item {
-    static let empty = Category.Item(canonicalId: "", name: "?", legacyName: "unknown", iconName: Maki.marker)
+extension Discover.Item {
+    static let empty = Discover.Item(canonicalId: "", name: "?", legacyName: "unknown", iconName: Maki.marker)
 
     // MARK: - Hot categories
 
     /// Fuel station category.
     public static let gas =
-        Category.Item(canonicalId: "gas_station", name: Strings.Categories.gas, legacyName: "fuel", iconName: Maki.fuel)
+        Discover.Item(canonicalId: "gas_station", name: Strings.Categories.gas, legacyName: "fuel", iconName: Maki.fuel)
 
     /// Parking lot category.
     public static let parking =
-        Category.Item(
+        Discover.Item(
             canonicalId: "parking_lot",
             name: Strings.Categories.parking,
             legacyName: "parking",
@@ -43,7 +43,7 @@ extension Category.Item {
 
     /// Food category.
     public static let food =
-        Category.Item(
+        Discover.Item(
             canonicalId: "restaurant",
             name: Strings.Categories.food,
             legacyName: "restaurant",
@@ -52,13 +52,13 @@ extension Category.Item {
 
     /// Cafe category.
     public static let cafe =
-        Category.Item(canonicalId: "cafe", name: Strings.Categories.cafe, legacyName: "cafe", iconName: Maki.cafe)
+        Discover.Item(canonicalId: "cafe", name: Strings.Categories.cafe, legacyName: "cafe", iconName: Maki.cafe)
 
     // MARK: - Other categories
 
     /// Restaurant category.
     public static let restaurant =
-        Category.Item(
+        Discover.Item(
             canonicalId: "restaurant",
             name: Strings.Categories.restaurant,
             legacyName: "restaurant",
@@ -67,19 +67,19 @@ extension Category.Item {
 
     /// Bar category.
     public static let bar =
-        Category.Item(canonicalId: "bar", name: Strings.Categories.bar, legacyName: "bar", iconName: Maki.bar)
+        Discover.Item(canonicalId: "bar", name: Strings.Categories.bar, legacyName: "bar", iconName: Maki.bar)
 
     /// Cafe category.
     public static let coffeeShop =
-        Category.Item(canonicalId: "cafe", name: Strings.Categories.coffeeShop, legacyName: "cafe", iconName: Maki.cafe)
+        Discover.Item(canonicalId: "cafe", name: Strings.Categories.coffeeShop, legacyName: "cafe", iconName: Maki.cafe)
 
     /// Hotel category.
     public static let hotel =
-        Category.Item(canonicalId: "hotel", name: Strings.Categories.hotel, legacyName: "hotel", iconName: Maki.lodging)
+        Discover.Item(canonicalId: "hotel", name: Strings.Categories.hotel, legacyName: "hotel", iconName: Maki.lodging)
 
     /// Gas Station category.
     public static let gasStation =
-        Category.Item(
+        Discover.Item(
             canonicalId: "gas_station",
             name: Strings.Categories.gasStation,
             legacyName: "fuel",
@@ -88,7 +88,7 @@ extension Category.Item {
 
     /// EV Charging station category.
     public static let chargingStation =
-        Category.Item(
+        Discover.Item(
             canonicalId: "ev_charging_station",
             name: Strings.Categories.chargingStation,
             legacyName: "charging station",
@@ -97,7 +97,7 @@ extension Category.Item {
 
     /// Bus station category.
     public static let busStation =
-        Category.Item(
+        Discover.Item(
             canonicalId: "bus_station",
             name: Strings.Categories.busStation,
             legacyName: "bus station",
@@ -106,7 +106,7 @@ extension Category.Item {
 
     /// Railway station category.
     public static let railwayStation =
-        Category.Item(
+        Discover.Item(
             canonicalId: "railway_station",
             name: Strings.Categories.railwayStation,
             legacyName: "train station",
@@ -115,7 +115,7 @@ extension Category.Item {
 
     /// Shopping mall category.
     public static let shoppingMall =
-        Category.Item(
+        Discover.Item(
             canonicalId: "shopping_mall",
             name: Strings.Categories.shoppingMall,
             legacyName: "mall",
@@ -124,7 +124,7 @@ extension Category.Item {
 
     /// Grocery category.
     public static let grocery =
-        Category.Item(
+        Discover.Item(
             canonicalId: "grocery",
             name: Strings.Categories.grocery,
             legacyName: "grocery",
@@ -133,7 +133,7 @@ extension Category.Item {
 
     /// Clothing store category.
     public static let clothingStore =
-        Category.Item(
+        Discover.Item(
             canonicalId: "clothing_store",
             name: Strings.Categories.clothingStore,
             legacyName: "clothes",
@@ -142,7 +142,7 @@ extension Category.Item {
 
     /// Pharmacy category.
     public static let pharmacy =
-        Category.Item(
+        Discover.Item(
             canonicalId: "pharmacy",
             name: Strings.Categories.pharmacy,
             legacyName: "pharmacy",
@@ -151,7 +151,7 @@ extension Category.Item {
 
     /// Museum category.
     public static let museum =
-        Category.Item(
+        Discover.Item(
             canonicalId: "museum",
             name: Strings.Categories.museum,
             legacyName: "museum",
@@ -160,11 +160,11 @@ extension Category.Item {
 
     /// Park category.
     public static let park =
-        Category.Item(canonicalId: "park", name: Strings.Categories.park, legacyName: "park", iconName: Maki.park)
+        Discover.Item(canonicalId: "park", name: Strings.Categories.park, legacyName: "park", iconName: Maki.park)
 
     /// Cinema category.
     public static let cinema =
-        Category.Item(
+        Discover.Item(
             canonicalId: "cinema",
             name: Strings.Categories.cinema,
             legacyName: "cinema",
@@ -173,7 +173,7 @@ extension Category.Item {
 
     /// Fitness center category.
     public static let fitnessCentre =
-        Category.Item(
+        Discover.Item(
             canonicalId: "fitness_center",
             name: Strings.Categories.fitnessCentre,
             legacyName: "fitness center",
@@ -182,7 +182,7 @@ extension Category.Item {
 
     /// Nightclub category.
     public static let nightclub =
-        Category.Item(
+        Discover.Item(
             canonicalId: "nightclub",
             name: Strings.Categories.nightclub,
             legacyName: "nightclub",
@@ -191,7 +191,7 @@ extension Category.Item {
 
     /// Auto repair category.
     public static let autoRepair =
-        Category.Item(
+        Discover.Item(
             canonicalId: "auto_repair",
             name: Strings.Categories.autoRepair,
             legacyName: "auto repair",
@@ -200,11 +200,11 @@ extension Category.Item {
 
     /// ATM category.
     public static let atm =
-        Category.Item(canonicalId: "atm", name: Strings.Categories.atm, legacyName: "atm", iconName: Maki.bank)
+        Discover.Item(canonicalId: "atm", name: Strings.Categories.atm, legacyName: "atm", iconName: Maki.bank)
 
     /// Hospital category.
     public static let hospital =
-        Category.Item(
+        Discover.Item(
             canonicalId: "hospital",
             name: Strings.Categories.hospital,
             legacyName: "hospital",
@@ -213,7 +213,7 @@ extension Category.Item {
 
     /// Emergency Room category.
     public static let emergencyRoom =
-        Category.Item(
+        Discover.Item(
             canonicalId: "emergency_room",
             name: Strings.Categories.emergencyRoom,
             legacyName: "emergency room",

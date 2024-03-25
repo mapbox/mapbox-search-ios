@@ -14,7 +14,7 @@ final class OwningObjectDeallocatedErrorTests: MockServerIntegrationTestCase<Sea
         let expectation = XCTestExpectation(description: "Expecting results")
         let coordinate1 = CLLocationCoordinate2D(latitude: 35.655614, longitude: 139.7081684)
 
-        Category(locationProvider: DefaultLocationProvider())
+        Discover(locationProvider: DefaultLocationProvider())
             .search(for: .cafe, proximity: coordinate1) { response in
                 if case .failure(let failure) = response,
                    let searchFailure = failure as? SearchError
