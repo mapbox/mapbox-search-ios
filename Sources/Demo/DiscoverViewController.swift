@@ -57,11 +57,11 @@ extension DiscoverViewController {
         return .init(swCoordinate, neCoordinate)
     }
 
-    private var currentSelectedCategory: Discover.Item {
-        let allDemoCategories: [Discover.Item] = [
-            .parking,
-            .restaurant,
-            .museum,
+    private var currentSelectedCategory: Discover.Query {
+        let allDemoCategories: [Discover.Query] = [
+            .Category.parking,
+            .Category.restaurant,
+            .Category.museum,
         ]
 
         return allDemoCategories[segmentedControl.selectedSegmentIndex]

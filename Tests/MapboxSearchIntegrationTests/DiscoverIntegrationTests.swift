@@ -29,7 +29,7 @@ class DiscoverIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
         )
 
         searchEngine.search(
-            for: Discover.Item.hotel,
+            for: Discover.Query.Category.hotel,
             route: rOptions,
             options: options
         ) { result in

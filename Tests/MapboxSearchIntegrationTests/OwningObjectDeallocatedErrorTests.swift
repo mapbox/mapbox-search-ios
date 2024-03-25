@@ -15,7 +15,7 @@ final class OwningObjectDeallocatedErrorTests: MockServerIntegrationTestCase<Sea
         let coordinate1 = CLLocationCoordinate2D(latitude: 35.655614, longitude: 139.7081684)
 
         Discover(locationProvider: DefaultLocationProvider())
-            .search(for: .cafe, proximity: coordinate1) { response in
+            .search(for: .Category.cafe, proximity: coordinate1) { response in
                 if case .failure(let failure) = response,
                    let searchFailure = failure as? SearchError
                 {

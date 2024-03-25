@@ -56,7 +56,7 @@ extension Discover {
     ///   - completion: Result of the search request, one of error or value.
     ///
     public func search(
-        for item: Item,
+        for item: Discover.Query,
         proximity: CLLocationCoordinate2D,
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
@@ -82,7 +82,7 @@ extension Discover {
     ///   - completion: Result of the search request, one of error or value.
     ///
     public func search(
-        for item: Item,
+        for item: Discover.Query,
         in region: BoundingBox,
         proximity: CLLocationCoordinate2D? = nil,
         options: Options = .init(),
@@ -109,7 +109,7 @@ extension Discover {
     ///   - completion: Result of the search request, one of error or value.
     ///
     public func search(
-        for item: Item,
+        for item: Discover.Query,
         route: RouteOptions,
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
@@ -133,12 +133,12 @@ extension Discover {
 
 extension Discover {
     private func search(
-        for item: Item,
+        for item: Discover.Query,
         with searchOptions: SearchOptions,
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
         searchEngine.search(
-            categoryName: item.canonicalId,
+            categoryName: item.rawValue,
             options: searchOptions
         ) { result in
             switch result {

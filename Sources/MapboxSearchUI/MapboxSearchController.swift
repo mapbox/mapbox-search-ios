@@ -2,8 +2,6 @@ import CoreLocation
 @_exported import MapboxSearch
 import UIKit
 
-public typealias SearchCategory = MapboxSearch.Discover.Item
-
 /// Defines methods to provide location results from ``MapboxSearchController``.
 public protocol SearchControllerDelegate: AnyObject {
     /// Selected search result in the search panel.
