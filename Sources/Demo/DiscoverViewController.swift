@@ -1,7 +1,7 @@
 import MapKit
 import UIKit
 
-final class CategoryViewController: UIViewController {
+final class DiscoverViewController: UIViewController {
     @IBOutlet private var mapView: MKMapView!
     @IBOutlet private var segmentedControl: UISegmentedControl!
 
@@ -16,7 +16,7 @@ final class CategoryViewController: UIViewController {
 
 // MARK: - Actions
 
-extension CategoryViewController {
+extension DiscoverViewController {
     @IBAction
     private func handleSearchInRegionAction() {
         let regionResultsLimit: Int
@@ -45,7 +45,7 @@ extension CategoryViewController {
 
 // MARK: - Private
 
-extension CategoryViewController {
+extension DiscoverViewController {
     private var currentBoundingBox: BoundingBox {
         let rect = mapView.visibleMapRect
         let neMapPoint = MKMapPoint(x: rect.maxX, y: rect.origin.y)
