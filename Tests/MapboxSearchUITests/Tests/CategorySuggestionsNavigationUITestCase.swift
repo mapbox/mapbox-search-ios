@@ -1,5 +1,6 @@
 import XCTest
 
+/// Tests the ``MapboxSearchController`` when querying for categories
 class CategorySuggestionsNavigationUITestCase: MockSearchBoxUITestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
