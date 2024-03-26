@@ -11,7 +11,6 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
     let delegate = SearchEngineDelegateStub()
     let searchEngine = SearchEngine()
 
-    let dataset = "mbx-main"
     let dcLocation = CLLocationCoordinate2D(latitude: 38.89992081005698, longitude: -77.03399849939174)
     let regionId = "dc"
 
@@ -37,6 +36,7 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
 
     func loadData(completion: @escaping (Result<MapboxCommon.TileRegion, MapboxSearch.TileRegionError>) -> Void)
     -> SearchCancelable {
+        /// This will use the default dataset defined at ``SearchOfflineManager.defaultDatasetName``
         let descriptor = SearchOfflineManager.createDefaultTilesetDescriptor()
         let dcLocationValue = NSValue(mkCoordinate: dcLocation)
         let options = MapboxCommon.TileRegionLoadOptions.build(
@@ -44,6 +44,7 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
             descriptors: [descriptor],
             acceptExpired: true
         )!
+
         let cancelable = searchEngine.offlineManager.tileStore.loadTileRegion(id: regionId, options: options) { _ in
         } completion: { result in
             completion(result)
@@ -76,6 +77,8 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
         searchEngine.search(query: "dc")
         wait(for: [updateExpectation], timeout: 10)
 
+        XCTAssertNil(delegate.error)
+        XCTAssertNil(delegate.error?.localizedDescription)
         XCTAssert(searchEngine.suggestions.isEmpty == false)
     }
 
