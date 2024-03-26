@@ -8,7 +8,7 @@ import XCTest
 
 /// Note: ``OfflineIntegrationTests`` does not use Mocked data.
 class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
-    let delegate = SearchEngineOfflineDelegateStub()
+    let delegate = SearchEngineDelegateStub()
     let searchEngine = SearchEngine()
 
     let dcLocation = CLLocationCoordinate2D(latitude: 38.89992081005698, longitude: -77.03399849939174)

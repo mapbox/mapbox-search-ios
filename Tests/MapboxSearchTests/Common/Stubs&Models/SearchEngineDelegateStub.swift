@@ -1,7 +1,6 @@
 @testable import MapboxSearch
 import XCTest
 
-/// Offline behavior is handled by specialized Stub subclass
 class SearchEngineDelegateStub: SearchEngineDelegate {
     var resolvedResult: SearchResult?
     var resolvedResults: [SearchResult] = []
@@ -11,6 +10,7 @@ class SearchEngineDelegateStub: SearchEngineDelegate {
     let successNotificationName = Notification.Name("SearchEngineDelegateStub.success")
     let updateNotificationName = Notification.Name("SearchEngineDelegateStub.update")
     let batchUpdateNotificationName = Notification.Name("SearchEngineDelegateStub.batchUpdate")
+    let offlineUpdateNotificationName = Notification.Name("SearchEngineOfflineDelegateStub.offlineUpdate")
 
     var errorExpectation: XCTNSNotificationExpectation {
         XCTNSNotificationExpectation(name: errorNotificationName, object: self)
@@ -28,9 +28,11 @@ class SearchEngineDelegateStub: SearchEngineDelegate {
         XCTNSNotificationExpectation(name: batchUpdateNotificationName, object: self)
     }
 
-    // MARK: SearchEngineDelegate
+    var offlineUpdateExpectation: XCTNSNotificationExpectation {
+        XCTNSNotificationExpectation(name: offlineUpdateNotificationName, object: self)
+    }
 
-    // Excludes offline tests, see subclass for offline
+    // MARK: SearchEngineDelegate
 
     func resultsResolved(results: [SearchResult], searchEngine: SearchEngine) {
         resolvedResults = results
@@ -49,5 +51,10 @@ class SearchEngineDelegateStub: SearchEngineDelegate {
     func searchErrorHappened(searchError: SearchError, searchEngine: SearchEngine) {
         error = searchError
         NotificationCenter.default.post(name: errorNotificationName, object: self)
+    }
+
+    func offlineResultsUpdated(_ results: [SearchResult], suggestions: [SearchSuggestion], searchEngine: SearchEngine) {
+        resolvedResults = results
+        NotificationCenter.default.post(name: offlineUpdateNotificationName, object: self)
     }
 }
