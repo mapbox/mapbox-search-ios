@@ -11,7 +11,7 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<GeocodingMockRespon
     let searchEngine = SearchEngine()
 
     let dataset = "test-dataset"
-    let dcLocation = CGPoint(x: 38.89992081005698, y: -77.03399849939174)
+    let dcLocation = CLLocationCoordinate2D(latitude: 38.89992081005698, longitude: -77.03399849939174)
     let regionId = "dc"
 
     override func setUpWithError() throws {
@@ -37,7 +37,7 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<GeocodingMockRespon
     func loadData(completion: @escaping (Result<MapboxCommon.TileRegion, MapboxSearch.TileRegionError>) -> Void)
     -> SearchCancelable {
         let descriptor = SearchOfflineManager.createDefaultTilesetDescriptor()
-        let dcLocationValue = NSValue(cgPoint: dcLocation)
+        let dcLocationValue = NSValue(mkCoordinate: dcLocation)
         let options = MapboxCommon.TileRegionLoadOptions.build(
             geometry: Geometry(point: dcLocationValue),
             descriptors: [descriptor],
