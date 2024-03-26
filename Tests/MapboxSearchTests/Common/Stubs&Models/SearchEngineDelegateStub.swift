@@ -1,6 +1,7 @@
 @testable import MapboxSearch
 import XCTest
 
+/// Offline behavior is handled by specialized Stub subclass
 class SearchEngineDelegateStub: SearchEngineDelegate {
     var resolvedResult: SearchResult?
     var resolvedResults: [SearchResult] = []
@@ -27,32 +28,9 @@ class SearchEngineDelegateStub: SearchEngineDelegate {
         XCTNSNotificationExpectation(name: batchUpdateNotificationName, object: self)
     }
 
-    func subscribe(listener: Any, selector: Selector) {
-        NotificationCenter.default.addObserver(
-            listener,
-            selector: selector,
-            name: successNotificationName,
-            object: self
-        )
-        NotificationCenter.default.addObserver(
-            listener,
-            selector: selector,
-            name: updateNotificationName,
-            object: self
-        )
-        NotificationCenter.default.addObserver(
-            listener,
-            selector: selector,
-            name: errorNotificationName,
-            object: self
-        )
-        NotificationCenter.default.addObserver(
-            listener,
-            selector: selector,
-            name: batchUpdateNotificationName,
-            object: self
-        )
-    }
+    // MARK: SearchEngineDelegate
+
+    // Excludes offline tests, see subclass for offline
 
     func resultsResolved(results: [SearchResult], searchEngine: SearchEngine) {
         resolvedResults = results

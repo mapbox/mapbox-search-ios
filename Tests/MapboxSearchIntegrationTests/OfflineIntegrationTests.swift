@@ -8,7 +8,7 @@ import XCTest
 
 /// Note: ``OfflineIntegrationTests`` does not use Mocked data.
 class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
-    let delegate = SearchEngineDelegateStub()
+    let delegate = SearchEngineOfflineDelegateStub()
     let searchEngine = SearchEngine()
 
     let dcLocation = CLLocationCoordinate2D(latitude: 38.89992081005698, longitude: -77.03399849939174)
@@ -73,9 +73,9 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
         }
         wait(for: [loadDataExpectation], timeout: 200)
 
-        let updateExpectation = delegate.updateExpectation
+        let offlineUpdateExpectation = delegate.offlineUpdateExpectation
         searchEngine.search(query: "dc")
-        wait(for: [updateExpectation], timeout: 10)
+        wait(for: [offlineUpdateExpectation], timeout: 10)
 
         XCTAssertNil(delegate.error)
         XCTAssertNil(delegate.error?.localizedDescription)
