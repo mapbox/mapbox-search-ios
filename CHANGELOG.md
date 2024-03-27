@@ -16,13 +16,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Core] Add SearchError.owningObjectDeallocated when network responses fail to unwrap guard-let-self. If you encounter this error you must own the reference to the search engine.
 - [Tests] Add UnownedObjectError tests to validate behavior of SearchError.owningObjectDeallocated.
 - [Privacy] Add Search history collected data for the purpose of product personalization (used for displaying the search history)
-- [Discover, Category] Rename Discover to Category and update tests.
-- [Category] Rename Discover.Query.Category to Category.Item
-- [Category] Move Category.Item "Hot" suggested categories to MapboxSearch out of MapboxSearchUI.
-	- This adds legacyName (use with Geocoding API engine) and icon fields to the MapboxSearch suggested categories.
-	- Image assets for these categories remain in MapboxSearchUI.
-	- This Category.Item replaces MapboxSearchUI.SearchCategory.
-	- Add an alias for MapboxSearchUI.SearchCategory = MapboxSearch.Category.Item
+- [Discover, Category] Discover API to query categories remains available and compatible with 1.0.0 series.
 - [Core] Default API engine type remains SBS and search-box is available by opt-in.
 - [License] Update license to reflect 2024 usage
 - [Tests] Change MockResponse into a protocol, create separate enums conforming to MockResponse for each API type (geocoding, sbs, autofill), add MockResponse as generic to each test base class and MockWebServer.
