@@ -10,7 +10,7 @@ class SearchEngineDelegateStub: SearchEngineDelegate {
     let successNotificationName = Notification.Name("SearchEngineDelegateStub.success")
     let updateNotificationName = Notification.Name("SearchEngineDelegateStub.update")
     let batchUpdateNotificationName = Notification.Name("SearchEngineDelegateStub.batchUpdate")
-    let offlineUpdateNotificationName = Notification.Name("SearchEngineOfflineDelegateStub.offlineUpdate")
+    let offlineUpdateNotificationName = Notification.Name("SearchEngineDelegateStub.offlineUpdate")
 
     var errorExpectation: XCTNSNotificationExpectation {
         XCTNSNotificationExpectation(name: errorNotificationName, object: self)
