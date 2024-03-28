@@ -6,12 +6,12 @@ import MapboxCommon
 @testable import MapboxSearch
 import XCTest
 
-class OfflineIntegrationTests: MockServerIntegrationTestCase<GeocodingMockResponse> {
+/// Note: ``OfflineIntegrationTests`` does not use Mocked data.
+class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
     let delegate = SearchEngineDelegateStub()
     let searchEngine = SearchEngine()
 
-    let dataset = "test-dataset"
-    let dcLocation = CGPoint(x: 38.89992081005698, y: -77.03399849939174)
+    let dcLocation = CLLocationCoordinate2D(latitude: 38.89992081005698, longitude: -77.03399849939174)
     let regionId = "dc"
 
     override func setUpWithError() throws {
@@ -36,13 +36,15 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<GeocodingMockRespon
 
     func loadData(completion: @escaping (Result<MapboxCommon.TileRegion, MapboxSearch.TileRegionError>) -> Void)
     -> SearchCancelable {
+        /// This will use the default dataset defined at ``SearchOfflineManager.defaultDatasetName``
         let descriptor = SearchOfflineManager.createDefaultTilesetDescriptor()
-        let dcLocationValue = NSValue(cgPoint: dcLocation)
+        let dcLocationValue = NSValue(mkCoordinate: dcLocation)
         let options = MapboxCommon.TileRegionLoadOptions.build(
             geometry: Geometry(point: dcLocationValue),
             descriptors: [descriptor],
             acceptExpired: true
         )!
+
         let cancelable = searchEngine.offlineManager.tileStore.loadTileRegion(id: regionId, options: options) { _ in
         } completion: { result in
             completion(result)
@@ -71,10 +73,19 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<GeocodingMockRespon
         }
         wait(for: [loadDataExpectation], timeout: 200)
 
-        let updateExpectation = delegate.updateExpectation
-        searchEngine.search(query: "dc")
-        wait(for: [updateExpectation], timeout: 10)
+        // Providing a bounding box to offline search is recommended to optimize performance
+        let regionBounds = BoundingBox(
+            CLLocationCoordinate2D(latitude: 39.0002626, longitude: -76.908646),
+            CLLocationCoordinate2D(latitude: 38.7911851, longitude: -77.1235559)
+        )
+        let searchOptions = SearchOptions(boundingBox: regionBounds)
 
+        let offlineUpdateExpectation = delegate.offlineUpdateExpectation
+        searchEngine.search(query: "dc", options: searchOptions)
+        wait(for: [offlineUpdateExpectation], timeout: 10)
+
+        XCTAssertNil(delegate.error)
+        XCTAssertNil(delegate.error?.localizedDescription)
         XCTAssert(searchEngine.suggestions.isEmpty == false)
     }
 

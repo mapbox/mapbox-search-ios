@@ -10,6 +10,7 @@ class SearchEngineDelegateStub: SearchEngineDelegate {
     let successNotificationName = Notification.Name("SearchEngineDelegateStub.success")
     let updateNotificationName = Notification.Name("SearchEngineDelegateStub.update")
     let batchUpdateNotificationName = Notification.Name("SearchEngineDelegateStub.batchUpdate")
+    let offlineUpdateNotificationName = Notification.Name("SearchEngineDelegateStub.offlineUpdate")
 
     var errorExpectation: XCTNSNotificationExpectation {
         XCTNSNotificationExpectation(name: errorNotificationName, object: self)
@@ -27,32 +28,11 @@ class SearchEngineDelegateStub: SearchEngineDelegate {
         XCTNSNotificationExpectation(name: batchUpdateNotificationName, object: self)
     }
 
-    func subscribe(listener: Any, selector: Selector) {
-        NotificationCenter.default.addObserver(
-            listener,
-            selector: selector,
-            name: successNotificationName,
-            object: self
-        )
-        NotificationCenter.default.addObserver(
-            listener,
-            selector: selector,
-            name: updateNotificationName,
-            object: self
-        )
-        NotificationCenter.default.addObserver(
-            listener,
-            selector: selector,
-            name: errorNotificationName,
-            object: self
-        )
-        NotificationCenter.default.addObserver(
-            listener,
-            selector: selector,
-            name: batchUpdateNotificationName,
-            object: self
-        )
+    var offlineUpdateExpectation: XCTNSNotificationExpectation {
+        XCTNSNotificationExpectation(name: offlineUpdateNotificationName, object: self)
     }
+
+    // MARK: SearchEngineDelegate
 
     func resultsResolved(results: [SearchResult], searchEngine: SearchEngine) {
         resolvedResults = results
@@ -71,5 +51,10 @@ class SearchEngineDelegateStub: SearchEngineDelegate {
     func searchErrorHappened(searchError: SearchError, searchEngine: SearchEngine) {
         error = searchError
         NotificationCenter.default.post(name: errorNotificationName, object: self)
+    }
+
+    func offlineResultsUpdated(_ results: [SearchResult], suggestions: [SearchSuggestion], searchEngine: SearchEngine) {
+        resolvedResults = results
+        NotificationCenter.default.post(name: offlineUpdateNotificationName, object: self)
     }
 }

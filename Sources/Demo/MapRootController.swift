@@ -31,7 +31,12 @@ class MapRootController: UIViewController {
 
         engine.setOfflineMode(.enabled) {
             let descriptor = SearchOfflineManager.createDefaultTilesetDescriptor()
-            let dcLocation = NSValue(cgPoint: CGPoint(x: 38.89992081005698, y: -77.03399849939174))
+
+            let dcLocation = NSValue(mkCoordinate: CLLocationCoordinate2D(
+                latitude: 38.89992081005698,
+                longitude: -77.03399849939174
+            ))
+
             guard let options = MapboxCommon.TileRegionLoadOptions.build(
                 geometry: Geometry(point: dcLocation),
                 descriptors: [descriptor],

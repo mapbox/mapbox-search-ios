@@ -2,7 +2,7 @@ import Foundation
 
 /// OfflineManager handles `TileStore`s and responsible for creating Search `TilsetDescriptor`s
 public class SearchOfflineManager {
-    static let defaultDatasetName = "test-dataset"
+    static let defaultDatasetName = "mbx-main"
 
     var engine: CoreSearchEngineProtocol
 
