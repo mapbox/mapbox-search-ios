@@ -32,10 +32,13 @@ class MapRootController: UIViewController {
         engine.setOfflineMode(.enabled) {
             let descriptor = SearchOfflineManager.createDefaultTilesetDescriptor()
             let dcLocation = NSValue(cgPoint: CGPoint(x: 38.89992081005698, y: -77.03399849939174))
-            guard let options = MapboxCommon.TileRegionLoadOptions.build(
+            let extraOptions = TileRegionLoadOptions.ExtraOptions(forceRefresh: false)
+
+            guard let options = TileRegionLoadOptions.build(
                 geometry: Geometry(point: dcLocation),
                 descriptors: [descriptor],
-                acceptExpired: true
+                acceptExpired: true,
+                extraOptions: extraOptions
             ) else {
                 assertionFailure()
                 return
