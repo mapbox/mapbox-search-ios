@@ -2,8 +2,9 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-class CategoryIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
-    lazy var searchEngine = Category(locationProvider: DefaultLocationProvider())
+/// Aka Category
+class DiscoverIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
+    lazy var searchEngine = Discover(locationProvider: DefaultLocationProvider())
 
     func testCategorySearchAlongRouteWithCountryProximityOrigin() throws {
         try server.setResponse(.categoryHotelSearchAlongRoute_JP)
@@ -16,7 +17,7 @@ class CategoryIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
         let mapboxSearchRoute = MapboxSearch.Route(coordinates: coordinates)
         let rOptions: MapboxSearch.RouteOptions = RouteOptions(route: mapboxSearchRoute, time: 1000)
 
-        let options = Category.Options(
+        let options = Discover.Options(
             limit: 10,
             language: nil,
             country: Country(countryCode: "jp"),
@@ -28,7 +29,7 @@ class CategoryIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
         )
 
         searchEngine.search(
-            for: Category.Item.hotel,
+            for: Discover.Query.Category.hotel,
             route: rOptions,
             options: options
         ) { result in
