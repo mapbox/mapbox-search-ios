@@ -1,7 +1,7 @@
 @testable import MapboxSearch
 
 extension CoreAddress {
-    open override func isEqual(_ object: Any?) -> Bool {
+    override open func isEqual(_ object: Any?) -> Bool {
         if let rhs = object as? CoreAddress {
             return houseNumber == rhs.houseNumber &&
                 street == rhs.street &&
