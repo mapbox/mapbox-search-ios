@@ -8,8 +8,16 @@ enum CoreSearchEngineStatics {
     static func createTilesetDescriptor(dataset: String, version: String, language: String? = nil) -> MapboxCommon
     .TilesetDescriptor {
         let identifier: String
-        if let language, ISOLanguages.contains(language: language) {
-            identifier = dataset + Constants.delimiter + language
+        if let language {
+            if ISOLanguages.contains(language: language) {
+                identifier = dataset + Constants.delimiter + language
+            } else {
+                _Logger.searchSDK
+                    .warning(
+                        "Provided language code '\(language)' for tileset is non-ISO. Dataset '\(dataset)' without language will be used."
+                    )
+                identifier = dataset
+            }
         } else {
             identifier = dataset
         }
@@ -19,8 +27,16 @@ enum CoreSearchEngineStatics {
     static func createPlacesTilesetDescriptor(dataset: String, version: String, language: String? = nil) -> MapboxCommon
     .TilesetDescriptor {
         let identifier: String
-        if let language, ISOLanguages.contains(language: language) {
-            identifier = dataset + Constants.delimiter + language
+        if let language {
+            if ISOLanguages.contains(language: language) {
+                identifier = dataset + Constants.delimiter + language
+            } else {
+                _Logger.searchSDK
+                    .warning(
+                        "Provided language code '\(language)' for places tileset is non-ISO. Dataset '\(dataset)' without language will be used."
+                    )
+                identifier = dataset
+            }
         } else {
             identifier = dataset
         }
