@@ -8,7 +8,7 @@ enum CoreSearchEngineStatics {
     static func createTilesetDescriptor(dataset: String, version: String, language: String? = nil) -> MapboxCommon
     .TilesetDescriptor {
         let identifier: String
-        if let language {
+        if let language, ISOLanguages.contains(language: language) {
             identifier = dataset + Constants.delimiter + language
         } else {
             identifier = dataset
@@ -19,7 +19,7 @@ enum CoreSearchEngineStatics {
     static func createPlacesTilesetDescriptor(dataset: String, version: String, language: String? = nil) -> MapboxCommon
     .TilesetDescriptor {
         let identifier: String
-        if let language {
+        if let language, ISOLanguages.contains(language: language) {
             identifier = dataset + Constants.delimiter + language
         } else {
             identifier = dataset
@@ -28,8 +28,8 @@ enum CoreSearchEngineStatics {
     }
 }
 
-enum DatasetLanguages {
-    static func filter(language: String) -> String? {
+enum ISOLanguages {
+    static func contains(language: String) -> Bool {
         var validLanguage: Bool
         if #available(iOS 16, *) {
             validLanguage = Locale.LanguageCode.isoLanguageCodes
@@ -39,6 +39,6 @@ enum DatasetLanguages {
             validLanguage = Locale.isoLanguageCodes
                 .contains(language)
         }
-        return validLanguage ? language : nil
+        return validLanguage
     }
 }
