@@ -60,7 +60,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
         serviceProvider: ServiceProviderProtocol & EngineProviderProtocol,
         locationProvider: LocationProvider? = DefaultLocationProvider(),
         defaultSearchOptions: SearchOptions = SearchOptions(),
-        supportSBS: Bool = false
+        supportSBS: Bool = true
     ) {
         guard let accessToken = accessToken ?? serviceProvider.getStoredAccessToken() else {
             fatalError(
@@ -116,7 +116,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
         accessToken: String? = nil,
         locationProvider: LocationProvider? = DefaultLocationProvider(),
         defaultSearchOptions: SearchOptions = SearchOptions(),
-        supportSBS: Bool = false
+        supportSBS: Bool = true
     ) {
         self.init(
             accessToken: accessToken,
