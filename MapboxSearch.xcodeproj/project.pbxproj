@@ -80,6 +80,7 @@
 		049125BA2BC04E1300D40803 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491257C2BC04E1300D40803 /* MockResponse.swift */; };
 		049125BB2BC04E1300D40803 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491257C2BC04E1300D40803 /* MockResponse.swift */; };
 		04970F8D2B7A97C900213763 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 04970F8C2B7A97C900213763 /* PrivacyInfo.xcprivacy */; };
+		049DF79E2BE528B00054F53B /* OfflineIndexObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DF79D2BE528B00054F53B /* OfflineIndexObserver.swift */; };
 		04BBC6342B61898F00E24E99 /* LocalhostMockServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BBC6332B61898F00E24E99 /* LocalhostMockServiceProvider.swift */; };
 		04BBC6372B61ABA500E24E99 /* FeedbackUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BBFBD02604A4A500DE9C98 /* FeedbackUITestCase.swift */; };
 		04D2F4DB2BE040B300F85CFF /* SearchAddressCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D2F4DA2BE040B300F85CFF /* SearchAddressCountry.swift */; };
@@ -523,6 +524,7 @@
 		0491257B2BC04E1300D40803 /* MockWebServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockWebServer.swift; sourceTree = "<group>"; };
 		0491257C2BC04E1300D40803 /* MockResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockResponse.swift; sourceTree = "<group>"; };
 		04970F8C2B7A97C900213763 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		049DF79D2BE528B00054F53B /* OfflineIndexObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineIndexObserver.swift; sourceTree = "<group>"; };
 		04BBC6332B61898F00E24E99 /* LocalhostMockServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalhostMockServiceProvider.swift; sourceTree = "<group>"; };
 		04D2F4DA2BE040B300F85CFF /* SearchAddressCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressCountry.swift; sourceTree = "<group>"; };
 		04D2F4DE2BE0413100F85CFF /* SearchAddressRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressRegion.swift; sourceTree = "<group>"; };
@@ -1464,6 +1466,7 @@
 		F9274FF027394ABF00708F37 /* Offline */ = {
 			isa = PBXGroup;
 			children = (
+				049DF79D2BE528B00054F53B /* OfflineIndexObserver.swift */,
 				F9274FEE27393A7E00708F37 /* SearchCancelable.swift */,
 				F9274FEC2733D29700708F37 /* SearchOfflineManager.swift */,
 				F9274FF127394AE600708F37 /* TileRegionError.swift */,
@@ -2499,6 +2502,7 @@
 				FE4D4BCA25CAD6810039F933 /* SearchAddressType.swift in Sources */,
 				F9F5D75E256D0393007E32BE /* SearchResponse.swift in Sources */,
 				F931B35225A32CC400AA1674 /* SearchQuerySuggestion.swift in Sources */,
+				049DF79E2BE528B00054F53B /* OfflineIndexObserver.swift in Sources */,
 				F9F88289258227D200062A82 /* CoreImageInfoProtocol.swift in Sources */,
 				FEEDD2FC2508DFE400DC0A98 /* CoreSearchResponseProtocol.swift in Sources */,
 				144F32F2298D1FCD0082B2D5 /* Discover+Address.swift in Sources */,

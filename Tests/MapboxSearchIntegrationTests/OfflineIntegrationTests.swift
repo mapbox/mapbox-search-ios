@@ -60,6 +60,18 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<GeocodingMockRespon
     func testLoadData() throws {
         clearData()
 
+        // Set up index observer before the fetch starts to validate changes after it completes
+        let indexChangedExpectation = expectation(description: "Received offline index changed event")
+        let offlineIndexObserver = OfflineIndexObserver(onIndexChangedBlock: { changeEvent in
+            _Logger.searchSDK.info("Index changed: \(changeEvent)")
+            indexChangedExpectation.fulfill()
+        }, onErrorBlock: { error in
+            _Logger.searchSDK.error("Encountered error in OfflineIndexObserver \(error)")
+            XCTFail(error.debugDescription)
+        })
+        searchEngine.offlineManager.engine.addOfflineIndexObserver(for: offlineIndexObserver)
+
+        // Perform the offline fetch
         let loadDataExpectation = expectation(description: "Load Data")
         _ = loadData { result in
             switch result {
@@ -73,6 +85,7 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<GeocodingMockRespon
             loadDataExpectation.fulfill()
         }
         wait(for: [loadDataExpectation], timeout: 200)
+        wait(for: [indexChangedExpectation], timeout: 200)
 
         let updateExpectation = delegate.updateExpectation
         searchEngine.search(query: "dc")
