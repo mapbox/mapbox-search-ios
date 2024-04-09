@@ -31,6 +31,8 @@
 		0477904D2B890F4E00A99528 /* search-box-retrieve-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 0477904C2B890F4E00A99528 /* search-box-retrieve-minsk.json */; };
 		0477904E2B890F4E00A99528 /* search-box-retrieve-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 0477904C2B890F4E00A99528 /* search-box-retrieve-minsk.json */; };
 		0477904F2B890F4E00A99528 /* search-box-retrieve-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 0477904C2B890F4E00A99528 /* search-box-retrieve-minsk.json */; };
+		0484BCDF2BC4865C003CF408 /* OfflineIndexObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484BCDE2BC4865C003CF408 /* OfflineIndexObserver.swift */; };
+		0484BCE22BC49A23003CF408 /* CoreOfflineIndexChangeEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484BCE12BC49A23003CF408 /* CoreOfflineIndexChangeEventType.swift */; };
 		048823482B6B0A9D00C770AA /* category-hotel-search-along-route-jp.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */; };
 		048823492B6B0A9D00C770AA /* category-hotel-search-along-route-jp.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */; };
 		0488234A2B6B0A9E00C770AA /* category-hotel-search-along-route-jp.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */; };
@@ -540,6 +542,8 @@
 		046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-suggestions-minsk.json"; sourceTree = "<group>"; };
 		047790482B890A8500A99528 /* search-box-recursion.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-recursion.json"; sourceTree = "<group>"; };
 		0477904C2B890F4E00A99528 /* search-box-retrieve-minsk.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-retrieve-minsk.json"; sourceTree = "<group>"; };
+		0484BCDE2BC4865C003CF408 /* OfflineIndexObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineIndexObserver.swift; sourceTree = "<group>"; };
+		0484BCE12BC49A23003CF408 /* CoreOfflineIndexChangeEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreOfflineIndexChangeEventType.swift; sourceTree = "<group>"; };
 		04970F8C2B7A97C900213763 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mapbox.places.san.francisco.json; sourceTree = "<group>"; };
 		04AB0B792B6AF37800FDE7D5 /* DiscoverIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverIntegrationTests.swift; sourceTree = "<group>"; };
@@ -1052,6 +1056,14 @@
 			path = sbs;
 			sourceTree = "<group>";
 		};
+		0484BCE02BC49A18003CF408 /* Offline */ = {
+			isa = PBXGroup;
+			children = (
+				0484BCE12BC49A23003CF408 /* CoreOfflineIndexChangeEventType.swift */,
+			);
+			path = Offline;
+			sourceTree = "<group>";
+		};
 		04970F8B2B7A97C900213763 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1554,6 +1566,7 @@
 				F9274FF127394AE600708F37 /* TileRegionError.swift */,
 				F9274FEA2732BF0E00708F37 /* SearchTileStore.swift */,
 				F9274FF6273AAE7200708F37 /* TileRegionLoadOptions+Search.swift */,
+				0484BCDE2BC4865C003CF408 /* OfflineIndexObserver.swift */,
 			);
 			path = Offline;
 			sourceTree = "<group>";
@@ -1731,6 +1744,7 @@
 		FEEDD2C12508DFE400DC0A98 /* InternalAPI */ = {
 			isa = PBXGroup;
 			children = (
+				0484BCE02BC49A18003CF408 /* Offline */,
 				04C127562B62FFD000884325 /* Engine */,
 				148DE66E285777050085684D /* Common */,
 				F98BECBB2577B9150081D3BC /* Telemetry */,
@@ -2664,6 +2678,7 @@
 				F9E8146225418E7D00F6378E /* EventsManager.swift in Sources */,
 				FEEDD3002508DFE400DC0A98 /* CLLocationCoordinate2DCodable.swift in Sources */,
 				FEEDD3042508DFE400DC0A98 /* SearchResultType.swift in Sources */,
+				0484BCE22BC49A23003CF408 /* CoreOfflineIndexChangeEventType.swift in Sources */,
 				F91FD66C258CCB41008CB8E1 /* CoreResultType+Extensions.swift in Sources */,
 				FEEDD3152508DFE400DC0A98 /* ServerSearchResult.swift in Sources */,
 				140E47A2298BC90E00677E30 /* Discover.swift in Sources */,
@@ -2671,6 +2686,7 @@
 				04C127552B62F6BC00884325 /* ApiType.swift in Sources */,
 				FE059C5A251A0AE6001F7701 /* SearchCategorySuggestionImpl.swift in Sources */,
 				FEEDD2F62508DFE400DC0A98 /* CoreSearchResultResponse.swift in Sources */,
+				0484BCDF2BC4865C003CF408 /* OfflineIndexObserver.swift in Sources */,
 				FE260A6725C063880037B725 /* ReverseGeocodingOptions.swift in Sources */,
 				FECA461026D3F81800BC7B18 /* MapboxSearchUserAgent.swift in Sources */,
 				FEEDD2F32508DFE400DC0A98 /* CoreBoundingBox.swift in Sources */,
