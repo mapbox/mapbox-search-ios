@@ -270,11 +270,11 @@ commands:
           command: |
             echo "machine api.mapbox.com" >> ~/.netrc
             echo "login mapbox" >> ~/.netrc
-            echo "password $SDK_REGISTRY_TOKEN_FULL" >> ~/.netrc
+            echo "password $SDK_REGISTRY_TOKEN" >> ~/.netrc
             chmod 0600 ~/.netrc
       - run:
           name: Inject Mapbox token
-          command: echo $SDK_REGISTRY_TOKEN_FULL > ~/.mapbox
+          command: echo $SDK_REGISTRY_TOKEN > ~/.mapbox
 
   ios-install-carthage-dependencies:
     steps:

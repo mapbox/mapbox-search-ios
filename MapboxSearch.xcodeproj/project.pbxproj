@@ -33,7 +33,6 @@
 		0477904F2B890F4E00A99528 /* search-box-retrieve-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 0477904C2B890F4E00A99528 /* search-box-retrieve-minsk.json */; };
 		0484BCDF2BC4865C003CF408 /* OfflineIndexObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484BCDE2BC4865C003CF408 /* OfflineIndexObserver.swift */; };
 		0484BCE22BC49A23003CF408 /* CoreOfflineIndexChangeEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484BCE12BC49A23003CF408 /* CoreOfflineIndexChangeEventType.swift */; };
-		0484BCE92BC589C9003CF408 /* WashingtonDC.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 0484BCE82BC589C9003CF408 /* WashingtonDC.gpx */; };
 		048823482B6B0A9D00C770AA /* category-hotel-search-along-route-jp.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */; };
 		048823492B6B0A9D00C770AA /* category-hotel-search-along-route-jp.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */; };
 		0488234A2B6B0A9E00C770AA /* category-hotel-search-along-route-jp.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */; };
@@ -545,7 +544,6 @@
 		0477904C2B890F4E00A99528 /* search-box-retrieve-minsk.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-retrieve-minsk.json"; sourceTree = "<group>"; };
 		0484BCDE2BC4865C003CF408 /* OfflineIndexObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineIndexObserver.swift; sourceTree = "<group>"; };
 		0484BCE12BC49A23003CF408 /* CoreOfflineIndexChangeEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreOfflineIndexChangeEventType.swift; sourceTree = "<group>"; };
-		0484BCE82BC589C9003CF408 /* WashingtonDC.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = WashingtonDC.gpx; sourceTree = "<group>"; };
 		04970F8C2B7A97C900213763 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mapbox.places.san.francisco.json; sourceTree = "<group>"; };
 		04AB0B792B6AF37800FDE7D5 /* DiscoverIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverIntegrationTests.swift; sourceTree = "<group>"; };
@@ -1962,7 +1960,6 @@
 			children = (
 				FEEDD3B42508E3CD00DC0A98 /* Assets.xcassets */,
 				FEEDD3BC2508E3CD00DC0A98 /* Info.plist */,
-				0484BCE82BC589C9003CF408 /* WashingtonDC.gpx */,
 				FEEDD3BA2508E3CD00DC0A98 /* Munich, Germany.gpx */,
 				FEEDD3BD2508E3CD00DC0A98 /* San Carlos, California.gpx */,
 			);
@@ -2337,7 +2334,6 @@
 			files = (
 				FEEDD3C12508E3CD00DC0A98 /* Main.storyboard in Resources */,
 				FEEDD3C02508E3CD00DC0A98 /* LaunchScreen.storyboard in Resources */,
-				0484BCE92BC589C9003CF408 /* WashingtonDC.gpx in Resources */,
 				FEEDD3BE2508E3CD00DC0A98 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

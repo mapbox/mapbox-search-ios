@@ -126,8 +126,8 @@
          </EnvironmentVariable>
       </EnvironmentVariables>
       <LocationScenarioReference
-         identifier = "../../Sources/Demo/WashingtonDC.gpx"
-         referenceType = "0">
+         identifier = "San Francisco, CA, USA"
+         referenceType = "1">
       </LocationScenarioReference>
    </LaunchAction>
    <ProfileAction
