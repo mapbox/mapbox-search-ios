@@ -8,6 +8,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Offline] Added OfflineIndexObserver which accepts two blocks for indexChanged or error events. This can be assigned to the offline search engine to receive state updates.
+
 ## 2.0.0-rc.3
 
 - [Core] Add `SearchResultAccuracy.proximate` case which "is a known address point but does not intersect a known rooftop/parcel."
