@@ -5,8 +5,7 @@ import CoreLocation
 /// Would not trigger Location Permission dialogs but will retrieve permission changes notification.
 /// Suitable for `SearchEngine` for providing user location by default without additional efforts.
 public class DefaultLocationProvider {
-    // not used anywhere as public
-    /* public */ let locationManager: CLLocationManager
+    let locationManager: CLLocationManager
 
 #if FAST_LOCATION_CHANGES_TRACKING
     let locationRequestFrequency: TimeInterval = 1

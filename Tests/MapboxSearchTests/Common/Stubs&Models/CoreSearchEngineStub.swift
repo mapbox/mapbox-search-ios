@@ -34,6 +34,10 @@ class CoreSearchEngineStub {
 }
 
 extension CoreSearchEngineStub: CoreSearchEngineProtocol {
+    func addOfflineIndexObserver(for observer: MapboxSearch.CoreOfflineIndexObserver) {}
+
+    func removeOfflineIndexObserver(for observer: CoreOfflineIndexObserver) {}
+
     func makeFeedbackEvent(
         request: CoreRequestOptions,
         result: CoreSearchResultProtocol?,
