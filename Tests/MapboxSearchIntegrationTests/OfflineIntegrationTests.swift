@@ -14,6 +14,8 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
     let dcLocation = CLLocationCoordinate2D(latitude: 38.89992081005698, longitude: -77.03399849939174)
     let regionId = "dc"
 
+    // MARK: - Helpers and set up
+
     override func setUpWithError() throws {
         try super.setUpWithError()
 
@@ -55,6 +57,8 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
     func clearData() {
         searchEngine.offlineManager.tileStore.removeTileRegion(id: regionId)
     }
+
+    // MARK: - Tests
 
     func testLoadData() throws {
         clearData()
