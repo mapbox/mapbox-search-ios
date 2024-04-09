@@ -6,13 +6,15 @@ import MapboxCommon
 @testable import MapboxSearch
 import XCTest
 
-class OfflineIntegrationTests: MockServerIntegrationTestCase<GeocodingMockResponse> {
+/// Note: ``OfflineIntegrationTests`` does not use Mocked data.
+class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
     let delegate = SearchEngineDelegateStub()
     let searchEngine = SearchEngine()
 
-    let dataset = "test-dataset"
-    let dcLocation = CGPoint(x: 38.89992081005698, y: -77.03399849939174)
+    let dcLocation = CLLocationCoordinate2D(latitude: 38.89992081005698, longitude: -77.03399849939174)
     let regionId = "dc"
+
+    // MARK: - Helpers and set up
 
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -36,13 +38,15 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<GeocodingMockRespon
 
     func loadData(completion: @escaping (Result<MapboxCommon.TileRegion, MapboxSearch.TileRegionError>) -> Void)
     -> SearchCancelable {
+        /// This will use the default dataset defined at ``SearchOfflineManager.defaultDatasetName``
         let descriptor = SearchOfflineManager.createDefaultTilesetDescriptor()
-        let dcLocationValue = NSValue(cgPoint: dcLocation)
+        let dcLocationValue = NSValue(mkCoordinate: dcLocation)
         let options = MapboxCommon.TileRegionLoadOptions.build(
             geometry: Geometry(point: dcLocationValue),
             descriptors: [descriptor],
             acceptExpired: true
         )!
+
         let cancelable = searchEngine.offlineManager.tileStore.loadTileRegion(id: regionId, options: options) { _ in
         } completion: { result in
             completion(result)
@@ -53,6 +57,8 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<GeocodingMockRespon
     func clearData() {
         searchEngine.offlineManager.tileStore.removeTileRegion(id: regionId)
     }
+
+    // MARK: - Tests
 
     func testLoadData() throws {
         clearData()
@@ -81,14 +87,21 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<GeocodingMockRespon
             }
             loadDataExpectation.fulfill()
         }
-        wait(for: [loadDataExpectation], timeout: 200)
-        wait(for: [indexChangedExpectation], timeout: 200)
+        wait(
+            for: [loadDataExpectation, indexChangedExpectation],
+            timeout: 200,
+            enforceOrder: true
+        )
 
-        let updateExpectation = delegate.updateExpectation
-        searchEngine.search(query: "dc")
-        wait(for: [updateExpectation], timeout: 10)
+        let offlineUpdateExpectation = delegate.offlineUpdateExpectation
+        searchEngine.search(query: "coffee")
+        wait(for: [offlineUpdateExpectation], timeout: 10)
 
-        XCTAssert(searchEngine.suggestions.isEmpty == false)
+        XCTAssertNil(delegate.error)
+        XCTAssertNil(delegate.error?.localizedDescription)
+        XCTAssertNotNil(searchEngine.responseInfo)
+        XCTAssertFalse(delegate.resolvedResults.isEmpty)
+        XCTAssertFalse(searchEngine.suggestions.isEmpty)
     }
 
     func testNoData() {

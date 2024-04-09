@@ -6,7 +6,7 @@ import Foundation
 
 let (coreSearchVersion, coreSearchVersionHash) = ("2.0.0-alpha.14", "c3e61341f2beb1b8043f3c71caccdd9bea12a23f221cb90eb452e2abe299c3e0")
 
-let commonMinVersion = Version("24.0.0")
+let commonMinVersion = Version("24.2.0")
 let commonMaxVersion = Version("25.0.0")
 
 let package = Package(
