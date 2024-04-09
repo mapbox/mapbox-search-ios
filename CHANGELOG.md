@@ -9,6 +9,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 <!-- Add changes for active work here -->
 
 - [Offline] Add optional `language` parameter to SearchOfflineManager.createTilesetDescriptor and SearchOfflineManager.createPlacesTilesetDescriptor functions.
+- [Tests] Add Spanish language offline search test.
 
 - [Offline] Added OfflineIndexObserver which accepts two blocks for indexChanged or error events. This can be assigned to the offline search engine to receive state updates.
 
