@@ -33,6 +33,12 @@ typealias CoreUserActivityReporterOptions = MapboxCoreSearch.UserActivityReporte
 
 typealias CoreReverseGeoOptions = MapboxCoreSearch.ReverseGeoOptions
 
+// Offline
+typealias CoreOfflineIndexObserver = MapboxCoreSearch.OfflineIndexObserver
+typealias CoreOfflineIndexChangeEvent = MapboxCoreSearch.OfflineIndexChangeEvent
+typealias CoreOfflineIndexError = MapboxCoreSearch.OfflineIndexError
+typealias CoreOfflineIndexChangeEventType = MapboxCoreSearch.OfflineIndexChangeEventType
+
 let mapboxCoreSearchErrorDomain = "MapboxCoreSearchErrorDomain"
 
 extension CoreSearchEngine {
