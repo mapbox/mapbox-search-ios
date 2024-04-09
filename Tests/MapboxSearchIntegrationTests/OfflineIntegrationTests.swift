@@ -83,23 +83,21 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
             }
             loadDataExpectation.fulfill()
         }
-        wait(for: [loadDataExpectation], timeout: 200)
-        wait(for: [indexChangedExpectation], timeout: 200)
-
-        // Providing a bounding box to offline search is recommended to optimize performance
-        let regionBounds = BoundingBox(
-            CLLocationCoordinate2D(latitude: 39.0002626, longitude: -76.908646),
-            CLLocationCoordinate2D(latitude: 38.7911851, longitude: -77.1235559)
+        wait(
+            for: [loadDataExpectation, indexChangedExpectation],
+            timeout: 200,
+            enforceOrder: true
         )
-        let searchOptions = SearchOptions(boundingBox: regionBounds)
 
         let offlineUpdateExpectation = delegate.offlineUpdateExpectation
-        searchEngine.search(query: "dc", options: searchOptions)
+        searchEngine.search(query: "coffee")
         wait(for: [offlineUpdateExpectation], timeout: 10)
 
         XCTAssertNil(delegate.error)
         XCTAssertNil(delegate.error?.localizedDescription)
-        XCTAssert(searchEngine.suggestions.isEmpty == false)
+        XCTAssertNotNil(searchEngine.responseInfo)
+        XCTAssertFalse(delegate.resolvedResults.isEmpty)
+        XCTAssertFalse(searchEngine.suggestions.isEmpty)
     }
 
     func testNoData() {
