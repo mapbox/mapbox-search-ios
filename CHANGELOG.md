@@ -8,22 +8,31 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Offline] Added OfflineIndexObserver which accepts two blocks for indexChanged or error events. This can be assigned to the offline search engine to receive state updates.
+
+- [Offline] Change default tileset name to `mbx-main`
+- [Tests] Fix Offline tests and re-enable.
+- [Tests] Add `offlineResultsUpdated` delegate function to `SearchEngineDelegateStub`.
+- [Tests] Demonstrate providing a `Geometry(point: NSValue(mkCoordinate: CLLocationCoordinate2D))` with `TileRegionLoadOptions.build` function.
+- [Core] Increment minimum MapboxCommon version from 24.0.0 to 24.2.0.
+
+**MapboxCommon**: v24.2.0
+
+## 2.0.0-rc.3
+
+- [Core] Add `SearchResultAccuracy.proximate` case which "is a known address point but does not intersect a known rooftop/parcel."
+- [UI] Add Right-to-Left language support for Categories/Favorites segment control and fix xib errors.
+- [UI] Add Preview file for CategoriesFavoritesSegmentControl to fix compiler problems.
+- [Core] Add SearchError.owningObjectDeallocated when network responses fail to unwrap guard-let-self. If you encounter this error you must own the reference to the search engine.
+- [Tests] Add UnownedObjectError tests to validate behavior of SearchError.owningObjectDeallocated.
+- [Privacy] Add Search history collected data for the purpose of product personalization (used for displaying the search history)
+- [Discover, Category] Discover API to query categories remains available and compatible with 1.0.0 series.
+- [Core] Default API engine type remains SBS and search-box is available by opt-in.
+- [License] Update license to reflect 2024 usage
+- [Tests] Change MockResponse into a protocol, create separate enums conforming to MockResponse for each API type (geocoding, sbs, autofill), add MockResponse as generic to each test base class and MockWebServer.
 - [Tests] Reorganize tests based on API type
 
-- [Privacy] Add Search history collected data for the purpose of product personalization (used for displaying the search history)
-
-- [Discover, Category] Rename Discover to Category and update tests.
-- [Category] Rename Discover.Query.Category to Category.Item
-- [Category] Move Category.Item "Hot" suggested categories to MapboxSearch out of MapboxSearchUI.
-	- This adds legacyName (use with Geocoding API engine) and icon fields to the MapboxSearch suggested categories.
-	- Image assets for these categories remain in MapboxSearchUI.
-	- This Category.Item replaces MapboxSearchUI.SearchCategory.
-	- Add an alias for MapboxSearchUI.SearchCategory = MapboxSearch.Category.Item
-- [Core] Default API engine is now search-box replacing SBS.
-
-- [License] Update license to reflect 2024 usage
-
-- [Tests] Change MockResponse into a protocol, create separate enums conforming to MockResponse for each API type (geocoding, sbs, autofill), add MockResponse as generic to each test base class and MockWebServer.
+**MapboxCoreSearch**: v2.0.0-alpha.14
 
 ## 2.0.0-rc.2
 

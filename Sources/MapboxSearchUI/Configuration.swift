@@ -8,7 +8,7 @@ public struct Configuration {
     /// - Parameters:
     ///   - allowsFeedbackUI: Allow to show feedback related UI
     ///   - categoryDataProvider: Custom dataProvider to change Categories elements
-    ///   - locationProvider: location provider for both SearchEngine and Category SearchEngine. DefaultLocationProvider
+    ///   - locationProvider: location provider for both SearchEngine and Discover SearchEngine. DefaultLocationProvider
     /// used as default value.
     ///   - hideCategorySlots: Hide horizontal set of category buttons (aka hot category buttons or category slots)
     ///   - style: Style to be used for Search UI elements.

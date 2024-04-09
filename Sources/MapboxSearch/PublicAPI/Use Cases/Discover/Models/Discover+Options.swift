@@ -1,6 +1,6 @@
 import Foundation
 
-extension Category {
+extension Discover {
     public struct Options {
         /// Maximum number of results to return.
         /// The maximum allowed value for SBS APIs is 100 results.

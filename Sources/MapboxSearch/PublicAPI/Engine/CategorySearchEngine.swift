@@ -24,7 +24,12 @@ public class CategorySearchEngine: AbstractSearchEngine {
             categories: [categoryName],
             options: coreOptions
         ) { [weak self, weak eventsManager] coreResponse in
-            guard let self, let coreResponse else {
+            guard let self else {
+                completion(.failure(SearchError.owningObjectDeallocated))
+                return
+            }
+
+            guard let coreResponse else {
                 let error = SearchError.categorySearchRequestFailed(reason: SearchError.responseProcessingFailed)
                 eventsManager?.reportError(error)
 

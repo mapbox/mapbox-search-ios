@@ -35,10 +35,7 @@
   "testTargets" : [
     {
       "skippedTests" : [
-        "MockServerIntegrationTestCase",
-        "OfflineIntegrationTests",
-        "SearchBox_SearchEngineIntegrationTests\/testResolvedSearchResult()",
-        "SearchBox_SearchEngineIntegrationTests\/testResolvedSearchResultWhenQueryChanged()"
+        "MockServerIntegrationTestCase"
       ],
       "target" : {
         "containerPath" : "container:MapboxSearch.xcodeproj",
@@ -56,10 +53,6 @@
     {
       "skippedTests" : [
         "BaseTestCase",
-        "FavoritesUITestCase\/testAddEditLocationRemoveFavorite()",
-        "FavoritesUITestCase\/testAddRemoveFavorite()",
-        "FavoritesUITestCase\/testAddRenameCancelRemoveFavorite()",
-        "FavoritesUITestCase\/testAddRenameRemoveFavorite()",
         "MockServerUITestCase"
       ],
       "target" : {

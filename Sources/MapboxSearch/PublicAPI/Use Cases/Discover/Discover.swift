@@ -1,7 +1,7 @@
 import CoreLocation
 import Foundation
 
-public final class Category {
+public final class Discover {
     private let searchEngine: CategorySearchEngine
     private let userActivityReporter: CoreUserActivityReporter
 
@@ -12,10 +12,11 @@ public final class Category {
     ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used
     /// for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
+    ///   - apiType:
     public convenience init(
         accessToken: String? = nil,
         locationProvider: LocationProvider? = DefaultLocationProvider(),
-        apiType: ApiType = .SBS
+        apiType: ApiType = .defaultType
     ) {
         guard let accessToken = accessToken ?? ServiceProvider.shared.getStoredAccessToken() else {
             fatalError(
@@ -46,7 +47,7 @@ public final class Category {
     }
 }
 
-extension Category {
+extension Discover {
     /// Search for places nearby the specified geographic point.
     /// - Parameters:
     ///   - item: Search item
@@ -55,7 +56,7 @@ extension Category {
     ///   - completion: Result of the search request, one of error or value.
     ///
     public func search(
-        for item: Item,
+        for item: Discover.Query,
         proximity: CLLocationCoordinate2D,
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
@@ -81,7 +82,7 @@ extension Category {
     ///   - completion: Result of the search request, one of error or value.
     ///
     public func search(
-        for item: Item,
+        for item: Discover.Query,
         in region: BoundingBox,
         proximity: CLLocationCoordinate2D? = nil,
         options: Options = .init(),
@@ -108,7 +109,7 @@ extension Category {
     ///   - completion: Result of the search request, one of error or value.
     ///
     public func search(
-        for item: Item,
+        for item: Discover.Query,
         route: RouteOptions,
         options: Options = .init(),
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
@@ -130,19 +131,19 @@ extension Category {
 
 // MARK: - Private
 
-extension Category {
+extension Discover {
     private func search(
-        for item: Item,
+        for item: Discover.Query,
         with searchOptions: SearchOptions,
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
         searchEngine.search(
-            categoryName: item.canonicalId,
+            categoryName: item.rawValue,
             options: searchOptions
         ) { result in
             switch result {
             case .success(let searchResults):
-                let categoryResults = searchResults.map(Category.Result.from(_:))
+                let categoryResults = searchResults.map(Discover.Result.from(_:))
                 completion(.success(categoryResults))
 
             case .failure(let error):

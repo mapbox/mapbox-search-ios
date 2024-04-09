@@ -1,11 +1,11 @@
 import MapKit
 import UIKit
 
-final class CategoryViewController: UIViewController {
+final class DiscoverViewController: UIViewController {
     @IBOutlet private var mapView: MKMapView!
     @IBOutlet private var segmentedControl: UISegmentedControl!
 
-    private let category = Category()
+    private let category = Discover()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +16,7 @@ final class CategoryViewController: UIViewController {
 
 // MARK: - Actions
 
-extension CategoryViewController {
+extension DiscoverViewController {
     @IBAction
     private func handleSearchInRegionAction() {
         let regionResultsLimit: Int
@@ -45,7 +45,7 @@ extension CategoryViewController {
 
 // MARK: - Private
 
-extension CategoryViewController {
+extension DiscoverViewController {
     private var currentBoundingBox: BoundingBox {
         let rect = mapView.visibleMapRect
         let neMapPoint = MKMapPoint(x: rect.maxX, y: rect.origin.y)
@@ -57,11 +57,11 @@ extension CategoryViewController {
         return .init(swCoordinate, neCoordinate)
     }
 
-    private var currentSelectedCategory: Category.Item {
-        let allDemoCategories: [Category.Item] = [
-            .parking,
-            .restaurant,
-            .museum,
+    private var currentSelectedCategory: Discover.Query {
+        let allDemoCategories: [Discover.Query] = [
+            .Category.parking,
+            .Category.restaurant,
+            .Category.museum,
         ]
 
         return allDemoCategories[segmentedControl.selectedSegmentIndex]
@@ -78,7 +78,7 @@ extension CategoryViewController {
         mapView.setRegion(region, animated: false)
     }
 
-    private func showCategoryResults(_ results: [Category.Result]) {
+    private func showCategoryResults(_ results: [Discover.Result]) {
         mapView.removeAnnotations(mapView.annotations)
 
         let annotations: [MKPointAnnotation] = results.map {

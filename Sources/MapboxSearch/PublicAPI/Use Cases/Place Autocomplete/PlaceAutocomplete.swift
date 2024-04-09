@@ -198,7 +198,10 @@ extension PlaceAutocomplete {
             categories: [],
             options: options
         ) { [weak self] response in
-            guard let self else { return }
+            guard let self else {
+                completion(.failure(SearchError.owningObjectDeallocated))
+                return
+            }
 
             self.manage(response: response, for: query, completion: completion)
         }
