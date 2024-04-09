@@ -41,13 +41,9 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
         completion: @escaping (Result<MapboxCommon.TileRegion, MapboxSearch.TileRegionError>) -> Void
     )
     -> SearchCancelable {
-        let descriptor: TilesetDescriptor
-        if let tilesetDescriptor {
-            descriptor = tilesetDescriptor
-        } else {
-            /// This will use the default dataset defined at ``SearchOfflineManager.defaultDatasetName``
-            descriptor = SearchOfflineManager.createDefaultTilesetDescriptor()
-        }
+        /// A nil tilesetDescriptor parameter will fallback to the default dataset defined at
+        /// ``SearchOfflineManager.defaultDatasetName``
+        let descriptor = tilesetDescriptor ?? SearchOfflineManager.createDefaultTilesetDescriptor()
 
         let dcLocationValue = NSValue(mkCoordinate: dcLocation)
         let options = MapboxCommon.TileRegionLoadOptions.build(
