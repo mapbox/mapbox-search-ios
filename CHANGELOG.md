@@ -9,6 +9,10 @@ Guide: https://keepachangelog.com/en/1.0.0/
 <!-- Add changes for active work here -->
 
 - [Offline] Added OfflineIndexObserver which accepts two blocks for indexChanged or error events. This can be assigned to the offline search engine to receive state updates
+- [Offline] Change default tileset name to `mbx-main`
+- [Tests] Fix Offline tests and re-enable.
+- [Tests] Add `offlineResultsUpdated` delegate function to `SearchEngineDelegateStub`.
+- [Tests] Demonstrate providing a `Geometry(point: NSValue(mkCoordinate: CLLocationCoordinate2D))` with `TileRegionLoadOptions.build` function.
 
 ## 1.0.0 - 2024-04-30
 
