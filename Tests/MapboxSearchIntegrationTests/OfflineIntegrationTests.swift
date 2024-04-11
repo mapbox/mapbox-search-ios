@@ -7,7 +7,7 @@ import MapboxCommon
 import XCTest
 
 /// Note: ``OfflineIntegrationTests`` does not use Mocked data.
-class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
+class OfflineIntegrationTests: XCTestCase {
     let delegate = SearchEngineDelegateStub()
     let searchEngine = SearchEngine()
 
