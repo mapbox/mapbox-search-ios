@@ -63,7 +63,7 @@ class OfflineIntegrationTests: XCTestCase {
 
     // MARK: - Tests
 
-    func testLoadData() throws {
+    func testLoadDataOfflineSearch() throws {
         clearData()
 
         let booleanIsTruePredicate = NSPredicate(block: { input, _ in
@@ -106,6 +106,51 @@ class OfflineIntegrationTests: XCTestCase {
         XCTAssertNotNil(searchEngine.responseInfo)
         XCTAssertFalse(delegate.resolvedResults.isEmpty)
         XCTAssertFalse(searchEngine.suggestions.isEmpty)
+    }
+
+    func testLoadDataReverseGeocodingOffline() throws {
+        clearData()
+
+        let booleanIsTruePredicate = NSPredicate(block: { input, _ in
+            guard let input = input as? Bool else {
+                return false
+            }
+            return input == true
+        })
+
+        let engineReadyExpectation = expectation(
+            for: booleanIsTruePredicate,
+            evaluatedWith: searchEngine.offlineEngineReady
+        )
+
+        // Perform the offline fetch
+        let loadDataExpectation = XCTestExpectation(description: "Load Data")
+        _ = loadData { result in
+            switch result {
+            case .success(let region):
+                XCTAssert(region.id == self.regionId)
+                XCTAssert(region.completedResourceCount > 0)
+                XCTAssertEqual(region.requiredResourceCount, region.completedResourceCount)
+            case .failure(let error):
+                XCTFail("Unable to load Region, \(error.localizedDescription)")
+            }
+            loadDataExpectation.fulfill()
+        }
+        wait(
+            for: [engineReadyExpectation, loadDataExpectation],
+            timeout: 200,
+            enforceOrder: true
+        )
+
+        let options = ReverseGeocodingOptions(point: dcLocation, languages: ["en"])
+        searchEngine.reverse(options: options) { result in
+            switch result {
+            case .success(let success):
+                XCTAssertFalse(success.isEmpty)
+            case .failure(let failure):
+                XCTFail(failure.localizedDescription)
+            }
+        }
     }
 
     func testSpanishLanguageSupport() throws {
