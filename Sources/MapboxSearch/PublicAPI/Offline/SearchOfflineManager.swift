@@ -15,6 +15,8 @@ public class SearchOfflineManager {
         self.tileStore = tileStore
     }
 
+    // MARK: - Tile Store setup
+
     func registerCurrentTileStore(completion: (() -> Void)?) {
         setTileStore(tileStore, completion: completion)
     }

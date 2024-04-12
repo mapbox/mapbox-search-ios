@@ -1,5 +1,3 @@
-@testable import MapboxSearch
-
 import CoreGraphics
 import CoreLocation
 import MapboxCommon
@@ -68,19 +66,20 @@ class OfflineIntegrationTests: XCTestCase {
     func testLoadData() throws {
         clearData()
 
-        // Set up index observer before the fetch starts to validate changes after it completes
-        let indexChangedExpectation = expectation(description: "Received offline index changed event")
-        let offlineIndexObserver = OfflineIndexObserver(onIndexChangedBlock: { changeEvent in
-            _Logger.searchSDK.info("Index changed: \(changeEvent)")
-            indexChangedExpectation.fulfill()
-        }, onErrorBlock: { error in
-            _Logger.searchSDK.error("Encountered error in OfflineIndexObserver \(error)")
-            XCTFail(error.debugDescription)
+        let booleanIsTruePredicate = NSPredicate(block: { input, _ in
+            guard let input = input as? Bool else {
+                return false
+            }
+            return input == true
         })
-        searchEngine.offlineManager.engine.addOfflineIndexObserver(for: offlineIndexObserver)
+
+        let engineReadyExpectation = expectation(
+            for: booleanIsTruePredicate,
+            evaluatedWith: searchEngine.offlineEngineReady
+        )
 
         // Perform the offline fetch
-        let loadDataExpectation = expectation(description: "Load Data")
+        let loadDataExpectation = XCTestExpectation(description: "Load Data")
         _ = loadData { result in
             switch result {
             case .success(let region):
@@ -93,7 +92,7 @@ class OfflineIntegrationTests: XCTestCase {
             loadDataExpectation.fulfill()
         }
         wait(
-            for: [loadDataExpectation, indexChangedExpectation],
+            for: [engineReadyExpectation, loadDataExpectation],
             timeout: 200,
             enforceOrder: true
         )
@@ -112,16 +111,18 @@ class OfflineIntegrationTests: XCTestCase {
     func testSpanishLanguageSupport() throws {
         clearData()
 
-        // Set up index observer before the fetch starts to validate changes after it completes
-        let indexChangedExpectation = expectation(description: "Received offline index changed event")
-        let offlineIndexObserver = OfflineIndexObserver(onIndexChangedBlock: { changeEvent in
-            _Logger.searchSDK.info("Index changed: \(changeEvent)")
-            indexChangedExpectation.fulfill()
-        }, onErrorBlock: { error in
-            _Logger.searchSDK.error("Encountered error in OfflineIndexObserver \(error)")
-            XCTFail(error.debugDescription)
+        let booleanIsTruePredicate = NSPredicate(block: { input, _ in
+            guard let input = input as? Bool else {
+                return false
+            }
+            return input == true
         })
-        searchEngine.offlineManager.engine.addOfflineIndexObserver(for: offlineIndexObserver)
+
+        // Set up index observer before the fetch starts to validate changes after it completes
+        let engineReadyExpectation = expectation(
+            for: booleanIsTruePredicate,
+            evaluatedWith: searchEngine.offlineEngineReady
+        )
 
         // Perform the offline fetch
         let spanishTileset = SearchOfflineManager.createTilesetDescriptor(
@@ -141,7 +142,7 @@ class OfflineIntegrationTests: XCTestCase {
             loadDataExpectation.fulfill()
         }
         wait(
-            for: [loadDataExpectation, indexChangedExpectation],
+            for: [engineReadyExpectation, loadDataExpectation],
             timeout: 200,
             enforceOrder: true
         )

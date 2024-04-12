@@ -143,6 +143,7 @@ public class SearchEngine: AbstractSearchEngine {
         case .enabled:
             offlineManager.registerCurrentTileStore { [weak self] in
                 self?.offlineMode = mode
+                self?.offlineEngineReady = true
                 completion?()
             }
         case .disabled:
@@ -195,12 +196,6 @@ public class SearchEngine: AbstractSearchEngine {
 
     override var dataResolvers: [IndexableDataResolver] { super.dataResolvers + [self] }
 
-    var engineSearchFunction: (String, [String], CoreSearchOptions, @escaping (CoreSearchResponseProtocol?) -> Void)
-        -> Void
-    {
-        offlineMode == .disabled ? engine.search : engine.searchOffline
-    }
-
     var engineReverseGeocodingFunction: (CoreReverseGeoOptions, @escaping (CoreSearchResponseProtocol?) -> Void)
         -> Void
     {
@@ -230,9 +225,22 @@ public class SearchEngine: AbstractSearchEngine {
         }
 
         let options = options?.merged(defaultSearchOptions) ?? defaultSearchOptions
+        let coreOptions = options.toCore(apiType: engineApi)
 
-        engineSearchFunction(queryValueString, [], options.toCore(apiType: engineApi)) { [weak self] response in
-            self?.processResponse(response, suggestion: nil)
+        if offlineMode == .enabled {
+            guard offlineEngineReady else {
+                assertionFailure("Attempted offline search before engine was ready")
+                return
+            }
+
+            engine
+                .searchOffline(query: queryValueString, categories: [], options: coreOptions) { [weak self] response in
+                    self?.processResponse(response, suggestion: nil)
+                }
+        } else {
+            engine.search(forQuery: queryValueString, categories: [], options: coreOptions) { [weak self] response in
+                self?.processResponse(response, suggestion: nil)
+            }
         }
     }
 

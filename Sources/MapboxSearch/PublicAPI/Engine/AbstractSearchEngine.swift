@@ -32,6 +32,9 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     /// `OfflineManager` with `default` TileStore.
     public private(set) var offlineManager: SearchOfflineManager
 
+    /// Block offline searches until the tileset is ready
+    var offlineEngineReady = false
+
     // Manager to send raw events to Mapbox Telemetry
     let eventsManager: EventsManager
 
