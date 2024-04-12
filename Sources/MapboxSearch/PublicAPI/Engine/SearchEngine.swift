@@ -196,12 +196,6 @@ public class SearchEngine: AbstractSearchEngine {
 
     override var dataResolvers: [IndexableDataResolver] { super.dataResolvers + [self] }
 
-    var engineReverseGeocodingFunction: (CoreReverseGeoOptions, @escaping (CoreSearchResponseProtocol?) -> Void)
-        -> Void
-    {
-        offlineMode == .disabled ? engine.reverseGeocoding : engine.reverseGeocodingOffline
-    }
-
     func retrieve(suggestion: SearchSuggestion) {
         guard let responseProvider = suggestion as? CoreResponseProvider else {
             assertionFailure()
@@ -473,7 +467,8 @@ extension SearchEngine {
             userActivityReporter.reportActivity(forComponent: "search-engine-reverse-geocoding")
         }
 
-        engineReverseGeocodingFunction(options.toCore()) { [weak self] response in
+        let coreOptions = options.toCore()
+        let searchCompletionBlock: ((CoreSearchResponseProtocol?) -> Void) = { [weak self] response in
             guard let self else {
                 assertionFailure("Owning object was deallocated")
                 return
@@ -502,6 +497,17 @@ extension SearchEngine {
 
                 completion(.failure(wrappedError))
             }
+        }
+
+        if offlineMode == .enabled {
+            guard offlineEngineReady else {
+                assertionFailure("Attempted offline search before engine was ready")
+                return
+            }
+
+            engine.reverseGeocodingOffline(for: coreOptions, completion: searchCompletionBlock)
+        } else {
+            engine.reverseGeocoding(for: coreOptions, completion: searchCompletionBlock)
         }
     }
 }
