@@ -8,6 +8,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Offline] Add `AbstractSearchEngine.offlineEngineReady` to mark when offline searches are ready.
+
 - [Offline] Add optional `language` parameter to SearchOfflineManager.createTilesetDescriptor and SearchOfflineManager.createPlacesTilesetDescriptor functions.
 - [Tests] Add Spanish language offline search test.
 
