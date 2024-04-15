@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		040B165E2B9A387100B9BE88 /* MapboxSearch in Frameworks */ = {isa = PBXBuildFile; productRef = 040B165D2B9A387100B9BE88 /* MapboxSearch */; };
 		040B16602B9A387100B9BE88 /* MapboxSearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = 040B165F2B9A387100B9BE88 /* MapboxSearchUI */; };
+		040CD5172BCDBAA200DEB4E9 /* MapboxCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 040CD5162BCDBAA200DEB4E9 /* MapboxCommon */; };
 		04A4218E2BCD6CD600007D9C /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04A4217C2BCD6CD600007D9C /* Main.strings */; };
 		04A4218F2BCD6CD600007D9C /* PlaceAutocompleteMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4217E2BCD6CD600007D9C /* PlaceAutocompleteMainViewController.swift */; };
 		04A421902BCD6CD600007D9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A4217F2BCD6CD600007D9C /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 			files = (
 				040B165E2B9A387100B9BE88 /* MapboxSearch in Frameworks */,
 				040B16602B9A387100B9BE88 /* MapboxSearchUI in Frameworks */,
+				040CD5172BCDBAA200DEB4E9 /* MapboxCommon in Frameworks */,
 				E6FC5AEC2640418F00240BBB /* CwlPosixPreconditionTesting in Frameworks */,
 				E6FC5AEA2640418F00240BBB /* CwlPreconditionTesting in Frameworks */,
 			);
@@ -128,6 +130,7 @@
 				E6FC5AEB2640418F00240BBB /* CwlPosixPreconditionTesting */,
 				040B165D2B9A387100B9BE88 /* MapboxSearch */,
 				040B165F2B9A387100B9BE88 /* MapboxSearchUI */,
+				040CD5162BCDBAA200DEB4E9 /* MapboxCommon */,
 			);
 			productName = Demo;
 			productReference = E6E85A082640199800C0EF0F /* Demo.app */;
@@ -160,6 +163,7 @@
 			packageReferences = (
 				E6FC5AE82640418F00240BBB /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */,
 				040B165C2B9A387100B9BE88 /* XCRemoteSwiftPackageReference "mapbox-search-ios" */,
+				040CD5152BCDBAA200DEB4E9 /* XCRemoteSwiftPackageReference "mapbox-common-ios" */,
 			);
 			productRefGroup = E6E85A092640199800C0EF0F /* Products */;
 			projectDirPath = "";
@@ -450,6 +454,14 @@
 				version = "2.0.0-rc.3";
 			};
 		};
+		040CD5152BCDBAA200DEB4E9 /* XCRemoteSwiftPackageReference "mapbox-common-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-common-ios.git";
+			requirement = {
+				kind = exactVersion;
+				version = 24.2.0;
+			};
+		};
 		E6FC5AE82640418F00240BBB /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mattgallagher/CwlPreconditionTesting.git";
@@ -470,6 +482,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 040B165C2B9A387100B9BE88 /* XCRemoteSwiftPackageReference "mapbox-search-ios" */;
 			productName = MapboxSearchUI;
+		};
+		040CD5162BCDBAA200DEB4E9 /* MapboxCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 040CD5152BCDBAA200DEB4E9 /* XCRemoteSwiftPackageReference "mapbox-common-ios" */;
+			productName = MapboxCommon;
 		};
 		E6FC5AE92640418F00240BBB /* CwlPreconditionTesting */ = {
 			isa = XCSwiftPackageProductDependency;
