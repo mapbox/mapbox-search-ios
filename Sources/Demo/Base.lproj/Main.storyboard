@@ -248,7 +248,7 @@
         <!--Discover-->
         <scene sceneID="cow-iZ-A5n">
             <objects>
-                <viewController title="Discover" id="ggU-4h-Z4i" customClass="DiscoverViewController" customModule="MapboxSearch" sceneMemberID="viewController">
+                <viewController title="Discover" id="ggU-4h-Z4i" customClass="DiscoverViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H51-Up-D8x">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
