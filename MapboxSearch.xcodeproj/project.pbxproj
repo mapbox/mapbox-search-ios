@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0405809D2BA8E67D00A54CB9 /* OwningObjectDeallocatedErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405809C2BA8E67D00A54CB9 /* OwningObjectDeallocatedErrorTests.swift */; };
+		041DAFD92BCDA45B0071F9EB /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B92D5D298BFD19006003C1 /* DiscoverViewController.swift */; };
 		042477C32B7290F900D870D5 /* SearchEngineGeocodingIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042477C12B7290E700D870D5 /* SearchEngineGeocodingIntegrationTests.swift */; };
 		042477C52B72CCB000D870D5 /* geocoding-reverse-geocoding.json in Resources */ = {isa = PBXBuildFile; fileRef = 042477C42B72CCB000D870D5 /* geocoding-reverse-geocoding.json */; };
 		042477C62B72CCB000D870D5 /* geocoding-reverse-geocoding.json in Resources */ = {isa = PBXBuildFile; fileRef = 042477C42B72CCB000D870D5 /* geocoding-reverse-geocoding.json */; };
@@ -104,7 +105,6 @@
 		149948EF290A8DD500E7E619 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 149948EE290A8DD500E7E619 /* Swifter */; };
 		149948F1290A8DF900E7E619 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 149948F0290A8DF900E7E619 /* Swifter */; settings = {ATTRIBUTES = (Required, ); }; };
 		14A0B83D2A5FF20B00D281F1 /* PlaceAutocomplet.Result+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A0B83B2A5FF1B300D281F1 /* PlaceAutocomplet.Result+Tests.swift */; };
-		14B92D5E298BFD19006003C1 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B92D5D298BFD19006003C1 /* DiscoverViewController.swift */; };
 		14F71865299FD4BD00D5BC2E /* PlaceAutocomplete+PlaceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F71864299FD4BD00D5BC2E /* PlaceAutocomplete+PlaceType.swift */; };
 		14F7186B29A1361700D5BC2E /* PlaceAutocompleteMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7186929A1341A00D5BC2E /* PlaceAutocompleteMainViewController.swift */; };
 		14F7186D29A139BF00D5BC2E /* PlaceAutocompleteDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7186C29A139BF00D5BC2E /* PlaceAutocompleteDetailsViewController.swift */; };
@@ -2597,7 +2597,6 @@
 				14173C302878437D00B20E1C /* Country+ISO3166-1.swift in Sources */,
 				FEEDD3162508DFE400DC0A98 /* SearchCategorySuggestion.swift in Sources */,
 				FEEDD31D2508DFE400DC0A98 /* HighlightsCalculator.swift in Sources */,
-				14B92D5E298BFD19006003C1 /* DiscoverViewController.swift in Sources */,
 				14FA657C2953497600056E5B /* PlaceAutocomplete+Options.swift in Sources */,
 				F9A0B8402562B10E00CAD907 /* SearchResultMetadata.swift in Sources */,
 				FE097B7D264EAA1A001EAC2F /* CustomNSError.swift in Sources */,
@@ -2869,6 +2868,7 @@
 			files = (
 				1440BF4F290019AD009B3679 /* AddressAutofillResultViewController.swift in Sources */,
 				1440BF4D28FD75A9009B3679 /* AddressAutofillMainViewController.swift in Sources */,
+				041DAFD92BCDA45B0071F9EB /* DiscoverViewController.swift in Sources */,
 				FEEDD3C32508E3CD00DC0A98 /* AppDelegate.swift in Sources */,
 				14F7186D29A139BF00D5BC2E /* PlaceAutocompleteDetailsViewController.swift in Sources */,
 				FEEDD3BF2508E3CD00DC0A98 /* MapRootController.swift in Sources */,
