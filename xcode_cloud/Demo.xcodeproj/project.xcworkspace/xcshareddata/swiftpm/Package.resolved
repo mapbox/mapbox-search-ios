@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mapbox/mapbox-search-ios/",
       "state" : {
-        "revision" : "5e56456ccc6eaa68bd16e2313fdee39197800e43",
-        "version" : "2.0.0-rc.3"
+        "branch" : "main",
+        "revision" : "284487ba5f5dc2c1b8bb694114742613e475e57f"
       }
     }
   ],
