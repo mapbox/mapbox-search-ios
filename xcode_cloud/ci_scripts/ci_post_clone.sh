@@ -17,7 +17,7 @@ echo "password $MAPBOX_SECRET_TOKEN" >> ~/.netrc
 chmod 0600 ~/.netrc
 
 # Relocate to the top level directory
-cd ../
+cd ../../
 
 # Set up build dependencies
 brew update

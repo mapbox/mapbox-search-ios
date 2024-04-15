@@ -1,0 +1,54 @@
+
+/* Class = "UILabel"; text = "Adjusting address location, then press 'Done' button"; ObjectID = "5vH-kY-TAX"; */
+"5vH-kY-TAX.text" = "Adjusting address location, then press 'Done' button";
+
+/* Class = "UIViewController"; title = "Address Autofill"; ObjectID = "7bM-3D-K0g"; */
+"7bM-3D-K0g.title" = "Address Autofill";
+
+/* Class = "UITabBarItem"; title = "Discover"; ObjectID = "FHv-mk-0xk"; */
+"FHv-mk-0xk.title" = "Discover";
+
+/* Class = "UIButton"; configuration.title = "Search in this area"; ObjectID = "GC2-d5-Go6"; */
+"GC2-d5-Go6.configuration.title" = "Search in this area";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "GC2-d5-Go6"; */
+"GC2-d5-Go6.normalTitle" = "Button";
+
+/* Class = "UIViewController"; title = "Place Autocomplete"; ObjectID = "MF8-kt-2CX"; */
+"MF8-kt-2CX.title" = "Place Autocomplete";
+
+/* Class = "UINavigationItem"; title = "Address Autofill"; ObjectID = "fik-rE-EC5"; */
+"fik-rE-EC5.title" = "Address Autofill";
+
+/* Class = "UITabBarItem"; title = "Autofill"; ObjectID = "fkh-Aj-TqY"; */
+"fkh-Aj-TqY.title" = "Autofill";
+
+/* Class = "UIViewController"; title = "Discover"; ObjectID = "ggU-4h-Z4i"; */
+"ggU-4h-Z4i.title" = "Discover";
+
+/* Class = "UINavigationItem"; title = "Search SDK"; ObjectID = "gxo-hE-Mx4"; */
+"gxo-hE-Mx4.title" = "Search SDK";
+
+/* Class = "UILabel"; text = "Type your query in order to get Address Autofill suggestions"; ObjectID = "hS5-wN-tVM"; */
+"hS5-wN-tVM.text" = "Type your query in order to get Address Autofill suggestions";
+
+/* Class = "UILabel"; text = "Type your query in order to get Address Autofill suggestions"; ObjectID = "iKd-b0-QXa"; */
+"iKd-b0-QXa.text" = "Type your query in order to get Address Autofill suggestions";
+
+/* Class = "UISegmentedControl"; jyc-Lb-8Kz.segmentTitles[0] = "Parking"; ObjectID = "jyc-Lb-8Kz"; */
+"jyc-Lb-8Kz.segmentTitles[0]" = "Parking";
+
+/* Class = "UISegmentedControl"; jyc-Lb-8Kz.segmentTitles[1] = "Restaurants"; ObjectID = "jyc-Lb-8Kz"; */
+"jyc-Lb-8Kz.segmentTitles[1]" = "Restaurants";
+
+/* Class = "UISegmentedControl"; jyc-Lb-8Kz.segmentTitles[2] = "Museum"; ObjectID = "jyc-Lb-8Kz"; */
+"jyc-Lb-8Kz.segmentTitles[2]" = "Museum";
+
+/* Class = "UITabBarItem"; title = "SearchUI"; ObjectID = "lTB-qi-YMg"; */
+"lTB-qi-YMg.title" = "SearchUI";
+
+/* Class = "UITabBarItem"; title = "Autocomplete"; ObjectID = "ofb-Lf-pQ3"; */
+"ofb-Lf-pQ3.title" = "Autocomplete";
+
+/* Class = "UINavigationItem"; title = "Place Autocomplete"; ObjectID = "u0i-jl-zwO"; */
+"u0i-jl-zwO.title" = "Place Autocomplete";

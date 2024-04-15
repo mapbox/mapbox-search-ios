@@ -3,30 +3,46 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		040B165E2B9A387100B9BE88 /* MapboxSearch in Frameworks */ = {isa = PBXBuildFile; productRef = 040B165D2B9A387100B9BE88 /* MapboxSearch */; };
 		040B16602B9A387100B9BE88 /* MapboxSearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = 040B165F2B9A387100B9BE88 /* MapboxSearchUI */; };
-		E6E85A0C2640199800C0EF0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E85A0B2640199800C0EF0F /* AppDelegate.swift */; };
-		E6E85A132640199800C0EF0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E85A112640199800C0EF0F /* Main.storyboard */; };
-		E6E85A152640199900C0EF0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6E85A142640199900C0EF0F /* Assets.xcassets */; };
-		E6E85A182640199900C0EF0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E85A162640199900C0EF0F /* LaunchScreen.storyboard */; };
-		E6FC5ADB26403BDF00240BBB /* MapRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FC5AD826403BDF00240BBB /* MapRootController.swift */; };
+		04A4218E2BCD6CD600007D9C /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04A4217C2BCD6CD600007D9C /* Main.strings */; };
+		04A4218F2BCD6CD600007D9C /* PlaceAutocompleteMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4217E2BCD6CD600007D9C /* PlaceAutocompleteMainViewController.swift */; };
+		04A421902BCD6CD600007D9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A4217F2BCD6CD600007D9C /* Assets.xcassets */; };
+		04A421912BCD6CD600007D9C /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A421802BCD6CD600007D9C /* DiscoverViewController.swift */; };
+		04A421922BCD6CD600007D9C /* MapRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A421812BCD6CD600007D9C /* MapRootController.swift */; };
+		04A421932BCD6CD600007D9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A421822BCD6CD600007D9C /* LaunchScreen.storyboard */; };
+		04A421942BCD6CD600007D9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A421842BCD6CD600007D9C /* Main.storyboard */; };
+		04A421952BCD6CD600007D9C /* PlaceAutocompleteDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A421862BCD6CD600007D9C /* PlaceAutocompleteDetailsViewController.swift */; };
+		04A421962BCD6CD600007D9C /* AddressAutofillMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A421872BCD6CD600007D9C /* AddressAutofillMainViewController.swift */; };
+		04A421972BCD6CD600007D9C /* Munich, Germany.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 04A421882BCD6CD600007D9C /* Munich, Germany.gpx */; };
+		04A421982BCD6CD600007D9C /* AddressAutofillResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A421892BCD6CD600007D9C /* AddressAutofillResultViewController.swift */; };
+		04A421992BCD6CD600007D9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4218B2BCD6CD600007D9C /* AppDelegate.swift */; };
+		04A4219B2BCD6CD600007D9C /* San Carlos, California.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 04A4218D2BCD6CD600007D9C /* San Carlos, California.gpx */; };
 		E6FC5AEA2640418F00240BBB /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = E6FC5AE92640418F00240BBB /* CwlPreconditionTesting */; };
 		E6FC5AEC2640418F00240BBB /* CwlPosixPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = E6FC5AEB2640418F00240BBB /* CwlPosixPreconditionTesting */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E6AAB1F82642CA3C00B39442 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		04A4217D2BCD6CD600007D9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		04A4217E2BCD6CD600007D9C /* PlaceAutocompleteMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceAutocompleteMainViewController.swift; sourceTree = "<group>"; };
+		04A4217F2BCD6CD600007D9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04A421802BCD6CD600007D9C /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		04A421812BCD6CD600007D9C /* MapRootController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRootController.swift; sourceTree = "<group>"; };
+		04A421832BCD6CD600007D9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04A421852BCD6CD600007D9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04A421862BCD6CD600007D9C /* PlaceAutocompleteDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceAutocompleteDetailsViewController.swift; sourceTree = "<group>"; };
+		04A421872BCD6CD600007D9C /* AddressAutofillMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressAutofillMainViewController.swift; sourceTree = "<group>"; };
+		04A421882BCD6CD600007D9C /* Munich, Germany.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Munich, Germany.gpx"; sourceTree = "<group>"; };
+		04A421892BCD6CD600007D9C /* AddressAutofillResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressAutofillResultViewController.swift; sourceTree = "<group>"; };
+		04A4218A2BCD6CD600007D9C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		04A4218B2BCD6CD600007D9C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		04A4218C2BCD6CD600007D9C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04A4218D2BCD6CD600007D9C /* San Carlos, California.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "San Carlos, California.gpx"; sourceTree = "<group>"; };
 		E6E85A082640199800C0EF0F /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E6E85A0B2640199800C0EF0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E6E85A122640199800C0EF0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E6E85A142640199900C0EF0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E6E85A172640199900C0EF0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E6E85A192640199900C0EF0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E6FC5AD826403BDF00240BBB /* MapRootController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRootController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,10 +60,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04A4217B2BCD6CD600007D9C /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				04A4217C2BCD6CD600007D9C /* Main.strings */,
+				04A4217E2BCD6CD600007D9C /* PlaceAutocompleteMainViewController.swift */,
+				04A4217F2BCD6CD600007D9C /* Assets.xcassets */,
+				04A421802BCD6CD600007D9C /* DiscoverViewController.swift */,
+				04A421812BCD6CD600007D9C /* MapRootController.swift */,
+				04A421822BCD6CD600007D9C /* LaunchScreen.storyboard */,
+				04A421842BCD6CD600007D9C /* Main.storyboard */,
+				04A421862BCD6CD600007D9C /* PlaceAutocompleteDetailsViewController.swift */,
+				04A421872BCD6CD600007D9C /* AddressAutofillMainViewController.swift */,
+				04A421882BCD6CD600007D9C /* Munich, Germany.gpx */,
+				04A421892BCD6CD600007D9C /* AddressAutofillResultViewController.swift */,
+				04A4218B2BCD6CD600007D9C /* AppDelegate.swift */,
+				04A4218C2BCD6CD600007D9C /* Info.plist */,
+				04A4218D2BCD6CD600007D9C /* San Carlos, California.gpx */,
+			);
+			name = Demo;
+			path = ../Sources/Demo;
+			sourceTree = "<group>";
+		};
 		E6E859FF2640199800C0EF0F = {
 			isa = PBXGroup;
 			children = (
-				E6E85A0A2640199800C0EF0F /* Demo */,
+				04A4217B2BCD6CD600007D9C /* Demo */,
 				E6E85A092640199800C0EF0F /* Products */,
 				E6E85A47264019D100C0EF0F /* Frameworks */,
 			);
@@ -61,32 +99,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E6E85A0A2640199800C0EF0F /* Demo */ = {
-			isa = PBXGroup;
-			children = (
-				E6FC5ADC26403BEF00240BBB /* Resources */,
-				E6E85A0B2640199800C0EF0F /* AppDelegate.swift */,
-				E6FC5AD826403BDF00240BBB /* MapRootController.swift */,
-				E6E85A112640199800C0EF0F /* Main.storyboard */,
-				E6E85A162640199900C0EF0F /* LaunchScreen.storyboard */,
-			);
-			path = Demo;
-			sourceTree = "<group>";
-		};
 		E6E85A47264019D100C0EF0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E6FC5ADC26403BEF00240BBB /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				E6E85A142640199900C0EF0F /* Assets.xcassets */,
-				E6E85A192640199900C0EF0F /* Info.plist */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,12 +113,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6E85A1C2640199900C0EF0F /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
-				FECA460D26D3F69000BC7B18 /* Generate MapboxSearchVersion.swift */,
 				E6E85A042640199800C0EF0F /* Sources */,
 				E6E85A052640199800C0EF0F /* Frameworks */,
 				E6E85A062640199800C0EF0F /* Resources */,
 				E6FC5AE3264040D300240BBB /* Inject Mapbox API key */,
-				E6FC5AE42640413800240BBB /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -160,9 +175,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6E85A182640199900C0EF0F /* LaunchScreen.storyboard in Resources */,
-				E6E85A152640199900C0EF0F /* Assets.xcassets in Resources */,
-				E6E85A132640199800C0EF0F /* Main.storyboard in Resources */,
+				04A4219B2BCD6CD600007D9C /* San Carlos, California.gpx in Resources */,
+				04A421932BCD6CD600007D9C /* LaunchScreen.storyboard in Resources */,
+				04A421972BCD6CD600007D9C /* Munich, Germany.gpx in Resources */,
+				04A421902BCD6CD600007D9C /* Assets.xcassets in Resources */,
+				04A4218E2BCD6CD600007D9C /* Main.strings in Resources */,
+				04A421942BCD6CD600007D9C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,47 +204,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/$(INFOPLIST_PATH)",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Source: https://docs.mapbox.com/help/troubleshooting/private-access-token-android-and-ios/#ios\n# Look for a global file named 'mapbox' or '.mapbox' within the home directory\ntoken_file=\"${SCRIPT_INPUT_FILE_1}\"\ntoken_file2=\"${SCRIPT_INPUT_FILE_2}\"\ntoken_file3=\"${SCRIPT_INPUT_FILE_3}\"\ntoken=\"$(cat \"$token_file3\" 2>/dev/null || cat \"$token_file\" 2>/dev/null || cat \"$token_file2\" 2>/dev/null)\"\nif [ \"$token\" ]; then\n  plutil -replace MBXAccessToken -string \"$token\" \"$SCRIPT_INPUT_FILE_0\"\nelse\n  echo 'warning: Missing Mapbox access token'\n  open 'https://www.mapbox.com/account/access-tokens/'\n  echo \"warning: Get an access token from <https://www.mapbox.com/account/access-tokens/>, then create a new file at \"$token_file3\" or \"$token_file\" or \"$token_file2\" that contains the access token.\"\nfi\n\n\n# WORKAROUND SUGGESTION: https://stackoverflow.com/a/71358898/178805\n\n";
-		};
-		E6FC5AE42640413800240BBB /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [[ \"$(uname -m)\" == \"arm64\" ]]; then\n  export PATH=\"/opt/homebrew/bin:${PATH}\"\nfi\nif which swiftlint >/dev/null; then\n    swiftlint --config \"${SRCROOT}/../.swiftlint.yml\" --path \"${SRCROOT}/\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		FECA460D26D3F69000BC7B18 /* Generate MapboxSearchVersion.swift */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Generate MapboxSearchVersion.swift";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "../scripts/generate_sdk_version_swift.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -235,29 +217,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6FC5ADB26403BDF00240BBB /* MapRootController.swift in Sources */,
-				E6E85A0C2640199800C0EF0F /* AppDelegate.swift in Sources */,
+				04A421962BCD6CD600007D9C /* AddressAutofillMainViewController.swift in Sources */,
+				04A4218F2BCD6CD600007D9C /* PlaceAutocompleteMainViewController.swift in Sources */,
+				04A421982BCD6CD600007D9C /* AddressAutofillResultViewController.swift in Sources */,
+				04A421922BCD6CD600007D9C /* MapRootController.swift in Sources */,
+				04A421992BCD6CD600007D9C /* AppDelegate.swift in Sources */,
+				04A421912BCD6CD600007D9C /* DiscoverViewController.swift in Sources */,
+				04A421952BCD6CD600007D9C /* PlaceAutocompleteDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E6E85A112640199800C0EF0F /* Main.storyboard */ = {
+		04A4217C2BCD6CD600007D9C /* Main.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E6E85A122640199800C0EF0F /* Base */,
-				E6AAB1F82642CA3C00B39442 /* ru */,
+				04A4217D2BCD6CD600007D9C /* en */,
+				04A4218A2BCD6CD600007D9C /* ru */,
 			);
-			name = Main.storyboard;
+			name = Main.strings;
 			sourceTree = "<group>";
 		};
-		E6E85A162640199900C0EF0F /* LaunchScreen.storyboard */ = {
+		04A421822BCD6CD600007D9C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E6E85A172640199900C0EF0F /* Base */,
+				04A421832BCD6CD600007D9C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		04A421842BCD6CD600007D9C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04A421852BCD6CD600007D9C /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -387,7 +382,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GJZR2MEM28;
-				INFOPLIST_FILE = Demo/Info.plist;
+				INFOPLIST_FILE = ../Sources/Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -408,7 +403,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GJZR2MEM28;
-				INFOPLIST_FILE = Demo/Info.plist;
+				INFOPLIST_FILE = ../Sources/Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,8 +446,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mapbox/mapbox-search-ios/";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = "2.0.0-rc.2";
+				kind = exactVersion;
+				version = "2.0.0-rc.3";
 			};
 		};
 		E6FC5AE82640418F00240BBB /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */ = {
