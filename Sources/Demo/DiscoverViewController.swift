@@ -1,3 +1,4 @@
+import MapboxSearch
 import MapKit
 import UIKit
 
