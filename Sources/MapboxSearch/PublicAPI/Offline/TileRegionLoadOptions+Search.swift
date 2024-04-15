@@ -2,7 +2,6 @@ import Foundation
 import MapboxCommon
 
 extension TileRegionLoadOptions {
-    
     /// Builds a `TileRegionLoadOptions`, required for
     /// `TileStore.loadTileRegion(forId:loadOptions:)`
     ///
@@ -26,24 +25,25 @@ extension TileRegionLoadOptions {
         geometry: Geometry?,
         descriptors: [TilesetDescriptor]?,
         metadata: Any? = nil,
-        acceptExpired: Bool = false ,
+        acceptExpired: Bool = false,
         networkRestriction: NetworkRestriction = .none,
         averageBytesPerSecond: Int? = nil
     ) -> TileRegionLoadOptions? {
-        
-        if let metadata = metadata {
+        if let metadata {
             guard JSONSerialization.isValidJSONObject(metadata) else {
                 return nil
             }
         }
-        
-        return TileRegionLoadOptions(__geometry: geometry,
-                                     descriptors: descriptors,
-                                     metadata: metadata,
-                                     acceptExpired: acceptExpired,
-                                     networkRestriction: networkRestriction,
-                                     start: nil,
-                                     averageBytesPerSecond: averageBytesPerSecond.map(NSNumber.init),
-                                     extraOptions: nil)
+
+        return TileRegionLoadOptions(
+            __geometry: geometry,
+            descriptors: descriptors,
+            metadata: metadata,
+            acceptExpired: acceptExpired,
+            networkRestriction: networkRestriction,
+            start: nil,
+            averageBytesPerSecond: averageBytesPerSecond.map(NSNumber.init),
+            extraOptions: nil
+        )
     }
 }

@@ -1,7 +1,5 @@
-// Copyright © 2022 Mapbox. All rights reserved.
-
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 final class PlaceAutocompleteTests: XCTestCase {
     private var searchEngine: CoreSearchEngineStub!
@@ -44,17 +42,17 @@ final class PlaceAutocompleteTests: XCTestCase {
         XCTAssertNil(searchEngine.searchOptions?.navProfile)
         XCTAssertNil(searchEngine.searchOptions?.etaType)
     }
-    
+
     func testReverseGeocodingRequestUsesAllPlaceTypesIfTheyWereNotSpecifiedInOptions() {
         placeAutocomplete.suggestions(for: .sample1) { _ in }
-        
+
         XCTAssertFalse(searchEngine.reverseGeocodingOptions!.types!.isEmpty)
         XCTAssertEqual(searchEngine.reverseGeocodingOptions!.types!.count, PlaceAutocomplete.PlaceType.allTypes.count)
     }
-    
+
     func testSuggestionsRequestUsesAllPlaceTypesIfTheyWereNotSpecifiedInOptions() {
         placeAutocomplete.suggestions(for: "query") { _ in }
-        
+
         XCTAssertFalse(searchEngine.searchOptions!.types!.isEmpty)
         XCTAssertEqual(searchEngine.searchOptions!.types!.count, PlaceAutocomplete.PlaceType.allTypes.count)
     }
@@ -65,7 +63,10 @@ final class PlaceAutocompleteTests: XCTestCase {
             for: "query",
             proximity: coordinate,
             filterBy: .init(
-                countries: [.init(countryCode: Country.ISO3166_1_alpha2.us.rawValue)!, .init(countryCode: Country.ISO3166_1_alpha2.gb.rawValue)!],
+                countries: [
+                    .init(countryCode: Country.ISO3166_1_alpha2.us.rawValue)!,
+                    .init(countryCode: Country.ISO3166_1_alpha2.gb.rawValue)!,
+                ],
                 language: .init(languageCode: Language.ISO639_1.en.rawValue),
                 types: types,
                 navigationProfile: .cycling
@@ -93,12 +94,9 @@ final class PlaceAutocompleteTests: XCTestCase {
             CoreSearchResultStub.makeAddress(),
             CoreSearchResultStub.makeSuggestion(),
             CoreSearchResultStub.makeCategory(),
-            CoreSearchResultStub.makeSuggestionTypeQuery()
-        ].map { $0.asCoreSearchResult }
+            CoreSearchResultStub.makeSuggestionTypeQuery(),
+        ].map(\.asCoreSearchResult)
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: results)
-
-        let retrieveResults = [CoreSearchResultStub.makePOI().asCoreSearchResult]
-        searchEngine.nextSearchResponse = CoreSearchResponseStub.successSample(results: retrieveResults)
 
         placeAutocomplete.suggestions(for: "query") { result in
             switch result {
@@ -113,7 +111,7 @@ final class PlaceAutocompleteTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
 
         XCTAssertEqual(userActivityReporter.passedActivity, "place-autocomplete-forward-geocoding")
-        XCTAssertTrue(searchEngine.nextSearchCalled)
+        XCTAssertFalse(searchEngine.nextSearchCalled)
         XCTAssertEqual(searchEngine.query, "query")
         XCTAssertEqual(searchEngine.categories, [])
         XCTAssertEqual(searchEngine.searchOptions?.isIgnoreUR, true)
@@ -124,8 +122,8 @@ final class PlaceAutocompleteTests: XCTestCase {
         let results = [
             CoreSearchResultStub.makePOI(),
             CoreSearchResultStub.makePlace(),
-            CoreSearchResultStub.makeAddress()
-        ].map { $0.asCoreSearchResult }
+            CoreSearchResultStub.makeAddress(),
+        ].map(\.asCoreSearchResult)
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: results)
         placeAutocomplete.suggestions(for: "query") { result in
             switch result {
@@ -172,32 +170,36 @@ final class PlaceAutocompleteTests: XCTestCase {
         XCTAssertFalse(searchEngine.nextSearchCalled)
         wait(for: [expectation], timeout: 1.0)
     }
-    
+
     func testReverseGeocodingReturnsAutocompleteSuggestionsAsResults() {
         let results = [
             CoreSearchResultStub.makePlace(),
-            CoreSearchResultStub.makeAddress()
-        ].map { $0.asCoreSearchResult }
+            CoreSearchResultStub.makeAddress(),
+        ].map(\.asCoreSearchResult)
 
         searchEngine.searchResponse = CoreSearchResponseStub.successSample(results: results)
-        
+
         let suggestionsExpectation = XCTestExpectation(description: "Suggestions resolved")
-        
+
         placeAutocomplete.suggestions(
             for: CLLocationCoordinate2D(latitude: .zero, longitude: .zero)
         ) { result in
             suggestionsExpectation.fulfill()
-            
-            let suggestions = try! result.get()
-            XCTAssertEqual(suggestions.count, 2)
-            
-            suggestions.forEach {
-                if case .suggestion = $0.underlying {
-                    XCTFail("Geocoding suggestions should be resolved as results")
+
+            do {
+                let suggestions = try result.get()
+                XCTAssertEqual(suggestions.count, 2)
+
+                for item in suggestions {
+                    if case .suggestion = item.underlying {
+                        XCTFail("Geocoding suggestions should be resolved as results")
+                    }
                 }
+            } catch {
+                XCTFail(error.localizedDescription)
             }
         }
-        
+
         wait(for: [suggestionsExpectation], timeout: 1.0)
     }
 }

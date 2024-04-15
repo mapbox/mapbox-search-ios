@@ -1,16 +1,14 @@
-// Copyright © 2023 Mapbox. All rights reserved.
-
-import UIKit
 import MapboxSearch
 import MapKit
+import UIKit
 
 final class PlaceAutocompleteResultViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var mapView: MKMapView!
-    
+
     private var result: PlaceAutocomplete.Result!
     private var resultComponents: [(name: String, value: String)] = []
-    
+
     static func instantiate(with result: PlaceAutocomplete.Result) -> PlaceAutocompleteResultViewController {
         let storyboard = UIStoryboard(
             name: "Main",
@@ -20,17 +18,17 @@ final class PlaceAutocompleteResultViewController: UIViewController {
         let viewController = storyboard.instantiateViewController(
             withIdentifier: "PlaceAutocompleteResultViewController"
         ) as? PlaceAutocompleteResultViewController
-        
-        guard let viewController = viewController else {
+
+        guard let viewController else {
             preconditionFailure()
         }
-        
+
         viewController.result = result
         viewController.resultComponents = result.toComponents()
-        
+
         return viewController
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,59 +37,63 @@ final class PlaceAutocompleteResultViewController: UIViewController {
 }
 
 // MARK: - TableView data source
+
 extension PlaceAutocompleteResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         result == nil ? .zero : resultComponents.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "result-cell"
-        
+
         let tableViewCell: UITableViewCell
         if let cachedTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
             tableViewCell = cachedTableViewCell
         } else {
             tableViewCell = UITableViewCell(style: .value1, reuseIdentifier: cellIdentifier)
         }
-        
+
         let component = resultComponents[indexPath.row]
 
         tableViewCell.textLabel?.text = component.name
         tableViewCell.detailTextLabel?.text = component.value
         tableViewCell.detailTextLabel?.textColor = UIColor.darkGray
-        
+
         return tableViewCell
     }
 }
 
 // MARK: - Private
-private extension PlaceAutocompleteResultViewController {
-    func prepare() {
+
+extension PlaceAutocompleteResultViewController {
+    private func prepare() {
         title = "Address"
 
         updateScreenData()
     }
-    
-    func updateScreenData() {
+
+    private func updateScreenData() {
         showAnnotation()
         showSuggestionRegion()
-        
+
         tableView.reloadData()
     }
-    
-    func showAnnotation() {
+
+    private func showAnnotation() {
+        guard let coordinate = result.coordinate else { return }
+
         let annotation = MKPointAnnotation()
-        annotation.coordinate = result.coordinate
+        annotation.coordinate = coordinate
         annotation.title = result.name
 
         mapView.addAnnotation(annotation)
     }
-    
-    func showSuggestionRegion() {
-        guard result != nil else { return }
-        
+
+    private func showSuggestionRegion() {
+        guard let coordinate = result.coordinate else { return }
+
         let region = MKCoordinateRegion(
-            center: result.coordinate,
+            center: coordinate,
             span: .init(latitudeDelta: 0.001, longitudeDelta: 0.001)
         )
         mapView.setRegion(region, animated: true)
@@ -99,7 +101,7 @@ private extension PlaceAutocompleteResultViewController {
 }
 
 extension PlaceAutocomplete.Result {
-    static let measurumentFormatter: MeasurementFormatter = {
+    static let measurementFormatter: MeasurementFormatter = {
         let formatter = MeasurementFormatter()
         formatter.unitOptions = [.naturalScale]
         formatter.numberFormatter.roundingMode = .halfUp
@@ -113,56 +115,59 @@ extension PlaceAutocomplete.Result {
         return formatter
     }()
 
-    func toComponents() -> [((name: String, value: String))] {
+    func toComponents() -> [(name: String, value: String)] {
         var components = [
             (name: "Name", value: name),
-            (name: "Type", value: "\(type == .POI ? "POI" : "Address")")
+            (name: "Type", value: "\(type == .POI ? "POI" : "Address")"),
         ]
 
-        if let address = address, let formattedAddress = address.formattedAddress(style: .short) {
+        if let address, let formattedAddress = address.formattedAddress(style: .short) {
             components.append(
                 (name: "Address", value: formattedAddress)
             )
         }
 
-        if let distance = distance {
+        if let distance {
             components.append(
                 (name: "Distance", value: PlaceAutocomplete.Result.distanceFormatter.string(fromDistance: distance))
             )
         }
 
-        if let estimatedTime = estimatedTime {
+        if let estimatedTime {
             components.append(
-                (name: "Estimated time", value: PlaceAutocomplete.Result.measurumentFormatter.string(from: estimatedTime))
+                (
+                    name: "Estimated time",
+                    value: PlaceAutocomplete.Result.measurementFormatter.string(from: estimatedTime)
+                )
             )
         }
-        
-        if let phone = phone {
+
+        if let phone {
             components.append(
                 (name: "Phone", value: phone)
             )
         }
-        
+
         if let reviewsCount = reviewCount {
             components.append(
                 (name: "Reviews Count", value: "\(reviewsCount)")
             )
         }
-        
+
         if let avgRating = averageRating {
             components.append(
                 (name: "Rating", value: "\(avgRating)")
             )
         }
-        
+
         if !categories.isEmpty {
             let categories = categories.count > 2 ? Array(categories.dropFirst(2)) : categories
-            
+
             components.append(
                 (name: "Categories", value: categories.joined(separator: ","))
             )
         }
-        
+
         return components
     }
 }

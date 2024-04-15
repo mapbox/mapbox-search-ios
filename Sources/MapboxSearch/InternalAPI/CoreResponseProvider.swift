@@ -4,7 +4,9 @@ protocol CoreResponseProvider {
 
 extension CoreResponseProvider {
     var searchRequest: SearchRequestOptions {
-        SearchRequestOptions(query: originalResponse.requestOptions.query,
-                             proximity: originalResponse.requestOptions.options.proximity?.coordinate)
+        SearchRequestOptions(
+            query: originalResponse.requestOptions.query,
+            proximity: originalResponse.requestOptions.options.proximity?.coordinate
+        )
     }
 }

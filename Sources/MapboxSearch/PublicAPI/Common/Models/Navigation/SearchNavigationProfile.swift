@@ -4,16 +4,16 @@ import Foundation
 public enum SearchNavigationProfile: Hashable {
     /// Driving by car profile
     case driving
-    
+
     /// Bicycle drive profile
     case cycling
-    
+
     /// Walking profile
     case walking
-    
+
     /// Custom navigation profile to be send to the server
     case custom(String)
-    
+
     var string: String {
         switch self {
         case .driving:
@@ -26,7 +26,7 @@ public enum SearchNavigationProfile: Hashable {
             return value
         }
     }
-    
+
     init(coreValue: String) {
         switch coreValue.lowercased() {
         case "driving":

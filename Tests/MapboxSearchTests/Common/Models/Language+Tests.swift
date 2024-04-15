@@ -1,7 +1,5 @@
-// Copyright © 2022 Mapbox. All rights reserved.
-
-import XCTest
 @testable import MapboxSearch
+import XCTest
 
 final class LanguageTests: XCTestCase {
     func testThatLanguageIsInitializedWithCorrectIdentifier() {
@@ -10,25 +8,25 @@ final class LanguageTests: XCTestCase {
 
         XCTAssertNotNil(uppercasedIdentifier)
         XCTAssertTrue(uppercasedIdentifier?.languageCode == "en")
-        
+
         XCTAssertNotNil(lowercasedIdentifier)
         XCTAssertTrue(lowercasedIdentifier?.languageCode == "en")
     }
-    
+
     func testThatLanguageIsNotInitializedWithIncorrectIdentifier() {
         let invalidIdentifier = Language(languageCode: "invalid")
 
         XCTAssertNil(invalidIdentifier)
     }
-    
+
     func testThatLanguageCanBeInitializedFromLocale() {
         [
             Locale(identifier: "en-US"),
             Locale(identifier: "en"),
-            Locale(identifier: "en-UK")
+            Locale(identifier: "en-UK"),
         ].forEach { locale in
             XCTAssertNotNil(locale)
-            
+
             let language = Language(locale: locale)
 
             XCTAssertNotNil(language)

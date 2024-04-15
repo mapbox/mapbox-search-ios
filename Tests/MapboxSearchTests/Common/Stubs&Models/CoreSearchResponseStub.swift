@@ -5,7 +5,7 @@ class CoreSearchResponseStub {
     let options: CoreRequestOptions
     let result: Result<[CoreSearchResult], SearchError>
     let id: UInt32
-    
+
     init(id: UInt32, options: CoreRequestOptions, result: Result<[CoreSearchResult], SearchError>) {
         self.result = result
         self.options = options
@@ -20,7 +20,7 @@ extension CoreSearchResponseStub: CoreSearchResponseProtocol {
         case .failure: return false
         }
     }
-    
+
     var httpCode: Int32 {
         switch result {
         case .success:
@@ -29,7 +29,7 @@ extension CoreSearchResponseStub: CoreSearchResponseProtocol {
             return Int32(error.errorCode)
         }
     }
-    
+
     var message: String {
         switch result {
         case .success:
@@ -42,7 +42,7 @@ extension CoreSearchResponseStub: CoreSearchResponseProtocol {
     var request: CoreRequestOptions {
         return options
     }
-    
+
     var results: [CoreSearchResult] {
         switch result {
         case .success(let result):
@@ -51,7 +51,7 @@ extension CoreSearchResponseStub: CoreSearchResponseProtocol {
             return []
         }
     }
-    
+
     var responseUUID: String {
         "the_response_UUID"
     }

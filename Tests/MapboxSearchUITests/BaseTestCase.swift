@@ -1,11 +1,15 @@
 import XCTest
 
+/// Base XCTestCase class that provides testable application behavior.
+/// Please use subclass ``MockServerUITestCase`` for tests.
 class BaseTestCase: XCTestCase {
     static let defaultTimeout: TimeInterval = 10.0
-    
+
     var app: XCUIApplication!
-    
+
     override func setUpWithError() throws {
+        try super.setUpWithError()
+
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments.append("--uitesting")

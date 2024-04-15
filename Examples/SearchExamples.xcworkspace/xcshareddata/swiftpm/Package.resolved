@@ -2,12 +2,21 @@
   "object": {
     "pins": [
       {
-        "package": "Atlantis",
-        "repositoryURL": "https://github.com/ProxymanApp/atlantis",
+        "package": "CwlCatchException",
+        "repositoryURL": "https://github.com/mattgallagher/CwlCatchException.git",
         "state": {
           "branch": null,
-          "revision": "2ee37f1da01b438d67012cc1405617e158f358a1",
-          "version": "1.11.2"
+          "revision": "3ef6999c73b6938cc0da422f2c912d0158abb0a0",
+          "version": "2.2.0"
+        }
+      },
+      {
+        "package": "CwlPreconditionTesting",
+        "repositoryURL": "https://github.com/mattgallagher/CwlPreconditionTesting.git",
+        "state": {
+          "branch": null,
+          "revision": "2ef56b2caf25f55fa7eef8784c30d5a767550f54",
+          "version": "2.2.1"
         }
       },
       {
@@ -15,8 +24,8 @@
         "repositoryURL": "https://github.com/mapbox/mapbox-common-ios.git",
         "state": {
           "branch": null,
-          "revision": "a69e8ec4684ea2db20c94e85bcb54497554500d0",
-          "version": "18.0.0"
+          "revision": "696503304fe8807bd5af3abb23ef20c051dd8b12",
+          "version": "23.9.2"
         }
       },
       {
@@ -24,35 +33,17 @@
         "repositoryURL": "https://github.com/mapbox/mapbox-core-maps-ios.git",
         "state": {
           "branch": null,
-          "revision": "d5360ef24a2038150ab68c67ada0893f6d5b5b15",
-          "version": "10.0.0-rc.8"
-        }
-      },
-      {
-        "package": "MapboxMobileEvents",
-        "repositoryURL": "https://github.com/mapbox/mapbox-events-ios.git",
-        "state": {
-          "branch": null,
-          "revision": "e4ded10f5b9594374416f9396d5b540f8c491bbe",
-          "version": "1.0.3"
+          "revision": "255a3d159c710d33ab8a85d15a2842012462f581",
+          "version": "10.17.0"
         }
       },
       {
         "package": "MapboxMaps",
-        "repositoryURL": "git@github.com:mapbox/mapbox-maps-ios.git",
+        "repositoryURL": "https://github.com/mapbox/mapbox-maps-ios.git",
         "state": {
           "branch": null,
-          "revision": "bedc49744970602ebc10c6de3f8a2b4cc6f084a6",
-          "version": "10.0.0-rc.8"
-        }
-      },
-      {
-        "package": "MapboxSearch",
-        "repositoryURL": "https://github.com/mapbox/search-ios",
-        "state": {
-          "branch": null,
-          "revision": "9c06beb24ba2d2bf868e14f630773685c10981bd",
-          "version": "1.0.0-beta.13"
+          "revision": "52bb5df80e4a6dd84d61bf9f4fc63a68b30c03e4",
+          "version": "10.17.0"
         }
       },
       {
@@ -60,8 +51,8 @@
         "repositoryURL": "https://github.com/mapbox/turf-swift.git",
         "state": {
           "branch": null,
-          "revision": "555458bd67acce7322c513ddd3647c9a904f4197",
-          "version": "2.0.0-rc.1"
+          "revision": "f0afe204b4266337066a436becab62fdd2b32378",
+          "version": "2.7.0"
         }
       }
     ]

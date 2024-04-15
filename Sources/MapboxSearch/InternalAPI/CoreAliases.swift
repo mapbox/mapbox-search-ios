@@ -1,6 +1,7 @@
+@_implementationOnly import MapboxCommon_Private
+
 /// https://forums.swift.org/t/update-on-implementation-only-imports/26996
 @_implementationOnly import MapboxCoreSearch
-@_implementationOnly import MapboxCommon_Private
 @_implementationOnly import MapboxCoreSearch_Private
 
 // Note: This file included in MapboxSearch and MapboxSearchTests targets
@@ -40,4 +41,5 @@ extension CoreSearchEngine {
 typealias CoreExpected = MapboxCommon_Private.Expected
 
 // MARK: - Public
+
 @_exported import MapboxCommon

@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.7
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -12,7 +12,7 @@ let commonMaxVersion = Version("24.0.0")
 let package = Package(
     name: "MapboxSearch",
     defaultLocalization: "en",
-    platforms: [.iOS(.v11), .macOS(.v10_15)],
+    platforms: [.iOS(.v12), .macOS(.v10_15)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
@@ -38,12 +38,18 @@ let package = Package(
                 "MapboxCommon",
             ],
             exclude: ["Info.plist"],
+            resources: [
+                .copy("Resources/PrivacyInfo.xcprivacy"),
+            ],
             linkerSettings: [.linkedLibrary("c++")]
         ),
         .target(
             name: "MapboxSearchUI",
             dependencies: ["MapboxSearch"],
-            exclude: ["Info.plist", "Resources-Info.plist"]
+            exclude: ["Info.plist", "Resources-Info.plist"],
+            resources: [
+                .copy("Resources/PrivacyInfo.xcprivacy"),
+            ]
         ),
 
         coreSearchTarget(

@@ -1,21 +1,26 @@
-import XCTest
 import CoreLocation
 @testable import MapboxSearch
+import XCTest
 
-class CategorySearchEngineIntegrationTests: MockServerTestCase {
-    
-    lazy var searchEngine = CategorySearchEngine(
-        accessToken: "access-token",
-        locationProvider: DefaultLocationProvider(),
-        supportSBS: true
-    )
-    
+final class CategorySearchEngineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
+    private var searchEngine: CategorySearchEngine!
+
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+
+        let apiType = try XCTUnwrap(Mock.coreApiType.toSDKType())
+        searchEngine = CategorySearchEngine(
+            accessToken: "access-token",
+            serviceProvider: LocalhostMockServiceProvider.shared,
+            supportSBS: true
+        )
+    }
+
     func testCategorySearch() throws {
-        
         try server.setResponse(.categoryCafe)
 
         let expectation = XCTestExpectation(description: "Expecting results")
-        searchEngine.search(categoryName: "ATM") { result in
+        searchEngine.search(categoryName: "cafe") { result in
             switch result {
             case .success(let searchResults):
                 XCTAssertFalse(searchResults.isEmpty)
@@ -27,13 +32,12 @@ class CategorySearchEngineIntegrationTests: MockServerTestCase {
         }
         wait(for: [expectation], timeout: 10)
     }
-    
+
     func testCategorySearchFailed() throws {
-        
         try server.setResponse(.categoryCafe, statusCode: 500)
-        
+
         let expectation = XCTestExpectation(description: "Expecting failure")
-        searchEngine.search(categoryName: "ATM") { result in
+        searchEngine.search(categoryName: "cafe") { result in
             switch result {
             case .success:
                 XCTFail("Not expected")

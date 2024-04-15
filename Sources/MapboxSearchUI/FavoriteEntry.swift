@@ -11,7 +11,7 @@ class UserFavoriteEntry: FavoriteEntry {
     var name: String
     var icon: UIImage
     var userFavorite: FavoriteRecord?
-    
+
     init(userFavorite: FavoriteRecord) {
         self.userFavorite = userFavorite
         self.name = userFavorite.name

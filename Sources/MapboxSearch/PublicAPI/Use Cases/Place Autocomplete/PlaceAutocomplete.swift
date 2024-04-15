@@ -1,10 +1,8 @@
-// Copyright © 2022 Mapbox. All rights reserved.
-
-import Foundation
 import CoreLocation
+import Foundation
 
-private extension PlaceAutocomplete {
-    enum Constants {
+extension PlaceAutocomplete {
+    fileprivate enum Constants {
         static let defaultSuggestionsLimit = 10
     }
 }
@@ -13,29 +11,32 @@ private extension PlaceAutocomplete {
 public final class PlaceAutocomplete {
     private let searchEngine: CoreSearchEngineProtocol
     private let userActivityReporter: CoreUserActivityReporterProtocol
-    
+
     private static var apiType: CoreSearchEngine.ApiType {
         return .SBS
     }
 
     /// Basic internal initializer
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used for `nil` argument
+    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used
+    /// for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     public convenience init(
         accessToken: String? = nil,
         locationProvider: LocationProvider? = DefaultLocationProvider()
     ) {
         guard let accessToken = accessToken ?? ServiceProvider.shared.getStoredAccessToken() else {
-            fatalError("No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key")
+            fatalError(
+                "No access token was found. Please, provide it in init(accessToken:) or in Info.plist at '\(accessTokenPlistKey)' key"
+            )
         }
-        
+
         let searchEngine = ServiceProvider.shared.createEngine(
             apiType: Self.apiType,
             accessToken: accessToken,
             locationProvider: WrapperLocationProvider(wrapping: locationProvider)
         )
-        
+
         let userActivityReporter = CoreUserActivityReporter.getOrCreate(
             for: CoreUserActivityReporterOptions(
                 accessToken: accessToken,
@@ -43,10 +44,10 @@ public final class PlaceAutocomplete {
                 eventsUrl: nil
             )
         )
-        
+
         self.init(searchEngine: searchEngine, userActivityReporter: userActivityReporter)
     }
-    
+
     init(searchEngine: CoreSearchEngineProtocol, userActivityReporter: CoreUserActivityReporterProtocol) {
         self.searchEngine = searchEngine
         self.userActivityReporter = userActivityReporter
@@ -54,15 +55,17 @@ public final class PlaceAutocomplete {
 }
 
 // MARK: - Public API
-public extension PlaceAutocomplete {
+
+extension PlaceAutocomplete {
     /// Start searching for query with provided options
     /// - Parameters:
     ///   - query: Text query for suggestions.
     ///   - region: Limit results to only those contained within the supplied bounding box.
-    ///   - proximity: Optional geographic point that bias the response to favor results that are closer to this location.
+    ///   - proximity: Optional geographic point that bias the response to favor results that are closer to this
+    /// location.
     ///   - options: Search options used for filtration.
     ///   - completion: Result of the suggestion request, one of error or value.
-    func suggestions(
+    public func suggestions(
         for query: String,
         region: BoundingBox? = nil,
         proximity: CLLocationCoordinate2D? = nil,
@@ -75,53 +78,53 @@ public extension PlaceAutocomplete {
         if let navigationProfiler = options.navigationProfile {
             navigationOptions = .init(profile: navigationProfiler, etaType: .navigation)
         }
-        
+
         // We should not leave core types list empty or null in order to avoid unsupported types being requested
         var filterTypes = options.types
         if filterTypes.isEmpty {
             filterTypes = PlaceType.allTypes
         }
-        
+
         let searchOptions = SearchOptions(
-            countries: options.countries.map { $0.countryCode },
+            countries: options.countries.map(\.countryCode),
             languages: [options.language.languageCode],
             limit: Constants.defaultSuggestionsLimit,
             proximity: proximity,
             boundingBox: region,
             origin: proximity,
             navigationOptions: navigationOptions,
-            filterTypes: filterTypes.map { $0.coreType },
+            filterTypes: filterTypes.map(\.coreType),
             ignoreIndexableRecords: true
         ).toCore(apiType: Self.apiType)
-        
+
         fetchSuggestions(for: query, with: searchOptions, completion: completion)
     }
-    
+
     /// Start searching for query with provided options
     /// - Parameters:
     ///   - query: Coordinates query.
     ///   - options: Search options used for filtration.
     ///   - completion: Result of the suggestion request, one of error or value.
-    func suggestions(
+    public func suggestions(
         for query: CLLocationCoordinate2D,
         filterBy options: Options = .init(),
         completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
     ) {
         userActivityReporter.reportActivity(forComponent: "place-autocomplete-reverse-geocoding")
-        
+
         // We should not leave core types list empty or null in order to avoid unsupported types being requested
         var filterTypes = options.types
         if filterTypes.isEmpty {
             filterTypes = PlaceType.allTypes
         }
-        
+
         let searchOptions = ReverseGeocodingOptions(
             point: query,
-            types: filterTypes.map { $0.coreType },
-            countries: options.countries.map { $0.countryCode },
+            types: filterTypes.map(\.coreType),
+            countries: options.countries.map(\.countryCode),
             languages: [options.language.languageCode]
         ).toCore()
-        
+
         fetchSuggestions(using: searchOptions, completion: completion)
     }
 
@@ -136,9 +139,10 @@ public extension PlaceAutocomplete {
     /// - Parameters:
     ///   - suggestion: Suggestion to select.
     ///   - completion: Result of the suggestion selection, one of error or value.
-    func select(
+    public func select(
         suggestion: Suggestion,
-        completion: @escaping (Swift.Result<PlaceAutocomplete.Result, Error>
+        completion: @escaping (
+            Swift.Result<PlaceAutocomplete.Result, Error>
         ) -> Void
     ) {
         userActivityReporter.reportActivity(forComponent: "place-autocomplete-suggestion-select")
@@ -147,7 +151,7 @@ public extension PlaceAutocomplete {
         case .result(let searchResult):
             let autocompleteResult = suggestion.result(for: searchResult)
             completion(.success(autocompleteResult))
-            
+
         case .suggestion(let searchSuggestion, let options):
             retrieve(underlyingSuggestion: searchSuggestion, with: options, completion: completion)
         }
@@ -155,13 +159,17 @@ public extension PlaceAutocomplete {
 }
 
 // MARK: - Reverse geocoding query
-private extension PlaceAutocomplete {
-    func fetchSuggestions(using options: CoreReverseGeoOptions, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
+
+extension PlaceAutocomplete {
+    private func fetchSuggestions(
+        using options: CoreReverseGeoOptions,
+        completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
+    ) {
         searchEngine.reverseGeocoding(for: options) { response in
             guard let response = Self.preprocessResponse(response) else {
                 return
             }
-            
+
             switch response.process() {
             case .success(let processedResponse):
                 do {
@@ -178,22 +186,29 @@ private extension PlaceAutocomplete {
     }
 }
 
-
 // MARK: - Text query handling
-private extension PlaceAutocomplete {
-    func fetchSuggestions(for query: String, with options: CoreSearchOptions, completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void) {
+
+extension PlaceAutocomplete {
+    private func fetchSuggestions(
+        for query: String,
+        with options: CoreSearchOptions,
+        completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
+    ) {
         searchEngine.search(
             forQuery: query,
             categories: [],
             options: options
         ) { [weak self] response in
-            guard let self = self else { return }
-                
+            guard let self else {
+                completion(.failure(SearchError.owningObjectDeallocated))
+                return
+            }
+
             self.manage(response: response, for: query, completion: completion)
         }
     }
-    
-    func manage(
+
+    private func manage(
         response coreResponse: CoreSearchResponseProtocol?,
         for query: String,
         completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
@@ -201,13 +216,13 @@ private extension PlaceAutocomplete {
         enum ResponseError: Error {
             case unknown
         }
-        
+
         guard let response = Self.preprocessResponse(coreResponse) else {
             return completion(
                 .failure(SearchError.responseProcessingFailed)
             )
         }
-        
+
         switch response.coreResponse.result {
         case .success(let coreResults):
             resolve(suggestions: coreResults, with: response.coreResponse.request, completion: completion)
@@ -216,19 +231,19 @@ private extension PlaceAutocomplete {
             completion(.failure(error))
         }
     }
-    
-    static func preprocessResponse(_ coreResponse: CoreSearchResponseProtocol?) -> SearchResponse? {
+
+    fileprivate static func preprocessResponse(_ coreResponse: CoreSearchResponseProtocol?) -> SearchResponse? {
         assert(Thread.isMainThread)
-        
-        guard let coreResponse = coreResponse else {
+
+        guard let coreResponse else {
             assertionFailure("Response should never be nil")
             return nil
         }
-    
+
         return SearchResponse(coreResponse: coreResponse)
     }
 
-    func retrieve(
+    private func retrieve(
         suggestion: CoreSearchResultProtocol,
         with options: CoreRequestOptions,
         completion: @escaping (Swift.Result<Suggestion, Error>) -> Void
@@ -264,7 +279,7 @@ private extension PlaceAutocomplete {
         }
     }
 
-    func retrieve(
+    private func retrieve(
         underlyingSuggestion: CoreSearchResultProtocol,
         with options: CoreRequestOptions,
         completion: @escaping (Swift.Result<PlaceAutocomplete.Result, Error>) -> Void
@@ -274,7 +289,7 @@ private extension PlaceAutocomplete {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let resolvedSuggestion):
-                guard case let .result(underlyingResult) = resolvedSuggestion.underlying else {
+                guard case .result(let underlyingResult) = resolvedSuggestion.underlying else {
                     completion(.failure(SearchError.responseProcessingFailed))
                     return
                 }
@@ -283,7 +298,7 @@ private extension PlaceAutocomplete {
         }
     }
 
-    func resolve(
+    private func resolve(
         suggestions: [CoreSearchResult],
         with options: CoreRequestOptions,
         completion: @escaping (Swift.Result<[Suggestion], Error>) -> Void
@@ -291,52 +306,30 @@ private extension PlaceAutocomplete {
         let filteredSuggestions = suggestions.filter {
             !$0.resultTypes.contains(.category) && !$0.resultTypes.contains(.query)
         }
-        guard !filteredSuggestions.isEmpty else {
-            return completion(.success([]))
-        }
-        
-        let dispatchGroup = DispatchGroup()
-        var resolvingError: Error?
-        
-        var resolvedSuggestions: [Suggestion?] = Array(repeating: nil, count: filteredSuggestions.count)
-        let lock = NSLock()
 
-        filteredSuggestions.enumerated().forEach { iterator in
-            dispatchGroup.enter()
+        let resolvedSuggestions = filteredSuggestions.compactMap { result -> Suggestion? in
+            let name = result.names.first ?? ""
+            let distance = result.distance.flatMap { CLLocationDistance(integerLiteral: $0.int64Value) }
+            let coreResultTypes = result.types.compactMap { CoreResultType(rawValue: $0.intValue) }
+            let placeTypes = SearchResultType(coreResultTypes: coreResultTypes)
+            let categories = result.categories ?? []
+            let routablePoints = result.routablePoints?.compactMap { RoutablePoint(routablePoint: $0) } ?? []
+            let underlying: Suggestion.Underlying = .suggestion(result, options)
 
-            if iterator.element.center != nil {
-                do {
-                    let resolvedSuggestion = try Suggestion.from(searchSuggestion: iterator.element, options: options)
-                    lock.sync {
-                        resolvedSuggestions[iterator.offset] = resolvedSuggestion
-                    }
-                } catch {
-                    resolvingError = error
-                }
-                dispatchGroup.leave()
-            } else {
-                retrieve(suggestion: iterator.element, with: options) { result in
-                    defer { dispatchGroup.leave() }
+            return Suggestion(
+                name: name,
+                description: result.addressDescription,
+                coordinate: result.center?.coordinate,
+                iconName: result.icon,
+                distance: distance,
+                estimatedTime: result.estimatedTime,
+                placeType: placeTypes ?? .POI,
+                categories: categories,
+                routablePoints: routablePoints,
+                underlying: underlying
+            )
+        }
 
-                    switch result {
-                    case .success(let suggestion):
-                        lock.sync {
-                            resolvedSuggestions[iterator.offset] = suggestion
-                        }
-                    case .failure(let error):
-                        resolvingError = error
-                    }
-                }
-            }
-        }
-        
-        dispatchGroup.notify(queue: .main) {
-            let results = resolvedSuggestions.compactMap({ $0 })
-            if results.isEmpty {
-                completion(.failure(resolvingError ?? SearchError.responseProcessingFailed))
-            } else {
-                completion(.success(results))
-            }
-        }
+        completion(.success(resolvedSuggestions))
     }
 }
