@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mapbox/mapbox-search-ios/",
       "state" : {
-        "branch" : "main",
-        "revision" : "284487ba5f5dc2c1b8bb694114742613e475e57f"
+        "branch" : "SSDK-736-address-autofill-fixes",
+        "revision" : "ac5e0254f4edfda9ada56f40048a74bd7c0143a4"
       }
     }
   ],

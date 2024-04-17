@@ -450,7 +450,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mapbox/mapbox-search-ios/";
 			requirement = {
-				branch = main;
+				branch = "SSDK-736-address-autofill-fixes";
 				kind = branch;
 			};
 		};
