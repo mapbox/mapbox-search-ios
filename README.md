@@ -147,3 +147,4 @@ We recommend reading [this blog post from Github on writing great PRs.](https://
 # Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on repository](https://github.com/mapbox/mapbox-search-ios/tags).
+
