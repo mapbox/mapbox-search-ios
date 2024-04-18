@@ -8,6 +8,8 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     /// Displayable name of the record.
     public var name: String
 
+    public var mapboxId: String?
+
     /**
          The feature name, as matched by the search algorithm.
 
@@ -79,6 +81,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     ///   - resultType: Favorite result type
     public init(
         id: String? = nil,
+        mapboxId: String? = nil,
         name: String,
         matchingName: String?,
         coordinate: CLLocationCoordinate2D,
@@ -93,6 +96,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         metadata: SearchResultMetadata? = nil
     ) {
         self.id = id ?? UUID().uuidString
+        self.mapboxId = mapboxId
         self.name = name
         self.matchingName = matchingName
         self.coordinateCodable = .init(coordinate)

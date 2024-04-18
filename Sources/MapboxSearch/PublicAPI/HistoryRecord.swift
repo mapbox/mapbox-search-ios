@@ -20,6 +20,8 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     /// Unique identifier
     public private(set) var id: String
 
+    public private(set) var mapboxId: String?
+
     /// Record's name
     public private(set) var name: String
 

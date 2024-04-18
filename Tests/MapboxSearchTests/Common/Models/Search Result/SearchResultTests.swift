@@ -5,6 +5,7 @@ class SearchResultTests: XCTestCase {
     func testPlacemarkGeneration() throws {
         let resultStub = SearchResultStub(
             id: "unit-test-random",
+            mapboxId: nil,
             name: "Unit Test",
             matchingName: nil,
             serverIndex: nil,
