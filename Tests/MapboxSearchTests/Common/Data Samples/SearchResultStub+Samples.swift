@@ -3,7 +3,7 @@ import MapboxSearch
 extension SearchResultStub {
     static let sample1 = SearchResultStub(
         id: "sample-1",
-        mapboxId: nil,
+        mapboxId: UUID().uuidString, // not actually UUID format but useful for tests
         categories: ["sample-1", "sample-2"],
         name: "Sample No 1",
         matchingName: nil,

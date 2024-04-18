@@ -8,6 +8,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     /// Displayable name of the record.
     public var name: String
 
+    /// A unique identifier for the geographic feature
     public var mapboxId: String?
 
     /**
@@ -122,6 +123,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     ) {
         self.init(
             id: id,
+            mapboxId: searchResult.mapboxId,
             name: name,
             matchingName: searchResult.matchingName,
             coordinate: searchResult.coordinate,
