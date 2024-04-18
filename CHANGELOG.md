@@ -19,6 +19,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Tests] Demonstrate providing a `Geometry(point: NSValue(mkCoordinate: CLLocationCoordinate2D))` with `TileRegionLoadOptions.build` function.
 - [Core] Increment minimum MapboxCommon version from 24.0.0 to 24.2.0.
 
+**MapboxCoreSearch**: v2.0.0-alpha.16
 **MapboxCommon**: v24.2.0
 
 ## 2.0.0-rc.3
