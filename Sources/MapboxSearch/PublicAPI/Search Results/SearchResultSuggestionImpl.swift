@@ -2,13 +2,13 @@ import CoreLocation
 import Foundation
 
 class SearchResultSuggestionImpl: SearchResultSuggestion, CoreResponseProvider {
-    var mapboxId: String?
-
     var originalResponse: CoreSearchResultResponse
 
     let dataLayerIdentifier = SearchEngine.providerIdentifier
 
     var id: String
+
+    var mapboxId: String?
 
     var name: String
 

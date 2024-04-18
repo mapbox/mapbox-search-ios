@@ -2,8 +2,6 @@ import CoreLocation
 import Foundation
 
 class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProvider {
-    var mapboxId: String?
-
     var distance: CLLocationDistance?
 
     var originalResponse: CoreSearchResultResponse
@@ -36,6 +34,8 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
     let dataLayerIdentifier = SearchEngine.providerIdentifier
 
     var id: String
+
+    var mapboxId: String?
 
     var name: String
 
