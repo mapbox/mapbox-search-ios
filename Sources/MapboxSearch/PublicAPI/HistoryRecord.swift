@@ -99,6 +99,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     ///   - routablePoints: Coordinates of building entries
     public init(
         id: String = UUID().uuidString,
+        mapboxId: String?,
         name: String,
         matchingName: String?,
         serverIndex: Int?,
@@ -114,6 +115,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         routablePoints: [RoutablePoint]? = nil
     ) {
         self.id = id
+        self.mapboxId = mapboxId
         self.name = name
         self.matchingName = matchingName
         self.serverIndex = serverIndex
@@ -140,6 +142,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         timestamp: Date = Date()
     ) {
         self.id = searchResult.id
+        self.mapboxId = searchResult.mapboxId
         self.name = searchResult.name
         self.matchingName = searchResult.matchingName
         self.serverIndex = searchResult.serverIndex
