@@ -8,6 +8,14 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [SearchResult] Add support for `mapboxId` field when availalbe.
+- [FavoriteRecord] Add support for `mapboxId` field when availalbe.
+- [HistoryRecord] Add support for `mapboxId` field when availalbe.
+- [Discover] Add more complete support for `mapboxId` field in Result subtype when availalbe.
+- [Address Autofill] Add more complete support for `mapboxId` field in Result and Suggestion subtypes when availalbe.
+- [Place Autocomplete] Add more complete support for `mapboxId` field in Result and Suggestion subtypes when availalbe.
+- [Demo] Add `mapboxId` table view cell to PlaceAutocomplete detail view controller when available.
+
 - [Offline] Add optional `language` parameter to SearchOfflineManager.createTilesetDescriptor and SearchOfflineManager.createPlacesTilesetDescriptor functions.
 - [Tests] Add Spanish language offline search test.
 
