@@ -8,6 +8,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Offline] Remove `CoreOfflineIndexChangeEventType` extension previously used for development.
+- [Core] Remove usages of `@_implementationOnly import` due to compilation issue.
+
 - [Offline] Add optional `language` parameter to SearchOfflineManager.createTilesetDescriptor and SearchOfflineManager.createPlacesTilesetDescriptor functions.
 - [Tests] Add Spanish language offline search test.
 
