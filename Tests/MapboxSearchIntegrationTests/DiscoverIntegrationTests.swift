@@ -36,6 +36,8 @@ class DiscoverIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
             switch result {
             case .success(let searchResults):
                 XCTAssertFalse(searchResults.isEmpty)
+                let firstResult = searchResults.first
+                XCTAssertNotNil(firstResult?.mapboxId)
                 expectation.fulfill()
             case .failure:
                 XCTFail("Error not expected")

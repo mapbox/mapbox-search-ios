@@ -2,11 +2,11 @@ import CoreLocation
 import Foundation
 
 class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvider {
-    var mapboxId: String?
-
     var originalResponse: CoreSearchResultResponse
 
     var id: String
+
+    var mapboxId: String?
 
     var name: String
 

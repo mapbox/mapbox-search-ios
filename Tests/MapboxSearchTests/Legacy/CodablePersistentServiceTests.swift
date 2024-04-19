@@ -59,6 +59,7 @@ class CodablePersistentServiceTests: XCTestCase {
         let coordinate = CLLocationCoordinate2D(latitude: 10.0, longitude: 10.0)
         let record = HistoryRecord(
             id: UUID().uuidString,
+            mapboxId: nil,
             name: "DaName",
             matchingName: nil,
             serverIndex: nil,

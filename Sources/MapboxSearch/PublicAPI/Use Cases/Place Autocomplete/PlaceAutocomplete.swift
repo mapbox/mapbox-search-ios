@@ -317,6 +317,7 @@ extension PlaceAutocomplete {
 
             return Suggestion(
                 name: name,
+                mapboxId: result.mapboxId,
                 description: result.addressDescription,
                 coordinate: result.center?.value,
                 iconName: result.icon,

@@ -1,5 +1,4 @@
 import Foundation
-@_implementationOnly import MapboxCoreSearch
 @testable import MapboxSearch
 import Swifter
 import XCTest
