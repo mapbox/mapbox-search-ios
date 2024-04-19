@@ -16,6 +16,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Place Autocomplete] Add more complete support for `mapboxId` field in Result and Suggestion subtypes when availalbe.
 - [Demo] Add `mapboxId` table view cell to PlaceAutocomplete detail view controller when available.
 
+- [Offline] Remove `CoreOfflineIndexChangeEventType` extension previously used for development.
+- [Core] Remove usages of `@_implementationOnly import` due to compilation issue.
+
 - [Offline] Add optional `language` parameter to SearchOfflineManager.createTilesetDescriptor and SearchOfflineManager.createPlacesTilesetDescriptor functions.
 - [Tests] Add Spanish language offline search test.
 
