@@ -10,10 +10,12 @@ workflows:
   develop-build:
     jobs:
       - pre-check:
+          context: SDK Registry Token
           filters:
             tags:
               only: /v.*/
       - build:
+          context: SDK Registry Token
           requires:
             - pre-check
           filters:
@@ -23,6 +25,7 @@ workflows:
           requires:
             - pre-check
       - release-pre-check:
+          context: SDK Registry Token
           requires:
             - pre-check
           filters:
@@ -98,7 +101,6 @@ jobs:
     steps:
       - checkout
       - setup-authentication
-          context: SDK Registry Token
       - ios-prestart-simulator
       - upgrade-carthage
       - install-swiftlint
@@ -136,7 +138,6 @@ jobs:
       - checkout
       - parse-release-version
       - setup-authentication
-          context: SDK Registry Token
       - install-mbx-ci-darwin
       - restore_cache:
           keys:
@@ -160,7 +161,6 @@ jobs:
       - checkout
       - parse-release-version
       - setup-authentication
-          context: SDK Registry Token
       - install-mbx-ci-darwin
       - run:
           name: Update documentation
@@ -183,7 +183,6 @@ jobs:
     steps:
       - checkout
       - setup-authentication
-          context: SDK Registry Token
       - upgrade-carthage
       - parse-release-version
       - run: make ios
@@ -203,7 +202,6 @@ jobs:
     steps:
       - checkout
       - setup-authentication
-          context: SDK Registry Token
       - parse-release-version
       - run: rm '/usr/local/lib/python3.9/site-packages/six.py'
       - run: brew install awscli gh
@@ -230,7 +228,6 @@ jobs:
       - checkout
       - parse-release-version
       - setup-authentication
-          context: SDK Registry Token
       - install-mbx-ci-darwin
       - run: scripts/generate_podspecs.sh
       - run:
@@ -247,7 +244,6 @@ jobs:
     steps:
       - checkout
       - setup-authentication
-          context: SDK Registry Token
       - run: brew install xcodegen
       - run: make validate-spm-build
 
@@ -286,7 +282,6 @@ commands:
   ios-install-carthage-dependencies:
     steps:
       - setup-authentication
-          context: SDK Registry Token
       - run: make deps
 
   ios-prestart-simulator:
