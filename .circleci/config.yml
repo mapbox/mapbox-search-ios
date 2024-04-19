@@ -98,6 +98,7 @@ jobs:
     steps:
       - checkout
       - setup-authentication
+          context: SDK Registry Token
       - ios-prestart-simulator
       - upgrade-carthage
       - install-swiftlint
@@ -135,6 +136,7 @@ jobs:
       - checkout
       - parse-release-version
       - setup-authentication
+          context: SDK Registry Token
       - install-mbx-ci-darwin
       - restore_cache:
           keys:
@@ -158,6 +160,7 @@ jobs:
       - checkout
       - parse-release-version
       - setup-authentication
+          context: SDK Registry Token
       - install-mbx-ci-darwin
       - run:
           name: Update documentation
@@ -180,6 +183,7 @@ jobs:
     steps:
       - checkout
       - setup-authentication
+          context: SDK Registry Token
       - upgrade-carthage
       - parse-release-version
       - run: make ios
@@ -199,6 +203,7 @@ jobs:
     steps:
       - checkout
       - setup-authentication
+          context: SDK Registry Token
       - parse-release-version
       - run: rm '/usr/local/lib/python3.9/site-packages/six.py'
       - run: brew install awscli gh
@@ -225,6 +230,7 @@ jobs:
       - checkout
       - parse-release-version
       - setup-authentication
+          context: SDK Registry Token
       - install-mbx-ci-darwin
       - run: scripts/generate_podspecs.sh
       - run:
@@ -241,6 +247,7 @@ jobs:
     steps:
       - checkout
       - setup-authentication
+          context: SDK Registry Token
       - run: brew install xcodegen
       - run: make validate-spm-build
 
@@ -251,7 +258,6 @@ commands:
       CircleCI inputs only private key, however Xcode requires both private and public keys in ~/.ssh folder
         mbx-ci tool injects key "id_rsa_3bcd47bf579ce536b04d5f125ed3b33e" with potential name be changed
         This oneliner generates public key for an existing private
-    context: SDK Registry Token
     steps:
       - run:
           name: Generate SSH Public Key from private
@@ -280,6 +286,7 @@ commands:
   ios-install-carthage-dependencies:
     steps:
       - setup-authentication
+          context: SDK Registry Token
       - run: make deps
 
   ios-prestart-simulator:
