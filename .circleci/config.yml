@@ -251,6 +251,7 @@ commands:
       CircleCI inputs only private key, however Xcode requires both private and public keys in ~/.ssh folder
         mbx-ci tool injects key "id_rsa_3bcd47bf579ce536b04d5f125ed3b33e" with potential name be changed
         This oneliner generates public key for an existing private
+    context: SDK Registry Token
     steps:
       - run:
           name: Generate SSH Public Key from private
