@@ -22,6 +22,7 @@ workflows:
             tags:
               only: /v.*/
       - spm-build:
+          context: SDK Registry Token
           requires:
             - pre-check
       - release-pre-check:
