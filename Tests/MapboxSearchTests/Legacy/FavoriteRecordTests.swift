@@ -7,6 +7,7 @@ class FavoriteRecordTests: XCTestCase {
         let record = FavoriteRecord(id: "unique-id", name: "Custom Name", searchResult: resultStub)
 
         XCTAssertEqual(record.id, "unique-id")
+        XCTAssertNotNil(record.mapboxId)
         XCTAssertEqual(record.name, "Custom Name")
         XCTAssertEqual(record.address, resultStub.address)
         XCTAssertEqual(record.categories, resultStub.categories)

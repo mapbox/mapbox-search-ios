@@ -6,6 +6,9 @@ extension Discover {
         /// Result's name
         public let name: String
 
+        /// A unique identifier for the geographic feature
+        public let mapboxId: String?
+
         /// Result's address
         public let address: AddressComponents
 
@@ -34,6 +37,7 @@ extension Discover.Result {
 
         return .init(
             name: searchResult.name,
+            mapboxId: searchResult.mapboxId,
             address: .init(searchResult: searchResult),
             coordinate: searchResult.coordinate,
             routablePoints: routablePointsArray,

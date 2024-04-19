@@ -4,6 +4,7 @@ import CoreLocation
 class SearchResultStub: SearchResult {
     init(
         id: String,
+        mapboxId: String?,
         accuracy: SearchResultAccuracy? = nil,
         categories: [String]? = nil,
         name: String,
@@ -19,6 +20,7 @@ class SearchResultStub: SearchResult {
         dataLayerIdentifier: String = "unit-test-stub"
     ) {
         self.id = id
+        self.mapboxId = mapboxId
         self.accuracy = accuracy
         self.categories = categories
         self.name = name
@@ -37,6 +39,7 @@ class SearchResultStub: SearchResult {
     var dataLayerIdentifier: String
 
     var id: String
+    var mapboxId: String?
     var accuracy: SearchResultAccuracy?
     var categories: [String]?
     var name: String
@@ -68,6 +71,7 @@ extension SearchResultStub {
     static var `default`: SearchResultStub {
         SearchResultStub(
             id: "AddressAutofillAddressComponentTests",
+            mapboxId: nil,
             name: "AddressAutofillAddressComponentTests",
             matchingName: nil,
             serverIndex: nil,

@@ -11,6 +11,7 @@ public protocol SearchSuggestion {
     /// - Attention: Mapbox backend may change the identifier of the object in the future.
     var id: String { get }
 
+    /// A unique identifier for the geographic feature
     var mapboxId: String? { get }
 
     /// Suggestion name.

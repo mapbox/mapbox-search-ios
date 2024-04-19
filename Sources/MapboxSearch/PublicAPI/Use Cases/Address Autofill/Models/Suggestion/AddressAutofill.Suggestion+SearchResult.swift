@@ -23,6 +23,7 @@ extension AddressAutofill.Suggestion {
 
         return try .init(
             name: searchResult.name,
+            mapboxId: searchResult.mapboxId,
             formattedAddress: formattedAddress,
             coordinate: searchResult.coordinate,
             addressComponents: address.toAutofillComponents(),

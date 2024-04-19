@@ -9,6 +9,7 @@ extension PlaceAutocomplete.Suggestion {
     ) -> Self {
         .init(
             name: "name",
+            mapboxId: nil,
             description: "description",
             coordinate: CLLocationCoordinate2D(latitude: 10, longitude: 10),
             iconName: "iconName",

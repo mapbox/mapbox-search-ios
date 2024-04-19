@@ -62,6 +62,7 @@ final class PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase<SBS
                     resolvedSuggestion.coordinate,
                     CLLocationCoordinate2D(latitude: 37.7648, longitude: -122.463)
                 )
+                XCTAssertNil(resolvedSuggestion.mapboxId)
             case .failure:
                 XCTFail("Should return success")
             }
