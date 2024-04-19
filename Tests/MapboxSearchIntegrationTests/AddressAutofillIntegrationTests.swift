@@ -41,7 +41,7 @@ final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase<Autof
             case .success(let suggestions):
                 XCTAssertEqual(suggestions.count, 8)
                 suggestion = suggestions.first
-                suggestion = suggestions[0]
+                XCTAssertNotNil(suggestion?.mapboxId)
             case .failure:
                 XCTFail("Should return success")
             }
@@ -76,6 +76,7 @@ final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase<Autof
                     CLLocationCoordinate2D(latitude: 37.784592, longitude: -122.434671)
                 )
                 XCTAssertEqual(resolvedSuggestion.addressComponents, expectedAddressComponents)
+                XCTAssertNotNil(resolvedSuggestion.mapboxId)
             case .failure:
                 XCTFail("Should return success")
             }

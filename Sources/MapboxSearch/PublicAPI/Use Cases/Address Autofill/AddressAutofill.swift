@@ -132,6 +132,7 @@ extension AddressAutofill {
             }
             let result = AddressAutofill.Result(
                 name: suggestion.name,
+                mapboxId: suggestion.mapboxId,
                 formattedAddress: suggestion.formattedAddress,
                 coordinate: coordinate,
                 addressComponents: suggestion.addressComponents
@@ -248,6 +249,7 @@ extension AddressAutofill {
 
             return Suggestion(
                 name: name,
+                mapboxId: result.mapboxId,
                 formattedAddress: fullAddress,
                 coordinate: result.center?.value,
                 addressComponents: resultAddress,
@@ -287,6 +289,7 @@ extension AddressAutofill {
 
             let autofillResult = AddressAutofill.Result(
                 name: result.name,
+                mapboxId: result.mapboxId,
                 formattedAddress: formattedAddress,
                 coordinate: result.coordinate,
                 addressComponents: addressComponents

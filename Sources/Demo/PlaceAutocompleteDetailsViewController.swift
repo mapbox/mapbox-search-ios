@@ -168,6 +168,12 @@ extension PlaceAutocomplete.Result {
             )
         }
 
+        if let mapboxId {
+            components.append(
+                (name: "Mapbox ID", value: mapboxId)
+            )
+        }
+
         return components
     }
 }

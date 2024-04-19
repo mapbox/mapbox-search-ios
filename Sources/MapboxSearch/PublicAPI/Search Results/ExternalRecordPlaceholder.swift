@@ -2,13 +2,13 @@ import CoreLocation
 import Foundation
 
 class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
-    var mapboxId: String?
-
     var originalResponse: CoreSearchResultResponse
 
     var dataLayerIdentifier: String
 
     var id: String
+
+    var mapboxId: String?
 
     var name: String
 
