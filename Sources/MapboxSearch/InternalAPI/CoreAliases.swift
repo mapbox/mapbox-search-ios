@@ -1,10 +1,8 @@
-@_implementationOnly import MapboxCommon_Private
+import MapboxCommon_Private
+import MapboxCoreSearch
+import MapboxCoreSearch_Private
 
-/// https://forums.swift.org/t/update-on-implementation-only-imports/26996
-@_implementationOnly import MapboxCoreSearch
-@_implementationOnly import MapboxCoreSearch_Private
-
-// Note: This file included in MapboxSearch and MapboxSearchTests targets
+// Note: This file is included in MapboxSearch and MapboxSearchTests targets
 
 typealias CoreSearchEngine = MapboxCoreSearch.SearchEngine
 typealias CoreSearchResponse = MapboxCoreSearch_Private.SearchResponse

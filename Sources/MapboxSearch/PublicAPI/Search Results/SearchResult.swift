@@ -9,6 +9,9 @@ public protocol SearchResult {
     /// Result name.
     var name: String { get }
 
+    /// A unique identifier for the geographic feature
+    var mapboxId: String? { get }
+
     /// Icon name according to [Mapbox Maki icon set](https://github.com/mapbox/maki/)
     var iconName: String? { get }
 

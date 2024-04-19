@@ -8,6 +8,20 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [SearchResult] Add support for `mapboxId` field when availalbe.
+- [FavoriteRecord] Add support for `mapboxId` field when availalbe.
+- [HistoryRecord] Add support for `mapboxId` field when availalbe.
+- [Discover] Add more complete support for `mapboxId` field in Result subtype when availalbe.
+- [Address Autofill] Add more complete support for `mapboxId` field in Result and Suggestion subtypes when availalbe.
+- [Place Autocomplete] Add more complete support for `mapboxId` field in Result and Suggestion subtypes when availalbe.
+- [Demo] Add `mapboxId` table view cell to PlaceAutocomplete detail view controller when available.
+
+- [Offline] Remove `CoreOfflineIndexChangeEventType` extension previously used for development.
+- [Core] Remove usages of `@_implementationOnly import` due to compilation issue.
+
+- [Offline] Add optional `language` parameter to SearchOfflineManager.createTilesetDescriptor and SearchOfflineManager.createPlacesTilesetDescriptor functions.
+- [Tests] Add Spanish language offline search test.
+
 - [Offline] Added OfflineIndexObserver which accepts two blocks for indexChanged or error events. This can be assigned to the offline search engine to receive state updates.
 
 - [Offline] Change default tileset name to `mbx-main`
@@ -16,6 +30,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Tests] Demonstrate providing a `Geometry(point: NSValue(mkCoordinate: CLLocationCoordinate2D))` with `TileRegionLoadOptions.build` function.
 - [Core] Increment minimum MapboxCommon version from 24.0.0 to 24.2.0.
 
+**MapboxCoreSearch**: v2.0.0-alpha.16
 **MapboxCommon**: v24.2.0
 
 ## 2.0.0-rc.3

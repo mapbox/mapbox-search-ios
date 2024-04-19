@@ -36,10 +36,15 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
         wait(for: [setTileStoreExpectation], timeout: 10)
     }
 
-    func loadData(completion: @escaping (Result<MapboxCommon.TileRegion, MapboxSearch.TileRegionError>) -> Void)
+    func loadData(
+        tilesetDescriptor: TilesetDescriptor? = nil,
+        completion: @escaping (Result<MapboxCommon.TileRegion, MapboxSearch.TileRegionError>) -> Void
+    )
     -> SearchCancelable {
-        /// This will use the default dataset defined at ``SearchOfflineManager.defaultDatasetName``
-        let descriptor = SearchOfflineManager.createDefaultTilesetDescriptor()
+        /// A nil tilesetDescriptor parameter will fallback to the default dataset defined at
+        /// ``SearchOfflineManager.defaultDatasetName``
+        let descriptor = tilesetDescriptor ?? SearchOfflineManager.createDefaultTilesetDescriptor()
+
         let dcLocationValue = NSValue(mkCoordinate: dcLocation)
         let options = MapboxCommon.TileRegionLoadOptions.build(
             geometry: Geometry(point: dcLocationValue),
@@ -95,6 +100,54 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
 
         let offlineUpdateExpectation = delegate.offlineUpdateExpectation
         searchEngine.search(query: "coffee")
+        wait(for: [offlineUpdateExpectation], timeout: 10)
+
+        XCTAssertNil(delegate.error)
+        XCTAssertNil(delegate.error?.localizedDescription)
+        XCTAssertNotNil(searchEngine.responseInfo)
+        XCTAssertFalse(delegate.resolvedResults.isEmpty)
+        XCTAssertFalse(searchEngine.suggestions.isEmpty)
+    }
+
+    func testSpanishLanguageSupport() throws {
+        clearData()
+
+        // Set up index observer before the fetch starts to validate changes after it completes
+        let indexChangedExpectation = expectation(description: "Received offline index changed event")
+        let offlineIndexObserver = OfflineIndexObserver(onIndexChangedBlock: { changeEvent in
+            _Logger.searchSDK.info("Index changed: \(changeEvent)")
+            indexChangedExpectation.fulfill()
+        }, onErrorBlock: { error in
+            _Logger.searchSDK.error("Encountered error in OfflineIndexObserver \(error)")
+            XCTFail(error.debugDescription)
+        })
+        searchEngine.offlineManager.engine.addOfflineIndexObserver(for: offlineIndexObserver)
+
+        // Perform the offline fetch
+        let spanishTileset = SearchOfflineManager.createTilesetDescriptor(
+            dataset: "mbx-main",
+            language: "es"
+        )
+        let loadDataExpectation = expectation(description: "Load Data")
+        _ = loadData(tilesetDescriptor: spanishTileset) { result in
+            switch result {
+            case .success(let region):
+                XCTAssert(region.id == self.regionId)
+                XCTAssert(region.completedResourceCount > 0)
+                XCTAssertEqual(region.requiredResourceCount, region.completedResourceCount)
+            case .failure(let error):
+                XCTFail("Unable to load Region, \(error.localizedDescription)")
+            }
+            loadDataExpectation.fulfill()
+        }
+        wait(
+            for: [loadDataExpectation, indexChangedExpectation],
+            timeout: 200,
+            enforceOrder: true
+        )
+
+        let offlineUpdateExpectation = delegate.offlineUpdateExpectation
+        searchEngine.search(query: "café")
         wait(for: [offlineUpdateExpectation], timeout: 10)
 
         XCTAssertNil(delegate.error)
