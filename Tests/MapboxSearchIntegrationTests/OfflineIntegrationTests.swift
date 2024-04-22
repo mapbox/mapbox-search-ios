@@ -193,7 +193,7 @@ class OfflineIntegrationTests: XCTestCase {
         )
 
         let offlineUpdateExpectation = delegate.offlineUpdateExpectation
-        searchEngine.search(query: "café")
+        searchEngine.search(query: "cafe")
         wait(for: [offlineUpdateExpectation], timeout: 10)
 
         XCTAssertNil(delegate.error)
