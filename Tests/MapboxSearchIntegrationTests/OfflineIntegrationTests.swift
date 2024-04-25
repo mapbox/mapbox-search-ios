@@ -194,7 +194,7 @@ class OfflineIntegrationTests: XCTestCase {
 
         let offlineUpdateExpectation = delegate.offlineUpdateExpectation
         searchEngine.search(query: "cafe")
-        wait(for: [offlineUpdateExpectation], timeout: 10)
+        wait(for: [offlineUpdateExpectation], timeout: 100)
 
         XCTAssertNil(delegate.error)
         XCTAssertNil(delegate.error?.localizedDescription)
@@ -208,8 +208,11 @@ class OfflineIntegrationTests: XCTestCase {
 
         let errorExpectation = delegate.errorExpectation
         searchEngine.search(query: "query")
-        wait(for: [errorExpectation], timeout: 10)
+        wait(for: [errorExpectation], timeout: 100)
 
+        XCTAssertNotNil(delegate.error)
+        XCTAssertNotNil(delegate.error?.localizedDescription)
+        XCTAssertNil(searchEngine.responseInfo)
         XCTAssertTrue(searchEngine.suggestions.isEmpty)
     }
 
