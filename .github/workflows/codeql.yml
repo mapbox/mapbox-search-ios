@@ -65,7 +65,7 @@ jobs:
 
     - run: |
         echo "Set up dependencies"
-        /usr/sbin/softwareupdate -install-rosetta -agree-to-license
+        /usr/sbin/softwareupdate --install-rosetta --agree-to-license
         arch -arm64 brew install xcodegen
 
     - run: |
