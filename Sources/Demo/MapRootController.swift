@@ -15,46 +15,10 @@ class MapRootController: UIViewController {
         let panelController = MapboxPanelController(rootViewController: searchController)
         addChild(panelController)
 
-        if ProcessInfo.processInfo.arguments.contains("--offline") {
-            enableOfflineSearch()
-        }
-
         // Enabling jp/ja search options for testing Japanese Address Search.
         // Setting Japanese into the list of preferred languages is a way to activate it.
         if Locale.preferredLanguages.contains(where: { $0.contains("ja") }) {
             searchController.searchOptions = SearchOptions(countries: ["jp"], languages: ["ja"])
-        }
-    }
-
-    func enableOfflineSearch() {
-        let engine = searchController.searchEngine
-
-        engine.setOfflineMode(.enabled) {
-            let descriptor = SearchOfflineManager.createDefaultTilesetDescriptor()
-
-            let dcLocation = NSValue(mkCoordinate: CLLocationCoordinate2D(
-                latitude: 38.89992081005698,
-                longitude: -77.03399849939174
-            ))
-
-            guard let options = MapboxCommon.TileRegionLoadOptions.build(
-                geometry: Geometry(point: dcLocation),
-                descriptors: [descriptor],
-                acceptExpired: true
-            ) else {
-                assertionFailure()
-                return
-            }
-
-            _ = engine.offlineManager.tileStore.loadTileRegion(id: "dc", options: options, progress: nil) { result in
-                switch result {
-                case .success(let region):
-                    assert(region.id == "dc")
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    assertionFailure()
-                }
-            }
         }
     }
 
