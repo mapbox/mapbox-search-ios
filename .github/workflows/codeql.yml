@@ -65,7 +65,7 @@ jobs:
 
     - run: |
         echo "Set up dependencies"
-        brew install xcodegen
+        arch -arm64 brew install xcodegen
 
     - run: |
         echo "Run, Build Application using script"
