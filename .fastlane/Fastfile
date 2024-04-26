@@ -17,9 +17,9 @@ platform :ios do
 
     destinations = [
       "-destination platform=iOS\\ Simulator,name=iPhone\\ 14\\ Pro\\ Max",
-      "-destination platform=iOS\\ Simulator,OS=15,name=iPhone\\ 13",
-      "-destination platform=iOS\\ Simulator,OS=15,name=iPhone\\ 13 Pro",
-      "-destination platform=iOS\\ Simulator,OS=15,name=iPhone\\ 13 mini",
+      "-destination platform=iOS\\ Simulator,OS=15,name=iPhone\\ 14",
+      "-destination platform=iOS\\ Simulator,OS=15,name=iPhone\\ 14 Pro",
+      "-destination platform=iOS\\ Simulator,OS=15,name=iPhone\\ 14 mini",
     ]
 
    destinations.each do |destination|
