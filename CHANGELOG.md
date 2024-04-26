@@ -10,6 +10,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 - [Offline] Add `AbstractSearchEngine.offlineEngineReady` to mark when offline searches are ready.
 
+- [Demo] Add OfflineDemoViewController to MapboxSearch.xcodeproj > Demo application.
+- [Demo] Remove support for `--offline` launch argument.
+
 - [SearchResult] Add support for `mapboxId` field when availalbe.
 - [FavoriteRecord] Add support for `mapboxId` field when availalbe.
 - [HistoryRecord] Add support for `mapboxId` field when availalbe.
