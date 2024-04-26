@@ -85,6 +85,7 @@
 		04BBC6372B61ABA500E24E99 /* FeedbackUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BBFBD02604A4A500DE9C98 /* FeedbackUITestCase.swift */; };
 		04D2F4DB2BE040B300F85CFF /* SearchAddressCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D2F4DA2BE040B300F85CFF /* SearchAddressCountry.swift */; };
 		04D2F4E02BE0413100F85CFF /* SearchAddressRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D2F4DE2BE0413100F85CFF /* SearchAddressRegion.swift */; };
+		04DAF7582BDAAB4C002719E2 /* OfflineDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAF7572BDAAB4C002719E2 /* OfflineDemoViewController.swift */; };
 		04E84D122B76BA230056C269 /* Resources-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04E84D112B76BA230056C269 /* Resources-Info.plist */; };
 		04E84D132B7A8F4D0056C269 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 04E84D072B7691610056C269 /* PrivacyInfo.xcprivacy */; };
 		140D1BDC286DB479001A51C2 /* SearchResultAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */; };
@@ -528,6 +529,7 @@
 		04BBC6332B61898F00E24E99 /* LocalhostMockServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalhostMockServiceProvider.swift; sourceTree = "<group>"; };
 		04D2F4DA2BE040B300F85CFF /* SearchAddressCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressCountry.swift; sourceTree = "<group>"; };
 		04D2F4DE2BE0413100F85CFF /* SearchAddressRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressRegion.swift; sourceTree = "<group>"; };
+		04DAF7572BDAAB4C002719E2 /* OfflineDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineDemoViewController.swift; sourceTree = "<group>"; };
 		04E84CFD2B768EDA0056C269 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		04E84CFE2B768EDA0056C269 /* Brewfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Brewfile; sourceTree = "<group>"; };
 		04E84D012B768F210056C269 /* Pluginfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Pluginfile; sourceTree = "<group>"; };
@@ -1002,6 +1004,14 @@
 				04D2F4DE2BE0413100F85CFF /* SearchAddressRegion.swift */,
 			);
 			path = Region;
+			sourceTree = "<group>";
+		};
+		04DAF7562BDAAB38002719E2 /* Offline */ = {
+			isa = PBXGroup;
+			children = (
+				04DAF7572BDAAB4C002719E2 /* OfflineDemoViewController.swift */,
+			);
+			path = Offline;
 			sourceTree = "<group>";
 		};
 		04E84D002B768F210056C269 /* .fastlane */ = {
@@ -1846,6 +1856,7 @@
 		FEEDD3B32508E3CD00DC0A98 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				04DAF7562BDAAB38002719E2 /* Offline */,
 				14F7186829A1335F00D5BC2E /* Place Autocomplete */,
 				14B92D5C298BFD04006003C1 /* Discover */,
 				1440BF4B28FD7591009B3679 /* Address Autofill */,
@@ -2735,6 +2746,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1440BF4F290019AD009B3679 /* AddressAutofillResultViewController.swift in Sources */,
+				04DAF7582BDAAB4C002719E2 /* OfflineDemoViewController.swift in Sources */,
 				1440BF4D28FD75A9009B3679 /* AddressAutofillMainViewController.swift in Sources */,
 				041DAFD92BCDA45B0071F9EB /* DiscoverViewController.swift in Sources */,
 				FEEDD3C32508E3CD00DC0A98 /* AppDelegate.swift in Sources */,
