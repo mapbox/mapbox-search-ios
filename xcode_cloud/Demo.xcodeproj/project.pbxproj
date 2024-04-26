@@ -10,6 +10,7 @@
 		040B165E2B9A387100B9BE88 /* MapboxSearch in Frameworks */ = {isa = PBXBuildFile; productRef = 040B165D2B9A387100B9BE88 /* MapboxSearch */; };
 		040B16602B9A387100B9BE88 /* MapboxSearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = 040B165F2B9A387100B9BE88 /* MapboxSearchUI */; };
 		040CD5172BCDBAA200DEB4E9 /* MapboxCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 040CD5162BCDBAA200DEB4E9 /* MapboxCommon */; };
+		042C491C2BDC2AFF00B7C38D /* OfflineDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C491B2BDC2AFF00B7C38D /* OfflineDemoViewController.swift */; };
 		04A4218E2BCD6CD600007D9C /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04A4217C2BCD6CD600007D9C /* Main.strings */; };
 		04A4218F2BCD6CD600007D9C /* PlaceAutocompleteMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4217E2BCD6CD600007D9C /* PlaceAutocompleteMainViewController.swift */; };
 		04A421902BCD6CD600007D9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A4217F2BCD6CD600007D9C /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042C491B2BDC2AFF00B7C38D /* OfflineDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfflineDemoViewController.swift; path = Offline/OfflineDemoViewController.swift; sourceTree = "<group>"; };
 		04A4217D2BCD6CD600007D9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		04A4217E2BCD6CD600007D9C /* PlaceAutocompleteMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceAutocompleteMainViewController.swift; sourceTree = "<group>"; };
 		04A4217F2BCD6CD600007D9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 		04A4217B2BCD6CD600007D9C /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				042C491B2BDC2AFF00B7C38D /* OfflineDemoViewController.swift */,
 				04A4217C2BCD6CD600007D9C /* Main.strings */,
 				04A4217E2BCD6CD600007D9C /* PlaceAutocompleteMainViewController.swift */,
 				04A4217F2BCD6CD600007D9C /* Assets.xcassets */,
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A421962BCD6CD600007D9C /* AddressAutofillMainViewController.swift in Sources */,
+				042C491C2BDC2AFF00B7C38D /* OfflineDemoViewController.swift in Sources */,
 				04A4218F2BCD6CD600007D9C /* PlaceAutocompleteMainViewController.swift in Sources */,
 				04A421982BCD6CD600007D9C /* AddressAutofillResultViewController.swift in Sources */,
 				04A421922BCD6CD600007D9C /* MapRootController.swift in Sources */,
@@ -314,7 +318,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -370,7 +374,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -450,7 +454,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mapbox/mapbox-search-ios/";
 			requirement = {
-				branch = "SSDK-736-address-autofill-fixes";
+				branch = main;
 				kind = branch;
 			};
 		};

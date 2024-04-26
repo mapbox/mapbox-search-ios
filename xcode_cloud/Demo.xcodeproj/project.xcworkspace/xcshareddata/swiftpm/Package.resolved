@@ -1,4 +1,5 @@
 {
+  "originHash" : "70db9fff31e5587cf66288cc5f61b187b66719b0fa9f1a09982394b45276178b",
   "pins" : [
     {
       "identity" : "cwlcatchexception",
@@ -32,10 +33,10 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mapbox/mapbox-search-ios/",
       "state" : {
-        "branch" : "SSDK-736-address-autofill-fixes",
-        "revision" : "ac5e0254f4edfda9ada56f40048a74bd7c0143a4"
+        "branch" : "main",
+        "revision" : "2d4a2a4988b7bcd8c8081be5ec29d314c7edaa58"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
