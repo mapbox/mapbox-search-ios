@@ -33,7 +33,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
     public private(set) var offlineManager: SearchOfflineManager
 
     /// Block offline searches until the tileset is ready
-    var offlineEngineReady = false
+    public var offlineEngineReady = false
 
     // Manager to send raw events to Mapbox Telemetry
     let eventsManager: EventsManager

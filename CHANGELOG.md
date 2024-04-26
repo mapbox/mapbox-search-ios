@@ -8,7 +8,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
-- [Offline] Add `AbstractSearchEngine.offlineEngineReady` to mark when offline searches are ready.
+- [Offline] Add public `AbstractSearchEngine.offlineEngineReady` to mark when offline searches are ready.
 
 - [Demo] Add OfflineDemoViewController to MapboxSearch.xcodeproj > Demo application.
 - [Demo] Remove support for `--offline` launch argument.

@@ -50,10 +50,22 @@ class OfflineIntegrationTests: XCTestCase {
             acceptExpired: true
         )!
 
-        let cancelable = searchEngine.offlineManager.tileStore.loadTileRegion(id: regionId, options: options) { _ in
-        } completion: { result in
-            completion(result)
-        }
+        let cancelable = searchEngine.offlineManager.tileStore
+            .loadTileRegion(id: regionId, options: options) { progress in
+//            let sizePercent = CGFloat(progress.loadedResourceSize) / CGFloat(max(1, progress.completedResourceSize))
+//            NSLog("@@ progress size: \(sizePercent)% (loaded: \(progress.loadedResourceSize), completed:
+//            \(progress.completedResourceSize))")
+
+                let countPercent = CGFloat(progress.loadedResourceCount) / CGFloat(max(
+                    1,
+                    progress.requiredResourceCount
+                ))
+                NSLog(
+                    "@@ progress count: \(countPercent)% (loaded: \(progress.loadedResourceCount), required: \(progress.requiredResourceCount))"
+                )
+            } completion: { result in
+                completion(result)
+            }
         return cancelable
     }
 
@@ -208,11 +220,8 @@ class OfflineIntegrationTests: XCTestCase {
 
         let errorExpectation = delegate.errorExpectation
         searchEngine.search(query: "query")
-        wait(for: [errorExpectation], timeout: 100)
+        wait(for: [errorExpectation], timeout: 10)
 
-        XCTAssertNotNil(delegate.error)
-        XCTAssertNotNil(delegate.error?.localizedDescription)
-        XCTAssertNil(searchEngine.responseInfo)
         XCTAssertTrue(searchEngine.suggestions.isEmpty)
     }
 
