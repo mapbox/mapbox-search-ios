@@ -126,7 +126,7 @@ extension CoreSearchResultProtocol {
             fullAddress: nil,
             distance: distance,
             eta: nil,
-            center: center, // center: center.map { $0.coordinate },
+            center: center,
             accuracy: 100,
             routablePoints: routablePoints,
             categories: categories,
