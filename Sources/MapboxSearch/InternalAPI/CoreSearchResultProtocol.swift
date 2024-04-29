@@ -4,6 +4,9 @@ import Foundation
 protocol CoreSearchResultProtocol {
     var id: String { get }
 
+    /// A unique identifier for the geographic feature
+    var mapboxId: String? { get }
+
     var resultTypes: [CoreResultType] { get }
 
     /**

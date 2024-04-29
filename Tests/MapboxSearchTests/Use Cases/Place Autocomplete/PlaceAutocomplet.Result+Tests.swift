@@ -5,6 +5,7 @@ final class PlaceAutocompleteResultTests: XCTestCase {
     func testResultContainsISOCountryCodes() throws {
         let coreResult = CoreSearchResultStub(
             id: UUID().uuidString,
+            mapboxId: nil,
             type: .address
         )
         coreResult.metadata = .make(data: [

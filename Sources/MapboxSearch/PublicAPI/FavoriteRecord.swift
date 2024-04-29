@@ -5,6 +5,9 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     /// Unique record identifier.
     public let id: String
 
+    /// A unique identifier for the geographic feature
+    public var mapboxId: String?
+
     /// Displayable name of the record.
     public var name: String
 
@@ -79,6 +82,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     ///   - resultType: Favorite result type
     public init(
         id: String? = nil,
+        mapboxId: String? = nil,
         name: String,
         matchingName: String?,
         coordinate: CLLocationCoordinate2D,
@@ -93,6 +97,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         metadata: SearchResultMetadata? = nil
     ) {
         self.id = id ?? UUID().uuidString
+        self.mapboxId = mapboxId
         self.name = name
         self.matchingName = matchingName
         self.coordinateCodable = .init(coordinate)
@@ -118,6 +123,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     ) {
         self.init(
             id: id,
+            mapboxId: searchResult.mapboxId,
             name: name,
             matchingName: searchResult.matchingName,
             coordinate: searchResult.coordinate,

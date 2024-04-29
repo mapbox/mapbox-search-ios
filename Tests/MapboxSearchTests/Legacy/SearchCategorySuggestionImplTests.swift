@@ -7,6 +7,7 @@ class SearchCategorySuggestionImplTests: XCTestCase {
         let suggestionImpl = try XCTUnwrap(SearchCategorySuggestionImpl(
             coreResult: CoreSearchResultStub(
                 id: "sample-2",
+                mapboxId: nil,
                 type: .category,
                 center: nil
             ),
@@ -21,7 +22,7 @@ class SearchCategorySuggestionImplTests: XCTestCase {
 
     func testFailedInitForPOI() throws {
         XCTAssertNil(SearchCategorySuggestionImpl(
-            coreResult: CoreSearchResultStub(id: "sample-1", type: .poi, center: nil),
+            coreResult: CoreSearchResultStub(id: "sample-1", mapboxId: nil, type: .poi, center: nil),
             response: CoreSearchResponseStub(
                 id: 42,
                 options: .sample1,

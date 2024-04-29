@@ -20,6 +20,7 @@ struct IndexableRecordStub: IndexableRecord {
     var asResolved: SearchResult {
         SearchResultStub(
             id: id,
+            mapboxId: nil,
             categories: nil,
             name: name,
             matchingName: nil,

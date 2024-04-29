@@ -82,6 +82,8 @@
 		04970F8D2B7A97C900213763 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 04970F8C2B7A97C900213763 /* PrivacyInfo.xcprivacy */; };
 		04BBC6342B61898F00E24E99 /* LocalhostMockServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BBC6332B61898F00E24E99 /* LocalhostMockServiceProvider.swift */; };
 		04BBC6372B61ABA500E24E99 /* FeedbackUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BBFBD02604A4A500DE9C98 /* FeedbackUITestCase.swift */; };
+		04D2F4DB2BE040B300F85CFF /* SearchAddressCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D2F4DA2BE040B300F85CFF /* SearchAddressCountry.swift */; };
+		04D2F4E02BE0413100F85CFF /* SearchAddressRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D2F4DE2BE0413100F85CFF /* SearchAddressRegion.swift */; };
 		04E84D122B76BA230056C269 /* Resources-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04E84D112B76BA230056C269 /* Resources-Info.plist */; };
 		04E84D132B7A8F4D0056C269 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 04E84D072B7691610056C269 /* PrivacyInfo.xcprivacy */; };
 		140D1BDC286DB479001A51C2 /* SearchResultAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140D1BDB286DB479001A51C2 /* SearchResultAccuracy.swift */; };
@@ -522,6 +524,8 @@
 		0491257C2BC04E1300D40803 /* MockResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockResponse.swift; sourceTree = "<group>"; };
 		04970F8C2B7A97C900213763 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		04BBC6332B61898F00E24E99 /* LocalhostMockServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalhostMockServiceProvider.swift; sourceTree = "<group>"; };
+		04D2F4DA2BE040B300F85CFF /* SearchAddressCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressCountry.swift; sourceTree = "<group>"; };
+		04D2F4DE2BE0413100F85CFF /* SearchAddressRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressRegion.swift; sourceTree = "<group>"; };
 		04E84CFD2B768EDA0056C269 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		04E84CFE2B768EDA0056C269 /* Brewfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Brewfile; sourceTree = "<group>"; };
 		04E84D012B768F210056C269 /* Pluginfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Pluginfile; sourceTree = "<group>"; };
@@ -990,6 +994,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		04D2F4DD2BE0413100F85CFF /* Region */ = {
+			isa = PBXGroup;
+			children = (
+				04D2F4DE2BE0413100F85CFF /* SearchAddressRegion.swift */,
+			);
+			path = Region;
+			sourceTree = "<group>";
+		};
 		04E84D002B768F210056C269 /* .fastlane */ = {
 			isa = PBXGroup;
 			children = (
@@ -1033,6 +1045,7 @@
 		14173C2C28783DDD00B20E1C /* Country */ = {
 			isa = PBXGroup;
 			children = (
+				04D2F4DA2BE040B300F85CFF /* SearchAddressCountry.swift */,
 				148DE6612857501D0085684D /* Country.swift */,
 				14173C2F2878437D00B20E1C /* Country+ISO3166-1.swift */,
 			);
@@ -1271,6 +1284,7 @@
 		148DE660285750100085684D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				04D2F4DD2BE0413100F85CFF /* Region */,
 				14173C3B28784B8900B20E1C /* Address */,
 				14FA657D295355A500056E5B /* Administrative Unit */,
 				14F7186729A1333400D5BC2E /* Bounding Box */,
@@ -2462,6 +2476,7 @@
 				FEEDD31B2508DFE400DC0A98 /* LocalDataProviders.swift in Sources */,
 				FEEDD2F42508DFE400DC0A98 /* CoreResponseProvider.swift in Sources */,
 				FEEDD30C2508DFE400DC0A98 /* IndexableRecord.swift in Sources */,
+				04D2F4E02BE0413100F85CFF /* SearchAddressRegion.swift in Sources */,
 				043A3D4D2B30F38300DB681B /* CoreAddress+AddressComponents.swift in Sources */,
 				FE097B7B264EAA1A001EAC2F /* AddOfflineRegionError.swift in Sources */,
 				FEEDD30D2508DFE400DC0A98 /* ServiceProvider.swift in Sources */,
@@ -2522,6 +2537,7 @@
 				140D1BDC286DB479001A51C2 /* SearchResultAccuracy.swift in Sources */,
 				141789E7287C05060000AE79 /* AddressAutofill.Suggestion+SearchResult.swift in Sources */,
 				1488F78329A7AD5800CF373B /* CoreUserActivityReporter.swift in Sources */,
+				04D2F4DB2BE040B300F85CFF /* SearchAddressCountry.swift in Sources */,
 				144F32F5298D21E70082B2D5 /* AddressComponents.swift in Sources */,
 				FEEDD3122508DFE400DC0A98 /* SearchResultSuggestion.swift in Sources */,
 				148DE671285777180085684D /* NSLocking+Extensions.swift in Sources */,
@@ -2690,7 +2706,6 @@
 				F9C557BB2670CCC000BE8B94 /* SearchResultType+Extensions.swift in Sources */,
 				F9C557BA2670CCAB00BE8B94 /* TestDataProviderRecord.swift in Sources */,
 				042477C32B7290F900D870D5 /* SearchEngineGeocodingIntegrationTests.swift in Sources */,
-				F9C557672670CB0400BE8B94 /* MockResponse.swift in Sources */,
 				0405809D2BA8E67D00A54CB9 /* OwningObjectDeallocatedErrorTests.swift in Sources */,
 				04BBC6342B61898F00E24E99 /* LocalhostMockServiceProvider.swift in Sources */,
 				2C10133429F1C6200094413F /* PlaceAutocompleteIntegrationTests.swift in Sources */,

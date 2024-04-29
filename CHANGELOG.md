@@ -8,47 +8,44 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [SearchResult] Add support for mapboxId field when available.
+- [FavoriteRecord] Add support for mapboxId field when available.
+- [HistoryRecord] Add support for mapboxId field when available.
+- [Discover] Add support for mapboxId field when available.
+- [Address Autofill] Add support for mapboxId field when available.
+- [Place Autocomplete] Add support for mapboxId field when available.
+- [Demo] Add mapboxId table view cell to PlaceAutocomplete detail view controller when available.
+- [Address] Added SearchAddressRegion containing name, regionCode, and regionCodeFull fields.
+- [Address] Added SearchAddressCountry containing name, countryCode, and regionCodeFull fields.
+- [Address] Added fields searchAddressRegion and searchAddressCountry to Address alongside existing country and region.
+
+**MapboxCoreSearch**: v1.0.0
+
 ## 1.0.0-rc.9 - 2024-04-15
 
 - [UI] Add Right-to-Left language support for Categories/Favorites segment control and fix xib errors.
 - [UI] Add Preview file for CategoriesFavoritesSegmentControl to fix compiler problems.
-
 - [Core] Add SearchError.owningObjectDeallocated when network responses fail to unwrap guard-let-self. If you encounter this error you must own the reference to the search engine.
 - [Tests] Add UnownedObjectError tests to validate behavior of SearchError.owningObjectDeallocated.
-
 - [Tests] Reorganize tests based on API type
-
 - [Privacy] Add Search history collected data for the purpose of product personalization (used for displaying the search history)
-
 - [License] Update license to reflect 2024 usage
-
 - [Tests] Change MockResponse into a protocol, create separate enums conforming to MockResponse for each API type (geocoding, sbs, autofill), add MockResponse as generic to each test base class and MockWebServer.
-
 - [SearchUI] Add `distanceFormatter` field to Configuration to support changing the search suggestions distance format. Nil values will use the default behavior.
-
 - [Core] Add xcprivacy for MapboxSearch and MapboxSearchUI
-
 - [Unit Tests] Update and correct tests for iOS 17 using all mocked data.
 - [UI Tests] Update and correct tests for iOS 17 using all mocked data.
-
 - [Search] Rename `SearchEngine.reverseGeocoding` function to `SearchEngine.reverse`.
-
 - [Core] Stop reading "MapboxAPIBaseURL" from UserDefaults in `ServiceProvider.createEngine`. (Providing a value in Info.plist is still supported).
-
 - [Core] Updated to Xcode 14.1 minimum version
 - [Core] Updated deployment target to iOS 12
-
 - [Core] Remove Swifter library dependency from MapboxSearch target (only used in Test targets)
-
 - [Discover] Fix charging station category canonical ID
-
 - [Core] Update SwiftLint to 0.54.0 and SwiftFormat to 0.52.11
 - [Core] Fix project compliance with linter, reformat Swift files
 - [Core] Add Brewfile for project
 - [Core] Remove legacy `MGLMapboxAccessToken`.
-
 - [SearchExample] Update Examples/SearchExample.xcworkspace to use the local package (parent directory) for MapboxSearch.
-
 - [Address Autofill] Suggestions no longer perform a `retrieve` call.
 - [Address Autofill] `Suggestion.coordinate` is now an optional. `init` requires an Underlying enum parameter.
 - [Address Autofill] Added new AddressAutofill.Suggestion.Underlying enum parameter with cases for suggestion and result inputs.
@@ -57,21 +54,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Place Autocomplete] `Result.coordinate` is now an optional.
 - [Core] Remove legacy `MGLMapboxAccessToken`.
 - [Core] Remove bitcode support
-- [Core] Updated API usage:
-	- Removed parameter-based Access Token. Be sure to provide your token in Info.plist.
-	- Renamed `CoreSuggestAction.isMultiRetrivable` to `multiRetrievable`.
-	- Renamed `CoreSearchResult.center` to `.centerLocation`.
-	- Renamed `CoreSearchOptions.isIgnoreUR` to `ignoreUR`.
-	- Renamed `TileRegionLoadOptions` initializer parameter `start` to `startLocation`.
-	- Replace some `CLLocation` fields with `Coordinate2D` wrapper containing a value of `CLLocationCoordinate2D`. This changes the call-site from `.coordinate` to `.value`.
-	- Added `SdkInformation.defaultInfo` default value for various Core initializer parameters.
-	- Added `SearchAddressRegion` containing `name`, `regionCode`, and `regionCodeFull` fields.
-	- Added `SearchAddressCountry` containing `name`, `countryCode`, and `regionCodeFull` fields.
-	- Added fields `searchAddressRegion` and `searchAddressCountry` to `Address` alongside existing `country` and `region`.
-	- Remove access token parameter from `SearchTileStore`.
 
 **MapboxCommon**: v23.0.0
-**MapboxCoreSearch**: v2.0.0
+**MapboxCoreSearch**: v1.0.0
 
 ## 1.0.0-rc.8 - 2023-10-09
 

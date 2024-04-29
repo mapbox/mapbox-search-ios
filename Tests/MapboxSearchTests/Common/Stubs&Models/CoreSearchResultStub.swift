@@ -4,6 +4,7 @@ import CoreLocation
 class CoreSearchResultStub: CoreSearchResultProtocol {
     init(
         id: String,
+        mapboxId: String?,
         resultAccuracy: CoreAccuracy? = nil,
         type: CoreResultType,
         names: [String] = ["sample-name1", "sample-name2"],
@@ -24,6 +25,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         estimatedTime: Measurement<UnitDuration>? = nil
     ) {
         self.id = id
+        self.mapboxId = mapboxId
         self.resultAccuracy = resultAccuracy
         self.resultTypes = [type]
         self.names = names
@@ -46,6 +48,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
     convenience init(dataProviderRecord: TestDataProviderRecord) {
         self.init(
             id: dataProviderRecord.id,
+            mapboxId: nil,
             type: dataProviderRecord.type.coreType,
             names: [dataProviderRecord.name],
             languages: ["en"]
@@ -53,6 +56,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
     }
 
     var id: String
+    var mapboxId: String?
     var resultAccuracy: CoreAccuracy?
     var resultTypes: [CoreResultType]
     var type: CoreResultType { resultTypes.first ?? .unknown }
@@ -112,6 +116,7 @@ extension CoreSearchResultProtocol {
     var asCoreSearchResult: CoreSearchResult {
         CoreSearchResult(
             id: id,
+            mapboxId: nil,
             types: resultTypes.map { NSNumber(value: $0.rawValue) },
             names: names,
             languages: languages,
@@ -121,10 +126,13 @@ extension CoreSearchResultProtocol {
             fullAddress: nil,
             distance: distance,
             eta: nil,
-            center: center,
+            center: center, // center: center.map { $0.coordinate },
             accuracy: 100,
             routablePoints: routablePoints,
             categories: categories,
+            categoryIDs: [],
+            brand: [],
+            brandID: nil,
             icon: icon,
             metadata: nil,
             externalIDs: nil,

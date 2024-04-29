@@ -5,6 +5,7 @@ extension SearchQuerySuggestionImpl {
     static let sample1 = SearchQuerySuggestionImpl(
         coreResult: CoreSearchResultStub(
             id: "sample-43",
+            mapboxId: nil,
             type: .query,
             center: nil
         ),

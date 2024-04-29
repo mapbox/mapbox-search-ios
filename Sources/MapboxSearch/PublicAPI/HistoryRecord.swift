@@ -20,6 +20,9 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     /// Unique identifier
     public private(set) var id: String
 
+    /// A unique identifier for the geographic feature
+    public private(set) var mapboxId: String?
+
     /// Record's name
     public private(set) var name: String
 
@@ -86,6 +89,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     /// History record constructor
     /// - Parameters:
     ///   - id: UUID used by default
+    ///   - mapboxId:
     ///   - name: History name
     ///   - coordinate: History coordinate
     ///   - timestamp: History timestamp
@@ -97,6 +101,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     ///   - routablePoints: Coordinates of building entries
     public init(
         id: String = UUID().uuidString,
+        mapboxId: String?,
         name: String,
         matchingName: String?,
         serverIndex: Int?,
@@ -112,6 +117,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         routablePoints: [RoutablePoint]? = nil
     ) {
         self.id = id
+        self.mapboxId = mapboxId
         self.name = name
         self.matchingName = matchingName
         self.serverIndex = serverIndex
@@ -138,6 +144,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         timestamp: Date = Date()
     ) {
         self.id = searchResult.id
+        self.mapboxId = searchResult.mapboxId
         self.name = searchResult.name
         self.matchingName = searchResult.matchingName
         self.serverIndex = searchResult.serverIndex

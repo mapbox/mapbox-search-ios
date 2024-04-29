@@ -15,8 +15,8 @@ extension CoreAddress {
         postcode.map { components.append(.init(kind: .postcode, value: $0)) }
         place.map { components.append(.init(kind: .place, value: $0)) }
         district.map { components.append(.init(kind: .district, value: $0)) }
-        region.map { components.append(.init(kind: .region, value: $0)) }
-        country.map { components.append(.init(kind: .country, value: $0)) }
+        region.map { components.append(.init(kind: .region, value: $0.name)) }
+        country.map { components.append(.init(kind: .country, value: $0.name)) }
 
         guard let first = components.first else {
             throw AutofillParsingError.emptyAddressComponents

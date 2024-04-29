@@ -6,6 +6,9 @@ extension PlaceAutocomplete {
         /// Place's name.
         public let name: String
 
+        /// A unique identifier for the geographic feature
+        public let mapboxId: String?
+
         /// Contains formatted address.
         public let description: String?
 
@@ -36,6 +39,7 @@ extension PlaceAutocomplete {
 
         init(
             name: String,
+            mapboxId: String?,
             description: String?,
             coordinate: CLLocationCoordinate2D?,
             iconName: String?,
@@ -47,6 +51,7 @@ extension PlaceAutocomplete {
             underlying: Underlying
         ) {
             self.name = name
+            self.mapboxId = mapboxId
             self.description = description
             self.coordinate = coordinate
             self.iconName = iconName
@@ -69,6 +74,7 @@ extension PlaceAutocomplete.Suggestion {
     func result(for underlyingResult: SearchResult) -> PlaceAutocomplete.Result {
         .init(
             name: name,
+            mapboxId: underlyingResult.mapboxId,
             description: description,
             type: placeType,
             coordinate: coordinate,
@@ -108,6 +114,7 @@ extension PlaceAutocomplete.Suggestion {
 
         return .init(
             name: searchResult.name,
+            mapboxId: searchResult.mapboxId,
             description: searchResult.descriptionText,
             coordinate: searchResult.coordinate,
             iconName: searchResult.iconName,
@@ -136,6 +143,7 @@ extension PlaceAutocomplete.Suggestion {
 
         return .init(
             name: searchSuggestion.names.first ?? "",
+            mapboxId: searchSuggestion.mapboxId,
             description: searchSuggestion.addressDescription,
             coordinate: coordinate,
             iconName: searchSuggestion.icon,

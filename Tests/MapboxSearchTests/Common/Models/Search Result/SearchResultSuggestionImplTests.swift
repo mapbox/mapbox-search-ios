@@ -8,6 +8,7 @@ class SearchResultSuggestionImplTests: XCTestCase {
         let suggestionImpl = try XCTUnwrap(SearchResultSuggestionImpl(
             coreResult: CoreSearchResultStub(
                 id: "sample-2",
+                mapboxId: nil,
                 type: .address,
                 center: nil
             ),
@@ -24,6 +25,7 @@ class SearchResultSuggestionImplTests: XCTestCase {
         let suggestionImpl = try XCTUnwrap(SearchResultSuggestionImpl(
             coreResult: CoreSearchResultStub(
                 id: "sample-2",
+                mapboxId: nil,
                 type: .poi,
                 center: nil
             ),
@@ -40,6 +42,7 @@ class SearchResultSuggestionImplTests: XCTestCase {
         XCTAssertNil(SearchResultSuggestionImpl(
             coreResult: CoreSearchResultStub(
                 id: "sample-2",
+                mapboxId: nil,
                 type: .category,
                 center: nil
             ),
@@ -56,6 +59,7 @@ class SearchResultSuggestionImplTests: XCTestCase {
             _ = SearchResultSuggestionImpl(
                 coreResult: CoreSearchResultStub(
                     id: "sample-2",
+                    mapboxId: nil,
                     type: .category,
                     center: .sample1
                 ),
