@@ -17,6 +17,9 @@ public enum SearchResultAccuracy: String, Codable {
     /// Result is a known address point but has no specific accuracy.
     case point
 
+    /// Result is a known address point but does not intersect a known rooftop/parcel.
+    case proximate
+
     /// Result is for a specific building/entrance.
     case rooftop
 
@@ -34,6 +37,7 @@ extension SearchResultAccuracy {
         case .point: return .point
         case .rooftop: return .rooftop
         case .street: return .street
+        case .proximate: return .proximate
 
         @unknown default:
             return nil

@@ -78,7 +78,7 @@ workflows:
 jobs:
   pre-check:
     macos:
-      xcode: 14.1
+      xcode: 15.2
     steps:
       - checkout
       - ios-install-carthage-dependencies
@@ -86,7 +86,7 @@ jobs:
 
   release-pre-check:
     macos:
-      xcode: 14.1
+      xcode: 15.2
     steps:
       - parse-release-version
       - run:
@@ -96,7 +96,7 @@ jobs:
 
   build:
     macos:
-      xcode: 14.1 # Specify the Xcode version to use
+      xcode: 15.2 # Specify the Xcode version to use
     environment:
       FL_OUTPUT_DIR: ../output
     steps:
@@ -134,11 +134,12 @@ jobs:
 
   release-documentation:
     macos:
-      xcode: 14.1
+      xcode: 15.2
     steps:
       - checkout
       - parse-release-version
       - setup-authentication
+      - upgrade-carthage
       - install-mbx-ci-darwin
       - restore_cache:
           keys:
@@ -157,7 +158,7 @@ jobs:
 
   documentation-pr:
     macos:
-      xcode: 14.1
+      xcode: 15.2
     steps:
       - checkout
       - parse-release-version
@@ -180,7 +181,7 @@ jobs:
 
   build-for-release:
     macos:
-      xcode: 14.1
+      xcode: 15.2
     steps:
       - checkout
       - setup-authentication
@@ -199,11 +200,12 @@ jobs:
 
   release-ios:
     macos:
-      xcode: 14.1
+      xcode: 15.2
     steps:
       - checkout
       - setup-authentication
       - parse-release-version
+      - upgrade-carthage
       - run: rm '/usr/local/lib/python3.9/site-packages/six.py'
       - run: brew install awscli gh
       - attach_workspace:
@@ -224,11 +226,12 @@ jobs:
 
   post-SDK_Registry-release:
     macos:
-      xcode: 14.1
+      xcode: 15.2
     steps:
       - checkout
       - parse-release-version
       - setup-authentication
+      - upgrade-carthage
       - install-mbx-ci-darwin
       - run: scripts/generate_podspecs.sh
       - run:
@@ -241,7 +244,7 @@ jobs:
 
   spm-build:
     macos:
-      xcode: 14.1
+      xcode: 15.2
     steps:
       - checkout
       - setup-authentication
@@ -283,7 +286,7 @@ commands:
   ios-install-carthage-dependencies:
     steps:
       - setup-authentication
-      # Xcode 14.1 image has Carthage 0.38 so v1 must always update carthage
+      # Always update carthage on v1 due to previous Xcode 14 image
       - upgrade-carthage
       - run: make deps
 

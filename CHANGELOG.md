@@ -8,7 +8,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
-## 1.0.0-rc.10 - 2024-04-29
+## 1.0.0 - 2024-04-30
 
 - [SearchResult] Add support for mapboxId field when available.
 - [FavoriteRecord] Add support for mapboxId field when available.
@@ -20,8 +20,11 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Address] Added SearchAddressRegion containing name, regionCode, and regionCodeFull fields.
 - [Address] Added SearchAddressCountry containing name, countryCode, and regionCodeFull fields.
 - [Address] Added fields searchAddressRegion and searchAddressCountry to Address alongside existing country and region.
+- [Core] Add `SearchResultAccuracy.proximate` case which "is a known address point but does not intersect a known rooftop/parcel."
 - [Core] Update to MapboxCoreSearch v1.0.1 with PrivacyInfo.xcprivacy and compatibility with Xcode 15.3
+- [Core] Build with Xcode 15.2
 
+**MapboxCommon**: v23.9.2
 **MapboxCoreSearch**: v1.0.1
 
 ## 1.0.0-rc.9 - 2024-04-15
