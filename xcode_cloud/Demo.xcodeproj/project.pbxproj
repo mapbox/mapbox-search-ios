@@ -462,8 +462,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mapbox/mapbox-common-ios.git";
 			requirement = {
-				kind = exactVersion;
-				version = 24.2.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 24.2.0;
 			};
 		};
 		E6FC5AE82640418F00240BBB /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */ = {
