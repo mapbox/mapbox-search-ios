@@ -139,6 +139,7 @@ jobs:
       - checkout
       - parse-release-version
       - setup-authentication
+      - upgrade-carthage
       - install-mbx-ci-darwin
       - restore_cache:
           keys:
@@ -204,6 +205,7 @@ jobs:
       - checkout
       - setup-authentication
       - parse-release-version
+      - upgrade-carthage
       - run: rm '/usr/local/lib/python3.9/site-packages/six.py'
       - run: brew install awscli gh
       - attach_workspace:
@@ -229,6 +231,7 @@ jobs:
       - checkout
       - parse-release-version
       - setup-authentication
+      - upgrade-carthage
       - install-mbx-ci-darwin
       - run: scripts/generate_podspecs.sh
       - run:
