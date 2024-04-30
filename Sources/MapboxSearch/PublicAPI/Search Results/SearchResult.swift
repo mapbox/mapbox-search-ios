@@ -6,6 +6,9 @@ public protocol SearchResult {
     /// Result unique identifier.
     var id: String { get }
 
+    /// A unique identifier for the geographic feature
+    var mapboxId: String? { get }
+
     /// Result name.
     var name: String { get }
 

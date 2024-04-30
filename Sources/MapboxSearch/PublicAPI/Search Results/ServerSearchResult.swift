@@ -35,6 +35,9 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
 
     var id: String
 
+    /// A unique identifier for the geographic feature
+    var mapboxId: String?
+
     var name: String
 
     var matchingName: String?
@@ -61,6 +64,7 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
         self.type = type
 
         self.id = coreResult.id
+        self.mapboxId = coreResult.mapboxId
         self.name = coreResult.names[0]
         self.matchingName = coreResult.matchingName
         self.iconName = coreResult.icon

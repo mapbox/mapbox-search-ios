@@ -36,9 +36,16 @@ public struct Address: Codable, Hashable {
     /// China.
     public var region: String?
 
+    /// Top-level sub-national administrative feature object containing the name (required) and ISO 3166-2 subdivision
+    /// code identifiers.
+    public var searchAddressRegion: SearchAddressRegion?
+
     /// Generally recognized countries or, in some cases like Hong Kong, an area of quasi-national administrative status
     /// that has been given a designated country code under ISO 3166-1.
     public var country: String?
+
+    /// Generally recognized country object containing the name (required) and ISO 3166-1 country code identifiers.
+    public var searchAddressCountry: SearchAddressCountry?
 
     /// The postal address associated with the location, formatted for use with the Contacts framework.
     public var postalAddress: CNPostalAddress {
@@ -89,8 +96,10 @@ extension Address {
             postcode: valueOrNil(coreAddress.postcode),
             place: valueOrNil(coreAddress.place),
             district: valueOrNil(coreAddress.district),
-            region: valueOrNil(coreAddress.region),
-            country: valueOrNil(coreAddress.country)
+            region: valueOrNil(coreAddress.region?.name),
+            searchAddressRegion: coreAddress.region.map { SearchAddressRegion($0) },
+            country: valueOrNil(coreAddress.country?.name),
+            searchAddressCountry: coreAddress.country.map { SearchAddressCountry($0) }
         )
     }
 
@@ -103,8 +112,8 @@ extension Address {
             postcode: postcode,
             place: place,
             district: district,
-            region: region,
-            country: country
+            region: searchAddressRegion?.toCore(),
+            country: searchAddressCountry?.toCore()
         )
     }
 }

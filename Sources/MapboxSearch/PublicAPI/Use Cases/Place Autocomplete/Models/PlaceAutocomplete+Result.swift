@@ -5,6 +5,8 @@ extension PlaceAutocomplete {
         /// Result name.
         public let name: String
 
+        public let mapboxId: String?
+
         /// Contains formatted address.
         public let description: String?
 

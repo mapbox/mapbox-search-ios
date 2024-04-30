@@ -1,5 +1,5 @@
 CURRENT_DIR := $(shell pwd)
-CARTHAGE_MIN_VERSION = 0.38.0
+CARTHAGE_MIN_VERSION = 0.39.1
 CARTHAGE_BUILD_DIR := $(CURRENT_DIR)/Carthage/Build
 PRODUCTS_DIR := $(CURRENT_DIR)/Products
 VERSION ?= $(shell git describe --tags $(git rev-list --tags='v*' --max-count=1) --abbrev=0)

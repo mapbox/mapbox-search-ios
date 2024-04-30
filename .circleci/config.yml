@@ -10,19 +10,23 @@ workflows:
   develop-build:
     jobs:
       - pre-check:
+          context: SDK Registry Token
           filters:
             tags:
               only: /v.*/
       - build:
+          context: SDK Registry Token
           requires:
             - pre-check
           filters:
             tags:
               only: /v.*/
       - spm-build:
+          context: SDK Registry Token
           requires:
             - pre-check
       - release-pre-check:
+          context: SDK Registry Token
           requires:
             - pre-check
           filters:
@@ -279,6 +283,8 @@ commands:
   ios-install-carthage-dependencies:
     steps:
       - setup-authentication
+      # Xcode 14.1 image has Carthage 0.38 so v1 must always update carthage
+      - upgrade-carthage
       - run: make deps
 
   ios-prestart-simulator:

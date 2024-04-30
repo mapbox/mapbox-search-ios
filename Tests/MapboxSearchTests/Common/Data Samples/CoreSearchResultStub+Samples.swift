@@ -5,17 +5,20 @@ import XCTest
 extension CoreSearchResultStub {
     static let sample1 = CoreSearchResultStub(
         id: "sample-1",
+        mapboxId: nil,
         type: .poi,
         distance: 4200,
         estimatedTime: Measurement(value: 10.5, unit: .minutes)
     )
     static let sample2 = CoreSearchResultStub(
         id: "sample-2",
+        mapboxId: nil,
         type: .category
     )
 
     static let externalRecordSample = CoreSearchResultStub(
         id: "sample-3",
+        mapboxId: nil,
         type: .userRecord,
         center: .sample1,
         layer: FavoritesProvider.providerIdentifier,
@@ -34,6 +37,7 @@ extension CoreSearchResultStub {
     static func makeSuggestion(metadata: CoreResultMetadata? = nil) -> CoreSearchResultStub {
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
+            mapboxId: nil,
             type: .place,
             names: ["Some Place Name"],
             languages: ["en"],
@@ -64,12 +68,13 @@ extension CoreSearchResultStub {
     }
 
     static func makeSuggestionTypeQuery() -> CoreSearchResultStub {
-        CoreSearchResultStub(id: "recursion", type: .query, center: nil)
+        CoreSearchResultStub(id: "recursion", mapboxId: nil, type: .query, center: nil)
     }
 
     static func makeCategory() -> CoreSearchResultStub {
         CoreSearchResultStub(
             id: UUID().uuidString,
+            mapboxId: nil,
             type: .category,
             names: ["Bar"],
             languages: ["en"],
@@ -82,6 +87,7 @@ extension CoreSearchResultStub {
         let center = CLLocation(latitude: 12.0000, longitude: 10.0000)
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
+            mapboxId: nil,
             type: .place,
             names: ["Some Place Name"],
             languages: ["en"],
@@ -95,6 +101,7 @@ extension CoreSearchResultStub {
     static func makeAddress() -> CoreSearchResultStub {
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
+            mapboxId: nil,
             type: .address,
             names: ["Some Place Name"],
             languages: ["en"],
@@ -115,11 +122,20 @@ extension CoreSearchResultStub {
             postcode: nil,
             place: nil,
             district: "poi-land",
-            region: "poi-region",
-            country: "poi-country"
+            region: CoreSearchAddressRegion(
+                name: "poi-region",
+                regionCode: nil,
+                regionCodeFull: nil
+            ),
+            country: CoreSearchAddressCountry(
+                name: "poi-country",
+                countryCode: nil,
+                countryCodeAlpha3: nil
+            )
         )
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
+            mapboxId: nil,
             type: .place,
             names: ["Some Place Name"],
             languages: ["en"],
@@ -141,11 +157,20 @@ extension CoreSearchResultStub {
             postcode: nil,
             place: nil,
             district: "pizza-land",
-            region: "pizza-region",
-            country: "pizza-country"
+            region: CoreSearchAddressRegion(
+                name: "pizza-region",
+                regionCode: nil,
+                regionCodeFull: nil
+            ),
+            country: CoreSearchAddressCountry(
+                name: "pizza-country",
+                countryCode: nil,
+                countryCodeAlpha3: nil
+            )
         )
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
+            mapboxId: nil,
             type: .place,
             names: ["Some Place Name"],
             languages: ["en"],
@@ -167,11 +192,20 @@ extension CoreSearchResultStub {
             postcode: nil,
             place: nil,
             district: "history-land",
-            region: "history-region",
-            country: "history-country"
+            region: CoreSearchAddressRegion(
+                name: "history-region",
+                regionCode: nil,
+                regionCodeFull: nil
+            ),
+            country: CoreSearchAddressCountry(
+                name: "history-country",
+                countryCode: nil,
+                countryCodeAlpha3: nil
+            )
         )
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
+            mapboxId: nil,
             type: .place,
             names: ["Some Place Name"],
             languages: ["en"],

@@ -57,7 +57,6 @@ do
     xcodebuild -create-xcframework -output "${RESULT_PRODUCTS_DIR}/${frameworkName}.xcframework" \
       -framework "${DEVICE_ARCHIVE_NAME}/Products/Library/Frameworks/${frameworkName}.framework" \
           -debug-symbols "${DEVICE_ARCHIVE_NAME}/dSYMs/${frameworkName}.framework.dSYM" \
-          -debug-symbols "${DEVICE_ARCHIVE_NAME}/BCSymbolMaps/${DSYM_UUID}.bcsymbolmap" \
       -framework "${SIMULATOR_ARCHIVE_NAME}/Products/Library/Frameworks/${frameworkName}.framework" \
           -debug-symbols "${SIMULATOR_ARCHIVE_NAME}/dSYMs/${frameworkName}.framework.dSYM"
 

@@ -4,7 +4,7 @@ import XCTest
 class ServerSearchResultTests: XCTestCase {
     func testServerSearchResultNilForUnknownType() {
         let result = ServerSearchResult(
-            coreResult: CoreSearchResultStub(id: UUID().uuidString, type: .unknown),
+            coreResult: CoreSearchResultStub(id: UUID().uuidString, mapboxId: nil, type: .unknown),
             response: CoreSearchResponseStub.failureSample
         )
 
@@ -13,7 +13,7 @@ class ServerSearchResultTests: XCTestCase {
 
     func testServerSearchResultNilForCategoryType() {
         let result = ServerSearchResult(
-            coreResult: CoreSearchResultStub(id: UUID().uuidString, type: .category),
+            coreResult: CoreSearchResultStub(id: UUID().uuidString, mapboxId: nil, type: .category),
             response: CoreSearchResponseStub.failureSample
         )
 
@@ -22,7 +22,7 @@ class ServerSearchResultTests: XCTestCase {
 
     func testServerSearchResultNilForUserRecordType() {
         let result = ServerSearchResult(
-            coreResult: CoreSearchResultStub(id: UUID().uuidString, type: .userRecord),
+            coreResult: CoreSearchResultStub(id: UUID().uuidString, mapboxId: nil, type: .userRecord),
             response: CoreSearchResponseStub.failureSample
         )
 
@@ -31,7 +31,7 @@ class ServerSearchResultTests: XCTestCase {
 
     func testServerSearchResultNilForMissingCoordinates() {
         let result = ServerSearchResult(
-            coreResult: CoreSearchResultStub(id: UUID().uuidString, type: .userRecord, center: nil),
+            coreResult: CoreSearchResultStub(id: UUID().uuidString, mapboxId: nil, type: .userRecord, center: nil),
             response: CoreSearchResponseStub.failureSample
         )
 
@@ -39,7 +39,7 @@ class ServerSearchResultTests: XCTestCase {
     }
 
     func testServerSearchResultPOIFields() throws {
-        let coreResult = CoreSearchResultStub(id: UUID().uuidString, type: .poi)
+        let coreResult = CoreSearchResultStub(id: UUID().uuidString, mapboxId: nil, type: .poi)
         let result = try XCTUnwrap(ServerSearchResult(
             coreResult: coreResult,
             response: CoreSearchResponseStub.failureSample
@@ -55,7 +55,7 @@ class ServerSearchResultTests: XCTestCase {
     }
 
     func testServerSearchResultAddressType() throws {
-        let coreResult = CoreSearchResultStub(id: UUID().uuidString, type: .address)
+        let coreResult = CoreSearchResultStub(id: UUID().uuidString, mapboxId: nil, type: .address)
         let result = try XCTUnwrap(ServerSearchResult(
             coreResult: coreResult,
             response: CoreSearchResponseStub.failureSample
