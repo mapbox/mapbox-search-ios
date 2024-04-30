@@ -283,6 +283,8 @@ commands:
   ios-install-carthage-dependencies:
     steps:
       - setup-authentication
+      # Xcode 14.1 image has Carthage 0.38 so v1 must always update carthage
+      - upgrade-carthage
       - run: make deps
 
   ios-prestart-simulator:
