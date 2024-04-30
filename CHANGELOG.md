@@ -21,6 +21,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Address] Added SearchAddressCountry containing name, countryCode, and regionCodeFull fields.
 - [Address] Added fields searchAddressRegion and searchAddressCountry to Address alongside existing country and region.
 - [Core] Update to MapboxCoreSearch v1.0.1 with PrivacyInfo.xcprivacy and compatibility with Xcode 15.3
+- [Core] Build with Xcode 15.2
 
 **MapboxCommon**: v23.0.0
 **MapboxCoreSearch**: v1.0.1
