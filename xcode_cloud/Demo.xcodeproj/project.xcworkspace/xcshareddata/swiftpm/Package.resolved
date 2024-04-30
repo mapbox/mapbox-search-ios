@@ -33,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mapbox/mapbox-search-ios/",
       "state" : {
-        "branch" : "main",
-        "revision" : "2d4a2a4988b7bcd8c8081be5ec29d314c7edaa58"
+        "branch" : "xcprivacy-searchcore_beta17",
+        "revision" : "2a5ba6693b64594a155fd85a88a9c333eb6b8ec9"
       }
     }
   ],
