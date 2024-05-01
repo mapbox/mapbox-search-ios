@@ -71,7 +71,6 @@ workflows:
             tags:
               only: /v.*/
       - post-SDK_Registry-release:
-          context: SDK Registry Token
           context: CocoaPods trunk token
           requires:
             - request-post-SDK_Registry-release
