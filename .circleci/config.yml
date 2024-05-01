@@ -36,12 +36,14 @@ workflows:
               ignore: /.*/
               # only: /release\/[0-9]+\.[0-9]+\.[0-9]+.*/
       - build-for-release:
+          context: SDK Registry Token
           requires:
             - release-pre-check
           filters:
             tags:
               only: /v.*/
       - release-documentation:
+          context: SDK Registry Token
           requires:
             - release-pre-check
           filters:
@@ -54,6 +56,7 @@ workflows:
             tags:
               only: /v.*/
       - release-ios:
+          context: SDK Registry Token
           requires:
             - build-for-release
             - documentation-pr
@@ -68,6 +71,7 @@ workflows:
             tags:
               only: /v.*/
       - post-SDK_Registry-release:
+          context: SDK Registry Token
           context: CocoaPods trunk token
           requires:
             - request-post-SDK_Registry-release
