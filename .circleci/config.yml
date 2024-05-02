@@ -10,9 +10,7 @@ workflows:
   develop-build:
     jobs:
       - pre-check:
-          context:
-            - SDK Registry Token
-            - CocoaPods trunk token
+          context: SDK Registry Token
           filters:
             tags:
               only: /v.*/
