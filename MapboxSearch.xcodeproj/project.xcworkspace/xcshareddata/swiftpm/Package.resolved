@@ -1,4 +1,5 @@
 {
+  "originHash" : "88c025a1b9b9dde5a8299bb33d0b299779bdb0b9da241347c975651554215963",
   "pins" : [
     {
       "identity" : "cwlcatchexception",
@@ -28,5 +29,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

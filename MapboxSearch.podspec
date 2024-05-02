@@ -24,5 +24,5 @@ Some iOS platform specifics applies.
 
   s.vendored_frameworks = "**/#{s.name}.xcframework"
 
-  s.dependency "MapboxCommon", '~> 24.0'
+  s.dependency "MapboxCommon", '~> 24.4.0-beta.2'
 end

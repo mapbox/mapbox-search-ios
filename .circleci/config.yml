@@ -10,7 +10,9 @@ workflows:
   develop-build:
     jobs:
       - pre-check:
-          context: SDK Registry Token
+          context:
+            - SDK Registry Token
+            - CocoaPods trunk token
           filters:
             tags:
               only: /v.*/
@@ -36,24 +38,28 @@ workflows:
               ignore: /.*/
               # only: /release\/[0-9]+\.[0-9]+\.[0-9]+.*/
       - build-for-release:
+          context: SDK Registry Token
           requires:
             - release-pre-check
           filters:
             tags:
               only: /v.*/
       - release-documentation:
+          context: SDK Registry Token
           requires:
             - release-pre-check
           filters:
             tags:
               only: /v.*/
       - documentation-pr:
+          context: SDK Registry Token
           requires:
             - release-documentation
           filters:
             tags:
               only: /v.*/
       - release-ios:
+          context: SDK Registry Token
           requires:
             - build-for-release
             - documentation-pr
@@ -68,7 +74,9 @@ workflows:
             tags:
               only: /v.*/
       - post-SDK_Registry-release:
-          context: CocoaPods trunk token
+          context:
+            - SDK Registry Token
+            - CocoaPods trunk token
           requires:
             - request-post-SDK_Registry-release
           filters:
@@ -289,7 +297,7 @@ commands:
     steps:
       - run:
           name: pre-start simulator
-          command: xcrun instruments -w "iPhone 13 Pro (15.0) [" || true
+          command: xcrun instruments -w "iPhone 14 [" || true
 
   upgrade-carthage:
     steps:

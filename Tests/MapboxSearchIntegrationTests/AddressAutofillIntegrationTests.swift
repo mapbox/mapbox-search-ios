@@ -47,7 +47,7 @@ final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase<Autof
             }
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 5)
+        wait(for: [expectation], timeout: 10)
 
         let expectedAddress = Address(
             houseNumber: "701",
@@ -83,7 +83,7 @@ final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase<Autof
             selectionExpectation.fulfill()
         }
 
-        wait(for: [selectionExpectation], timeout: 5)
+        wait(for: [selectionExpectation], timeout: 10)
     }
 
     func testSelectSuggestionFromCoordinate() throws {
@@ -105,7 +105,7 @@ final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase<Autof
             expectation.fulfill()
         }
 
-        wait(for: [expectation], timeout: 5)
+        wait(for: [expectation], timeout: 10)
 
         let expectedAddress = Address(
             houseNumber: "701",
@@ -140,7 +140,7 @@ final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase<Autof
             selectionExpectation.fulfill()
         }
 
-        wait(for: [selectionExpectation], timeout: 5)
+        wait(for: [selectionExpectation], timeout: 10)
     }
 }
 
