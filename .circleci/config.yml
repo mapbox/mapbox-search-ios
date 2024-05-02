@@ -10,7 +10,8 @@ workflows:
   develop-build:
     jobs:
       - pre-check:
-          context: SDK Registry Token, CocoaPods trunk token
+          context: SDK Registry Token
+          context: CocoaPods trunk token
           filters:
             tags:
               only: /v.*/
@@ -72,7 +73,8 @@ workflows:
             tags:
               only: /v.*/
       - post-SDK_Registry-release:
-          context: SDK Registry Token, CocoaPods trunk token
+          context: SDK Registry Token
+          context: CocoaPods trunk token
           requires:
             - request-post-SDK_Registry-release
           filters:
