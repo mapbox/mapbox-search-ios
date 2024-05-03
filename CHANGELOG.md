@@ -8,6 +8,12 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+## 2.0.1
+
+- [Core] Update to MapboxCoreSearch v2.0.0-beta.19 for compatibility with Xcode 15.3
+
+**MapboxCoreSearch**: v2.0.0-beta.19
+
 ## 2.0.0
 
 - [Demo] Add OfflineDemoViewController to MapboxSearch.xcodeproj > Demo application.

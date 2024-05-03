@@ -82,8 +82,8 @@ Once you've installed the prerequisites, no additional steps are needed: Open th
 
 You can find the following documentation pages helpful:
 - [Search SDK for iOS guide](https://docs.mapbox.com/ios/search/guides/)
-- [MapboxSearch reference](https://docs.mapbox.com/ios/search/api/core/2.0.0/)
-- [MapboxSearchUI reference](https://docs.mapbox.com/ios/search/api/ui/2.0.0/)
+- [MapboxSearch reference](https://docs.mapbox.com/ios/search/api/core/2.0.1/)
+- [MapboxSearchUI reference](https://docs.mapbox.com/ios/search/api/ui/2.0.1/)
 
 ## Project structure overview
 
@@ -108,13 +108,13 @@ MapboxSearchDemoApplication provides a Demo app wih MapboxSearchUI.framework pre
 ##### MapboxSearch
 To integrate latest preview version of `MapboxSearch` into your Xcode project using CocoaPods, specify it in your `Podfile`:  
 ```
-pod 'MapboxSearch', ">= 2.0.0", "< 3.0"
+pod 'MapboxSearch', ">= 2.0.1", "< 3.0"
 ```
 
 ##### MapboxSearchUI
 To integrate latest preview version of `MapboxSearchUI` into your Xcode project using CocoaPods, specify it in your `Podfile`:  
 ```
-pod 'MapboxSearchUI', ">= 2.0.0", "< 3.0"
+pod 'MapboxSearchUI', ">= 2.0.1", "< 3.0"
 ```
 
 ### Swift Package Manager
