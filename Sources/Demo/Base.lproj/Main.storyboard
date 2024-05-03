@@ -34,7 +34,7 @@
         <scene sceneID="BeI-ty-XHo">
             <objects>
                 <navigationController navigationBarHidden="YES" id="o1C-pK-XDO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="SearchUI" id="lTB-qi-YMg"/>
+                    <tabBarItem key="tabBarItem" title="SearchUI" image="sparkle.magnifyingglass" catalog="system" id="lTB-qi-YMg"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1Rg-Ar-SQd">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -75,7 +75,7 @@
         <scene sceneID="uHr-2S-ZJS">
             <objects>
                 <navigationController id="NZD-nP-oWd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Autofill" id="fkh-Aj-TqY"/>
+                    <tabBarItem key="tabBarItem" title="Autofill" image="pencil.and.outline" catalog="system" id="fkh-Aj-TqY"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MnI-GH-jMM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -233,7 +233,7 @@
         <scene sceneID="Cbv-pg-ufB">
             <objects>
                 <navigationController navigationBarHidden="YES" id="kQh-we-4TL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" id="FHv-mk-0xk"/>
+                    <tabBarItem key="tabBarItem" title="Discover" image="tag" catalog="system" id="FHv-mk-0xk"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XUy-LY-TcY">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -306,7 +306,7 @@
         <scene sceneID="f6G-Xx-USR">
             <objects>
                 <navigationController id="3ka-H2-HT2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Autocomplete" id="ofb-Lf-pQ3"/>
+                    <tabBarItem key="tabBarItem" title="Autocomplete" image="highlighter" catalog="system" id="ofb-Lf-pQ3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cVj-Mk-wEF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -405,7 +405,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="highlighter" catalog="system" width="128" height="120"/>
         <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
+        <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
+        <image name="sparkle.magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="tag" catalog="system" width="128" height="118"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
