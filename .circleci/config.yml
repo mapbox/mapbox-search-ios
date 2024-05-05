@@ -50,6 +50,7 @@ workflows:
             tags:
               only: /v.*/
       - documentation-pr:
+          context: SDK Registry Token
           requires:
             - release-documentation
           filters:
@@ -71,7 +72,9 @@ workflows:
             tags:
               only: /v.*/
       - post-SDK_Registry-release:
-          context: CocoaPods trunk token
+          context:
+            - SDK Registry Token
+            - CocoaPods trunk token
           requires:
             - request-post-SDK_Registry-release
           filters:
