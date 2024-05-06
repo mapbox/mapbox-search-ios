@@ -10,9 +10,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## 1.0.2 - 2024-05-06
 
-- [Core] Update to MapboxCoreSearch v1.0.4 for compatibility with Xcode 15.3 by using `MinimumOSVersion=100.0`
+- [Core] Update to MapboxCoreSearch v1.0.5 for compatibility with Xcode 15.3 by removing `MinimumOSVersion`
 
-**MapboxCoreSearch**: v1.0.4
+**MapboxCoreSearch**: v1.0.5
 
 ## 1.0.1 - 2024-05-03
 
