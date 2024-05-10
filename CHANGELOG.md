@@ -8,6 +8,13 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+## 1.0.2 - 2024-05-10
+
+- [Core] Update to MapboxCoreSearch v1.0.7 for corrected compatibility with Xcode 15.3
+- [Core] Update to MapboxCoreSearch for corrected PrivacyInfo.xcprivacy
+
+**MapboxCoreSearch**: v1.0.7
+
 ## 1.0.1 - 2024-05-03
 
 - [Core] Update to MapboxCoreSearch v1.0.2 for compatibility with Xcode 15.3
