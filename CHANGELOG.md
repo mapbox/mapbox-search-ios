@@ -8,6 +8,10 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Core] Align MapboxCommon dependency with 24.3.1
+
+**MapboxCommon**: v24.3.1
+
 ## 2.0.2
 
 - [Core] Update to MapboxCoreSearch v2.0.1 for corrected compatibility with Xcode 15.3
