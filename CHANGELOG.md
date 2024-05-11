@@ -8,6 +8,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+## 2.0.3
+
 - [Core] Align MapboxCommon dependency with 24.3.1
 
 **MapboxCommon**: v24.3.1
