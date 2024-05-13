@@ -305,9 +305,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cocoapods
   fastlane
   fastlane-plugin-versioning
-  jazzy
+  jazzy (~> 0.14.4)
 
 BUNDLED WITH
    2.5.9
