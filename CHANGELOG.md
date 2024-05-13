@@ -8,6 +8,15 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+## 2.0.3
+
+- [Core] Change MapboxCommon dependency to use exact versions in SPM and CocoaPods
+- [Core] Align MapboxCommon dependency with exact version 24.3.1
+- [Core] Update to MapboxCoreSearch v2.0.2 to align dependencies
+
+**MapboxCommon**: v24.3.1
+**MapboxCoreSearch**: v2.0.2
+
 ## 2.0.2
 
 - [Core] Update to MapboxCoreSearch v2.0.1 for corrected compatibility with Xcode 15.3
