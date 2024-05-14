@@ -24,7 +24,7 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
-        .package(name: "MapboxCommon", url: "https://github.com/mapbox/mapbox-common-ios.git", .exact(mapboxCommonSDKVersion)),
+        .package(url: "https://github.com/mapbox/mapbox-common-ios.git", exact: mapboxCommonSDKVersion),
         .package(url: "https://github.com/mattgallagher/CwlPreconditionTesting.git", from: "2.0.0")
     ],
     targets: [
@@ -34,7 +34,7 @@ let package = Package(
             name: "MapboxSearch",
             dependencies: [
                 "MapboxCoreSearch",
-                "MapboxCommon",
+                .product(name: "MapboxCommon", package: "mapbox-common-ios")
             ],
             exclude: ["Info.plist"],
             resources: [
