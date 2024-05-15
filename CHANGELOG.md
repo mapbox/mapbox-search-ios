@@ -16,6 +16,19 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Tests] Add `offlineResultsUpdated` delegate function to `SearchEngineDelegateStub`.
 - [Tests] Demonstrate providing a `Geometry(point: NSValue(mkCoordinate: CLLocationCoordinate2D))` with `TileRegionLoadOptions.build` function.
 
+## 1.0.2 - 2024-05-10
+
+- [Core] Update to MapboxCoreSearch v1.0.7 for corrected compatibility with Xcode 15.3
+- [Core] Update to MapboxCoreSearch for corrected PrivacyInfo.xcprivacy
+
+**MapboxCoreSearch**: v1.0.7
+
+## 1.0.1 - 2024-05-03
+
+- [Core] Update to MapboxCoreSearch v1.0.2 for compatibility with Xcode 15.3
+
+**MapboxCoreSearch**: v1.0.2
+
 ## 1.0.0 - 2024-04-30
 
 - [SearchResult] Add support for mapboxId field when available.
@@ -29,7 +42,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Address] Added SearchAddressCountry containing name, countryCode, and regionCodeFull fields.
 - [Address] Added fields searchAddressRegion and searchAddressCountry to Address alongside existing country and region.
 - [Core] Add `SearchResultAccuracy.proximate` case which "is a known address point but does not intersect a known rooftop/parcel."
-- [Core] Update to MapboxCoreSearch v1.0.1 with PrivacyInfo.xcprivacy and compatibility with Xcode 15.3
+- [Core] Update to MapboxCoreSearch v1.0.1 with PrivacyInfo.xcprivacy and compatibility with Xcode 15.2
 - [Core] Build with Xcode 15.2
 
 **MapboxCommon**: v23.9.2
