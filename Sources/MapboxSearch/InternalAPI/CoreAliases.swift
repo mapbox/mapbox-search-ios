@@ -37,6 +37,8 @@ typealias CoreOfflineIndexChangeEvent = MapboxCoreSearch.OfflineIndexChangeEvent
 typealias CoreOfflineIndexError = MapboxCoreSearch.OfflineIndexError
 typealias CoreOfflineIndexChangeEventType = MapboxCoreSearch.OfflineIndexChangeEventType
 
+typealias CoreTileRegionGeometryCallback = MapboxCommon_Private.TileRegionGeometryCallback
+
 let mapboxCoreSearchErrorDomain = "MapboxCoreSearchErrorDomain"
 
 extension CoreSearchEngine {

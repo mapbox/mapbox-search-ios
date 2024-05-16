@@ -6,9 +6,16 @@ import UIKit
 
 /// Demonstrate how to use Offline Search in the Demo app
 class OfflineDemoViewController: UIViewController {
-    private var mapView = MKMapView()
-    private var messageLabel = UILabel()
     private lazy var searchController = MapboxSearchController()
+    private let tilesetDescriptor = SearchOfflineManager.createDefaultTilesetDescriptor()
+
+    let locationManager = CLLocationManager()
+
+    private var mapView = MKMapView()
+    private var mapTapGesture = UITapGestureRecognizer()
+    private var activeMultiPolygon = MKMultiPolygon()
+
+    private var messageLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +25,12 @@ class OfflineDemoViewController: UIViewController {
         searchController.delegate = self
         let panelController = MapboxPanelController(rootViewController: searchController)
         addChild(panelController)
+
+        mapTapGesture.addTarget(self, action: #selector(tapGestureOnMap(sender:)))
+        mapTapGesture.numberOfTouchesRequired = 1
+        mapView.addGestureRecognizer(mapTapGesture)
+
+        mapView.delegate = self
 
         enableOfflineSearch()
 
@@ -32,40 +45,22 @@ class OfflineDemoViewController: UIViewController {
         let engine = searchController.searchEngine
 
         engine.setOfflineMode(.enabled) {
-            let descriptor = SearchOfflineManager.createDefaultTilesetDescriptor()
-
-            let dcLocation = NSValue(mkCoordinate: CLLocationCoordinate2D(
-                latitude: 38.89992081005698,
-                longitude: -77.03399849939174
-            ))
-
-            guard let options = MapboxCommon.TileRegionLoadOptions.build(
-                geometry: Geometry(point: dcLocation),
-                descriptors: [descriptor],
-                acceptExpired: true
-            ) else {
-                assertionFailure()
-                return
-            }
-
-            _ = engine.offlineManager.tileStore.loadTileRegion(id: "dc", options: options, progress: nil) { result in
-                switch result {
-                case .success(let region):
-                    assert(region.id == "dc")
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    assertionFailure()
-                }
-            }
+            NSLog("Offline mode has been enabled.")
         }
     }
-
-    let locationManager = CLLocationManager()
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         locationManager.requestWhenInUseAuthorization()
+
+        displayShape(for: tilesetDescriptor) { [weak mapView] activeMultipolygon in
+
+            mapView?.setVisibleMapRect(
+                activeMultipolygon.boundingMapRect.insetBy(dx: -90000, dy: -90000),
+                animated: true
+            )
+        }
     }
 
     private func setUpLayout() {
@@ -141,5 +136,115 @@ extension OfflineDemoViewController: SearchControllerDelegate {
         annotation.subtitle = userFavorite.address?.formattedAddress(style: .medium)
 
         showAnnotation([annotation], isPOI: true)
+    }
+}
+
+// MARK: - Tap to Download functions
+
+extension OfflineDemoViewController {
+    /// Start an offline download for the coordinates on the map that have been tapped
+    @objc
+    func tapGestureOnMap(sender: UITapGestureRecognizer) {
+        let tapPoint = sender.location(in: mapView)
+        let coordinates = mapView.convert(tapPoint, toCoordinateFrom: mapView)
+
+        /// NOTE:
+        /// loadTileRegion identifier parameters must be owned by your application to build your own business logic
+        /// with offline tile regions. For this demo we'll just pick unique identifiers and skip clean-up.
+        download(
+            coordinates: coordinates,
+            identifier: "download-\(Date())-\(coordinates)"
+        )
+    }
+
+    func download(coordinates: CLLocationCoordinate2D, identifier: String) {
+        let engine = searchController.searchEngine
+        let downloadLocation = NSValue(mkCoordinate: coordinates)
+        let downloadDescriptor = tilesetDescriptor
+
+        guard let options = MapboxCommon.TileRegionLoadOptions.build(
+            geometry: Geometry(point: downloadLocation),
+            descriptors: [tilesetDescriptor],
+            acceptExpired: true
+        ) else {
+            assertionFailure()
+            return
+        }
+
+        _ = engine.offlineManager.tileStore.loadTileRegion(id: identifier, options: options, progress: nil) { result in
+            switch result {
+            case .success(let region):
+                assert(region.id == identifier)
+            case .failure(let error):
+                print(error.localizedDescription)
+                assertionFailure()
+            }
+
+            DispatchQueue.main.async {
+                self.displayShape(for: downloadDescriptor) { [weak mapView = self.mapView] activeMultiPolygon in
+                    mapView?.setVisibleMapRect(activeMultiPolygon.boundingMapRect, animated: true)
+                }
+            }
+        }
+    }
+
+    func displayShape(for tileDescriptor: TilesetDescriptor, completion: ((MKMultiPolygon) -> Void)? = nil) {
+        searchController.searchEngine.offlineManager.tileStore
+            .computeCoveredArea(for: [tileDescriptor]) { [weak mapView] result in
+                switch result {
+                case .success(let geometry):
+                    guard let locations3DArray = geometry.extractLocations3DArray() else {
+                        return
+                    }
+
+                    var polygons: [MKPolygon] = []
+
+                    // Each entry in geometry.extractLocations3DArray() is a separate polygon.
+                    for offlineTileLocations in locations3DArray {
+                        var sequenceCoordinates: [CLLocationCoordinate2D] = []
+                        for locationsArray in offlineTileLocations {
+                            for locationItem in locationsArray {
+                                sequenceCoordinates.append(locationItem.mkCoordinateValue)
+                            }
+                        }
+
+                        let polygon = MKPolygon(
+                            coordinates: &sequenceCoordinates,
+                            count: sequenceCoordinates.count
+                        )
+                        polygons.append(polygon)
+                    }
+
+                    DispatchQueue.main.async { [weak mapView, weak self] in
+                        if let previousActiveMultiPolygon = self?.activeMultiPolygon {
+                            mapView?.removeOverlay(previousActiveMultiPolygon)
+                        }
+
+                        let newActiveMultiPolygon = MKMultiPolygon(polygons)
+                        mapView?.addOverlay(newActiveMultiPolygon)
+                        self?.activeMultiPolygon = newActiveMultiPolygon
+
+                        completion?(newActiveMultiPolygon)
+                    }
+
+                case .failure(let error):
+                    NSLog("@@ failed with error \(error)")
+                }
+            }
+    }
+}
+
+extension OfflineDemoViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: any MKOverlay) -> MKOverlayRenderer {
+        guard let multiPolygon = overlay as? MKMultiPolygon else {
+            return MKOverlayRenderer(overlay: overlay)
+        }
+
+        let renderer = MKMultiPolygonRenderer(multiPolygon: multiPolygon)
+        renderer.alpha = 0.4
+        renderer.fillColor = UIColor.blue
+        renderer.strokeColor = UIColor.orange
+        renderer.lineWidth = 2
+        return renderer
     }
 }

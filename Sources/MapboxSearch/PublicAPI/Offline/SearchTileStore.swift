@@ -6,6 +6,8 @@ import Foundation
 ///
 /// Use `commonTileStore` property to access underlaying `MapboxCommon.TileStore`
 public class SearchTileStore {
+    public typealias GeometryCallback = (Swift.Result<MapboxCommon.Geometry, TileRegionError>) -> Void
+
     /// Default API Url used for `Search` tile data domain.
     public let defaultEndPoint = "https://api.mapbox.com"
 
@@ -118,6 +120,20 @@ public class SearchTileStore {
             }
         }
     }
+
+    public func computeCoveredArea(
+        for descriptors: [MapboxCommon.TilesetDescriptor],
+        callback: @escaping GeometryCallback
+    ) {
+        commonTileStore.computeCoveredArea(for: descriptors, callback: { callbackResult in
+            callback(
+                makeExpectedResult(
+                    expected: callbackResult,
+                    fallbackError: TileRegionError.other("Implementation failure")
+                )
+            )
+        })
+    }
 }
 
 private func makeResult<Value>(
@@ -128,6 +144,22 @@ private func makeResult<Value>(
         return .success(value)
     } else if expected.isError() {
         return .failure(TileRegionError(coreError: expected.error))
+    } else {
+        return .failure(fallbackError)
+    }
+}
+
+/// Transform a MapboxCommon.MBXExpected callback result into a Swift.Result
+private func makeExpectedResult<Value>(
+    expected: CoreExpected<Value, MapboxCommon.TileRegionError>,
+    fallbackError: TileRegionError
+) -> Result<Value, TileRegionError> {
+    if expected.isValue(), let value = expected.value {
+        return .success(value)
+    } else if expected.isError() {
+        return .failure(
+            TileRegionError.other("Implementation error in \(#function)")
+        )
     } else {
         return .failure(fallbackError)
     }
