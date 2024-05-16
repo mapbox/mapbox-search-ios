@@ -74,12 +74,6 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 
-# Code Injection
-# After new code Injection tools there's a generated folder /iOSInjectionProject
-# https://github.com/johnno1962/injectionforxcode
-
-iOSInjectionProject/
-
 # End of https://www.gitignore.io/api/swift
 
 .DS_Store
@@ -92,4 +86,3 @@ Products/
 /output/
 /node_modules
 /muter_logs
-Sources/Demo/offline

@@ -8,6 +8,14 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Offline] Added OfflineIndexObserver which accepts two blocks for indexChanged or error events. This can be assigned to the offline search engine to receive state updates
+- [Demo] Add OfflineDemoViewController to MapboxSearch.xcodeproj > Demo application.
+- [Demo] Remove support for `--offline` launch argument.
+- [Offline] Change default tileset name to `mbx-main`
+- [Tests] Fix Offline tests and re-enable.
+- [Tests] Add `offlineResultsUpdated` delegate function to `SearchEngineDelegateStub`.
+- [Tests] Demonstrate providing a `Geometry(point: NSValue(mkCoordinate: CLLocationCoordinate2D))` with `TileRegionLoadOptions.build` function.
+
 ## 1.0.2 - 2024-05-10
 
 - [Core] Update to MapboxCoreSearch v1.0.7 for corrected compatibility with Xcode 15.3

@@ -81,6 +81,10 @@ protocol CoreSearchEngineProtocol {
     func setTileStore(_ tileStore: MapboxCommon.TileStore, completion: (() -> Void)?)
 
     func setTileStore(_ tileStore: MapboxCommon.TileStore)
+
+    func addOfflineIndexObserver(for observer: CoreOfflineIndexObserver)
+
+    func removeOfflineIndexObserver(for observer: CoreOfflineIndexObserver)
 }
 
 extension CoreSearchEngine: CoreSearchEngineProtocol {

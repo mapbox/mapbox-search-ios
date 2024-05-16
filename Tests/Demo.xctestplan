@@ -35,8 +35,7 @@
   "testTargets" : [
     {
       "skippedTests" : [
-        "MockServerIntegrationTestCase",
-        "OfflineIntegrationTests"
+        "MockServerIntegrationTestCase"
       ],
       "target" : {
         "containerPath" : "container:MapboxSearch.xcodeproj",
