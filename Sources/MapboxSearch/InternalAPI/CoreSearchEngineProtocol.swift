@@ -82,6 +82,8 @@ protocol CoreSearchEngineProtocol {
 
     func setTileStore(_ tileStore: MapboxCommon.TileStore)
 
+    func selectTileset(for dataset: String?, version: String?)
+
     func addOfflineIndexObserver(for observer: CoreOfflineIndexObserver)
 
     func removeOfflineIndexObserver(for observer: CoreOfflineIndexObserver)
@@ -98,6 +100,10 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
 
     func setTileStore(_ tileStore: MapboxCommon.TileStore) {
         setTileStoreFor(tileStore)
+    }
+
+    func selectTileset(for dataset: String?, version: String?) {
+        selectTileset(forDataset: dataset, version: version)
     }
 
     func makeFeedbackEvent(

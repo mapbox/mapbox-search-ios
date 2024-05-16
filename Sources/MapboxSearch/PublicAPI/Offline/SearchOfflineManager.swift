@@ -41,6 +41,10 @@ public class SearchOfflineManager {
         engine.setTileStore(searchTileStore.commonTileStore, completion: completion)
     }
 
+    public func selectTileset(for dataset: String, version: String? = nil) {
+        engine.selectTileset(for: dataset, version: version)
+    }
+
     // MARK: - Tileset with name, version, and language parameters
 
     /// Creates TilesetDescriptor for offline search index data with provided dataset name, version, and language.

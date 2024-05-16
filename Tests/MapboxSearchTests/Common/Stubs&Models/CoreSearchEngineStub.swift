@@ -75,6 +75,10 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
         completion?()
     }
 
+    func selectTileset(for dataset: String?, version: String?) {
+        assertionFailure("Not Implemented")
+    }
+
     func setAccessTokenForToken(_ token: String) {
         accessToken = token
     }
