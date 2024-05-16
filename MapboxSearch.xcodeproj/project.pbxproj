@@ -2066,7 +2066,6 @@
 				F9C557992670CB0400BE8B94 /* Frameworks */,
 				F9C5579F2670CB0400BE8B94 /* Resources */,
 				F9C557AB2670CB0400BE8B94 /* SwiftLint */,
-				F9C557AC2670CB0400BE8B94 /* Inject Mapbox API key */,
 			);
 			buildRules = (
 			);
@@ -2454,29 +2453,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == \"arm64\" ]]; then\n  export PATH=\"/opt/homebrew/bin:${PATH}\"\nfi\nif which swiftlint >/dev/null; then\n    swiftlint --config \"${SRCROOT}/.swiftlint.yml\" \"${SRCROOT}/Tests/MapboxSearchTests\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F9C557AC2670CB0400BE8B94 /* Inject Mapbox API key */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
-				"$(HOME)/.mapbox",
-				"$(HOME)/mapbox",
-				"$(SRCROOT)/.mapbox",
-			);
-			name = "Inject Mapbox API key";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Source: https://docs.mapbox.com/help/troubleshooting/private-access-token-android-and-ios/#ios\n# Look for a global file named 'mapbox' or '.mapbox' within the home directory\ntoken_file=\"${SCRIPT_INPUT_FILE_1}\"\ntoken_file2=\"${SCRIPT_INPUT_FILE_2}\"\ntoken_file3=\"${SCRIPT_INPUT_FILE_3}\"\ntoken=\"$(cat \"$token_file3\" 2>/dev/null || cat \"$token_file\" 2>/dev/null || cat \"$token_file2\" 2>/dev/null)\"\nif [ \"$token\" ]; then\n  plutil -replace MBXAccessToken -string \"$token\" \"$SCRIPT_INPUT_FILE_0\"\nelse\n  echo 'warning: Missing Mapbox access token'\n  open 'https://www.mapbox.com/account/access-tokens/'\n  echo \"warning: Get an access token from <https://www.mapbox.com/account/access-tokens/>, then create a new file at \"$token_file3\" or \"$token_file\" or \"$token_file2\" that contains the access token.\"\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FEBC00E5243C6D96000B268B /* Inject Mapbox API key */ = {
