@@ -41,7 +41,7 @@ public class SearchOfflineManager {
         engine.setTileStore(searchTileStore.commonTileStore, completion: completion)
     }
 
-    public func selectTileset(for dataset: String, version: String? = nil) {
+    public func selectTileset(for dataset: String?, version: String? = nil) {
         engine.selectTileset(for: dataset, version: version)
     }
 
