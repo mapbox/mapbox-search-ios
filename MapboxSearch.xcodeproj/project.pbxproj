@@ -2020,7 +2020,6 @@
 				3A0D7E52233522D4006D81BB /* Frameworks */,
 				3A0D7E53233522D4006D81BB /* Resources */,
 				3A2CBBD5238B105500A5BA69 /* SwiftLint */,
-				FE1439F823C5CE08009D98D2 /* Inject Mapbox API key */,
 			);
 			buildRules = (
 			);
@@ -2458,29 +2457,6 @@
 			showEnvVarsInLog = 0;
 		};
 		F9C557AC2670CB0400BE8B94 /* Inject Mapbox API key */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
-				"$(HOME)/.mapbox",
-				"$(HOME)/mapbox",
-				"$(SRCROOT)/.mapbox",
-			);
-			name = "Inject Mapbox API key";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Source: https://docs.mapbox.com/help/troubleshooting/private-access-token-android-and-ios/#ios\n# Look for a global file named 'mapbox' or '.mapbox' within the home directory\ntoken_file=\"${SCRIPT_INPUT_FILE_1}\"\ntoken_file2=\"${SCRIPT_INPUT_FILE_2}\"\ntoken_file3=\"${SCRIPT_INPUT_FILE_3}\"\ntoken=\"$(cat \"$token_file3\" 2>/dev/null || cat \"$token_file\" 2>/dev/null || cat \"$token_file2\" 2>/dev/null)\"\nif [ \"$token\" ]; then\n  plutil -replace MBXAccessToken -string \"$token\" \"$SCRIPT_INPUT_FILE_0\"\nelse\n  echo 'warning: Missing Mapbox access token'\n  open 'https://www.mapbox.com/account/access-tokens/'\n  echo \"warning: Get an access token from <https://www.mapbox.com/account/access-tokens/>, then create a new file at \"$token_file3\" or \"$token_file\" or \"$token_file2\" that contains the access token.\"\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		FE1439F823C5CE08009D98D2 /* Inject Mapbox API key */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
