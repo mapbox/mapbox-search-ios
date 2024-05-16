@@ -29,7 +29,10 @@ nesting:
 
 custom_rules:
   dont_use_print:
-    included: ".*\\.swift"
+    included:
+      - ".*\\.swift"
+    excluded:
+      - "Sources/Demo"
     name: "Don't use `print`"
     regex: "(^|[^\\w])(print)\\("
     match_kinds:
