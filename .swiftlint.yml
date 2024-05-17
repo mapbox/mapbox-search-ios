@@ -29,7 +29,10 @@ nesting:
 
 custom_rules:
   dont_use_print:
-    included: ".*\\.swift"
+    included:
+      - ".*\\.swift"
+    excluded:
+      - "Sources/Demo"
     name: "Don't use `print`"
     regex: "(^|[^\\w])(print)\\("
     match_kinds:
@@ -37,3 +40,11 @@ custom_rules:
     capture_group: 2
     message: "Use Log[<category>] from Common shared library (not MapboxCommon) instead of `print`s."
     severity: warning
+  _preferWillMoveToWindow:
+    name: Warning on willMove(toSuperview:)
+    regex: '(override func willMove\(toSuperview|override func awakeFromNib\(\))'
+    message: "'configuration' variable is not accessible yet. Use `willMove(toWindow:)` instead"
+    match_kinds:
+      - attribute.builtin
+      - keyword
+      - identifier

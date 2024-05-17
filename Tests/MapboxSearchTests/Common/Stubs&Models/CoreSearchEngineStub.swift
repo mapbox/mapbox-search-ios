@@ -136,7 +136,7 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
     }
 
     func onSelected(forRequest request: CoreRequestOptions, result: CoreSearchResultProtocol) {
-        print("\(#function): No-op")
+        _Logger.searchSDK.info("\(#function): No-op")
     }
 
     func createEventTemplate(forName name: String) -> String {

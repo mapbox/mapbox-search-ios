@@ -2,7 +2,7 @@
 // swiftlint:disable type_name
 
 extension Country {
-    enum ISO3166_1_alpha2: String {
+    public enum ISO3166_1_alpha2: String {
         case af = "AF"
         case ax = "AX"
         case al = "AL"

@@ -360,6 +360,8 @@ class SearchEngineTests: XCTestCase {
             let assertionError = catchBadInstruction {
                 callback()
             }
+            XCTAssertNil(assertionError)
+
             do {
                 let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
                 engine.callbackWrapper = { callback in
@@ -392,6 +394,7 @@ class SearchEngineTests: XCTestCase {
             let assertionError = catchBadInstruction {
                 callback()
             }
+            XCTAssertNil(assertionError)
 
             let expectation = XCTestExpectation()
             var error: SearchError?
