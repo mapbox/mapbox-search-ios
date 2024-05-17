@@ -16,7 +16,7 @@ class PlaceholderView: UIView {
         let nibName = restorationIdentifier.trimmingCharacters(in: .decimalDigits)
         let nib = UINib(nibName: nibName, bundle: .mapboxSearchUI)
         guard let view = nib.instantiate(withOwner: nil, options: nil).first as? UIView else {
-            _Logger.searchSDK.warning("PlaceholderView: First object in nib is not a UIView (nibName=\(nibName)")
+            _Logger.searchSDK.error("PlaceholderView: First object in nib is not a UIView (nibName=\(nibName)")
             return self
         }
         view.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
