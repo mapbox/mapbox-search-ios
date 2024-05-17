@@ -106,6 +106,7 @@ class CategorySearchEngineTests: XCTestCase {
             let assertionError = catchBadInstruction {
                 callback()
             }
+            XCTAssertNil(assertionError)
 
             var error: SearchError?
             let expectation = XCTestExpectation(description: "Expecting results")

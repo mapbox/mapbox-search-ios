@@ -17,7 +17,7 @@ extension Discover {
         /// English (en) language parameter, but Frankreich (“France”) with a German (de) language parameter.
         public let language: Language
 
-        /// See ``MapboxSearch.Country.ISO3166_1_alpha2`` for the list of ISO 3166 alpha 2 country codes.
+        /// See ``MapboxSearch/Country/ISO3166_1_alpha2`` for the list of ISO 3166 alpha 2 country codes.
         /// The default value is nil.
         public let country: Country?
 

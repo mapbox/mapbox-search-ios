@@ -48,8 +48,8 @@ public struct Configuration {
     /// It's possible to change style on the fly. Non-animatable.
     public var style = Style()
 
-    /// Override the default ``MKDistanceFormatter`` behavior used by ``SearchSuggestionCell`` to display search
-    /// results in a specific unit system. A nil value will use the ``MKDistanceFormatter`` system behavior to infer
+    /// Override the default `MKDistanceFormatter` behavior used by `SearchSuggestionCell` to display search
+    /// results in a specific unit system. A nil value will use the `MKDistanceFormatter` system behavior to infer
     /// the unit system based on the device locale.
     public var distanceFormatter: MKDistanceFormatter?
 }
