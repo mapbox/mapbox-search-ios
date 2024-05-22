@@ -15,7 +15,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Core] Update MapboxCommon and MapboxCoreSearch package dependencies
 
 **MapboxCommon**: v24.4.0
-**MapboxCoreSearch**: v2.0.3
+**MapboxCoreSearch**: v2.1.0
 
 ## 2.0.3
 
