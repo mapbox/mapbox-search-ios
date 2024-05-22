@@ -8,9 +8,11 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
-- [Offline] Expose selectTileset function for offline mode
+## 2.1.0
 
+- [Offline] Expose selectTileset function for offline mode
 - [Address] Change Country.ISO3166_1_alpha2 enum to public
+- [Core] Update MapboxCommon and MapboxCoreSearch package dependencies
 
 **MapboxCommon**: v24.4.0
 **MapboxCoreSearch**: v2.0.3
