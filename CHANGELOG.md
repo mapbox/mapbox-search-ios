@@ -12,6 +12,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 - [Address] Change Country.ISO3166_1_alpha2 enum to public
 
+**MapboxCommon**: v24.4.0
+**MapboxCoreSearch**: v2.0.3
+
 ## 2.0.3
 
 - [Core] Change MapboxCommon dependency to use exact versions in SPM and CocoaPods
