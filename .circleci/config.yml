@@ -240,7 +240,7 @@ jobs:
       - run:
           name: Push podspecs to CocoaPods CDN Trunk
           command: |
-            pod trunk push MapboxCoreSearch.podspec
+            # pod trunk push MapboxCoreSearch.podspec # Inactive for the time being
             pod trunk push MapboxSearch.podspec --synchronous
             pod trunk push MapboxSearchUI.podspec --synchronous
       - run: brew install gh taiki-e/tap/parse-changelog
