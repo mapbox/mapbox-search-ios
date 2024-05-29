@@ -8,6 +8,10 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+## 2.1.1
+
+- [Core] Fix MapboxCoreSearch dependency when using cocoapods
+
 ## 2.1.0
 
 - [Offline] Expose selectTileset function for offline mode
