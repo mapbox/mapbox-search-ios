@@ -184,4 +184,72 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
         cancelable.cancel()
         wait(for: [loadDataExpectation], timeout: 10)
     }
+
+    /// Test that a search outside of a downloaded region and bounding box should fail
+    func testOutsideDownloadedRegionBoundingBox() {
+        clearData()
+
+        // Set up index observer before the fetch starts to validate changes after it completes
+        let indexChangedExpectation = expectation(description: "Received offline index changed event")
+        let offlineIndexObserver = OfflineIndexObserver(onIndexChangedBlock: { changeEvent in
+            _Logger.searchSDK.info("Index changed: \(changeEvent)")
+            indexChangedExpectation.fulfill()
+        }, onErrorBlock: { error in
+            _Logger.searchSDK.error("Encountered error in OfflineIndexObserver \(error)")
+            XCTFail(error.debugDescription)
+        })
+        searchEngine.offlineManager.engine.addOfflineIndexObserver(for: offlineIndexObserver)
+
+        // Perform the offline fetch
+        let loadDataExpectation = expectation(description: "Load Data")
+        _ = loadData { result in
+            switch result {
+            case .success(let region):
+                XCTAssert(region.id == self.regionId)
+                XCTAssert(region.completedResourceCount > 0)
+                XCTAssertEqual(region.requiredResourceCount, region.completedResourceCount)
+            case .failure(let error):
+                XCTFail("Unable to load Region, \(error.localizedDescription)")
+            }
+            loadDataExpectation.fulfill()
+        }
+        wait(
+            for: [loadDataExpectation, indexChangedExpectation],
+            timeout: 200,
+            enforceOrder: true
+        )
+
+        let offlineUpdateExpectation = delegate.offlineUpdateExpectation
+
+        let latSpan = 0.3515620000000155 / 2
+        let lonSpan = 0.3515629999999845 / 2
+        let southWest = CLLocationCoordinate2D(
+            latitude: 38.84787317027031 - latSpan,
+            longitude: -77.16796849999997 - lonSpan
+        )
+        let northEast = CLLocationCoordinate2D(
+            latitude: 38.84787317027031 + latSpan,
+            longitude: -77.16796849999997 + lonSpan
+        )
+
+        let boundingBoxForDownloadedRegion = BoundingBox(southWest, northEast)
+
+        let options = SearchOptions(boundingBox: boundingBoxForDownloadedRegion)
+
+        searchEngine.search(
+            query: "U.S. National Arboretum",
+            options: options
+        )
+        wait(for: [offlineUpdateExpectation], timeout: 10)
+
+        /// As this test is run online, be sure to exclude server results.
+        let filteredDelegateResolvedResults = delegate.resolvedResults.filter { !($0 is ServerSearchResult) }
+        let filteredSuggestions = searchEngine.suggestions.filter { !($0 is ServerSearchResult) }
+
+        XCTAssertNil(delegate.error)
+        XCTAssertNil(delegate.error?.localizedDescription)
+        XCTAssertNil(searchEngine.responseInfo?.suggestion)
+        XCTAssertTrue(filteredDelegateResolvedResults.isEmpty)
+        XCTAssertTrue(filteredSuggestions.isEmpty)
+    }
 }
