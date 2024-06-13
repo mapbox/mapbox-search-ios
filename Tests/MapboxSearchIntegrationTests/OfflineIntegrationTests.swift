@@ -223,15 +223,13 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
 
         let offlineUpdateExpectation = delegate.offlineUpdateExpectation
 
-        let latSpan = 0.3515620000000155 / 2
-        let lonSpan = 0.3515629999999845 / 2
         let southWest = CLLocationCoordinate2D(
-            latitude: 38.84787317027031 - latSpan,
-            longitude: -77.16796849999997 - lonSpan
+            latitude: 38.672092170270304,
+            longitude: -77.34374999999997
         )
         let northEast = CLLocationCoordinate2D(
-            latitude: 38.84787317027031 + latSpan,
-            longitude: -77.16796849999997 + lonSpan
+            latitude: 39.02365417027032,
+            longitude: -76.99218699999997
         )
 
         let boundingBoxForDownloadedRegion = BoundingBox(southWest, northEast)
