@@ -185,7 +185,9 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
         wait(for: [loadDataExpectation], timeout: 10)
     }
 
-    /// Test that a search outside of a downloaded region and bounding box should fail
+    /// Test that a search outside of a downloaded region and bounding box should
+    /// retrieve suggestions as close to the query as possible and not include
+    /// an exact match that only occurs outside the downloaded tile.
     func testOutsideDownloadedRegionBoundingBox() {
         clearData()
 
@@ -242,14 +244,15 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
         )
         wait(for: [offlineUpdateExpectation], timeout: 10)
 
-        /// As this test is run online, be sure to exclude server results.
-        let filteredDelegateResolvedResults = delegate.resolvedResults.filter { !($0 is ServerSearchResult) }
-        let filteredSuggestions = searchEngine.suggestions.filter { !($0 is ServerSearchResult) }
-
+        /// The US National Arboretum should be outside of this downloaded tile
+        /// Nearest match results will be returned
         XCTAssertNil(delegate.error)
         XCTAssertNil(delegate.error?.localizedDescription)
         XCTAssertNil(searchEngine.responseInfo?.suggestion)
-        XCTAssertTrue(filteredDelegateResolvedResults.isEmpty)
-        XCTAssertTrue(filteredSuggestions.isEmpty)
+        XCTAssertFalse(delegate.resolvedResults.isEmpty)
+        XCTAssertFalse(searchEngine.suggestions.isEmpty)
+
+        let arboretumResults = delegate.resolvedResults.filter { $0.name.localizedCaseInsensitiveContains("arboretum") }
+        XCTAssertTrue(arboretumResults.isEmpty)
     }
 }
