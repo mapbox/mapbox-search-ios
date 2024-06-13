@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'MapboxCoreSearch'
-  s.version          = '2.1.0'
+  s.version          = '2.2.0-beta.1'
   s.summary          = 'Search Core SDK for Mapbox Search API'
 
   s.description      = <<-DESC
@@ -31,5 +31,5 @@ Some iOS platfrom specifics applies.
   }
 
   s.vendored_frameworks = "**/#{s.name}.xcframework"
-  s.dependency "MapboxCommon", "24.4.0"
+  s.dependency "MapboxCommon", "24.5.0-beta.4"
 end
