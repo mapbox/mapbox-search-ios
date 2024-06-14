@@ -9,9 +9,9 @@ Mapbox Search SDK works with:
 - iOS or Mac Catalyst.
 
     It's not possible to run SDK on watchOS or tvOS. macOS support is limited to [Mac Catalyst](https://developer.apple.com/mac-catalyst/).
-- Swift 5.7.1 or newer.
-- Xcode 14.1 or newer is recommended for [Swift Package Manager](https://developer.apple.com/documentation/swift_packages) integration.
-    For non-SPM integration Xcode 14.1 is a minimal requirement.
+- Swift 5.10 or newer.
+- Xcode 15.3 or newer is recommended for [Swift Package Manager](https://developer.apple.com/documentation/swift_packages) integration.
+    For non-SPM integration Xcode 15.3 is a minimal requirement.
 - Mapbox Account token with `DOWNLOADS:READ` permission in user NetRC file is required for dependency managers functionality.
 
 > Important: Token should be populated in password field inside `~/.netrc` file for `api.mapbox.com` host.
