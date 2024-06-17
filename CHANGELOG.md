@@ -10,6 +10,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 - [Project] Update Package from Swift 5.7 to 5.10
 - [Project] Update MapboxSearch.xcodeproj for Xcode 15.3 and signed MapboxCommon framework
+- [UI] Change `MapboxSearchUI.Maki.image: UIImage` to public
 
 ## 2.2.0-beta.1
 
