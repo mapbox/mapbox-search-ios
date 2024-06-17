@@ -184,4 +184,73 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
         cancelable.cancel()
         wait(for: [loadDataExpectation], timeout: 10)
     }
+
+    /// Test that a search outside of a downloaded region and bounding box should
+    /// retrieve suggestions as close to the query as possible and not include
+    /// an exact match that only occurs outside the downloaded tile.
+    func testOutsideDownloadedRegionBoundingBox() {
+        clearData()
+
+        // Set up index observer before the fetch starts to validate changes after it completes
+        let indexChangedExpectation = expectation(description: "Received offline index changed event")
+        let offlineIndexObserver = OfflineIndexObserver(onIndexChangedBlock: { changeEvent in
+            _Logger.searchSDK.info("Index changed: \(changeEvent)")
+            indexChangedExpectation.fulfill()
+        }, onErrorBlock: { error in
+            _Logger.searchSDK.error("Encountered error in OfflineIndexObserver \(error)")
+            XCTFail(error.debugDescription)
+        })
+        searchEngine.offlineManager.engine.addOfflineIndexObserver(for: offlineIndexObserver)
+
+        // Perform the offline fetch
+        let loadDataExpectation = expectation(description: "Load Data")
+        _ = loadData { result in
+            switch result {
+            case .success(let region):
+                XCTAssert(region.id == self.regionId)
+                XCTAssert(region.completedResourceCount > 0)
+                XCTAssertEqual(region.requiredResourceCount, region.completedResourceCount)
+            case .failure(let error):
+                XCTFail("Unable to load Region, \(error.localizedDescription)")
+            }
+            loadDataExpectation.fulfill()
+        }
+        wait(
+            for: [loadDataExpectation, indexChangedExpectation],
+            timeout: 200,
+            enforceOrder: true
+        )
+
+        let offlineUpdateExpectation = delegate.offlineUpdateExpectation
+
+        let southWest = CLLocationCoordinate2D(
+            latitude: 38.672092170270304,
+            longitude: -77.34374999999997
+        )
+        let northEast = CLLocationCoordinate2D(
+            latitude: 39.02365417027032,
+            longitude: -76.99218699999997
+        )
+
+        let boundingBoxForDownloadedRegion = BoundingBox(southWest, northEast)
+
+        let options = SearchOptions(boundingBox: boundingBoxForDownloadedRegion)
+
+        searchEngine.search(
+            query: "U.S. National Arboretum",
+            options: options
+        )
+        wait(for: [offlineUpdateExpectation], timeout: 10)
+
+        /// The US National Arboretum should be outside of this downloaded tile
+        /// Nearest match results will be returned
+        XCTAssertNil(delegate.error)
+        XCTAssertNil(delegate.error?.localizedDescription)
+        XCTAssertNil(searchEngine.responseInfo?.suggestion)
+        XCTAssertFalse(delegate.resolvedResults.isEmpty)
+        XCTAssertFalse(searchEngine.suggestions.isEmpty)
+
+        let arboretumResults = delegate.resolvedResults.filter { $0.name.localizedCaseInsensitiveContains("arboretum") }
+        XCTAssertTrue(arboretumResults.isEmpty)
+    }
 }
