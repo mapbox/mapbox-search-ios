@@ -1,7 +1,7 @@
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/mapbox/mapbox-search-ios/tree/main.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/mapbox/mapbox-search-ios/tree/main)
-[![Swift version](https://img.shields.io/badge/swift-5.7.1+-orange.svg?style=flat&logo=swift)](https://developer.apple.com/swift)
+[![Swift version](https://img.shields.io/badge/swift-5.10+-orange.svg?style=flat&logo=swift)](https://developer.apple.com/swift)
 [![iOS version](https://img.shields.io/badge/iOS-12.0+-green.svg?style=flat&logo=apple)](https://developer.apple.com/ios/)
-[![Xcode version](https://img.shields.io/badge/Xcode-14.1+-DeepSkyBlue.svg?style=flat&logo=xcode&logoColor=lightGray)](https://developer.apple.com/xcode/)
+[![Xcode version](https://img.shields.io/badge/Xcode-15.3+-DeepSkyBlue.svg?style=flat&logo=xcode&logoColor=lightGray)](https://developer.apple.com/xcode/)
 [![codecov](https://codecov.io/gh/mapbox/mapbox-search-ios/branch/develop/graph/badge.svg?token=js3DSKdda4)](https://codecov.io/gh/mapbox/mapbox-search-ios)
 [![swift-doc](https://img.shields.io/badge/swift--doc-64.94%25-orange?logo=read-the-docs)](https://github.com/SwiftDocOrg/swift-doc)
 # Mapbox Search SDK for iOS
@@ -35,8 +35,8 @@ The Search SDK is pre-configured for autocomplete, local search biasing, and inc
 ## Requirements
 
 - iOS 12.0 and newer
-- Xcode 14.1 and newer
-- Swift 5.7.1 and newer
+- Xcode 15.3 and newer
+- Swift 5.10 and newer
 - Objective-C is not supported
 - macOS/tvOS/watchOS platforms currently are not supported
 
@@ -82,8 +82,8 @@ Once you've installed the prerequisites, no additional steps are needed: Open th
 
 You can find the following documentation pages helpful:
 - [Search SDK for iOS guide](https://docs.mapbox.com/ios/search/guides/)
-- [MapboxSearch reference](https://docs.mapbox.com/ios/search/api/core/2.1.1/)
-- [MapboxSearchUI reference](https://docs.mapbox.com/ios/search/api/ui/2.1.1/)
+- [MapboxSearch reference](https://docs.mapbox.com/ios/search/api/core/2.2.0-beta.1/)
+- [MapboxSearchUI reference](https://docs.mapbox.com/ios/search/api/ui/2.2.0-beta.1/)
 
 ## Project structure overview
 
@@ -108,13 +108,13 @@ MapboxSearchDemoApplication provides a Demo app wih MapboxSearchUI.framework pre
 ##### MapboxSearch
 To integrate latest preview version of `MapboxSearch` into your Xcode project using CocoaPods, specify it in your `Podfile`:  
 ```
-pod 'MapboxSearch', ">= 2.1.1", "< 3.0"
+pod 'MapboxSearch', ">= 2.2.0-beta.1", "< 3.0"
 ```
 
 ##### MapboxSearchUI
 To integrate latest preview version of `MapboxSearchUI` into your Xcode project using CocoaPods, specify it in your `Podfile`:  
 ```
-pod 'MapboxSearchUI', ">= 2.1.1", "< 3.0"
+pod 'MapboxSearchUI', ">= 2.2.0-beta.1", "< 3.0"
 ```
 
 ### Swift Package Manager
