@@ -8,6 +8,11 @@ public struct OpenPeriod: Codable, Hashable {
     /// Represents the end of the period. Components should contain weekday, hour and minute.
     public let end: DateComponents
 
+    public init(start: DateComponents, end: DateComponents) {
+        self.start = start
+        self.end = end
+    }
+
     init(_ core: CoreOpenPeriod) {
         var calendar = Calendar(identifier: .gregorian)
         calendar.firstWeekday = 1
