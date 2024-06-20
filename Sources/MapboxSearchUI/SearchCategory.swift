@@ -3,7 +3,7 @@ import MapboxSearch
 import UIKit
 
 /// Category entity to present on MapboxSearchController UI
-public struct SearchCategory: Codable, Hashable {
+public struct SearchCategory: Codable, Hashable, Sendable {
     /// Name to display
     public let name: String
 
@@ -16,6 +16,9 @@ public struct SearchCategory: Codable, Hashable {
     let canonicalId: String
 
     /// Category icon from embedded bundle
+    /// {"message":"This code path does I/O on the main thread underneath that can lead to UI responsiveness issues.
+    /// Consider ways to optimize this code path","antipattern trigger":"-[NSBundle bundlePath]","message
+    /// type":"suppressable","show in console":"0"}
     public var icon: UIImage? { UIImage(named: iconName, in: .mapboxSearchUI, compatibleWith: nil) }
 
     init(canonicalId: String, name: String, legacyName: String, iconName: String) {

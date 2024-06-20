@@ -5,7 +5,7 @@ import Foundation
 extension Discover {
     /// String representing a category name to be searched for.
     /// Use one of the suggested categories listed in the enum extension or search for a given string.
-    public struct Query {
+    public struct Query: Sendable {
         let rawValue: String
     }
 }

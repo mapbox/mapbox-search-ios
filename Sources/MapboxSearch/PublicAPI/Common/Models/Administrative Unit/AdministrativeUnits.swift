@@ -1,6 +1,6 @@
 import Foundation
 
-public struct AdministrativeUnit: Equatable {
+public struct AdministrativeUnit: Equatable, Sendable {
     let rawValue: SearchQueryType
 
     public init(rawValue: SearchQueryType) {

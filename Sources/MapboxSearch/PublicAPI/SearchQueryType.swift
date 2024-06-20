@@ -1,5 +1,5 @@
 /// Enum for various filter result types.
-public enum SearchQueryType {
+public enum SearchQueryType: Sendable {
     /// Generally recognized countries or, in some cases like Hong Kong, an area of quasi-national administrative status
     /// that has been given a designated country code under ISO 3166-1.
     case country

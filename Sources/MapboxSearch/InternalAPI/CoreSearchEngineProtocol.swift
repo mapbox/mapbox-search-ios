@@ -78,7 +78,7 @@ protocol CoreSearchEngineProtocol {
         completion: @escaping (CoreSearchResponseProtocol?) -> Void
     )
 
-    func setTileStore(_ tileStore: MapboxCommon.TileStore, completion: (() -> Void)?)
+    func setTileStore(_ tileStore: MapboxCommon.TileStore, completion: (@Sendable () -> Void)?)
 
     func setTileStore(_ tileStore: MapboxCommon.TileStore)
 
@@ -90,7 +90,7 @@ protocol CoreSearchEngineProtocol {
 }
 
 extension CoreSearchEngine: CoreSearchEngineProtocol {
-    func setTileStore(_ tileStore: MapboxCommon.TileStore, completion: (() -> Void)?) {
+    func setTileStore(_ tileStore: MapboxCommon.TileStore, completion: (@Sendable () -> Void)?) {
         setTileStoreFor(tileStore) {
             DispatchQueue.main.async {
                 completion?()
