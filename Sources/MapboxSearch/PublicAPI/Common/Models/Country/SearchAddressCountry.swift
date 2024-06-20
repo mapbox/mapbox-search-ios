@@ -3,13 +3,13 @@ import Foundation
 /// Contains values for a given country including name (required) and possibly ISO 3166-1 Alpha 2 and Alpha 3 codes.
 public struct SearchAddressCountry: Codable, Hashable, Equatable {
     /// Name of this country
-    var name: String
+    public var name: String
 
     /// ISO 3166-1 Alpha 2 country code
-    var countryCode: String?
+    public var countryCode: String?
 
     /// ISO 3166-1 Alpha 3 country code
-    var countryCodeAlpha3: String?
+    public var countryCodeAlpha3: String?
 
     init(_ core: CoreSearchAddressCountry) {
         self.name = core.name
