@@ -81,18 +81,22 @@ workflows:
             tags:
               only: /v.*/
 
-jobs:
-  pre-check:
+executors:
+  xcode-default:
     macos:
       xcode: 15.3
+    resource_class: macos.m1.medium.gen1
+
+jobs:
+  pre-check:
+    executor: xcode-default
     steps:
       - checkout
       - ios-install-carthage-dependencies
       - run: python3 scripts/cmp_deps_across_managers.py
 
   release-pre-check:
-    macos:
-      xcode: 15.3
+    executor: xcode-default
     steps:
       - parse-release-version
       - run:
@@ -101,8 +105,7 @@ jobs:
           command: curl -L https://api.mapbox.com/downloads/v2/carthage/search-sdk/MapboxSearch.json | grep -v \"$VERSION\"
 
   build:
-    macos:
-      xcode: 15.3 # Specify the Xcode version to use
+    executor: xcode-default # Specify the Xcode version to use
     environment:
       FL_OUTPUT_DIR: ../output
     steps:
@@ -139,8 +142,7 @@ jobs:
           path: ~/Library/Logs/scan
 
   release-documentation:
-    macos:
-      xcode: 15.3
+    executor: xcode-default
     steps:
       - checkout
       - parse-release-version
@@ -162,8 +164,7 @@ jobs:
       - run: make release-docs
 
   documentation-pr:
-    macos:
-      xcode: 15.3
+    executor: xcode-default
     steps:
       - checkout
       - parse-release-version
@@ -185,8 +186,7 @@ jobs:
             git push --set-upstream origin "${BRANCH_NAME}" --force-with-lease
 
   build-for-release:
-    macos:
-      xcode: 15.3
+    executor: xcode-default
     steps:
       - checkout
       - setup-authentication
@@ -204,8 +204,7 @@ jobs:
           template: basic_fail_1
 
   release-ios:
-    macos:
-      xcode: 15.3
+    executor: xcode-default
     steps:
       - checkout
       - setup-authentication
@@ -229,8 +228,7 @@ jobs:
           command: scripts/create_documentation_pr.sh
 
   post-SDK_Registry-release:
-    macos:
-      xcode: 15.3
+    executor: xcode-default
     steps:
       - checkout
       - parse-release-version
@@ -247,8 +245,7 @@ jobs:
       - run: scripts/release_notes.sh
 
   spm-build:
-    macos:
-      xcode: 15.3
+    executor: xcode-default
     steps:
       - checkout
       - setup-authentication
