@@ -37,6 +37,7 @@ extension CoreResultMetadata {
             otherPhoto: nil,
             cpsJson: nil,
             parking: nil,
+            children: nil,
             data: data
         )
     }
