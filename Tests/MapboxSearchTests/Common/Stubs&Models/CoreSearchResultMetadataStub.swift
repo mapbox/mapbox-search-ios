@@ -11,7 +11,8 @@ class CoreSearchResultMetadataStub: CoreResultMetadataProtocol {
         reviewCount: NSNumber? = nil,
         phone: String? = nil,
         website: String? = nil,
-        openHours: CoreOpenHours? = nil
+        openHours: CoreOpenHours? = nil,
+        children: [CoreChildMetadata]? = nil
     ) {
         self.data = data
         self.primaryImage = primaryImage
@@ -22,6 +23,7 @@ class CoreSearchResultMetadataStub: CoreResultMetadataProtocol {
         self.phone = phone
         self.website = website
         self.openHours = openHours
+        self.children = children
     }
 
     var data: [String: String]
@@ -32,8 +34,8 @@ class CoreSearchResultMetadataStub: CoreResultMetadataProtocol {
     var reviewCount: NSNumber?
     var phone: String?
     var website: String?
-
     var openHours: CoreOpenHours?
+    var children: [CoreChildMetadata]?
 
     static let sample1 = CoreSearchResultMetadataStub(
         data: [

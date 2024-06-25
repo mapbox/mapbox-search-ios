@@ -67,6 +67,11 @@ extension MapRootController: SearchControllerDelegate {
         annotation.subtitle = searchResult.address?.formattedAddress(style: .medium)
 
         showAnnotation([annotation], isPOI: searchResult.type == .POI)
+
+        /*
+         * Observe searchResult.metadata?.children output here
+         */
+        // NSLog("@@ searchResult.metadata?.children has value \(String(describing: searchResult.metadata?.children))")
     }
 
     func userFavoriteSelected(_ userFavorite: FavoriteRecord) {

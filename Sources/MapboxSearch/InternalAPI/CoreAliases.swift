@@ -25,6 +25,7 @@ typealias CoreOpenPeriod = MapboxCoreSearch.OpenPeriod
 typealias CoreAccuracy = MapboxCoreSearch.ResultAccuracy
 typealias CoreSearchAddressRegion = MapboxCoreSearch.SearchAddressRegion
 typealias CoreSearchAddressCountry = MapboxCoreSearch.SearchAddressCountry
+typealias CoreChildMetadata = MapboxCoreSearch.ChildMetadata
 
 typealias CoreUserActivityReporter = MapboxCoreSearch.UserActivityReporter
 typealias CoreUserActivityReporterOptions = MapboxCoreSearch.UserActivityReporterOptions

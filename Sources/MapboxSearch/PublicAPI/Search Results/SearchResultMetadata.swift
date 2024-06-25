@@ -28,6 +28,8 @@ public struct SearchResultMetadata: Codable, Hashable {
     /// Business opening hours
     public var openHours: OpenHours?
 
+    public var children: [ChildMetadata]
+
     init(metadata: CoreResultMetadataProtocol) {
         self.data = metadata.data
         self.phone = metadata.phone
@@ -44,6 +46,12 @@ public struct SearchResultMetadata: Codable, Hashable {
             self.otherImages = [
                 Image(sizes: others.map(Image.SizedImage.init)),
             ]
+        }
+
+        if let metadataChildren = metadata.children {
+            self.children = metadataChildren.compactMap { ChildMetadata(metadata: $0) }
+        } else {
+            self.children = []
         }
     }
 

@@ -15,6 +15,8 @@ protocol CoreResultMetadataProtocol {
     var website: String? { get }
 
     var openHours: CoreOpenHours? { get }
+
+    var children: [CoreChildMetadata]? { get }
 }
 
 extension CoreResultMetadata: CoreResultMetadataProtocol {

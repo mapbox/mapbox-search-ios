@@ -14,6 +14,6 @@ public enum ApiType {
 
     /// The current default API type for out-of-the-box use is SBS.
     public static var defaultType: Self {
-        return .SBS
+        return .searchBox
     }
 }
