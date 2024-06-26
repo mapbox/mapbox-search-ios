@@ -75,8 +75,7 @@ pristine:
 	git reset --hard && git clean -dfx && git submodule foreach "git reset --hard && git clean -dfx"
 
 lint:
-	pod spec lint MapboxCoreSearch.podspec
-	pod lib lint MapboxSearch.podspec --include-podspecs=MapboxCoreSearch.podspec
+	pod lib lint MapboxSearch.podspec
 	pod lib lint MapboxSearchUI.podspec --include-podspecs=MapboxSearch.podspec
 
 # This target send local podspecs to the official CocoaPods repository
