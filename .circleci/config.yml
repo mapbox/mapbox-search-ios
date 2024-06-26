@@ -316,7 +316,7 @@ commands:
 
   install-mbx-ci-darwin:
     steps:
-      - mac-utilities/install-rosetta∂
+      - mac-utilities/install-rosetta
       - run:
           name: Install mbx-ci
           command: |
