@@ -19,7 +19,7 @@ Card style custom UI with full search functionality powered by Mapbox Search API
   s.source           = { :http => "https://api.mapbox.com/downloads/v2/search-sdk/releases/ios/packages/#{s.version.to_s}/#{s.name}.zip" }
 
   s.ios.deployment_target = '12.0'
-  s.swift_versions = [5.10]
+  s.swift_version = "5.10"
 
   s.vendored_frameworks = "**/#{s.name}.xcframework"
 

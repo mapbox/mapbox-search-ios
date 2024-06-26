@@ -8,6 +8,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Project] Update Podspec `swift_version = "5.10"`
+
 ## 2.2.0-rc.1
 
 - [Project] Update Package from Swift 5.7 to 5.10
