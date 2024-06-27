@@ -4,7 +4,6 @@ version: 2.1
 
 orbs:
   slack: circleci/slack@4.1
-  mac-utilities: circleci/macos@2.5.1
 
 workflows:
   version: 2
@@ -316,11 +315,10 @@ commands:
 
   install-mbx-ci-darwin:
     steps:
-      - mac-utilities/install-rosetta
       - run:
           name: Install mbx-ci
           command: |
-            curl -Ls https://mapbox-release-engineering.s3.amazonaws.com/mbx-ci/latest/mbx-ci-darwin-amd64 > /usr/local/bin/mbx-ci
+            curl -Ls https://mapbox-release-engineering.s3.amazonaws.com/mbx-ci/latest/mbx-ci-darwin-arm64 > /usr/local/bin/mbx-ci
             chmod 755 /usr/local/bin/mbx-ci
 
   install-swiftlint:
