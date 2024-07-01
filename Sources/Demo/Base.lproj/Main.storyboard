@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JVX-IJ-mtG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JVX-IJ-mtG">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -77,7 +77,7 @@
                 <navigationController id="NZD-nP-oWd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Autofill" image="pencil.and.outline" catalog="system" id="fkh-Aj-TqY"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MnI-GH-jMM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -92,18 +92,18 @@
         <scene sceneID="8aW-Pt-0kO">
             <objects>
                 <viewController title="Address Autofill" id="7bM-3D-K0g" customClass="AddressAutofillMainViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="o0f-ON-FJF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="o0f-ON-FJF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="666"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type your query in order to get Address Autofill suggestions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKd-b0-QXa">
-                                <rect key="frame" x="25.666666666666657" y="301.33333333333331" width="363" height="40.666666666666686"/>
+                                <rect key="frame" x="25.666666666666657" y="291.33333333333331" width="363" height="40.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qJO-gQ-NF4">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -140,20 +140,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LGp-Id-chq">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="294.33333333333331"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="294.33333333333331"/>
                             </mapView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mhN-fE-IJo">
-                                <rect key="frame" x="0.0" y="294.33333333333326" width="414" height="441.66666666666674"/>
+                                <rect key="frame" x="0.0" y="314.33333333333326" width="414" height="421.66666666666674"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="LVK-aO-7G6" id="sae-eD-fFb"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="der-07-RBJ" userLabel="loading-view">
-                                <rect key="frame" x="0.0" y="294.33333333333326" width="414" height="441.66666666666674"/>
+                                <rect key="frame" x="0.0" y="314.33333333333326" width="414" height="421.66666666666674"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="TDf-la-teZ">
-                                        <rect key="frame" x="197" y="211" width="20" height="20"/>
+                                        <rect key="frame" x="197" y="201.00000000000006" width="20" height="20"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -163,10 +163,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1P-it-8aH">
-                                <rect key="frame" x="0.0" y="294.33333333333326" width="414" height="441.66666666666674"/>
+                                <rect key="frame" x="0.0" y="314.33333333333326" width="414" height="421.66666666666674"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adjusting address location, then press 'Done' button" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vH-kY-TAX">
-                                        <rect key="frame" x="60" y="200.66666666666669" width="294.33333333333331" height="40.666666666666657"/>
+                                        <rect key="frame" x="60" y="190.66666666666669" width="294.33333333333331" height="40.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -181,7 +181,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjg-hw-gam">
-                                <rect key="frame" x="183" y="123.33333333333331" width="48" height="48"/>
+                                <rect key="frame" x="183" y="143.33333333333334" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="8qi-ea-U9f"/>
                                     <constraint firstAttribute="width" constant="48" id="USa-dG-sgS"/>
@@ -253,9 +253,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7ae-PQ-eTh">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GC2-d5-Go6">
                                 <rect key="frame" x="20" y="621" width="374" height="50"/>
                                 <constraints>
@@ -268,7 +265,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jyc-Lb-8Kz">
-                                <rect key="frame" x="20" y="20" width="374" height="32"/>
+                                <rect key="frame" x="20" y="40" width="374" height="32"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                 <segments>
                                     <segment title="Parking"/>
@@ -281,20 +278,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KC9-Og-jfE" firstAttribute="trailing" secondItem="GC2-d5-Go6" secondAttribute="trailing" constant="20" id="0HQ-po-u2b"/>
-                            <constraint firstAttribute="bottom" secondItem="7ae-PQ-eTh" secondAttribute="bottom" id="2kr-us-p2x"/>
                             <constraint firstItem="GC2-d5-Go6" firstAttribute="leading" secondItem="KC9-Og-jfE" secondAttribute="leading" constant="20" id="3zk-gR-kzL"/>
                             <constraint firstItem="jyc-Lb-8Kz" firstAttribute="top" secondItem="KC9-Og-jfE" secondAttribute="top" constant="20" id="AVj-tU-GLu"/>
                             <constraint firstItem="jyc-Lb-8Kz" firstAttribute="leading" secondItem="KC9-Og-jfE" secondAttribute="leading" constant="20" id="BYc-A6-d1e"/>
                             <constraint firstItem="GC2-d5-Go6" firstAttribute="bottom" secondItem="KC9-Og-jfE" secondAttribute="bottom" constant="-16" id="GcV-L7-awi"/>
-                            <constraint firstItem="7ae-PQ-eTh" firstAttribute="top" secondItem="H51-Up-D8x" secondAttribute="top" id="Xoi-bI-i96"/>
-                            <constraint firstItem="7ae-PQ-eTh" firstAttribute="trailing" secondItem="KC9-Og-jfE" secondAttribute="trailing" id="hqJ-W4-1MZ"/>
                             <constraint firstItem="KC9-Og-jfE" firstAttribute="trailing" secondItem="jyc-Lb-8Kz" secondAttribute="trailing" constant="20" id="k2d-U6-vqh"/>
-                            <constraint firstItem="7ae-PQ-eTh" firstAttribute="leading" secondItem="KC9-Og-jfE" secondAttribute="leading" id="zFB-hO-BwP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="evC-4X-ARn"/>
                     <connections>
-                        <outlet property="mapView" destination="7ae-PQ-eTh" id="m1K-WU-Dmw"/>
                         <outlet property="segmentedControl" destination="jyc-Lb-8Kz" id="raK-8M-n1j"/>
                     </connections>
                 </viewController>
@@ -308,7 +300,7 @@
                 <navigationController id="3ka-H2-HT2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Autocomplete" image="highlighter" catalog="system" id="ofb-Lf-pQ3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cVj-Mk-wEF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -324,17 +316,17 @@
             <objects>
                 <viewController title="Place Autocomplete" id="MF8-kt-2CX" customClass="PlaceAutocompleteMainViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="klU-XP-NV2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type your query in order to get Address Autofill suggestions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hS5-wN-tVM">
-                                <rect key="frame" x="25.666666666666657" y="301.33333333333331" width="363" height="40.666666666666686"/>
+                                <rect key="frame" x="25.666666666666657" y="291.33333333333331" width="363" height="40.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6GZ-fP-AcB">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -371,10 +363,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="D0Y-wN-g3u">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="294.33333333333331"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="294.33333333333331"/>
                             </mapView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3zs-Dg-SK7">
-                                <rect key="frame" x="0.0" y="294.33333333333326" width="414" height="441.66666666666674"/>
+                                <rect key="frame" x="0.0" y="314.33333333333326" width="414" height="421.66666666666674"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="MEn-56-ZP0" id="Zej-PD-1op"/>
@@ -406,8 +398,8 @@
     </scenes>
     <resources>
         <image name="highlighter" catalog="system" width="128" height="120"/>
-        <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
-        <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
+        <image name="mappin.and.ellipse" catalog="system" width="110" height="128"/>
+        <image name="pencil.and.outline" catalog="system" width="123" height="128"/>
         <image name="sparkle.magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="tag" catalog="system" width="128" height="118"/>
         <systemColor name="systemBackgroundColor">
