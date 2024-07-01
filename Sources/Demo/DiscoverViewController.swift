@@ -1,5 +1,6 @@
 import MapboxMaps
 import MapboxSearch
+import MapboxSearchUI
 import MapKit
 import UIKit
 
@@ -111,7 +112,12 @@ extension DiscoverViewController {
         annotationsManager.annotations = results.map {
             var point = PointAnnotation(coordinate: $0.coordinate)
             point.textField = $0.name
-            UIImage(named: "pin").map { point.image = .init(image: $0, name: "pin") }
+
+            /// Display a corresponding Maki icon for this Result when available
+            if let name = $0.makiIcon, let maki = Maki(rawValue: name) {
+                point.image = .init(image: maki.icon, name: maki.name)
+            }
+
             return point
         }
 
