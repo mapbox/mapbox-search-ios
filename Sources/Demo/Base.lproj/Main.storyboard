@@ -355,9 +355,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="D0Y-wN-g3u">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNH-Dw-mf5" customClass="MapView" customModule="MapboxMaps">
                                 <rect key="frame" x="0.0" y="20" width="414" height="294.33333333333331"/>
-                            </mapView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration" label="Map"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3zs-Dg-SK7">
                                 <rect key="frame" x="0.0" y="314.33333333333326" width="414" height="421.66666666666674"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
@@ -369,24 +371,24 @@
                         <viewLayoutGuide key="safeArea" id="nqj-du-rxi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="D0Y-wN-g3u" firstAttribute="leading" secondItem="nqj-du-rxi" secondAttribute="leading" id="MKJ-Bm-OIF"/>
-                            <constraint firstItem="D0Y-wN-g3u" firstAttribute="top" secondItem="nqj-du-rxi" secondAttribute="top" id="OC4-vc-wg4"/>
+                            <constraint firstItem="dNH-Dw-mf5" firstAttribute="leading" secondItem="nqj-du-rxi" secondAttribute="leading" id="70M-ch-eGL"/>
+                            <constraint firstItem="dNH-Dw-mf5" firstAttribute="height" secondItem="8DN-gG-tvk" secondAttribute="height" multiplier="0.4" id="7bV-Pc-4Xg"/>
                             <constraint firstItem="3zs-Dg-SK7" firstAttribute="trailing" secondItem="nqj-du-rxi" secondAttribute="trailing" id="PmJ-hh-uBu"/>
-                            <constraint firstItem="D0Y-wN-g3u" firstAttribute="trailing" secondItem="nqj-du-rxi" secondAttribute="trailing" id="VpE-Bk-z6a"/>
                             <constraint firstItem="3zs-Dg-SK7" firstAttribute="leading" secondItem="nqj-du-rxi" secondAttribute="leading" id="WRT-7o-vYM"/>
-                            <constraint firstItem="3zs-Dg-SK7" firstAttribute="top" secondItem="D0Y-wN-g3u" secondAttribute="bottom" id="dGO-6H-kSd"/>
-                            <constraint firstItem="D0Y-wN-g3u" firstAttribute="height" secondItem="8DN-gG-tvk" secondAttribute="height" multiplier="0.4" id="e5V-na-43y"/>
+                            <constraint firstItem="dNH-Dw-mf5" firstAttribute="bottom" secondItem="3zs-Dg-SK7" secondAttribute="top" id="aGv-i4-OBK"/>
                             <constraint firstItem="3zs-Dg-SK7" firstAttribute="bottom" secondItem="nqj-du-rxi" secondAttribute="bottom" id="qZH-IW-YWm"/>
+                            <constraint firstItem="dNH-Dw-mf5" firstAttribute="top" secondItem="nqj-du-rxi" secondAttribute="top" id="vqf-op-onj"/>
+                            <constraint firstItem="nqj-du-rxi" firstAttribute="trailing" secondItem="dNH-Dw-mf5" secondAttribute="trailing" id="ztB-7g-zHs"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mapView" destination="D0Y-wN-g3u" id="kbh-iG-1nS"/>
+                        <outlet property="mapView" destination="dNH-Dw-mf5" id="ETv-xS-hIw"/>
                         <outlet property="tableView" destination="3zs-Dg-SK7" id="sOe-On-hxP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smM-ht-A74" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="870" y="3139"/>
+            <point key="canvasLocation" x="869.56521739130437" y="3138.5869565217395"/>
         </scene>
     </scenes>
     <resources>
