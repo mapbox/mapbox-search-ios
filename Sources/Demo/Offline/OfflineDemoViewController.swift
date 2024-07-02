@@ -1,4 +1,5 @@
 import CoreLocation
+import MapboxMaps
 import MapboxSearch
 import MapboxSearchUI
 import MapKit
@@ -6,8 +7,10 @@ import UIKit
 
 /// Demonstrate how to use Offline Search in the Demo app
 class OfflineDemoViewController: UIViewController {
-    private var mapView = MKMapView()
+    private var mapView = MapView(frame: .zero)
+    lazy var annotationsManager = mapView.annotations.makePointAnnotationManager()
     private var messageLabel = UILabel()
+
     private lazy var searchController = MapboxSearchController()
 
     override func viewDidLoad() {
@@ -86,6 +89,10 @@ class OfflineDemoViewController: UIViewController {
             mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
 
+        // Show user location
+        mapView.location.options.puckType = .puck2D()
+        mapView.viewport.transition(to: mapView.viewport.makeFollowPuckViewportState())
+
         // Set up the help message in the navigation bar
         let message =
             "Offline search is available as a premium feature.\nContact Mapbox sales team for more information."
@@ -95,51 +102,53 @@ class OfflineDemoViewController: UIViewController {
         messageLabel.text = message
     }
 
-    func showAnnotation(_ annotations: [MKAnnotation], isPOI: Bool) {
-        mapView.removeAnnotations(mapView.annotations)
+    func showAnnotations(results: [SearchResult], cameraShouldFollow: Bool = true) {
+        annotationsManager.annotations = results.map {
+            var point = PointAnnotation(coordinate: $0.coordinate)
+            point.textField = $0.name
+            UIImage(named: "pin").map { point.image = .init(image: $0, name: "pin") }
+            return point
+        }
 
-        guard !annotations.isEmpty else { return }
-        mapView.addAnnotations(annotations)
+        if cameraShouldFollow {
+            cameraToAnnotations(annotationsManager.annotations)
+        }
+    }
 
+    func cameraToAnnotations(_ annotations: [PointAnnotation]) {
         if annotations.count == 1, let annotation = annotations.first {
-            let delta = isPOI ? 0.005 : 0.5
-            let span = MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta)
-            let region = MKCoordinateRegion(center: annotation.coordinate, span: span)
-            mapView.setRegion(region, animated: true)
+            mapView.camera.fly(
+                to: .init(center: annotation.point.coordinates, zoom: 15),
+                duration: 0.25,
+                completion: nil
+            )
         } else {
-            mapView.showAnnotations(annotations, animated: true)
+            let coordinatesCamera = mapView.mapboxMap.camera(
+                for: annotations.map(\.point.coordinates),
+                padding: UIEdgeInsets(
+                    top: 24,
+                    left: 24,
+                    bottom: 24,
+                    right: 24
+                ),
+                bearing: nil,
+                pitch: nil
+            )
+            mapView.camera.fly(to: coordinatesCamera, duration: 0.25, completion: nil)
         }
     }
 }
 
 extension OfflineDemoViewController: SearchControllerDelegate {
     func categorySearchResultsReceived(category: SearchCategory, results: [SearchResult]) {
-        let annotations = results.map { searchResult -> MKPointAnnotation in
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = searchResult.coordinate
-            annotation.title = searchResult.name
-            annotation.subtitle = searchResult.address?.formattedAddress(style: .medium)
-            return annotation
-        }
-
-        showAnnotation(annotations, isPOI: false)
+        showAnnotations(results: results)
     }
 
     func searchResultSelected(_ searchResult: SearchResult) {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = searchResult.coordinate
-        annotation.title = searchResult.name
-        annotation.subtitle = searchResult.address?.formattedAddress(style: .medium)
-
-        showAnnotation([annotation], isPOI: searchResult.type == .POI)
+        showAnnotations(results: [searchResult])
     }
 
     func userFavoriteSelected(_ userFavorite: FavoriteRecord) {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = userFavorite.coordinate
-        annotation.title = userFavorite.name
-        annotation.subtitle = userFavorite.address?.formattedAddress(style: .medium)
-
-        showAnnotation([annotation], isPOI: true)
+        showAnnotations(results: [userFavorite])
     }
 }
