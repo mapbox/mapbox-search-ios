@@ -8,9 +8,24 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+## 2.2.0
+
+- [Project] Update Podspec `swift_version = "5.10"`
+- [Core] Update MapboxCommon and MapboxCoreSearch package dependencies
+
+**MapboxCommon**: v24.5.0
+**MapboxCoreSearch**: v2.2.0
+
+## 2.2.0-rc.1
+
 - [Project] Update Package from Swift 5.7 to 5.10
 - [Project] Update MapboxSearch.xcodeproj for Xcode 15.3 and signed MapboxCommon framework
+- [Project] Remove MapboxCoreSearch.podspec. This source has moved to another repo.
 - [UI] Change `MapboxSearchUI.Maki.image: UIImage` to public
+- [Core] Update MapboxCommon and MapboxCoreSearch package dependencies
+
+**MapboxCommon**: v24.5.0-rc.1
+**MapboxCoreSearch**: v2.2.0-rc.1
 
 ## 2.2.0-beta.1
 
