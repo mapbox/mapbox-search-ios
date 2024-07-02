@@ -1,3 +1,4 @@
+import MapboxMaps
 import MapboxSearch
 import MapKit
 import UIKit
@@ -8,7 +9,7 @@ final class AddressAutofillResultViewController: UIViewController {
     }
 
     @IBOutlet private var tableView: UITableView!
-    @IBOutlet private var mapView: MKMapView!
+    @IBOutlet private var mapView: MapView!
     @IBOutlet private var pinButton: UIButton!
 
     @IBOutlet private var activityView: UIView!
@@ -16,6 +17,7 @@ final class AddressAutofillResultViewController: UIViewController {
 
     private var result: AddressAutofill.Result!
     private lazy var addressAutofill = AddressAutofill()
+    private lazy var annotationsManager = mapView.annotations.makePointAnnotationManager()
 
     static func instantiate(with result: AddressAutofill.Result) -> AddressAutofillResultViewController {
         let storyboard = UIStoryboard(
@@ -41,6 +43,12 @@ final class AddressAutofillResultViewController: UIViewController {
 
         prepare()
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        showSuggestionRegion()
+    }
 }
 
 // MARK: - TableView data source
@@ -53,11 +61,12 @@ extension AddressAutofillResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "result-cell"
 
-        let tableViewCell: UITableViewCell
-        if let cachedTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
-            tableViewCell = cachedTableViewCell
+        let tableViewCell: UITableViewCell = if let cachedTableViewCell = tableView
+            .dequeueReusableCell(withIdentifier: cellIdentifier)
+        {
+            cachedTableViewCell
         } else {
-            tableViewCell = UITableViewCell(style: .value1, reuseIdentifier: cellIdentifier)
+            UITableViewCell(style: .value1, reuseIdentifier: cellIdentifier)
         }
 
         let addressComponent = result.addressComponents.all[indexPath.row]
@@ -94,7 +103,7 @@ extension AddressAutofillResultViewController {
     @objc
     private func onStartAdjustLocationAction() {
         result = nil
-        mapView.removeAnnotations(mapView.annotations)
+        annotationsManager.annotations = []
 
         updateViewState(to: .adjusting)
         attachDoneButtonToNavigationItem()
@@ -148,30 +157,23 @@ extension AddressAutofillResultViewController {
     }
 
     private func updateScreenData() {
-        showCurrentAutofillAnnotation()
+        guard let result else { return }
+
+        showAnnotations(results: [result])
         showSuggestionRegion()
 
         tableView.reloadData()
     }
 
-    private func showCurrentAutofillAnnotation() {
-        guard result != nil else { return }
-
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = result.coordinate
-        annotation.title = result.name
-
-        mapView.addAnnotation(annotation)
-    }
-
     private func showSuggestionRegion() {
         guard result != nil else { return }
 
-        let region = MKCoordinateRegion(
+        let cameraOptions = CameraOptions(
             center: result.coordinate,
-            span: .init(latitudeDelta: 0.001, longitudeDelta: 0.001)
+            zoom: 10.5
         )
-        mapView.setRegion(region, animated: true)
+
+        mapView.camera.fly(to: cameraOptions, duration: 0.4)
     }
 
     private func performAutofillRequest() {
@@ -179,33 +181,70 @@ extension AddressAutofillResultViewController {
 
         updateViewState(to: .loading)
 
-        addressAutofill.suggestions(for: mapView.centerCoordinate) { [weak self] result in
+        let centerCoordinate = mapView.mapboxMap.coordinate(for: mapView.center)
+        addressAutofill.suggestions(for: centerCoordinate) { [weak self] result in
             guard let self else { return }
 
             switch result {
             case .success(let suggestions):
                 if let first = suggestions.first {
-                    self.addressAutofill.select(suggestion: first) { [weak self] result in
+                    addressAutofill.select(suggestion: first) { [weak self] result in
                         guard let self else { return }
 
                         if case .success(let suggestionResult) = result {
                             self.result = suggestionResult
-                            self.updateViewState(to: .result)
+                            updateViewState(to: .result)
                         } else {
-                            self.updateViewState(to: .empty)
+                            updateViewState(to: .empty)
                         }
                     }
                 } else {
-                    self.updateViewState(to: .empty)
+                    updateViewState(to: .empty)
                 }
 
             case .failure(let error):
                 debugPrint(error)
 
-                self.updateViewState(to: .empty)
+                updateViewState(to: .empty)
             }
 
-            self.attachAdjustLocationButtonToNavigationItem()
+            attachAdjustLocationButtonToNavigationItem()
+        }
+    }
+
+    func showAnnotations(results: [AddressAutofill.Result], cameraShouldFollow: Bool = true) {
+        annotationsManager.annotations = results.compactMap {
+            var point = PointAnnotation(coordinate: $0.coordinate)
+            point.textField = $0.name
+            UIImage(named: "pin").map { point.image = .init(image: $0, name: "pin") }
+            return point
+        }
+
+        if cameraShouldFollow {
+            cameraToAnnotations(annotationsManager.annotations)
+        }
+    }
+
+    func cameraToAnnotations(_ annotations: [PointAnnotation]) {
+        if annotations.count == 1, let annotation = annotations.first {
+            mapView.camera.fly(
+                to: .init(center: annotation.point.coordinates, zoom: 15),
+                duration: 0.25,
+                completion: nil
+            )
+        } else {
+            let coordinatesCamera = mapView.mapboxMap.camera(
+                for: annotations.map(\.point.coordinates),
+                padding: UIEdgeInsets(
+                    top: 24,
+                    left: 24,
+                    bottom: 24,
+                    right: 24
+                ),
+                bearing: nil,
+                pitch: nil
+            )
+            mapView.camera.fly(to: coordinatesCamera, duration: 0.25, completion: nil)
         }
     }
 }
