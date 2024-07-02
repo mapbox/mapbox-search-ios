@@ -4,13 +4,13 @@ import Foundation
 /// provinces in Canada or China, including name (required) and code identifiers (optional)
 public struct SearchAddressRegion: Codable, Hashable, Equatable {
     /// Colloquial name for this region
-    let name: String
+    public let name: String
 
     /// Subdivision portion of ISO 3166-2 code
-    let regionCode: String?
+    public let regionCode: String?
 
     /// ISO 3166-2 region code
-    let regionCodeFull: String?
+    public let regionCodeFull: String?
 
     init(_ core: CoreSearchAddressRegion) {
         self.name = core.name
