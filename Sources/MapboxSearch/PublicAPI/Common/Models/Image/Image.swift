@@ -4,6 +4,10 @@ import Foundation
 /// SearchResultMetadata Image collection. Contains array of image urls for different sizes.
 public struct Image: Codable, Hashable {
     public let sizes: [SizedImage]
+
+    public init(sizes: [SizedImage]) {
+        self.sizes = sizes
+    }
 }
 
 extension Image {
@@ -14,6 +18,11 @@ extension Image {
 
         /// Image sizes
         public var size: CGSize
+
+        public init(url: URL?, size: CGSize) {
+            self.url = url
+            self.size = size
+        }
 
         init(coreImageInfo: CoreImageInfoProtocol) {
             self.size = CGSize(width: CGFloat(coreImageInfo.width), height: CGFloat(coreImageInfo.height))
