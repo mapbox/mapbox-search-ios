@@ -83,8 +83,8 @@
         <scene sceneID="8aW-Pt-0kO">
             <objects>
                 <viewController title="Address Autofill" id="7bM-3D-K0g" customClass="AddressAutofillMainViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="o0f-ON-FJF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="666"/>
+                    <view key="view" contentMode="scaleToFill" id="o0f-ON-FJF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type your query in order to get Address Autofill suggestions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKd-b0-QXa">
@@ -244,9 +244,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7ae-PQ-eTh">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GC2-d5-Go6">
                                 <rect key="frame" x="20" y="621" width="374" height="50"/>
                                 <constraints>
@@ -272,20 +269,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KC9-Og-jfE" firstAttribute="trailing" secondItem="GC2-d5-Go6" secondAttribute="trailing" constant="20" id="0HQ-po-u2b"/>
-                            <constraint firstAttribute="bottom" secondItem="7ae-PQ-eTh" secondAttribute="bottom" id="2kr-us-p2x"/>
                             <constraint firstItem="GC2-d5-Go6" firstAttribute="leading" secondItem="KC9-Og-jfE" secondAttribute="leading" constant="20" id="3zk-gR-kzL"/>
                             <constraint firstItem="jyc-Lb-8Kz" firstAttribute="top" secondItem="KC9-Og-jfE" secondAttribute="top" constant="20" id="AVj-tU-GLu"/>
                             <constraint firstItem="jyc-Lb-8Kz" firstAttribute="leading" secondItem="KC9-Og-jfE" secondAttribute="leading" constant="20" id="BYc-A6-d1e"/>
                             <constraint firstItem="GC2-d5-Go6" firstAttribute="bottom" secondItem="KC9-Og-jfE" secondAttribute="bottom" constant="-16" id="GcV-L7-awi"/>
-                            <constraint firstItem="7ae-PQ-eTh" firstAttribute="top" secondItem="H51-Up-D8x" secondAttribute="top" id="Xoi-bI-i96"/>
-                            <constraint firstItem="7ae-PQ-eTh" firstAttribute="trailing" secondItem="KC9-Og-jfE" secondAttribute="trailing" id="hqJ-W4-1MZ"/>
                             <constraint firstItem="KC9-Og-jfE" firstAttribute="trailing" secondItem="jyc-Lb-8Kz" secondAttribute="trailing" constant="20" id="k2d-U6-vqh"/>
-                            <constraint firstItem="7ae-PQ-eTh" firstAttribute="leading" secondItem="KC9-Og-jfE" secondAttribute="leading" id="zFB-hO-BwP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="evC-4X-ARn"/>
                     <connections>
-                        <outlet property="mapView" destination="7ae-PQ-eTh" id="m1K-WU-Dmw"/>
                         <outlet property="segmentedControl" destination="jyc-Lb-8Kz" id="raK-8M-n1j"/>
                     </connections>
                 </viewController>
@@ -314,8 +306,8 @@
         <scene sceneID="KCQ-TL-vMl">
             <objects>
                 <viewController title="Place Autocomplete" id="MF8-kt-2CX" customClass="PlaceAutocompleteMainViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="klU-XP-NV2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="666"/>
+                    <view key="view" contentMode="scaleToFill" id="klU-XP-NV2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type your query in order to get Address Autofill suggestions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hS5-wN-tVM">
@@ -405,10 +397,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
