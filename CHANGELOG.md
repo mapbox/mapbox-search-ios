@@ -11,7 +11,13 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [SearchUI] Add `Maki: RawRepresentable` conformance for `Maki(rawValue:)` initializer
 - [Demo] Update DiscoverViewController to use MapboxMaps
 
+## 2.2.0
+
 - [Project] Update Podspec `swift_version = "5.10"`
+- [Core] Update MapboxCommon and MapboxCoreSearch package dependencies
+
+**MapboxCommon**: v24.5.0
+**MapboxCoreSearch**: v2.2.0
 
 ## 2.2.0-rc.1
 
