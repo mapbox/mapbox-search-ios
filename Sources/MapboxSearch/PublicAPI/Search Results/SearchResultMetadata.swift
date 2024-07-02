@@ -47,6 +47,26 @@ public struct SearchResultMetadata: Codable, Hashable {
         }
     }
 
+    public init(
+        data: [String: String],
+        primaryImage: Image?,
+        otherImages: [Image]?,
+        phone: String?,
+        website: URL?,
+        reviewCount: Int?,
+        averageRating: Double?,
+        openHours: OpenHours?
+    ) {
+        self.data = data
+        self.primaryImage = primaryImage
+        self.otherImages = otherImages
+        self.phone = phone
+        self.website = website
+        self.reviewCount = reviewCount
+        self.averageRating = averageRating
+        self.openHours = openHours
+    }
+
     /// Access to the raw metadata strings
     public subscript(key: String) -> String? {
         data[key]

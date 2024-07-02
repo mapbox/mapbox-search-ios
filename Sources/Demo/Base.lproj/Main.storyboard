@@ -53,19 +53,10 @@
                     <view key="view" contentMode="scaleToFill" id="mjt-dR-Xhu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XTL-2K-QzS">
-                                <rect key="frame" x="-3" y="-1" width="417" height="734"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </mapView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="iKt-Zn-Jmz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search SDK" id="gxo-hE-Mx4"/>
-                    <connections>
-                        <outlet property="mapView" destination="XTL-2K-QzS" id="rmT-d2-xbG"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z8c-VN-YeY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -92,8 +83,8 @@
         <scene sceneID="8aW-Pt-0kO">
             <objects>
                 <viewController title="Address Autofill" id="7bM-3D-K0g" customClass="AddressAutofillMainViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="o0f-ON-FJF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="666"/>
+                    <view key="view" contentMode="scaleToFill" id="o0f-ON-FJF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type your query in order to get Address Autofill suggestions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKd-b0-QXa">

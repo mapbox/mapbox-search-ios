@@ -22,4 +22,9 @@ public struct RoutablePoint: Codable, Hashable {
         self.name = routablePoint.name
         self.pointCodable = .init(routablePoint.point)
     }
+
+    public init(name: String, coordinate: CLLocationCoordinate2D) {
+        self.name = name
+        self.pointCodable = CLLocationCoordinate2DCodable(coordinate)
+    }
 }
