@@ -2,7 +2,6 @@ import CoreLocation
 import MapboxMaps
 import MapboxSearch
 import MapboxSearchUI
-import MapKit
 import UIKit
 
 /// Demonstrate how to use Offline Search in the Demo app

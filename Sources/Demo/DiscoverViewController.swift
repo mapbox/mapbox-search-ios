@@ -1,7 +1,6 @@
 import MapboxMaps
 import MapboxSearch
 import MapboxSearchUI
-import MapKit
 import UIKit
 
 final class DiscoverViewController: UIViewController {

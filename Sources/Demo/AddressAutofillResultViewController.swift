@@ -1,6 +1,5 @@
 import MapboxMaps
 import MapboxSearch
-import MapKit
 import UIKit
 
 final class AddressAutofillResultViewController: UIViewController {

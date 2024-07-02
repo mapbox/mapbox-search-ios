@@ -1,5 +1,4 @@
 import Foundation
-import MapKit
 
 /// Autocomplete common suggestion type.
 ///
