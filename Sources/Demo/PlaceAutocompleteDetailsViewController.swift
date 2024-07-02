@@ -1,10 +1,12 @@
+import MapboxMaps
 import MapboxSearch
 import MapKit
 import UIKit
 
 final class PlaceAutocompleteResultViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
-    @IBOutlet private var mapView: MKMapView!
+    @IBOutlet private var mapView: MapView!
+    lazy var annotationsManager = mapView.annotations.makePointAnnotationManager()
 
     private var result: PlaceAutocomplete.Result!
     private var resultComponents: [(name: String, value: String)] = []
@@ -34,6 +36,46 @@ final class PlaceAutocompleteResultViewController: UIViewController {
 
         prepare()
     }
+
+    func showAnnotations(results: [PlaceAutocomplete.Result], cameraShouldFollow: Bool = true) {
+        annotationsManager.annotations = results.compactMap {
+            guard let coordinate = $0.coordinate else {
+                return nil
+            }
+
+            var point = PointAnnotation(coordinate: coordinate)
+            point.textField = $0.name
+            UIImage(named: "pin").map { point.image = .init(image: $0, name: "pin") }
+            return point
+        }
+
+        if cameraShouldFollow {
+            cameraToAnnotations(annotationsManager.annotations)
+        }
+    }
+
+    func cameraToAnnotations(_ annotations: [PointAnnotation]) {
+        if annotations.count == 1, let annotation = annotations.first {
+            mapView.camera.fly(
+                to: .init(center: annotation.point.coordinates, zoom: 15),
+                duration: 0.25,
+                completion: nil
+            )
+        } else {
+            let coordinatesCamera = mapView.mapboxMap.camera(
+                for: annotations.map(\.point.coordinates),
+                padding: UIEdgeInsets(
+                    top: 24,
+                    left: 24,
+                    bottom: 24,
+                    right: 24
+                ),
+                bearing: nil,
+                pitch: nil
+            )
+            mapView.camera.fly(to: coordinatesCamera, duration: 0.25, completion: nil)
+        }
+    }
 }
 
 // MARK: - TableView data source
@@ -46,11 +88,12 @@ extension PlaceAutocompleteResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "result-cell"
 
-        let tableViewCell: UITableViewCell
-        if let cachedTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
-            tableViewCell = cachedTableViewCell
+        let tableViewCell: UITableViewCell = if let cachedTableViewCell = tableView
+            .dequeueReusableCell(withIdentifier: cellIdentifier)
+        {
+            cachedTableViewCell
         } else {
-            tableViewCell = UITableViewCell(style: .value1, reuseIdentifier: cellIdentifier)
+            UITableViewCell(style: .value1, reuseIdentifier: cellIdentifier)
         }
 
         let component = resultComponents[indexPath.row]
@@ -61,11 +104,18 @@ extension PlaceAutocompleteResultViewController: UITableViewDataSource {
 
         return tableViewCell
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        showSuggestionRegion()
+    }
 }
 
 // MARK: - Private
 
 extension PlaceAutocompleteResultViewController {
+    /// Initial set-up
     private func prepare() {
         title = "Address"
 
@@ -73,30 +123,21 @@ extension PlaceAutocompleteResultViewController {
     }
 
     private func updateScreenData() {
-        showAnnotation()
+        showAnnotations(results: [result])
         showSuggestionRegion()
 
         tableView.reloadData()
     }
 
-    private func showAnnotation() {
-        guard let coordinate = result.coordinate else { return }
-
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        annotation.title = result.name
-
-        mapView.addAnnotation(annotation)
-    }
-
     private func showSuggestionRegion() {
         guard let coordinate = result.coordinate else { return }
 
-        let region = MKCoordinateRegion(
+        let cameraOptions = CameraOptions(
             center: coordinate,
-            span: .init(latitudeDelta: 0.001, longitudeDelta: 0.001)
+            zoom: 10.5
         )
-        mapView.setRegion(region, animated: true)
+
+        mapView.camera.ease(to: cameraOptions, duration: 0.4)
     }
 }
 
