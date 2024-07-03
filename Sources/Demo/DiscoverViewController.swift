@@ -1,11 +1,10 @@
 import MapboxMaps
 import MapboxSearch
 import MapboxSearchUI
-import MapKit
 import UIKit
 
 final class DiscoverViewController: UIViewController {
-    private var mapView = MapView(frame: .zero, mapInitOptions: defaultCameraOptions)
+    private var mapView = MapView(frame: .zero, mapInitOptions: defaultMapOptions)
     @IBOutlet private var segmentedControl: UISegmentedControl!
 
     private let category = Discover()
@@ -76,7 +75,7 @@ extension DiscoverViewController {
         return allDemoCategories[segmentedControl.selectedSegmentIndex]
     }
 
-    private static var defaultCameraOptions: MapInitOptions {
+    private static var defaultMapOptions: MapInitOptions {
         let cameraOptions = CameraOptions(
             center: CLLocationCoordinate2D(latitude: 40.730610, longitude: -73.935242),
             zoom: 10.5

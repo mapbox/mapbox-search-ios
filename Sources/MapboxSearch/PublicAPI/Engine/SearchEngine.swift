@@ -1,5 +1,4 @@
 import Foundation
-import MapKit
 
 /// Declares the list of methods for receiving result of search and resolve operations
 public protocol SearchEngineDelegate: AnyObject {
@@ -400,10 +399,10 @@ extension SearchEngine {
 
                 switch result {
                 case .success(let resolvedResult):
-                    self.delegate?.resultResolved(result: resolvedResult, searchEngine: self)
+                    delegate?.resultResolved(result: resolvedResult, searchEngine: self)
                 case .failure(let searchError):
-                    self.eventsManager.reportError(searchError)
-                    self.delegate?.searchErrorHappened(searchError: searchError, searchEngine: self)
+                    eventsManager.reportError(searchError)
+                    delegate?.searchErrorHappened(searchError: searchError, searchEngine: self)
                 }
             }
         default:
@@ -472,7 +471,7 @@ extension SearchEngine {
             }
 
             guard let response else {
-                self.eventsManager.reportError(.responseProcessingFailed)
+                eventsManager.reportError(.responseProcessingFailed)
                 completion(.failure(.responseProcessingFailed))
                 assertionFailure("Response should never be nil")
                 return

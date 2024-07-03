@@ -24,6 +24,7 @@ class MapRootController: UIViewController {
 
         // Show user location
         mapView.location.options.puckType = .puck2D()
+        mapView.viewport.transition(to: mapView.viewport.makeFollowPuckViewportState())
 
         searchController.delegate = self
         let panelController = MapboxPanelController(rootViewController: searchController)
