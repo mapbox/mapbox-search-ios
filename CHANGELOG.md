@@ -8,6 +8,13 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+## 1.4.0 - 2024-07-05
+
+- [Core] Update MapboxCoreSearch for bug fixes and improvements
+
+**MapboxCommon**: v23.10.1
+**MapboxCoreSearch**: v1.4.0
+
 ## 1.0.3 - 2024-05-29
 
 - [Offline] Added OfflineIndexObserver which accepts two blocks for indexChanged or error events. This can be assigned to the offline search engine to receive state updates
