@@ -8,6 +8,13 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+## 1.4.1 - 2024-07-09
+
+- [Core] Correctly apply update to MapboxCoreSearch for Cocoapods distribution
+
+**MapboxCommon**: v23.10.1
+**MapboxCoreSearch**: v1.4.0
+
 ## 1.4.0 - 2024-07-05
 
 - [Core] Update MapboxCoreSearch for bug fixes and improvements
