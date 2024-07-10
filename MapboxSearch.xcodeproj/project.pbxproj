@@ -560,16 +560,16 @@
 		04C0848C2B4C82F3002F9C69 /* SdkInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkInformation.swift; sourceTree = "<group>"; };
 		04C127542B62F6BC00884325 /* ApiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiType.swift; sourceTree = "<group>"; };
 		04C127572B62FFDB00884325 /* ApiType+Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiType+Core.swift"; sourceTree = "<group>"; };
-		04CECA032C3EFAAF007117E4 /* MapboxMapsCategoryResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapboxMapsCategoryResultsViewController.swift; path = Examples/SearchExamples/MapboxMapsCategoryResultsViewController.swift; sourceTree = SOURCE_ROOT; };
-		04CECA042C3EFAAF007117E4 /* SimpleCategorySearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleCategorySearchViewController.swift; path = Examples/SearchExamples/SimpleCategorySearchViewController.swift; sourceTree = SOURCE_ROOT; };
-		04CECA052C3EFAAF007117E4 /* ContinuousSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContinuousSearchViewController.swift; path = Examples/SearchExamples/ContinuousSearchViewController.swift; sourceTree = SOURCE_ROOT; };
-		04CECA062C3EFAAF007117E4 /* SimpleListSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleListSearchViewController.swift; path = Examples/SearchExamples/SimpleListSearchViewController.swift; sourceTree = SOURCE_ROOT; };
-		04CECA072C3EFAAF007117E4 /* SimpleUISearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleUISearchViewController.swift; path = Examples/SearchExamples/SimpleUISearchViewController.swift; sourceTree = SOURCE_ROOT; };
-		04CECA082C3EFAAF007117E4 /* MapboxBoundingBoxController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapboxBoundingBoxController.swift; path = Examples/SearchExamples/MapboxBoundingBoxController.swift; sourceTree = SOURCE_ROOT; };
-		04CECA0F2C3EFAB9007117E4 /* Examples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Examples.swift; path = Examples/SearchExamples/Examples.swift; sourceTree = SOURCE_ROOT; };
-		04CECA102C3EFAB9007117E4 /* MapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapsViewController.swift; path = Examples/SearchExamples/MapsViewController.swift; sourceTree = SOURCE_ROOT; };
-		04CECA112C3EFAB9007117E4 /* TextViewLoggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextViewLoggerViewController.swift; path = Examples/SearchExamples/TextViewLoggerViewController.swift; sourceTree = SOURCE_ROOT; };
-		04CECA122C3EFAB9007117E4 /* ExamplesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExamplesTableViewController.swift; path = Examples/SearchExamples/ExamplesTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		04CECA032C3EFAAF007117E4 /* MapboxMapsCategoryResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapboxMapsCategoryResultsViewController.swift; path = Sources/Demo/Examples/MapboxMapsCategoryResultsViewController.swift; sourceTree = SOURCE_ROOT; };
+		04CECA042C3EFAAF007117E4 /* SimpleCategorySearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleCategorySearchViewController.swift; path = Sources/Demo/Examples/SimpleCategorySearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		04CECA052C3EFAAF007117E4 /* ContinuousSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContinuousSearchViewController.swift; path = Sources/Demo/Examples/ContinuousSearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		04CECA062C3EFAAF007117E4 /* SimpleListSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleListSearchViewController.swift; path = Sources/Demo/Examples/SimpleListSearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		04CECA072C3EFAAF007117E4 /* SimpleUISearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleUISearchViewController.swift; path = Sources/Demo/Examples/SimpleUISearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		04CECA082C3EFAAF007117E4 /* MapboxBoundingBoxController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapboxBoundingBoxController.swift; path = Sources/Demo/Examples/MapboxBoundingBoxController.swift; sourceTree = SOURCE_ROOT; };
+		04CECA0F2C3EFAB9007117E4 /* Examples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Examples.swift; path = Sources/Demo/Examples/Examples.swift; sourceTree = SOURCE_ROOT; };
+		04CECA102C3EFAB9007117E4 /* MapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapsViewController.swift; path = Sources/Demo/Examples/MapsViewController.swift; sourceTree = SOURCE_ROOT; };
+		04CECA112C3EFAB9007117E4 /* TextViewLoggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextViewLoggerViewController.swift; path = Sources/Demo/Examples/TextViewLoggerViewController.swift; sourceTree = SOURCE_ROOT; };
+		04CECA122C3EFAB9007117E4 /* ExamplesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExamplesTableViewController.swift; path = Sources/Demo/Examples/ExamplesTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		04DAF7572BDAAB4C002719E2 /* OfflineDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineDemoViewController.swift; sourceTree = "<group>"; };
 		04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-suggestions-categories.json"; sourceTree = "<group>"; };
 		04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-retrieve-categories.json"; sourceTree = "<group>"; };
@@ -1091,7 +1091,7 @@
 			path = Engine;
 			sourceTree = "<group>";
 		};
-		04CECA022C3EFAA2007117E4 /* MoreExamples */ = {
+		04CECA172C3EFF4A007117E4 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
 				04CECA0F2C3EFAB9007117E4 /* Examples.swift */,
@@ -1105,7 +1105,7 @@
 				04CECA062C3EFAAF007117E4 /* SimpleListSearchViewController.swift */,
 				04CECA072C3EFAAF007117E4 /* SimpleUISearchViewController.swift */,
 			);
-			name = MoreExamples;
+			path = Examples;
 			sourceTree = "<group>";
 		};
 		04DAF7562BDAAB38002719E2 /* Offline */ = {
@@ -1978,7 +1978,7 @@
 		FEEDD3B32508E3CD00DC0A98 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				04CECA022C3EFAA2007117E4 /* MoreExamples */,
+				04CECA172C3EFF4A007117E4 /* Examples */,
 				04DAF7562BDAAB38002719E2 /* Offline */,
 				14F7186829A1335F00D5BC2E /* Place Autocomplete */,
 				14B92D5C298BFD04006003C1 /* Category */,
