@@ -1,4 +1,3 @@
-
 import MapboxMaps
 import MapboxSearch
 import MapboxSearchUI
@@ -27,6 +26,7 @@ class MapRootController: UIViewController {
         mapView.viewport.transition(to: mapView.viewport.makeFollowPuckViewportState())
 
         searchController.delegate = self
+        /// Add MapboxSearchUI above the map
         let panelController = MapboxPanelController(rootViewController: searchController)
         addChild(panelController)
 
@@ -46,10 +46,16 @@ class MapRootController: UIViewController {
     }
 
     func showAnnotations(results: [SearchResult], cameraShouldFollow: Bool = true) {
-        annotationsManager.annotations = results.map {
-            var point = PointAnnotation(coordinate: $0.coordinate)
-            point.textField = $0.name
+        annotationsManager.annotations = results.map { result in
+            var point = PointAnnotation(coordinate: result.coordinate)
+            point.textField = result.name
             UIImage(named: "pin").map { point.image = .init(image: $0, name: "pin") }
+
+            // Present a detail view upon annotation tap
+            point.tapHandler = ((MapContentGestureContext) -> Bool)? { [weak self] _ in
+                self?.present(result: result)
+                return false
+            }
             return point
         }
 
@@ -80,6 +86,13 @@ class MapRootController: UIViewController {
             mapView.camera.fly(to: coordinatesCamera, duration: 0.25, completion: nil)
         }
     }
+
+    @discardableResult
+    private func present(result: SearchResult) -> Bool {
+        let detailController = ResultDetailViewController(result: result)
+        present(detailController, animated: true)
+        return true
+    }
 }
 
 extension MapRootController: SearchControllerDelegate {
@@ -87,6 +100,8 @@ extension MapRootController: SearchControllerDelegate {
         showAnnotations(results: results)
     }
 
+    /// Show annotation on the map when selecting a result.
+    /// Separately, selecting an annotation will present a detail view.
     func searchResultSelected(_ searchResult: SearchResult) {
         showAnnotations(results: [searchResult])
     }
