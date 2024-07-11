@@ -52,9 +52,8 @@ class MapRootController: UIViewController {
             UIImage(named: "pin").map { point.image = .init(image: $0, name: "pin") }
 
             // Present a detail view upon annotation tap
-            point.tapHandler = ((MapContentGestureContext) -> Bool)? { [weak self] _ in
-                self?.present(result: result)
-                return false
+            point.tapHandler = { [weak self] _ in
+                return self?.present(result: result) ?? false
             }
             return point
         }

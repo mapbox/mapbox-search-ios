@@ -77,17 +77,8 @@ class ResultDetailViewController: UIViewController {
 }
 
 extension ResultDetailViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        2
-    }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            resultComponents.count
-        default:
-            0
-        }
+        resultComponents.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
