@@ -36,9 +36,12 @@ extension DiscoverViewController {
     private func handleSearchInRegionAction() {
         let regionResultsLimit = switch category.apiType {
         case .geocoding:
+            /// Geocoding has a limit of 10 results
             10
         default:
-            100
+            /// You can request up to 100 results for SBS and SearchBox API types
+            /// For this demo we will request fewer for this UI output
+            20
         }
 
         category.search(
@@ -115,6 +118,8 @@ extension DiscoverViewController {
             /// Display a corresponding Maki icon for this Result when available
             if let name = $0.makiIcon, let maki = Maki(rawValue: name) {
                 point.image = .init(image: maki.icon, name: maki.name)
+                point.iconOpacity = 0.6
+                point.iconAnchor = .bottom
             }
 
             return point
