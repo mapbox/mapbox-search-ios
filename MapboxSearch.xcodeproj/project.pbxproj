@@ -60,6 +60,7 @@
 		04CECA142C3EFAB9007117E4 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA102C3EFAB9007117E4 /* MapsViewController.swift */; };
 		04CECA152C3EFAB9007117E4 /* TextViewLoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA112C3EFAB9007117E4 /* TextViewLoggerViewController.swift */; };
 		04CECA162C3EFAB9007117E4 /* ExamplesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA122C3EFAB9007117E4 /* ExamplesTableViewController.swift */; };
+		04CECA012C3EE28B007117E4 /* ResultDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA002C3EE28B007117E4 /* ResultDetailViewController.swift */; };
 		04DAF7582BDAAB4C002719E2 /* OfflineDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAF7572BDAAB4C002719E2 /* OfflineDemoViewController.swift */; };
 		04DFB40C2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */; };
 		04DFB40D2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */; };
@@ -570,6 +571,7 @@
 		04CECA102C3EFAB9007117E4 /* MapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapsViewController.swift; path = Sources/Demo/Examples/MapsViewController.swift; sourceTree = SOURCE_ROOT; };
 		04CECA112C3EFAB9007117E4 /* TextViewLoggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextViewLoggerViewController.swift; path = Sources/Demo/Examples/TextViewLoggerViewController.swift; sourceTree = SOURCE_ROOT; };
 		04CECA122C3EFAB9007117E4 /* ExamplesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExamplesTableViewController.swift; path = Sources/Demo/Examples/ExamplesTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		04CECA002C3EE28B007117E4 /* ResultDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailViewController.swift; sourceTree = "<group>"; };
 		04DAF7572BDAAB4C002719E2 /* OfflineDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineDemoViewController.swift; sourceTree = "<group>"; };
 		04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-suggestions-categories.json"; sourceTree = "<group>"; };
 		04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-retrieve-categories.json"; sourceTree = "<group>"; };
@@ -1341,6 +1343,7 @@
 			children = (
 				FEEDD3C62508E3FB00DC0A98 /* Resources */,
 				FEEDD3B52508E3CD00DC0A98 /* MapRootController.swift */,
+				04CECA002C3EE28B007117E4 /* ResultDetailViewController.swift */,
 			);
 			name = "Search UI";
 			sourceTree = "<group>";
@@ -2871,6 +2874,7 @@
 				04CECA142C3EFAB9007117E4 /* MapsViewController.swift in Sources */,
 				04CECA0A2C3EFAAF007117E4 /* SimpleCategorySearchViewController.swift in Sources */,
 				1440BF4D28FD75A9009B3679 /* AddressAutofillMainViewController.swift in Sources */,
+				04CECA012C3EE28B007117E4 /* ResultDetailViewController.swift in Sources */,
 				041DAFD92BCDA45B0071F9EB /* DiscoverViewController.swift in Sources */,
 				04CECA0B2C3EFAAF007117E4 /* ContinuousSearchViewController.swift in Sources */,
 				04CECA0C2C3EFAAF007117E4 /* SimpleListSearchViewController.swift in Sources */,
