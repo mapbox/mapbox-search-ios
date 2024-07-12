@@ -62,18 +62,20 @@ final class PlaceAutocompleteResultViewController: UIViewController {
                 completion: nil
             )
         } else {
-            let coordinatesCamera = mapView.mapboxMap.camera(
-                for: annotations.map(\.point.coordinates),
-                padding: UIEdgeInsets(
-                    top: 24,
-                    left: 24,
-                    bottom: 24,
-                    right: 24
-                ),
-                bearing: nil,
-                pitch: nil
-            )
-            mapView.camera.fly(to: coordinatesCamera, duration: 0.25, completion: nil)
+            do {
+                let cameraState = mapView.mapboxMap.cameraState
+                let coordinatesCamera = try mapView.mapboxMap.camera(
+                    for: annotations.map(\.point.coordinates),
+                    camera: CameraOptions(cameraState: cameraState),
+                    coordinatesPadding: UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24),
+                    maxZoom: nil,
+                    offset: nil
+                )
+
+                mapView.camera.fly(to: coordinatesCamera, duration: 0.25, completion: nil)
+            } catch {
+                _Logger.searchSDK.error(error.localizedDescription)
+            }
         }
     }
 }
