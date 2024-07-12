@@ -23,11 +23,11 @@ class MapboxBoundingBoxController: MapsViewController {
 
         mapDraggingSubscription = mapView.mapboxMap.onEvery(event: .cameraChanged) { [weak self] _ in
             guard let self else { return }
-            self.draggingRefreshTimer?.invalidate()
-            self.draggingRefreshTimer = Timer.scheduledTimer(
+            draggingRefreshTimer?.invalidate()
+            draggingRefreshTimer = Timer.scheduledTimer(
                 timeInterval: 1,
                 target: self,
-                selector: #selector(self.reloadResultInMapBounds),
+                selector: #selector(reloadResultInMapBounds),
                 userInfo: nil,
                 repeats: false
             )
