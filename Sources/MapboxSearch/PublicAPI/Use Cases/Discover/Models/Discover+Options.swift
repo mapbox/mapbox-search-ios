@@ -1,6 +1,8 @@
 import Foundation
 
 extension Discover {
+    /// Wraps parameters for Discover/Category searches.
+    /// Use this to provide arguments that narrow your search.
     public struct Options {
         /// Maximum number of results to return.
         /// The maximum allowed value for SBS APIs is 100 results.
@@ -17,7 +19,7 @@ extension Discover {
         /// English (en) language parameter, but Frankreich (“France”) with a German (de) language parameter.
         public let language: Language
 
-        /// See ``MapboxSearch/Country/ISO3166_1_alpha2`` for the list of ISO 3166 alpha 2 country codes.
+        /// See `Country.ISO3166_1_alpha2` for the list of ISO 3166 alpha 2 country codes.
         /// The default value is nil.
         public let country: Country?
 
