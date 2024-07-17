@@ -79,7 +79,7 @@ extension SearchSuggestTypeTests {
     }
 
     func testDecodableWithCorruptedData() throws {
-        let data = "{}".data(using: .utf8)!
+        let data = try XCTUnwrap(String("{}").data(using: .utf8))
 
         let assertionError = catchBadInstruction {
             let decoder = JSONDecoder()
