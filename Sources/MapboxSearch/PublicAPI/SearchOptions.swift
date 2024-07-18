@@ -233,11 +233,10 @@ public struct SearchOptions {
     }
 
     func toCore() -> CoreSearchOptions {
-        let searchLanguages: [String]
-        if let localeLanguageCode = locale?.languageCode {
-            searchLanguages = [localeLanguageCode]
+        let searchLanguages: [String] = if let localeLanguageCode = locale?.languageCode {
+            [localeLanguageCode]
         } else {
-            searchLanguages = languages
+            languages
         }
 
         let timeDeviation = routeOptions?.deviation.time.map { $0 / 60 }.map(NSNumber.init(value:))
@@ -269,6 +268,7 @@ public struct SearchOptions {
         }
     }
 
+    // swiftlint:disable cyclomatic_complexity
     /// Build new instance, validating each field over endpoint specification.
     /// - Parameter apiType: actual SearchEngine endpoint
     /// - Returns: New instance with valid fields
@@ -378,6 +378,8 @@ public struct SearchOptions {
 
         return validSearchOptions
     }
+
+    // swiftlint:enable cyclomatic_complexity
 
     /// Replace missing values with values from the other instance
     ///

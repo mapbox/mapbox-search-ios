@@ -110,8 +110,7 @@ public class FeedbackManager {
         root["multiStepSearch"] = !isReproducible
 
         let searchResultsJSON = (try? JSONSerialization.data(withJSONObject: root, options: [])).flatMap { String(
-            data: $0,
-            encoding: .utf8
+            decoding: $0, as: UTF8.self
         ) }
         return searchResultsJSON
     }
@@ -252,9 +251,9 @@ extension FeedbackManager {
                     guard let self else { return }
 
                     do {
-                        let attributes = try self.buildFeedbackAttributes(template, event: event)
+                        let attributes = try buildFeedbackAttributes(template, event: event)
 
-                        self.sendFeedback(attributes: attributes, autoFlush: autoFlush)
+                        sendFeedback(attributes: attributes, autoFlush: autoFlush)
                     } catch {
                         _Logger.searchSDK.debug("Unable to process FeedbackEvent", category: .telemetry)
                     }
