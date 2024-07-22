@@ -38,7 +38,7 @@ extension CoreResultMetadata {
             cpsJson: nil,
             parking: nil,
             children: nil,
-            data: [:],
+            data: data,
             wheelchairAccessible: nil,
             delivery: nil,
             driveThrough: nil,
