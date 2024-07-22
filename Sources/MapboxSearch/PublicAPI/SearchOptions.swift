@@ -258,7 +258,7 @@ public struct SearchOptions {
             sarType: routeOptions?.deviation.sarType?.toCore(),
             timeDeviation: timeDeviation,
             addonAPI: unsafeParameters,
-            attributeSets: [],
+            attributeSets: nil,
             worldview: nil,
             baseUrl: nil
         )
