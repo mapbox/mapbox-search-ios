@@ -257,7 +257,10 @@ public struct SearchOptions {
             route: routeOptions?.route.coordinates.map(Coordinate2D.init(value:)),
             sarType: routeOptions?.deviation.sarType?.toCore(),
             timeDeviation: timeDeviation,
-            addonAPI: unsafeParameters
+            addonAPI: unsafeParameters,
+            attributeSets: [],
+            worldview: nil,
+            baseUrl: nil
         )
     }
 

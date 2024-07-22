@@ -3,28 +3,28 @@ import XCTest
 
 class OpenHoursTests: XCTestCase {
     func testAlwaysOpenedCoreConversion() throws {
-        let coreHours = CoreOpenHours(mode: .alwaysOpen, periods: [])
+        let coreHours = CoreOpenHours(mode: .alwaysOpen, periods: [], weekdayText: nil, note: nil)
         let hours = OpenHours(coreHours)
 
         XCTAssertEqual(hours, .alwaysOpened)
     }
 
     func testTemporarilyClosedCoreConversion() throws {
-        let coreHours = CoreOpenHours(mode: .temporarilyClosed, periods: [])
+        let coreHours = CoreOpenHours(mode: .temporarilyClosed, periods: [], weekdayText: nil, note: nil)
         let hours = OpenHours(coreHours)
 
         XCTAssertEqual(hours, .temporarilyClosed)
     }
 
     func testPermanentlyClosedCoreConversion() throws {
-        let coreHours = CoreOpenHours(mode: .permanentlyClosed, periods: [])
+        let coreHours = CoreOpenHours(mode: .permanentlyClosed, periods: [], weekdayText: nil, note: nil)
         let hours = OpenHours(coreHours)
 
         XCTAssertEqual(hours, .permanentlyClosed)
     }
 
     func testScheduledCoreConversion() throws {
-        let coreHours = CoreOpenHours(mode: .scheduled, periods: .coreOpenHourPeriods())
+        let coreHours = CoreOpenHours(mode: .scheduled, periods: .coreOpenHourPeriods(), weekdayText: nil, note: nil)
         let hours = OpenHours(coreHours)
 
         if case .scheduled(let periods) = hours {
