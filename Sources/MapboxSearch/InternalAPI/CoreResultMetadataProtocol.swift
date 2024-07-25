@@ -45,52 +45,52 @@ protocol CoreResultMetadataProtocol {
     var parkingData: CoreParkingData? { get }
 
     /** Indicates whether the location is accessible by wheelchair. */
-    var wheelchairAccessible: NSNumber? { get }
+    var wheelchairAccessible: Bool? { get }
 
     /** Indicates whether the location offers delivery services. */
-    var delivery: NSNumber? { get }
+    var delivery: Bool? { get }
 
     /** Indicates whether the location has a drive-through service. */
-    var driveThrough: NSNumber? { get }
+    var driveThrough: Bool? { get }
 
     /** Indicates whether the location accepts reservations. */
-    var reservable: NSNumber? { get }
+    var reservable: Bool? { get }
 
     /** Indicates whether parking is available at the location. */
-    var parkingAvailable: NSNumber? { get }
+    var parkingAvailable: Bool? { get }
 
     /** Indicates whether valet parking services are offered. */
-    var valetParking: NSNumber? { get }
+    var valetParking: Bool? { get }
 
     /** Indicates the availability of street parking near the location. */
-    var streetParking: NSNumber? { get }
+    var streetParking: Bool? { get }
 
     /** Indicates whether breakfast is served. */
-    var servesBreakfast: NSNumber? { get }
+    var servesBreakfast: Bool? { get }
 
     /** Indicates whether brunch is served. */
-    var servesBrunch: NSNumber? { get }
+    var servesBrunch: Bool? { get }
 
     /** Indicates whether dinner is served. */
-    var servesDinner: NSNumber? { get }
+    var servesDinner: Bool? { get }
 
     /** Indicates whether lunch is served. */
-    var servesLunch: NSNumber? { get }
+    var servesLunch: Bool? { get }
 
     /** Indicates whether wine is served. */
-    var servesWine: NSNumber? { get }
+    var servesWine: Bool? { get }
 
     /** Indicates whether beer is served. */
-    var servesBeer: NSNumber? { get }
+    var servesBeer: Bool? { get }
 
     /** Indicates whether vegan diet options are available. */
-    var servesVegan: NSNumber? { get }
+    var servesVegan: Bool? { get }
 
     /** Indicates whether vegetarian diet options are available. */
-    var servesVegetarian: NSNumber? { get }
+    var servesVegetarian: Bool? { get }
 
     /** Indicates whether takeout services are available. */
-    var takeout: NSNumber? { get }
+    var takeout: Bool? { get }
 
     // MARK: Social Media and Contact
 
@@ -125,5 +125,71 @@ extension CoreResultMetadata: CoreResultMetadataProtocol {
 
     var parkingData: CoreParkingData? {
         parking
+    }
+
+    // MARK: Characteristics and Options Implementation
+
+    var wheelchairAccessible: Bool? {
+        __wheelchairAccessible?.boolValue
+    }
+
+    var delivery: Bool? {
+        __delivery?.boolValue
+    }
+
+    var driveThrough: Bool? {
+        __driveThrough?.boolValue
+    }
+
+    var reservable: Bool? {
+        __reservable?.boolValue
+    }
+
+    var parkingAvailable: Bool? {
+        __parkingAvailable?.boolValue
+    }
+
+    var valetParking: Bool? {
+        __valetParking?.boolValue
+    }
+
+    var streetParking: Bool? {
+        __streetParking?.boolValue
+    }
+
+    var servesBreakfast: Bool? {
+        __servesBreakfast?.boolValue
+    }
+
+    var servesBrunch: Bool? {
+        __servesBrunch?.boolValue
+    }
+
+    var servesDinner: Bool? {
+        __servesDinner?.boolValue
+    }
+
+    var servesLunch: Bool? {
+        __servesLunch?.boolValue
+    }
+
+    var servesWine: Bool? {
+        __servesWine?.boolValue
+    }
+
+    var servesBeer: Bool? {
+        __servesBeer?.boolValue
+    }
+
+    var servesVegan: Bool? {
+        __servesVegan?.boolValue
+    }
+
+    var servesVegetarian: Bool? {
+        __servesVegetarian?.boolValue
+    }
+
+    var takeout: Bool? {
+        __takeout?.boolValue
     }
 }

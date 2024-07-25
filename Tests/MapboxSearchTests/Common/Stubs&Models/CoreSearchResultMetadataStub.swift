@@ -10,22 +10,22 @@ extension CoreResultMetadataProtocol {
 
     var openHours: CoreOpenHours? { nil }
     var parkingData: CoreParkingData? { nil }
-    var wheelchairAccessible: NSNumber? { nil }
-    var delivery: NSNumber? { nil }
-    var driveThrough: NSNumber? { nil }
-    var reservable: NSNumber? { nil }
-    var parkingAvailable: NSNumber? { nil }
-    var valetParking: NSNumber? { nil }
-    var streetParking: NSNumber? { nil }
-    var servesBreakfast: NSNumber? { nil }
-    var servesBrunch: NSNumber? { nil }
-    var servesDinner: NSNumber? { nil }
-    var servesLunch: NSNumber? { nil }
-    var servesWine: NSNumber? { nil }
-    var servesBeer: NSNumber? { nil }
-    var servesVegan: NSNumber? { nil }
-    var servesVegetarian: NSNumber? { nil }
-    var takeout: NSNumber? { nil }
+    var wheelchairAccessible: Bool? { nil }
+    var delivery: Bool? { nil }
+    var driveThrough: Bool? { nil }
+    var reservable: Bool? { nil }
+    var parkingAvailable: Bool? { nil }
+    var valetParking: Bool? { nil }
+    var streetParking: Bool? { nil }
+    var servesBreakfast: Bool? { nil }
+    var servesBrunch: Bool? { nil }
+    var servesDinner: Bool? { nil }
+    var servesLunch: Bool? { nil }
+    var servesWine: Bool? { nil }
+    var servesBeer: Bool? { nil }
+    var servesVegan: Bool? { nil }
+    var servesVegetarian: Bool? { nil }
+    var takeout: Bool? { nil }
 
     // MARK: Social Media and Contact
 

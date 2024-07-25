@@ -4,7 +4,7 @@
 import PackageDescription
 import Foundation
 
-let (coreSearchVersion, coreSearchVersionHash) = ("2.3.0-rc.2", "dbc0af254fdcead6f91bc226a06a1da0cf6aaf8d43bdc7a85f8d09196aaaa13e")
+let (coreSearchVersion, coreSearchVersionHash) = ("2.3.0-rc.3", "409ad69ede360cd97fe54470aa3bf4aeae07ec452beda838fbc9cca0227f6fd5")
 
 let mapboxCommonSDKVersion = Version("24.6.0-beta.1")
 
