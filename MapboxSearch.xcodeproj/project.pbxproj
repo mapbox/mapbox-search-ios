@@ -50,6 +50,7 @@
 		04C0848D2B4C82F3002F9C69 /* SdkInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0848C2B4C82F3002F9C69 /* SdkInformation.swift */; };
 		04C127552B62F6BC00884325 /* ApiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C127542B62F6BC00884325 /* ApiType.swift */; };
 		04C127582B62FFDB00884325 /* ApiType+Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C127572B62FFDB00884325 /* ApiType+Core.swift */; };
+		04CECA012C3EE28B007117E4 /* ResultDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA002C3EE28B007117E4 /* ResultDetailViewController.swift */; };
 		04CECA092C3EFAAF007117E4 /* MapboxMapsCategoryResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA032C3EFAAF007117E4 /* MapboxMapsCategoryResultsViewController.swift */; };
 		04CECA0A2C3EFAAF007117E4 /* SimpleCategorySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA042C3EFAAF007117E4 /* SimpleCategorySearchViewController.swift */; };
 		04CECA0B2C3EFAAF007117E4 /* ContinuousSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA052C3EFAAF007117E4 /* ContinuousSearchViewController.swift */; };
@@ -60,7 +61,6 @@
 		04CECA142C3EFAB9007117E4 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA102C3EFAB9007117E4 /* MapsViewController.swift */; };
 		04CECA152C3EFAB9007117E4 /* TextViewLoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA112C3EFAB9007117E4 /* TextViewLoggerViewController.swift */; };
 		04CECA162C3EFAB9007117E4 /* ExamplesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA122C3EFAB9007117E4 /* ExamplesTableViewController.swift */; };
-		04CECA012C3EE28B007117E4 /* ResultDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA002C3EE28B007117E4 /* ResultDetailViewController.swift */; };
 		04DAF7582BDAAB4C002719E2 /* OfflineDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAF7572BDAAB4C002719E2 /* OfflineDemoViewController.swift */; };
 		04DFB40C2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */; };
 		04DFB40D2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */; };
@@ -561,6 +561,7 @@
 		04C0848C2B4C82F3002F9C69 /* SdkInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkInformation.swift; sourceTree = "<group>"; };
 		04C127542B62F6BC00884325 /* ApiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiType.swift; sourceTree = "<group>"; };
 		04C127572B62FFDB00884325 /* ApiType+Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiType+Core.swift"; sourceTree = "<group>"; };
+		04CECA002C3EE28B007117E4 /* ResultDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailViewController.swift; sourceTree = "<group>"; };
 		04CECA032C3EFAAF007117E4 /* MapboxMapsCategoryResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapboxMapsCategoryResultsViewController.swift; path = Sources/Demo/Examples/MapboxMapsCategoryResultsViewController.swift; sourceTree = SOURCE_ROOT; };
 		04CECA042C3EFAAF007117E4 /* SimpleCategorySearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleCategorySearchViewController.swift; path = Sources/Demo/Examples/SimpleCategorySearchViewController.swift; sourceTree = SOURCE_ROOT; };
 		04CECA052C3EFAAF007117E4 /* ContinuousSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContinuousSearchViewController.swift; path = Sources/Demo/Examples/ContinuousSearchViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -571,7 +572,6 @@
 		04CECA102C3EFAB9007117E4 /* MapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapsViewController.swift; path = Sources/Demo/Examples/MapsViewController.swift; sourceTree = SOURCE_ROOT; };
 		04CECA112C3EFAB9007117E4 /* TextViewLoggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextViewLoggerViewController.swift; path = Sources/Demo/Examples/TextViewLoggerViewController.swift; sourceTree = SOURCE_ROOT; };
 		04CECA122C3EFAB9007117E4 /* ExamplesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExamplesTableViewController.swift; path = Sources/Demo/Examples/ExamplesTableViewController.swift; sourceTree = SOURCE_ROOT; };
-		04CECA002C3EE28B007117E4 /* ResultDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailViewController.swift; sourceTree = "<group>"; };
 		04DAF7572BDAAB4C002719E2 /* OfflineDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineDemoViewController.swift; sourceTree = "<group>"; };
 		04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-suggestions-categories.json"; sourceTree = "<group>"; };
 		04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-retrieve-categories.json"; sourceTree = "<group>"; };
@@ -3604,7 +3604,7 @@
 			repositoryURL = "https://github.com/mapbox/mapbox-common-ios.git";
 			requirement = {
 				kind = exactVersion;
-				version = 24.5.0;
+				version = "24.6.0-beta.1";
 			};
 		};
 		042BEB182C2DE30E0004CD7B /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
@@ -3612,7 +3612,7 @@
 			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
 			requirement = {
 				kind = exactVersion;
-				version = 11.5.0;
+				version = "11.6.0-beta.1";
 			};
 		};
 		149948E5290A8ACE00E7E619 /* XCRemoteSwiftPackageReference "swifter" */ = {

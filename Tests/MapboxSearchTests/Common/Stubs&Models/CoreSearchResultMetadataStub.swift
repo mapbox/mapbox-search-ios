@@ -1,6 +1,41 @@
 import Foundation
 @testable import MapboxSearch
 
+/// Test-only convenience
+extension CoreResultMetadataProtocol {
+    var priceLevel: String? { nil }
+    var popularity: NSNumber? { nil }
+
+    // MARK: Characteristics and Options
+
+    var openHours: CoreOpenHours? { nil }
+    var parkingData: CoreParkingData? { nil }
+    var wheelchairAccessible: Bool? { nil }
+    var delivery: Bool? { nil }
+    var driveThrough: Bool? { nil }
+    var reservable: Bool? { nil }
+    var parkingAvailable: Bool? { nil }
+    var valetParking: Bool? { nil }
+    var streetParking: Bool? { nil }
+    var servesBreakfast: Bool? { nil }
+    var servesBrunch: Bool? { nil }
+    var servesDinner: Bool? { nil }
+    var servesLunch: Bool? { nil }
+    var servesWine: Bool? { nil }
+    var servesBeer: Bool? { nil }
+    var servesVegan: Bool? { nil }
+    var servesVegetarian: Bool? { nil }
+    var takeout: Bool? { nil }
+
+    // MARK: Social Media and Contact
+
+    var facebookId: String? { nil }
+    var fax: String? { nil }
+    var email: String? { nil }
+    var instagram: String? { nil }
+    var twitter: String? { nil }
+}
+
 class CoreSearchResultMetadataStub: CoreResultMetadataProtocol {
     init(
         data: [String: String],
@@ -11,7 +46,8 @@ class CoreSearchResultMetadataStub: CoreResultMetadataProtocol {
         reviewCount: NSNumber? = nil,
         phone: String? = nil,
         website: String? = nil,
-        openHours: CoreOpenHours? = nil
+        openHours: CoreOpenHours? = nil,
+        children: [CoreResultChildMetadata]? = nil
     ) {
         self.data = data
         self.primaryImage = primaryImage
@@ -32,8 +68,8 @@ class CoreSearchResultMetadataStub: CoreResultMetadataProtocol {
     var reviewCount: NSNumber?
     var phone: String?
     var website: String?
-
     var openHours: CoreOpenHours?
+    var children: [CoreResultChildMetadata]?
 
     static let sample1 = CoreSearchResultMetadataStub(
         data: [

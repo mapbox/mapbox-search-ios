@@ -26,7 +26,7 @@ extension SearchResultMetadata {
 
 extension CoreResultMetadata {
     static func make(data: [String: String] = [:]) -> CoreResultMetadata {
-        .init(
+        CoreResultMetadata(
             reviewCount: nil,
             phone: nil,
             website: nil,
@@ -37,7 +37,32 @@ extension CoreResultMetadata {
             otherPhoto: nil,
             cpsJson: nil,
             parking: nil,
-            data: data
+            children: nil,
+            data: data,
+            wheelchairAccessible: nil,
+            delivery: nil,
+            driveThrough: nil,
+            reservable: nil,
+            parkingAvailable: nil,
+            valetParking: nil,
+            streetParking: nil,
+            servesBreakfast: nil,
+            servesBrunch: nil,
+            servesDinner: nil,
+            servesLunch: nil,
+            servesWine: nil,
+            servesBeer: nil,
+            takeout: nil,
+            facebookId: nil,
+            fax: nil,
+            email: nil,
+            instagram: nil,
+            twitter: nil,
+            priceLevel: nil,
+            servesVegan: nil,
+            servesVegetarian: nil,
+            rating: nil,
+            popularity: nil
         )
     }
 }
