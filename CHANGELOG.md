@@ -8,11 +8,14 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+## 2.3.0-beta.1
+
 - [Demo] Update Demo app to use MapboxMaps
 - [Demo] Rename 'Discover' tab to 'Category' in Demo app target
 - [Demo] Add earlier examples into MapboxSearch.xcodeproj Demo target
 - [SearchUI] Add `Maki: RawRepresentable` conformance for `Maki(rawValue:)` initializer
 - [Core] Add public scope to several types and initializers for broader support
+- [Core] Add several new types and fields for new SearchResult functionality
 
 **MapboxCommon**: v24.5.0
 **MapboxCoreSearch**: v2.3.0-rc.1
