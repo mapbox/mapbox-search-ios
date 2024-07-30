@@ -28,6 +28,8 @@
 		046818E12B87FF5C0082B188 /* search-box-suggestions-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */; };
 		046818E22B87FF5C0082B188 /* search-box-suggestions-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */; };
 		046818E32B87FF5C0082B188 /* search-box-suggestions-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */; };
+		04764E602C598A440040A7FE /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = FE114D9024C1A880001B2CE8 /* LICENSE.md */; };
+		04764E612C598A4B0040A7FE /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = FE114D9024C1A880001B2CE8 /* LICENSE.md */; };
 		047790492B890A8500A99528 /* search-box-recursion.json in Resources */ = {isa = PBXBuildFile; fileRef = 047790482B890A8500A99528 /* search-box-recursion.json */; };
 		0477904A2B890A8500A99528 /* search-box-recursion.json in Resources */ = {isa = PBXBuildFile; fileRef = 047790482B890A8500A99528 /* search-box-recursion.json */; };
 		0477904B2B890A8500A99528 /* search-box-recursion.json in Resources */ = {isa = PBXBuildFile; fileRef = 047790482B890A8500A99528 /* search-box-recursion.json */; };
@@ -2260,6 +2262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04764E602C598A440040A7FE /* LICENSE.md in Resources */,
 				04E84D132B7A8F4D0056C269 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2411,6 +2414,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04764E612C598A4B0040A7FE /* LICENSE.md in Resources */,
 				04E84D122B76BA230056C269 /* Resources-Info.plist in Resources */,
 				04970F8D2B7A97C900213763 /* PrivacyInfo.xcprivacy in Resources */,
 				FEC6EEE5246BFBB30051732D /* MapboxSearchUIResources.bundle in Resources */,
