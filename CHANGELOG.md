@@ -8,6 +8,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [SearchResultMetadata] Add `weekdayText` and `note` associated values to OpenHours.scheduled case.
+- [OpenHours] Change OpenHours decoding to work regardless of key-ordering.
 - [SearchOptions] Add support for AttributeSets parameter to change the level of metadata that is returned.
 - [Core] Update dependencies
 
