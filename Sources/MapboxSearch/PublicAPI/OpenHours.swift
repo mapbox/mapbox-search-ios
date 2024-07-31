@@ -60,7 +60,7 @@ public enum OpenHours: Codable, Hashable {
                   try container.decode(Bool.self, forKey: .permanentlyClosed) == true
         {
             self = .permanentlyClosed
-        } else if container.contains(.scheduled) == true {
+        } else if container.contains(.scheduled) {
             let periods = try container.decode([OpenPeriod].self, forKey: .scheduled)
             // This type annotation
             let weekdayText: WeekdayText? = try container.decodeIfPresent(WeekdayText.self, forKey: .weekdayText)
