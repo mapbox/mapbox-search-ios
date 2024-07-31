@@ -8,7 +8,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
-- [Core] Update dependencies
+- [Core] Update dependencies.
+- [SearchResultMetadata] Add `weekdayText` and `note` associated values to OpenHours.scheduled case.
+- [OpenHours] Change OpenHours decoding to work regardless of key-ordering.
 
 **MapboxCommon**: v24.6.0-rc.1
 **MapboxCoreSearch**: v2.3.0-rc.4

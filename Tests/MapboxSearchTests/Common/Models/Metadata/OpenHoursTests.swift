@@ -85,10 +85,10 @@ extension OpenHours.WeekdayText {
     public static func fullWeekdayTextSample() -> Self {
         [
             "Monday 08:35am - 8:18pm",
-            "Monday 08:35am - 8:18pm",
-            "Monday 08:35am - 8:18pm",
-            "Monday 08:35am - 8:18pm",
-            "Monday 08:35am - 8:18pm",
+            "Tuesday 08:35am - 8:18pm",
+            "Wednesday 08:35am - 8:18pm",
+            "Thursday 08:35am - 8:18pm",
+            "Friday 08:35am - 8:18pm",
             "Saturday 10:00am - 7:00pm",
             "Sunday 10:00am - 7:00pm",
         ]
