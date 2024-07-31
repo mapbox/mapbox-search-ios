@@ -8,6 +8,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [SearchOptions] Add support for AttributeSets parameter to change the level of metadata that is returned.
 - [Core] Update dependencies
 
 **MapboxCommon**: v24.6.0-rc.1
