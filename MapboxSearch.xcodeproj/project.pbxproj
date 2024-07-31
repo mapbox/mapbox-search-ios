@@ -28,6 +28,7 @@
 		046818E12B87FF5C0082B188 /* search-box-suggestions-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */; };
 		046818E22B87FF5C0082B188 /* search-box-suggestions-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */; };
 		046818E32B87FF5C0082B188 /* search-box-suggestions-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */; };
+		04764E682C5AB93E0040A7FE /* AttributeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04764E672C5AB93E0040A7FE /* AttributeSet.swift */; };
 		047790492B890A8500A99528 /* search-box-recursion.json in Resources */ = {isa = PBXBuildFile; fileRef = 047790482B890A8500A99528 /* search-box-recursion.json */; };
 		0477904A2B890A8500A99528 /* search-box-recursion.json in Resources */ = {isa = PBXBuildFile; fileRef = 047790482B890A8500A99528 /* search-box-recursion.json */; };
 		0477904B2B890A8500A99528 /* search-box-recursion.json in Resources */ = {isa = PBXBuildFile; fileRef = 047790482B890A8500A99528 /* search-box-recursion.json */; };
@@ -549,6 +550,7 @@
 		046818DA2B87FAB20082B188 /* search-box-category.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = "search-box-category.json"; sourceTree = "<group>"; };
 		046818DE2B87FDC00082B188 /* SearchBox_SearchEngineIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBox_SearchEngineIntegrationTests.swift; sourceTree = "<group>"; };
 		046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-suggestions-minsk.json"; sourceTree = "<group>"; };
+		04764E672C5AB93E0040A7FE /* AttributeSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeSet.swift; sourceTree = "<group>"; };
 		047790482B890A8500A99528 /* search-box-recursion.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-recursion.json"; sourceTree = "<group>"; };
 		0477904C2B890F4E00A99528 /* search-box-retrieve-minsk.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-retrieve-minsk.json"; sourceTree = "<group>"; };
 		0484BCDE2BC4865C003CF408 /* OfflineIndexObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineIndexObserver.swift; sourceTree = "<group>"; };
@@ -1820,6 +1822,7 @@
 				F9274FE92732B64C00708F37 /* Engine */,
 				FEEDD2E42508DFE400DC0A98 /* Search Results */,
 				FE097B77264EAA1A001EAC2F /* Errors */,
+				04764E672C5AB93E0040A7FE /* AttributeSet.swift */,
 				FEEDD2DB2508DFE400DC0A98 /* CodablePersistentService.swift */,
 				FEEDD2E12508DFE400DC0A98 /* DefaultLocationProvider.swift */,
 				FEEDD2ED2508DFE400DC0A98 /* FavoriteRecord.swift */,
@@ -2690,6 +2693,7 @@
 				0484BCDF2BC4865C003CF408 /* OfflineIndexObserver.swift in Sources */,
 				FE260A6725C063880037B725 /* ReverseGeocodingOptions.swift in Sources */,
 				FECA461026D3F81800BC7B18 /* MapboxSearchUserAgent.swift in Sources */,
+				04764E682C5AB93E0040A7FE /* AttributeSet.swift in Sources */,
 				FEEDD2F32508DFE400DC0A98 /* CoreBoundingBox.swift in Sources */,
 				148DE66A285756C20085684D /* NonEmptyArray.swift in Sources */,
 				F97FA24025C95ACD0085A311 /* EventAppMetadata.swift in Sources */,

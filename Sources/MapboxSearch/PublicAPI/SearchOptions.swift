@@ -68,6 +68,10 @@ public struct SearchOptions {
     /// - Attention: May break engine entity functionality. Do not use without SDK developers agreement
     public var unsafeParameters: [String: String]?
 
+    /// Non-ordered array of attribute sets which describe the level of metadata that will be returned.
+    /// When attributeSets is absent the `.basic` value will be used.
+    public var attributeSets: [AttributeSet]?
+
     /**
       The locale in which results should be returned.
 
@@ -93,10 +97,11 @@ public struct SearchOptions {
     /// fields
     /// - Parameter navigationOptions: Navigation options used for proper calculation of ETA and results ranking
     /// - Parameter routeOptions: Options to filter search results along the route
-    /// - Parameter unsafeParameters: Non-verified query parameters to the server API
     /// - Parameter filterTypes: Filter results by types. `CategorySearchEngine` doesn't support that option.
     /// - Parameter ignoreIndexableRecords: Do not search external records in `IndexableDataProvider`s
     /// - Parameter indexableRecordsDistanceThreshold: Radius of circle around `proximity` to filter indexable records
+    /// - Parameter unsafeParameters: Non-verified query parameters to the server API
+    /// - Parameter attributeSets: Options to describe the level of metadata that will be returned
     public init(
         countries: [String]? = nil,
         languages: [String]? = nil,
@@ -110,7 +115,8 @@ public struct SearchOptions {
         filterTypes: [SearchQueryType]? = nil,
         ignoreIndexableRecords: Bool = false,
         indexableRecordsDistanceThreshold: CLLocationDistance? = nil,
-        unsafeParameters: [String: String]? = nil
+        unsafeParameters: [String: String]? = nil,
+        attributeSets: [AttributeSet]? = nil
     ) {
         self.countries = countries
         self.languages = languages ?? Locale.defaultLanguages()
@@ -125,6 +131,7 @@ public struct SearchOptions {
         self.ignoreIndexableRecords = ignoreIndexableRecords
         self.indexableRecordsDistanceThreshold = indexableRecordsDistanceThreshold
         self.unsafeParameters = unsafeParameters
+        self.attributeSets = attributeSets
     }
 
     /// Search request options with custom proximity.
@@ -258,7 +265,7 @@ public struct SearchOptions {
             sarType: routeOptions?.deviation.sarType?.toCore(),
             timeDeviation: timeDeviation,
             addonAPI: unsafeParameters,
-            attributeSets: nil
+            attributeSets: attributeSets.map { $0.map { NSNumber(value: $0.coreValue.rawValue) } }
         )
     }
 
@@ -402,7 +409,8 @@ public struct SearchOptions {
             ignoreIndexableRecords: ignoreIndexableRecords,
             indexableRecordsDistanceThreshold: indexableRecordsDistanceThreshold ??
                 with.indexableRecordsDistanceThreshold,
-            unsafeParameters: unsafeParameters ?? with.unsafeParameters
+            unsafeParameters: unsafeParameters ?? with.unsafeParameters,
+            attributeSets: attributeSets ?? with.attributeSets
         )
     }
 }
