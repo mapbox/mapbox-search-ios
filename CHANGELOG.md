@@ -8,6 +8,11 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Core] Update dependencies
+
+**MapboxCommon**: v24.6.0-rc.1
+**MapboxCoreSearch**: v2.3.0-rc.4
+
 ## 2.3.0-beta.1
 
 - [Demo] Update Demo app to use MapboxMaps
@@ -17,7 +22,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Core] Add public scope to several types and initializers for broader support
 - [Core] Add several new types and fields for new SearchResult functionality
 
-**MapboxCommon**: v24.5.0
+**MapboxCommon**: v24.6.0-beta.1
 **MapboxCoreSearch**: v2.3.0-rc.1
 
 ## 2.2.0
