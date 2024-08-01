@@ -7,6 +7,7 @@ import MapboxCoreSearch_Private
 typealias CoreSearchEngine = MapboxCoreSearch.SearchEngine
 typealias CoreSearchResponse = MapboxCoreSearch_Private.SearchResponse
 typealias CoreSearchOptions = MapboxCoreSearch.SearchOptions
+typealias CoreDetailsOptions = MapboxCoreSearch.DetailsOptions
 typealias CoreBoundingBox = MapboxCoreSearch.LonLatBBox
 typealias CoreSearchResult = MapboxCoreSearch.SearchResult
 typealias CoreAttributeSet = MapboxCoreSearch.AttributeSet

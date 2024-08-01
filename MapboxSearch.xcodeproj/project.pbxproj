@@ -29,6 +29,8 @@
 		046818E22B87FF5C0082B188 /* search-box-suggestions-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */; };
 		046818E32B87FF5C0082B188 /* search-box-suggestions-minsk.json in Resources */ = {isa = PBXBuildFile; fileRef = 046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */; };
 		04764E682C5AB93E0040A7FE /* AttributeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04764E672C5AB93E0040A7FE /* AttributeSet.swift */; };
+		04764E6A2C5C18F50040A7FE /* DetailsOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04764E692C5C18F50040A7FE /* DetailsOptions.swift */; };
+		04764E6C2C5C1CA60040A7FE /* SearchBox_RetrieveDetailsIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04764E6B2C5C1CA60040A7FE /* SearchBox_RetrieveDetailsIntegrationTests.swift */; };
 		047790492B890A8500A99528 /* search-box-recursion.json in Resources */ = {isa = PBXBuildFile; fileRef = 047790482B890A8500A99528 /* search-box-recursion.json */; };
 		0477904A2B890A8500A99528 /* search-box-recursion.json in Resources */ = {isa = PBXBuildFile; fileRef = 047790482B890A8500A99528 /* search-box-recursion.json */; };
 		0477904B2B890A8500A99528 /* search-box-recursion.json in Resources */ = {isa = PBXBuildFile; fileRef = 047790482B890A8500A99528 /* search-box-recursion.json */; };
@@ -551,6 +553,8 @@
 		046818DE2B87FDC00082B188 /* SearchBox_SearchEngineIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBox_SearchEngineIntegrationTests.swift; sourceTree = "<group>"; };
 		046818E02B87FF5C0082B188 /* search-box-suggestions-minsk.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-suggestions-minsk.json"; sourceTree = "<group>"; };
 		04764E672C5AB93E0040A7FE /* AttributeSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeSet.swift; sourceTree = "<group>"; };
+		04764E692C5C18F50040A7FE /* DetailsOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsOptions.swift; sourceTree = "<group>"; };
+		04764E6B2C5C1CA60040A7FE /* SearchBox_RetrieveDetailsIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBox_RetrieveDetailsIntegrationTests.swift; sourceTree = "<group>"; };
 		047790482B890A8500A99528 /* search-box-recursion.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-recursion.json"; sourceTree = "<group>"; };
 		0477904C2B890F4E00A99528 /* search-box-retrieve-minsk.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-retrieve-minsk.json"; sourceTree = "<group>"; };
 		0484BCDE2BC4865C003CF408 /* OfflineIndexObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineIndexObserver.swift; sourceTree = "<group>"; };
@@ -1023,6 +1027,7 @@
 		046818D22B87F2810082B188 /* search-box */ = {
 			isa = PBXGroup;
 			children = (
+				04764E6B2C5C1CA60040A7FE /* SearchBox_RetrieveDetailsIntegrationTests.swift */,
 				046818D32B87F2A70082B188 /* SearchBox_CategorySearchEngineIntegrationTests.swift */,
 				046818DE2B87FDC00082B188 /* SearchBox_SearchEngineIntegrationTests.swift */,
 			);
@@ -1825,6 +1830,7 @@
 				04764E672C5AB93E0040A7FE /* AttributeSet.swift */,
 				FEEDD2DB2508DFE400DC0A98 /* CodablePersistentService.swift */,
 				FEEDD2E12508DFE400DC0A98 /* DefaultLocationProvider.swift */,
+				04764E692C5C18F50040A7FE /* DetailsOptions.swift */,
 				FEEDD2ED2508DFE400DC0A98 /* FavoriteRecord.swift */,
 				FEEDD2F02508DFE400DC0A98 /* HighlightsCalculator.swift */,
 				FEEDD2DA2508DFE400DC0A98 /* HistoryRecord.swift */,
@@ -2695,6 +2701,7 @@
 				FECA461026D3F81800BC7B18 /* MapboxSearchUserAgent.swift in Sources */,
 				04764E682C5AB93E0040A7FE /* AttributeSet.swift in Sources */,
 				FEEDD2F32508DFE400DC0A98 /* CoreBoundingBox.swift in Sources */,
+				04764E6A2C5C18F50040A7FE /* DetailsOptions.swift in Sources */,
 				148DE66A285756C20085684D /* NonEmptyArray.swift in Sources */,
 				F97FA24025C95ACD0085A311 /* EventAppMetadata.swift in Sources */,
 				FEEDD31A2508DFE400DC0A98 /* FavoriteRecord.swift in Sources */,
@@ -2837,6 +2844,7 @@
 				F9C557B62670CC4500BE8B94 /* SearchEngineDelegateStub.swift in Sources */,
 				F9C9461B2743CB1700763F2C /* TestTileStore.swift in Sources */,
 				045514C22B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift in Sources */,
+				04764E6C2C5C1CA60040A7FE /* SearchBox_RetrieveDetailsIntegrationTests.swift in Sources */,
 				F9C557C12670CD8C00BE8B94 /* CoreSearchOptions+Samples.swift in Sources */,
 				1420F31C29A2800300D4A511 /* CoreSearchResultStub+Samples.swift in Sources */,
 				F9C557B72670CC5600BE8B94 /* CoreSearchResultStub.swift in Sources */,

@@ -495,6 +495,47 @@ extension SearchEngine {
             }
         }
     }
+
+    func retrieveDetails(
+        for mapboxId: String,
+        options: DetailsOptions? = nil,
+        completion: @escaping (Result<[SearchResult], SearchError>) -> Void
+    ) {
+        let options = options ?? DetailsOptions(
+            attributeSets: nil,
+            language: nil,
+            worldview: nil,
+            baseUrl: nil
+        )
+
+        engine.retrieveDetails(for: mapboxId, options: options.toCore()) { [weak self] response in
+            assert(Thread.isMainThread)
+
+            guard let self else {
+                assertionFailure("Owning object was deallocated")
+                return
+            }
+
+            guard let response else {
+                eventsManager.reportError(.responseProcessingFailed)
+                completion(.failure(.responseProcessingFailed))
+                assertionFailure("Response should never be nil")
+                return
+            }
+
+            switch response.result {
+            case .success(let results):
+                completion(
+                    .success(
+                        results.compactMap { ServerSearchResult(coreResult: $0, response: response) }
+                    )
+                )
+
+            case .failure(let responseError):
+                completion(.failure(responseError))
+            }
+        }
+    }
 }
 
 // MARK: - IndexableDataResolver
@@ -523,6 +564,7 @@ extension SearchEngine: IndexableDataResolver {
                 let searchResult = self.resolveServerRetrieveResponse(coreSearchResponse)
                 completion(searchResult)
             }
+
         case let suggestion as SearchResult:
             completion(suggestion)
 

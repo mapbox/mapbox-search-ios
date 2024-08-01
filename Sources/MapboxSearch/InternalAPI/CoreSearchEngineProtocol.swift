@@ -87,6 +87,13 @@ protocol CoreSearchEngineProtocol {
     func addOfflineIndexObserver(for observer: CoreOfflineIndexObserver)
 
     func removeOfflineIndexObserver(for observer: CoreOfflineIndexObserver)
+
+    /// Query specific details of a POI and retrieve metadata like photos, contact information and venue details.
+    func retrieveDetails(
+        for mapboxId: String,
+        options: CoreDetailsOptions,
+        completion: @escaping (CoreSearchResponseProtocol?) -> Void
+    )
 }
 
 extension CoreSearchEngine: CoreSearchEngineProtocol {
@@ -258,6 +265,18 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
         completion: @escaping (CoreSearchResponseProtocol?) -> Void
     ) {
         reverseGeocodingOffline(for: options, callback: { response in
+            DispatchQueue.main.async {
+                completion(response)
+            }
+        })
+    }
+
+    func retrieveDetails(
+        for mapboxId: String,
+        options: CoreDetailsOptions,
+        completion: @escaping ((any CoreSearchResponseProtocol)?) -> Void
+    ) {
+        retrieveDetails(forMapboxId: mapboxId, options: options, callback: { response in
             DispatchQueue.main.async {
                 completion(response)
             }
