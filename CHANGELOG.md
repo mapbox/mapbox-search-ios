@@ -8,6 +8,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [UI] Enforce template mode on all Maki and SearchResult Types icons (always theme-able).
+
 ## 2.3.0-rc.1
 
 - [SearchResultMetadata] Add `weekdayText` and `note` associated values to OpenHours.scheduled case.
