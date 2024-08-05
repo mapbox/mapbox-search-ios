@@ -8,6 +8,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Demo] Add Atlantis package to Demo app for development with network proxy.
+
 - [UI] Enforce template mode on all Maki and SearchResult Types icons (always theme-able).
 
 ## 2.3.0-rc.1
