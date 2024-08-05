@@ -33,6 +33,8 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
 
     var coordinateCodable: CLLocationCoordinate2DCodable
 
+    public var distance: CLLocationDistance?
+
     /// Result address.
     public var address: Address?
 

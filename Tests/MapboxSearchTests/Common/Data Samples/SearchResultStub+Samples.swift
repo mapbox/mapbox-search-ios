@@ -12,6 +12,7 @@ extension SearchResultStub {
         resultType: .POI,
         routablePoints: [.routablePointForSample1],
         coordinate: .sample1,
+        distance: nil,
         address: .fullAddress,
         metadata: .pizzaMetadata,
         dataLayerIdentifier: "sample-data-layer-identifier"

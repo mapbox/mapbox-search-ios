@@ -11,6 +11,7 @@ class SearchResultTests: XCTestCase {
             serverIndex: nil,
             resultType: .POI,
             coordinate: .init(latitude: 12, longitude: -35),
+            distance: nil,
             metadata: .pizzaMetadata
         )
 

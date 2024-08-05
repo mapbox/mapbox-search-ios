@@ -14,6 +14,7 @@ class SearchResultStub: SearchResult {
         resultType: SearchResultType,
         routablePoints: [RoutablePoint]? = nil,
         coordinate: CLLocationCoordinate2DCodable,
+        distance: CLLocationDistance?,
         address: Address? = nil,
         metadata: SearchResultMetadata?,
         searchRequest: SearchRequestOptions = .init(query: "Sample", proximity: nil),
@@ -30,6 +31,7 @@ class SearchResultStub: SearchResult {
         self.type = resultType
         self.routablePoints = routablePoints
         self.coordinateCodable = coordinate
+        self.distance = distance
         self.address = address
         self.metadata = metadata
         self.dataLayerIdentifier = dataLayerIdentifier
@@ -60,6 +62,7 @@ class SearchResultStub: SearchResult {
     }
 
     var coordinateCodable: CLLocationCoordinate2DCodable
+    var distance: CLLocationDistance?
     var address: Address?
     var descriptionText: String?
     var searchRequest: SearchRequestOptions
@@ -77,6 +80,7 @@ extension SearchResultStub {
             serverIndex: nil,
             resultType: .POI,
             coordinate: .init(latitude: 12, longitude: -35),
+            distance: nil,
             metadata: nil
         )
     }

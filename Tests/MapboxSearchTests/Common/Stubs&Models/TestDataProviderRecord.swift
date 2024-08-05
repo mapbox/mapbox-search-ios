@@ -13,6 +13,7 @@ struct TestDataProviderRecord: IndexableRecord, SearchResult {
     var iconName: String?
     var categories: [String]?
     var routablePoints: [RoutablePoint]?
+    var distance: CLLocationDistance?
     var address: Address?
     var additionalTokens: Set<String>?
     var estimatedTime: Measurement<UnitDuration>?
