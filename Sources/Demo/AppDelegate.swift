@@ -1,3 +1,4 @@
+import Atlantis
 import MapboxSearch
 import UIKit
 
@@ -9,6 +10,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        // Atlantis.start(hostName: "")
+
         if ProcessInfo.processInfo.arguments.contains("--uitesting") {
             ServiceProvider.shared.localFavoritesProvider.deleteAll()
             ServiceProvider.shared.localHistoryProvider.deleteAll()
