@@ -76,5 +76,7 @@
 	<array>
 		<string>_Proxyman._tcp</string>
 	</array>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Atlantis uses Bonjour Service to send your recorded traffic to Proxyman app.</string>
 </dict>
 </plist>
