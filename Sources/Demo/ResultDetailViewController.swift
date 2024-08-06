@@ -144,6 +144,12 @@ extension SearchResult {
             )
         }
 
+        if let distance {
+            components.append(
+                (name: "Distance", value: distance.description)
+            )
+        }
+
         return components
     }
 }

@@ -48,6 +48,9 @@ public protocol SearchResult {
     /// MapKit placemark
     var placemark: MKPlacemark { get }
 
+    /// An approximate distance to the origin location, in meters.
+    var distance: CLLocationDistance? { get }
+
     /// Estimated time of arrival (in minutes) based on specified origin point and `NavigationOptions`.
     /// Those can be specified via `SearchOptions`
     var estimatedTime: Measurement<UnitDuration>? { get }

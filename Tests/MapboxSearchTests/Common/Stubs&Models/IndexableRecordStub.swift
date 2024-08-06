@@ -28,6 +28,7 @@ struct IndexableRecordStub: IndexableRecord {
             iconName: nil,
             resultType: .address(subtypes: [.address]),
             coordinate: .init(coordinate),
+            distance: nil,
             address: address,
             metadata: nil
         )

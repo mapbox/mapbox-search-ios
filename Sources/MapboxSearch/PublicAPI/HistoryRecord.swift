@@ -53,6 +53,8 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
 
     var coordinateCodable: CLLocationCoordinate2DCodable
 
+    public var distance: CLLocationDistance?
+
     /// The time when the record was created.
     public private(set) var timestamp: Date
 
