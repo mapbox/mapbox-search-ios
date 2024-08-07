@@ -38,7 +38,6 @@ extension SearchResultAccuracy {
         case .rooftop: return .rooftop
         case .street: return .street
         case .proximate: return .proximate
-
         @unknown default:
             return nil
         }

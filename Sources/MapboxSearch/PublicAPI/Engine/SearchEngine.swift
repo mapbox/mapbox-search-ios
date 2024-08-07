@@ -523,6 +523,7 @@ extension SearchEngine: IndexableDataResolver {
                 let searchResult = self.resolveServerRetrieveResponse(coreSearchResponse)
                 completion(searchResult)
             }
+
         case let suggestion as SearchResult:
             completion(suggestion)
 

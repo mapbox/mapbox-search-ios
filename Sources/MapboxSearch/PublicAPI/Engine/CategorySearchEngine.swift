@@ -50,7 +50,7 @@ public class CategorySearchEngine: AbstractSearchEngine {
                     "Every search result in Category search must conform SearchResultSuggestion requirements"
                 )
 
-                self.resolve(suggestions: resultSuggestions, completionQueue: completionQueue) { resolvedResults in
+                resolve(suggestions: resultSuggestions, completionQueue: completionQueue) { resolvedResults in
                     completion(.success(resolvedResults))
                 }
 

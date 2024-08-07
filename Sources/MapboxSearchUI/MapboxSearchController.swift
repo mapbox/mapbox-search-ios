@@ -129,13 +129,13 @@ public class MapboxSearchController: UIViewController {
     )
 
     private lazy var reachabilityStatusChangeHandler: (Reachability.Status) -> Void = { [weak self] status in
-        guard let self, status == .available, self.query != Query.none else { return }
-        self.search(stringQuery: self.query.string)
+        guard let self, status == .available, query != Query.none else { return }
+        search(stringQuery: query.string)
     }
 
     private lazy var searchErrorViewRetryHandler = { [weak self] in
         guard let self else { return }
-        self.search(stringQuery: self.query.string)
+        search(stringQuery: query.string)
     }
 
     var searchState: SearchState = .none
