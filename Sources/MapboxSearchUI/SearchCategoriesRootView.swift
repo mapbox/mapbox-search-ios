@@ -200,9 +200,9 @@ extension SearchCategoriesRootView {
             .curveEaseInOut,
         ], animations: { [weak self] in
             guard let self else { return }
-            self.contentScrollView.contentOffset.x = self.segmentedControl.selectedTab.horizontalOffsetFor(
+            contentScrollView.contentOffset.x = segmentedControl.selectedTab.horizontalOffsetFor(
                 scrollView:
-                self.contentScrollView
+                contentScrollView
             )
         })
     }

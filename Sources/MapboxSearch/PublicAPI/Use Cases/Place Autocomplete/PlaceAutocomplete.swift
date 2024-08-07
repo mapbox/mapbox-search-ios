@@ -203,7 +203,7 @@ extension PlaceAutocomplete {
                 return
             }
 
-            self.manage(response: response, for: query, completion: completion)
+            manage(response: response, for: query, completion: completion)
         }
     }
 

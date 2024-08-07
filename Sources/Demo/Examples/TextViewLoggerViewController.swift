@@ -20,7 +20,7 @@ class TextViewLoggerViewController: UIViewController, ExampleController {
                 suggestionString += "\n\taddress: \(address)"
             }
             if let distance = suggestion.distance {
-                suggestionString += "\n\tdistance: \(Int(distance / 1000)) km"
+                suggestionString += "\n\tdistance: \(Int(distance / 1_000)) km"
             }
             return suggestionString + "\n"
         }.joined(separator: "\n")

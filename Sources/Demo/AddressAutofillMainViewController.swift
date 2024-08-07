@@ -35,8 +35,8 @@ extension AddressAutofillMainViewController: UISearchResultsUpdating {
 
             switch result {
             case .success(let suggestions):
-                self.cachedSuggestions = suggestions
-                self.reloadData()
+                cachedSuggestions = suggestions
+                reloadData()
 
             case .failure(let error):
                 print(error)
@@ -55,11 +55,12 @@ extension AddressAutofillMainViewController: UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "suggestion-tableview-cell"
 
-        let tableViewCell: UITableViewCell
-        if let cachedTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
-            tableViewCell = cachedTableViewCell
+        let tableViewCell: UITableViewCell = if let cachedTableViewCell = tableView
+            .dequeueReusableCell(withIdentifier: cellIdentifier)
+        {
+            cachedTableViewCell
         } else {
-            tableViewCell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+            UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
         }
 
         let suggestion = cachedSuggestions[indexPath.row]

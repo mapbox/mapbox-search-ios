@@ -123,7 +123,7 @@ extension AddressAutofill {
                     return
                 }
 
-                self.manage(response: coreResponse, completion: completion)
+                manage(response: coreResponse, completion: completion)
             }
         case .result:
             guard let coordinate = suggestion.coordinate else {
@@ -196,7 +196,7 @@ extension AddressAutofill {
                 return
             }
 
-            self.manage(response: response, for: query, completion: completion)
+            manage(response: response, for: query, completion: completion)
         }
     }
 

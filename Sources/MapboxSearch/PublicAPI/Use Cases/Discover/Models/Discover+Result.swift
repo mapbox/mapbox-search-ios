@@ -28,11 +28,12 @@ extension Discover {
 
 extension Discover.Result {
     static func from(_ searchResult: SearchResult) -> Self {
-        var routablePointsArray: NonEmptyArray<RoutablePoint>?
-        if let routablePoints = searchResult.routablePoints, let first = searchResult.routablePoints?.first {
-            routablePointsArray = .init(first: first, others: Array(routablePoints.dropFirst()))
+        var routablePointsArray: NonEmptyArray<RoutablePoint>? = if let routablePoints = searchResult.routablePoints,
+                                                                    let first = searchResult.routablePoints?.first
+        {
+            .init(first: first, others: Array(routablePoints.dropFirst()))
         } else {
-            routablePointsArray = nil
+            nil
         }
 
         return .init(
