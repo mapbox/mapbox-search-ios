@@ -33,6 +33,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
 
     var coordinateCodable: CLLocationCoordinate2DCodable
 
+    /// An approximate distance to the origin location, in meters.
     public var distance: CLLocationDistance?
 
     /// Result address.
@@ -88,6 +89,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         name: String,
         matchingName: String?,
         coordinate: CLLocationCoordinate2D,
+        distance: CLLocationDistance? = nil,
         address: Address?,
         makiIcon: Maki?,
         serverIndex: Int?,
@@ -103,6 +105,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         self.name = name
         self.matchingName = matchingName
         self.coordinateCodable = .init(coordinate)
+        self.distance = distance
         self.address = address
         self.icon = makiIcon
         self.serverIndex = serverIndex
@@ -129,6 +132,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
             name: name,
             matchingName: searchResult.matchingName,
             coordinate: searchResult.coordinate,
+            distance: searchResult.distance,
             address: searchResult.address,
             makiIcon: searchResult.iconName.flatMap(Maki.init),
             serverIndex: searchResult.serverIndex,
