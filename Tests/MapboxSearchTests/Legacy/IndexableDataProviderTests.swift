@@ -64,7 +64,7 @@ class IndexableDataProviderTests: XCTestCase {
         let dataProviderSomeRecords = TestDataProvider()
         dataProviderSomeRecords.records = TestDataProviderRecord.testData(count: 10)
         let dataProviderManyRecords = TestDataProvider()
-        dataProviderManyRecords.records = TestDataProviderRecord.testData(count: 10000)
+        dataProviderManyRecords.records = TestDataProviderRecord.testData(count: 10_000)
 
         let searchEngine = SearchEngine(
             accessToken: "Stub_token",

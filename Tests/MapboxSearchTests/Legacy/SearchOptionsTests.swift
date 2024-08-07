@@ -20,7 +20,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertEqual(searchOptions.routeOptions?.deviation.sarType, .isochrone)
         XCTAssertEqual(searchOptions.unsafeParameters, ["arg": "value"])
         XCTAssertFalse(searchOptions.ignoreIndexableRecords)
-        XCTAssertEqual(searchOptions.indexableRecordsDistanceThreshold, 2000)
+        XCTAssertEqual(searchOptions.indexableRecordsDistanceThreshold, 2_000)
     }
 
     func testSearchOptionBoundingBoxConstructor() {
@@ -228,7 +228,7 @@ extension SearchOptions {
         ),
         filterTypes: [.poi, .address, .place],
         ignoreIndexableRecords: false,
-        indexableRecordsDistanceThreshold: 2000,
+        indexableRecordsDistanceThreshold: 2_000,
         unsafeParameters: ["arg": "value"]
     )
 }

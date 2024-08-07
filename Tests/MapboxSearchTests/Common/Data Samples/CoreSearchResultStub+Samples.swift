@@ -7,7 +7,7 @@ extension CoreSearchResultStub {
         id: "sample-1",
         mapboxId: "sample-1",
         type: .poi,
-        distance: 4200,
+        distance: 4_200,
         estimatedTime: Measurement(value: 10.5, unit: .minutes)
     )
     static let sample2 = CoreSearchResultStub(
