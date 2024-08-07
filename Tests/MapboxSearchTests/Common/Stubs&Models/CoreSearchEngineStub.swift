@@ -196,4 +196,16 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
     ) {
         reverseGeocoding(for: options, completion: completion)
     }
+
+    func retrieveDetails(
+        for mapboxId: String,
+        options: MapboxSearch.CoreDetailsOptions,
+        completion: @escaping ((any MapboxSearch.CoreSearchResponseProtocol)?) -> Void
+    ) {
+        DispatchQueue.main.async {
+            self.callbackWrapper {
+                completion(self.searchResponse)
+            }
+        }
+    }
 }

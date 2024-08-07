@@ -70,4 +70,24 @@ extension CoreSearchOptions {
         addonAPI: nil,
         attributeSets: nil
     )
+
+    static let sample3_withAttributeSets = CoreSearchOptions(
+        proximity: .sample1,
+        origin: .sample2,
+        navProfile: SearchNavigationProfile.driving.string,
+        etaType: nil,
+        bbox: nil,
+        countries: ["UK"],
+        fuzzyMatch: true,
+        language: ["en"],
+        limit: 10,
+        types: nil,
+        urDistanceThreshold: nil,
+        requestDebounce: 0,
+        route: nil,
+        sarType: "isochrone",
+        timeDeviation: 10,
+        addonAPI: nil,
+        attributeSets: [AttributeSet.basic].map { NSNumber(value: $0.coreValue.rawValue) }
+    )
 }

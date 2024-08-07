@@ -485,4 +485,76 @@ class SearchEngineTests: XCTestCase {
         searchEngine.query = "random-query"
         XCTAssertEqual(searchEngine.query, "random-query")
     }
+
+    func testAttributeSetSearch() throws {
+        let searchEngine = SearchEngine(
+            accessToken: "mapbox-access-token",
+            serviceProvider: provider,
+            locationProvider: DefaultLocationProvider()
+        )
+        searchEngine.delegate = delegate
+        let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
+
+        let results = CoreSearchResultStub.makeMixedResultsSet()
+
+        let coreResponse = CoreSearchResponseStub.Details.successSample(results: results)
+        engine.searchResponse = coreResponse
+        let expectation = delegate.errorExpectation
+        searchEngine.search(query: coreResponse.request.query)
+        wait(for: [expectation], timeout: 10)
+
+        XCTAssertEqual([], searchEngine.suggestions.map(\.id))
+    }
+
+    func testAttributeSetSearchReal() throws {
+        let searchEngine = SearchEngine(apiType: .searchBox)
+        searchEngine.delegate = delegate
+
+        let cafeSuccess = delegate.updateExpectation
+        searchEngine.search(query: "cafe")
+        wait(for: [cafeSuccess], timeout: 30)
+        let firstSuggestionMapboxId = try XCTUnwrap(delegate.suggestions.first?.mapboxId)
+
+        let retrieveDetailsExpectation = XCTestExpectation()
+        let options = DetailsOptions(attributeSets: [.basic], language: "en", worldview: nil, baseUrl: nil)
+        searchEngine.retrieveDetails(for: firstSuggestionMapboxId, options: options) { result in
+            switch result {
+            case .success(let resultDetails):
+                XCTAssertNotNil(resultDetails)
+                XCTAssertEqual(resultDetails.mapboxId, firstSuggestionMapboxId)
+                XCTAssertNil(resultDetails.distance)
+                XCTAssertNil(resultDetails.estimatedTime)
+                XCTAssertNil(resultDetails.metadata?.primaryImage)
+                XCTAssertNil(resultDetails.metadata?.otherImages)
+                XCTAssertNil(resultDetails.metadata?.reviewCount)
+                XCTAssertNil(resultDetails.metadata?.averageRating)
+                XCTAssertNil(resultDetails.accuracy)
+                XCTAssertNil(resultDetails.matchingName)
+
+                XCTAssertNotNil(resultDetails.metadata?.openHours)
+                XCTAssertNotNil(resultDetails.coordinate)
+                XCTAssertNotNil(resultDetails.address)
+                XCTAssertNotNil(resultDetails.categories)
+                XCTAssertNotNil(resultDetails.routablePoints)
+                XCTAssertNotNil(resultDetails.id)
+                XCTAssertNotNil(resultDetails.name)
+                XCTAssertNotNil(resultDetails.descriptionText)
+                XCTAssertNotNil(resultDetails.iconName)
+                XCTAssertNotNil(resultDetails.type)
+            case .failure(let failure):
+                XCTFail(failure.localizedDescription)
+            }
+            retrieveDetailsExpectation.fulfill()
+        }
+
+        let successExpectation = delegate.successExpectation
+        let errorExpectation = delegate.errorExpectation
+
+        wait(for: [retrieveDetailsExpectation, successExpectation], timeout: 30)
+
+        XCTAssertNotNil(delegate.resolvedResult, "retrieveDetails should return the details against a single mapboxId")
+
+        XCTAssertTrue(delegate.resolvedResults.isEmpty)
+        XCTAssertNil(delegate.error)
+    }
 }

@@ -17,4 +17,12 @@ extension CoreRequestOptions {
         originRewritten: false,
         sessionID: UUID().uuidString
     )
+    static let sample3_detailsWithAttributeSets = CoreRequestOptions(
+        query: "sample-3",
+        endpoint: "details",
+        options: .sample3_withAttributeSets,
+        proximityRewritten: false,
+        originRewritten: false,
+        sessionID: UUID().uuidString
+    )
 }

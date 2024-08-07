@@ -336,6 +336,7 @@ public class SearchEngine: AbstractSearchEngine {
         }
     }
 
+    /// Extract retrieveDetails response data
     private func resolveServerResponse(coreResponse: CoreSearchResponseProtocol?) -> SearchResult? {
         guard let response = preProcessResponse(coreResponse) else {
             return nil
@@ -430,8 +431,6 @@ extension SearchEngine {
             .compactMap { $0 as? CoreResponseProvider }
             .filter { $0.originalResponse.coreResult.action?.multiRetrievable == true }
 
-        // let coreSearchResults = suggestionsImpls.compactMap { $0.originalResponse.coreResult }
-
         guard suggestionsImpls.isEmpty == false else {
             return
         }
@@ -495,6 +494,44 @@ extension SearchEngine {
             }
         }
     }
+
+    public func retrieveDetails(
+        for mapboxId: String,
+        options: DetailsOptions? = nil,
+        completion: @escaping (Result<SearchResult, SearchError>) -> Void
+    ) {
+        let options = options ?? DetailsOptions(
+            attributeSets: nil,
+            language: nil,
+            worldview: nil,
+            baseUrl: nil
+        )
+
+        queryValue = .string("")
+
+        engine.retrieveDetails(for: mapboxId, options: options.toCore()) { [weak self] response in
+            assert(Thread.isMainThread)
+
+            guard let self else {
+                assertionFailure("Owning object was deallocated")
+                return
+            }
+
+            guard let result = resolveServerResponse(coreResponse: response) else {
+                eventsManager.reportError(.responseProcessingFailed)
+                if case .failure(let error) = response?.result {
+                    completion(.failure(error))
+                } else {
+                    completion(.failure(.responseProcessingFailed))
+                }
+                assertionFailure("Response should never be nil")
+                return
+            }
+
+            delegate?.resultResolved(result: result, searchEngine: self)
+            completion(.success(result))
+        }
+    }
 }
 
 // MARK: - IndexableDataResolver
@@ -523,6 +560,7 @@ extension SearchEngine: IndexableDataResolver {
                 let searchResult = self.resolveServerRetrieveResponse(coreSearchResponse)
                 completion(searchResult)
             }
+
         case let suggestion as SearchResult:
             completion(suggestion)
 

@@ -41,4 +41,14 @@ extension CoreSearchResponseStub {
             )
         )
     }
+
+    enum Details {
+        static func successSample(
+            id: UInt32 = 8253,
+            options: CoreRequestOptions = .sample3_detailsWithAttributeSets,
+            results: [CoreSearchResultProtocol]
+        ) -> CoreSearchResponseStub {
+            CoreSearchResponseStub(id: id, options: options, result: .success(results.map(\.asCoreSearchResult)))
+        }
+    }
 }
