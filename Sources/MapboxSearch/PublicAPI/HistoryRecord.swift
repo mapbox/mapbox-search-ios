@@ -54,7 +54,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     var coordinateCodable: CLLocationCoordinate2DCodable
 
     /// An approximate distance to the origin location, in meters.
-    public private(set) var distance: CLLocationDistance?
+    public var distance: CLLocationDistance?
 
     /// The time when the record was created.
     public private(set) var timestamp: Date

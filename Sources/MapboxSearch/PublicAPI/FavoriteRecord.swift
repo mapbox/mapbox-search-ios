@@ -34,7 +34,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     var coordinateCodable: CLLocationCoordinate2DCodable
 
     /// An approximate distance to the origin location, in meters.
-    public private(set) var distance: CLLocationDistance?
+    public var distance: CLLocationDistance?
 
     /// Result address.
     public var address: Address?
