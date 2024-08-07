@@ -79,4 +79,16 @@ class ServerSearchResultTests: XCTestCase {
         ))
         XCTAssertEqual(result.suggestionType, .address(subtypes: [.address]))
     }
+
+    func testServerSearchResultDistanceField() throws {
+        let coreResult = CoreSearchResultStub(id: UUID().uuidString, mapboxId: "", type: .address)
+        let result = try XCTUnwrap(ServerSearchResult(
+            coreResult: coreResult,
+            response: CoreSearchResponseStub.failureSample
+        ))
+
+        // ServerSearchResult will perform its own distance computation locally if nil from server
+        XCTAssertNotNil(result.distance)
+        XCTAssertEqual(result.distance, 0.0)
+    }
 }

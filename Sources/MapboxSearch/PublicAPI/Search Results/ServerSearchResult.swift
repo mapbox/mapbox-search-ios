@@ -2,8 +2,6 @@ import CoreLocation
 import Foundation
 
 class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProvider {
-    var distance: CLLocationDistance?
-
     var originalResponse: CoreSearchResultResponse
 
     var coordinate: CLLocationCoordinate2D {
@@ -26,6 +24,8 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
     var coordinateCodable: CLLocationCoordinate2DCodable
 
     var address: Address?
+
+    var distance: CLLocationDistance?
 
     var categories: [String]?
 

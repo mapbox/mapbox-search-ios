@@ -53,7 +53,8 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
 
     var coordinateCodable: CLLocationCoordinate2DCodable
 
-    public var distance: CLLocationDistance?
+    /// An approximate distance to the origin location, in meters.
+    public private(set) var distance: CLLocationDistance?
 
     /// The time when the record was created.
     public private(set) var timestamp: Date
@@ -107,6 +108,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         serverIndex: Int?,
         accuracy: SearchResultAccuracy?,
         coordinate: CLLocationCoordinate2D,
+        distance: CLLocationDistance? = nil,
         timestamp: Date = Date(),
         historyType: HistoryRecord.HistoryType,
         type: SearchResultType,
@@ -123,6 +125,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         self.serverIndex = serverIndex
         self.accuracy = accuracy
         self.coordinateCodable = .init(coordinate)
+        self.distance = distance
         self.timestamp = timestamp
         self.historyType = historyType
         self.type = type
@@ -150,6 +153,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         self.serverIndex = searchResult.serverIndex
         self.accuracy = searchResult.accuracy
         self.coordinateCodable = .init(searchResult.coordinate)
+        self.distance = searchResult.distance
         self.timestamp = timestamp
         self.historyType = historyType
         self.type = searchResult.type

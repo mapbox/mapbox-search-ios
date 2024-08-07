@@ -94,6 +94,7 @@ class SBS_SearchEngineIntegrationTests: MockServerIntegrationTestCase<SBSMockRes
         let resolvedResult = try XCTUnwrap(delegate.resolvedResult)
 
         XCTAssertEqual(resolvedResult.name, selectedResult.name)
+        XCTAssertEqual(resolvedResult.distance, 5000000)
     }
 
     func testResolvedSearchResultWhenQueryChanged() throws {
