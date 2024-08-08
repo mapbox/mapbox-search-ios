@@ -39,19 +39,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tag: 0
         )
 
-        let examplesTableViewController = ExamplesTableViewController()
-        examplesTableViewController.tabBarItem = UITabBarItem(
-            title: "More Examples",
-            image: UIImage(systemName: "mappin.and.ellipse"),
-            tag: 0
-        )
+        let moreExamples = ExamplesListing().allExamples()
 
         for tabBarController in tabBarControllers {
             guard var viewControllers = tabBarController.viewControllers else {
                 break
             }
             viewControllers.append(offlineDemoViewController)
-            viewControllers.append(examplesTableViewController)
+            viewControllers.append(contentsOf: moreExamples)
 
             tabBarController.setViewControllers(viewControllers, animated: false)
         }
