@@ -229,7 +229,9 @@ public class SearchEngine: AbstractSearchEngine {
         }
 
         let options = options?.merged(defaultSearchOptions) ?? defaultSearchOptions
+        // options.attributeSets = nil
 
+        // DO NOT worry about attribute sets yet -- just provide the values through options
         engineSearchFunction(queryValueString, [], options.toCore(apiType: engineApi)) { [weak self] response in
             self?.processResponse(response, suggestion: nil)
         }
@@ -313,7 +315,16 @@ public class SearchEngine: AbstractSearchEngine {
                     searchEngine: self
                 )
             } else {
-                delegate?.suggestionsUpdated(suggestions: suggestions, searchEngine: self)
+                if let attributeSets = response.coreResponse.request.options.attributeSets,
+                   !attributeSets.isEmpty,
+                   response.coreResponse.request.endpoint != "retrieve",
+                   responseResult.results.count == 1,
+                   let firstResult = responseResult.results.first
+                {
+                    delegate?.resultResolved(result: firstResult, searchEngine: self)
+                } else {
+                    delegate?.suggestionsUpdated(suggestions: suggestions, searchEngine: self)
+                }
             }
 
         case .failure(let searchError):
@@ -492,44 +503,6 @@ extension SearchEngine {
 
                 completion(.failure(wrappedError))
             }
-        }
-    }
-
-    public func retrieveDetails(
-        for mapboxId: String,
-        options: DetailsOptions? = nil,
-        completion: @escaping (Result<SearchResult, SearchError>) -> Void
-    ) {
-        let options = options ?? DetailsOptions(
-            attributeSets: nil,
-            language: nil,
-            worldview: nil,
-            baseUrl: nil
-        )
-
-        queryValue = .string("")
-
-        engine.retrieveDetails(for: mapboxId, options: options.toCore()) { [weak self] response in
-            assert(Thread.isMainThread)
-
-            guard let self else {
-                assertionFailure("Owning object was deallocated")
-                return
-            }
-
-            guard let result = resolveServerResponse(coreResponse: response) else {
-                eventsManager.reportError(.responseProcessingFailed)
-                if case .failure(let error) = response?.result {
-                    completion(.failure(error))
-                } else {
-                    completion(.failure(.responseProcessingFailed))
-                }
-                assertionFailure("Response should never be nil")
-                return
-            }
-
-            delegate?.resultResolved(result: result, searchEngine: self)
-            completion(.success(result))
         }
     }
 }

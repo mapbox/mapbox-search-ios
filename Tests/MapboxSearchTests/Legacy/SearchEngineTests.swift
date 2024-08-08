@@ -506,51 +506,46 @@ class SearchEngineTests: XCTestCase {
         XCTAssertEqual([], searchEngine.suggestions.map(\.id))
     }
 
-    func testAttributeSetSearchReal() throws {
+    func testAttributeSetSearchReal_withoutOptions() throws {
         let searchEngine = SearchEngine(apiType: .searchBox)
         searchEngine.delegate = delegate
 
         let cafeSuccess = delegate.updateExpectation
-        searchEngine.search(query: "cafe")
-        wait(for: [cafeSuccess], timeout: 30)
+        // TODO: Test this again with categories which may return multiple results
+        searchEngine.search(query: "cafe", options: .init(filterTypes: [.poi], attributeSets: [.basic]))
+        wait(for: [cafeSuccess], timeout: 10)
+
+        let firstSuggestion = try XCTUnwrap(delegate.suggestions.first)
         let firstSuggestionMapboxId = try XCTUnwrap(delegate.suggestions.first?.mapboxId)
 
-        let retrieveDetailsExpectation = XCTestExpectation()
-        let options = DetailsOptions(attributeSets: [.basic], language: "en", worldview: nil, baseUrl: nil)
-        searchEngine.retrieveDetails(for: firstSuggestionMapboxId, options: options) { result in
-            switch result {
-            case .success(let resultDetails):
-                XCTAssertNotNil(resultDetails)
-                XCTAssertEqual(resultDetails.mapboxId, firstSuggestionMapboxId)
-                XCTAssertNil(resultDetails.distance)
-                XCTAssertNil(resultDetails.estimatedTime)
-                XCTAssertNil(resultDetails.metadata?.primaryImage)
-                XCTAssertNil(resultDetails.metadata?.otherImages)
-                XCTAssertNil(resultDetails.metadata?.reviewCount)
-                XCTAssertNil(resultDetails.metadata?.averageRating)
-                XCTAssertNil(resultDetails.accuracy)
-                XCTAssertNil(resultDetails.matchingName)
+        let retrieveDetails = delegate.successExpectation
 
-                XCTAssertNotNil(resultDetails.metadata?.openHours)
-                XCTAssertNotNil(resultDetails.coordinate)
-                XCTAssertNotNil(resultDetails.address)
-                XCTAssertNotNil(resultDetails.categories)
-                XCTAssertNotNil(resultDetails.routablePoints)
-                XCTAssertNotNil(resultDetails.id)
-                XCTAssertNotNil(resultDetails.name)
-                XCTAssertNotNil(resultDetails.descriptionText)
-                XCTAssertNotNil(resultDetails.iconName)
-                XCTAssertNotNil(resultDetails.type)
-            case .failure(let failure):
-                XCTFail(failure.localizedDescription)
-            }
-            retrieveDetailsExpectation.fulfill()
-        }
+        searchEngine.retrieve(suggestion: firstSuggestion)
 
-        let successExpectation = delegate.successExpectation
-        let errorExpectation = delegate.errorExpectation
+        wait(for: [retrieveDetails], timeout: 30)
 
-        wait(for: [retrieveDetailsExpectation, successExpectation], timeout: 30)
+        let resolvedResult = try XCTUnwrap(delegate.resolvedResult)
+        XCTAssertNotNil(resolvedResult)
+        XCTAssertEqual(resolvedResult.mapboxId, firstSuggestionMapboxId)
+        XCTAssertNil(resolvedResult.distance)
+        XCTAssertNil(resolvedResult.estimatedTime)
+        XCTAssertNil(resolvedResult.metadata?.primaryImage)
+        XCTAssertNil(resolvedResult.metadata?.otherImages)
+        XCTAssertNil(resolvedResult.metadata?.reviewCount)
+        XCTAssertNil(resolvedResult.metadata?.averageRating)
+        XCTAssertNil(resolvedResult.accuracy)
+        XCTAssertNil(resolvedResult.matchingName)
+
+        XCTAssertNotNil(resolvedResult.metadata?.openHours)
+        XCTAssertNotNil(resolvedResult.coordinate)
+        XCTAssertNotNil(resolvedResult.address)
+        XCTAssertNotNil(resolvedResult.categories)
+        XCTAssertNotNil(resolvedResult.routablePoints)
+        XCTAssertNotNil(resolvedResult.id)
+        XCTAssertNotNil(resolvedResult.name)
+        XCTAssertNotNil(resolvedResult.descriptionText)
+        XCTAssertNotNil(resolvedResult.iconName)
+        XCTAssertNotNil(resolvedResult.type)
 
         XCTAssertNotNil(delegate.resolvedResult, "retrieveDetails should return the details against a single mapboxId")
 

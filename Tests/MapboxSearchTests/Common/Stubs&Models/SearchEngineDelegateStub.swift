@@ -33,29 +33,43 @@ class SearchEngineDelegateStub: SearchEngineDelegate {
         XCTNSNotificationExpectation(name: offlineUpdateNotificationName, object: self)
     }
 
+    // MARK: Clean-up
+
+    func cleanCache() {
+        resolvedResult = nil
+        resolvedResults = []
+        suggestions = []
+        error = nil
+    }
+
     // MARK: SearchEngineDelegate
 
     func resultsResolved(results: [SearchResult], searchEngine: SearchEngine) {
+        cleanCache()
         resolvedResults = results
         NotificationCenter.default.post(name: batchUpdateNotificationName, object: self)
     }
 
     func suggestionsUpdated(suggestions: [SearchSuggestion], searchEngine: SearchEngine) {
+        cleanCache()
         self.suggestions = suggestions
         NotificationCenter.default.post(name: updateNotificationName, object: self)
     }
 
     func resultResolved(result: SearchResult, searchEngine: SearchEngine) {
+        cleanCache()
         resolvedResult = result
         NotificationCenter.default.post(name: successNotificationName, object: self)
     }
 
     func searchErrorHappened(searchError: SearchError, searchEngine: SearchEngine) {
+        cleanCache()
         error = searchError
         NotificationCenter.default.post(name: errorNotificationName, object: self)
     }
 
     func offlineResultsUpdated(_ results: [SearchResult], suggestions: [SearchSuggestion], searchEngine: SearchEngine) {
+        cleanCache()
         resolvedResults = results
         NotificationCenter.default.post(name: offlineUpdateNotificationName, object: self)
     }

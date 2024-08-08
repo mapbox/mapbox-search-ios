@@ -26,17 +26,17 @@ final class SearchBox_RetrieveDetailsIntegrationTests: XCTestCase {
 
         let completionExpectation = XCTestExpectation()
 
-        searchEngine.retrieveDetails(for: "invalidInput", options: options) { response in
-            switch response {
-            case .success(let success):
-                XCTFail("\(#function) should test an invalid input")
-            case .failure(let failure):
-                XCTAssertEqual(failure.errorCode, 400)
-                XCTAssertTrue(failure.localizedDescription.localizedStandardContains("The Mapbox ID is invalid"))
-            }
-
-            completionExpectation.fulfill()
-        }
+//        searchEngine.retrieveDetails(for: "invalidInput", options: options) { response in
+//            switch response {
+//            case .success(let success):
+//                XCTFail("\(#function) should test an invalid input")
+//            case .failure(let failure):
+//                XCTAssertEqual(failure.errorCode, 400)
+//                XCTAssertTrue(failure.localizedDescription.localizedStandardContains("The Mapbox ID is invalid"))
+//            }
+//
+//            completionExpectation.fulfill()
+//        }
 
         wait(for: [completionExpectation])
     }
@@ -51,17 +51,17 @@ final class SearchBox_RetrieveDetailsIntegrationTests: XCTestCase {
 
         let completionExpectation = XCTestExpectation()
 
-        searchEngine.retrieveDetails(for: museumMapboxId, options: options) { response in
-            switch response {
-            case .success(let success):
-                XCTFail("\(#function) should test an invalid input")
-            case .failure(let failure):
-                XCTAssertEqual(failure.errorCode, 400)
-                XCTAssertTrue(failure.localizedDescription.localizedStandardContains("The Mapbox ID is invalid"))
-            }
-
-            completionExpectation.fulfill()
-        }
+//        searchEngine.retrieveDetails(for: museumMapboxId, options: options) { response in
+//            switch response {
+//            case .success(let success):
+//                XCTFail("\(#function) should test an invalid input")
+//            case .failure(let failure):
+//                XCTAssertEqual(failure.errorCode, 400)
+//                XCTAssertTrue(failure.localizedDescription.localizedStandardContains("The Mapbox ID is invalid"))
+//            }
+//
+//            completionExpectation.fulfill()
+//        }
 
         wait(for: [completionExpectation])
     }
