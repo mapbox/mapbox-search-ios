@@ -68,6 +68,10 @@ public struct SearchOptions {
     /// - Attention: May break engine entity functionality. Do not use without SDK developers agreement
     public var unsafeParameters: [String: String]?
 
+    /// Non-ordered array of attribute sets which describe the level of metadata that will be returned.
+    /// When attributeSets is absent the `.basic` value will be used.
+    public var attributeSets: [AttributeSet]?
+
     /**
       The locale in which results should be returned.
 
@@ -97,6 +101,7 @@ public struct SearchOptions {
     /// - Parameter ignoreIndexableRecords: Do not search external records in `IndexableDataProvider`s
     /// - Parameter indexableRecordsDistanceThreshold: Radius of circle around `proximity` to filter indexable records
     /// - Parameter unsafeParameters: Non-verified query parameters to the server API
+    /// - Parameter attributeSets: Options to describe the level of metadata that will be returned
     public init(
         countries: [String]? = nil,
         languages: [String]? = nil,
@@ -110,7 +115,8 @@ public struct SearchOptions {
         filterTypes: [SearchQueryType]? = nil,
         ignoreIndexableRecords: Bool = false,
         indexableRecordsDistanceThreshold: CLLocationDistance? = nil,
-        unsafeParameters: [String: String]? = nil
+        unsafeParameters: [String: String]? = nil,
+        attributeSets: [AttributeSet]? = nil
     ) {
         self.countries = countries
         self.languages = languages ?? Locale.defaultLanguages()
@@ -125,6 +131,7 @@ public struct SearchOptions {
         self.ignoreIndexableRecords = ignoreIndexableRecords
         self.indexableRecordsDistanceThreshold = indexableRecordsDistanceThreshold
         self.unsafeParameters = unsafeParameters
+        self.attributeSets = attributeSets
     }
 
     /// Search request options with custom proximity.
@@ -258,7 +265,7 @@ public struct SearchOptions {
             sarType: routeOptions?.deviation.sarType?.toCore(),
             timeDeviation: timeDeviation,
             addonAPI: unsafeParameters,
-            attributeSets: nil
+            attributeSets: attributeSets.map { $0.map { NSNumber(value: $0.coreValue.rawValue) } }
         )
     }
 
@@ -301,6 +308,7 @@ public struct SearchOptions {
                 \.origin,
                 message: "Geocoding API doesn't support proximity point. Please, use 'proximity' instead."
             )
+            validSearchOptions.forceNilArg(\.attributeSets, message: "Geocoding API doesn't support AttributeSets.")
 
         case .SBS:
             validSearchOptions.forceNilArg(\.fuzzyMatch, message: "SBS API doesn't support fuzzyMatch mode")
@@ -329,6 +337,7 @@ public struct SearchOptions {
                     )
                 }
             }
+            validSearchOptions.forceNilArg(\.attributeSets, message: "SBS API doesn't support AttributeSets.")
 
         case .autofill:
             let unsupportedFilterTypes: [SearchQueryType] = [.category]
@@ -337,6 +346,7 @@ public struct SearchOptions {
             if validSearchOptions.filterTypes?.count != filterTypes?.count {
                 info("Autofill API doesn't support following filter types: \(unsupportedFilterTypes)")
             }
+            validSearchOptions.forceNilArg(\.attributeSets, message: "Autofill API doesn't support AttributeSets.")
 
         case .searchBox:
             let topLimit = 10
@@ -402,7 +412,8 @@ public struct SearchOptions {
             ignoreIndexableRecords: ignoreIndexableRecords,
             indexableRecordsDistanceThreshold: indexableRecordsDistanceThreshold ??
                 with.indexableRecordsDistanceThreshold,
-            unsafeParameters: unsafeParameters ?? with.unsafeParameters
+            unsafeParameters: unsafeParameters ?? with.unsafeParameters,
+            attributeSets: attributeSets ?? with.attributeSets
         )
     }
 }
