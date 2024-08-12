@@ -18,4 +18,13 @@ class DataLayerProviderStub: IndexableDataProvider {
         let resolved = records.first { $0.id == suggestion.id } as? IndexableRecordStub
         completion(resolved?.asResolved)
     }
+
+    func resolve(
+        suggestion: any MapboxSearch.SearchResultSuggestion,
+        retrieveOptions: MapboxSearch.RetrieveOptions?,
+        completion: @escaping ((any MapboxSearch.SearchResult)?) -> Void
+    ) {
+        let resolved = records.first { $0.id == suggestion.id } as? IndexableRecordStub
+        completion(resolved?.asResolved)
+    }
 }

@@ -32,6 +32,7 @@ protocol CoreSearchEngineProtocol {
     func nextSearch(
         for result: CoreSearchResultProtocol,
         with originalRequest: CoreRequestOptions,
+        options retrieveOptions: CoreRetrieveOptions,
         callback: @escaping (CoreSearchResponseProtocol?) -> Void
     )
 
@@ -155,10 +156,11 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
     func nextSearch(
         for result: CoreSearchResultProtocol,
         with originalRequest: CoreRequestOptions,
+        options retrieveOptions: CoreRetrieveOptions,
         callback: @escaping (CoreSearchResponseProtocol?) -> Void
     ) {
         if let coreResult = result as? CoreSearchResult {
-            retrieve(forRequest: originalRequest, result: coreResult) { response in
+            retrieve(forRequest: originalRequest, result: coreResult, retrieveOptions: retrieveOptions) { response in
                 DispatchQueue.main.async {
                     callback(response)
                 }
@@ -166,7 +168,7 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
         } else {
             // swiftlint:disable:next line_length
             assertionFailure(
-                "Unexpected type of CoreSearchResultProtocol. Engine doesn't support nothing but CoreSearchResult"
+                "Unexpected type of CoreSearchResultProtocol. Engine only supports result: CoreSearchResult input."
             )
             DispatchQueue.main.async {
                 callback(nil)
@@ -198,7 +200,7 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
         } else {
             // swiftlint:disable:next line_length
             assertionFailure(
-                "Unexpected type of CoreSearchResultProtocol. Engine doesn't support nothing but CoreSearchResult"
+                "Unexpected type of CoreSearchResultProtocol. Engine only supports result: CoreSearchResult input."
             )
         }
     }

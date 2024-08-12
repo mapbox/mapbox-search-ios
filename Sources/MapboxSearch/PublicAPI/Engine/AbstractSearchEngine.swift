@@ -147,6 +147,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
 
     func resolve(
         suggestion: SearchResultSuggestion,
+        retrieveOptions: RetrieveOptions?,
         completionQueue: DispatchQueue = .main,
         completion: @escaping (Result<SearchResult, SearchError>) -> Void
     ) {
@@ -156,7 +157,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
             return
         }
 
-        resolver.resolve(suggestion: suggestion) { resolvedResult in
+        resolver.resolve(suggestion: suggestion, retrieveOptions: retrieveOptions) { resolvedResult in
             completionQueue.async {
                 if let resolvedResult {
                     completion(.success(resolvedResult))
