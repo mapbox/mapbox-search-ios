@@ -68,10 +68,6 @@ public struct SearchOptions {
     /// - Attention: May break engine entity functionality. Do not use without SDK developers agreement
     public var unsafeParameters: [String: String]?
 
-    /// Non-ordered array of attribute sets which describe the level of metadata that will be returned.
-    /// When attributeSets is absent the `.basic` value will be used.
-    public var attributeSets: [AttributeSet]?
-
     /**
       The locale in which results should be returned.
 
@@ -101,7 +97,6 @@ public struct SearchOptions {
     /// - Parameter ignoreIndexableRecords: Do not search external records in `IndexableDataProvider`s
     /// - Parameter indexableRecordsDistanceThreshold: Radius of circle around `proximity` to filter indexable records
     /// - Parameter unsafeParameters: Non-verified query parameters to the server API
-    /// - Parameter attributeSets: Options to describe the level of metadata that will be returned
     public init(
         countries: [String]? = nil,
         languages: [String]? = nil,
@@ -115,8 +110,7 @@ public struct SearchOptions {
         filterTypes: [SearchQueryType]? = nil,
         ignoreIndexableRecords: Bool = false,
         indexableRecordsDistanceThreshold: CLLocationDistance? = nil,
-        unsafeParameters: [String: String]? = nil,
-        attributeSets: [AttributeSet]? = nil
+        unsafeParameters: [String: String]? = nil
     ) {
         self.countries = countries
         self.languages = languages ?? Locale.defaultLanguages()
@@ -131,7 +125,6 @@ public struct SearchOptions {
         self.ignoreIndexableRecords = ignoreIndexableRecords
         self.indexableRecordsDistanceThreshold = indexableRecordsDistanceThreshold
         self.unsafeParameters = unsafeParameters
-        self.attributeSets = attributeSets
     }
 
     /// Search request options with custom proximity.
@@ -264,8 +257,7 @@ public struct SearchOptions {
             route: routeOptions?.route.coordinates.map(Coordinate2D.init(value:)),
             sarType: routeOptions?.deviation.sarType?.toCore(),
             timeDeviation: timeDeviation,
-            addonAPI: unsafeParameters,
-            attributeSets: attributeSets.map { $0.map { NSNumber(value: $0.coreValue.rawValue) } }
+            addonAPI: unsafeParameters
         )
     }
 
@@ -409,8 +401,7 @@ public struct SearchOptions {
             ignoreIndexableRecords: ignoreIndexableRecords,
             indexableRecordsDistanceThreshold: indexableRecordsDistanceThreshold ??
                 with.indexableRecordsDistanceThreshold,
-            unsafeParameters: unsafeParameters ?? with.unsafeParameters,
-            attributeSets: attributeSets ?? with.attributeSets
+            unsafeParameters: unsafeParameters ?? with.unsafeParameters
         )
     }
 }
