@@ -2,7 +2,7 @@
 
 import Foundation
 
-public enum AttributeSet: Codable, Hashable, Sendable {
+public enum AttributeSet: CaseIterable, Codable, Hashable, Sendable {
     /** Essential information about a location such as name, address and coordinates. This is the default value for attribute_sets parameter, and will be provided when attribute_sets is not provided in the request. */
     case basic
 
