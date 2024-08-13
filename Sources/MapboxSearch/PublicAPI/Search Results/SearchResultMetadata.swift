@@ -7,6 +7,9 @@ public struct SearchResultMetadata: Codable, Hashable {
     /// Metadata extra data.
     public var data: [String: String]
 
+    /// Child metadata for a POI
+    public var children: [ResultChildMetadata]?
+
     /// SearchResult primary photos
     public var primaryImage: Image?
 
@@ -45,6 +48,8 @@ public struct SearchResultMetadata: Codable, Hashable {
                 Image(sizes: others.map(Image.SizedImage.init)),
             ]
         }
+
+        self.children = metadata.children?.compactMap { ResultChildMetadata(resultChildMetadata: $0) }
     }
 
     public init(
