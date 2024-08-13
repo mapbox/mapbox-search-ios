@@ -3,6 +3,7 @@ import MapboxSearch
 import MapboxSearchUI
 import UIKit
 
+/// Entry point for Demo app "SearchUI" tab
 class MapRootController: UIViewController {
     private lazy var searchController = MapboxSearchController()
 
