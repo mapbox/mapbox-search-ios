@@ -13,9 +13,6 @@ public struct SearchResultMetadata: Codable, Hashable {
     /// Additional photos
     public var otherImages: [Image]?
 
-    /// Long form detailed description for POI.
-    public var description: String?
-
     /// Business phone number
     public var phone: String?
 
@@ -32,6 +29,9 @@ public struct SearchResultMetadata: Codable, Hashable {
     public var openHours: OpenHours?
 
     // MARK: Characteristics and Options
+
+    /// Long form detailed description for POI.
+    public var description: String?
 
     /// The price level of the location, represented by a string including dollar signs. The values scale from Cheap "$"
     /// to Most Expensive "$$$$".
@@ -124,6 +124,7 @@ public struct SearchResultMetadata: Codable, Hashable {
             ]
         }
 
+        self.description = metadata.description
         self.priceLevel = metadata.priceLevel
         self.popularity = metadata.popularity?.floatValue
         self.wheelchairAccessible = metadata.wheelchairAccessible
@@ -167,6 +168,7 @@ public struct SearchResultMetadata: Codable, Hashable {
         self.reviewCount = reviewCount
         self.averageRating = averageRating
         self.openHours = openHours
+        self.description = nil
     }
 
     public init(
@@ -178,6 +180,7 @@ public struct SearchResultMetadata: Codable, Hashable {
         reviewCount: Int?,
         averageRating: Double?,
         openHours: OpenHours?,
+        description: String? = nil,
         priceLevel: String? = nil,
         popularity: Float? = nil,
         wheelchairAccessible: Bool? = nil,
@@ -211,6 +214,7 @@ public struct SearchResultMetadata: Codable, Hashable {
         self.averageRating = averageRating
         self.openHours = openHours
 
+        self.description = description
         self.priceLevel = priceLevel
         self.popularity = popularity
         self.wheelchairAccessible = wheelchairAccessible
