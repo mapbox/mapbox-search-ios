@@ -7,6 +7,9 @@ public struct SearchResultMetadata: Codable, Hashable {
     /// Metadata extra data.
     public var data: [String: String]
 
+    /// Child metadata for a POI
+    public var children: [ResultChildMetadata]?
+
     /// SearchResult primary photos
     public var primaryImage: Image?
 
@@ -124,6 +127,8 @@ public struct SearchResultMetadata: Codable, Hashable {
             ]
         }
 
+        self.children = metadata.children?.compactMap { ResultChildMetadata(resultChildMetadata: $0) }
+
         self.description = metadata.description
         self.priceLevel = metadata.priceLevel
         self.popularity = metadata.popularity?.floatValue
@@ -180,6 +185,7 @@ public struct SearchResultMetadata: Codable, Hashable {
         reviewCount: Int?,
         averageRating: Double?,
         openHours: OpenHours?,
+        children: [ResultChildMetadata]? = nil,
         description: String? = nil,
         priceLevel: String? = nil,
         popularity: Float? = nil,
@@ -214,6 +220,7 @@ public struct SearchResultMetadata: Codable, Hashable {
         self.averageRating = averageRating
         self.openHours = openHours
 
+        self.children = children
         self.description = description
         self.priceLevel = priceLevel
         self.popularity = popularity

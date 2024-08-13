@@ -203,7 +203,7 @@ extension PlaceAutocomplete {
                 return
             }
 
-            self.manage(response: response, for: query, completion: completion)
+            manage(response: response, for: query, completion: completion)
         }
     }
 
@@ -247,7 +247,8 @@ extension PlaceAutocomplete {
         with options: CoreRequestOptions,
         completion: @escaping (Swift.Result<Suggestion, Error>) -> Void
     ) {
-        searchEngine.nextSearch(for: suggestion, with: options) { response in
+        let retrieveOptions = CoreRetrieveOptions(attributeSets: nil)
+        searchEngine.nextSearch(for: suggestion, with: options, options: retrieveOptions) { response in
             guard let coreResponse = response else {
                 assertionFailure("Response should never be nil")
                 completion(.failure(SearchError.responseProcessingFailed))
