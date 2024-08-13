@@ -14,6 +14,11 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 - [UI] Enforce template mode on all Maki and SearchResult Types icons (always theme-able).
 
+- [SearchOptions] Remove SearchOptions.AttributeSets parameter.
+
+**MapboxCommon**: v24.6.0
+**MapboxCoreSearch**: v2.3.0-rc.6
+
 ## 2.3.0-rc.1
 
 - [SearchResultMetadata] Add `weekdayText` and `note` associated values to OpenHours.scheduled case.
