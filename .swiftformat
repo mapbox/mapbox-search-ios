@@ -12,7 +12,7 @@
 --closurevoid remove
 --commas always
 --conflictmarkers reject
---decimalgrouping none
+--decimalgrouping ignore
 --elseposition same-line
 --emptybraces no-space
 --enumnamespaces always

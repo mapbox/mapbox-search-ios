@@ -125,18 +125,17 @@ extension AddressComponents {
     /// - Returns: Address string
     public func formattedAddress(style: FormatStyle) -> String? {
         // All styles will include \.houseNumber if it exist
-        let componentPaths: [KeyPath<AddressComponents, String?>]
-        switch style {
+        let componentPaths: [KeyPath<AddressComponents, String?>] = switch style {
         case .short:
-            componentPaths = [\.houseNumber, \.street]
+            [\.houseNumber, \.street]
         case .medium:
             if let country, regionBasedCountry(country) {
-                componentPaths = [\.houseNumber, \.street, \.place, \.region]
+                [\.houseNumber, \.street, \.place, \.region]
             } else {
-                componentPaths = [\.houseNumber, \.street, \.place]
+                [\.houseNumber, \.street, \.place]
             }
         case .long:
-            componentPaths = [
+            [
                 \.houseNumber,
                 \.street,
                 \.neighborhood,
@@ -147,7 +146,7 @@ extension AddressComponents {
                 \.country,
             ]
         case .full:
-            componentPaths = [
+            [
                 \.houseNumber,
                 \.street,
                 \.neighborhood,
@@ -159,7 +158,7 @@ extension AddressComponents {
                 \.postcode,
             ]
         case .custom(let components):
-            componentPaths = components
+            components
         }
 
         // Take actual non-nil components

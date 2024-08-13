@@ -71,14 +71,13 @@ public class MapboxPanelController: UIViewController {
             guard toState != state else { return }
         }
 
-        let topConstant: CGFloat
-        switch toState {
+        let topConstant: CGFloat = switch toState {
         case .opened:
-            topConstant = configuration.topOffset
+            configuration.topOffset
         case .collapsed:
-            topConstant = bottomConstantFromTopEdge
+            bottomConstantFromTopEdge
         case .hidden:
-            topConstant = view.superview?.bounds.height ?? UIScreen.main.bounds.height
+            view.superview?.bounds.height ?? UIScreen.main.bounds.height
         }
         topConstraint?.constant = topConstant
         state = toState

@@ -12,14 +12,13 @@ public enum LogCategory {
     case telemetry
 
     var rawValue: String {
-        let name: String
-        switch self {
+        let name = switch self {
         case .default:
-            name = "default"
+            "default"
         case .userRecords:
-            name = "user-records"
+            "user-records"
         case .telemetry:
-            name = "telemetry"
+            "telemetry"
         }
 
         return name.lowercased()

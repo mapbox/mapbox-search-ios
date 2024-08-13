@@ -1,21 +1,20 @@
 extension DefaultStringInterpolation {
     mutating func appendInterpolation(_ api: CoreSearchEngine.ApiType) {
-        let versionName: String
-        switch api {
+        let versionName = switch api {
         case .geocoding:
-            versionName = "geocoding"
+            "geocoding"
 
         case .SBS:
-            versionName = "SBS"
+            "SBS"
 
         case .searchBox:
-            versionName = "searchBox"
+            "searchBox"
 
         case .autofill:
-            versionName = "autofill"
+            "autofill"
 
         @unknown default:
-            versionName = "unknown"
+            "unknown"
         }
         appendInterpolation(versionName)
     }

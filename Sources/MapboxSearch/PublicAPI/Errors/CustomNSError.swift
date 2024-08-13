@@ -91,6 +91,7 @@ extension SearchError: CustomNSError {
                 NSLocalizedDescriptionKey: description,
                 NSLocalizedFailureReasonErrorKey: "Error:[\(error.description)]",
             ]
+
         case .owningObjectDeallocated:
             let description = "Owning object deallocated"
             let reason =

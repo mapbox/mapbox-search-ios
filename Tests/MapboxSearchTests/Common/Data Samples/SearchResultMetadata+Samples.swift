@@ -17,7 +17,7 @@ extension SearchResultMetadata {
             otherImage: [CoreImageInfoStub.sample4],
             description: "Pizza description",
             averageRating: 3.9,
-            reviewCount: 1300,
+            reviewCount: 1_300,
             phone: "+ 123 45 678 91 23",
             website: "https://www.pizzahut.com"
         )

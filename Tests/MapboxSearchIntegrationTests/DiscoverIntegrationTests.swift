@@ -15,7 +15,7 @@ class DiscoverIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
         let coordinates = [coordinate1, coordinate2]
 
         let mapboxSearchRoute = MapboxSearch.Route(coordinates: coordinates)
-        let rOptions: MapboxSearch.RouteOptions = RouteOptions(route: mapboxSearchRoute, time: 1000)
+        let rOptions: MapboxSearch.RouteOptions = RouteOptions(route: mapboxSearchRoute, time: 1_000)
 
         let options = Discover.Options(
             limit: 10,

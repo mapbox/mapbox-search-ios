@@ -43,6 +43,7 @@ enum GeocodingMockResponse: MockResponse {
         switch self {
         case .forwardGeocoding:
             path = "/geocoding/v5/mapbox.places/:query"
+
         case .reverseGeocoding:
             path = "/geocoding/v5/mapbox.places/:location"
 
