@@ -113,6 +113,7 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
     func nextSearch(
         for result: CoreSearchResultProtocol,
         with originalRequest: CoreRequestOptions,
+        options: CoreRetrieveOptions,
         callback: @escaping (CoreSearchResponseProtocol?) -> Void
     ) {
         nextSearchCalled = true
@@ -185,9 +186,10 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
     func retrieveOffline(
         for result: CoreSearchResultProtocol,
         with originalRequest: CoreRequestOptions,
+        options retrieveOptions: CoreRetrieveOptions,
         callback: @escaping (CoreSearchResponseProtocol?) -> Void
     ) {
-        nextSearch(for: result, with: originalRequest, callback: callback)
+        nextSearch(for: result, with: originalRequest, options: retrieveOptions, callback: callback)
     }
 
     func reverseGeocodingOffline(

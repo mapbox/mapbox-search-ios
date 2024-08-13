@@ -16,4 +16,13 @@ class TestDataProvider: IndexableDataProvider {
         let record = records.first { $0.id == suggestion.id }
         completion(record)
     }
+
+    func resolve(
+        suggestion: any SearchResultSuggestion,
+        retrieveOptions: RetrieveOptions?,
+        completion: @escaping ((any SearchResult)?) -> Void
+    ) {
+        let record = records.first { $0.id == suggestion.id }
+        completion(record)
+    }
 }
