@@ -16,6 +16,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 - [SearchOptions] Remove SearchOptions.AttributeSets parameter.
 
+- [SearchResultMetadata] Add fields for more metadata characteristics, options, social media handles, and contact information.
+
 **MapboxCommon**: v24.6.0
 **MapboxCoreSearch**: v2.3.0-rc.6
 

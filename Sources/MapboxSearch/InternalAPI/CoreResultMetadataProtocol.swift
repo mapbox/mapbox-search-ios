@@ -42,6 +42,7 @@ protocol CoreResultMetadataProtocol {
     var openHours: CoreOpenHours? { get }
 
     /** Parking information for POIs. */
+    @available(*, deprecated, message: "This field is not supported in v2")
     var parkingData: CoreParkingData? { get }
 
     /** Indicates whether the location is accessible by wheelchair. */
