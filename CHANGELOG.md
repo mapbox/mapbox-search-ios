@@ -16,6 +16,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 - [SearchOptions] Remove SearchOptions.AttributeSets parameter.
 
+- [SearchEngine] Add RetrieveOptions(attributeSets:) parameter to `select()` functions. Use this to provide attribute set queries.
+
 **MapboxCommon**: v24.6.0
 **MapboxCoreSearch**: v2.3.0-rc.6
 

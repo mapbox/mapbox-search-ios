@@ -2,6 +2,7 @@
 import XCTest
 
 class SearchEngineDelegateStub: SearchEngineDelegate {
+    var resolvedSuggestions: [SearchSuggestion]?
     var resolvedResult: SearchResult?
     var resolvedResults: [SearchResult] = []
     var error: SearchError?
@@ -40,6 +41,7 @@ class SearchEngineDelegateStub: SearchEngineDelegate {
     }
 
     func suggestionsUpdated(suggestions: [SearchSuggestion], searchEngine: SearchEngine) {
+        resolvedSuggestions = suggestions
         NotificationCenter.default.post(name: updateNotificationName, object: self)
     }
 
