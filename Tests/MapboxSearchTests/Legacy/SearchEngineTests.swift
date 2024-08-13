@@ -552,7 +552,7 @@ class SearchEngineTests: XCTestCase {
                 XCTAssertNil(metadata.otherImages)
                 XCTAssertNil(metadata.phone)
                 XCTAssertNil(metadata.website)
-                XCTAssertNil(metadata.reviewCount)
+                XCTAssertNotNil(metadata.reviewCount)
                 XCTAssertNil(metadata.averageRating)
                 XCTAssertNil(metadata.openHours)
             case .visit:
