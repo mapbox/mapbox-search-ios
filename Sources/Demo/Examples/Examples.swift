@@ -7,6 +7,7 @@ struct ExampleSection {
 
 struct Example {
     let title: String
+    let icon: UIImage?
     let screenType: ExampleController.Type
 }
 

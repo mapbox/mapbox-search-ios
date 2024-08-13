@@ -63,6 +63,20 @@ public class LocalDataProvider<Record: Codable & SearchResult & IndexableRecord>
         completion(resolvedResult)
     }
 
+    /// Resolves ``SearchResultSuggestion`` into ``SearchResult`` locally.
+    /// - Parameters:
+    ///   - suggestion: suggestion to resolve
+    ///   - retrieveOptions: Define attribute sets to request additional metadata attributes
+    ///   - completion: completion closure
+    public func resolve(
+        suggestion: any SearchResultSuggestion,
+        retrieveOptions: RetrieveOptions?,
+        completion: @escaping ((any SearchResult)?) -> Void
+    ) {
+        let resolvedResult = recordsMap[suggestion.id]
+        completion(resolvedResult)
+    }
+
     func saveData() {
         let notification = Notification(name: Self.updateNotificationName)
         NotificationQueue.default.enqueue(notification, postingStyle: .asap)

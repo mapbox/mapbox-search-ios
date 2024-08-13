@@ -117,14 +117,16 @@ extension AddressAutofill {
 
         switch suggestion.underlying {
         case .suggestion(let coreSearch, let coreOptions):
-            searchEngine.nextSearch(for: coreSearch, with: coreOptions) { [weak self] coreResponse in
-                guard let self else {
-                    completion(.failure(SearchError.owningObjectDeallocated))
-                    return
-                }
+            let retrieveOptions = CoreRetrieveOptions(attributeSets: nil)
+            searchEngine
+                .nextSearch(for: coreSearch, with: coreOptions, options: retrieveOptions) { [weak self] coreResponse in
+                    guard let self else {
+                        completion(.failure(SearchError.owningObjectDeallocated))
+                        return
+                    }
 
-                manage(response: coreResponse, completion: completion)
-            }
+                    manage(response: coreResponse, completion: completion)
+                }
         case .result:
             guard let coordinate = suggestion.coordinate else {
                 completion(.failure(SearchError.responseProcessingFailed))

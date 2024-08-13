@@ -16,6 +16,7 @@
 		042BEB172C2DDFAA0004CD7B /* MapboxCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 042BEB162C2DDFAA0004CD7B /* MapboxCommon */; };
 		042BEB1A2C2DE30E0004CD7B /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 042BEB192C2DE30E0004CD7B /* MapboxMaps */; };
 		043339CD2C61295D001650FA /* Atlantis in Frameworks */ = {isa = PBXBuildFile; productRef = 043339CC2C61295D001650FA /* Atlantis */; };
+		04340D202C6BD06500B4F242 /* ResultChildMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04340D1F2C6BD06500B4F242 /* ResultChildMetadata.swift */; };
 		043A3D4D2B30F38300DB681B /* CoreAddress+AddressComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A3D4C2B30F38300DB681B /* CoreAddress+AddressComponents.swift */; };
 		044A6B732BA8933200A9F2A2 /* PreviewCategoriesFavoritesSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A6B722BA8933200A9F2A2 /* PreviewCategoriesFavoritesSegmentControl.swift */; };
 		045514C22B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045514C12B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift */; };
@@ -43,6 +44,7 @@
 		048823492B6B0A9D00C770AA /* category-hotel-search-along-route-jp.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */; };
 		0488234A2B6B0A9E00C770AA /* category-hotel-search-along-route-jp.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */; };
 		04970F8D2B7A97C900213763 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 04970F8C2B7A97C900213763 /* PrivacyInfo.xcprivacy */; };
+		049FE3A82C6A50BB00F54FB2 /* RetrieveOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FE3A72C6A50BB00F54FB2 /* RetrieveOptions.swift */; };
 		04AB0B4B2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */; };
 		04AB0B4C2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */; };
 		04AB0B4D2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */; };
@@ -64,7 +66,7 @@
 		04CECA132C3EFAB9007117E4 /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA0F2C3EFAB9007117E4 /* Examples.swift */; };
 		04CECA142C3EFAB9007117E4 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA102C3EFAB9007117E4 /* MapsViewController.swift */; };
 		04CECA152C3EFAB9007117E4 /* TextViewLoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA112C3EFAB9007117E4 /* TextViewLoggerViewController.swift */; };
-		04CECA162C3EFAB9007117E4 /* ExamplesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA122C3EFAB9007117E4 /* ExamplesTableViewController.swift */; };
+		04CECA162C3EFAB9007117E4 /* ExamplesListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA122C3EFAB9007117E4 /* ExamplesListing.swift */; };
 		04DAF7582BDAAB4C002719E2 /* OfflineDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAF7572BDAAB4C002719E2 /* OfflineDemoViewController.swift */; };
 		04DFB40C2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */; };
 		04DFB40D2B8CF1ED00231830 /* search-box-suggestions-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */; };
@@ -546,6 +548,7 @@
 		0405809C2BA8E67D00A54CB9 /* OwningObjectDeallocatedErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwningObjectDeallocatedErrorTests.swift; sourceTree = "<group>"; };
 		042477C12B7290E700D870D5 /* SearchEngineGeocodingIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEngineGeocodingIntegrationTests.swift; sourceTree = "<group>"; };
 		042477C42B72CCB000D870D5 /* geocoding-reverse-geocoding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "geocoding-reverse-geocoding.json"; sourceTree = "<group>"; };
+		04340D1F2C6BD06500B4F242 /* ResultChildMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultChildMetadata.swift; sourceTree = "<group>"; };
 		043A3D4C2B30F38300DB681B /* CoreAddress+AddressComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreAddress+AddressComponents.swift"; sourceTree = "<group>"; };
 		044A6B722BA8933200A9F2A2 /* PreviewCategoriesFavoritesSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCategoriesFavoritesSegmentControl.swift; sourceTree = "<group>"; };
 		045514C12B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreApiType+ToSDKType.swift"; sourceTree = "<group>"; };
@@ -558,6 +561,7 @@
 		0477904C2B890F4E00A99528 /* search-box-retrieve-minsk.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-retrieve-minsk.json"; sourceTree = "<group>"; };
 		0484BCDE2BC4865C003CF408 /* OfflineIndexObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineIndexObserver.swift; sourceTree = "<group>"; };
 		04970F8C2B7A97C900213763 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		049FE3A72C6A50BB00F54FB2 /* RetrieveOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveOptions.swift; sourceTree = "<group>"; };
 		04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mapbox.places.san.francisco.json; sourceTree = "<group>"; };
 		04AB0B792B6AF37800FDE7D5 /* DiscoverIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverIntegrationTests.swift; sourceTree = "<group>"; };
 		04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = "category-hotel-search-along-route-jp.json"; sourceTree = "<group>"; };
@@ -576,7 +580,7 @@
 		04CECA0F2C3EFAB9007117E4 /* Examples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Examples.swift; path = Sources/Demo/Examples/Examples.swift; sourceTree = SOURCE_ROOT; };
 		04CECA102C3EFAB9007117E4 /* MapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapsViewController.swift; path = Sources/Demo/Examples/MapsViewController.swift; sourceTree = SOURCE_ROOT; };
 		04CECA112C3EFAB9007117E4 /* TextViewLoggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextViewLoggerViewController.swift; path = Sources/Demo/Examples/TextViewLoggerViewController.swift; sourceTree = SOURCE_ROOT; };
-		04CECA122C3EFAB9007117E4 /* ExamplesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExamplesTableViewController.swift; path = Sources/Demo/Examples/ExamplesTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		04CECA122C3EFAB9007117E4 /* ExamplesListing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExamplesListing.swift; path = Sources/Demo/Examples/ExamplesListing.swift; sourceTree = SOURCE_ROOT; };
 		04DAF7572BDAAB4C002719E2 /* OfflineDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineDemoViewController.swift; sourceTree = "<group>"; };
 		04DFB40B2B8CF1ED00231830 /* search-box-suggestions-categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-suggestions-categories.json"; sourceTree = "<group>"; };
 		04DFB40F2B8CF46D00231830 /* search-box-retrieve-categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "search-box-retrieve-categories.json"; sourceTree = "<group>"; };
@@ -1103,7 +1107,7 @@
 			isa = PBXGroup;
 			children = (
 				04CECA0F2C3EFAB9007117E4 /* Examples.swift */,
-				04CECA122C3EFAB9007117E4 /* ExamplesTableViewController.swift */,
+				04CECA122C3EFAB9007117E4 /* ExamplesListing.swift */,
 				04CECA102C3EFAB9007117E4 /* MapsViewController.swift */,
 				04CECA112C3EFAB9007117E4 /* TextViewLoggerViewController.swift */,
 				04CECA052C3EFAAF007117E4 /* ContinuousSearchViewController.swift */,
@@ -1596,6 +1600,7 @@
 				FEEDD2E32508DFE400DC0A98 /* AbstractSearchEngine.swift */,
 				04C127542B62F6BC00884325 /* ApiType.swift */,
 				FEEDD2D82508DFE400DC0A98 /* SearchEngine.swift */,
+				049FE3A72C6A50BB00F54FB2 /* RetrieveOptions.swift */,
 				FEEDD2EB2508DFE400DC0A98 /* CategorySearchEngine.swift */,
 				04C0848C2B4C82F3002F9C69 /* SdkInformation.swift */,
 			);
@@ -1874,6 +1879,7 @@
 				F9A0B83F2562B10E00CAD907 /* SearchResultMetadata.swift */,
 				FEEDD2E72508DFE400DC0A98 /* SearchSuggestion.swift */,
 				FEEDD2E82508DFE400DC0A98 /* ServerSearchResult.swift */,
+				04340D1F2C6BD06500B4F242 /* ResultChildMetadata.swift */,
 			);
 			path = "Search Results";
 			sourceTree = "<group>";
@@ -2615,6 +2621,7 @@
 				F9A0B8402562B10E00CAD907 /* SearchResultMetadata.swift in Sources */,
 				FE097B7D264EAA1A001EAC2F /* CustomNSError.swift in Sources */,
 				FEA5AA9A25718E7D00871FDB /* Route.swift in Sources */,
+				04340D202C6BD06500B4F242 /* ResultChildMetadata.swift in Sources */,
 				2C705F062A137CEB00B8B773 /* SearchNavigationProfile.swift in Sources */,
 				FEB0B15725B7108400189446 /* SearchQueryType.swift in Sources */,
 				F914EE5A2743E03B00D4F173 /* Array+Extensions.swift in Sources */,
@@ -2701,6 +2708,7 @@
 				0484BCDF2BC4865C003CF408 /* OfflineIndexObserver.swift in Sources */,
 				FE260A6725C063880037B725 /* ReverseGeocodingOptions.swift in Sources */,
 				FECA461026D3F81800BC7B18 /* MapboxSearchUserAgent.swift in Sources */,
+				049FE3A82C6A50BB00F54FB2 /* RetrieveOptions.swift in Sources */,
 				04764E682C5AB93E0040A7FE /* AttributeSet.swift in Sources */,
 				FEEDD2F32508DFE400DC0A98 /* CoreBoundingBox.swift in Sources */,
 				148DE66A285756C20085684D /* NonEmptyArray.swift in Sources */,
@@ -2895,7 +2903,7 @@
 				04CECA152C3EFAB9007117E4 /* TextViewLoggerViewController.swift in Sources */,
 				04CECA0D2C3EFAAF007117E4 /* SimpleUISearchViewController.swift in Sources */,
 				FEEDD3BF2508E3CD00DC0A98 /* MapRootController.swift in Sources */,
-				04CECA162C3EFAB9007117E4 /* ExamplesTableViewController.swift in Sources */,
+				04CECA162C3EFAB9007117E4 /* ExamplesListing.swift in Sources */,
 				14F7186B29A1361700D5BC2E /* PlaceAutocompleteMainViewController.swift in Sources */,
 				04CECA132C3EFAB9007117E4 /* Examples.swift in Sources */,
 				04CECA092C3EFAAF007117E4 /* MapboxMapsCategoryResultsViewController.swift in Sources */,

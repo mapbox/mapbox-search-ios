@@ -206,7 +206,10 @@ public class SearchEngine: AbstractSearchEngine {
         offlineMode == .disabled ? engine.reverseGeocoding : engine.reverseGeocodingOffline
     }
 
-    func retrieve(suggestion: SearchSuggestion) {
+    func retrieve(
+        suggestion: SearchSuggestion,
+        retrieveOptions: RetrieveOptions?
+    ) {
         guard let responseProvider = suggestion as? CoreResponseProvider else {
             assertionFailure()
             return
@@ -214,9 +217,11 @@ public class SearchEngine: AbstractSearchEngine {
 
         assert(offlineMode == .disabled)
 
+        let retrieveOptions = retrieveOptions ?? RetrieveOptions(attributeSets: nil)
         engine.nextSearch(
             for: responseProvider.originalResponse.coreResult,
-            with: responseProvider.originalResponse.requestOptions
+            with: responseProvider.originalResponse.requestOptions,
+            options: retrieveOptions.toCore()
         ) { [weak self] serverResponse in
             self?.processResponse(serverResponse, suggestion: suggestion)
         }
@@ -292,7 +297,7 @@ public class SearchEngine: AbstractSearchEngine {
         return SearchResponse(coreResponse: coreResponse)
     }
 
-    /// Process core search response and update delegate.
+    /// Process core search response and update delegate when a suggested category returns more suggestions.
     /// - Parameters:
     ///   - coreResponse: coreResponse to process
     ///   - suggestion: original suggestion
@@ -373,7 +378,7 @@ extension SearchEngine {
     /// Select one of the provided `SearchSuggestion`'s.
     /// Search flow would continue if category suggestion was selected.
     /// - Parameter suggestion: Suggestion to continue the search and retrieve resolved `SearchResult` via delegate.
-    public func select(suggestion: SearchSuggestion) {
+    public func select(suggestion: SearchSuggestion, options retrieveOptions: RetrieveOptions? = nil) {
         userActivityReporter.reportActivity(forComponent: "search-engine-forward-geocoding-selection")
 
         // Call `onSelected` for only supported types
@@ -387,11 +392,20 @@ extension SearchEngine {
 
         switch suggestion {
         case let categorySuggestion as SearchCategorySuggestion:
-            retrieve(suggestion: categorySuggestion)
+            retrieve(
+                suggestion: categorySuggestion,
+                retrieveOptions: retrieveOptions
+            )
         case let querySuggestion as SearchQuerySuggestion:
-            retrieve(suggestion: querySuggestion)
+            retrieve(
+                suggestion: querySuggestion,
+                retrieveOptions: retrieveOptions
+            )
         case let resultSuggestion as SearchResultSuggestion:
-            resolve(suggestion: resultSuggestion) { [weak self] (result: Result<SearchResult, SearchError>) in
+            resolve(
+                suggestion: resultSuggestion,
+                retrieveOptions: retrieveOptions
+            ) { [weak self] (result: Result<SearchResult, SearchError>) in
                 guard let self else {
                     assertionFailure("Owning object was deallocated")
                     return
@@ -510,13 +524,30 @@ extension SearchEngine: IndexableDataResolver {
     ///   - suggestion: suggestion to resolve
     ///   - completion: completion closure
     public func resolve(suggestion: SearchResultSuggestion, completion: @escaping (SearchResult?) -> Void) {
+        resolve(suggestion: suggestion, retrieveOptions: nil, completion: completion)
+    }
+
+    /// Resolves ``SearchResultSuggestion`` into ``SearchResult`` through Mapbox API.
+    /// Should never be called directly.
+    ///
+    /// - Parameters:
+    ///   - suggestion: suggestion to resolve
+    ///   - retrieveOptions: Define attribute sets to request additional metadata attributes
+    ///   - completion: completion closure
+    public func resolve(
+        suggestion: SearchResultSuggestion,
+        retrieveOptions: RetrieveOptions?,
+        completion: @escaping (SearchResult?) -> Void
+    ) {
         assert(suggestion.dataLayerIdentifier == Self.providerIdentifier)
 
         switch suggestion {
         case let suggestion as SearchResultSuggestionImpl:
+            let retrieveOptions = retrieveOptions ?? RetrieveOptions(attributeSets: nil)
             engine.nextSearch(
                 for: suggestion.originalResponse.coreResult,
-                with: suggestion.originalResponse.requestOptions
+                with: suggestion.originalResponse.requestOptions,
+                options: retrieveOptions.toCore()
             ) { coreSearchResponse in
                 // Processing search response for Suggestion with type Query may return multiple suggestions or results.
                 // For other types we are expecting single result.
