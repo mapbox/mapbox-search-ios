@@ -16,6 +16,7 @@
 		042BEB172C2DDFAA0004CD7B /* MapboxCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 042BEB162C2DDFAA0004CD7B /* MapboxCommon */; };
 		042BEB1A2C2DE30E0004CD7B /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 042BEB192C2DE30E0004CD7B /* MapboxMaps */; };
 		043339CD2C61295D001650FA /* Atlantis in Frameworks */ = {isa = PBXBuildFile; productRef = 043339CC2C61295D001650FA /* Atlantis */; };
+		04340D202C6BD06500B4F242 /* ResultChildMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04340D1F2C6BD06500B4F242 /* ResultChildMetadata.swift */; };
 		043A3D4D2B30F38300DB681B /* CoreAddress+AddressComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A3D4C2B30F38300DB681B /* CoreAddress+AddressComponents.swift */; };
 		044A6B732BA8933200A9F2A2 /* PreviewCategoriesFavoritesSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A6B722BA8933200A9F2A2 /* PreviewCategoriesFavoritesSegmentControl.swift */; };
 		045514C22B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045514C12B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift */; };
@@ -546,6 +547,7 @@
 		0405809C2BA8E67D00A54CB9 /* OwningObjectDeallocatedErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwningObjectDeallocatedErrorTests.swift; sourceTree = "<group>"; };
 		042477C12B7290E700D870D5 /* SearchEngineGeocodingIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEngineGeocodingIntegrationTests.swift; sourceTree = "<group>"; };
 		042477C42B72CCB000D870D5 /* geocoding-reverse-geocoding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "geocoding-reverse-geocoding.json"; sourceTree = "<group>"; };
+		04340D1F2C6BD06500B4F242 /* ResultChildMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultChildMetadata.swift; sourceTree = "<group>"; };
 		043A3D4C2B30F38300DB681B /* CoreAddress+AddressComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreAddress+AddressComponents.swift"; sourceTree = "<group>"; };
 		044A6B722BA8933200A9F2A2 /* PreviewCategoriesFavoritesSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCategoriesFavoritesSegmentControl.swift; sourceTree = "<group>"; };
 		045514C12B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreApiType+ToSDKType.swift"; sourceTree = "<group>"; };
@@ -1874,6 +1876,7 @@
 				F9A0B83F2562B10E00CAD907 /* SearchResultMetadata.swift */,
 				FEEDD2E72508DFE400DC0A98 /* SearchSuggestion.swift */,
 				FEEDD2E82508DFE400DC0A98 /* ServerSearchResult.swift */,
+				04340D1F2C6BD06500B4F242 /* ResultChildMetadata.swift */,
 			);
 			path = "Search Results";
 			sourceTree = "<group>";
@@ -2615,6 +2618,7 @@
 				F9A0B8402562B10E00CAD907 /* SearchResultMetadata.swift in Sources */,
 				FE097B7D264EAA1A001EAC2F /* CustomNSError.swift in Sources */,
 				FEA5AA9A25718E7D00871FDB /* Route.swift in Sources */,
+				04340D202C6BD06500B4F242 /* ResultChildMetadata.swift in Sources */,
 				2C705F062A137CEB00B8B773 /* SearchNavigationProfile.swift in Sources */,
 				FEB0B15725B7108400189446 /* SearchQueryType.swift in Sources */,
 				F914EE5A2743E03B00D4F173 /* Array+Extensions.swift in Sources */,
