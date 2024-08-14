@@ -8,22 +8,18 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+## 2.3.0-rc.2
+
 - [SearchResult] Add `distance` field to SearchResult protocol
-
 - [Demo] Add Atlantis package to Demo app for development with network proxy.
-
 - [UI] Enforce template mode on all Maki and SearchResult Types icons (always theme-able).
-
 - [SearchOptions] Remove SearchOptions.AttributeSets parameter.
-
 - [SearchEngine] Add RetrieveOptions(attributeSets:) parameter to `select()` functions. Use this to provide attribute set queries.
-
 - [SearchResultMetadata] Add fields for more metadata characteristics, options, social media handles, and contact information.
-
 - [SearchResult] Add ResultChildMetadata type to SearchResultMetadata.children field.
 
 **MapboxCommon**: v24.6.0
-**MapboxCoreSearch**: v2.3.0-rc.6
+**MapboxCoreSearch**: v2.3.0
 
 ## 2.3.0-rc.1
 
