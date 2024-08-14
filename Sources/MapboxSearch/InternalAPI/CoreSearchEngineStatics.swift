@@ -46,7 +46,7 @@ enum CoreSearchEngineStatics {
 
 enum ISOLanguages {
     static func contains(language: String) -> Bool {
-        var validLanguage: Bool = if #available(iOS 16, *) {
+        if #available(iOS 16, *) {
             Locale.LanguageCode.isoLanguageCodes
                 .map(\.identifier)
                 .contains(language)
@@ -54,6 +54,5 @@ enum ISOLanguages {
             Locale.isoLanguageCodes
                 .contains(language)
         }
-        return validLanguage
     }
 }
