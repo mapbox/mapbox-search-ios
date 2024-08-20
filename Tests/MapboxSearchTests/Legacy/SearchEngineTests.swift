@@ -552,7 +552,7 @@ class SearchEngineTests: XCTestCase {
                 XCTAssertNil(metadata.otherImages)
                 XCTAssertNil(metadata.phone)
                 XCTAssertNil(metadata.website)
-                XCTAssertNotNil(metadata.reviewCount)
+                XCTAssertNotNil(metadata.reviewCount, "Review count failed for \(String(describing: result.mapboxId))")
                 XCTAssertNil(metadata.averageRating)
                 XCTAssertNil(metadata.openHours)
             case .visit:

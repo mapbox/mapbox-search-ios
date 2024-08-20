@@ -8,6 +8,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [SearchEngine] Add baseURL parameter for custom Mapbox API endpoint development.
+
 ## 2.3.0-rc.2
 
 - [SearchResult] Add `distance` field to SearchResult protocol
