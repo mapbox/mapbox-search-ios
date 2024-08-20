@@ -568,4 +568,47 @@ class SearchEngineTests: XCTestCase {
 
         XCTAssertNil(delegate.error)
     }
+
+    func testRetrieveDetailsAllAttributes() throws {
+        let searchEngine = SearchEngine(apiType: .searchBox)
+        let delegate = SearchEngineDelegateStub()
+        searchEngine.delegate = delegate
+        let updateExpectation = delegate.updateExpectation
+
+        let searchOptions = SearchOptions(
+            limit: 100,
+            origin: CLLocationCoordinate2D(latitude: 38.902309, longitude: -77.029129),
+            filterTypes: [.poi]
+        )
+
+        searchEngine.search(query: "planet word", options: searchOptions)
+        wait(for: [updateExpectation], timeout: 200)
+        let suggestion = try XCTUnwrap(delegate.resolvedSuggestions?.first)
+
+        func fetchResult(for: SearchSuggestion, options: RetrieveOptions) throws -> SearchResult {
+            let successExpectation = delegate.successExpectation
+            searchEngine.select(suggestion: suggestion, options: options)
+            wait(for: [successExpectation], timeout: 200)
+            return try XCTUnwrap(delegate.resolvedResult)
+        }
+
+        let allAttributes = [
+            AttributeSet.basic,
+            .photos,
+            .venue,
+            .visit,
+        ]
+
+        let result = try fetchResult(for: suggestion, options: RetrieveOptions(attributeSets: allAttributes))
+
+        let metadata = try XCTUnwrap(result.metadata)
+        XCTAssertNil(metadata.averageRating)
+        XCTAssertNotNil(metadata.otherImages)
+        XCTAssertNotNil(metadata.openHours)
+        XCTAssertNotNil(metadata.phone)
+        XCTAssertNotNil(metadata.primaryImage)
+        XCTAssertNotNil(metadata.reviewCount, "Review count failed for \(String(describing: result.mapboxId))")
+        XCTAssertNotNil(metadata.website)
+        XCTAssertNil(delegate.error)
+    }
 }
