@@ -14,6 +14,7 @@ INFO_PLIST_BRANCH_KEY="MBXBranch"
 
 rm -rf "${RESULT_PRODUCTS_DIR}"
 
+
 BASEDIR=$(dirname "$0")
 
 LATEST_GIT_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
@@ -33,6 +34,7 @@ do
     ### OUTPUT ###
 
     # Products
+    # ├── LICENSE.md
     # ├── MapboxSearch.xcframework
     # │   ├── Info.plist
     # │   ├── LICENSE.md
@@ -63,6 +65,9 @@ do
     
     # Set branch name hash into .xcframework/Info.Plist:$INFO_PLIST_BRANCH_KEY
     plutil -insert "${INFO_PLIST_BRANCH_KEY}" -string "$(git rev-parse --abbrev-ref HEAD)" "${RESULT_PRODUCTS_DIR}/${frameworkName}.xcframework/Info.plist"
+
+    cp "${PROJECT_ROOT}/LICENSE.md" "${RESULT_PRODUCTS_DIR}/"
+    cp "${PROJECT_ROOT}/LICENSE.md" "${RESULT_PRODUCTS_DIR}/${frameworkName}.xcframework/"
 
     pushd "${RESULT_PRODUCTS_DIR}"
     zip -r "${frameworkName}.zip" "${frameworkName}.xcframework" > /dev/null
