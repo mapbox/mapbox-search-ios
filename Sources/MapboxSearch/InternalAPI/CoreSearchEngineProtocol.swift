@@ -1,6 +1,8 @@
 import CoreLocation
 import Foundation
 
+typealias CoreSearchResponseCompletion = (CoreSearchResponseProtocol?) -> Void
+
 protocol CoreSearchEngineProtocol {
     /**
      -------------------------------------------------------------------------------------------
@@ -88,6 +90,12 @@ protocol CoreSearchEngineProtocol {
     func addOfflineIndexObserver(for observer: CoreOfflineIndexObserver)
 
     func removeOfflineIndexObserver(for observer: CoreOfflineIndexObserver)
+
+    func retrieveDetails(
+        for mapboxId: String,
+        options: CoreDetailsOptions,
+        completion: @escaping CoreSearchResponseCompletion
+    )
 }
 
 extension CoreSearchEngine: CoreSearchEngineProtocol {
@@ -264,5 +272,17 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
                 completion(response)
             }
         })
+    }
+
+    func retrieveDetails(
+        for mapboxId: String,
+        options: CoreDetailsOptions,
+        completion: @escaping (CoreSearchResponseProtocol?) -> Void
+    ) {
+        retrieveDetails(forMapboxId: mapboxId, options: options) { response in
+            DispatchQueue.main.async {
+                completion(response)
+            }
+        }
     }
 }

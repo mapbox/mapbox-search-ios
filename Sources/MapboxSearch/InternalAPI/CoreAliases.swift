@@ -11,6 +11,7 @@ typealias CoreBoundingBox = MapboxCoreSearch.LonLatBBox
 typealias CoreSearchResult = MapboxCoreSearch.SearchResult
 typealias CoreAttributeSet = MapboxCoreSearch.AttributeSet
 typealias CoreRetrieveOptions = MapboxCoreSearch.RetrieveOptions
+typealias CoreDetailsOptions = MapboxCoreSearch.DetailsOptions
 typealias CoreRoutablePoint = MapboxCoreSearch.RoutablePoint
 typealias CoreResultMetadata = MapboxCoreSearch.ResultMetadata
 typealias CoreRequestOptions = MapboxCoreSearch.RequestOptions

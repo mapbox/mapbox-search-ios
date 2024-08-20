@@ -206,6 +206,7 @@ public class SearchEngine: AbstractSearchEngine {
         offlineMode == .disabled ? engine.reverseGeocoding : engine.reverseGeocodingOffline
     }
 
+    /// Accept a typical `select()` invocation and perform the work of a Mapbox API retrieve/ endpoint request.
     func retrieve(
         suggestion: SearchSuggestion,
         retrieveOptions: RetrieveOptions?
@@ -224,6 +225,15 @@ public class SearchEngine: AbstractSearchEngine {
             options: retrieveOptions.toCore()
         ) { [weak self] serverResponse in
             self?.processResponse(serverResponse, suggestion: suggestion)
+        }
+    }
+
+    func retrieve(mapboxID: String, detailsOptions: DetailsOptions?) {
+        assert(offlineMode == .disabled)
+
+        let detailsOptions = detailsOptions ?? DetailsOptions()
+        engine.retrieveDetails(for: mapboxID, options: detailsOptions.toCore()) { [weak self] serverResponse in
+            self?.processResponse(serverResponse, suggestion: nil)
         }
     }
 
@@ -508,6 +518,14 @@ extension SearchEngine {
                 completion(.failure(wrappedError))
             }
         }
+    }
+}
+
+// MARK: - Public Details API
+
+extension SearchEngine {
+    public func select(mapboxID: String, options detailsOptions: DetailsOptions? = nil) {
+        retrieve(mapboxID: mapboxID, detailsOptions: detailsOptions)
     }
 }
 
