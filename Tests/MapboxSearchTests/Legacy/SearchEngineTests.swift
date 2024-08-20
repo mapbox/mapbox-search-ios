@@ -626,7 +626,7 @@ class SearchEngineTests: XCTestCase {
 
         let planetWordMapboxID = "dXJuOm1ieHBvaTo0ZTg2ZWFkNS1jOWMwLTQ3OWEtOTA5Mi1kMDVlNDQ3NDdlODk"
         let detailsOptions = DetailsOptions(attributeSets: AttributeSet.allCases, language: "en")
-        searchEngine.retrieve(mapboxID: planetWordMapboxID, detailsOptions: detailsOptions)
+        searchEngine.select(mapboxID: planetWordMapboxID, options: detailsOptions)
         wait(for: [updateExpectation], timeout: 200)
         let suggestion = try XCTUnwrap(delegate.resolvedSuggestions?.first)
 
