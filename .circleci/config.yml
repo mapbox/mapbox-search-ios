@@ -119,6 +119,7 @@ jobs:
           command: make dependencies
       - run:
           name: Test frameworks
+          no_output_timeout: 30m
           command: make ci-full-test
       - run: make codecov
       - run:
