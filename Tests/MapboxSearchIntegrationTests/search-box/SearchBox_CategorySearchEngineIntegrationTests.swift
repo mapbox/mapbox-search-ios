@@ -9,10 +9,11 @@ final class SearchBox_CategorySearchEngineIntegrationTests: MockServerIntegratio
         try super.setUpWithError()
 
         let apiType = try XCTUnwrap(Mock.coreApiType.toSDKType())
-        searchEngine = CategorySearchEngine(
+        searchEngine = try CategorySearchEngine(
             accessToken: "access-token",
-            serviceProvider: LocalhostMockServiceProvider.shared,
-            apiType: apiType
+            serviceProvider: ServiceProvider.shared,
+            apiType: apiType,
+            baseURL: mockServerURL()
         )
     }
 
