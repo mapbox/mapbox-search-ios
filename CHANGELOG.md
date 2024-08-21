@@ -8,6 +8,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Project] Downgrade Package from Swift 5.10 to 5.9 for compatibility with Xcode 15.0 to 15.2.
+- [Project] Remove SPM strict concurrency flag from MapboxSearch, MapboxSearchUI targets.
+
 ## 2.3.0-rc.2
 
 - [SearchResult] Add `distance` field to SearchResult protocol
