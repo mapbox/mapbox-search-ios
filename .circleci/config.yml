@@ -84,7 +84,7 @@ workflows:
 executors:
   xcode-default:
     macos:
-      xcode: 15.3
+      xcode: 15.0
     resource_class: macos.m1.medium.gen1
 
 jobs:
