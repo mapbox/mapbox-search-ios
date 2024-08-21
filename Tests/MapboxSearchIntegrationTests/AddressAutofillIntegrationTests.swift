@@ -6,8 +6,8 @@ final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase<Autof
     private var addressAutofill: AddressAutofill!
     private let locationProvider = WrapperLocationProvider(wrapping: DefaultLocationProvider())
 
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
 
         let reporter = CoreUserActivityReporter.getOrCreate(
             for: CoreUserActivityReporterOptions(
@@ -17,10 +17,11 @@ final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase<Autof
             )
         )
 
-        let engine = LocalhostMockServiceProvider.shared.createEngine(
+        let engine = try ServiceProvider.shared.createEngine(
             apiType: Mock.coreApiType,
             accessToken: "access-token",
-            locationProvider: locationProvider
+            locationProvider: locationProvider,
+            customBaseURL: mockServerURL()
         )
 
         addressAutofill = AddressAutofill(

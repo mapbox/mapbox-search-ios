@@ -10,11 +10,12 @@ class SearchEngineGeocodingIntegrationTests: MockServerIntegrationTestCase<Geoco
         try super.setUpWithError()
 
         let apiType = try XCTUnwrap(Mock.coreApiType.toSDKType())
-        searchEngine = SearchEngine(
+        searchEngine = try SearchEngine(
             accessToken: "access-token",
-            serviceProvider: LocalhostMockServiceProvider.shared,
+            serviceProvider: ServiceProvider.shared,
             locationProvider: DefaultLocationProvider(),
-            apiType: apiType
+            apiType: apiType,
+            baseURL: mockServerURL()
         )
 
         searchEngine.delegate = delegate

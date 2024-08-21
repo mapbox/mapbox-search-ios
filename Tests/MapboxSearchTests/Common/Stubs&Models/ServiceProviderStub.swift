@@ -23,4 +23,14 @@ class ServiceProviderStub: ServiceProviderProtocol, EngineProviderProtocol {
         latestCoreEngine = CoreSearchEngineStub(accessToken: "mapbox-access-token", location: locationProvider)
         return latestCoreEngine
     }
+
+    /// ServiceProviderStub ignores `customBaseURL` input.
+    func createEngine(
+        apiType: CoreSearchEngine.ApiType,
+        accessToken: String,
+        locationProvider: CoreLocationProvider?,
+        customBaseURL: URL? = nil
+    ) -> CoreSearchEngineProtocol {
+        createEngine(apiType: apiType, accessToken: accessToken, locationProvider: locationProvider)
+    }
 }
