@@ -43,4 +43,6 @@ public protocol SearchSuggestion {
 
     /// Indicates whatever this suggestion can be batch resolved. Suggestion should be POI type.
     var batchResolveSupported: Bool { get }
+
+    var estimatedTime: Measurement<UnitDuration>? { get }
 }

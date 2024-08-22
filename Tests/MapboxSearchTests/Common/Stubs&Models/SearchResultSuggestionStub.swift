@@ -29,4 +29,6 @@ struct SearchResultSuggestionStub: SearchResultSuggestion {
     var distance: CLLocationDistance? = 300
 
     var batchResolveSupported = false
+
+    var estimatedTime: Measurement<UnitDuration>? = .init(value: 20, unit: .minutes)
 }

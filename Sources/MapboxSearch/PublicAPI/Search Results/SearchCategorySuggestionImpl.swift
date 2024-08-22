@@ -26,6 +26,8 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
 
     let batchResolveSupported: Bool
 
+    var estimatedTime: Measurement<UnitDuration>?
+
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
         assert(coreResult.centerLocation == nil)
 
@@ -44,5 +46,6 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
         self.categories = coreResult.categories
 
         self.descriptionText = coreResult.addressDescription
+        self.estimatedTime = coreResult.estimatedTime
     }
 }
