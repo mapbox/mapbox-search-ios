@@ -1,0 +1,296 @@
+{
+  "geometry": {
+    "coordinates": [
+      -77.029129,
+      38.902309
+    ],
+    "type": "Point"
+  },
+  "properties": {
+    "address": "1300 I St NW",
+    "context": {
+      "address": {
+        "address_number": "1300",
+        "id": "",
+        "name": "1300 I St NW",
+        "street_name": "i street nw"
+      },
+      "country": {
+        "country_code": "US",
+        "country_code_alpha_3": "USA",
+        "id": "",
+        "name": "United States"
+      },
+      "neighborhood": {
+        "id": "dXJuOm1ieHBsYzpDaXpzN0E",
+        "name": "Downtown"
+      },
+      "place": {
+        "id": "dXJuOm1ieHBsYzpGSmlvN0E",
+        "name": "Washington"
+      },
+      "postcode": {
+        "id": "dXJuOm1ieHBsYzpBNTd1N0E",
+        "name": "20005"
+      },
+      "region": {
+        "id": "",
+        "name": "District of Columbia",
+        "region_code": "DC",
+        "region_code_full": "US-DC"
+      },
+      "street": {
+        "id": "",
+        "name": "i street nw"
+      }
+    },
+    "coordinates": {
+      "latitude": 38.902309,
+      "longitude": -77.029129,
+      "routable_points": [
+        {
+          "latitude": 38.90230737131555,
+          "longitude": -77.0296257487584,
+          "name": "default"
+        }
+      ]
+    },
+    "external_ids": {
+      "foursquare": "5e4aa71ee6eec6000844fbfc"
+    },
+    "feature_type": "poi",
+    "full_address": "1300 I St NW, Washington, District of Columbia 20005, United States",
+    "language": "en",
+    "maki": "marker",
+    "mapbox_id": "dXJuOm1ieHBvaTo0ZTg2ZWFkNS1jOWMwLTQ3OWEtOTA5Mi1kMDVlNDQ3NDdlODk",
+    "metadata": {
+      "facebook_id": "212540879151543",
+      "instagram": "planetworddc",
+      "open_hours": {
+        "periods": [
+          {
+            "close": {
+              "day": 0,
+              "time": "1700"
+            },
+            "open": {
+              "day": 0,
+              "time": "1000"
+            }
+          },
+          {
+            "close": {
+              "day": 3,
+              "time": "1700"
+            },
+            "open": {
+              "day": 3,
+              "time": "1000"
+            }
+          },
+          {
+            "close": {
+              "day": 4,
+              "time": "1700"
+            },
+            "open": {
+              "day": 4,
+              "time": "1000"
+            }
+          },
+          {
+            "close": {
+              "day": 5,
+              "time": "1700"
+            },
+            "open": {
+              "day": 5,
+              "time": "1000"
+            }
+          },
+          {
+            "close": {
+              "day": 6,
+              "time": "1700"
+            },
+            "open": {
+              "day": 6,
+              "time": "1000"
+            }
+          }
+        ],
+        "weekday_text": [
+          "Monday: Closed",
+          "Tuesday: Closed",
+          "Wednesday: 10:00 AM - 5:00 PM",
+          "Thursday: 10:00 AM - 5:00 PM",
+          "Friday: 10:00 AM - 5:00 PM",
+          "Saturday: 10:00 AM - 5:00 PM",
+          "Sunday: 10:00 AM - 5:00 PM"
+        ]
+      },
+      "phone": "+12029313139",
+      "photos": [
+        {
+          "url": "https://ir.4sqi.net/img/general/original/38340_7KfSyEx1Dx1OZ1FlSH7sIt5t4t8ERFgMvtvRfwOEBLk.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/595183171_pUrV5hSc47BB9NHHIP9TgyByIdKmJ5mOhz5242CrNlg.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/595183171_mMl8zaXHOEH_WYcSexGW4k1uRYE5TFsH3cMTDKifDUM.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/595183171_Zzg--HJLnkmHPZSCV8fK4qvkXd1XSQrDMJ8SNIEwsMQ.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/194412_8D0BWWEcRRbgGcsfMpswNiupQRlJLlrQP28Erzloebg.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/115057_MQdN9BDEQZjGuy0XR-wuFc-HASYk7iwvQCD9-oAEgzM.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/3274908_Kay_325FgRI5W6QjYQpgwGlhWC-IJYGRs17KdN3ve-I.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/66077586_3BKtXPeLChnT_FCk5kirieluzV7-Ky8J4E-JZL22Onk.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/19965560_WobfF7-NrFtRk8zEzHcNiLVsdC6Otetx8ATb7EshAbM.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/2322868_DmLkkx6w_B-dUhKESrCycq28r21LVBcGzmND0HfOYek.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/123590354_uqGGItENIJXwCC8-uF3ehDIvY_8Obhj734buR1Y4Vxo.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/194412_A1MklFbySLaCuTp1Mhr29Be_UEhwMbKWK1AeV2TGuV0.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/59629039_NwcrrOsHCZzTiADNsul0dRAh4bZGG_kJ9yTdYt_zpwk.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/24156413_7I-3YDekzbHFgKdK6jhQiV6lWuiQbUDBhem_H5C9EXM.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/24156413_eyXWL0zeTZkxAL9DOlXwq4rOr86WHNvg8xoEC-UDr-I.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/24156413_JKeXAEYToRCHEe7mEryRy_WLDPEDC04m_EkShC26uo4.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/24156413_qIP10lczOEhewkhAOSVF1KcJaFZSglu_uKvuhq9IhYM.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/24156413_yqrLz4ry4OxXpN5H605bOe8dUH2GMItE5Km__Gp-L-o.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/70340760_TawDz7yLBbyuqWxVurmICG70xSK7Wm1nYArJ2dkluYA.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/32924053_zJz3g6mA-X8gp8h2db-GK8UIOmlNOstaRXMHilQPf8U.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/32568130_rW_f8C5JGnHKtA1kuLMOH5HwcRX5gA5WOTEn5dgJggs.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/32568130_RKPKD1qnNKrQUfzzePiFi4aOGnLHdvRptWzFUdUkFgQ.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/70340760_RxOLGr0cd3mlR4nOrh10WFcMs6G_WhZDmFf7bOPYjw4.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/26504858_smq7TWn1uestTqxYQGDOXr7nYe8oEdKDkhX6uQuyj5E.jpg"
+        },
+        {
+          "url": "https://ir.4sqi.net/img/general/original/16629655_QZo5zhKOEZPTZGTn389tG6auKxK9qHJA3e5nCLFqbyY.jpg"
+        }
+      ],
+      "popular_hours": [
+        {
+          "day": 0,
+          "intervals": [
+            {
+              "end": {
+                "time": "1700"
+              },
+              "start": {
+                "time": "1000"
+              }
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "intervals": [
+            {
+              "end": {
+                "time": "1700"
+              },
+              "start": {
+                "time": "1000"
+              }
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "intervals": [
+            {
+              "end": {
+                "time": "1600"
+              },
+              "start": {
+                "time": "1000"
+              }
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "intervals": [
+            {
+              "end": {
+                "time": "1600"
+              },
+              "start": {
+                "time": "1000"
+              }
+            }
+          ]
+        },
+        {
+          "day": 6,
+          "intervals": [
+            {
+              "end": {
+                "time": "1700"
+              },
+              "start": {
+                "time": "1000"
+              }
+            }
+          ]
+        }
+      ],
+      "popularity": 0.9892701654583336,
+      "primary_photo": "https://ir.4sqi.net/img/general/original/38340_7KfSyEx1Dx1OZ1FlSH7sIt5t4t8ERFgMvtvRfwOEBLk.jpg",
+      "rating": 4.13,
+      "twitter": "planetworddc",
+      "website": "http://www.planetwordmuseum.org"
+    },
+    "name": "Planet Word",
+    "operational_status": "active",
+    "place_formatted": "Washington, District of Columbia 20005, United States",
+    "poi_category": [
+      "museum",
+      "tourist attraction"
+    ],
+    "poi_category_ids": [
+      "museum",
+      "tourist_attraction"
+    ]
+  },
+  "type": "Feature"
+}

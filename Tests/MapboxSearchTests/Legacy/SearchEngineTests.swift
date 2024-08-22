@@ -646,8 +646,33 @@ class SearchEngineTests: XCTestCase {
         XCTAssertNotNil(metadata.openHours)
         XCTAssertNotNil(metadata.phone)
         XCTAssertNotNil(metadata.primaryImage)
-        XCTAssertNotNil(metadata.reviewCount, "Review count failed for \(String(describing: result.mapboxId))")
+        XCTAssertNil(metadata.reviewCount, "Review count failed for \(String(describing: result.mapboxId))")
         XCTAssertNotNil(metadata.website)
         XCTAssertNil(delegate.error)
+    }
+
+    func testRetrieveDetailsByMapboxIDForPOIWithEmptyOptions() throws {
+        let searchEngine = SearchEngine(apiType: .searchBox)
+        let delegate = SearchEngineDelegateStub()
+        searchEngine.delegate = delegate
+        let successExpectation = delegate.successExpectation
+
+        let planetWordMapboxID = "dXJuOm1ieHBvaTo0ZTg2ZWFkNS1jOWMwLTQ3OWEtOTA5Mi1kMDVlNDQ3NDdlODk"
+        searchEngine.retrieve(mapboxID: planetWordMapboxID, options: nil)
+        wait(for: [successExpectation], timeout: 200)
+        XCTAssertNil(delegate.error)
+
+        let result = try XCTUnwrap(delegate.resolvedResult)
+        let metadata = try XCTUnwrap(result.metadata)
+
+        XCTAssertNil(metadata.averageRating)
+        XCTAssertNotNil(metadata.primaryImage)
+        XCTAssertNil(metadata.reviewCount)
+
+        // In this test no attribute sets were provided and these fields are nil
+        XCTAssertNil(metadata.otherImages)
+        XCTAssertNil(metadata.openHours)
+        XCTAssertNil(metadata.phone)
+        XCTAssertNil(metadata.website)
     }
 }
