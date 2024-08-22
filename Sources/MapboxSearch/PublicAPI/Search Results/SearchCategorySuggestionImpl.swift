@@ -22,6 +22,8 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
 
     var categories: [String]?
 
+    var categoryIDs: [String]?
+
     var distance: CLLocationDistance?
 
     let batchResolveSupported: Bool
@@ -44,6 +46,9 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
         self.distance = coreResult.distanceToProximity
         self.batchResolveSupported = coreResult.action?.multiRetrievable ?? false
         self.categories = coreResult.categories
+        self.categoryIDs = coreResult.categoryIDs
+        NSLog("@@ categories is \(coreResult.categories)")
+        NSLog("@@ category IDs is \(coreResult.categoryIDs)")
 
         self.descriptionText = coreResult.addressDescription
         self.estimatedTime = coreResult.estimatedTime
