@@ -18,6 +18,13 @@ protocol EngineProviderProtocol {
         locationProvider: CoreLocationProvider?
     ) -> CoreSearchEngineProtocol
 
+    func createEngine(
+        apiType: CoreSearchEngine.ApiType,
+        accessToken: String,
+        locationProvider: CoreLocationProvider?,
+        customBaseURL: URL?
+    ) -> CoreSearchEngineProtocol
+
     func getStoredAccessToken() -> String?
 }
 
@@ -33,6 +40,8 @@ public typealias HistoryProvider = LocalDataProvider<HistoryRecord>
 public class ServiceProvider: ServiceProviderProtocol {
     /// Customize API host URL with a value from the Info.plist
     /// Also supports reading a process argument when in non-Release UITest builds
+    /// Read-only property.
+    /// To change the customBaseURL for an engine programmatically, use the ``createEngine`` function.
     public static var customBaseURL: String? {
 #if !RELEASE
         if ProcessInfo.processInfo.arguments.contains(where: { $0 == "--uitesting" }) {
@@ -74,6 +83,37 @@ extension ServiceProvider: EngineProviderProtocol {
 
         let engineOptions = CoreSearchEngine.Options(
             baseUrl: Self.customBaseURL,
+            apiType: NSNumber(value: apiType.rawValue),
+            sdkInformation: SdkInformation.defaultInfo,
+            eventsUrl: nil
+        )
+
+        return CoreSearchEngine(
+            options: engineOptions,
+            location: locationProvider
+        )
+    }
+
+    /// Creates and returns an object conforming to `CoreSearchEngineProtocol` configured with the parameters.
+    /// Allows programmatically specifying the base URL for all Mapbox API endpoints.
+    /// - Parameters:
+    ///   - apiType: Specify the API type from Core types of Geocoding, SBS, Autofill, or SearchBox.
+    ///   - accessToken: Programmatically specified MBX access token.
+    ///   - locationProvider: Wrapper for a platform-specific location provider.
+    ///   - customBaseURL: Programmatically specified base URL for all Mapbox API endpoints.
+    /// - Returns: A CoreSearchEngineProtocol conforming object suitable for using with Mapbox Search operations.
+    func createEngine(
+        apiType: CoreSearchEngine.ApiType,
+        accessToken: String,
+        locationProvider: CoreLocationProvider?,
+        customBaseURL: URL?
+    ) -> CoreSearchEngineProtocol {
+        MapboxOptions.accessToken = accessToken
+
+        let customBaseURL = customBaseURL?.absoluteString ?? Self.customBaseURL
+
+        let engineOptions = CoreSearchEngine.Options(
+            baseUrl: customBaseURL,
             apiType: NSNumber(value: apiType.rawValue),
             sdkInformation: SdkInformation.defaultInfo,
             eventsUrl: nil

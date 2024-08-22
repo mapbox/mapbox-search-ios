@@ -5,8 +5,8 @@ import XCTest
 final class PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
     private var placeAutocomplete: PlaceAutocomplete!
 
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
 
         let reporter = CoreUserActivityReporter.getOrCreate(
             for: CoreUserActivityReporterOptions(
@@ -16,10 +16,11 @@ final class PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase<SBS
             )
         )
 
-        let engine = LocalhostMockServiceProvider.shared.createEngine(
+        let engine = try ServiceProvider.shared.createEngine(
             apiType: Mock.coreApiType,
             accessToken: "access-token",
-            locationProvider: WrapperLocationProvider(wrapping: DefaultLocationProvider())
+            locationProvider: WrapperLocationProvider(wrapping: DefaultLocationProvider()),
+            customBaseURL: mockServerURL()
         )
 
         placeAutocomplete = PlaceAutocomplete(
