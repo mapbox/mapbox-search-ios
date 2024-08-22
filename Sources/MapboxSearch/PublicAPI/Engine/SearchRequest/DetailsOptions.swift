@@ -2,6 +2,7 @@
 
 import Foundation
 
+/// Options to configure a request for ``SearchEngine/retrieve(mapboxID:options:)``
 public struct DetailsOptions: Sendable {
     /// Besides the basic metadata attributes, developers can request additional
     /// attributes by setting attribute_sets parameter with attribute set values,
@@ -12,7 +13,7 @@ public struct DetailsOptions: Sendable {
     /// The ISO language code to be returned. If not provided, the default is English.
     public var language: String?
 
-    /// The two digit ISO country code (such as 'JP') to requests a worldview for the location data, if applicable data
+    /// The two digit ISO country code (such as 'JP') to request a worldview for the location data, if applicable data
     /// is available.
     /// This parameters will only be applicable for Boundaries and Places feature types.
     public var worldview: String?

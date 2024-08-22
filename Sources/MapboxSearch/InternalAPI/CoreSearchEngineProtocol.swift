@@ -277,7 +277,7 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
     func retrieveDetails(
         for mapboxId: String,
         options: CoreDetailsOptions,
-        completion: @escaping (CoreSearchResponseProtocol?) -> Void
+        completion: @escaping CoreSearchResponseCompletion
     ) {
         retrieveDetails(forMapboxId: mapboxId, options: options) { response in
             DispatchQueue.main.async {

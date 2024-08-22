@@ -206,7 +206,8 @@ public class SearchEngine: AbstractSearchEngine {
         offlineMode == .disabled ? engine.reverseGeocoding : engine.reverseGeocodingOffline
     }
 
-    /// Accept a typical `select()` invocation and perform the work of a Mapbox API retrieve/ endpoint request.
+    /// Concrete implementation for a typical ``select(suggestions:)`` invocation.
+    /// Performs the work of a Mapbox API retrieve/ endpoint request.
     func retrieve(
         suggestion: SearchSuggestion,
         retrieveOptions: RetrieveOptions?
@@ -225,15 +226,6 @@ public class SearchEngine: AbstractSearchEngine {
             options: retrieveOptions.toCore()
         ) { [weak self] serverResponse in
             self?.processResponse(serverResponse, suggestion: suggestion)
-        }
-    }
-
-    func retrieve(mapboxID: String, detailsOptions: DetailsOptions?) {
-        assert(offlineMode == .disabled)
-
-        let detailsOptions = detailsOptions ?? DetailsOptions()
-        engine.retrieveDetails(for: mapboxID, options: detailsOptions.toCore()) { [weak self] serverResponse in
-            self?.processResponse(serverResponse, suggestion: nil)
         }
     }
 
@@ -524,8 +516,21 @@ extension SearchEngine {
 // MARK: - Public Details API
 
 extension SearchEngine {
-    public func select(mapboxID: String, options detailsOptions: DetailsOptions? = nil) {
-        retrieve(mapboxID: mapboxID, detailsOptions: detailsOptions)
+    /// Query for a POI by its Mapbox ID.
+    /// This is an alternative to using ``search(query:options:)`` and ``select(suggestions:)`` when you already have a
+    /// Mapbox ID.
+    /// For example refreshing a _cached POI_ is a good scenario to query ``retrieve(mapboxID:options:)``, instead of
+    /// using new `search` and `select` invocations.
+    /// - Parameters:
+    ///   - mapboxID: The Mapbox ID for a known POI. Mapbox IDs will be returned in Search responses and may be cached.
+    ///   - detailsOptions: Options to configure this query. May be nil.
+    public func retrieve(mapboxID: String, options detailsOptions: DetailsOptions? = DetailsOptions()) {
+        assert(offlineMode == .disabled)
+
+        let detailsOptions = detailsOptions ?? DetailsOptions()
+        engine.retrieveDetails(for: mapboxID, options: detailsOptions.toCore()) { [weak self] serverResponse in
+            self?.processResponse(serverResponse, suggestion: nil)
+        }
     }
 }
 

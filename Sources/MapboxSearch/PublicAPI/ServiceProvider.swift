@@ -41,7 +41,8 @@ public class ServiceProvider: ServiceProviderProtocol {
     /// Customize API host URL with a value from the Info.plist
     /// Also supports reading a process argument when in non-Release UITest builds
     /// Read-only property.
-    /// To change the customBaseURL for an engine programmatically, use the ``createEngine`` function.
+    /// To change the customBaseURL for an engine programmatically, you would typically use the
+    /// ``AbstractSearchEngine/init(accessToken:locationProvider:defaultSearchOptions:apiType:baseURL:)`` function.
     public static var customBaseURL: String? {
 #if !RELEASE
         if ProcessInfo.processInfo.arguments.contains(where: { $0 == "--uitesting" }) {

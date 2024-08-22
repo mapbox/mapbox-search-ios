@@ -56,7 +56,7 @@ extension LocationFinderController: SearchEngineDelegate {
 
 #### User choose location suggestion
 
-As soon as user will choose one of displayed suggestions, we have to pass it into ``SearchEngine/select(suggestion:)`` to fetch suggestion details.
+As soon as user will choose one of displayed suggestions, we have to pass it into ``SearchEngine/select(suggestion:options:)`` to fetch suggestion details.
 
 ```swift
 searchEngine.select(suggestion: userSelectedSuggestion)

@@ -618,15 +618,9 @@ class SearchEngineTests: XCTestCase {
         searchEngine.delegate = delegate
         let updateExpectation = delegate.updateExpectation
 
-        let searchOptions = SearchOptions(
-            limit: 100,
-            origin: CLLocationCoordinate2D(latitude: 38.902309, longitude: -77.029129),
-            filterTypes: [.poi]
-        )
-
         let planetWordMapboxID = "dXJuOm1ieHBvaTo0ZTg2ZWFkNS1jOWMwLTQ3OWEtOTA5Mi1kMDVlNDQ3NDdlODk"
         let detailsOptions = DetailsOptions(attributeSets: AttributeSet.allCases, language: "en")
-        searchEngine.select(mapboxID: planetWordMapboxID, options: detailsOptions)
+        searchEngine.retrieve(mapboxID: planetWordMapboxID, options: detailsOptions)
         wait(for: [updateExpectation], timeout: 200)
         let suggestion = try XCTUnwrap(delegate.resolvedSuggestions?.first)
 
