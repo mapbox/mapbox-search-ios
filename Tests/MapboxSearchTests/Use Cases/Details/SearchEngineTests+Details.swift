@@ -178,7 +178,7 @@ extension SearchEngineTests {
         XCTAssertNotNil(metadata.openHours)
         XCTAssertNotNil(metadata.phone)
         XCTAssertNotNil(metadata.primaryImage)
-        XCTAssertNil(metadata.reviewCount, "Review count failed for \(String(describing: result.mapboxId))")
+        XCTAssertNotNil(metadata.reviewCount, "Review count failed for \(String(describing: result.mapboxId))")
         XCTAssertNotNil(metadata.website)
         XCTAssertNil(delegate.error)
     }
@@ -202,7 +202,7 @@ extension SearchEngineTests {
         XCTAssertNotNil(metadata.openHours)
         XCTAssertNotNil(metadata.phone)
         XCTAssertNotNil(metadata.primaryImage)
-        XCTAssertNil(metadata.reviewCount, "Review count failed for \(String(describing: result.mapboxId))")
+        XCTAssertNotNil(metadata.reviewCount, "Review count failed for \(String(describing: result.mapboxId))")
         XCTAssertNotNil(metadata.website)
         XCTAssertNil(delegate.error)
     }
