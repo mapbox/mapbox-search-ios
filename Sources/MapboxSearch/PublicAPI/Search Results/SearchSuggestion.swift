@@ -43,4 +43,8 @@ public protocol SearchSuggestion {
 
     /// Indicates whatever this suggestion can be batch resolved. Suggestion should be POI type.
     var batchResolveSupported: Bool { get }
+
+    /// An estimated time of arrival (in minutes) based on requested proximity  May be `nil` even for correct proximity
+    /// argument.
+    var estimatedTime: Measurement<UnitDuration>? { get }
 }

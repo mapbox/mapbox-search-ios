@@ -24,6 +24,8 @@ class SearchQuerySuggestionImpl: SearchQuerySuggestion, CoreResponseProvider {
 
     var distance: CLLocationDistance?
 
+    var estimatedTime: Measurement<UnitDuration>?
+
     let batchResolveSupported: Bool
 
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
@@ -41,7 +43,7 @@ class SearchQuerySuggestionImpl: SearchQuerySuggestion, CoreResponseProvider {
         self.distance = coreResult.distanceToProximity
         self.batchResolveSupported = coreResult.action?.multiRetrievable ?? false
         self.categories = coreResult.categories
-
+        self.estimatedTime = coreResult.estimatedTime
         self.descriptionText = coreResult.addressDescription
     }
 }
