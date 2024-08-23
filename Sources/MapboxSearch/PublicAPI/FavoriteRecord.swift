@@ -11,6 +11,9 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     /// A unique identifier for the geographic feature
     public var mapboxId: String?
 
+    /// Type of the favorite record.
+    public var favoriteType: String?
+
     /**
          The feature name, as matched by the search algorithm.
 
@@ -83,6 +86,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     ///   - categories: Favorite categories list
     ///   - searchRequest: original search request
     ///   - resultType: Favorite result type
+    ///   - favoriteType: Favorite type
     public init(
         id: String? = nil,
         mapboxId: String? = nil,
@@ -98,7 +102,8 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         routablePoints: [RoutablePoint]? = nil,
         resultType: SearchResultType,
         searchRequest: SearchRequestOptions,
-        metadata: SearchResultMetadata? = nil
+        metadata: SearchResultMetadata? = nil,
+        favoriteType: String? = nil
     ) {
         self.id = id ?? UUID().uuidString
         self.mapboxId = mapboxId
@@ -114,6 +119,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         self.type = resultType
         self.metadata = metadata
         self.searchRequest = searchRequest
+        self.favoriteType = favoriteType
     }
 
     /// Build Favorite record from SearchResult
