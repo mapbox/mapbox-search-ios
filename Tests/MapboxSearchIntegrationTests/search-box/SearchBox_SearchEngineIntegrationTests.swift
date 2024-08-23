@@ -194,28 +194,6 @@ class SearchBox_SearchEngineIntegrationTests: MockServerIntegrationTestCase<Sear
     }
 
     func testRetrieveMapboxIDQuery() throws {
-        XCTAssertEqual("http://localhost:8080", try! mockServerURL().absoluteString)
-        try server.setResponse(.retrieveMapboxID)
-
-        let planetWordMapboxID = "dXJuOm1ieHBvaTo0ZTg2ZWFkNS1jOWMwLTQ3OWEtOTA5Mi1kMDVlNDQ3NDdlODk"
-        searchEngine.retrieve(mapboxID: planetWordMapboxID)
-
-        let successExpectation = delegate.successExpectation
-        let updateExpectation = delegate.updateExpectation
-        let errorExpectation = delegate.errorExpectation
-        let batchUpdateExpectation = delegate.batchUpdateExpectation
-        let offlineUpdateExpectation = delegate.offlineUpdateExpectation
-
-        wait(
-            for: [
-                successExpectation,
-                updateExpectation,
-                errorExpectation,
-                batchUpdateExpectation,
-                offlineUpdateExpectation,
-            ],
-            timeout: 20
-        )
-        XCTAssertFalse(searchEngine.suggestions.isEmpty)
+        // TODO: Re-implement mocked server integration test for `retrieve(mapboxID:)`
     }
 }

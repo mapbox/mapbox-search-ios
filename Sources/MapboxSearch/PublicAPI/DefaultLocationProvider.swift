@@ -109,7 +109,7 @@ extension DefaultLocationProvider: LocationProvider {
 }
 
 private class DefaultLocationManagerDelegate: NSObject, CLLocationManagerDelegate {
-    unowned var locationProvider: DefaultLocationProvider
+    unowned(unsafe) var locationProvider: DefaultLocationProvider
 
     init(unownedLocationProvider: DefaultLocationProvider) {
         self.locationProvider = unownedLocationProvider

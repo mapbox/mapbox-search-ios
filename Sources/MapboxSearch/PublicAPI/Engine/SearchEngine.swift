@@ -331,8 +331,8 @@ public class SearchEngine: AbstractSearchEngine {
 
     /// Process a single response from ``retrieve(mapboxID:options:)``
     /// - Parameters:
-    ///   - coreResponse:
-    ///   - mapboxID: <#mapboxID description#>
+    ///   - coreResponse: The API response
+    ///   - mapboxID: The ID used to create the original request.
     private func processDetailsResponse(_ coreResponse: CoreSearchResponseProtocol?, mapboxID: String) {
         assert(offlineMode == .disabled)
         guard let response = preProcessResponse(coreResponse) else {

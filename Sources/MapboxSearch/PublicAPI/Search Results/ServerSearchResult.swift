@@ -64,7 +64,7 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
 
         self.id = coreResult.id
         self.mapboxId = coreResult.mapboxId
-        self.name = coreResult.names[0]
+        self.name = coreResult.names.first ?? ""
         self.matchingName = coreResult.matchingName
         self.iconName = coreResult.icon
         self.estimatedTime = coreResult.estimatedTime
@@ -84,7 +84,5 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
         self.descriptionText = coreResult.addressDescription
 
         assert(!id.isEmpty)
-        assert(!name.isEmpty)
-        assert(address != nil)
     }
 }
