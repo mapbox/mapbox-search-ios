@@ -25,7 +25,11 @@ public struct SearchResultMetadata: Codable, Hashable {
     /// Number of reviews
     public var reviewCount: Int?
 
-    /// Average rating
+    /// The average rating of the location, on a scale from 1 to 5.
+    public var rating: Double?
+
+    /// The average rating of the location, on a scale from 1 to 5.
+    @available(*, deprecated, renamed: "rating", message: "Please use the rating field for this value")
     public var averageRating: Double?
 
     /// Business opening hours
@@ -115,6 +119,7 @@ public struct SearchResultMetadata: Codable, Hashable {
         self.website = metadata.website.flatMap { URL(string: $0) }
         self.reviewCount = metadata.reviewCount?.intValue
         self.averageRating = metadata.averageRating?.doubleValue
+        self.rating = metadata.rating?.doubleValue
         self.openHours = metadata.openHours.flatMap(OpenHours.init)
 
         if let primaries = metadata.primaryImage, !primaries.isEmpty {
