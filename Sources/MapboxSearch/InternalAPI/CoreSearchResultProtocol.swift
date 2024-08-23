@@ -52,6 +52,9 @@ protocol CoreSearchResultProtocol {
 
     var distance: NSNumber? { get }
     var distanceToProximity: CLLocationDistance? { get }
+
+    /// The list of Category IDs that this result belongs to
+    var categoryIDs: [String]? { get }
 }
 
 extension CoreSearchResult: CoreSearchResultProtocol {
