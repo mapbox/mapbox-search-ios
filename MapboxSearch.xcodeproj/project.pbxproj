@@ -2252,7 +2252,7 @@
 				};
 			};
 			buildConfigurationList = 3A0D7E46233522D4006D81BB /* Build configuration list for PBXProject "MapboxSearch" */;
-			compatibilityVersion = "Xcode 11.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (

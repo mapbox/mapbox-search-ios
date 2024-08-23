@@ -28,6 +28,8 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
 
     let batchResolveSupported: Bool
 
+    var estimatedTime: Measurement<UnitDuration>?
+
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
         guard let layerIdentifier = coreResult.layer, coreResult.resultTypes == [.userRecord] else { return nil }
 
@@ -43,6 +45,7 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
 
         self.descriptionText = coreResult.addresses?.first.map(Address.init)?.formattedAddress(style: .medium)
         self.batchResolveSupported = coreResult.action?.multiRetrievable ?? false
+        self.estimatedTime = coreResult.estimatedTime
 
         switch layerIdentifier {
         case HistoryProvider.providerIdentifier:

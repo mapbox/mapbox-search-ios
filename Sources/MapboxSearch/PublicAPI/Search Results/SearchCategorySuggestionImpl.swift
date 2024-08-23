@@ -22,9 +22,13 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
 
     var categories: [String]?
 
+    var categoryIDs: [String]?
+
     var distance: CLLocationDistance?
 
     let batchResolveSupported: Bool
+
+    var estimatedTime: Measurement<UnitDuration>?
 
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
         assert(coreResult.centerLocation == nil)
@@ -42,7 +46,11 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
         self.distance = coreResult.distanceToProximity
         self.batchResolveSupported = coreResult.action?.multiRetrievable ?? false
         self.categories = coreResult.categories
+        self.categoryIDs = coreResult.categoryIDs
+        NSLog("@@ categories is \(coreResult.categories)")
+        NSLog("@@ category IDs is \(coreResult.categoryIDs)")
 
         self.descriptionText = coreResult.addressDescription
+        self.estimatedTime = coreResult.estimatedTime
     }
 }
