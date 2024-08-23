@@ -28,7 +28,10 @@ extension SearchEngineTests {
                 options: DetailsOptions(attributeSets: [attributeSet])
             )
 
-            XCTAssertNotNil(result.metadata, "\(attributeSet) metadata should not be nil")
+            XCTAssertNotNil(
+                result.metadata,
+                "\(attributeSet) metadata should not be nil for MapboxID \(String(describing: result.mapboxId))"
+            )
 
             return (attributeSet, result)
         }
