@@ -109,6 +109,9 @@ public struct SearchResultMetadata: Codable, Hashable {
     /// The Twitter handle associated with the location.
     public var twitter: String?
 
+    /// Detailed description
+    public var detailedDescription: String?
+
     init(metadata: CoreResultMetadataProtocol) {
         self.data = metadata.data
         self.phone = metadata.phone
@@ -116,6 +119,7 @@ public struct SearchResultMetadata: Codable, Hashable {
         self.reviewCount = metadata.reviewCount?.intValue
         self.averageRating = metadata.averageRating?.doubleValue
         self.openHours = metadata.openHours.flatMap(OpenHours.init)
+        self.detailedDescription = metadata.description
 
         if let primaries = metadata.primaryImage, !primaries.isEmpty {
             self.primaryImage = Image(sizes: primaries.map(Image.SizedImage.init))
@@ -163,7 +167,8 @@ public struct SearchResultMetadata: Codable, Hashable {
         website: URL?,
         reviewCount: Int?,
         averageRating: Double?,
-        openHours: OpenHours?
+        openHours: OpenHours?,
+        detailedDescription: String? = nil
     ) {
         self.data = data
         self.primaryImage = primaryImage
@@ -174,6 +179,7 @@ public struct SearchResultMetadata: Codable, Hashable {
         self.averageRating = averageRating
         self.openHours = openHours
         self.description = nil
+        self.detailedDescription = detailedDescription
     }
 
     public init(
