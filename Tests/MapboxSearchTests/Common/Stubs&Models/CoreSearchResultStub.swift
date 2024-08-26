@@ -79,6 +79,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
     var distance: NSNumber?
     var metadata: CoreResultMetadata?
     var estimatedTime: Measurement<UnitDuration>?
+    var externalIds: [String: String]?
 
     var distanceToProximity: CLLocationDistance? {
         distance.map(\.doubleValue)
