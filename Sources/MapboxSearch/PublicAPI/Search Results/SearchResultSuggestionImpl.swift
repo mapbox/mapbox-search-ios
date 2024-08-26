@@ -29,8 +29,6 @@ class SearchResultSuggestionImpl: SearchResultSuggestion, CoreResponseProvider {
 
     let batchResolveSupported: Bool
 
-    var estimatedTime: Measurement<UnitDuration>?
-
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
         assert(
             coreResult.centerLocation == nil,
