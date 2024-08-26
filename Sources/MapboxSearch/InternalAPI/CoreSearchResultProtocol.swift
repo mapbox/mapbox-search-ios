@@ -55,6 +55,8 @@ protocol CoreSearchResultProtocol {
 
     /** map of external ids. */
     var externalIds: [String: String]? { get }
+    /// The list of Category IDs that this result belongs to
+    var categoryIDs: [String]? { get }
 }
 
 extension CoreSearchResult: CoreSearchResultProtocol {

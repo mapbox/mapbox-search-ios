@@ -30,5 +30,5 @@ struct SearchResultSuggestionStub: SearchResultSuggestion {
 
     var batchResolveSupported = false
 
-    var estimatedTime: Measurement<UnitDuration>?
+    var estimatedTime: Measurement<UnitDuration>? = .init(value: 20, unit: .minutes)
 }

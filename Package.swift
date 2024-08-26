@@ -1,4 +1,4 @@
-// swift-tools-version:5.10
+// swift-tools-version:5.9
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -40,9 +40,6 @@ let package = Package(
             resources: [
                 .copy("Resources/PrivacyInfo.xcprivacy"),
             ],
-            swiftSettings: [
-                .enableExperimentalFeature("StrictConcurrency")
-            ],
             linkerSettings: [.linkedLibrary("c++")]
         ),
         .target(
@@ -51,9 +48,6 @@ let package = Package(
             exclude: ["Info.plist", "Resources-Info.plist"],
             resources: [
                 .copy("Resources/PrivacyInfo.xcprivacy"),
-            ],
-            swiftSettings: [
-                .enableExperimentalFeature("StrictConcurrency")
             ]
         ),
 

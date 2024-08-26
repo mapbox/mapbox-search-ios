@@ -14,5 +14,5 @@ struct SearchSuggestionStub: SearchSuggestion {
     var searchRequest = SearchRequestOptions(query: "test", proximity: nil)
     var distance: CLLocationDistance?
     var batchResolveSupported: Bool = false
-    var estimatedTime: Measurement<UnitDuration>?
+    var estimatedTime: Measurement<UnitDuration>? = .init(value: 10, unit: .minutes)
 }
