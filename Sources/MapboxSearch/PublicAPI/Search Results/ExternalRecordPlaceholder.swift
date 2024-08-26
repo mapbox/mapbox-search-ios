@@ -26,9 +26,9 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
 
     var distance: CLLocationDistance?
 
-    let batchResolveSupported: Bool
-
     var estimatedTime: Measurement<UnitDuration>?
+
+    let batchResolveSupported: Bool
 
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
         guard let layerIdentifier = coreResult.layer, coreResult.resultTypes == [.userRecord] else { return nil }
@@ -42,7 +42,7 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
         self.categories = coreResult.categories
         self.serverIndex = coreResult.serverIndex?.intValue
-
+        self.estimatedTime = coreResult.estimatedTime
         self.descriptionText = coreResult.addresses?.first.map(Address.init)?.formattedAddress(style: .medium)
         self.batchResolveSupported = coreResult.action?.multiRetrievable ?? false
         self.estimatedTime = coreResult.estimatedTime

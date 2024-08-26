@@ -15,6 +15,9 @@ public class LocalDataProvider<Record: Codable & SearchResult & IndexableRecord>
     /// Dictionary with all records
     public var recordsMap: [String: Record] = [:]
 
+    /// Determines if entries from the provider are added to search results
+    public var addsRecordsToInteractors = true
+
     /// Records storage
     public let persistentService: CodablePersistentService<[Record]>?
 
@@ -47,6 +50,7 @@ public class LocalDataProvider<Record: Codable & SearchResult & IndexableRecord>
     /// Register custom data provider interactor to notify search engine about object additions or changes.
     public func registerProviderInteractor(interactor providerInteractor: RecordsProviderInteractor) {
         loadInitialDataIfNeeded()
+        guard addsRecordsToInteractors else { return }
         providerInteractors.append(providerInteractor)
 
         for record in recordsMap.values {
