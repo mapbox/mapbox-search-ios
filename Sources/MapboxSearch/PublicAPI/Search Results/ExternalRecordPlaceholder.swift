@@ -30,8 +30,6 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
 
     let batchResolveSupported: Bool
 
-    var estimatedTime: Measurement<UnitDuration>?
-
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
         guard let layerIdentifier = coreResult.layer, coreResult.resultTypes == [.userRecord] else { return nil }
 
