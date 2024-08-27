@@ -13,6 +13,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 - [SearchEngine] Add baseURL parameter for custom Mapbox API endpoint development.
 
+- [Project] Update Fastlane to 2.222.0.
+
 ## 2.3.0-rc.2
 
 - [SearchResult] Add `distance` field to SearchResult protocol
