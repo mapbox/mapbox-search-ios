@@ -39,7 +39,7 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
         options: MapboxSearch.CoreDetailsOptions,
         completion: @escaping MapboxSearch.CoreSearchResponseCompletion
     ) {
-        // TODO:
+        // TODO: Implement mocked Details tests SSDK-1079
     }
 
     func addOfflineIndexObserver(for observer: MapboxSearch.CoreOfflineIndexObserver) {}
