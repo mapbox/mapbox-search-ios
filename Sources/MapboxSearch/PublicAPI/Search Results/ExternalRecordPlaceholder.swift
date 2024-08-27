@@ -45,6 +45,7 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
         self.estimatedTime = coreResult.estimatedTime
         self.descriptionText = coreResult.addresses?.first.map(Address.init)?.formattedAddress(style: .medium)
         self.batchResolveSupported = coreResult.action?.multiRetrievable ?? false
+        self.estimatedTime = coreResult.estimatedTime
 
         switch layerIdentifier {
         case HistoryProvider.providerIdentifier:

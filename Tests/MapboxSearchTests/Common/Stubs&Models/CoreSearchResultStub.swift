@@ -14,6 +14,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         matchingName: String? = nil,
         centerLocation: CLLocation? = .sample1,
         categories: [String]? = nil,
+        categoryIDs: [String]? = nil,
         routablePoints: [CoreRoutablePoint]? = nil,
         icon: String? = nil,
         layer: String? = nil,
@@ -34,6 +35,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         self.addressDescription = addressDescription
         self.centerLocation = centerLocation
         self.categories = categories
+        self.categoryIDs = categoryIDs
         self.routablePoints = routablePoints
         self.icon = icon
         self.layer = layer
@@ -67,6 +69,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
     var matchingName: String?
     var centerLocation: CLLocation?
     var categories: [String]?
+    var categoryIDs: [String]?
     var routablePoints: [CoreRoutablePoint]?
     var icon: String?
     var layer: String?

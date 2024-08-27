@@ -53,8 +53,11 @@ protocol CoreSearchResultProtocol {
     var distance: NSNumber? { get }
     var distanceToProximity: CLLocationDistance? { get }
 
-    /** map of external ids. */
+    /// The map of external ids.
     var externalIds: [String: String]? { get }
+
+    /// The list of Category IDs that this result belongs to
+    var categoryIDs: [String]? { get }
 }
 
 extension CoreSearchResult: CoreSearchResultProtocol {
