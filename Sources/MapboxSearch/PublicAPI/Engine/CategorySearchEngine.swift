@@ -3,6 +3,10 @@ import CoreLocation
 /// Category Search Engine used specifically for category search
 /// Checkout `SearchEngine` for more details
 public class CategorySearchEngine: AbstractSearchEngine {
+    /// Search response information for current search items.
+    /// Can be used for submitting `missing result` feedback
+    public private(set) var responseInfo: SearchResponseInfo?
+
     /// Start searching for query with provided options
     /// - Parameters:
     ///   - categoryName: Search category name
@@ -45,6 +49,7 @@ public class CategorySearchEngine: AbstractSearchEngine {
             switch response.process() {
             case .success(let result):
                 let resultSuggestions = result.suggestions.compactMap { $0 as? SearchResultSuggestion }
+                responseInfo = SearchResponseInfo(response: response.coreResponse, suggestion: nil)
                 assert(
                     result.suggestions.count == resultSuggestions.count,
                     "Every search result in Category search must conform SearchResultSuggestion requirements"

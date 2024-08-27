@@ -30,6 +30,8 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
 
     var estimatedTime: Measurement<UnitDuration>?
 
+    var categoryCanonicalName: String?
+
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
         assert(coreResult.centerLocation == nil)
 
@@ -50,5 +52,16 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
 
         self.descriptionText = coreResult.addressDescription
         self.estimatedTime = coreResult.estimatedTime
+
+        if let externalValue = coreResult.externalIds?[Constants.externalIdCategoryKey],
+           externalValue.hasPrefix(Constants.categoryCanonicalNamePrefix)
+        {
+            self.categoryCanonicalName = String(externalValue.dropFirst(Constants.categoryCanonicalNamePrefix.count))
+        }
+    }
+
+    private enum Constants {
+        static let externalIdCategoryKey = "federated"
+        static let categoryCanonicalNamePrefix = "category."
     }
 }
