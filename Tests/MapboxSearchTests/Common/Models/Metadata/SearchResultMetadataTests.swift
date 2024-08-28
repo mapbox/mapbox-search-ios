@@ -22,7 +22,7 @@ class SearchResultMetadataTests: XCTestCase {
     }
 
     func testMetadataAverageRating() {
-        XCTAssertEqual(metadata().averageRating, 4.5)
+        XCTAssertEqual(metadata().rating, 4.5)
     }
 
     func testSubscript() {
@@ -62,7 +62,7 @@ class SearchResultMetadataTests: XCTestCase {
             ],
             otherImage: [CoreImageInfoStub.sample4],
             description: "Test Description",
-            averageRating: 4.5,
+            rating: 4.5,
             reviewCount: 200,
             phone: "+ 000 00 000 00 00",
             website: "https://www.google.com"
@@ -86,7 +86,7 @@ class SearchResultMetadataTests: XCTestCase {
             ],
             otherImage: [CoreImageInfoStub.sample4],
             description: "Test Description",
-            averageRating: 4.1,
+            rating: 4.1,
             reviewCount: 400,
             phone: "+ 000 00 000 00 20",
             website: "https://www.google.com"
@@ -148,7 +148,7 @@ class SearchResultMetadataTests: XCTestCase {
         XCTAssertNil(metadata.reviewCount)
         XCTAssertNil(metadata.phone)
         XCTAssertNil(metadata.website)
-        XCTAssertNil(metadata.averageRating)
+        XCTAssertNil(metadata.rating)
         XCTAssertTrue(metadata.data.isEmpty)
     }
 
@@ -163,7 +163,7 @@ class SearchResultMetadataTests: XCTestCase {
             primaryImage: [],
             otherImage: [CoreImageInfoStub.sample4],
             description: "Test Description",
-            averageRating: 4.5,
+            rating: 4.5,
             reviewCount: 200,
             phone: "+ 000 00 000 00 00",
             website: "https://www.google.com"
@@ -179,7 +179,7 @@ class SearchResultMetadataTests: XCTestCase {
             primaryImage: [CoreImageInfoStub.sample1],
             otherImage: [],
             description: "Test Description",
-            averageRating: 4.5,
+            rating: 4.5,
             reviewCount: 200,
             phone: "+ 000 00 000 00 00",
             website: "https://www.google.com"

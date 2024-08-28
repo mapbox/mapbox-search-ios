@@ -13,6 +13,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 - [SearchEngine] Add baseURL parameter for custom Mapbox API endpoint development.
 
+- [SearchResultMetadata] Add `rating` field to replace deprecated `averageRating` field.
+
 ## 2.3.0-rc.2
 
 - [SearchResult] Add `distance` field to SearchResult protocol
