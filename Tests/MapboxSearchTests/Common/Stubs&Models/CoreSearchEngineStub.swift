@@ -34,6 +34,14 @@ class CoreSearchEngineStub {
 }
 
 extension CoreSearchEngineStub: CoreSearchEngineProtocol {
+    func retrieveDetails(
+        for mapboxId: String,
+        options: MapboxSearch.CoreDetailsOptions,
+        completion: @escaping MapboxSearch.CoreSearchResponseCompletion
+    ) {
+        // TODO: Implement mocked Details tests SSDK-1079
+    }
+
     func addOfflineIndexObserver(for observer: MapboxSearch.CoreOfflineIndexObserver) {}
 
     func removeOfflineIndexObserver(for observer: CoreOfflineIndexObserver) {}

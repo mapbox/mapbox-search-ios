@@ -192,4 +192,8 @@ class SearchBox_SearchEngineIntegrationTests: MockServerIntegrationTestCase<Sear
         wait(for: [successExpectation], timeout: 10)
         XCTAssertFalse(searchEngine.suggestions.isEmpty)
     }
+
+    func testRetrieveMapboxIDQuery() throws {
+        // TODO: Re-implement mocked server integration test for `retrieve(mapboxID:)`
+    }
 }
