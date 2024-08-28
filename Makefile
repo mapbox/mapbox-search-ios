@@ -30,16 +30,16 @@ offline:
 	aws s3 cp s3://vng-temp/HERE/luxembourg.tgz - | tar -xz -C Sources/Demo/offline/
 
 ci-dev-test: dependencies
-	fastlane scan --scheme "Demo" --device "iPhone 14" --result_bundle "true" --testplan "CI-dev" --output_directory "output"
+	fastlane scan --scheme "Demo" --device "iPhone 15" --result_bundle "true" --testplan "CI-dev" --output_directory "output"
 
 ci-full-test: dependencies
-	fastlane scan --scheme "Demo" --device "iPhone 14" --result_bundle "true" --testplan "Demo" --output_directory "output"
+	fastlane scan --scheme "Demo" --device "iPhone 15" --result_bundle "true" --testplan "Demo" --output_directory "output"
 
 test: dependencies
-	xcodebuild -scheme MapboxSearchUI -destination platform\=iOS\ Simulator,name\=iPhone\ 14 clean test
+	xcodebuild -scheme MapboxSearchUI -destination platform\=iOS\ Simulator,name\=iPhone\ 15 clean test
 
 xctest: dependencies
-	xcodebuild -scheme MapboxSearch -destination platform\=iOS\ Simulator,name\=iPhone\ 14 clean test
+	xcodebuild -scheme MapboxSearch -destination platform\=iOS\ Simulator,name\=iPhone\ 15 clean test
 
 codecov:
 	scripts/coverage/gather_coverage.sh "^MapboxSearch$$" coverage

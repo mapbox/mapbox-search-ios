@@ -16,10 +16,10 @@ platform :ios do
     sh("xcrun simctl erase all")
 
     destinations = [
-      "-destination platform=iOS\\ Simulator,name=iPhone\\ 14\\ Pro\\ Max",
-      "-destination platform=iOS\\ Simulator,OS=15,name=iPhone\\ 14",
-      "-destination platform=iOS\\ Simulator,OS=15,name=iPhone\\ 14 Pro",
-      "-destination platform=iOS\\ Simulator,OS=15,name=iPhone\\ 14 mini",
+      "-destination platform=iOS\\ Simulator,name=iPhone\\ 15\\ Pro\\ Max",
+      "-destination platform=iOS\\ Simulator,OS=17.0,name=iPhone\\ 15",
+      "-destination platform=iOS\\ Simulator,OS=17.0,name=iPhone\\ 15 Pro",
+      "-destination platform=iOS\\ Simulator,OS=17.0,name=iPhone\\ 15 Plus",
     ]
 
    destinations.each do |destination|
