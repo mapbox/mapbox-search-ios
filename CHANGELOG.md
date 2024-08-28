@@ -8,10 +8,13 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [SearchEngine] Add baseURL parameter for custom Mapbox API endpoint development.
+- [SearchResultMetadata] Add `rating` field to replace deprecated `averageRating` field.
+
 - [Project] Downgrade Package from Swift 5.10 to 5.9 for compatibility with Xcode 15.0 to 15.2.
 - [Project] Remove SPM strict concurrency flag from MapboxSearch, MapboxSearchUI targets.
 
-- [SearchEngine] Add baseURL parameter for custom Mapbox API endpoint development.
+- [Project] Update Fastlane to 2.222.0.
 
 ## 2.3.0-rc.2
 

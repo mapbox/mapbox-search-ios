@@ -84,7 +84,7 @@ workflows:
 executors:
   xcode-default:
     macos:
-      xcode: 15.0
+      xcode: 15.1
     resource_class: macos.m1.medium.gen1
 
 jobs:
@@ -293,7 +293,7 @@ commands:
     steps:
       - run:
           name: pre-start simulator
-          command: xcrun instruments -w "iPhone 14 [" || true
+          command: xcrun instruments -w "iPhone 15 [" || true
 
   upgrade-carthage:
     steps:

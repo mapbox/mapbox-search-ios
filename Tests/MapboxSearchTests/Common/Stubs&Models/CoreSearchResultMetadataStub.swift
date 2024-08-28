@@ -42,7 +42,7 @@ class CoreSearchResultMetadataStub: CoreResultMetadataProtocol {
         primaryImage: [CoreImageInfoProtocol]? = nil,
         otherImage: [CoreImageInfoProtocol]? = nil,
         description: String? = nil,
-        averageRating: NSNumber? = nil,
+        rating: NSNumber? = nil,
         reviewCount: NSNumber? = nil,
         phone: String? = nil,
         website: String? = nil,
@@ -53,7 +53,7 @@ class CoreSearchResultMetadataStub: CoreResultMetadataProtocol {
         self.primaryImage = primaryImage
         self.otherImage = otherImage
         self.description = description
-        self.averageRating = averageRating
+        self.rating = rating
         self.reviewCount = reviewCount
         self.phone = phone
         self.website = website
@@ -65,6 +65,7 @@ class CoreSearchResultMetadataStub: CoreResultMetadataProtocol {
     var otherImage: [CoreImageInfoProtocol]?
     var description: String?
     var averageRating: NSNumber?
+    var rating: NSNumber?
     var reviewCount: NSNumber?
     var phone: String?
     var website: String?
@@ -85,7 +86,7 @@ class CoreSearchResultMetadataStub: CoreResultMetadataProtocol {
         ],
         otherImage: [CoreImageInfoStub.sample4],
         description: "Test Description",
-        averageRating: 4.5,
+        rating: 4.5,
         reviewCount: 200,
         phone: "+ 000 00 000 00 00",
         website: "https://www.google.com"
