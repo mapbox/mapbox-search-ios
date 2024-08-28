@@ -39,7 +39,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     public private(set) var matchingName: String?
 
     /// Address formatted with medium style
-    public var descriptionText: String? { address?.formattedAddress(style: .medium) }
+    public var descriptionText: String?
 
     /// Coordinate associated with the record
     public internal(set) var coordinate: CLLocationCoordinate2D {
@@ -116,7 +116,8 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         metadata: SearchResultMetadata? = nil,
         categories: [String]? = nil,
         searchRequest: SearchRequestOptions,
-        routablePoints: [RoutablePoint]? = nil
+        routablePoints: [RoutablePoint]? = nil,
+        descriptionText: String? = nil
     ) {
         self.id = id
         self.mapboxId = mapboxId
@@ -134,6 +135,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         self.categories = categories
         self.searchRequest = searchRequest
         self.routablePoints = routablePoints
+        self.descriptionText = descriptionText ?? address?.formattedAddress(style: .medium)
     }
 
     /// Construct `HistoryRecord` based on concrete `SearchResult`
@@ -162,5 +164,6 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         self.categories = searchResult.categories
         self.searchRequest = searchResult.searchRequest
         self.routablePoints = searchResult.routablePoints
+        self.descriptionText = searchResult.descriptionText
     }
 }
