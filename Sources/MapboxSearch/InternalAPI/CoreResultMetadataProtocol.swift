@@ -18,8 +18,8 @@ protocol CoreResultMetadataProtocol {
     /** Long form detailed description for POI. */
     var description: String? { get }
 
-    /** The average rating of the location, on a scale from 1 to 5. */
-    @available(*, deprecated, renamed: "rating", message: "Please use the rating field for this value")
+    /** The average rating of the location, on a scale from 1 to 5.
+     **Deprecated**: Please use the ``rating`` field for this value. */
     var averageRating: NSNumber? { get }
 
     /** The average rating of the location, on a scale from 1 to 5. */
