@@ -29,7 +29,7 @@ public struct SearchResultMetadata: Codable, Hashable {
     public var rating: Double?
 
     /// The average rating of the location, on a scale from 1 to 5.
-    @available(*, deprecated, renamed: "rating", message: "Please use the rating field for this value")
+    /// **Deprecated**: Please use the ``rating`` field for this value.
     public var averageRating: Double?
 
     /// Business opening hours
