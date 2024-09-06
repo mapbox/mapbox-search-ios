@@ -19,7 +19,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     public var matchingName: String?
 
     /// address formatted with medium style.
-    public var descriptionText: String? { address?.formattedAddress(style: .medium) }
+    public var descriptionText: String?
 
     /// Coordinate associated to the favorite record.
     public internal(set) var coordinate: CLLocationCoordinate2D {
@@ -98,7 +98,8 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         routablePoints: [RoutablePoint]? = nil,
         resultType: SearchResultType,
         searchRequest: SearchRequestOptions,
-        metadata: SearchResultMetadata? = nil
+        metadata: SearchResultMetadata? = nil,
+        descriptionText: String? = nil
     ) {
         self.id = id ?? UUID().uuidString
         self.mapboxId = mapboxId
@@ -114,6 +115,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         self.type = resultType
         self.metadata = metadata
         self.searchRequest = searchRequest
+        self.descriptionText = descriptionText ?? address?.formattedAddress(style: .medium)
     }
 
     /// Build Favorite record from SearchResult
