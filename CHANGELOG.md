@@ -8,6 +8,11 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+## 2.3.0
+
+**MapboxCommon**: v24.6.0
+**MapboxCoreSearch**: v2.3.0
+
 ## 2.3.0-rc.3
 
 - [SearchEngine] Add SearchEngine.init(baseURL:) parameter for custom Mapbox API endpoint development.
