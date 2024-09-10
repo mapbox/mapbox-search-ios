@@ -51,6 +51,10 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     /// Maki icon name. Use ``icon`` when possible.
     public var iconName: String?
 
+    public var makiIcon: String? {
+        icon?.name
+    }
+
     /// Result categories types.
     public var categories: [String]?
 

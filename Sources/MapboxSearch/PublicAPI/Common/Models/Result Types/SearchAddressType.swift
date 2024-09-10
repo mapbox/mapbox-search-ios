@@ -82,4 +82,29 @@ public enum SearchAddressType: String, Hashable, Codable {
             return nil
         }
     }
+
+    func toCore() -> CoreResultType {
+        return switch self {
+        case .address:
+            .address
+        case .place:
+            .place
+        case .street:
+            .street
+        case .postcode:
+            .postcode
+        case .country:
+            .country
+        case .region:
+            .region
+        case .district:
+            .district
+        case .locality:
+            .locality
+        case .neighborhood:
+            .neighborhood
+        case .block:
+            .block
+        }
+    }
 }
