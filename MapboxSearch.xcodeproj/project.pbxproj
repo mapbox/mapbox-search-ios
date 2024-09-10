@@ -45,6 +45,8 @@
 		0488234A2B6B0A9E00C770AA /* category-hotel-search-along-route-jp.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */; };
 		04970F8D2B7A97C900213763 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 04970F8C2B7A97C900213763 /* PrivacyInfo.xcprivacy */; };
 		049FE3A82C6A50BB00F54FB2 /* RetrieveOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FE3A72C6A50BB00F54FB2 /* RetrieveOptions.swift */; };
+		04A972C92C92431100C5F1A8 /* DataLayerProviderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD38C2508E24900DC0A98 /* DataLayerProviderStub.swift */; };
+		04A972CC2C938B8800C5F1A8 /* UserRecordsLayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A972C62C923C5300C5F1A8 /* UserRecordsLayerTests.swift */; };
 		04AB0B4B2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */; };
 		04AB0B4C2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */; };
 		04AB0B4D2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json in Resources */ = {isa = PBXBuildFile; fileRef = 04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */; };
@@ -561,6 +563,7 @@
 		0484BCDE2BC4865C003CF408 /* OfflineIndexObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineIndexObserver.swift; sourceTree = "<group>"; };
 		04970F8C2B7A97C900213763 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		049FE3A72C6A50BB00F54FB2 /* RetrieveOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveOptions.swift; sourceTree = "<group>"; };
+		04A972C62C923C5300C5F1A8 /* UserRecordsLayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecordsLayerTests.swift; sourceTree = "<group>"; };
 		04AB0B4A2B6AADB700FDE7D5 /* mapbox.places.san.francisco.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mapbox.places.san.francisco.json; sourceTree = "<group>"; };
 		04AB0B792B6AF37800FDE7D5 /* DiscoverIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverIntegrationTests.swift; sourceTree = "<group>"; };
 		04AB0B7C2B6B043C00FDE7D5 /* category-hotel-search-along-route-jp.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = "category-hotel-search-along-route-jp.json"; sourceTree = "<group>"; };
@@ -1222,6 +1225,7 @@
 		141789EF287C30260000AE79 /* Legacy */ = {
 			isa = PBXGroup;
 			children = (
+				04A972C62C923C5300C5F1A8 /* UserRecordsLayerTests.swift */,
 				FE66C65625E3F42E006A74FC /* ValidateResources.swift */,
 				FE1122B82567BE5B0064FD53 /* ArrayExtensionsTests.swift */,
 				FEEDD3972508E24900DC0A98 /* BoundingBoxTests.swift */,
@@ -2750,6 +2754,7 @@
 				2CD6C03C29F1982100D865D1 /* EventsManagerTests.swift in Sources */,
 				FEEDD3AB2508E24900DC0A98 /* BoundingBoxTests.swift in Sources */,
 				FE5A41EC2551694600A076BF /* SearchResultTests.swift in Sources */,
+				04A972CC2C938B8800C5F1A8 /* UserRecordsLayerTests.swift in Sources */,
 				FEEDD39D2508E24900DC0A98 /* ServiceProviderStub.swift in Sources */,
 				FE1F31DC2567FA6D004DCB6D /* WrapperLocationProviderTests.swift in Sources */,
 				FE5E0BC82576867F002260C9 /* BoundingBox+Samples.swift in Sources */,
@@ -2868,6 +2873,7 @@
 				F9C557C02670CD5E00BE8B94 /* Address+Samples.swift in Sources */,
 				F914EE652743E4F400D4F173 /* CoreAliases.swift in Sources */,
 				046818DF2B87FDC00082B188 /* SearchBox_SearchEngineIntegrationTests.swift in Sources */,
+				04A972C92C92431100C5F1A8 /* DataLayerProviderStub.swift in Sources */,
 				F9C557B42670CB4000BE8B94 /* SearchEngineIntegrationTests.swift in Sources */,
 				046818D42B87F2A70082B188 /* SearchBox_CategorySearchEngineIntegrationTests.swift in Sources */,
 				F9274FF5273AA79700708F37 /* OfflineIntegrationTests.swift in Sources */,

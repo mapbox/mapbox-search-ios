@@ -5,6 +5,8 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     /// "history icon" by default
     public var iconName: String? = "history icon"
 
+    public var makiIcon: String? { iconName }
+
     /// Type of stored history record
     public enum HistoryType: Int, Codable {
         /// History record was build based on search result
