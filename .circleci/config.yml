@@ -115,6 +115,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Update Cocoapods
+          command: pod repo update
+      - run:
           name: Check cocoapods linter
           command: make lint
 
