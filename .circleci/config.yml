@@ -25,6 +25,12 @@ workflows:
           context: SDK Registry Token
           requires:
             - pre-check
+      - pod-lint-check:
+          context:
+            - SDK Registry Token
+            - CocoaPods trunk token
+          requires:
+            - spm-build
       - release-pre-check:
           context: SDK Registry Token
           requires:
@@ -103,6 +109,14 @@ jobs:
           name: Check existing public release
           # Escape the quotes to check for exact versions
           command: curl -L https://api.mapbox.com/downloads/v2/carthage/search-sdk/MapboxSearch.json | grep -v \"$VERSION\"
+
+  pod-lint-check:
+    executor: xcode-default
+    steps:
+      - checkout
+      - run:
+          name: Check cocoapods linter
+          command: make lint
 
   build:
     executor: xcode-default # Specify the Xcode version to use
