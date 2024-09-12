@@ -114,6 +114,7 @@ jobs:
     executor: xcode-default
     steps:
       - checkout
+      - setup-authentication
       - run:
           name: Update Cocoapods
           command: pod repo update
