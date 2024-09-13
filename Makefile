@@ -80,7 +80,7 @@ lint:
 
 # This target send local podspecs to the official CocoaPods repository
 push-trunk:
-	pod trunk push MapboxSearch.podspec
+	pod trunk push MapboxSearch.podspec --verbose
 	pod trunk push MapboxSearchUI.podspec --synchronous
 
 update-registry: check-aws
