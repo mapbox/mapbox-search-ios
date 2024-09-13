@@ -115,6 +115,7 @@ jobs:
     steps:
       - checkout
       - setup-authentication
+      - ios-install-carthage-dependencies
       - run:
           name: Update Cocoapods
           command: pod repo update
