@@ -30,7 +30,7 @@ workflows:
             - SDK Registry Token
             - CocoaPods trunk token
           requires:
-            - spm-build
+            - pre-check
       - release-pre-check:
           context: SDK Registry Token
           requires:
