@@ -120,9 +120,7 @@ jobs:
           command: pod repo update
       - run:
           name: Check cocoapods linter
-          command: |
-            pod trunk push MapboxSearch.podspec --verbose
-            pod trunk push MapboxSearchUI.podspec --verbose --synchronous
+          command: make lint
 
   build:
     executor: xcode-default # Specify the Xcode version to use
