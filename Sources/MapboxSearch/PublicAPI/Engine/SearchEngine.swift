@@ -523,6 +523,52 @@ extension SearchEngine {
             }
         }
     }
+
+    // MARK: Forward
+
+    /// Search non-interactively to receive search results with coordinates and metadata.
+    /// This function will not return type-ahead suggestions (such as brand or category nested results).
+    /// Documentation at https://docs.mapbox.com/api/search/search-box/#search-request
+    /// - Parameters:
+    ///   - query: The search text.
+    ///   - options: SearchOptions object to filter or narrow results. Recommended to customize for your specialization.
+    ///   - completion: A block to execute when results or errors are received.
+    public func forward(
+        query: String,
+        options: SearchOptions,
+        completion: @escaping (Result<[SearchResult], SearchError>) -> Void
+    ) {
+        assert(Thread.isMainThread)
+
+        // Request identifier is ignored
+        _ = engine.forward(query: query, options: options.toCore()) { [weak self] response in
+            guard let self else {
+                assertionFailure("Owning object was deallocated")
+                return
+            }
+
+            guard let response else {
+                eventsManager.reportError(.responseProcessingFailed)
+                completion(.failure(.responseProcessingFailed))
+                assertionFailure("Response should never be nil")
+                return
+            }
+
+            switch response.result {
+            case .success(let results):
+                completion(
+                    .success(
+                        results.compactMap { ServerSearchResult(coreResult: $0, response: response) }
+                    )
+                )
+
+            case .failure(let responseError):
+                let wrappedError = SearchError.searchRequestFailed(reason: responseError)
+
+                completion(.failure(wrappedError))
+            }
+        }
+    }
 }
 
 // MARK: - IndexableDataResolver
