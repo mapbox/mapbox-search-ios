@@ -8,6 +8,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Offline] Change default tileset name to `mbx-gen2`
+
 ## 2.5.0-rc.3
 
 - [Core] Update dependencies
