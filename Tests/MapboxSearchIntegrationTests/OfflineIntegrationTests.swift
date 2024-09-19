@@ -125,7 +125,7 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
 
         // Perform the offline fetch
         let spanishTileset = SearchOfflineManager.createTilesetDescriptor(
-            dataset: "mbx-main",
+            dataset: "mbx-gen2",
             language: "es"
         )
         let loadDataExpectation = expectation(description: "Load Data")
