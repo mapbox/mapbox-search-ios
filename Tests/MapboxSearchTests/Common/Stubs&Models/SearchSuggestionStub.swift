@@ -15,4 +15,6 @@ struct SearchSuggestionStub: SearchSuggestion {
     var distance: CLLocationDistance?
     var batchResolveSupported: Bool = false
     var estimatedTime: Measurement<UnitDuration>? = .init(value: 10, unit: .minutes)
+    var brand: [String]?
+    var brandID: String?
 }

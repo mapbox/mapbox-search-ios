@@ -47,4 +47,8 @@ public protocol SearchSuggestion {
     /// An estimated time of arrival (in minutes) based on requested proximity.
     /// It can be `nil` even for the correct proximity argument.
     var estimatedTime: Measurement<UnitDuration>? { get }
+
+    var brand: [String]? { get }
+
+    var brandID: String? { get }
 }
