@@ -568,4 +568,22 @@ class SearchEngineTests: XCTestCase {
 
         XCTAssertNil(delegate.error)
     }
+
+    func testServerSearchResultByBrandType() throws {
+        let searchEngine = SearchEngine(
+            locationProvider: DefaultLocationProvider(),
+            apiType: .searchBox
+        )
+        searchEngine.delegate = delegate
+
+        let updateExpectation = delegate.updateExpectation
+
+        let brandFilterOptions = SearchOptions(filterTypes: [.brand])
+        searchEngine.search(query: "bicycle", options: brandFilterOptions)
+        wait(for: [updateExpectation], timeout: 10)
+        let results = searchEngine.suggestions
+
+        XCTAssertFalse(results.isEmpty)
+        XCTAssertEqual(results.count, 10)
+    }
 }

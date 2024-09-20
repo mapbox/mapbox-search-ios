@@ -278,7 +278,7 @@ public struct SearchOptions {
 
         switch apiType {
         case .geocoding:
-            let unsupportedFilterTypes: [SearchQueryType] = [.street, .category]
+            let unsupportedFilterTypes: [SearchQueryType] = [.street, .category, .brand]
             let topLimit = 10
 
             validSearchOptions.filterTypes = filterTypes?.filter { !unsupportedFilterTypes.contains($0) }
@@ -330,7 +330,7 @@ public struct SearchOptions {
             }
 
         case .autofill:
-            let unsupportedFilterTypes: [SearchQueryType] = [.category]
+            let unsupportedFilterTypes: [SearchQueryType] = [.category, .brand]
 
             validSearchOptions.filterTypes = filterTypes?.filter { !unsupportedFilterTypes.contains($0) }
             if validSearchOptions.filterTypes?.count != filterTypes?.count {
