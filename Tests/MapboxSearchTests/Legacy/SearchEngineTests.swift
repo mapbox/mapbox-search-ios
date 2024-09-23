@@ -568,4 +568,32 @@ class SearchEngineTests: XCTestCase {
 
         XCTAssertNil(delegate.error)
     }
+
+    func testServerSearchResultByBrandType() throws {
+        let searchEngine = SearchEngine(
+            locationProvider: DefaultLocationProvider(),
+            apiType: .searchBox
+        )
+        searchEngine.delegate = delegate
+
+        let updateExpectation = delegate.updateExpectation
+
+        let brandFilterOptions = SearchOptions()
+
+        searchEngine.search(query: "nike", options: brandFilterOptions)
+        wait(for: [updateExpectation], timeout: 10)
+        let results = searchEngine.suggestions
+
+        let resultWithBrandID = results.first(where: { result in
+            return result.brandID != nil || result.brand != nil
+        })
+
+        XCTAssertNotNil(
+            resultWithBrandID,
+            "Result \(String(describing: resultWithBrandID?.name)) \(String(describing: resultWithBrandID?.mapboxId)) should contain a brand value"
+        )
+
+        XCTAssertFalse(results.isEmpty)
+        XCTAssertGreaterThan(results.count, 0)
+    }
 }

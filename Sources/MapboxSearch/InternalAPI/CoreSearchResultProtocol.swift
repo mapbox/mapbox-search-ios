@@ -58,6 +58,10 @@ protocol CoreSearchResultProtocol {
 
     /// The list of Category IDs that this result belongs to
     var categoryIDs: [String]? { get }
+
+    var brand: [String]? { get }
+
+    var brandID: String? { get }
 }
 
 extension CoreSearchResult: CoreSearchResultProtocol {
