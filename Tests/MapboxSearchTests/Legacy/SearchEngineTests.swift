@@ -577,7 +577,7 @@ class SearchEngineTests: XCTestCase {
         searchEngine.delegate = delegate
 
         let updateExpectation = delegate.updateExpectation
-        R
+
         let brandFilterOptions = SearchOptions()
 
         searchEngine.search(query: "nike", options: brandFilterOptions)
