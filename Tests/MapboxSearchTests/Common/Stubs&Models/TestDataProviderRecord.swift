@@ -20,6 +20,7 @@ struct TestDataProviderRecord: IndexableRecord, SearchResult {
     var metadata: SearchResultMetadata?
     var descriptionText: String?
     var searchRequest: SearchRequestOptions = .init(query: "Sample", proximity: nil)
+    var makiIcon: String? { iconName }
 
     static func testData(count: Int) -> [TestDataProviderRecord] {
         var results = [TestDataProviderRecord]()

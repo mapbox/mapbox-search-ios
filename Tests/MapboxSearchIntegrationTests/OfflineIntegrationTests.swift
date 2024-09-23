@@ -21,7 +21,7 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
 
         searchEngine.delegate = delegate
 
-        let enableOfflineExpectation = expectation(description: "TileStore setup completion")
+        let enableOfflineExpectation = expectation(description: "Offline mode enabled")
         searchEngine.setOfflineMode(.enabled) {
             enableOfflineExpectation.fulfill()
         }

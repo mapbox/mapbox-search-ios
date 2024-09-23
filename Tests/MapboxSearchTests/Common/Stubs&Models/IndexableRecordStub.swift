@@ -16,6 +16,12 @@ struct IndexableRecordStub: IndexableRecord {
     var coordinateCodable: CLLocationCoordinate2DCodable
     var address: Address?
     var additionalTokens: Set<String>?
+    var descriptionText: String?
+    var routablePoints: [RoutablePoint]?
+    var categories: [String]?
+    var makiIcon: String?
+    var metadata: SearchResultMetadata?
+    var type: SearchResultType
 
     var asResolved: SearchResult {
         SearchResultStub(
@@ -39,13 +45,15 @@ struct IndexableRecordStub: IndexableRecord {
         name: String,
         coordinate: CLLocationCoordinate2DCodable,
         address: Address? = nil,
-        additionalTokens: Set<String>? = nil
+        additionalTokens: Set<String>? = nil,
+        type: SearchResultType = .POI
     ) {
         self.id = id
         self.name = name
         self.coordinateCodable = coordinate
         self.address = address
         self.additionalTokens = additionalTokens
+        self.type = type
     }
 
     init() {
