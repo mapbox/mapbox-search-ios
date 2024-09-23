@@ -577,8 +577,8 @@ class SearchEngineTests: XCTestCase {
         searchEngine.delegate = delegate
 
         let updateExpectation = delegate.updateExpectation
-
-        let brandFilterOptions = SearchOptions(filterTypes: [.poi, .brand])
+        R
+        let brandFilterOptions = SearchOptions()
 
         searchEngine.search(query: "nike", options: brandFilterOptions)
         wait(for: [updateExpectation], timeout: 10)

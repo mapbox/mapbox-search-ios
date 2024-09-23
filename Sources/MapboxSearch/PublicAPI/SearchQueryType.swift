@@ -46,9 +46,6 @@ public enum SearchQueryType {
     /// - Note: Single-Box Search API only
     case category
 
-    /// Not supported by geocoding and autofill API types. See `SearchOptions.validateSupportedOptions`.
-    case brand
-
     var coreValue: CoreQueryType {
         switch self {
         case .country:
@@ -73,8 +70,6 @@ public enum SearchQueryType {
             return .street
         case .category:
             return .category
-        case .brand:
-            return .brand
         }
     }
 
@@ -104,7 +99,10 @@ public enum SearchQueryType {
         case .category:
             return category
         case .brand:
-            return .brand
+            /*
+              Brand type query is not supported.
+             */
+            return .poi
         @unknown default:
             return nil
         }
