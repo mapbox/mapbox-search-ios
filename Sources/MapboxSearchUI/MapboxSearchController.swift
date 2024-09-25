@@ -68,7 +68,11 @@ public class MapboxSearchController: UIViewController {
 
     private weak var favoriteDetailsController: FavoriteDetailsController?
 
+    /// Category results can be viewed in a child controller
     private weak var categorySuggestionController: CategorySuggestionsController?
+
+    /// Brand results can be viewed in a child controller
+    private weak var brandSuggestionController: UIViewController?
 
     private weak var feedbackController: SendFeedbackController?
 
@@ -410,6 +414,20 @@ public class MapboxSearchController: UIViewController {
         mapboxPanelController?.push(viewController: controller, animated: true)
     }
 
+    func navigateToBrandSuggestionList(suggestion: SearchSuggestion) {
+        searchBar.endEditing(true)
+
+        // TODO: Implement
+        let controller = UIViewController()
+        controller.view.backgroundColor = .red
+//        categorySuggestionController = controller
+//
+//        controller.categorySuggestion = suggestion
+//        controller.delegate = self
+//        controller.allowsFeedbackUI = configuration.allowsFeedbackUI
+        mapboxPanelController?.push(viewController: controller, animated: true)
+    }
+
     func navigateToSendFeedbackController(suggestion: SearchSuggestion?) {
         searchBar.endEditing(true)
         let controller = SendFeedbackController(configuration: configuration)
@@ -475,9 +493,12 @@ extension MapboxSearchController: SearchEngineDelegate {
         let responseQuery = Query(string: searchEngine.query)
         guard responseQuery == query || responseQuery == .none else { return }
 
-        // This search results should be ignored and consumed by CategorySuggestionsController(if exists)
+        // This search result should be ignored and consumed by CategorySuggestionsController(if exists)
         if searchEngine.responseInfo?.suggestion?.suggestionType == .category {
             categorySuggestionController?.results = suggestions
+            return
+        } else if searchEngine.responseInfo?.suggestion?.brandID != nil {
+//            brandSuggestionController.results = suggestions
             return
         }
         searchSuggestionsSource.suggestions = suggestions
@@ -565,6 +586,8 @@ extension MapboxSearchController: SearchResultsTableSourceDelegate {
         // Present other controller for suggestions with category type
         if searchSuggestion.suggestionType == .category {
             navigateToCategorySuggestionList(suggestion: searchSuggestion)
+        } else if searchSuggestion.brandID != nil { // TODO: Should suggestionType have a brand case?
+            navigateToBrandSuggestionList(suggestion: searchSuggestion)
         }
         searchEngine.select(suggestion: searchSuggestion)
     }

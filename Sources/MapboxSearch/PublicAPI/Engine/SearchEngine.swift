@@ -163,12 +163,15 @@ public class SearchEngine: AbstractSearchEngine {
     private enum Query: ExpressibleByStringLiteral {
         case string(String)
         case category(String)
+        case brand(String)
 
         var stringQuery: String? {
             switch self {
             case .string(let query):
                 return query
             case .category:
+                return nil
+            case .brand:
                 return nil
             }
         }
@@ -275,6 +278,11 @@ public class SearchEngine: AbstractSearchEngine {
             }
         case .category:
             // CoreSDK currently doesn't support arguments for category suggestions
+            if !coreResponse.request.query.isEmpty {
+                return nil
+            }
+        case .brand:
+            // CoreSDK currently doesn't support arguments for brand suggestions
             if !coreResponse.request.query.isEmpty {
                 return nil
             }
