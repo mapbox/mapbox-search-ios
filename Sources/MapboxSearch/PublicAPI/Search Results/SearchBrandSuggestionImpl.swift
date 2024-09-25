@@ -43,16 +43,14 @@ class SearchBrandSuggestionImpl: SearchBrandSuggestion, CoreResponseProvider {
     var externalIDs: [String: String]?
 
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
-        assert(coreResult.centerLocation == nil)
-
-        guard coreResult.resultTypes == [.category] else { return nil }
+        guard coreResult.resultTypes == [.brand] else { return nil }
 
         self.id = coreResult.id
         self.mapboxId = coreResult.mapboxId
-        self.suggestionType = .category
+        self.suggestionType = .brand
         self.name = coreResult.names[0]
         self.address = coreResult.addresses?.first.map(Address.init)
-        self.iconName = nil // Categories should use it's special icon
+        self.iconName = coreResult.icon
         self.serverIndex = coreResult.serverIndex?.intValue
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
         self.distance = coreResult.distanceToProximity

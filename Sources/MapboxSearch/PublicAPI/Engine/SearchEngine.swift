@@ -409,6 +409,11 @@ extension SearchEngine {
                 suggestion: querySuggestion,
                 retrieveOptions: retrieveOptions
             )
+        case let brandSuggestion as SearchBrandSuggestion:
+            retrieve(
+                suggestion: brandSuggestion,
+                retrieveOptions: retrieveOptions
+            )
         case let resultSuggestion as SearchResultSuggestion:
             resolve(
                 suggestion: resultSuggestion,

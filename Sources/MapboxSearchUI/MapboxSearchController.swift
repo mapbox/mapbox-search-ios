@@ -72,7 +72,7 @@ public class MapboxSearchController: UIViewController {
     private weak var categorySuggestionController: CategorySuggestionsController?
 
     /// Brand results can be viewed in a child controller
-    private weak var brandSuggestionController: UIViewController?
+    private weak var brandSuggestionController: BrandSuggestionsController?
 
     private weak var feedbackController: SendFeedbackController?
 
@@ -417,14 +417,12 @@ public class MapboxSearchController: UIViewController {
     func navigateToBrandSuggestionList(suggestion: SearchSuggestion) {
         searchBar.endEditing(true)
 
-        // TODO: Implement
-        let controller = UIViewController()
-        controller.view.backgroundColor = .red
-//        categorySuggestionController = controller
-//
-//        controller.categorySuggestion = suggestion
-//        controller.delegate = self
-//        controller.allowsFeedbackUI = configuration.allowsFeedbackUI
+        let controller = BrandSuggestionsController(configuration: configuration)
+        brandSuggestionController = controller
+
+        controller.brandSuggestion = suggestion
+        controller.delegate = self
+        controller.allowsFeedbackUI = configuration.allowsFeedbackUI
         mapboxPanelController?.push(viewController: controller, animated: true)
     }
 
@@ -498,7 +496,7 @@ extension MapboxSearchController: SearchEngineDelegate {
             categorySuggestionController?.results = suggestions
             return
         } else if searchEngine.responseInfo?.suggestion?.brandID != nil {
-//            brandSuggestionController.results = suggestions
+            brandSuggestionController?.results = suggestions
             return
         }
         searchSuggestionsSource.suggestions = suggestions
@@ -586,7 +584,7 @@ extension MapboxSearchController: SearchResultsTableSourceDelegate {
         // Present other controller for suggestions with category type
         if searchSuggestion.suggestionType == .category {
             navigateToCategorySuggestionList(suggestion: searchSuggestion)
-        } else if searchSuggestion.brandID != nil { // TODO: Should suggestionType have a brand case?
+        } else if searchSuggestion.suggestionType == .brand {
             navigateToBrandSuggestionList(suggestion: searchSuggestion)
         }
         searchEngine.select(suggestion: searchSuggestion)
@@ -609,6 +607,22 @@ extension MapboxSearchController: CategorySuggestionsControllerDelegate {
     }
 
     func categorySuggestionsCancelled() {
+        resetSearchUI(animated: true)
+    }
+}
+
+// MARK: - Brand Suggestions Delegate
+
+extension MapboxSearchController: BrandSuggestionsControllerDelegate {
+    func brandSuggestionsFeedbackRequested(searchSuggestion: SearchSuggestion) {
+        navigateToSendFeedbackController(suggestion: searchSuggestion)
+    }
+
+    func brandSuggestionsSelected(searchSuggestion: SearchSuggestion) {
+        searchEngine.select(suggestion: searchSuggestion)
+    }
+
+    func brandSuggestionsCancelled() {
         resetSearchUI(animated: true)
     }
 }

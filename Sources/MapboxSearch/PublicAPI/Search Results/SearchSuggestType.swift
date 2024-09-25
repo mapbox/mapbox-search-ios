@@ -20,6 +20,7 @@ public enum SearchSuggestType: Codable, Hashable {
     /// It might be used for query corrections.
     case query
 
+    /// Suggestion represents further query searches for a particular brand.
     case brand
 
     /// Access to `subtypes` of `address` type. Do not available for `.POI` type.
