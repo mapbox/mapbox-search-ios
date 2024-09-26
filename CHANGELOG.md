@@ -11,7 +11,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Offline] Change default tileset name to `mbx-gen2`
 - [Core] Update dependencies
 
-**MapboxCommon**: v24.7.0-rc.2
+**MapboxCommon**: v24.7.0
 **MapboxCoreSearch**: v2.5.0-rc.4
 
 ## 2.5.0-rc.3
