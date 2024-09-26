@@ -135,11 +135,11 @@ extension SearchSuggestType {
         case .POI:
             return Images.poiIcon
         case .category:
-            return Images.cancelIcon
+            return Images.poiIcon
         case .query:
             return Images.poiIcon
-//        case .brand:
-//            return Images.favoritesIcon
+        case .brand:
+            return Maki.shop.icon
         @unknown default:
             return Images.poiIcon
         }
