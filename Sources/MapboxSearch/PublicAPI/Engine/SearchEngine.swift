@@ -390,8 +390,9 @@ extension SearchEngine {
         userActivityReporter.reportActivity(forComponent: "search-engine-forward-geocoding-selection")
 
         // Call `onSelected` for only supported types
-        // but avoid it for category suggestions (like Cafe category)
-        if let responseProvider = suggestion as? CoreResponseProvider, !(suggestion is SearchCategorySuggestion) {
+        // but avoid it for nested suggestions (like category and brand searches)
+        let shouldSelect = !(suggestion is SearchCategorySuggestion) && !(suggestion is SearchBrandSuggestion)
+        if let responseProvider = suggestion as? CoreResponseProvider, shouldSelect {
             engine.onSelected(
                 forRequest: responseProvider.originalResponse.requestOptions,
                 result: responseProvider.originalResponse.coreResult

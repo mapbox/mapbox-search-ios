@@ -495,7 +495,7 @@ extension MapboxSearchController: SearchEngineDelegate {
         if searchEngine.responseInfo?.suggestion?.suggestionType == .category {
             categorySuggestionController?.results = suggestions
             return
-        } else if searchEngine.responseInfo?.suggestion?.brandID != nil {
+        } else if searchEngine.responseInfo?.suggestion?.suggestionType == .brand {
             brandSuggestionController?.results = suggestions
             return
         }
