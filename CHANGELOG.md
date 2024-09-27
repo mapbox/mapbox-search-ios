@@ -11,6 +11,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Search] Add SearchSuggestType.brand
 - [SearchUI] Add display of Brand results
 - [SearchUI] Add ability to view nested results for a Brand (similar to Category results) when the query matches a brand name
+- [SearchResultMetadata] Add SearchResultMetadata.init(rating:)
 - [Offline] Change default tileset name to `mbx-gen2`
 - [Core] Update dependencies
 

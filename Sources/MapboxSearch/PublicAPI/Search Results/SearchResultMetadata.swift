@@ -187,6 +187,7 @@ public struct SearchResultMetadata: Codable, Hashable {
         self.detailedDescription = detailedDescription
     }
 
+    /// Please use rating instead
     public init(
         data: [String: String],
         primaryImage: Image?,
@@ -229,6 +230,77 @@ public struct SearchResultMetadata: Codable, Hashable {
         self.website = website
         self.reviewCount = reviewCount
         self.averageRating = averageRating
+        self.openHours = openHours
+
+        self.children = children
+        self.description = description
+        self.priceLevel = priceLevel
+        self.popularity = popularity
+        self.wheelchairAccessible = wheelchairAccessible
+        self.delivery = delivery
+        self.driveThrough = driveThrough
+        self.reservable = reservable
+        self.parkingAvailable = parkingAvailable
+        self.valetParking = valetParking
+        self.streetParking = streetParking
+        self.servesBreakfast = servesBreakfast
+        self.servesBrunch = servesBrunch
+        self.servesDinner = servesDinner
+        self.servesLunch = servesLunch
+        self.servesWine = servesWine
+        self.servesBeer = servesBeer
+        self.servesVegan = servesVegan
+        self.servesVegetarian = servesVegetarian
+        self.takeout = takeout
+        self.facebookId = facebookId
+        self.fax = fax
+        self.email = email
+        self.instagram = instagram
+        self.twitter = twitter
+    }
+
+    public init(
+        data: [String: String],
+        primaryImage: Image?,
+        otherImages: [Image]?,
+        phone: String?,
+        website: URL?,
+        reviewCount: Int?,
+        rating: Double?,
+        openHours: OpenHours?,
+        children: [ResultChildMetadata]? = nil,
+        description: String? = nil,
+        priceLevel: String? = nil,
+        popularity: Float? = nil,
+        wheelchairAccessible: Bool? = nil,
+        delivery: Bool? = nil,
+        driveThrough: Bool? = nil,
+        reservable: Bool? = nil,
+        parkingAvailable: Bool? = nil,
+        valetParking: Bool? = nil,
+        streetParking: Bool? = nil,
+        servesBreakfast: Bool? = nil,
+        servesBrunch: Bool? = nil,
+        servesDinner: Bool? = nil,
+        servesLunch: Bool? = nil,
+        servesWine: Bool? = nil,
+        servesBeer: Bool? = nil,
+        servesVegan: Bool? = nil,
+        servesVegetarian: Bool? = nil,
+        takeout: Bool? = nil,
+        facebookId: String? = nil,
+        fax: String? = nil,
+        email: String? = nil,
+        instagram: String? = nil,
+        twitter: String? = nil
+    ) {
+        self.data = data
+        self.primaryImage = primaryImage
+        self.otherImages = otherImages
+        self.phone = phone
+        self.website = website
+        self.reviewCount = reviewCount
+        self.rating = rating
         self.openHours = openHours
 
         self.children = children
