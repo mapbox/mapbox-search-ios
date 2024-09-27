@@ -8,6 +8,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [SearchResultMetadata] Add SearchResultMetadata.init(rating:)
 - [Offline] Change default tileset name to `mbx-gen2`
 - [Core] Update dependencies
 
