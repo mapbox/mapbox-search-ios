@@ -20,18 +20,21 @@ public enum SearchSuggestType: Codable, Hashable {
     /// It might be used for query corrections.
     case query
 
+    /// Suggestion represents further query searches for a particular brand.
+    case brand
+
     /// Access to `subtypes` of `address` type. Do not available for `.POI` type.
     public var addressSubtypes: [SearchAddressType]? {
         switch self {
         case .address(let subtypes):
             return subtypes
-        case .POI, .category, .query:
+        case .POI, .category, .query, .brand:
             return nil
         }
     }
 
     enum CodingKeys: CodingKey {
-        case poi, address, category, query
+        case poi, address, category, query, brand
     }
 
     /// Initializer for custom Decoder
@@ -49,6 +52,8 @@ public enum SearchSuggestType: Codable, Hashable {
             self = .category
         case .query:
             self = .query
+        case .brand:
+            self = .brand
         case nil:
             var path = container.codingPath
             if let firstKey = container.allKeys.first {
@@ -86,6 +91,8 @@ public enum SearchSuggestType: Codable, Hashable {
             try container.encode(true, forKey: .category)
         case .query:
             try container.encode(true, forKey: .query)
+        case .brand:
+            try container.encode(true, forKey: .brand)
         }
     }
 }
