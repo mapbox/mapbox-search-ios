@@ -163,12 +163,15 @@ public class SearchEngine: AbstractSearchEngine {
     private enum Query: ExpressibleByStringLiteral {
         case string(String)
         case category(String)
+        case brand(String)
 
         var stringQuery: String? {
             switch self {
             case .string(let query):
                 return query
             case .category:
+                return nil
+            case .brand:
                 return nil
             }
         }
@@ -278,6 +281,11 @@ public class SearchEngine: AbstractSearchEngine {
             if !coreResponse.request.query.isEmpty {
                 return nil
             }
+        case .brand:
+            // CoreSDK currently doesn't support arguments for brand suggestions
+            if !coreResponse.request.query.isEmpty {
+                return nil
+            }
         }
 
         return SearchResponse(coreResponse: coreResponse)
@@ -382,8 +390,9 @@ extension SearchEngine {
         userActivityReporter.reportActivity(forComponent: "search-engine-forward-geocoding-selection")
 
         // Call `onSelected` for only supported types
-        // but avoid it for category suggestions (like Cafe category)
-        if let responseProvider = suggestion as? CoreResponseProvider, !(suggestion is SearchCategorySuggestion) {
+        // but avoid it for nested suggestions (like category and brand searches)
+        let shouldSelect = !(suggestion is SearchCategorySuggestion) && !(suggestion is SearchBrandSuggestion)
+        if let responseProvider = suggestion as? CoreResponseProvider, shouldSelect {
             engine.onSelected(
                 forRequest: responseProvider.originalResponse.requestOptions,
                 result: responseProvider.originalResponse.coreResult
@@ -399,6 +408,11 @@ extension SearchEngine {
         case let querySuggestion as SearchQuerySuggestion:
             retrieve(
                 suggestion: querySuggestion,
+                retrieveOptions: retrieveOptions
+            )
+        case let brandSuggestion as SearchBrandSuggestion:
+            retrieve(
+                suggestion: brandSuggestion,
                 retrieveOptions: retrieveOptions
             )
         case let resultSuggestion as SearchResultSuggestion:

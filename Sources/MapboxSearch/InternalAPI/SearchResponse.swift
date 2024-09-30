@@ -42,6 +42,9 @@ extension SearchResponse {
             case [.userRecord]:
                 suggestion = ExternalRecordPlaceholder(coreResult: coreResult, response: coreResponse)
 
+            case [.brand]:
+                suggestion = SearchBrandSuggestionImpl(coreResult: coreResult, response: coreResponse)
+
             case _ where coreResult.resultTypes.contains(.unknown):
                 suggestion = nil
 
