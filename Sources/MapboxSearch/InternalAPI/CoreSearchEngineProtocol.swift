@@ -2,6 +2,7 @@ import CoreLocation
 import Foundation
 
 protocol CoreSearchEngineProtocol {
+    typealias CoreSearchOperationIdentifier = UInt64
     /**
      -------------------------------------------------------------------------------------------
      @brief Create user data layer.
@@ -21,20 +22,22 @@ protocol CoreSearchEngineProtocol {
      @brief Main (1st step) search function.
      \a query and \a category can be empty.
      */
+    @discardableResult
     func search(
         forQuery query: String,
         categories: [String],
         options: CoreSearchOptions,
         completion: @escaping (CoreSearchResponseProtocol?) -> Void
-    )
+    ) -> CoreSearchOperationIdentifier
 
     /** @brief Continue (next steps) search function. */
+    @discardableResult
     func nextSearch(
         for result: CoreSearchResultProtocol,
         with originalRequest: CoreRequestOptions,
         options retrieveOptions: CoreRetrieveOptions,
         callback: @escaping (CoreSearchResponseProtocol?) -> Void
-    )
+    ) -> CoreSearchOperationIdentifier
 
     /** @brief Batch retrieve for a list of POI suggestions. */
     func batchResolve(
@@ -67,6 +70,15 @@ protocol CoreSearchEngineProtocol {
         completion: @escaping (CoreSearchResponseProtocol?) -> Void
     )
 
+    // Will always return nil. v2 offline functions do _not_ return a request identifier.
+    @discardableResult
+    func searchOffline(
+        query: String,
+        categories: [String],
+        options: CoreSearchOptions,
+        completion: @escaping (CoreSearchResponseProtocol?) -> Void
+    ) -> CoreSearchOperationIdentifier?
+
     func getOfflineAddress(
         street: String,
         proximity: CLLocationCoordinate2D,
@@ -88,6 +100,10 @@ protocol CoreSearchEngineProtocol {
     func addOfflineIndexObserver(for observer: CoreOfflineIndexObserver)
 
     func removeOfflineIndexObserver(for observer: CoreOfflineIndexObserver)
+
+    /// Cancel an in-progress SearchEngine network request
+    /// - Parameter requestId: The online search query request identifier returned from `search`
+    func cancel(requestId: CoreSearchOperationIdentifier)
 }
 
 extension CoreSearchEngine: CoreSearchEngineProtocol {
@@ -153,14 +169,19 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
         removeUserLayer(for: layer)
     }
 
+    @discardableResult
     func nextSearch(
         for result: CoreSearchResultProtocol,
         with originalRequest: CoreRequestOptions,
         options retrieveOptions: CoreRetrieveOptions,
         callback: @escaping (CoreSearchResponseProtocol?) -> Void
-    ) {
+    ) -> CoreSearchOperationIdentifier {
         if let coreResult = result as? CoreSearchResult {
-            retrieve(forRequest: originalRequest, result: coreResult, retrieveOptions: retrieveOptions) { response in
+            return retrieve(
+                forRequest: originalRequest,
+                result: coreResult,
+                retrieveOptions: retrieveOptions
+            ) { response in
                 DispatchQueue.main.async {
                     callback(response)
                 }
@@ -173,6 +194,7 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
             DispatchQueue.main.async {
                 callback(nil)
             }
+            return CoreSearchOperationIdentifier.max
         }
     }
 
@@ -205,12 +227,13 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
         }
     }
 
+    @discardableResult
     func search(
         forQuery query: String,
         categories: [String],
         options: CoreSearchOptions,
         completion: @escaping (CoreSearchResponseProtocol?) -> Void
-    ) {
+    ) -> CoreSearchOperationIdentifier {
         search(forQuery: query, categories: categories, options: options, callback: { response in
             DispatchQueue.main.async {
                 completion(response)
@@ -229,6 +252,7 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
         })
     }
 
+    /// Wrapped by identical function that returns ``CoreSearchOperationIdentifier?``
     func searchOffline(
         query: String,
         categories: [String],
@@ -240,6 +264,21 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
                 completion(response)
             }
         }
+    }
+
+    @discardableResult
+    func searchOffline(
+        query: String,
+        categories: [String],
+        options: CoreSearchOptions,
+        completion: @escaping (CoreSearchResponseProtocol?) -> Void
+    ) -> CoreSearchOperationIdentifier? {
+        searchOffline(forQuery: query, categories: categories, options: options) { response in
+            DispatchQueue.main.async {
+                completion(response)
+            }
+        }
+        return nil
     }
 
     func getOfflineAddress(
@@ -264,5 +303,9 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
                 completion(response)
             }
         })
+    }
+
+    func cancel(requestId: CoreSearchOperationIdentifier) {
+        cancel(forRequestId: requestId)
     }
 }

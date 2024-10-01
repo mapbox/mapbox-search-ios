@@ -197,10 +197,15 @@ public class SearchEngine: AbstractSearchEngine {
 
     override var dataResolvers: [IndexableDataResolver] { super.dataResolvers + [self] }
 
+    private var cancelTimers: [CoreSearchEngineProtocol.CoreSearchOperationIdentifier: Timer] = [:]
+
     var engineSearchFunction: (String, [String], CoreSearchOptions, @escaping (CoreSearchResponseProtocol?) -> Void)
-        -> Void
+        -> CoreSearchEngineProtocol.CoreSearchOperationIdentifier?
     {
-        offlineMode == .disabled ? engine.search : engine.searchOffline
+        offlineMode == .disabled ?
+            engine.search(forQuery:categories:options:completion:)
+            :
+            engine.searchOffline(query:categories:options:completion:)
     }
 
     var engineReverseGeocodingFunction: (CoreReverseGeoOptions, @escaping (CoreSearchResponseProtocol?) -> Void)
@@ -221,7 +226,7 @@ public class SearchEngine: AbstractSearchEngine {
         assert(offlineMode == .disabled)
 
         let retrieveOptions = retrieveOptions ?? RetrieveOptions(attributeSets: nil)
-        engine.nextSearch(
+        _ = engine.nextSearch(
             for: responseProvider.originalResponse.coreResult,
             with: responseProvider.originalResponse.requestOptions,
             options: retrieveOptions.toCore()
@@ -230,6 +235,8 @@ public class SearchEngine: AbstractSearchEngine {
         }
     }
 
+    /// Typical search function entry point that will run for as long as it needs.
+    /// - Parameter options: Query options to narrow or customize the search. Recommended for more precise results.
     private func startSearch(options: SearchOptions? = nil) {
         guard let queryValueString = queryValue.stringQuery else {
             assertionFailure()
@@ -238,9 +245,50 @@ public class SearchEngine: AbstractSearchEngine {
 
         let options = options?.merged(defaultSearchOptions) ?? defaultSearchOptions
 
-        engineSearchFunction(queryValueString, [], options.toCore(apiType: engineApi)) { [weak self] response in
+        // For this existing v2.0.0 implementation, skip the request identifier
+        _ = engineSearchFunction(queryValueString, [], options.toCore(apiType: engineApi)) { [weak self] response in
             self?.processResponse(response, suggestion: nil)
         }
+    }
+
+    /// Typical search function entry point that will run for as long as it needs.
+    /// - Parameter options: Query options to narrow or customize the search. Recommended for more precise results.
+    private func startSearch(options: SearchOptions? = nil, timeout: SearchTimeoutOptions) {
+        guard let queryValueString = queryValue.stringQuery else {
+            assertionFailure()
+            return
+        }
+
+        let options = options?.merged(defaultSearchOptions) ?? defaultSearchOptions
+
+        let requestIdentifier = engineSearchFunction(
+            queryValueString,
+            [],
+            options.toCore(apiType: engineApi)
+        ) { [weak self] response in
+            self?.processResponse(response, suggestion: nil)
+        }
+
+        guard let requestIdentifier else {
+            if offlineMode == .disabled {
+                assertionFailure(
+                    "Could not unwrap a request identifier for an online search request. Online searches must always return a request identifier."
+                )
+            }
+            return
+        }
+
+        let requestTimer = Timer(timeInterval: timeout.timeoutDuration, repeats: false) { [weak self] timer in
+            guard self?.cancelTimers[requestIdentifier] == timer else {
+                // Skip this cancel invocation because it has already been removed from the tracked-pending cancel
+                // timers.
+                return
+            }
+            self?.engine.cancel(requestId: requestIdentifier)
+            timeout.cancelationBlock()
+            self?.cancelTimers.removeValue(forKey: requestIdentifier)
+        }
+        cancelTimers[requestIdentifier] = requestTimer
     }
 
     private func processBatchResponse(_ coreResponse: CoreSearchResponseProtocol?) {
@@ -381,6 +429,26 @@ extension SearchEngine {
         queryValue = .string(query)
 
         startSearch(options: options)
+    }
+
+    /// Start searching for query with provided options including a cancellation-timeout block
+    /// - Parameters:
+    ///   - query: query string to search
+    ///   - options: if no value provided Search Engine will use options from requestOptions field
+    ///   - timeout: A wrapper with a duration and cancelationBlock, any query not completed by timeoutDuration will be
+    /// cancelled and execute the cancelationBlock. A successful query will _not_ invoke the cancelationBlock.
+    public func search(query: String, options: SearchOptions? = nil, timeout: SearchTimeoutOptions) {
+        precondition(delegate != nil, "Assign delegate to use \(SearchEngine.self) search functionality")
+
+        if offlineMode == .enabled {
+            userActivityReporter.reportActivity(forComponent: "offline-search-engine-forward-geocoding")
+        } else {
+            userActivityReporter.reportActivity(forComponent: "search-engine-forward-geocoding-suggestions")
+        }
+
+        queryValue = .string(query)
+
+        startSearch(options: options, timeout: timeout)
     }
 
     /// Select one of the provided `SearchSuggestion`'s.
