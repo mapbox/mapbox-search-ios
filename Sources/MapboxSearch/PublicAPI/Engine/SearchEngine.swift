@@ -528,6 +528,7 @@ extension SearchEngine {
 
     /// Search non-interactively to receive search results with coordinates and metadata.
     /// This function will not return type-ahead suggestions (such as brand or category nested results).
+    /// Forward is only compatible with ``ApiType/searchBox``.
     /// Documentation at https://docs.mapbox.com/api/search/search-box/#search-request
     /// - Parameters:
     ///   - query: The search text.
@@ -535,12 +536,14 @@ extension SearchEngine {
     ///   - completion: A block to execute when results or errors are received.
     public func forward(
         query: String,
-        options: SearchOptions,
+        options: SearchOptions? = nil,
         completion: @escaping (Result<[SearchResult], SearchError>) -> Void
     ) {
         assert(Thread.isMainThread)
+        assert(apiType == .searchBox)
 
         // Request identifier is ignored
+        let options = options ?? SearchOptions()
         _ = engine.forward(query: query, options: options.toCore()) { [weak self] response in
             guard let self else {
                 assertionFailure("Owning object was deallocated")
