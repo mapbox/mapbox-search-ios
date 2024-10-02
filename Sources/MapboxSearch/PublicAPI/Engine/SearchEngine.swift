@@ -289,6 +289,7 @@ public class SearchEngine: AbstractSearchEngine {
             self?.cancelTimers.removeValue(forKey: requestIdentifier)
         }
         cancelTimers[requestIdentifier] = requestTimer
+        RunLoop.main.add(requestTimer, forMode: .common)
     }
 
     private func processBatchResponse(_ coreResponse: CoreSearchResponseProtocol?) {
