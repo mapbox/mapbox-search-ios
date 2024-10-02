@@ -6,26 +6,12 @@ import Foundation
 /// when the timeoutDuration has passed then the search will be canceled and the cancelationBlock will be invoked.
 /// In the event of a successful search query the cancelationBlock will _not_ be invoked.
 public struct SearchTimeoutOptions: Sendable {
-    var timeoutDuration: TimeInterval
+    public var timeoutDuration: TimeInterval
 
-    var cancelationBlock: @Sendable () -> Void
+    public var cancelationBlock: @Sendable () -> Void
+
+    public init(timeoutDuration: TimeInterval, cancelationBlock: @escaping @Sendable () -> Void) {
+        self.timeoutDuration = timeoutDuration
+        self.cancelationBlock = cancelationBlock
+    }
 }
-
-/*
-  // Fails due to access control
- class TimeoutSearchEngine: SearchEngine {
-     public func search(query: String, options: SearchOptions? = nil, timeout: SearchTimeoutOptions) {
-         precondition(delegate != nil, "Assign delegate to use \(SearchEngine.self) search functionality")
-
-         if offlineMode == .enabled {
-             userActivityReporter.reportActivity(forComponent: "offline-search-engine-forward-geocoding")
-         } else {
-             userActivityReporter.reportActivity(forComponent: "search-engine-forward-geocoding-suggestions")
-         }
-
-         queryValue = .string(query)
-
-         startSearch(options: options)
-     }
- }
- */
