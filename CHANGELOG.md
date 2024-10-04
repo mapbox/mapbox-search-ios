@@ -8,6 +8,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Search] Add forward(query:options:completion:) function to search forward/ API endpoint.
+
 ## 2.5.0
 
 - [Search] Add SearchSuggestType.brand
