@@ -79,6 +79,13 @@ protocol CoreSearchEngineProtocol {
         completion: @escaping (CoreSearchResponseProtocol?) -> Void
     )
 
+    @discardableResult
+    func forward(
+        query: String,
+        options: CoreSearchOptions,
+        completion: @escaping (CoreSearchResponseProtocol?) -> Void
+    ) -> UInt64
+
     func setTileStore(_ tileStore: MapboxCommon.TileStore, completion: (() -> Void)?)
 
     func setTileStore(_ tileStore: MapboxCommon.TileStore)
@@ -260,6 +267,19 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
         completion: @escaping (CoreSearchResponseProtocol?) -> Void
     ) {
         reverseGeocodingOffline(for: options, callback: { response in
+            DispatchQueue.main.async {
+                completion(response)
+            }
+        })
+    }
+
+    @discardableResult
+    func forward(
+        query: String,
+        options: CoreSearchOptions,
+        completion: @escaping (CoreSearchResponseProtocol?) -> Void
+    ) -> UInt64 {
+        forward(forQuery: query, options: options, callback: { response in
             DispatchQueue.main.async {
                 completion(response)
             }
