@@ -62,6 +62,7 @@
 		04C0848D2B4C82F3002F9C69 /* SdkInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0848C2B4C82F3002F9C69 /* SdkInformation.swift */; };
 		04C127552B62F6BC00884325 /* ApiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C127542B62F6BC00884325 /* ApiType.swift */; };
 		04C127582B62FFDB00884325 /* ApiType+Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C127572B62FFDB00884325 /* ApiType+Core.swift */; };
+		04C8FF8A2CB5A0FF0054C0A7 /* ForwardExampleDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8FF892CB5A0FF0054C0A7 /* ForwardExampleDetails.swift */; };
 		04CECA012C3EE28B007117E4 /* ResultDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA002C3EE28B007117E4 /* ResultDetailViewController.swift */; };
 		04CECA092C3EFAAF007117E4 /* MapboxMapsCategoryResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA032C3EFAAF007117E4 /* MapboxMapsCategoryResultsViewController.swift */; };
 		04CECA0A2C3EFAAF007117E4 /* SimpleCategorySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CECA042C3EFAAF007117E4 /* SimpleCategorySearchViewController.swift */; };
@@ -583,6 +584,7 @@
 		04C0848C2B4C82F3002F9C69 /* SdkInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkInformation.swift; sourceTree = "<group>"; };
 		04C127542B62F6BC00884325 /* ApiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiType.swift; sourceTree = "<group>"; };
 		04C127572B62FFDB00884325 /* ApiType+Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiType+Core.swift"; sourceTree = "<group>"; };
+		04C8FF892CB5A0FF0054C0A7 /* ForwardExampleDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForwardExampleDetails.swift; sourceTree = "<group>"; };
 		04CECA002C3EE28B007117E4 /* ResultDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailViewController.swift; sourceTree = "<group>"; };
 		04CECA032C3EFAAF007117E4 /* MapboxMapsCategoryResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapboxMapsCategoryResultsViewController.swift; path = Sources/Demo/Examples/MapboxMapsCategoryResultsViewController.swift; sourceTree = SOURCE_ROOT; };
 		04CECA042C3EFAAF007117E4 /* SimpleCategorySearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleCategorySearchViewController.swift; path = Sources/Demo/Examples/SimpleCategorySearchViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -1114,6 +1116,7 @@
 			children = (
 				0498A7422CB48683008F8903 /* ForwardExampleViewController.swift */,
 				046D17122CB586F50038F38E /* ForwardExample.swift */,
+				04C8FF892CB5A0FF0054C0A7 /* ForwardExampleDetails.swift */,
 				046D17142CB587190038F38E /* ForwardExampleSearchEngine.swift */,
 			);
 			name = Forward;
@@ -2927,6 +2930,7 @@
 				04CECA0A2C3EFAAF007117E4 /* SimpleCategorySearchViewController.swift in Sources */,
 				1440BF4D28FD75A9009B3679 /* AddressAutofillMainViewController.swift in Sources */,
 				04CECA012C3EE28B007117E4 /* ResultDetailViewController.swift in Sources */,
+				04C8FF8A2CB5A0FF0054C0A7 /* ForwardExampleDetails.swift in Sources */,
 				041DAFD92BCDA45B0071F9EB /* DiscoverViewController.swift in Sources */,
 				046D17152CB587190038F38E /* ForwardExampleSearchEngine.swift in Sources */,
 				04CECA0B2C3EFAAF007117E4 /* ContinuousSearchViewController.swift in Sources */,

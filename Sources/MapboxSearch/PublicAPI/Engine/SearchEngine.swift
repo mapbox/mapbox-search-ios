@@ -209,6 +209,13 @@ public class SearchEngine: AbstractSearchEngine {
         offlineMode == .disabled ? engine.reverseGeocoding : engine.reverseGeocodingOffline
     }
 
+    /// Part two of a "suggest+select" / "search+retrieve" combination: retrieve the full data about a POI or other
+    /// suggestion.
+    /// - Parameters:
+    ///   - suggestion: The original category, query, brand, or result suggestion returned from a
+    /// ``SearchEngine/search(query:options:)`` "suggest" query.
+    ///   - retrieveOptions: Additional retrieve parameters to customize results. Options values may have billing
+    /// implications.
     func retrieve(
         suggestion: SearchSuggestion,
         retrieveOptions: RetrieveOptions?
@@ -228,6 +235,24 @@ public class SearchEngine: AbstractSearchEngine {
         ) { [weak self] serverResponse in
             self?.processResponse(serverResponse, suggestion: suggestion)
         }
+    }
+
+    /// Part two of a forward/ + retrieve combination: retrieve the full data about a forward/ result POI.
+    func retrieve(
+        forwardResult: ServerSearchResult,
+        retrieveOptions: RetrieveOptions?,
+        completion: @escaping (CoreSearchResponseProtocol?) -> Void
+    ) {
+        assert(offlineMode == .disabled)
+
+        let retrieveOptions = retrieveOptions ?? RetrieveOptions(attributeSets: nil)
+
+        engine.nextSearch(
+            for: forwardResult.originalResponse.coreResult,
+            with: forwardResult.originalResponse.requestOptions,
+            options: retrieveOptions.toCore(),
+            callback: completion
+        )
     }
 
     private func startSearch(options: SearchOptions? = nil) {
@@ -569,6 +594,31 @@ extension SearchEngine {
                 let wrappedError = SearchError.searchRequestFailed(reason: responseError)
 
                 completion(.failure(wrappedError))
+            }
+        }
+    }
+
+    public func select(
+        forwardResult: SearchResult,
+        retrieveOptions: RetrieveOptions? = nil,
+        completion: @escaping (Result<SearchResult, SearchError>) -> Void
+    ) {
+        guard let responseProvider = forwardResult as? ServerSearchResult else {
+            assertionFailure()
+            return
+        }
+
+        retrieve(forwardResult: responseProvider, retrieveOptions: retrieveOptions) { coreSearchResponse in
+            if let coreSearchResponse,
+               case .success(let coreSearchResult) = coreSearchResponse.result,
+               let firstResult = coreSearchResult.first,
+               let retrieveResult = ServerSearchResult(coreResult: firstResult, response: coreSearchResponse)
+            {
+                completion(.success(retrieveResult))
+            } else if case .failure(let error) = coreSearchResponse?.result {
+                completion(.failure(error))
+            } else {
+                completion(.failure(SearchError.responseProcessingFailed))
             }
         }
     }

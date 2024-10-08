@@ -21,10 +21,14 @@ struct ForwardExample: View {
             }.padding()
             if let results = observableSearchEngine.queryResult.results {
                 List(results, id: \.id) { item in
-                    VStack(alignment: .leading) {
-                        Text(item.name.trimmingCharacters(in: .whitespaces))
-                        Text(item.address?.formattedAddress(style: .short) ?? "")
-                            .font(.caption)
+                    NavigationLink {
+                        ForwardExampleDetails(searchResult: item)
+                    } label: {
+                        VStack(alignment: .leading) {
+                            Text(item.name.trimmingCharacters(in: .whitespaces))
+                            Text(item.address?.formattedAddress(style: .short) ?? "")
+                                .font(.caption)
+                        }
                     }
                 }
             }
