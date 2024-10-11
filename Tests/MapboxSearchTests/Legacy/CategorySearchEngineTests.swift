@@ -56,6 +56,8 @@ class CategorySearchEngineTests: XCTestCase {
             switch result {
             case .success(let searchResults):
                 results = searchResults
+                let matchingNames = searchResults.compactMap(\.matchingName)
+                XCTAssertTrue(matchingNames.isEmpty)
                 expectation.fulfill()
             case .failure:
                 assertionFailure("Error not expected")

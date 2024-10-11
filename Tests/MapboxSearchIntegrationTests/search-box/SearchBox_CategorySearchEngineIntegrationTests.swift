@@ -25,6 +25,8 @@ final class SearchBox_CategorySearchEngineIntegrationTests: MockServerIntegratio
             switch result {
             case .success(let searchResults):
                 XCTAssertFalse(searchResults.isEmpty)
+                let matchingNames = searchResults.compactMap(\.matchingName)
+                XCTAssertTrue(matchingNames.isEmpty)
                 expectation.fulfill()
             case .failure:
                 XCTFail("Error not expected")
