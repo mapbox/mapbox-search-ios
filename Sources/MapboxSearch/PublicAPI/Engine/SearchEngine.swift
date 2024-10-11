@@ -243,6 +243,7 @@ public class SearchEngine: AbstractSearchEngine {
         }
     }
 
+    // NOTE: SearchBox does not support batch responses.
     private func processBatchResponse(_ coreResponse: CoreSearchResponseProtocol?) {
         guard let coreResponse else {
             eventsManager.reportError(.responseProcessingFailed)
@@ -443,9 +444,12 @@ extension SearchEngine {
     /// All suggestions must originate from the same search request.
     /// Suggestions with other types will be ignored. You can use `SearchSuggestion.batchResolveSupported` field for
     /// filtering.
+    /// SearchBox does _not_ support batch requests.
     /// - Parameter suggestions: suggestions list to resolve. All suggestions must originate from the same search
     /// request.
     public func select(suggestions: [SearchSuggestion]) {
+        assert(apiType == .geocoding || apiType == .SBS, "Only geocoding and SBS API types support batch results.")
+
         for suggestion in suggestions {
             let supported = (suggestion as? CoreResponseProvider)?.originalResponse.coreResult.action?.multiRetrievable
                 == true

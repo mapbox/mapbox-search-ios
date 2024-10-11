@@ -143,40 +143,6 @@ class SearchBox_SearchEngineIntegrationTests: MockServerIntegrationTestCase<Sear
         XCTAssertNil(delegate.resolvedResult)
     }
 
-    func testBatchResolve() throws {
-        try server.setResponse(.multiRetrieve)
-
-        let results = CoreSearchResultStub.makeMixedResultsSet().map(\.asCoreSearchResult)
-        let coreResponse = CoreSearchResponseStub.successSample(results: results)
-
-        let suggestions = CoreSearchResultStub.makeSuggestionsSet().map(\.asCoreSearchResult).compactMap {
-            SearchResultSuggestionImpl(coreResult: $0, response: coreResponse)
-        }
-
-        let expectation = delegate.batchUpdateExpectation
-        searchEngine.select(suggestions: suggestions)
-
-        wait(for: [expectation], timeout: 10)
-        XCTAssertFalse(delegate.resolvedResults.isEmpty)
-    }
-
-    func testBatchResolveFailed() throws {
-        try server.setResponse(.multiRetrieve, statusCode: 500)
-
-        let results = CoreSearchResultStub.makeMixedResultsSet().map(\.asCoreSearchResult)
-        let coreResponse = CoreSearchResponseStub.successSample(results: results)
-
-        let suggestions = CoreSearchResultStub.makeSuggestionsSet().map(\.asCoreSearchResult).compactMap {
-            SearchResultSuggestionImpl(coreResult: $0, response: coreResponse)
-        }
-
-        let expectation = delegate.errorExpectation
-        searchEngine.select(suggestions: suggestions)
-
-        wait(for: [expectation], timeout: 10)
-        XCTAssert(delegate.error?.errorCode == 500)
-    }
-
     func testSuggestionTypeQuery() throws {
         try server.setResponse(.recursion)
         try server.setResponse(.retrieveRecursion)
