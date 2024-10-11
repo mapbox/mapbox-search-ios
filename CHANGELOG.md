@@ -8,6 +8,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [SearchResult] Mark `matchingName` field as deprecated and add note for absence of values in ApiType.searchBox results.
 - [Demo] Add example for forward(query:options:completion:) to Demo app using SwiftUI.
 - [Search] Add forward(query:options:completion:) function to search forward/ API endpoint.
 

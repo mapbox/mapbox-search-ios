@@ -11,11 +11,9 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     /// A unique identifier for the geographic feature
     public var mapboxId: String?
 
-    /**
-         The feature name, as matched by the search algorithm.
-
-         - Warning: The field is exposed for compatibility only, will be removed soon.
-     */
+    /// The feature name, as matched by the search algorithm.
+    /// Not available in ``ApiType/searchBox`` results.
+    /// - Warning: The field is exposed for compatibility only and should be considered deprecated.
     public var matchingName: String?
 
     /// address formatted with medium style.

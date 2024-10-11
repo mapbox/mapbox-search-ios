@@ -33,11 +33,9 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     /// A point accuracy metric for the returned address.
     public let accuracy: SearchResultAccuracy?
 
-    /**
-         The feature name, as matched by the search algorithm.
-
-         - Warning: The field is exposed for compatibility only, will be removed soon.
-     */
+    /// The feature name, as matched by the search algorithm.
+    /// Not available in ``ApiType/searchBox`` results.
+    /// - Warning: The field is exposed for compatibility only and should be considered deprecated.
     public private(set) var matchingName: String?
 
     /// Address formatted with medium style

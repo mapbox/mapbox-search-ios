@@ -21,6 +21,9 @@ protocol CoreSearchResultProtocol {
 
     var addressDescription: String? { get }
 
+    /// The feature name, as matched by the search algorithm.
+    /// Not available in ``ApiType/searchBox`` results.
+    /// - Warning: The field is exposed for compatibility only and should be considered deprecated.
     var matchingName: String? { get }
 
     var centerLocation: CLLocation? { get }
