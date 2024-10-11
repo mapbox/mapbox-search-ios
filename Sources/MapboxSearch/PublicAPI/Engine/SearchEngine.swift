@@ -458,8 +458,6 @@ extension SearchEngine {
             .compactMap { $0 as? CoreResponseProvider }
             .filter { $0.originalResponse.coreResult.action?.multiRetrievable == true }
 
-        // let coreSearchResults = suggestionsImpls.compactMap { $0.originalResponse.coreResult }
-
         guard suggestionsImpls.isEmpty == false else {
             return
         }
