@@ -28,6 +28,8 @@ public protocol SearchResult {
     var coordinate: CLLocationCoordinate2D { get }
 
     /// The feature name, as matched by the search algorithm.
+    /// Not available in ``ApiType/searchBox`` results.
+    /// - Warning: The field is exposed for compatibility only and should be considered deprecated.
     var matchingName: String? { get }
 
     /// Result address.
