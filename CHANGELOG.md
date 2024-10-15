@@ -10,8 +10,14 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 - [SearchResult] Mark `matchingName` field as deprecated and add note for absence of values in ApiType.searchBox results.
 - [SearchEngine] Add documentation and assertion that ApiType.searchBox does _not_ support batch requests.
+
+## 2.5.1
+
 - [Demo] Add example for forward(query:options:completion:) to Demo app using SwiftUI.
 - [Search] Add forward(query:options:completion:) function to search forward/ API endpoint.
+
+**MapboxCommon**: v24.7.0
+**MapboxCoreSearch**: v2.5.1
 
 ## 2.5.0
 
