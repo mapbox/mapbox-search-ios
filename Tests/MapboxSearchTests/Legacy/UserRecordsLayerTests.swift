@@ -70,10 +70,19 @@ final class SearchBox_UserRecordsLayerTests: XCTestCase {
         wait(for: [setTileStoreExpectation], timeout: 10)
 
         // Set up index observer before the fetch starts to validate changes after it completes
-        let indexChangedExpectation = expectation(description: "Received offline index changed event")
+        let indexChanged_AddedExpectation = expectation(description: "Received offline index changed event, type=added")
+        let indexChanged_UpdatedExpectation =
+            expectation(description: "Received offline index changed event, type=updated")
         let offlineIndexObserver = OfflineIndexObserver(onIndexChangedBlock: { changeEvent in
             _Logger.searchSDK.info("Index changed: \(changeEvent)")
-            indexChangedExpectation.fulfill()
+            switch changeEvent.type {
+            case .added:
+                indexChanged_AddedExpectation.fulfill()
+            case .updated:
+                indexChanged_UpdatedExpectation.fulfill()
+            default:
+                return
+            }
         }, onErrorBlock: { error in
             _Logger.searchSDK.error("Encountered error in OfflineIndexObserver \(error)")
             XCTFail(error.debugDescription)
@@ -94,7 +103,7 @@ final class SearchBox_UserRecordsLayerTests: XCTestCase {
             loadDataExpectation.fulfill()
         }
         wait(
-            for: [loadDataExpectation, indexChangedExpectation],
+            for: [indexChanged_AddedExpectation, indexChanged_UpdatedExpectation, loadDataExpectation],
             timeout: 200,
             enforceOrder: true
         )
