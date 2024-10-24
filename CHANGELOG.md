@@ -8,6 +8,13 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+## 2.6.0-rc.1
+
+- [Core] Update dependencies
+
+**MapboxCommon**: v24.8.0-rc.1
+**MapboxCoreSearch**: v2.6.0-rc.1
+
 ## 2.6.0-beta.1
 
 - [SearchResult] Mark `matchingName` field as deprecated and add note for absence of values in ApiType.searchBox results.
