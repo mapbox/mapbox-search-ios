@@ -23,4 +23,16 @@ public struct ResultChildMetadata: Codable, Hashable {
         }
         self.name = resultChildMetadata.name
     }
+
+    public init(
+        category: String? = nil,
+        coordinate: CLLocationCoordinate2D? = nil,
+        mapboxId: String,
+        name: String? = nil
+    ) {
+        self.category = category
+        self.coordinatesCodable = coordinate.map(CLLocationCoordinate2DCodable.init)
+        self.mapboxId = mapboxId
+        self.name = name
+    }
 }
