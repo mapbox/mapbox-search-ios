@@ -8,6 +8,11 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [Core] Update dependencies
+
+**MapboxCommon**: v24.8.0
+**MapboxCoreSearch**: v2.6.0
+
 ## 2.6.0-rc.1
 
 - [Core] Update dependencies
