@@ -28,13 +28,13 @@ public struct ResultChildMetadata: Codable, Hashable {
     /// and a required `mapboxId`.
     ///
     /// - Parameters:
+    ///   - mapboxId: A required `String` that uniquely identifies the Mapbox object. This is a required
+    ///     parameter and must be provided during initialization.
+    ///   - name: An optional `String` representing the name of the result.
     ///   - category: An optional `String` representing the category of the result.
     ///   - coordinate: An optional `CLLocationCoordinate2D` representing the geographical location
     ///     associated with the result. If provided, it is transformed to a `CLLocationCoordinate2DCodable`
     ///     instance for storage.
-    ///   - mapboxId: A required `String` that uniquely identifies the Mapbox object. This is a required
-    ///     parameter and must be provided during initialization.
-    ///   - name: An optional `String` representing the name of the result.
     public init(
         mapboxId: String,
         name: String? = nil,
