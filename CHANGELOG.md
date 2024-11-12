@@ -10,6 +10,13 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 - [ResultChildMetadata] Add ResultChildMetadata.init(category:coordinate:mapboxId:name)
 
+## 2.6.0
+
+- [Core] Update dependencies
+
+**MapboxCommon**: v24.8.0
+**MapboxCoreSearch**: v2.6.0
+
 ## 2.6.0-rc.1
 
 - [Core] Update dependencies
