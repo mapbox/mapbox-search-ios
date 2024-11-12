@@ -109,9 +109,10 @@ public class FeedbackManager {
         root["results"] = searchResults
         root["multiStepSearch"] = !isReproducible
 
-        let searchResultsJSON = (try? JSONSerialization.data(withJSONObject: root, options: [])).flatMap { String(
-            decoding: $0, as: UTF8.self
-        ) }
+        let searchResultsJSON = (try? JSONSerialization.data(withJSONObject: root, options: [])).flatMap {
+            String(data: $0, encoding: .utf8)
+        }
+
         return searchResultsJSON
     }
 
