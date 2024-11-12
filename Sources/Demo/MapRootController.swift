@@ -50,7 +50,11 @@ class MapRootController: UIViewController {
         annotationsManager.annotations = results.map { result in
             var point = PointAnnotation(coordinate: result.coordinate)
             point.textField = result.name
-            UIImage(named: "pin").map { point.image = .init(image: $0, name: "pin") }
+            UIImage(named: "pin").map {
+                point.iconAnchor = .bottom
+                point.textAnchor = .top
+                point.image = .init(image: $0, name: "pin")
+            }
 
             // Present a detail view upon annotation tap
             point.tapHandler = { [weak self] _ in
