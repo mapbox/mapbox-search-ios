@@ -8,6 +8,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+- [ResultChildMetadata] Add ResultChildMetadata.init(category:coordinate:mapboxId:name)
 - [Core] Update dependencies
 
 **MapboxCommon**: v24.8.0
