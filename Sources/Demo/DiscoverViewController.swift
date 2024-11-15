@@ -114,17 +114,7 @@ extension DiscoverViewController {
 
     private func showCategoryResults(_ results: [Discover.Result], cameraShouldFollow: Bool = true) {
         annotationsManager.annotations = results.map {
-            var point = PointAnnotation(coordinate: $0.coordinate)
-            point.textField = $0.name
-
-            /// Display a corresponding Maki icon for this Result when available
-            if let name = $0.makiIcon, let maki = Maki(rawValue: name) {
-                point.image = .init(image: maki.icon, name: maki.name)
-                point.iconOpacity = 0.6
-                point.iconAnchor = .bottom
-            }
-
-            return point
+            PointAnnotation.pointAnnotation($0)
         }
 
         if cameraShouldFollow {
