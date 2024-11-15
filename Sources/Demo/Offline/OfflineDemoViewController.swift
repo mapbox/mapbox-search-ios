@@ -7,7 +7,7 @@ import UIKit
 /// Demonstrate how to use Offline Search in the Demo app
 class OfflineDemoViewController: UIViewController {
     private var mapView = MapView(frame: .zero)
-    lazy var annotationsManager = mapView.annotations.makePointAnnotationManager()
+    lazy var annotationsManager = mapView.makeClusterPointAnnotationManager()
     private var messageLabel = UILabel()
 
     private lazy var searchController = MapboxSearchController()

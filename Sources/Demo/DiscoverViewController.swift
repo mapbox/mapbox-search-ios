@@ -8,7 +8,7 @@ final class DiscoverViewController: UIViewController {
     @IBOutlet private var segmentedControl: UISegmentedControl!
 
     private let category = Discover()
-    lazy var annotationsManager = mapView.annotations.makePointAnnotationManager()
+    lazy var annotationsManager = mapView.makeClusterPointAnnotationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()

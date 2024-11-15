@@ -150,6 +150,7 @@
 		2C18E9F429F0A83900FD96E6 /* PlaceAutocompleteSuggestionStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C18E9F229F0A82E00FD96E6 /* PlaceAutocompleteSuggestionStub.swift */; };
 		2C705F062A137CEB00B8B773 /* SearchNavigationProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C705F052A137CEB00B8B773 /* SearchNavigationProfile.swift */; };
 		2C7FEBFA2CE78E6300B7ED22 /* PointAnnotation+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7FEBF92CE78E6300B7ED22 /* PointAnnotation+Search.swift */; };
+		2C7FEBFC2CE7A62C00B7ED22 /* MapView+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7FEBFB2CE7A62C00B7ED22 /* MapView+Search.swift */; };
 		2CA1E22129F09CD200A533CF /* PlaceAutocomplete.Suggestion+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1E22029F09CD200A533CF /* PlaceAutocomplete.Suggestion+Tests.swift */; };
 		2CA1E22329F0A47600A533CF /* PlaceAutocompleteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1E22229F0A47600A533CF /* PlaceAutocompleteTests.swift */; };
 		2CD6C03C29F1982100D865D1 /* EventsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6C03B29F1982100D865D1 /* EventsManagerTests.swift */; };
@@ -664,6 +665,7 @@
 		2C18E9F229F0A82E00FD96E6 /* PlaceAutocompleteSuggestionStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAutocompleteSuggestionStub.swift; sourceTree = "<group>"; };
 		2C705F052A137CEB00B8B773 /* SearchNavigationProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchNavigationProfile.swift; sourceTree = "<group>"; };
 		2C7FEBF92CE78E6300B7ED22 /* PointAnnotation+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PointAnnotation+Search.swift"; sourceTree = "<group>"; };
+		2C7FEBFB2CE7A62C00B7ED22 /* MapView+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Search.swift"; sourceTree = "<group>"; };
 		2CA1E22029F09CD200A533CF /* PlaceAutocomplete.Suggestion+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceAutocomplete.Suggestion+Tests.swift"; sourceTree = "<group>"; };
 		2CA1E22229F0A47600A533CF /* PlaceAutocompleteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAutocompleteTests.swift; sourceTree = "<group>"; };
 		2CD6C03B29F1982100D865D1 /* EventsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsManagerTests.swift; sourceTree = "<group>"; };
@@ -1572,6 +1574,7 @@
 			isa = PBXGroup;
 			children = (
 				2C7FEBF92CE78E6300B7ED22 /* PointAnnotation+Search.swift */,
+				2C7FEBFB2CE7A62C00B7ED22 /* MapView+Search.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -2954,6 +2957,7 @@
 				0498A7442CB486AE008F8903 /* ForwardExampleViewController.swift in Sources */,
 				04CECA132C3EFAB9007117E4 /* Examples.swift in Sources */,
 				04CECA092C3EFAAF007117E4 /* MapboxMapsCategoryResultsViewController.swift in Sources */,
+				2C7FEBFC2CE7A62C00B7ED22 /* MapView+Search.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

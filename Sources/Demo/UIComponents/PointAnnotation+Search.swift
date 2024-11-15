@@ -17,8 +17,8 @@ extension PointAnnotation {
     }
 
     static func pointAnnotation(_ searchResult: Discover.Result) -> Self {
-        var point = Self.pointAnnotation(coordinate: searchResult.coordinate, name: searchResult.name)
-        
+        var point = Self.pointAnnotation(coordinate: searchResult.coordinate, name: searchResult.name, imageName: nil)
+
         /// Display a corresponding Maki icon for this Result when available
         if let name = searchResult.makiIcon, let maki = Maki(rawValue: name) {
             point.image = .init(image: maki.icon, name: maki.name)
@@ -28,16 +28,20 @@ extension PointAnnotation {
         }
         return point
     }
-    
-    static func pointAnnotation(coordinate: CLLocationCoordinate2D, name: String) -> Self {
+
+    static func pointAnnotation(
+        coordinate: CLLocationCoordinate2D,
+        name: String,
+        imageName: String? = "pin"
+    ) -> Self {
         var point = PointAnnotation(coordinate: coordinate)
         point.textField = name
         point.textHaloColor = .init(.white)
         point.textHaloWidth = 10
-        UIImage(named: "pin").map {
+        if let imageName, let image = UIImage(named: "pin") {
             point.iconAnchor = .bottom
             point.textAnchor = .top
-            point.image = .init(image: $0, name: "pin")
+            point.image = .init(image: image, name: "pin")
         }
         return point
     }

@@ -58,7 +58,7 @@ class ResultDetailViewController: UIViewController {
         ])
 
         /// Add annotations and set camera
-        let annotationsManager = mapView.annotations.makePointAnnotationManager()
+        let annotationsManager = mapView.makeClusterPointAnnotationManager()
         annotationsManager.annotations = [result].map {
             PointAnnotation.pointAnnotation($0)
         }

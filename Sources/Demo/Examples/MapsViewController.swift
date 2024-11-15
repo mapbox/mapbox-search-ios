@@ -4,7 +4,7 @@ import UIKit
 
 class MapsViewController: UIViewController, ExampleController {
     let mapView = MapView(frame: .zero)
-    lazy var annotationsManager = mapView.annotations.makePointAnnotationManager()
+    lazy var annotationsManager = mapView.makeClusterPointAnnotationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()

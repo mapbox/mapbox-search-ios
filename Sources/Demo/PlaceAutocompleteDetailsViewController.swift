@@ -6,7 +6,7 @@ import UIKit
 final class PlaceAutocompleteResultViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var mapView: MapView!
-    lazy var annotationsManager = mapView.annotations.makePointAnnotationManager()
+    lazy var annotationsManager = mapView.makeClusterPointAnnotationManager()
 
     private var result: PlaceAutocomplete.Result!
     private var resultComponents: [(name: String, value: String)] = []
