@@ -10,10 +10,12 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## 2.6.1
 
+- [Core] Fix the OpenHours parsing logic for SearchBox.
+- [Core] Fix the issue with setting OpenHours mode when there is only one open hour period.
 - [ResultChildMetadata] Add ResultChildMetadata.init(category:coordinate:mapboxId:name)
 - [Core] Update dependencies
 
-**MapboxCoreSearch**: v2.6.1
+**MapboxCoreSearch**: v2.6.2
 
 ## 2.6.0
 
