@@ -6,6 +6,7 @@ import UIKit
 final class DiscoverViewController: UIViewController {
     private var mapView = MapView(frame: .zero, mapInitOptions: defaultMapOptions)
     @IBOutlet private var segmentedControl: UISegmentedControl!
+    @IBOutlet private var searchButton: UIButton!
 
     private let category = Discover()
     lazy var annotationsManager = mapView.makeClusterPointAnnotationManager()
@@ -21,7 +22,7 @@ final class DiscoverViewController: UIViewController {
             mapView.topAnchor.constraint(equalTo: view.topAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
 
         // Show user location
@@ -96,11 +97,18 @@ extension DiscoverViewController {
             )
         } else {
             do {
+                let inset: CGFloat = 24
+                let insets = UIEdgeInsets(
+                    top: inset + segmentedControl.frame.height,
+                    left: inset,
+                    bottom: inset + searchButton.frame.height,
+                    right: inset
+                )
                 let cameraState = mapView.mapboxMap.cameraState
                 let coordinatesCamera = try mapView.mapboxMap.camera(
                     for: annotations.map(\.point.coordinates),
                     camera: CameraOptions(cameraState: cameraState),
-                    coordinatesPadding: UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24),
+                    coordinatesPadding: insets,
                     maxZoom: nil,
                     offset: nil
                 )
