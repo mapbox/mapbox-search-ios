@@ -58,12 +58,9 @@ class ResultDetailViewController: UIViewController {
         ])
 
         /// Add annotations and set camera
-        let annotationsManager = mapView.annotations.makePointAnnotationManager()
-        annotationsManager.annotations = [result].map { result in
-            var point = PointAnnotation(coordinate: result.coordinate)
-            point.textField = result.name
-            UIImage(named: "pin").map { point.image = .init(image: $0, name: "pin") }
-            return point
+        let annotationsManager = mapView.makeClusterPointAnnotationManager()
+        annotationsManager.annotations = [result].map {
+            PointAnnotation.pointAnnotation($0)
         }
 
         if let annotation = annotationsManager.annotations.first {
