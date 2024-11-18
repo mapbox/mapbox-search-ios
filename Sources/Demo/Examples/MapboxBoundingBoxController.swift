@@ -4,7 +4,7 @@ import MapboxSearch
 import UIKit
 
 class MapboxBoundingBoxController: MapsViewController {
-    let searchEngine = CategorySearchEngine()
+    let searchEngine = CategorySearchEngine(apiType: .searchBox)
 
     let mapboxSFOfficeCoordinate = CLLocationCoordinate2D(latitude: 37.7911551, longitude: -122.3966103)
 

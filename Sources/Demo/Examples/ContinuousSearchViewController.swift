@@ -2,7 +2,7 @@ import MapboxSearch
 import UIKit
 
 class ContinuousSearchViewController: TextViewLoggerViewController {
-    let searchEngine = SearchEngine()
+    let searchEngine = SearchEngine(apiType: .searchBox)
     let textField = UITextField()
     let responseLabel = UILabel()
 
