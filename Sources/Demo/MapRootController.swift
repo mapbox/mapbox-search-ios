@@ -19,7 +19,7 @@ class MapRootController: UIViewController {
             mapView.topAnchor.constraint(equalTo: view.topAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
 
         // Show user location
@@ -48,13 +48,7 @@ class MapRootController: UIViewController {
 
     func showAnnotations(results: [SearchResult], cameraShouldFollow: Bool = true) {
         annotationsManager.annotations = results.map { result in
-            var point = PointAnnotation(coordinate: result.coordinate)
-            point.textField = result.name
-            UIImage(named: "pin").map {
-                point.iconAnchor = .bottom
-                point.textAnchor = .top
-                point.image = .init(image: $0, name: "pin")
-            }
+            var point = PointAnnotation.pointAnnotation(result)
 
             // Present a detail view upon annotation tap
             point.tapHandler = { [weak self] _ in

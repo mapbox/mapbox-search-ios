@@ -7,7 +7,7 @@ import UIKit
 /// Demonstrate how to use Offline Search in the Demo app
 class OfflineDemoViewController: UIViewController {
     private var mapView = MapView(frame: .zero)
-    lazy var annotationsManager = mapView.annotations.makePointAnnotationManager()
+    lazy var annotationsManager = mapView.makeClusterPointAnnotationManager()
     private var messageLabel = UILabel()
 
     private lazy var searchController = MapboxSearchController()
@@ -103,10 +103,7 @@ class OfflineDemoViewController: UIViewController {
 
     func showAnnotations(results: [SearchResult], cameraShouldFollow: Bool = true) {
         annotationsManager.annotations = results.map {
-            var point = PointAnnotation(coordinate: $0.coordinate)
-            point.textField = $0.name
-            UIImage(named: "pin").map { point.image = .init(image: $0, name: "pin") }
-            return point
+            PointAnnotation.pointAnnotation($0)
         }
 
         if cameraShouldFollow {

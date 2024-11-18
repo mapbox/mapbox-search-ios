@@ -6,9 +6,10 @@ import UIKit
 final class DiscoverViewController: UIViewController {
     private var mapView = MapView(frame: .zero, mapInitOptions: defaultMapOptions)
     @IBOutlet private var segmentedControl: UISegmentedControl!
+    @IBOutlet private var searchButton: UIButton!
 
     private let category = Discover()
-    lazy var annotationsManager = mapView.annotations.makePointAnnotationManager()
+    lazy var annotationsManager = mapView.makeClusterPointAnnotationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,7 @@ final class DiscoverViewController: UIViewController {
             mapView.topAnchor.constraint(equalTo: view.topAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
 
         // Show user location
@@ -96,11 +97,18 @@ extension DiscoverViewController {
             )
         } else {
             do {
+                let inset: CGFloat = 24
+                let insets = UIEdgeInsets(
+                    top: inset + segmentedControl.frame.height,
+                    left: inset,
+                    bottom: inset + searchButton.frame.height,
+                    right: inset
+                )
                 let cameraState = mapView.mapboxMap.cameraState
                 let coordinatesCamera = try mapView.mapboxMap.camera(
                     for: annotations.map(\.point.coordinates),
                     camera: CameraOptions(cameraState: cameraState),
-                    coordinatesPadding: UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24),
+                    coordinatesPadding: insets,
                     maxZoom: nil,
                     offset: nil
                 )
@@ -114,17 +122,7 @@ extension DiscoverViewController {
 
     private func showCategoryResults(_ results: [Discover.Result], cameraShouldFollow: Bool = true) {
         annotationsManager.annotations = results.map {
-            var point = PointAnnotation(coordinate: $0.coordinate)
-            point.textField = $0.name
-
-            /// Display a corresponding Maki icon for this Result when available
-            if let name = $0.makiIcon, let maki = Maki(rawValue: name) {
-                point.image = .init(image: maki.icon, name: maki.name)
-                point.iconOpacity = 0.6
-                point.iconAnchor = .bottom
-            }
-
-            return point
+            PointAnnotation.pointAnnotation($0)
         }
 
         if cameraShouldFollow {
