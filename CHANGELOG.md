@@ -8,6 +8,13 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 <!-- Add changes for active work here -->
 
+## 2.7.0-beta.1
+
+- [Core] Update dependencies
+
+**MapboxCommon**: v24.9.0-beta.1
+**MapboxCoreSearch**: v2.7.0-beta.1
+
 ## 2.6.1
 
 - [Core] Fix the OpenHours parsing logic for SearchBox.
