@@ -37,6 +37,11 @@ public struct SearchOptions {
     /// Limit results to only those contained within the supplied bounding box.
     /// The bounding box cannot cross the 180th meridian.
     public var boundingBox: BoundingBox?
+    
+    /// In case ``SearchOptions/boundingBox`` was applied, places search will look though all available tiles, ignoring bbox.
+    /// Other search types (Address, POI, Category) will no be affected by this setting.
+    /// In case ``SearchOptions/boundingBox`` was not applied - this param will not be used.
+    public var offlineSearchPlacesOutsideBbox: Bool
 
     /// Search origin point. This point is used for calculation of SearchResult ETA and distance fields.
     /// Set appropriate navigationProfile  for better calculation of ETA.
@@ -104,6 +109,7 @@ public struct SearchOptions {
         fuzzyMatch: Bool? = nil,
         proximity: CLLocationCoordinate2D? = nil,
         boundingBox: BoundingBox? = nil,
+        offlineSearchPlacesOutsideBbox: Bool = false,
         origin: CLLocationCoordinate2D? = nil,
         navigationOptions: SearchNavigationOptions? = nil,
         routeOptions: RouteOptions? = nil,
@@ -118,6 +124,7 @@ public struct SearchOptions {
         self.fuzzyMatch = fuzzyMatch
         self.proximity = proximity
         self.boundingBox = boundingBox
+        self.offlineSearchPlacesOutsideBbox = offlineSearchPlacesOutsideBbox
         self.origin = origin
         self.navigationOptions = navigationOptions
         self.routeOptions = routeOptions
@@ -257,7 +264,8 @@ public struct SearchOptions {
             route: routeOptions?.route.coordinates.map(Coordinate2D.init(value:)),
             sarType: routeOptions?.deviation.sarType?.toCore(),
             timeDeviation: timeDeviation,
-            addonAPI: unsafeParameters
+            addonAPI: unsafeParameters,
+            offlineSearchPlacesOutsideBbox: offlineSearchPlacesOutsideBbox
         )
     }
 
