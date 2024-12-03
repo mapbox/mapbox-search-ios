@@ -10,6 +10,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## 2.7.0-beta.1
 
+- [SearchOptions] Add `SearchOptions.offlineSearchPlacesOutsideBbox` option. In case `SearchOptions/boundingBox` was applied, places search will look though all available tiles, ignoring the bounding box if `SearchOptions.offlineSearchPlacesOutsideBbox` was set to `true`.
 - [Core] Update dependencies
 
 **MapboxCommon**: v24.9.0-beta.1

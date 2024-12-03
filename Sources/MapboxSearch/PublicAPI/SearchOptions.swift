@@ -38,8 +38,8 @@ public struct SearchOptions {
     /// The bounding box cannot cross the 180th meridian.
     public var boundingBox: BoundingBox?
     
-    /// In case ``SearchOptions/boundingBox`` was applied, places search will look though all available tiles, ignoring bbox.
-    /// Other search types (Address, POI, Category) will no be affected by this setting.
+    /// In case ``SearchOptions/boundingBox`` was applied, places search will look though all available tiles,
+    /// ignoring the bounding box. Other search types (Address, POI, Category) will no be affected by this setting.
     /// In case ``SearchOptions/boundingBox`` was not applied - this param will not be used.
     public var offlineSearchPlacesOutsideBbox: Bool
 
