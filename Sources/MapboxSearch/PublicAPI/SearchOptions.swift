@@ -265,7 +265,8 @@ public struct SearchOptions {
             sarType: routeOptions?.deviation.sarType?.toCore(),
             timeDeviation: timeDeviation,
             addonAPI: unsafeParameters,
-            offlineSearchPlacesOutsideBbox: offlineSearchPlacesOutsideBbox
+            offlineSearchPlacesOutsideBbox: offlineSearchPlacesOutsideBbox,
+            ensureResultsPerCategory: nil // TODO: Support multiple categories search and ability to ensure results per category.
         )
     }
 
