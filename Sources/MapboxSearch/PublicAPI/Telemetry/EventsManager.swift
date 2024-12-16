@@ -1,4 +1,5 @@
 import Foundation
+import MapboxCommon_Private
 
 /// Report search error or any other to the Mapbox telemetry.
 ///
@@ -19,13 +20,39 @@ public class EventsManager: NSObject {
         }
     }
 
-    /// - Parameter json: EventTemplate from CoreSearchEngine
-    func sendEvent(json: String) {
-        // TODO: Analytics
+    private let eventsService: EventsServiceProtocol
+
+    override convenience init() {
+        let options = EventsServerOptions(
+            sdkInformation: SdkInformation.defaultInfo,
+            deferredDeliveryServiceOptions: nil
+        )
+        let eventsService = EventsService.getOrCreate(for: options)
+        self.init(eventsService: eventsService)
+    }
+
+    init(eventsService: EventsServiceProtocol) {
+        self.eventsService = eventsService
+        super.init()
     }
 
     func sendEvent(_ event: Events, attributes: [String: Any], autoFlush: Bool) {
-        // TODO: Analytics
+        var commonEventAttributes = attributes
+        commonEventAttributes["event"] = event.rawValue
+
+        // This unhandled parameter must be removed to match the event scheme.
+        commonEventAttributes.removeValue(forKey: "mapboxId")
+
+        let commonEvent = Event(priority: autoFlush ? .immediate : .queued,
+                                attributes: commonEventAttributes,
+                                deferredOptions: nil)
+        eventsService.sendEvent(for: commonEvent) { expected in
+            if expected.isError() {
+                _Logger.searchSDK.error("Failed to send the event \(event.rawValue) due to error: \(expected.error.message)")
+            } else if expected.isValue() {
+                _Logger.searchSDK.debug("Sent the event \(event.rawValue)")
+            }
+        }
     }
 
     /// Report an error to Mapbox Search SDK.
@@ -40,28 +67,23 @@ public class EventsManager: NSObject {
         // TODO: Analytics
     }
 
-    /// json string from the core side populate the whole json suitable for the server
-    /// Unfortunately, telemetry SDK doesn't support such kind of event
-    /// Thats why we adopt the raw json to the telemetry-specific API:
-    /// eventName + set of event attributes
-    /// We also have a set of default attributes created automatically: `created` and `userAgent`
-    /// Telemetry SDK is capable to set them on their own
+    /// json string from the core side populate the whole json suitable for the server.
+    /// All the events, exept for the feedback event, are sent from the core side.
     /// - Parameter eventTemplate: feedbackEventTemplate from CoreSearchEngine
-    func prepareEventTemplate(_ eventTemplate: String) throws -> (name: String, attributes: [String: Any]) {
+    func prepareEventTemplate(_ eventTemplate: String) throws -> [String: Any] {
         guard let jsonData = eventTemplate.data(using: .utf8),
-              var jsonObject = try? JSONSerialization.jsonObject(
+              let jsonObject = try? JSONSerialization.jsonObject(
                   with: jsonData,
                   options: [.mutableContainers]
               ) as? [String: Any],
-              let eventName = jsonObject.removeValue(forKey: "event") as? String
+              let eventName = jsonObject["event"] as? String,
+              !eventName.isEmpty
         else {
             reportError(SearchError.incorrectEventTemplate)
             throw SearchError.incorrectEventTemplate
         }
-        jsonObject.removeValue(forKey: "created")
-        jsonObject.removeValue(forKey: "userAgent")
 
-        return (eventName, jsonObject)
+        return jsonObject
     }
 
     func prepareEventTemplate(for event: String) -> [String: Any] {

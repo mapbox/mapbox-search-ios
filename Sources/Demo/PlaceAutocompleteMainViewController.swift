@@ -24,8 +24,8 @@ final class PlaceAutocompleteMainViewController: UIViewController {
 
 extension PlaceAutocompleteMainViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard
-            let text = searchController.searchBar.text
+        guard let text = searchController.searchBar.text,
+              !text.isEmpty
         else {
             cachedSuggestions = []
 

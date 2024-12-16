@@ -10,7 +10,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## 2.7.0-rc.1
 
-- [Core] Update dependencies
+- [Core] Update dependencies.
+- [Tech] Support sending feedback events to Telemetry.
 
 **MapboxCommon**: v24.9.0-rc.1
 **MapboxCoreSearch**: v2.7.0-rc.1
