@@ -151,6 +151,7 @@
 		2C705F062A137CEB00B8B773 /* SearchNavigationProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C705F052A137CEB00B8B773 /* SearchNavigationProfile.swift */; };
 		2C7FEBFA2CE78E6300B7ED22 /* PointAnnotation+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7FEBF92CE78E6300B7ED22 /* PointAnnotation+Search.swift */; };
 		2C7FEBFC2CE7A62C00B7ED22 /* MapView+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7FEBFB2CE7A62C00B7ED22 /* MapView+Search.swift */; };
+		2C88C6532D0C62ED00F46FBF /* EventsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C88C6522D0C62ED00F46FBF /* EventsServiceProtocol.swift */; };
 		2CA1E22129F09CD200A533CF /* PlaceAutocomplete.Suggestion+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1E22029F09CD200A533CF /* PlaceAutocomplete.Suggestion+Tests.swift */; };
 		2CA1E22329F0A47600A533CF /* PlaceAutocompleteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1E22229F0A47600A533CF /* PlaceAutocompleteTests.swift */; };
 		2CD6C03C29F1982100D865D1 /* EventsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6C03B29F1982100D865D1 /* EventsManagerTests.swift */; };
@@ -666,6 +667,7 @@
 		2C705F052A137CEB00B8B773 /* SearchNavigationProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchNavigationProfile.swift; sourceTree = "<group>"; };
 		2C7FEBF92CE78E6300B7ED22 /* PointAnnotation+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PointAnnotation+Search.swift"; sourceTree = "<group>"; };
 		2C7FEBFB2CE7A62C00B7ED22 /* MapView+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Search.swift"; sourceTree = "<group>"; };
+		2C88C6522D0C62ED00F46FBF /* EventsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsServiceProtocol.swift; sourceTree = "<group>"; };
 		2CA1E22029F09CD200A533CF /* PlaceAutocomplete.Suggestion+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceAutocomplete.Suggestion+Tests.swift"; sourceTree = "<group>"; };
 		2CA1E22229F0A47600A533CF /* PlaceAutocompleteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAutocompleteTests.swift; sourceTree = "<group>"; };
 		2CD6C03B29F1982100D865D1 /* EventsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsManagerTests.swift; sourceTree = "<group>"; };
@@ -1721,6 +1723,7 @@
 			isa = PBXGroup;
 			children = (
 				F97FA23F25C95ACD0085A311 /* EventAppMetadata.swift */,
+				2C88C6522D0C62ED00F46FBF /* EventsServiceProtocol.swift */,
 			);
 			path = Telemetry;
 			sourceTree = "<group>";
@@ -2687,6 +2690,7 @@
 				FEEDD2F82508DFE400DC0A98 /* RecordsProviderInteractorNativeCore.swift in Sources */,
 				F97E9A84268C7BBE00F6353D /* DefaultStringInterpolation+Extensions.swift in Sources */,
 				14FA657F295355BC00056E5B /* AdministrativeUnits.swift in Sources */,
+				2C88C6532D0C62ED00F46FBF /* EventsServiceProtocol.swift in Sources */,
 				F9274FF227394AE600708F37 /* TileRegionError.swift in Sources */,
 				FE1064F525B9A1C9007837BC /* NavigationOptions.swift in Sources */,
 				148DE668285755500085684D /* AddressAutofill+Suggestion.swift in Sources */,

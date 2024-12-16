@@ -89,7 +89,7 @@ class MapRootController: UIViewController {
 
     @discardableResult
     private func present(result: SearchResult) -> Bool {
-        let detailController = ResultDetailViewController(result: result)
+        let detailController = ResultDetailViewController(result: result, searchEngine: searchController.searchEngine)
         present(detailController, animated: true)
         return true
     }
