@@ -266,8 +266,8 @@ public struct SearchOptions {
             timeDeviation: timeDeviation,
             addonAPI: unsafeParameters,
             offlineSearchPlacesOutsideBbox: offlineSearchPlacesOutsideBbox,
-            ensureResultsPerCategory: nil, 
-            attributeSets: [] // TODO: Support multiple categories search and ability to ensure results per category.
+            ensureResultsPerCategory: nil, // TODO: Support multiple categories search and ability to ensure results per category.
+            attributeSets: nil
         )
     }
 

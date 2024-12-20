@@ -1,4 +1,5 @@
 import Foundation
+@testable import MapboxSearch
 
 extension CoreRequestOptions {
     static let sample1 = CoreRequestOptions(
