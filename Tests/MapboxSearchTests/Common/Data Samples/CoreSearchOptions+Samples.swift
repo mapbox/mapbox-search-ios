@@ -32,7 +32,8 @@ extension CoreSearchOptions {
         sarType: "isochrone",
         timeDeviation: 10,
         addonAPI: nil,
-        ensureResultsPerCategory: nil
+        ensureResultsPerCategory: nil,
+        attributeSets: nil
     )
 
     static let sample2 = CoreSearchOptions(
@@ -68,6 +69,7 @@ extension CoreSearchOptions {
         sarType: "isochrone",
         timeDeviation: 10,
         addonAPI: nil,
-        ensureResultsPerCategory: nil
+        ensureResultsPerCategory: nil,
+        attributeSets: nil
     )
 }
