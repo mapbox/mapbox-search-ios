@@ -116,7 +116,7 @@ extension SearchEngineTests {
             let metadata = try XCTUnwrap(result.metadata)
             switch attribute {
             case .basic:
-                XCTAssertNotNil(metadata.primaryImage)
+                XCTAssertNil(metadata.primaryImage)
                 XCTAssertNil(metadata.otherImages)
                 XCTAssertNil(metadata.phone)
                 XCTAssertNil(metadata.website)
@@ -124,8 +124,8 @@ extension SearchEngineTests {
                 XCTAssertNil(metadata.averageRating)
                 XCTAssertNil(metadata.openHours)
             case .photos:
-                // XCTAssertNotNil(metadata.primaryImage) // TODO: SSDK-1055
-                XCTAssertNotNil(metadata.otherImages)
+                XCTAssertNil(metadata.primaryImage) // TODO: SSDK-1055
+                XCTAssertNil(metadata.otherImages)
                 XCTAssertNil(metadata.phone)
                 XCTAssertNil(metadata.website)
                 XCTAssertNil(metadata.reviewCount)
@@ -135,9 +135,9 @@ extension SearchEngineTests {
                 XCTAssertTrue(metadata.delivery ?? false)
                 XCTAssertNil(metadata.parkingAvailable)
                 XCTAssertNotNil(metadata.popularity)
-                XCTAssertNotNil(metadata.priceLevel)
-                XCTAssertNotNil(metadata.reservable)
-                XCTAssertNotNil(metadata.servesBrunch)
+                XCTAssertNil(metadata.priceLevel)
+                XCTAssertNil(metadata.reservable)
+                XCTAssertNil(metadata.servesBrunch)
                 XCTAssertNil(metadata.servesVegetarian)
                 XCTAssertNil(metadata.streetParking)
             case .visit:
@@ -176,12 +176,12 @@ extension SearchEngineTests {
 
         let result = try XCTUnwrap(delegate.resolvedResult)
         let metadata = try XCTUnwrap(result.metadata)
-        XCTAssertNil(metadata.averageRating)
-        XCTAssertNotNil(metadata.otherImages)
+        XCTAssertNotNil(metadata.averageRating)
+        XCTAssertNil(metadata.otherImages)
         XCTAssertNotNil(metadata.openHours)
         XCTAssertNotNil(metadata.phone)
-        XCTAssertNotNil(metadata.primaryImage)
-        XCTAssertNotNil(metadata.reviewCount, "Review count failed for \(String(describing: result.mapboxId))")
+        XCTAssertNil(metadata.primaryImage)
+        XCTAssertNil(metadata.reviewCount, "Review count failed for \(String(describing: result.mapboxId))")
         XCTAssertNotNil(metadata.website)
         XCTAssertNil(delegate.error)
     }
@@ -200,12 +200,12 @@ extension SearchEngineTests {
         XCTAssertNil(delegate.resolvedSuggestions)
         let result = try XCTUnwrap(delegate.resolvedResult)
         let metadata = try XCTUnwrap(result.metadata)
-        XCTAssertNil(metadata.averageRating)
-        XCTAssertNotNil(metadata.otherImages)
+        XCTAssertNotNil(metadata.averageRating)
+        XCTAssertNil(metadata.otherImages)
         XCTAssertNotNil(metadata.openHours)
         XCTAssertNotNil(metadata.phone)
-        XCTAssertNotNil(metadata.primaryImage)
-        XCTAssertNotNil(metadata.reviewCount, "Review count failed for \(String(describing: result.mapboxId))")
+        XCTAssertNil(metadata.primaryImage)
+        XCTAssertNil(metadata.reviewCount, "Review count failed for \(String(describing: result.mapboxId))")
         XCTAssertNotNil(metadata.website)
         XCTAssertNil(delegate.error)
     }
@@ -238,7 +238,7 @@ extension SearchEngineTests {
         XCTAssertNil(metadata.otherImages)
         XCTAssertNil(metadata.openHours)
         XCTAssertNil(metadata.phone)
-        XCTAssertNotNil(metadata.primaryImage)
+        XCTAssertNil(metadata.primaryImage)
         XCTAssertNil(metadata.reviewCount, "Review count failed for \(String(describing: result.mapboxId))")
         XCTAssertNil(metadata.website)
         XCTAssertNil(delegate.error)
@@ -260,7 +260,7 @@ extension SearchEngineTests {
         let metadata = try XCTUnwrap(result.metadata)
 
         XCTAssertNil(metadata.averageRating)
-        XCTAssertNotNil(metadata.primaryImage)
+        XCTAssertNil(metadata.primaryImage)
         XCTAssertNil(metadata.reviewCount)
 
         // In this test no attribute sets were provided and these fields are nil
