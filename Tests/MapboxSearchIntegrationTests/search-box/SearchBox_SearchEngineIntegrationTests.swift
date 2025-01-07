@@ -160,6 +160,27 @@ class SearchBox_SearchEngineIntegrationTests: MockServerIntegrationTestCase<Sear
     }
 
     func testRetrieveMapboxIDQuery() throws {
-        // TODO: Re-implement mocked server integration test for `retrieve(mapboxID:)`
+        try server.setResponse(.retrieveMapboxID)
+
+        let successExpectation = delegate.successExpectation
+        searchEngine.retrieve(mapboxID: "dXJuOm1ieHBvaTo0ZTg2ZWFkNS1jOWMwLTQ3OWEtOTA5Mi1kMDVlNDQ3NDdlODk")
+        wait(for: [successExpectation], timeout: 10)
+
+        let result = try XCTUnwrap(delegate.resolvedResult)
+        let metadata = try XCTUnwrap(result.metadata)
+
+        XCTAssertNil(result.accuracy)
+        XCTAssertNil(result.distance)
+        XCTAssertEqual(result.categories, ["museum", "tourist attraction"])
+        XCTAssertNotNil(result.routablePoints?.first)
+
+        XCTAssertNil(metadata.children)
+        XCTAssertNotNil(metadata.primaryImage)
+        XCTAssertNotNil(metadata.otherImages)
+        XCTAssertNotNil(metadata.phone)
+        XCTAssertNotNil(metadata.averageRating)
+        XCTAssertNotNil(metadata.openHours)
+        XCTAssertNotNil(metadata.facebookId)
+        XCTAssertNotNil(metadata.twitter)
     }
 }
