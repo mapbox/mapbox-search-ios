@@ -28,8 +28,7 @@ public struct DetailsOptions: Sendable {
         CoreDetailsOptions(
             attributeSets: attributeSets.map { $0.map { NSNumber(value: $0.coreValue.rawValue) } },
             language: language,
-            worldview: worldview,
-            baseUrl: nil
+            worldview: worldview
         )
     }
 }
