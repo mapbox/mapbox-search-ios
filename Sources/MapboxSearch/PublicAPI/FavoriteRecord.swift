@@ -11,15 +11,13 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     /// A unique identifier for the geographic feature
     public var mapboxId: String?
 
-    /**
-         The feature name, as matched by the search algorithm.
-
-         - Warning: The field is exposed for compatibility only, will be removed soon.
-     */
+    /// The feature name, as matched by the search algorithm.
+    /// Not available in ``ApiType/searchBox`` results.
+    /// - Warning: The field is exposed for compatibility only and should be considered deprecated.
     public var matchingName: String?
 
     /// address formatted with medium style.
-    public var descriptionText: String? { address?.formattedAddress(style: .medium) }
+    public var descriptionText: String?
 
     /// Coordinate associated to the favorite record.
     public internal(set) var coordinate: CLLocationCoordinate2D {
@@ -50,6 +48,10 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
 
     /// Maki icon name. Use ``icon`` when possible.
     public var iconName: String?
+
+    public var makiIcon: String? {
+        icon?.name
+    }
 
     /// Result categories types.
     public var categories: [String]?
@@ -98,7 +100,8 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         routablePoints: [RoutablePoint]? = nil,
         resultType: SearchResultType,
         searchRequest: SearchRequestOptions,
-        metadata: SearchResultMetadata? = nil
+        metadata: SearchResultMetadata? = nil,
+        descriptionText: String? = nil
     ) {
         self.id = id ?? UUID().uuidString
         self.mapboxId = mapboxId
@@ -114,6 +117,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         self.type = resultType
         self.metadata = metadata
         self.searchRequest = searchRequest
+        self.descriptionText = descriptionText ?? address?.formattedAddress(style: .medium)
     }
 
     /// Build Favorite record from SearchResult

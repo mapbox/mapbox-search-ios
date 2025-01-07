@@ -32,6 +32,10 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
 
     var categoryCanonicalName: String?
 
+    var brand: [String]?
+
+    var brandID: String?
+
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
         assert(coreResult.centerLocation == nil)
 
@@ -52,6 +56,9 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
 
         self.descriptionText = coreResult.addressDescription
         self.estimatedTime = coreResult.estimatedTime
+
+        self.brand = coreResult.brand
+        self.brandID = coreResult.brandID
 
         if let externalValue = coreResult.externalIds?[Constants.externalIdCategoryKey],
            externalValue.hasPrefix(Constants.categoryCanonicalNamePrefix)

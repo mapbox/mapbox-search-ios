@@ -163,12 +163,15 @@ public class SearchEngine: AbstractSearchEngine {
     private enum Query: ExpressibleByStringLiteral {
         case string(String)
         case category(String)
+        case brand(String)
 
         var stringQuery: String? {
             switch self {
             case .string(let query):
                 return query
             case .category:
+                return nil
+            case .brand:
                 return nil
             }
         }
@@ -242,6 +245,7 @@ public class SearchEngine: AbstractSearchEngine {
         }
     }
 
+    // NOTE: SearchBox does not support batch responses.
     private func processBatchResponse(_ coreResponse: CoreSearchResponseProtocol?) {
         guard let coreResponse else {
             eventsManager.reportError(.responseProcessingFailed)
@@ -277,6 +281,11 @@ public class SearchEngine: AbstractSearchEngine {
             }
         case .category:
             // CoreSDK currently doesn't support arguments for category suggestions
+            if !coreResponse.request.query.isEmpty {
+                return nil
+            }
+        case .brand:
+            // CoreSDK currently doesn't support arguments for brand suggestions
             if !coreResponse.request.query.isEmpty {
                 return nil
             }
@@ -416,8 +425,9 @@ extension SearchEngine {
         userActivityReporter.reportActivity(forComponent: "search-engine-forward-geocoding-selection")
 
         // Call `onSelected` for only supported types
-        // but avoid it for category suggestions (like Cafe category)
-        if let responseProvider = suggestion as? CoreResponseProvider, !(suggestion is SearchCategorySuggestion) {
+        // but avoid it for nested suggestions (like category and brand searches)
+        let shouldSelect = !(suggestion is SearchCategorySuggestion) && !(suggestion is SearchBrandSuggestion)
+        if let responseProvider = suggestion as? CoreResponseProvider, shouldSelect {
             engine.onSelected(
                 forRequest: responseProvider.originalResponse.requestOptions,
                 result: responseProvider.originalResponse.coreResult
@@ -433,6 +443,11 @@ extension SearchEngine {
         case let querySuggestion as SearchQuerySuggestion:
             retrieve(
                 suggestion: querySuggestion,
+                retrieveOptions: retrieveOptions
+            )
+        case let brandSuggestion as SearchBrandSuggestion:
+            retrieve(
+                suggestion: brandSuggestion,
                 retrieveOptions: retrieveOptions
             )
         case let resultSuggestion as SearchResultSuggestion:
@@ -463,9 +478,12 @@ extension SearchEngine {
     /// All suggestions must originate from the same search request.
     /// Suggestions with other types will be ignored. You can use `SearchSuggestion.batchResolveSupported` field for
     /// filtering.
+    /// SearchBox does _not_ support batch requests.
     /// - Parameter suggestions: suggestions list to resolve. All suggestions must originate from the same search
     /// request.
     public func select(suggestions: [SearchSuggestion]) {
+        assert(apiType == .geocoding || apiType == .SBS, "Only geocoding and SBS API types support batch results.")
+
         for suggestion in suggestions {
             let supported = (suggestion as? CoreResponseProvider)?.originalResponse.coreResult.action?.multiRetrievable
                 == true
@@ -477,8 +495,6 @@ extension SearchEngine {
         let suggestionsImpls = suggestions
             .compactMap { $0 as? CoreResponseProvider }
             .filter { $0.originalResponse.coreResult.action?.multiRetrievable == true }
-
-        // let coreSearchResults = suggestionsImpls.compactMap { $0.originalResponse.coreResult }
 
         guard suggestionsImpls.isEmpty == false else {
             return
@@ -538,6 +554,55 @@ extension SearchEngine {
                     reason: responseError,
                     options: options
                 )
+
+                completion(.failure(wrappedError))
+            }
+        }
+    }
+
+    // MARK: Forward
+
+    /// Search non-interactively to receive search results with coordinates and metadata.
+    /// This function will not return type-ahead suggestions (such as brand or category nested results).
+    /// Forward is only compatible with ``ApiType/searchBox``.
+    /// Documentation at https://docs.mapbox.com/api/search/search-box/#search-request
+    /// - Parameters:
+    ///   - query: The search text.
+    ///   - options: SearchOptions object to filter or narrow results. Recommended to customize for your specialization.
+    ///   - completion: A block to execute when results or errors are received.
+    public func forward(
+        query: String,
+        options: SearchOptions? = nil,
+        completion: @escaping (Result<[SearchResult], SearchError>) -> Void
+    ) {
+        assert(Thread.isMainThread)
+        assert(apiType == .searchBox)
+
+        // Request identifier is ignored
+        let options = options ?? SearchOptions()
+        _ = engine.forward(query: query, options: options.toCore()) { [weak self] response in
+            guard let self else {
+                assertionFailure("Owning object was deallocated")
+                return
+            }
+
+            guard let response else {
+                eventsManager.reportError(.responseProcessingFailed)
+                completion(.failure(.responseProcessingFailed))
+                assertionFailure("Response should never be nil")
+                return
+            }
+
+            switch response.result {
+            case .success(let results):
+                completion(
+                    .success(
+                        results.compactMap { ServerSearchResult(coreResult: $0, response: response) }
+                    )
+                )
+
+            case .failure(let responseError):
+                let wrappedError = SearchError.searchRequestFailed(reason: responseError)
 
                 completion(.failure(wrappedError))
             }

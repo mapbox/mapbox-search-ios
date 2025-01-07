@@ -206,4 +206,14 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
     ) {
         reverseGeocoding(for: options, completion: completion)
     }
+
+    @discardableResult
+    func forward(
+        query: String,
+        options: CoreSearchOptions,
+        completion: @escaping (CoreSearchResponseProtocol?) -> Void
+    ) -> UInt64 {
+        // TODO:
+        return UInt64.max
+    }
 }

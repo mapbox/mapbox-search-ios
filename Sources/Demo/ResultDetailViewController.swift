@@ -7,12 +7,15 @@ import UIKit
 class ResultDetailViewController: UIViewController {
     private var tableView = UITableView()
     private var mapView: MapView
+    private var feedbackButton: UIButton
 
     var result: SearchResult
+    var searchEngine: SearchEngine
     private var resultComponents: [(name: String, value: String)] = []
 
-    init(result: SearchResult) {
+    init(result: SearchResult, searchEngine: SearchEngine) {
         self.result = result
+        self.searchEngine = searchEngine
         self.resultComponents = result.toComponents()
 
         let inset: CGFloat = 8
@@ -25,8 +28,37 @@ class ResultDetailViewController: UIViewController {
                 zoom: 15.5
             ))
         )
+        self.feedbackButton = UIButton()
+        feedbackButton.setTitle("Send feedback", for: .normal)
+        feedbackButton.backgroundColor = .lightGray
 
         super.init(nibName: nil, bundle: nil)
+
+        feedbackButton.addTarget(self, action: #selector(showFeedbackAlert), for: .touchUpInside)
+    }
+
+    @objc
+    func showFeedbackAlert() {
+        let alert = UIAlertController(
+            title: "Submit Feedback?",
+            message: nil,
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            self?.sendFeedback()
+            alert.dismiss(animated: true)
+        }
+        alert.addAction(okAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            alert.dismiss(animated: true)
+        }
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+
+    func sendFeedback() {
+        let feedbackEvent = FeedbackEvent(record: result, reason: FeedbackEvent.Reason.name.rawValue, text: nil)
+        try? searchEngine.feedbackManager.sendEvent(feedbackEvent)
     }
 
     @available(*, unavailable)
@@ -39,8 +71,9 @@ class ResultDetailViewController: UIViewController {
 
         tableView.dataSource = self
         tableView.allowsSelection = false
+        view.backgroundColor = .systemBackground
 
-        for child in [tableView, mapView] {
+        for child in [tableView, feedbackButton, mapView] {
             child.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(child)
         }
@@ -51,19 +84,21 @@ class ResultDetailViewController: UIViewController {
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mapView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4),
 
-            tableView.topAnchor.constraint(equalTo: mapView.bottomAnchor),
+            feedbackButton.heightAnchor.constraint(equalToConstant: 44),
+            feedbackButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            feedbackButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            feedbackButton.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 20),
+
+            tableView.topAnchor.constraint(equalTo: feedbackButton.bottomAnchor, constant: 20),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
 
         /// Add annotations and set camera
-        let annotationsManager = mapView.annotations.makePointAnnotationManager()
-        annotationsManager.annotations = [result].map { result in
-            var point = PointAnnotation(coordinate: result.coordinate)
-            point.textField = result.name
-            UIImage(named: "pin").map { point.image = .init(image: $0, name: "pin") }
-            return point
+        let annotationsManager = mapView.makeClusterPointAnnotationManager()
+        annotationsManager.annotations = [result].map {
+            PointAnnotation.pointAnnotation($0)
         }
 
         if let annotation = annotationsManager.annotations.first {

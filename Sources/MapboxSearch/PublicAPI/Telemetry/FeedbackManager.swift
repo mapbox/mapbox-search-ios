@@ -22,6 +22,7 @@ public class FeedbackManager {
         attributes["queryString"] = attributePlaceholder
         attributes["resultId"] = feedbackAttributes.id
         attributes["selectedItemName"] = feedbackAttributes.name
+        attributes["sessionIdentifier"] = attributePlaceholder
 
         if let coordinate = feedbackAttributes.coordinate {
             attributes["resultCoordinates"] = [coordinate.longitude, coordinate.latitude]
@@ -65,7 +66,9 @@ public class FeedbackManager {
             attributes["proximity"] = [proximity.value.longitude, proximity.value.latitude]
         }
 
-        attributes["responseUuid"] = response.responseUUID
+        if !response.responseUUID.isEmpty {
+            attributes["responseUuid"] = response.responseUUID
+        }
 
         // Result parameters
         // Mandatory field set -1 if no data available
@@ -109,9 +112,10 @@ public class FeedbackManager {
         root["results"] = searchResults
         root["multiStepSearch"] = !isReproducible
 
-        let searchResultsJSON = (try? JSONSerialization.data(withJSONObject: root, options: [])).flatMap { String(
-            decoding: $0, as: UTF8.self
-        ) }
+        let searchResultsJSON = (try? JSONSerialization.data(withJSONObject: root, options: [])).flatMap {
+            String(data: $0, encoding: .utf8)
+        }
+
         return searchResultsJSON
     }
 
@@ -184,12 +188,9 @@ public class FeedbackManager {
             try delegate.engine.makeFeedbackEvent(
                 request: response.request,
                 result: nil,
-                callback: { [eventsManager] eventTemplateName in
+                callback: { [eventsManager] eventJson in
                     do {
-                        let attributes = try eventsManager.prepareEventTemplate(
-                            eventTemplateName
-                        ).attributes
-
+                        let attributes = try eventsManager.prepareEventTemplate(eventJson)
                         completion(attributes)
                     } catch {
                         _Logger.searchSDK.error(
@@ -207,7 +208,7 @@ public class FeedbackManager {
                     do {
                         let attributes = try eventsManager.prepareEventTemplate(
                             eventTemplateName
-                        ).attributes
+                        )
 
                         completion(attributes)
                     } catch {

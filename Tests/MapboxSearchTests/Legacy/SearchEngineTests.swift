@@ -485,4 +485,115 @@ class SearchEngineTests: XCTestCase {
         searchEngine.query = "random-query"
         XCTAssertEqual(searchEngine.query, "random-query")
     }
+
+    /// NOTE: Although this test uses separate fetches for each attribute set this is purely for testing coverage
+    /// purposes. It is recommended to request as many attribute sets as desired in one RequestOptions array.
+    /// Ex: You should use RetrieveOptions(attributeSets: [.visit, .photos]) in one select() call rather than two calls.
+    func testRetrieveDetailsFunction() throws {
+        let searchEngine = SearchEngine(apiType: .searchBox)
+        let delegate = SearchEngineDelegateStub()
+        searchEngine.delegate = delegate
+        let updateExpectation = delegate.updateExpectation
+
+        let searchOptions = SearchOptions(
+            limit: 100,
+            origin: CLLocationCoordinate2D(latitude: 38.902309, longitude: -77.029129),
+            filterTypes: [.poi]
+        )
+
+        searchEngine.search(query: "planet word", options: searchOptions)
+        wait(for: [updateExpectation], timeout: 200)
+        let suggestion = try XCTUnwrap(delegate.resolvedSuggestions?.first)
+
+        func fetchResult(for: SearchSuggestion, options: RetrieveOptions) throws -> SearchResult {
+            let successExpectation = delegate.successExpectation
+            searchEngine.select(suggestion: suggestion, options: options)
+            wait(for: [successExpectation], timeout: 200)
+            return try XCTUnwrap(delegate.resolvedResult)
+        }
+
+        let attributes = [
+            AttributeSet.basic,
+            .photos,
+            .venue,
+            .visit,
+        ]
+
+        let resultsByAttribute = try attributes.map { attributeSet in
+            let result = try fetchResult(for: suggestion, options: RetrieveOptions(attributeSets: [attributeSet]))
+
+            XCTAssertNotNil(result.metadata, "\(attributeSet) metadata should not be nil")
+
+            return (attributeSet, result)
+        }
+
+        XCTAssertNotNil(resultsByAttribute)
+        for (attribute, result) in resultsByAttribute {
+            let metadata = try XCTUnwrap(result.metadata)
+            switch attribute {
+            case .basic:
+                XCTAssertNotNil(metadata.primaryImage)
+                XCTAssertNil(metadata.otherImages)
+                XCTAssertNil(metadata.phone)
+                XCTAssertNil(metadata.website)
+                XCTAssertNil(metadata.reviewCount)
+                XCTAssertNil(metadata.averageRating)
+                XCTAssertNil(metadata.openHours)
+            case .photos:
+                XCTAssertNotNil(metadata.primaryImage)
+                XCTAssertNotNil(metadata.otherImages)
+                XCTAssertNil(metadata.phone)
+                XCTAssertNil(metadata.website)
+                XCTAssertNil(metadata.reviewCount)
+                XCTAssertNil(metadata.averageRating)
+                XCTAssertNil(metadata.openHours)
+            case .venue:
+                XCTAssertNotNil(metadata.primaryImage)
+                XCTAssertNil(metadata.otherImages)
+                XCTAssertNil(metadata.phone)
+                XCTAssertNil(metadata.website)
+                XCTAssertNotNil(metadata.reviewCount, "Review count failed for \(String(describing: result.mapboxId))")
+                XCTAssertNil(metadata.averageRating)
+                XCTAssertNil(metadata.openHours)
+            case .visit:
+                XCTAssertNotNil(metadata.primaryImage)
+                XCTAssertNil(metadata.otherImages)
+                XCTAssertNotNil(metadata.phone)
+                XCTAssertNotNil(metadata.website)
+                XCTAssertNil(metadata.reviewCount)
+                XCTAssertNil(metadata.averageRating)
+                XCTAssertNotNil(metadata.openHours)
+            }
+        }
+
+        XCTAssertNil(delegate.error)
+    }
+
+    func testServerSearchResultByBrandType() throws {
+        let searchEngine = SearchEngine(
+            locationProvider: DefaultLocationProvider(),
+            apiType: .searchBox
+        )
+        searchEngine.delegate = delegate
+
+        let updateExpectation = delegate.updateExpectation
+
+        let brandFilterOptions = SearchOptions()
+
+        searchEngine.search(query: "nike", options: brandFilterOptions)
+        wait(for: [updateExpectation], timeout: 10)
+        let results = searchEngine.suggestions
+
+        let resultWithBrandID = results.first(where: { result in
+            return result.brandID != nil || result.brand != nil
+        })
+
+        XCTAssertNotNil(
+            resultWithBrandID,
+            "Result \(String(describing: resultWithBrandID?.name)) \(String(describing: resultWithBrandID?.mapboxId)) should contain a brand value"
+        )
+
+        XCTAssertFalse(results.isEmpty)
+        XCTAssertGreaterThan(results.count, 0)
+    }
 }

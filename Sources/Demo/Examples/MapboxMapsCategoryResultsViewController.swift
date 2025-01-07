@@ -2,7 +2,7 @@ import MapboxSearch
 import UIKit
 
 class MapboxMapsCategoryResultsViewController: MapsViewController {
-    let searchEngine = CategorySearchEngine()
+    let searchEngine = CategorySearchEngine(apiType: .searchBox)
 //    let searchEngine = CategorySearchEngine(accessToken: "<#You can pass access token manually#>")
 
     override func viewDidAppear(_ animated: Bool) {

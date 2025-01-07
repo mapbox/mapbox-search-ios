@@ -23,6 +23,11 @@ class ExamplesListing {
                 icon: UIImage(systemName: "text.magnifyingglass"),
                 screenType: ContinuousSearchViewController.self
             ),
+            Example(
+                title: "forward/",
+                icon: UIImage(systemName: "forward"),
+                screenType: ForwardExampleViewController.self
+            ),
         ]),
         ExampleSection(title: "Results on the Map", examples: [
             Example(

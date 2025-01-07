@@ -213,10 +213,7 @@ extension AddressAutofillResultViewController {
 
     func showAnnotations(results: [AddressAutofill.Result], cameraShouldFollow: Bool = true) {
         annotationsManager.annotations = results.compactMap {
-            var point = PointAnnotation(coordinate: $0.coordinate)
-            point.textField = $0.name
-            UIImage(named: "pin").map { point.image = .init(image: $0, name: "pin") }
-            return point
+            PointAnnotation.pointAnnotation($0)
         }
 
         if cameraShouldFollow {

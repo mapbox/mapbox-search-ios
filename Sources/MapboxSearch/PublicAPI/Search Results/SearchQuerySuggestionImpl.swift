@@ -28,6 +28,10 @@ class SearchQuerySuggestionImpl: SearchQuerySuggestion, CoreResponseProvider {
 
     let batchResolveSupported: Bool
 
+    var brand: [String]?
+
+    var brandID: String?
+
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
         assert(coreResult.centerLocation == nil)
 
@@ -46,5 +50,7 @@ class SearchQuerySuggestionImpl: SearchQuerySuggestion, CoreResponseProvider {
         self.estimatedTime = coreResult.estimatedTime
         self.descriptionText = coreResult.addressDescription
         self.estimatedTime = coreResult.estimatedTime
+        self.brand = coreResult.brand
+        self.brandID = coreResult.brandID
     }
 }

@@ -5,6 +5,8 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     /// "history icon" by default
     public var iconName: String? = "history icon"
 
+    public var makiIcon: String? { iconName }
+
     /// Type of stored history record
     public enum HistoryType: Int, Codable {
         /// History record was build based on search result
@@ -31,15 +33,13 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     /// A point accuracy metric for the returned address.
     public let accuracy: SearchResultAccuracy?
 
-    /**
-         The feature name, as matched by the search algorithm.
-
-         - Warning: The field is exposed for compatibility only, will be removed soon.
-     */
+    /// The feature name, as matched by the search algorithm.
+    /// Not available in ``ApiType/searchBox`` results.
+    /// - Warning: The field is exposed for compatibility only and should be considered deprecated.
     public private(set) var matchingName: String?
 
     /// Address formatted with medium style
-    public var descriptionText: String? { address?.formattedAddress(style: .medium) }
+    public var descriptionText: String?
 
     /// Coordinate associated with the record
     public internal(set) var coordinate: CLLocationCoordinate2D {
@@ -116,7 +116,8 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         metadata: SearchResultMetadata? = nil,
         categories: [String]? = nil,
         searchRequest: SearchRequestOptions,
-        routablePoints: [RoutablePoint]? = nil
+        routablePoints: [RoutablePoint]? = nil,
+        descriptionText: String? = nil
     ) {
         self.id = id
         self.mapboxId = mapboxId
@@ -134,6 +135,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         self.categories = categories
         self.searchRequest = searchRequest
         self.routablePoints = routablePoints
+        self.descriptionText = descriptionText ?? address?.formattedAddress(style: .medium)
     }
 
     /// Construct `HistoryRecord` based on concrete `SearchResult`
@@ -162,5 +164,6 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         self.categories = searchResult.categories
         self.searchRequest = searchResult.searchRequest
         self.routablePoints = searchResult.routablePoints
+        self.descriptionText = searchResult.descriptionText
     }
 }

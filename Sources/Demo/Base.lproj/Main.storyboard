@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JVX-IJ-mtG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23090" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JVX-IJ-mtG">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23079"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -274,12 +274,13 @@
                             <constraint firstItem="GC2-d5-Go6" firstAttribute="leading" secondItem="KC9-Og-jfE" secondAttribute="leading" constant="20" id="3zk-gR-kzL"/>
                             <constraint firstItem="jyc-Lb-8Kz" firstAttribute="top" secondItem="KC9-Og-jfE" secondAttribute="top" constant="20" id="AVj-tU-GLu"/>
                             <constraint firstItem="jyc-Lb-8Kz" firstAttribute="leading" secondItem="KC9-Og-jfE" secondAttribute="leading" constant="20" id="BYc-A6-d1e"/>
-                            <constraint firstItem="GC2-d5-Go6" firstAttribute="bottom" secondItem="KC9-Og-jfE" secondAttribute="bottom" constant="-16" id="GcV-L7-awi"/>
+                            <constraint firstItem="KC9-Og-jfE" firstAttribute="bottom" secondItem="GC2-d5-Go6" secondAttribute="bottom" constant="16" id="GcV-L7-awi"/>
                             <constraint firstItem="KC9-Og-jfE" firstAttribute="trailing" secondItem="jyc-Lb-8Kz" secondAttribute="trailing" constant="20" id="k2d-U6-vqh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="evC-4X-ARn"/>
                     <connections>
+                        <outlet property="searchButton" destination="GC2-d5-Go6" id="ssR-bw-Vfs"/>
                         <outlet property="segmentedControl" destination="jyc-Lb-8Kz" id="raK-8M-n1j"/>
                     </connections>
                 </viewController>
@@ -401,10 +402,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

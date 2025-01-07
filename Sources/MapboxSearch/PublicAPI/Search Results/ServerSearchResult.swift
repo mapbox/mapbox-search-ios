@@ -49,6 +49,10 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
 
     let batchResolveSupported: Bool
 
+    var brand: [String]?
+
+    var brandID: String?
+
     var suggestionType: SearchSuggestType {
         switch type {
         case .POI: return .POI
@@ -82,6 +86,9 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
         self.routablePoints = coreResult.routablePoints?.map(RoutablePoint.init)
         self.batchResolveSupported = coreResult.action?.multiRetrievable ?? false
         self.descriptionText = coreResult.addressDescription
+
+        self.brand = coreResult.brand
+        self.brandID = coreResult.brandID
 
         assert(!id.isEmpty)
     }

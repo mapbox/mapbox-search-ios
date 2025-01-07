@@ -6,7 +6,7 @@ import UIKit
 final class PlaceAutocompleteResultViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var mapView: MapView!
-    lazy var annotationsManager = mapView.annotations.makePointAnnotationManager()
+    lazy var annotationsManager = mapView.makeClusterPointAnnotationManager()
 
     private var result: PlaceAutocomplete.Result!
     private var resultComponents: [(name: String, value: String)] = []
@@ -39,14 +39,7 @@ final class PlaceAutocompleteResultViewController: UIViewController {
 
     func showAnnotations(results: [PlaceAutocomplete.Result], cameraShouldFollow: Bool = true) {
         annotationsManager.annotations = results.compactMap {
-            guard let coordinate = $0.coordinate else {
-                return nil
-            }
-
-            var point = PointAnnotation(coordinate: coordinate)
-            point.textField = $0.name
-            UIImage(named: "pin").map { point.image = .init(image: $0, name: "pin") }
-            return point
+            PointAnnotation.pointAnnotation($0)
         }
 
         if cameraShouldFollow {

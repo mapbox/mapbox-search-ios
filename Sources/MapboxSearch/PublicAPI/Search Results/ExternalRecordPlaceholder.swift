@@ -30,6 +30,10 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
 
     let batchResolveSupported: Bool
 
+    var brand: [String]?
+
+    var brandID: String?
+
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
         guard let layerIdentifier = coreResult.layer, coreResult.resultTypes == [.userRecord] else { return nil }
 

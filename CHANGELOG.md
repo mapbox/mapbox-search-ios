@@ -6,12 +6,143 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+## 2.7.1
+
+- [Core] Update dependencies.
+
+**MapboxCommon**: v24.9.0
+**MapboxCoreSearch**: v2.7.0
+
 <!-- Add changes for active work here -->
 
+## 2.7.0
+
+- [Core] Update dependencies.
+
+**MapboxCommon**: v24.9.0-rc.1
+**MapboxCoreSearch**: v2.7.0-rc.1
+
+## 2.7.0-rc.1
+
+- [Core] Update dependencies.
+- [Tech] Support sending feedback events to Telemetry.
+
+**MapboxCommon**: v24.9.0-rc.1
+**MapboxCoreSearch**: v2.7.0-rc.1
+
+## 2.7.0-beta.1
+
+- [SearchOptions] Add `SearchOptions.offlineSearchPlacesOutsideBbox` option. In case `SearchOptions/boundingBox` was applied, places search will look though all available tiles, ignoring the bounding box if `SearchOptions.offlineSearchPlacesOutsideBbox` was set to `true`.
+- [Core] Update dependencies
+
+**MapboxCommon**: v24.9.0-beta.1
+**MapboxCoreSearch**: v2.7.0-beta.1
+
+## 2.6.1
+
+- [Core] Fix the OpenHours parsing logic for SearchBox.
+- [Core] Fix the issue with setting OpenHours mode when there is only one open hour period.
+- [ResultChildMetadata] Add ResultChildMetadata.init(category:coordinate:mapboxId:name)
+- [Core] Update dependencies
+
+**MapboxCoreSearch**: v2.6.2
+
+## 2.6.0
+
+- [Core] Update dependencies
+
+**MapboxCommon**: v24.8.0
+**MapboxCoreSearch**: v2.6.0
+
+## 2.6.0-rc.1
+
+- [Core] Update dependencies
+
+**MapboxCommon**: v24.8.0-rc.1
+**MapboxCoreSearch**: v2.6.0-rc.1
+
+## 2.6.0-beta.1
+
+- [SearchResult] Mark `matchingName` field as deprecated and add note for absence of values in ApiType.searchBox results.
+- [SearchEngine] Add documentation and assertion that ApiType.searchBox does _not_ support batch requests.
+- [Core] Update dependencies
+
+**MapboxCommon**: v24.8.0-beta.1
+**MapboxCoreSearch**: v2.6.0-beta.2
+
+## 2.5.1
+
+- [Demo] Add example for forward(query:options:completion:) to Demo app using SwiftUI.
+- [Search] Add forward(query:options:completion:) function to search forward/ API endpoint.
+
+**MapboxCommon**: v24.7.0
+**MapboxCoreSearch**: v2.5.1
+
+## 2.5.0
+
+- [Search] Add SearchSuggestType.brand
+- [SearchUI] Add display of Brand results
+- [SearchUI] Add ability to view nested results for a Brand (similar to Category results) when the query matches a brand name
+- [SearchResultMetadata] Add SearchResultMetadata.init(rating:)
+- [Offline] Change default tileset name to `mbx-gen2`
+- [Core] Update dependencies
+
+**MapboxCommon**: v24.7.0
+**MapboxCoreSearch**: v2.5.0
+
+## 2.5.0-rc.3
+
+- [Core] Update dependencies
+
+**MapboxCommon**: v24.7.0-rc.2
+**MapboxCoreSearch**: v2.5.0-rc.3
+
+## 2.5.0-rc.2
+
+- [Core] Update dependencies
+
+**MapboxCommon**: v24.7.0-rc.1
+**MapboxCoreSearch**: v2.5.0-rc.2
+
+## 2.5.0-rc.1
+
+- [Core] Update dependencies
+
+**MapboxCommon**: v24.7.0-rc.1
+**MapboxCoreSearch**: v2.5.0-rc.1
+
+## 2.5.0-beta.2
+
+- [Core] Update dependencies
+
+**MapboxCommon**: v24.7.0-beta.2
+**MapboxCoreSearch**: v2.5.0-beta.2
+
+## 2.5.0-beta.1
+
+- [Core] Update dependencies
+
+**MapboxCommon**: v24.7.0-beta.1
+**MapboxCoreSearch**: v2.5.0-beta.1
+
+## 2.3.0
+
+**MapboxCommon**: v24.6.0
+**MapboxCoreSearch**: v2.3.0
+
+## 2.3.0-rc.3
+
+- [SearchEngine] Add SearchEngine.init(baseURL:) parameter for custom Mapbox API endpoint development.
+- [SearchResultMetadata] Add `rating` field to replace deprecated `averageRating` field.
+- [SearchResultMetadata] Add fields for search response.
 - [Project] Downgrade Package from Swift 5.10 to 5.9 for compatibility with Xcode 15.0 to 15.2.
 - [Project] Remove SPM strict concurrency flag from MapboxSearch, MapboxSearchUI targets.
+- [Project] Update Fastlane to 2.222.0.
+- [Project] Fix license with Cocoapods.
+- [Project] Update README and add GitHub Issue templates.
 
-- [SearchEngine] Add baseURL parameter for custom Mapbox API endpoint development.
+**MapboxCommon**: v24.6.0
+**MapboxCoreSearch**: v2.3.0
 
 ## 2.3.0-rc.2
 

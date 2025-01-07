@@ -114,6 +114,8 @@ class SearchSuggestionCell: UITableViewCell {
         // Show templated image for 'Category' type
         if suggestion.suggestionType == .category {
             iconImageView.tintColor = configuration.style.primaryAccentColor
+        } else if suggestion.brand != nil {
+            iconImageView.tintColor = configuration.style.primaryAccentColor
         } else {
             iconImageView.tintColor = configuration.style.iconTintColor
         }
@@ -136,6 +138,8 @@ extension SearchSuggestType {
             return Images.poiIcon
         case .query:
             return Images.poiIcon
+        case .brand:
+            return Maki.shop.icon
         @unknown default:
             return Images.poiIcon
         }
