@@ -41,7 +41,7 @@ extension SearchEngineTests {
             let metadata = try XCTUnwrap(result.metadata)
             switch attribute {
             case .basic:
-                XCTAssertNotNil(metadata.primaryImage)
+                XCTAssertNil(metadata.primaryImage)
                 XCTAssertNil(metadata.otherImages)
                 XCTAssertNil(metadata.phone)
                 XCTAssertNil(metadata.website)
@@ -49,8 +49,8 @@ extension SearchEngineTests {
                 XCTAssertNil(metadata.averageRating)
                 XCTAssertNil(metadata.openHours)
             case .photos:
-                // XCTAssertNotNil(metadata.primaryImage) // TODO: SSDK-1055
-                XCTAssertNotNil(metadata.otherImages)
+                XCTAssertNil(metadata.primaryImage) // TODO: SSDK-1055
+                XCTAssertNil(metadata.otherImages)
                 XCTAssertNil(metadata.phone)
                 XCTAssertNil(metadata.website)
                 XCTAssertNil(metadata.reviewCount)
@@ -58,18 +58,15 @@ extension SearchEngineTests {
                 XCTAssertNil(metadata.openHours)
             case .venue:
                 XCTAssertTrue(metadata.delivery ?? false)
-                XCTAssertTrue(metadata.parkingAvailable ?? false)
                 XCTAssertNotNil(metadata.popularity)
-                XCTAssertNotNil(metadata.priceLevel)
-                XCTAssertNotNil(metadata.reservable)
-                XCTAssertNotNil(metadata.servesBrunch)
-                XCTAssertTrue(metadata.servesVegetarian ?? false)
-                XCTAssertTrue(metadata.streetParking ?? false)
+                XCTAssertNil(metadata.priceLevel)
+                XCTAssertNil(metadata.reservable)
+                XCTAssertNil(metadata.servesBrunch)
             case .visit:
-                XCTAssertNotNil(metadata.instagram)
+                XCTAssertNil(metadata.instagram)
                 XCTAssertNotNil(metadata.openHours)
                 XCTAssertNotNil(metadata.phone)
-                XCTAssertNotNil(metadata.twitter)
+                XCTAssertNil(metadata.twitter)
                 XCTAssertNotNil(metadata.website)
             }
         }

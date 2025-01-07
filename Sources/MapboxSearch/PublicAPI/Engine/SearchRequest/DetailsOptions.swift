@@ -8,7 +8,7 @@ public struct DetailsOptions: Sendable {
     /// attributes by setting attribute_sets parameter with attribute set values,
     /// for example &attribute_sets=basic,photos,visit.
     /// The requested metadata will be provided in metadata object in the response.
-    public var attributeSets: [AttributeSet]?
+    public var attributeSets: [AttributeSet]
 
     /// The ISO language code to be returned. If not provided, the default is English.
     public var language: String?
@@ -19,14 +19,17 @@ public struct DetailsOptions: Sendable {
     public var worldview: String?
 
     public init(attributeSets: [AttributeSet]? = nil, language: String? = nil, worldview: String? = nil) {
-        self.attributeSets = attributeSets
+        // Always make sure that the basic attribute set is present
+        var attributeSets: Set<AttributeSet> = Set(attributeSets ?? [.basic])
+        attributeSets.insert(.basic)
+        self.attributeSets = Array(attributeSets)
         self.language = language
         self.worldview = worldview
     }
 
     func toCore() -> CoreDetailsOptions {
         CoreDetailsOptions(
-            attributeSets: attributeSets.map { $0.map { NSNumber(value: $0.coreValue.rawValue) } },
+            attributeSets: attributeSets.map { NSNumber(value: $0.coreValue.rawValue) },
             language: language,
             worldview: worldview
         )
