@@ -38,9 +38,7 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
         for mapboxId: String,
         options: MapboxSearch.CoreDetailsOptions,
         completion: @escaping MapboxSearch.CoreSearchResponseCompletion
-    ) {
-        // TODO: Implement mocked Details tests SSDK-1079
-    }
+    ) {}
 
     func addOfflineIndexObserver(for observer: MapboxSearch.CoreOfflineIndexObserver) {}
 
@@ -213,7 +211,6 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
         options: CoreSearchOptions,
         completion: @escaping (CoreSearchResponseProtocol?) -> Void
     ) -> UInt64 {
-        // TODO:
         return UInt64.max
     }
 }
