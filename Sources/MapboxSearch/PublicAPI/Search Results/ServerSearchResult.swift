@@ -91,5 +91,6 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
         self.brandID = coreResult.brandID
 
         assert(!id.isEmpty)
+        assert(!name.isEmpty)
     }
 }
