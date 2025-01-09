@@ -249,7 +249,7 @@ extension SearchEngineTests {
         let successExpectation = delegate.successExpectation
 
         let planetWordMapboxID = "dXJuOm1ieHBvaTo0ZTg2ZWFkNS1jOWMwLTQ3OWEtOTA5Mi1kMDVlNDQ3NDdlODk"
-        searchEngine.retrieve(mapboxID: planetWordMapboxID, options: nil)
+        searchEngine.retrieve(mapboxID: planetWordMapboxID)
         wait(for: [successExpectation], timeout: 200)
         XCTAssertNil(delegate.error)
 

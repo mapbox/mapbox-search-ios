@@ -620,10 +620,10 @@ extension SearchEngine {
     /// - Parameters:
     ///   - mapboxID: The Mapbox ID for a known POI. Mapbox IDs will be returned in Search responses and may be cached.
     ///   - detailsOptions: Options to configure this query. May be nil.
-    public func retrieve(mapboxID: String, options detailsOptions: DetailsOptions? = DetailsOptions()) {
+    public func retrieve(mapboxID: String, options detailsOptions: DetailsOptions = DetailsOptions()) {
         assert(offlineMode == .disabled)
 
-        let detailsOptions = detailsOptions ?? DetailsOptions()
+        let detailsOptions = detailsOptions
         engine.retrieveDetails(for: mapboxID, options: detailsOptions.toCore()) { [weak self] serverResponse in
             self?.processDetailsResponse(serverResponse, mapboxID: mapboxID)
         }
