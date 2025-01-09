@@ -355,7 +355,6 @@ public class SearchEngine: AbstractSearchEngine {
 
             guard let result = responseResult.results.first else {
                 let errorMessage = "Could not retrieve details result."
-                assertionFailure(errorMessage)
                 delegate?.searchErrorHappened(
                     searchError: .internalSearchRequestError(message: errorMessage),
                     searchEngine: self
