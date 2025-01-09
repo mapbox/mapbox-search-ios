@@ -81,12 +81,11 @@ protocol CoreSearchEngineProtocol {
         completion: @escaping (CoreSearchResponseProtocol?) -> Void
     )
 
-    @discardableResult
     func forward(
         query: String,
         options: CoreSearchOptions,
         completion: @escaping (CoreSearchResponseProtocol?) -> Void
-    ) -> UInt64
+    )
 
     func setTileStore(_ tileStore: MapboxCommon.TileStore, completion: (() -> Void)?)
 
@@ -293,12 +292,11 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
         }
     }
 
-    @discardableResult
     func forward(
         query: String,
         options: CoreSearchOptions,
         completion: @escaping (CoreSearchResponseProtocol?) -> Void
-    ) -> UInt64 {
+    ) {
         forward(forQuery: query, options: options, callback: { response in
             DispatchQueue.main.async {
                 completion(response)
