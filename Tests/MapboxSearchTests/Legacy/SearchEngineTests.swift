@@ -532,7 +532,7 @@ class SearchEngineTests: XCTestCase {
             let metadata = try XCTUnwrap(result.metadata)
             switch attribute {
             case .basic:
-                XCTAssertNotNil(metadata.primaryImage)
+                XCTAssertNil(metadata.primaryImage)
                 XCTAssertNil(metadata.otherImages)
                 XCTAssertNil(metadata.phone)
                 XCTAssertNil(metadata.website)
@@ -548,15 +548,15 @@ class SearchEngineTests: XCTestCase {
                 XCTAssertNil(metadata.averageRating)
                 XCTAssertNil(metadata.openHours)
             case .venue:
-                XCTAssertNotNil(metadata.primaryImage)
+                XCTAssertNil(metadata.primaryImage)
                 XCTAssertNil(metadata.otherImages)
                 XCTAssertNil(metadata.phone)
                 XCTAssertNil(metadata.website)
                 XCTAssertNotNil(metadata.reviewCount, "Review count failed for \(String(describing: result.mapboxId))")
-                XCTAssertNil(metadata.averageRating)
+                XCTAssertEqual(5.0, metadata.averageRating)
                 XCTAssertNil(metadata.openHours)
             case .visit:
-                XCTAssertNotNil(metadata.primaryImage)
+                XCTAssertNil(metadata.primaryImage)
                 XCTAssertNil(metadata.otherImages)
                 XCTAssertNotNil(metadata.phone)
                 XCTAssertNotNil(metadata.website)

@@ -175,44 +175,49 @@ class SearchBox_SearchEngineIntegrationTests: MockServerIntegrationTestCase<Sear
         XCTAssertNotNil(result.routablePoints?.first)
 
         XCTAssertNil(metadata.children)
-        let primaryImageURLs =
-            ["https://ir.4sqi.net/img/general/original/38340_7KfSyEx1Dx1OZ1FlSH7sIt5t4t8ERFgMvtvRfwOEBLk.jpg"]
-        let comparisonPrimaryImage = primaryImageURLs
-            .map { (URL(string: $0), CGSize.zero) }
-            .map(Image.SizedImage.init)
-        XCTAssertEqual(metadata.primaryImage, Image(sizes: comparisonPrimaryImage))
+        XCTAssertNil(metadata.primaryImage)
 
-        let otherImageURLs = [
-            "https://ir.4sqi.net/img/general/original/38340_7KfSyEx1Dx1OZ1FlSH7sIt5t4t8ERFgMvtvRfwOEBLk.jpg",
-            "https://ir.4sqi.net/img/general/original/595183171_pUrV5hSc47BB9NHHIP9TgyByIdKmJ5mOhz5242CrNlg.jpg",
-            "https://ir.4sqi.net/img/general/original/595183171_mMl8zaXHOEH_WYcSexGW4k1uRYE5TFsH3cMTDKifDUM.jpg",
-            "https://ir.4sqi.net/img/general/original/595183171_Zzg--HJLnkmHPZSCV8fK4qvkXd1XSQrDMJ8SNIEwsMQ.jpg",
-            "https://ir.4sqi.net/img/general/original/194412_8D0BWWEcRRbgGcsfMpswNiupQRlJLlrQP28Erzloebg.jpg",
-            "https://ir.4sqi.net/img/general/original/115057_MQdN9BDEQZjGuy0XR-wuFc-HASYk7iwvQCD9-oAEgzM.jpg",
-            "https://ir.4sqi.net/img/general/original/3274908_Kay_325FgRI5W6QjYQpgwGlhWC-IJYGRs17KdN3ve-I.jpg",
-            "https://ir.4sqi.net/img/general/original/66077586_3BKtXPeLChnT_FCk5kirieluzV7-Ky8J4E-JZL22Onk.jpg",
-            "https://ir.4sqi.net/img/general/original/19965560_WobfF7-NrFtRk8zEzHcNiLVsdC6Otetx8ATb7EshAbM.jpg",
-            "https://ir.4sqi.net/img/general/original/2322868_DmLkkx6w_B-dUhKESrCycq28r21LVBcGzmND0HfOYek.jpg",
-            "https://ir.4sqi.net/img/general/original/123590354_uqGGItENIJXwCC8-uF3ehDIvY_8Obhj734buR1Y4Vxo.jpg",
-            "https://ir.4sqi.net/img/general/original/194412_A1MklFbySLaCuTp1Mhr29Be_UEhwMbKWK1AeV2TGuV0.jpg",
-            "https://ir.4sqi.net/img/general/original/59629039_NwcrrOsHCZzTiADNsul0dRAh4bZGG_kJ9yTdYt_zpwk.jpg",
-            "https://ir.4sqi.net/img/general/original/24156413_7I-3YDekzbHFgKdK6jhQiV6lWuiQbUDBhem_H5C9EXM.jpg",
-            "https://ir.4sqi.net/img/general/original/24156413_eyXWL0zeTZkxAL9DOlXwq4rOr86WHNvg8xoEC-UDr-I.jpg",
-            "https://ir.4sqi.net/img/general/original/24156413_JKeXAEYToRCHEe7mEryRy_WLDPEDC04m_EkShC26uo4.jpg",
-            "https://ir.4sqi.net/img/general/original/24156413_qIP10lczOEhewkhAOSVF1KcJaFZSglu_uKvuhq9IhYM.jpg",
-            "https://ir.4sqi.net/img/general/original/24156413_yqrLz4ry4OxXpN5H605bOe8dUH2GMItE5Km__Gp-L-o.jpg",
-            "https://ir.4sqi.net/img/general/original/70340760_TawDz7yLBbyuqWxVurmICG70xSK7Wm1nYArJ2dkluYA.jpg",
-            "https://ir.4sqi.net/img/general/original/32924053_zJz3g6mA-X8gp8h2db-GK8UIOmlNOstaRXMHilQPf8U.jpg",
-            "https://ir.4sqi.net/img/general/original/32568130_rW_f8C5JGnHKtA1kuLMOH5HwcRX5gA5WOTEn5dgJggs.jpg",
-            "https://ir.4sqi.net/img/general/original/32568130_RKPKD1qnNKrQUfzzePiFi4aOGnLHdvRptWzFUdUkFgQ.jpg",
-            "https://ir.4sqi.net/img/general/original/70340760_RxOLGr0cd3mlR4nOrh10WFcMs6G_WhZDmFf7bOPYjw4.jpg",
-            "https://ir.4sqi.net/img/general/original/26504858_smq7TWn1uestTqxYQGDOXr7nYe8oEdKDkhX6uQuyj5E.jpg",
-            "https://ir.4sqi.net/img/general/original/16629655_QZo5zhKOEZPTZGTn389tG6auKxK9qHJA3e5nCLFqbyY.jpg",
+        let otherImageData = [
+            [
+                "height": 768,
+                "url": "https://media-cdn.tripadvisor.com/media/photo-o/2a/08/ad/cd/caption.jpg",
+                "width": 1024,
+            ],
+            [
+                "height": 1024,
+                "url": "https://media-cdn.tripadvisor.com/media/photo-o/2a/08/ad/fe/caption.jpg",
+                "width": 768,
+            ],
+            [
+                "height": 975,
+                "url": "https://media-cdn.tripadvisor.com/media/photo-o/28/b6/2d/cc/caption.jpg",
+                "width": 2006,
+            ],
+            [
+                "height": 3888,
+                "url": "https://media-cdn.tripadvisor.com/media/photo-o/2a/45/ec/0a/caption.jpg",
+                "width": 5184,
+            ],
+            [
+                "height": 975,
+                "url": "https://media-cdn.tripadvisor.com/media/photo-o/28/b6/2d/ca/caption.jpg",
+                "width": 2006,
+            ],
         ]
-        let comparisonOtherImages = otherImageURLs
-            .map { (URL(string: $0), CGSize.zero) }
+        let otherImages = otherImageData
+            .compactMap { data -> (URL, CGSize)? in
+                guard let urlString = data["url"] as? String,
+                      let url = URL(string: urlString),
+                      let width = data["width"] as? Int,
+                      let height = data["height"] as? Int
+                else {
+                    return nil
+                }
+                return (url, CGSize(width: width, height: height))
+            }
             .map(Image.SizedImage.init)
-            .map { Image(sizes: [$0]) }
+        let comparisonOtherImages = [Image(sizes: otherImages)]
+        XCTAssertEqual(metadata.otherImages?.count, comparisonOtherImages.count)
         XCTAssertEqual(metadata.otherImages, comparisonOtherImages)
 
         XCTAssertNotNil(metadata.phone)
