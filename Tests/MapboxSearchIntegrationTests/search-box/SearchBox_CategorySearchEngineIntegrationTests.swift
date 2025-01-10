@@ -4,6 +4,7 @@ import XCTest
 
 final class SearchBox_CategorySearchEngineIntegrationTests: MockServerIntegrationTestCase<SearchBoxMockResponse> {
     private var searchEngine: CategorySearchEngine!
+    private var searchOptions: SearchOptions!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -15,18 +16,25 @@ final class SearchBox_CategorySearchEngineIntegrationTests: MockServerIntegratio
             apiType: apiType,
             baseURL: mockServerURL()
         )
+        searchOptions = SearchOptions(attributeSets: [.basic, .photos, .venue, .visit])
     }
 
     func testCategorySearch() throws {
         try server.setResponse(.categoryCafe)
 
         let expectation = XCTestExpectation(description: "Expecting results")
-        searchEngine.search(categoryName: "cafe") { result in
+        searchEngine.search(categoryName: "cafe", options: searchOptions) { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let searchResults):
                 XCTAssertFalse(searchResults.isEmpty)
                 let matchingNames = searchResults.compactMap(\.matchingName)
                 XCTAssertTrue(matchingNames.isEmpty)
+                let queryParams = self.server.passedRequests.last!.queryParams
+                let attributeSetsParam = queryParams.first {
+                    $0.0 == "attribute_sets"
+                }?.1
+                XCTAssertEqual(attributeSetsParam, "basic,photos,venue,visit")
                 expectation.fulfill()
             case .failure:
                 XCTFail("Error not expected")
@@ -40,7 +48,7 @@ final class SearchBox_CategorySearchEngineIntegrationTests: MockServerIntegratio
         try server.setResponse(.categoryCafe, statusCode: 500)
 
         let expectation = XCTestExpectation(description: "Expecting failure")
-        searchEngine.search(categoryName: "cafe") { result in
+        searchEngine.search(categoryName: "cafe", options: searchOptions) { result in
             switch result {
             case .success:
                 XCTFail("Not expected")

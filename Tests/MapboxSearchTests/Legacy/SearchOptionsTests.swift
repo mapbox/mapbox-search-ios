@@ -21,6 +21,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertEqual(searchOptions.unsafeParameters, ["arg": "value"])
         XCTAssertFalse(searchOptions.ignoreIndexableRecords)
         XCTAssertEqual(searchOptions.indexableRecordsDistanceThreshold, 2_000)
+        XCTAssertEqual(searchOptions.attributeSets, [.basic, .photos])
     }
 
     func testSearchOptionBoundingBoxConstructor() {
@@ -40,6 +41,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertNil(bbOptions.filterTypes)
         XCTAssertFalse(bbOptions.ignoreIndexableRecords)
         XCTAssertNil(bbOptions.indexableRecordsDistanceThreshold)
+        XCTAssertNil(bbOptions.attributeSets)
     }
 
     func testSearchOptionsProximityConstructors() {
@@ -58,6 +60,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertNil(proximityOptions.filterTypes)
         XCTAssertFalse(proximityOptions.ignoreIndexableRecords)
         XCTAssertNil(proximityOptions.indexableRecordsDistanceThreshold)
+        XCTAssertNil(proximityOptions.attributeSets)
     }
 
     func testSearchOptionsNavigationConstructors() {
@@ -80,6 +83,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertNil(navigationOptions.filterTypes)
         XCTAssertFalse(navigationOptions.ignoreIndexableRecords)
         XCTAssertNil(navigationOptions.indexableRecordsDistanceThreshold)
+        XCTAssertNil(navigationOptions.attributeSets)
     }
 
     func testSearchOptionsRouteConstructors() {
@@ -101,6 +105,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertNil(routeOptions.filterTypes)
         XCTAssertFalse(routeOptions.ignoreIndexableRecords)
         XCTAssertNil(routeOptions.indexableRecordsDistanceThreshold)
+        XCTAssertNil(routeOptions.attributeSets)
     }
 
     func testSearchOptionsConversionForGeocodingAPI() {
@@ -125,6 +130,7 @@ class SearchOptionsTests: XCTestCase {
             fromCoreSearchOptions.indexableRecordsDistanceThreshold,
             searchOptions.indexableRecordsDistanceThreshold
         )
+        XCTAssertEqual(fromCoreSearchOptions.attributeSets, searchOptions.attributeSets)
     }
 
     func testSearchOptionsConversionForSBSAPI() {
@@ -155,6 +161,7 @@ class SearchOptionsTests: XCTestCase {
             fromCoreSearchOptions.indexableRecordsDistanceThreshold,
             searchOptions.indexableRecordsDistanceThreshold
         )
+        XCTAssertEqual(fromCoreSearchOptions.attributeSets, searchOptions.attributeSets)
     }
 
     func testSearchOptionsUsesLocale() {
@@ -184,6 +191,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertNil(searchOptions.filterTypes)
         XCTAssertFalse(searchOptions.ignoreIndexableRecords)
         XCTAssertNil(searchOptions.indexableRecordsDistanceThreshold)
+        XCTAssertNil(searchOptions.attributeSets)
     }
 
     func testSearchOptionsConversion() throws {
@@ -206,6 +214,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertEqual(mergedOptions.unsafeParameters, ["api": "v3"])
         XCTAssertEqual(mergedOptions.ignoreIndexableRecords, fullOptions.ignoreIndexableRecords)
         XCTAssertEqual(mergedOptions.indexableRecordsDistanceThreshold, fullOptions.indexableRecordsDistanceThreshold)
+        XCTAssertEqual(mergedOptions.attributeSets, fullOptions.attributeSets)
     }
 }
 
@@ -229,6 +238,7 @@ extension SearchOptions {
         filterTypes: [.poi, .address, .place],
         ignoreIndexableRecords: false,
         indexableRecordsDistanceThreshold: 2_000,
-        unsafeParameters: ["arg": "value"]
+        unsafeParameters: ["arg": "value"],
+        attributeSets: [.basic, .photos]
     )
 }

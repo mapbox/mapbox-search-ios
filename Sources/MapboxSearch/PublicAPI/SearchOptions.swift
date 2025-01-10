@@ -38,7 +38,7 @@ public struct SearchOptions {
     /// The bounding box cannot cross the 180th meridian.
     public var boundingBox: BoundingBox?
 
-    /// In case ``SearchOptions/boundingBox`` was applied, places search will look though all available tiles,
+    /// In case ``SearchOptions/boundingBox`` was applied, places search will look through all available tiles,
     /// ignoring the bounding box. Other search types (Address, POI, Category) will no be affected by this setting.
     /// In case ``SearchOptions/boundingBox`` was not applied - this param will not be used.
     public var offlineSearchPlacesOutsideBbox: Bool
@@ -85,6 +85,10 @@ public struct SearchOptions {
      */
     public var locale: Locale?
 
+    /// Configures additional metadata attributes besides the basic ones.
+    /// Supported in ``ApiType/searchBox`` only.
+    public var attributeSets: [AttributeSet]?
+
     /// Search request options constructor
     /// - Parameter countries: Limit results to one or more countries. Permitted values are ISO 3166 alpha 2 country
     /// codes (e.g. US, DE, GB)
@@ -94,6 +98,7 @@ public struct SearchOptions {
     /// - Parameter fuzzyMatch: Use non-strict (`true`) or strict (`false`) matching
     /// - Parameter proximity: Coordinate to search around
     /// - Parameter boundingBox: Limit search result to a region
+    /// - Parameter offlineSearchPlacesOutsideBbox: Configures if places can be looked through all available files ignoring the bounding box
     /// - Parameter origin: Search origin point. This point is used for calculation of SearchResult ETA and distance
     /// fields
     /// - Parameter navigationOptions: Navigation options used for proper calculation of ETA and results ranking
@@ -102,6 +107,7 @@ public struct SearchOptions {
     /// - Parameter ignoreIndexableRecords: Do not search external records in `IndexableDataProvider`s
     /// - Parameter indexableRecordsDistanceThreshold: Radius of circle around `proximity` to filter indexable records
     /// - Parameter unsafeParameters: Non-verified query parameters to the server API
+    /// - Parameter attributeSets: Configures additional metadata attributes besides the basic ones
     public init(
         countries: [String]? = nil,
         languages: [String]? = nil,
@@ -116,7 +122,8 @@ public struct SearchOptions {
         filterTypes: [SearchQueryType]? = nil,
         ignoreIndexableRecords: Bool = false,
         indexableRecordsDistanceThreshold: CLLocationDistance? = nil,
-        unsafeParameters: [String: String]? = nil
+        unsafeParameters: [String: String]? = nil,
+        attributeSets: [AttributeSet]? = nil
     ) {
         self.countries = countries
         self.languages = languages ?? Locale.defaultLanguages()
@@ -132,6 +139,7 @@ public struct SearchOptions {
         self.ignoreIndexableRecords = ignoreIndexableRecords
         self.indexableRecordsDistanceThreshold = indexableRecordsDistanceThreshold
         self.unsafeParameters = unsafeParameters
+        self.attributeSets = attributeSets
     }
 
     /// Search request options with custom proximity.
@@ -218,6 +226,10 @@ public struct SearchOptions {
             etaType: etaType
         ) }
 
+        let attributeSets: [AttributeSet]? = options.attributeSets?
+            .compactMap { CoreAttributeSet(rawValue: $0.intValue) }
+            .compactMap { AttributeSet.fromCoreValue($0) }
+
         self.init(
             countries: options.countries,
             languages: options.language,
@@ -231,7 +243,8 @@ public struct SearchOptions {
             filterTypes: filterTypes,
             ignoreIndexableRecords: options.ignoreUR,
             indexableRecordsDistanceThreshold: options.urDistanceThreshold?.doubleValue,
-            unsafeParameters: options.addonAPI
+            unsafeParameters: options.addonAPI,
+            attributeSets: attributeSets
         )
     }
 
@@ -266,9 +279,8 @@ public struct SearchOptions {
             timeDeviation: timeDeviation,
             addonAPI: unsafeParameters,
             offlineSearchPlacesOutsideBbox: offlineSearchPlacesOutsideBbox,
-            ensureResultsPerCategory: nil,
-            // TODO: Support multiple categories search and ability to ensure results per category.
-            attributeSets: nil
+            ensureResultsPerCategory: nil, // TODO: NAVIOS-2054 Support multiple categories search and ability to ensure results per category.
+            attributeSets: attributeSets?.map { NSNumber(value: $0.coreValue.rawValue) }
         )
     }
 
@@ -412,7 +424,8 @@ public struct SearchOptions {
             ignoreIndexableRecords: ignoreIndexableRecords,
             indexableRecordsDistanceThreshold: indexableRecordsDistanceThreshold ??
                 with.indexableRecordsDistanceThreshold,
-            unsafeParameters: unsafeParameters ?? with.unsafeParameters
+            unsafeParameters: unsafeParameters ?? with.unsafeParameters,
+            attributeSets: attributeSets ?? with.attributeSets
         )
     }
 }
