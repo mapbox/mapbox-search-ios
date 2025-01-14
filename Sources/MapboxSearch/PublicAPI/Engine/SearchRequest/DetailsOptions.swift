@@ -5,9 +5,8 @@ import Foundation
 /// Options to configure a request for ``SearchEngine/retrieve(mapboxID:options:)``
 public struct DetailsOptions: Sendable {
     /// Besides the basic metadata attributes, developers can request additional
-    /// attributes by setting attribute_sets parameter with attribute set values,
-    /// for example &attribute_sets=basic,photos,visit.
-    /// The requested metadata will be provided in metadata object in the response.
+    /// metadata with the ``AttributeSet`` parameter for example &attribute_sets=basic,photos,visit.
+    /// The requested attributes will be provided in metadata object in the response.
     public var attributeSets: [AttributeSet]
 
     /// The ISO language code to be returned. If not provided, the default is English.
