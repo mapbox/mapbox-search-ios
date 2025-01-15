@@ -209,6 +209,8 @@ public class SearchEngine: AbstractSearchEngine {
         offlineMode == .disabled ? engine.reverseGeocoding : engine.reverseGeocodingOffline
     }
 
+    /// Concrete implementation for a typical ``select(suggestions:)`` invocation. Performs the work of a Mapbox API
+    /// retrieve/ endpoint request.
     func retrieve(
         suggestion: SearchSuggestion,
         retrieveOptions: RetrieveOptions?
@@ -329,6 +331,37 @@ public class SearchEngine: AbstractSearchEngine {
             } else {
                 delegate?.suggestionsUpdated(suggestions: suggestions, searchEngine: self)
             }
+
+        case .failure(let searchError):
+            eventsManager.reportError(searchError)
+            delegate?.searchErrorHappened(searchError: searchError, searchEngine: self)
+        }
+    }
+
+    /// Process a single response from ``retrieve(mapboxID:options:)``
+    /// - Parameters:
+    ///   - coreResponse: The API response
+    ///   - mapboxID: The ID used to create the original request.
+    private func processDetailsResponse(_ coreResponse: CoreSearchResponseProtocol?, mapboxID: String) {
+        assert(offlineMode == .disabled)
+        guard let response = preProcessResponse(coreResponse) else {
+            return
+        }
+
+        switch response.process() {
+        case .success(let responseResult):
+            // Response Info is not supported for retrieving by Details API at this time.
+            responseInfo = nil
+
+            guard let result = responseResult.results.first else {
+                let errorMessage = "Could not retrieve details result."
+                delegate?.searchErrorHappened(
+                    searchError: .internalSearchRequestError(message: errorMessage),
+                    searchEngine: self
+                )
+                return
+            }
+            delegate?.resultResolved(result: result, searchEngine: self)
 
         case .failure(let searchError):
             eventsManager.reportError(searchError)
@@ -572,6 +605,27 @@ extension SearchEngine {
 
                 completion(.failure(wrappedError))
             }
+        }
+    }
+}
+
+// MARK: - Public Details API
+
+extension SearchEngine {
+    /// Retrieve a POI by its Mapbox ID.
+    /// When you already have a Mapbox ID, you can retrieve the associated POI data directly rather than using
+    /// ``search(query:options:)`` and ``select(suggestions:)``
+    /// For example, to refresh the data for  a _cached POI_ , simply query ``retrieve(mapboxID:options:)``, instead of
+    /// using new `search` and `select` invocations.
+    /// - Parameters:
+    ///   - mapboxID: The Mapbox ID for a known POI. Mapbox IDs will be returned in Search responses and may be cached.
+    ///   - detailsOptions: Options to configure this query. May be nil.
+    public func retrieve(mapboxID: String, options detailsOptions: DetailsOptions = DetailsOptions()) {
+        assert(offlineMode == .disabled)
+
+        let detailsOptions = detailsOptions
+        engine.retrieveDetails(for: mapboxID, options: detailsOptions.toCore()) { [weak self] serverResponse in
+            self?.processDetailsResponse(serverResponse, mapboxID: mapboxID)
         }
     }
 }

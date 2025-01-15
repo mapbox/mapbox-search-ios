@@ -1,5 +1,5 @@
-@testable import MapboxSearch
 import MapboxCommon_Private
+@testable import MapboxSearch
 import XCTest
 
 final class EventsServiceMock: EventsServiceProtocol {
@@ -44,6 +44,5 @@ final class EventsManagerTests: XCTestCase {
         eventsManager.sendEvent(.feedback, attributes: attributes, autoFlush: false)
         let sentEvent2 = eventsService.events[1]
         XCTAssertEqual(sentEvent2.priority, .queued)
-
     }
 }

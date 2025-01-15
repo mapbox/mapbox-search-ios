@@ -158,4 +158,72 @@ class SearchBox_SearchEngineIntegrationTests: MockServerIntegrationTestCase<Sear
         wait(for: [successExpectation], timeout: 10)
         XCTAssertFalse(searchEngine.suggestions.isEmpty)
     }
+
+    func testRetrieveMapboxIDQuery() throws {
+        try server.setResponse(.retrieveMapboxID)
+
+        let successExpectation = delegate.successExpectation
+        searchEngine.retrieve(mapboxID: "dXJuOm1ieHBvaTo0ZTg2ZWFkNS1jOWMwLTQ3OWEtOTA5Mi1kMDVlNDQ3NDdlODk")
+        wait(for: [successExpectation], timeout: 10)
+
+        let result = try XCTUnwrap(delegate.resolvedResult)
+        let metadata = try XCTUnwrap(result.metadata)
+
+        XCTAssertNil(result.accuracy)
+        XCTAssertNil(result.distance)
+        XCTAssertEqual(result.categories, ["museum", "tourist attraction"])
+        XCTAssertNotNil(result.routablePoints?.first)
+
+        XCTAssertNil(metadata.children)
+        XCTAssertNil(metadata.primaryImage)
+
+        let otherImageData = [
+            [
+                "height": 768,
+                "url": "https://media-cdn.tripadvisor.com/media/photo-o/2a/08/ad/cd/caption.jpg",
+                "width": 1024,
+            ],
+            [
+                "height": 1024,
+                "url": "https://media-cdn.tripadvisor.com/media/photo-o/2a/08/ad/fe/caption.jpg",
+                "width": 768,
+            ],
+            [
+                "height": 975,
+                "url": "https://media-cdn.tripadvisor.com/media/photo-o/28/b6/2d/cc/caption.jpg",
+                "width": 2006,
+            ],
+            [
+                "height": 3888,
+                "url": "https://media-cdn.tripadvisor.com/media/photo-o/2a/45/ec/0a/caption.jpg",
+                "width": 5184,
+            ],
+            [
+                "height": 975,
+                "url": "https://media-cdn.tripadvisor.com/media/photo-o/28/b6/2d/ca/caption.jpg",
+                "width": 2006,
+            ],
+        ]
+        let otherImages = otherImageData
+            .compactMap { data -> (URL, CGSize)? in
+                guard let urlString = data["url"] as? String,
+                      let url = URL(string: urlString),
+                      let width = data["width"] as? Int,
+                      let height = data["height"] as? Int
+                else {
+                    return nil
+                }
+                return (url, CGSize(width: width, height: height))
+            }
+            .map(Image.SizedImage.init)
+        let comparisonOtherImages = [Image(sizes: otherImages)]
+        XCTAssertEqual(metadata.otherImages?.count, comparisonOtherImages.count)
+        XCTAssertEqual(metadata.otherImages, comparisonOtherImages)
+
+        XCTAssertNotNil(metadata.phone)
+        XCTAssertNotNil(metadata.averageRating)
+        XCTAssertNotNil(metadata.openHours)
+        XCTAssertNotNil(metadata.facebookId)
+        XCTAssertNotNil(metadata.twitter)
+    }
 }

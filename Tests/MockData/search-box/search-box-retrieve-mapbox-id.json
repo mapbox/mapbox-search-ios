@@ -1,0 +1,246 @@
+{
+  "geometry": {
+    "coordinates": [
+      -77.029129,
+      38.902309
+    ],
+    "type": "Point"
+  },
+  "properties": {
+    "address": "1300 I St NW",
+    "context": {
+      "address": {
+        "address_number": "1300",
+        "id": "",
+        "name": "1300 I St NW",
+        "street_name": "i street nw"
+      },
+      "country": {
+        "country_code": "US",
+        "country_code_alpha_3": "USA",
+        "id": "",
+        "name": "United States"
+      },
+      "neighborhood": {
+        "id": "dXJuOm1ieHBsYzpDaXpzN0E",
+        "name": "Downtown"
+      },
+      "place": {
+        "id": "dXJuOm1ieHBsYzpGSmlvN0E",
+        "name": "Washington"
+      },
+      "postcode": {
+        "id": "dXJuOm1ieHBsYzpBNTd1N0E",
+        "name": "20005"
+      },
+      "region": {
+        "id": "",
+        "name": "District of Columbia",
+        "region_code": "DC",
+        "region_code_full": "US-DC"
+      },
+      "street": {
+        "id": "",
+        "name": "i street nw"
+      }
+    },
+    "coordinates": {
+      "latitude": 38.902309,
+      "longitude": -77.029129,
+      "routable_points": [
+        {
+          "latitude": 38.90230737131555,
+          "longitude": -77.0296257487584,
+          "name": "default"
+        }
+      ]
+    },
+    "external_ids": {
+      "foursquare": "5e4aa71ee6eec6000844fbfc"
+    },
+    "feature_type": "poi",
+    "full_address": "1300 I St NW, Washington, District of Columbia 20005, United States",
+    "language": "en",
+    "maki": "marker",
+    "mapbox_id": "dXJuOm1ieHBvaTo0ZTg2ZWFkNS1jOWMwLTQ3OWEtOTA5Mi1kMDVlNDQ3NDdlODk",
+    "metadata": {
+      "facebook_id": "212540879151543",
+      "instagram": "planetworddc",
+      "open_hours": {
+        "periods": [
+          {
+            "close": {
+              "day": 0,
+              "time": "1700"
+            },
+            "open": {
+              "day": 0,
+              "time": "1000"
+            }
+          },
+          {
+            "close": {
+              "day": 3,
+              "time": "1700"
+            },
+            "open": {
+              "day": 3,
+              "time": "1000"
+            }
+          },
+          {
+            "close": {
+              "day": 4,
+              "time": "1700"
+            },
+            "open": {
+              "day": 4,
+              "time": "1000"
+            }
+          },
+          {
+            "close": {
+              "day": 5,
+              "time": "1700"
+            },
+            "open": {
+              "day": 5,
+              "time": "1000"
+            }
+          },
+          {
+            "close": {
+              "day": 6,
+              "time": "1700"
+            },
+            "open": {
+              "day": 6,
+              "time": "1000"
+            }
+          }
+        ],
+        "weekday_text": [
+          "Monday: Closed",
+          "Tuesday: Closed",
+          "Wednesday: 10:00 AM - 5:00 PM",
+          "Thursday: 10:00 AM - 5:00 PM",
+          "Friday: 10:00 AM - 5:00 PM",
+          "Saturday: 10:00 AM - 5:00 PM",
+          "Sunday: 10:00 AM - 5:00 PM"
+        ]
+      },
+      "phone": "+12029313139",
+      "photos": [
+          {
+            "height": 768,
+            "url": "https://media-cdn.tripadvisor.com/media/photo-o/2a/08/ad/cd/caption.jpg",
+            "width": 1024
+          },
+          {
+            "height": 1024,
+            "url": "https://media-cdn.tripadvisor.com/media/photo-o/2a/08/ad/fe/caption.jpg",
+            "width": 768
+          },
+          {
+            "height": 975,
+            "url": "https://media-cdn.tripadvisor.com/media/photo-o/28/b6/2d/cc/caption.jpg",
+            "width": 2006
+          },
+          {
+            "height": 3888,
+            "url": "https://media-cdn.tripadvisor.com/media/photo-o/2a/45/ec/0a/caption.jpg",
+            "width": 5184
+          },
+          {
+            "height": 975,
+            "url": "https://media-cdn.tripadvisor.com/media/photo-o/28/b6/2d/ca/caption.jpg",
+            "width": 2006
+          }
+      ],
+      "popular_hours": [
+        {
+          "day": 0,
+          "intervals": [
+            {
+              "end": {
+                "time": "1700"
+              },
+              "start": {
+                "time": "1000"
+              }
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "intervals": [
+            {
+              "end": {
+                "time": "1700"
+              },
+              "start": {
+                "time": "1000"
+              }
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "intervals": [
+            {
+              "end": {
+                "time": "1600"
+              },
+              "start": {
+                "time": "1000"
+              }
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "intervals": [
+            {
+              "end": {
+                "time": "1600"
+              },
+              "start": {
+                "time": "1000"
+              }
+            }
+          ]
+        },
+        {
+          "day": 6,
+          "intervals": [
+            {
+              "end": {
+                "time": "1700"
+              },
+              "start": {
+                "time": "1000"
+              }
+            }
+          ]
+        }
+      ],
+      "popularity": 0.9892701654583336,
+      "primary_photo": "https://ir.4sqi.net/img/general/original/38340_7KfSyEx1Dx1OZ1FlSH7sIt5t4t8ERFgMvtvRfwOEBLk.jpg",
+      "rating": 4.13,
+      "twitter": "planetworddc",
+      "website": "http://www.planetwordmuseum.org"
+    },
+    "name": "Planet Word",
+    "operational_status": "active",
+    "place_formatted": "Washington, District of Columbia 20005, United States",
+    "poi_category": [
+      "museum",
+      "tourist attraction"
+    ],
+    "poi_category_ids": [
+      "museum",
+      "tourist_attraction"
+    ]
+  },
+  "type": "Feature"
+}

@@ -4,11 +4,11 @@ import UIKit
 
 extension PointAnnotation {
     static func pointAnnotation(_ searchResult: SearchResult) -> Self {
-        Self.pointAnnotation(coordinate: searchResult.coordinate, name: searchResult.name)
+        pointAnnotation(coordinate: searchResult.coordinate, name: searchResult.name)
     }
 
     static func pointAnnotation(_ searchResult: AddressAutofill.Result) -> Self {
-        Self.pointAnnotation(coordinate: searchResult.coordinate, name: searchResult.name)
+        pointAnnotation(coordinate: searchResult.coordinate, name: searchResult.name)
     }
 
     static func pointAnnotation(_ searchResult: PlaceAutocomplete.Result) -> Self? {

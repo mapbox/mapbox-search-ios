@@ -43,12 +43,15 @@ public class EventsManager: NSObject {
         // This unhandled parameter must be removed to match the event scheme.
         commonEventAttributes.removeValue(forKey: "mapboxId")
 
-        let commonEvent = Event(priority: autoFlush ? .immediate : .queued,
-                                attributes: commonEventAttributes,
-                                deferredOptions: nil)
+        let commonEvent = Event(
+            priority: autoFlush ? .immediate : .queued,
+            attributes: commonEventAttributes,
+            deferredOptions: nil
+        )
         eventsService.sendEvent(for: commonEvent) { expected in
             if expected.isError() {
-                _Logger.searchSDK.error("Failed to send the event \(event.rawValue) due to error: \(expected.error.message)")
+                _Logger.searchSDK
+                    .error("Failed to send the event \(event.rawValue) due to error: \(expected.error.message)")
             } else if expected.isValue() {
                 _Logger.searchSDK.debug("Sent the event \(event.rawValue)")
             }

@@ -37,7 +37,8 @@ class ResultDetailViewController: UIViewController {
         feedbackButton.addTarget(self, action: #selector(showFeedbackAlert), for: .touchUpInside)
     }
 
-    @objc func showFeedbackAlert() {
+    @objc
+    func showFeedbackAlert() {
         let alert = UIAlertController(
             title: "Submit Feedback?",
             message: nil,

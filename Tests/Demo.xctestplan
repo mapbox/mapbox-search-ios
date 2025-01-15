@@ -44,9 +44,6 @@
       }
     },
     {
-      "skippedTests" : [
-        "SearchEngineTests\/testRetrieveDetailsFunction()"
-      ],
       "target" : {
         "containerPath" : "container:MapboxSearch.xcodeproj",
         "identifier" : "3A0D7E54233522D4006D81BB",

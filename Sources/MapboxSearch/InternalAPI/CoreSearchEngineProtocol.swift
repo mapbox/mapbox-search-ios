@@ -1,6 +1,8 @@
 import CoreLocation
 import Foundation
 
+typealias CoreSearchResponseCompletion = (CoreSearchResponseProtocol?) -> Void
+
 protocol CoreSearchEngineProtocol {
     /**
      -------------------------------------------------------------------------------------------
@@ -79,12 +81,11 @@ protocol CoreSearchEngineProtocol {
         completion: @escaping (CoreSearchResponseProtocol?) -> Void
     )
 
-    @discardableResult
     func forward(
         query: String,
         options: CoreSearchOptions,
         completion: @escaping (CoreSearchResponseProtocol?) -> Void
-    ) -> UInt64
+    )
 
     func setTileStore(_ tileStore: MapboxCommon.TileStore, completion: (() -> Void)?)
 
@@ -95,6 +96,12 @@ protocol CoreSearchEngineProtocol {
     func addOfflineIndexObserver(for observer: CoreOfflineIndexObserver)
 
     func removeOfflineIndexObserver(for observer: CoreOfflineIndexObserver)
+
+    func retrieveDetails(
+        for mapboxId: String,
+        options: CoreDetailsOptions,
+        completion: @escaping CoreSearchResponseCompletion
+    )
 }
 
 extension CoreSearchEngine: CoreSearchEngineProtocol {
@@ -273,12 +280,23 @@ extension CoreSearchEngine: CoreSearchEngineProtocol {
         })
     }
 
-    @discardableResult
+    func retrieveDetails(
+        for mapboxId: String,
+        options: CoreDetailsOptions,
+        completion: @escaping CoreSearchResponseCompletion
+    ) {
+        retrieveDetails(forMapboxId: mapboxId, options: options) { response in
+            DispatchQueue.main.async {
+                completion(response)
+            }
+        }
+    }
+
     func forward(
         query: String,
         options: CoreSearchOptions,
         completion: @escaping (CoreSearchResponseProtocol?) -> Void
-    ) -> UInt64 {
+    ) {
         forward(forQuery: query, options: options, callback: { response in
             DispatchQueue.main.async {
                 completion(response)

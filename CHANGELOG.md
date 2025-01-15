@@ -6,6 +6,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+- [Details] Add `SearchEngine.retrieve(mapboxID: String, options: DetailsOptions)` function.
+
 ## 2.7.1
 
 - [Core] Update dependencies.

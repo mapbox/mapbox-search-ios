@@ -34,6 +34,12 @@ class CoreSearchEngineStub {
 }
 
 extension CoreSearchEngineStub: CoreSearchEngineProtocol {
+    func retrieveDetails(
+        for mapboxId: String,
+        options: MapboxSearch.CoreDetailsOptions,
+        completion: @escaping MapboxSearch.CoreSearchResponseCompletion
+    ) {}
+
     func addOfflineIndexObserver(for observer: MapboxSearch.CoreOfflineIndexObserver) {}
 
     func removeOfflineIndexObserver(for observer: CoreOfflineIndexObserver) {}
@@ -199,13 +205,9 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
         reverseGeocoding(for: options, completion: completion)
     }
 
-    @discardableResult
     func forward(
         query: String,
         options: CoreSearchOptions,
         completion: @escaping (CoreSearchResponseProtocol?) -> Void
-    ) -> UInt64 {
-        // TODO:
-        return UInt64.max
-    }
+    ) {}
 }
