@@ -208,9 +208,11 @@ public struct SearchOptions {
             latitude: $0.value.latitude,
             longitude: $0.value.longitude
         ) }
-        let filterTypes: [SearchQueryType]? = options.types?
-            .compactMap { CoreQueryType(rawValue: $0.intValue) }
-            .compactMap { SearchQueryType.fromCoreValue($0) }
+
+        let filterTypes: [SearchQueryType]? = options.types?.compactMap {
+            CoreQueryType(rawValue: $0.intValue)
+                .flatMap { SearchQueryType.fromCoreValue($0) }
+        }
 
         var routeOptions: RouteOptions?
         let coordinates = options.route?.map(\.value)
@@ -227,9 +229,10 @@ public struct SearchOptions {
             etaType: etaType
         ) }
 
-        let attributeSets: [AttributeSet]? = options.attributeSets?
-            .compactMap { CoreAttributeSet(rawValue: $0.intValue) }
-            .compactMap { AttributeSet.fromCoreValue($0) }
+        let attributeSets: [AttributeSet]? = options.attributeSets?.compactMap {
+            CoreAttributeSet(rawValue: $0.intValue)
+                .flatMap { AttributeSet.fromCoreValue($0) }
+        }
 
         self.init(
             countries: options.countries,
