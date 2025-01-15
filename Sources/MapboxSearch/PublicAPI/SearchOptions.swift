@@ -107,7 +107,8 @@ public struct SearchOptions {
     /// - Parameter ignoreIndexableRecords: Do not search external records in `IndexableDataProvider`s
     /// - Parameter indexableRecordsDistanceThreshold: Radius of circle around `proximity` to filter indexable records
     /// - Parameter unsafeParameters: Non-verified query parameters to the server API
-    /// - Parameter attributeSets: Configures additional metadata attributes besides the basic ones
+    /// - Parameter attributeSets: Configures additional metadata attributes besides the basic ones.  If `attributeSets`
+    /// is nil or empty, ``AttributeSet/basic`` will be requested.
     public init(
         countries: [String]? = nil,
         languages: [String]? = nil,
@@ -279,7 +280,8 @@ public struct SearchOptions {
             timeDeviation: timeDeviation,
             addonAPI: unsafeParameters,
             offlineSearchPlacesOutsideBbox: offlineSearchPlacesOutsideBbox,
-            ensureResultsPerCategory: nil, // TODO: NAVIOS-2054 Support multiple categories search and ability to ensure results per category.
+            ensureResultsPerCategory: nil,
+            // TODO: NAVIOS-2054 Support multiple categories search and ability to ensure results per category.
             attributeSets: attributeSets?.map { NSNumber(value: $0.coreValue.rawValue) }
         )
     }
