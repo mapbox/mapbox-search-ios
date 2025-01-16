@@ -85,7 +85,7 @@ public struct SearchOptions {
      */
     public var locale: Locale?
 
-    /// Configures additional metadata attributes besides the basic ones.
+    /// Configures additional metadata attributes besides the basic ones. This property is used only in category search.
     /// Supported in ``ApiType/searchBox`` only.
     public var attributeSets: [AttributeSet]?
 
