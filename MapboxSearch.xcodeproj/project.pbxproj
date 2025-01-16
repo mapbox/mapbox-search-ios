@@ -153,6 +153,8 @@
 		14FBBBAF2881673E00721935 /* AddressAutofill.Query+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBBBAE2881673E00721935 /* AddressAutofill.Query+Tests.swift */; };
 		2C10133429F1C6200094413F /* PlaceAutocompleteIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10133329F1C6200094413F /* PlaceAutocompleteIntegrationTests.swift */; };
 		2C18E9F429F0A83900FD96E6 /* PlaceAutocompleteSuggestionStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C18E9F229F0A82E00FD96E6 /* PlaceAutocompleteSuggestionStub.swift */; };
+		2C52F3842D396FB3006B8F0E /* MapboxCoreSearch.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */; };
+		2C52F3852D396FB3006B8F0E /* MapboxCoreSearch.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2C705F062A137CEB00B8B773 /* SearchNavigationProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C705F052A137CEB00B8B773 /* SearchNavigationProfile.swift */; };
 		2C7FEBFA2CE78E6300B7ED22 /* PointAnnotation+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7FEBF92CE78E6300B7ED22 /* PointAnnotation+Search.swift */; };
 		2C7FEBFC2CE7A62C00B7ED22 /* MapView+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7FEBFB2CE7A62C00B7ED22 /* MapView+Search.swift */; };
@@ -552,6 +554,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				FEBC00DB243C6D32000B268B /* MapboxSearch.framework in Embed Frameworks */,
+				2C52F3852D396FB3006B8F0E /* MapboxCoreSearch.xcframework in Embed Frameworks */,
 				FEBC00DF243C6D32000B268B /* MapboxSearchUI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1015,6 +1018,7 @@
 				043339CD2C61295D001650FA /* Atlantis in Frameworks */,
 				042BEB1A2C2DE30E0004CD7B /* MapboxMaps in Frameworks */,
 				FEBC00DA243C6D32000B268B /* MapboxSearch.framework in Frameworks */,
+				2C52F3842D396FB3006B8F0E /* MapboxCoreSearch.xcframework in Frameworks */,
 				FEBC00DE243C6D32000B268B /* MapboxSearchUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1132,15 +1136,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		04A26C632C75359B00443527 /* SearchRequest */ = {
-			isa = PBXGroup;
-			children = (
-				049FE3A72C6A50BB00F54FB2 /* RetrieveOptions.swift */,
-				04A26C642C7535BD00443527 /* DetailsOptions.swift */,
-			);
-			path = SearchRequest;
-			sourceTree = "<group>";
-		};
 		0498A7412CB4866E008F8903 /* Forward */ = {
 			isa = PBXGroup;
 			children = (
@@ -1149,6 +1144,15 @@
 				046D17142CB587190038F38E /* ForwardExampleSearchEngine.swift */,
 			);
 			name = Forward;
+			sourceTree = "<group>";
+		};
+		04A26C632C75359B00443527 /* SearchRequest */ = {
+			isa = PBXGroup;
+			children = (
+				049FE3A72C6A50BB00F54FB2 /* RetrieveOptions.swift */,
+				04A26C642C7535BD00443527 /* DetailsOptions.swift */,
+			);
+			path = SearchRequest;
 			sourceTree = "<group>";
 		};
 		04C127562B62FFD000884325 /* Engine */ = {
