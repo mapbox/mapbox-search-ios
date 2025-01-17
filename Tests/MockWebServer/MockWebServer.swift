@@ -4,6 +4,8 @@ import Swifter
 final class MockWebServer<Mock: MockResponse> {
     let endpoint = "http://localhost:8080"
 
+    var passedRequests: [Swifter.HttpRequest] = []
+
     private let server = HttpServer()
 
     func setResponse(_ endpoint: Mock, query: String? = nil, statusCode: Int = 200) throws {
@@ -18,10 +20,16 @@ final class MockWebServer<Mock: MockResponse> {
 
         switch method {
         case .get:
-            server.get[route] = { _ in response }
+            server.get[route] = { [weak self] request in
+                self?.passedRequests.append(request)
+                return response
+            }
 
         case .post:
-            server.post[route] = { _ in response }
+            server.post[route] = { [weak self] request in
+                self?.passedRequests.append(request)
+                return response
+            }
         }
     }
 
