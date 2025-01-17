@@ -108,7 +108,7 @@ public struct SearchOptions {
     /// - Parameter indexableRecordsDistanceThreshold: Radius of circle around `proximity` to filter indexable records
     /// - Parameter unsafeParameters: Non-verified query parameters to the server API
     /// - Parameter attributeSets: Configures additional metadata attributes besides the basic ones.  If `attributeSets`
-    /// is nil or empty, ``AttributeSet/basic`` will be requested.
+    /// is `nil` or empty, ``AttributeSet/basic`` will be requested.
     public init(
         countries: [String]? = nil,
         languages: [String]? = nil,
