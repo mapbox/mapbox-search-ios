@@ -12,6 +12,8 @@ struct SearchResultSuggestionStub: SearchResultSuggestion {
 
     var name: String = "Name for UnitTests"
 
+    var namePreferred: String? = "POI preferred name"
+
     var address: Address?
 
     var categories: [String]?

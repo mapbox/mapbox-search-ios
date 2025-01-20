@@ -8,6 +8,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         resultAccuracy: CoreAccuracy? = nil,
         type: CoreResultType,
         names: [String] = ["sample-name1", "sample-name2"],
+        namePreferred: String? = nil,
         languages: [String] = ["sample-language1", "sample-language2"],
         addresses: [CoreAddress]? = [Address.mapboxDCOffice.coreAddress()],
         addressDescription: String? = nil,
@@ -30,6 +31,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         self.resultAccuracy = resultAccuracy
         self.resultTypes = [type]
         self.names = names
+        self.namePreferred = namePreferred
         self.languages = languages
         self.addresses = addresses
         self.addressDescription = addressDescription
@@ -63,6 +65,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
     var resultTypes: [CoreResultType]
     var type: CoreResultType { resultTypes.first ?? .unknown }
     var names: [String]
+    var namePreferred: String?
     var languages: [String]
     var addresses: [CoreAddress]?
     var addressDescription: String?
@@ -106,6 +109,7 @@ extension CoreSearchResultStub: Equatable {
             && lhs.mapboxId == rhs.mapboxId
             && lhs.type == rhs.type
             && lhs.names == rhs.names
+            && lhs.namePreferred == rhs.namePreferred
             && lhs.languages == rhs.languages
             && lhs.addresses == rhs.addresses
             && lhs.centerLocation == rhs.centerLocation
@@ -126,6 +130,7 @@ extension CoreSearchResultProtocol {
             mapboxId: mapboxId,
             types: resultTypes.map { NSNumber(value: $0.rawValue) },
             names: names,
+            namePreferred: namePreferred,
             languages: languages,
             addresses: addresses,
             descrAddress: addressDescription,

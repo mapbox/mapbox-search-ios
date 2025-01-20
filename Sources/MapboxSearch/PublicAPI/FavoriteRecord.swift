@@ -78,13 +78,21 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     /// Favorite record constructor
     /// - Parameters:
     ///   - id: UUID used by default
+    ///   - mapboxId: Unique record identifier
     ///   - name: Favorite name
+    ///   - matchingName: The feature name, as matched by the search algorithm
     ///   - coordinate: Favorite coordinate
+    ///   - distance: An approximate distance to the origin location, in meters
     ///   - address: Favorite address
     ///   - makiIcon:Favorite  icon name
+    ///   - serverIndex: The index in response from server
+    ///   - accuracy: A point accuracy metric for the returned address
     ///   - categories: Favorite categories list
+    ///   - routablePoints: Coordinates of building entries
     ///   - searchRequest: original search request
+    ///   - metadata: Associated metadata
     ///   - resultType: Favorite result type
+    ///   - descriptionText: Address formatted with the medium style
     public init(
         id: String? = nil,
         mapboxId: String? = nil,

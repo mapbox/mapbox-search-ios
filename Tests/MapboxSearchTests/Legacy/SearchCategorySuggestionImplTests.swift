@@ -4,13 +4,15 @@ import XCTest
 
 class SearchCategorySuggestionImplTests: XCTestCase {
     func testSuccessfulInit() throws {
+        let coreResult = CoreSearchResultStub(
+            id: "sample-2",
+            mapboxId: "sample-2",
+            type: .category,
+            namePreferred: "Preferred name",
+            centerLocation: nil
+        )
         let suggestionImpl = try XCTUnwrap(SearchCategorySuggestionImpl(
-            coreResult: CoreSearchResultStub(
-                id: "sample-2",
-                mapboxId: "sample-2",
-                type: .category,
-                centerLocation: nil
-            ),
+            coreResult: coreResult,
             response: CoreSearchResponseStub(
                 id: 42,
                 options: .sample1,
@@ -18,6 +20,8 @@ class SearchCategorySuggestionImplTests: XCTestCase {
             )
         ))
         XCTAssertEqual(suggestionImpl.suggestionType, .category)
+        XCTAssertEqual(suggestionImpl.name, coreResult.names.first)
+        XCTAssertEqual(suggestionImpl.namePreferred, coreResult.namePreferred)
     }
 
     func testFailedInitForPOI() throws {

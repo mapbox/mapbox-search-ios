@@ -17,6 +17,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 - [Details] Add `SearchEngine.retrieve(mapboxID: String, options: DetailsOptions)` function.
 - [SearchOptions] Add `SearchOptions.attributeSets` option. It allows to request of additional metadata attributes besides the basic ones in category search requests.
+- [SearchSuggestion] Add `SearchSuggestion.namePreferred` field to represent the preferred display name for the result.
 
 ## 2.7.1
 

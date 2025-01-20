@@ -12,6 +12,8 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
 
     var name: String
 
+    var namePreferred: String?
+
     var address: Address?
 
     var descriptionText: String?
@@ -39,7 +41,8 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
 
         self.id = coreResult.userRecordID ?? coreResult.id
         self.mapboxId = coreResult.mapboxId
-        self.name = coreResult.names[0]
+        self.name = coreResult.names.first ?? ""
+        self.namePreferred = coreResult.namePreferred
         self.address = coreResult.addresses?.first.map(Address.init)
         self.dataLayerIdentifier = layerIdentifier
         self.distance = coreResult.distanceToProximity

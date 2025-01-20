@@ -5,13 +5,15 @@ import XCTest
 
 class SearchResultSuggestionImplTests: XCTestCase {
     func testSuccessfulInitForAddressType() throws {
+        let coreResult = CoreSearchResultStub(
+            id: "sample-2",
+            mapboxId: "sample-2",
+            type: .address,
+            namePreferred: "Preferred name",
+            centerLocation: nil
+        )
         let suggestionImpl = try XCTUnwrap(SearchResultSuggestionImpl(
-            coreResult: CoreSearchResultStub(
-                id: "sample-2",
-                mapboxId: "sample-2",
-                type: .address,
-                centerLocation: nil
-            ),
+            coreResult: coreResult,
             response: CoreSearchResponseStub(
                 id: 42,
                 options: .sample1,
@@ -19,16 +21,20 @@ class SearchResultSuggestionImplTests: XCTestCase {
             )
         ))
         XCTAssertEqual(suggestionImpl.suggestionType, .address(subtypes: [.address]))
+        XCTAssertEqual(suggestionImpl.name, coreResult.names.first)
+        XCTAssertEqual(suggestionImpl.namePreferred, coreResult.namePreferred)
     }
 
     func testSuccessfulInitForPOIType() throws {
+        let coreResult = CoreSearchResultStub(
+            id: "sample-2",
+            mapboxId: "sample-2",
+            type: .poi,
+            namePreferred: "Preferred name",
+            centerLocation: nil
+        )
         let suggestionImpl = try XCTUnwrap(SearchResultSuggestionImpl(
-            coreResult: CoreSearchResultStub(
-                id: "sample-2",
-                mapboxId: "sample-2",
-                type: .poi,
-                centerLocation: nil
-            ),
+            coreResult: coreResult,
             response: CoreSearchResponseStub(
                 id: 42,
                 options: .sample1,
@@ -36,6 +42,8 @@ class SearchResultSuggestionImplTests: XCTestCase {
             )
         ))
         XCTAssertEqual(suggestionImpl.suggestionType, .POI)
+        XCTAssertEqual(suggestionImpl.name, coreResult.names.first)
+        XCTAssertEqual(suggestionImpl.namePreferred, coreResult.namePreferred)
     }
 
     func testFailedInit() throws {

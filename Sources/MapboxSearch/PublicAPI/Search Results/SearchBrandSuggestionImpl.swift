@@ -16,6 +16,8 @@ class SearchBrandSuggestionImpl: SearchBrandSuggestion, CoreResponseProvider {
 
     var name: String
 
+    var namePreferred: String?
+
     var address: Address?
 
     var descriptionText: String?
@@ -48,7 +50,8 @@ class SearchBrandSuggestionImpl: SearchBrandSuggestion, CoreResponseProvider {
         self.id = coreResult.id
         self.mapboxId = coreResult.mapboxId
         self.suggestionType = .brand
-        self.name = coreResult.names[0]
+        self.name = coreResult.names.first ?? ""
+        self.namePreferred = coreResult.namePreferred
         self.address = coreResult.addresses?.first.map(Address.init)
         self.iconName = coreResult.icon
         self.serverIndex = coreResult.serverIndex?.intValue
