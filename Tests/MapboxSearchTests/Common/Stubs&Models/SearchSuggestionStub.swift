@@ -5,6 +5,7 @@ struct SearchSuggestionStub: SearchSuggestion {
     var id: String = UUID().uuidString
     var mapboxId: String? = ""
     var name: String = "Test Name"
+    var namePreferred: String? = "POI Preferred name"
     var categories: [String]?
     var descriptionText: String? = "Test Description"
     var address: Address?

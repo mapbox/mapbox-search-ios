@@ -91,15 +91,22 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     /// History record constructor
     /// - Parameters:
     ///   - id: UUID used by default
+    ///   - mapboxId: Unique record identifier
     ///   - name: History name
+    ///   - matchingName: The feature name, as matched by the search algorithm
+    ///   - serverIndex: The index in response from server
+    ///   - accuracy: A point accuracy metric for the returned address
     ///   - coordinate: History coordinate
+    ///   - distance: An approximate distance to the origin location, in meters
     ///   - timestamp: History timestamp
     ///   - historyType: History type
     ///   - type: History type
     ///   - address: History address
     ///   - metadata: Associated metadata
     ///   - categories: Categories of original object
+    ///   - searchRequest: The original search request
     ///   - routablePoints: Coordinates of building entries
+    ///   - descriptionText: Address formatted with the medium style
     public init(
         id: String = UUID().uuidString,
         mapboxId: String?,

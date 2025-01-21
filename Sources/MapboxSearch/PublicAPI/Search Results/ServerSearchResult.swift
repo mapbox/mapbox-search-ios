@@ -39,6 +39,8 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
 
     var name: String
 
+    var namePreferred: String?
+
     var matchingName: String?
 
     var descriptionText: String?
@@ -69,6 +71,7 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
         self.id = coreResult.id
         self.mapboxId = coreResult.mapboxId
         self.name = coreResult.names.first ?? ""
+        self.namePreferred = coreResult.namePreferred
         self.matchingName = coreResult.matchingName
         self.iconName = coreResult.icon
         self.estimatedTime = coreResult.estimatedTime

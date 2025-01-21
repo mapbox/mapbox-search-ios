@@ -13,6 +13,9 @@ protocol CoreSearchResultProtocol {
      */
     var names: [String] { get }
 
+    /// The preferred name of the feature, if different than name.
+    var namePreferred: String? { get }
+
     var resultAccuracy: CoreAccuracy? { get }
 
     var languages: [String] { get }

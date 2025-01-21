@@ -10,6 +10,8 @@ class SearchQuerySuggestionImpl: SearchQuerySuggestion, CoreResponseProvider {
 
     var name: String
 
+    var namePreferred: String?
+
     var address: Address?
 
     var descriptionText: String?
@@ -40,7 +42,8 @@ class SearchQuerySuggestionImpl: SearchQuerySuggestion, CoreResponseProvider {
         self.id = coreResult.id
         self.mapboxId = coreResult.mapboxId
         self.suggestionType = .query
-        self.name = coreResult.names[0]
+        self.name = coreResult.names.first ?? ""
+        self.namePreferred = coreResult.namePreferred
         self.address = coreResult.addresses?.first.map(Address.init)
         self.iconName = nil // Queries should use it's special icon
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)

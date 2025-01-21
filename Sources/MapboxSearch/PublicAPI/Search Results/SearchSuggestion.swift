@@ -16,6 +16,9 @@ public protocol SearchSuggestion {
     /// Suggestion name.
     var name: String { get }
 
+    /// The preferred name of the feature, if different than name.
+    var namePreferred: String? { get }
+
     /// Index in response from server.
     var serverIndex: Int? { get }
 

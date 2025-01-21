@@ -10,6 +10,8 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
 
     var name: String
 
+    var namePreferred: String?
+
     var address: Address?
 
     var descriptionText: String?
@@ -44,7 +46,8 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
         self.id = coreResult.id
         self.mapboxId = coreResult.mapboxId
         self.suggestionType = .category
-        self.name = coreResult.names[0]
+        self.name = coreResult.names.first ?? ""
+        self.namePreferred = coreResult.namePreferred
         self.address = coreResult.addresses?.first.map(Address.init)
         self.iconName = nil // Categories should use it's special icon
         self.serverIndex = coreResult.serverIndex?.intValue
