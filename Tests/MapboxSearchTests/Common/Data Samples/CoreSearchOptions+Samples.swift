@@ -33,7 +33,8 @@ extension CoreSearchOptions {
         timeDeviation: 10,
         addonAPI: nil,
         ensureResultsPerCategory: nil,
-        attributeSets: nil
+        attributeSets: nil, 
+        evSearchOptions: nil
     )
 
     static let sample2 = CoreSearchOptions(
@@ -70,6 +71,7 @@ extension CoreSearchOptions {
         timeDeviation: 10,
         addonAPI: nil,
         ensureResultsPerCategory: nil,
-        attributeSets: nil
+        attributeSets: nil,
+        evSearchOptions: nil
     )
 }

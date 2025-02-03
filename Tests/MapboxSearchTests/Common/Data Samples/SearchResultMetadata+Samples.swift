@@ -46,6 +46,7 @@ extension CoreResultMetadata {
             parkingAvailable: nil,
             valetParking: nil,
             streetParking: nil,
+            parkingType: nil,
             servesBreakfast: nil,
             servesBrunch: nil,
             servesDinner: nil,
@@ -62,7 +63,12 @@ extension CoreResultMetadata {
             servesVegan: nil,
             servesVegetarian: nil,
             rating: nil,
-            popularity: nil
+            popularity: nil,
+            evMetadata: nil,
+            directions: nil,
+            facilities: nil,
+            timezone: nil,
+            lastUpdated: nil
         )
     }
 }
