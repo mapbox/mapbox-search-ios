@@ -6,6 +6,10 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+## 2.8.0-rc.2
+
+- [SearchSuggestion] Fix `SearchSuggestion.namePreferred` always returned `nil`.
+
 ## 2.8.0-rc.1
 
 - [Core] Update dependencies.
