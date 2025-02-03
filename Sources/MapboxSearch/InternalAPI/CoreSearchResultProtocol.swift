@@ -71,6 +71,10 @@ protocol CoreSearchResultProtocol {
 }
 
 extension CoreSearchResult: CoreSearchResultProtocol {
+    var namePreferred: String? {
+        nil
+    }
+    
     var centerLocation: CLLocation? {
         center.map { CLLocation(latitude: $0.value.latitude, longitude: $0.value.longitude) }
     }
