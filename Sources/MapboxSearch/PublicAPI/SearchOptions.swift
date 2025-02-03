@@ -285,8 +285,7 @@ public struct SearchOptions {
             offlineSearchPlacesOutsideBbox: offlineSearchPlacesOutsideBbox,
             ensureResultsPerCategory: nil,
             // TODO: NAVIOS-2054 Support multiple categories search and ability to ensure results per category.
-            attributeSets: attributeSets?.map { NSNumber(value: $0.coreValue.rawValue) },
-            evSearchOptions: nil
+            attributeSets: attributeSets?.map { NSNumber(value: $0.coreValue.rawValue) }
         )
     }
 
