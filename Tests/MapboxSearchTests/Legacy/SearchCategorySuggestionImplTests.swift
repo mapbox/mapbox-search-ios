@@ -21,7 +21,7 @@ class SearchCategorySuggestionImplTests: XCTestCase {
         ))
         XCTAssertEqual(suggestionImpl.suggestionType, .category)
         XCTAssertEqual(suggestionImpl.name, coreResult.names.first)
-        XCTAssertEqual(suggestionImpl.namePreferred, coreResult.namePreferred)
+        XCTAssertEqual(suggestionImpl.namePreferred, "Preferred name")
     }
 
     func testFailedInitForPOI() throws {

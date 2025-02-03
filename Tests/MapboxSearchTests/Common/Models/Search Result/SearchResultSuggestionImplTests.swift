@@ -22,7 +22,7 @@ class SearchResultSuggestionImplTests: XCTestCase {
         ))
         XCTAssertEqual(suggestionImpl.suggestionType, .address(subtypes: [.address]))
         XCTAssertEqual(suggestionImpl.name, coreResult.names.first)
-        XCTAssertEqual(suggestionImpl.namePreferred, coreResult.namePreferred)
+        XCTAssertEqual(suggestionImpl.namePreferred, "Preferred name")
     }
 
     func testSuccessfulInitForPOIType() throws {
