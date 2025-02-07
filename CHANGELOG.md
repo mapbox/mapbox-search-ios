@@ -6,6 +6,13 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+## 2.8.0-rc.3
+
+- [Core] Update dependencies.
+
+**MapboxCommon**: v24.10.0-rc.2
+**MapboxCoreSearch**: v2.8.0-rc.2
+
 ## 2.8.0-rc.2
 
 - [SearchSuggestion] Fix `SearchSuggestion.namePreferred` always returned `nil`.
