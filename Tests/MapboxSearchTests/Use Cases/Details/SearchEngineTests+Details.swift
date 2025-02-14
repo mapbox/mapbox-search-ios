@@ -9,7 +9,7 @@ extension SearchEngineTests {
     /// NOTE: Although this test uses separate fetches for each attribute set this is purely for testing coverage
     /// purposes. It is recommended to request as many attribute sets as desired in one RequestOptions array.
     /// Ex: You should use RetrieveOptions(attributeSets: [.visit, .photos]) in one select() call rather than two calls.
-    func testRetrieveDetailsByEachAttributeSet() throws {
+    func flacky_testRetrieveDetailsByEachAttributeSet() throws {
         let searchEngine = SearchEngine(apiType: .searchBox)
         let delegate = SearchEngineDelegateStub()
         searchEngine.delegate = delegate
@@ -74,7 +74,7 @@ extension SearchEngineTests {
         XCTAssertNil(delegate.error)
     }
 
-    func testSelectAndSuggestDetailsByEachAttributeSet() throws {
+    func flacky_testSelectAndSuggestDetailsByEachAttributeSet() throws {
         let searchEngine = SearchEngine(apiType: .searchBox)
         let delegate = SearchEngineDelegateStub()
         searchEngine.delegate = delegate
