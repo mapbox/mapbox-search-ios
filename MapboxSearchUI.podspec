@@ -23,5 +23,5 @@ Card style custom UI with full search functionality powered by Mapbox Search API
 
   s.vendored_frameworks = "**/#{s.name}.xcframework"
 
-  s.dependency 'MapboxSearch', "2.8.0-rc.2"
+  s.dependency 'MapboxSearch', "2.8.0"
 end
