@@ -30,7 +30,7 @@ final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase<Autof
         )
     }
 
-    func flacky_testSelectSuggestion() throws {
+    func testSelectSuggestion() throws {
         let expectation = XCTestExpectation(description: "Expecting results")
 
         try server.setResponse(.suggestAddressSanFrancisco)
