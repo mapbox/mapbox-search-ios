@@ -3,12 +3,13 @@ import CoreLocation
 import XCTest
 
 class SearchEngineGeocodingIntegrationTests: MockServerIntegrationTestCase<GeocodingMockResponse> {
-    let delegate = SearchEngineDelegateStub()
+    var delegate: SearchEngineDelegateStub!
     var searchEngine: SearchEngine!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
 
+        delegate = SearchEngineDelegateStub()
         let apiType = try XCTUnwrap(Mock.coreApiType.toSDKType())
         searchEngine = try SearchEngine(
             accessToken: "access-token",

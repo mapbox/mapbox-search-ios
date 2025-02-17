@@ -4,12 +4,14 @@ import CwlPreconditionTesting
 import XCTest
 
 class CategorySearchEngineTests: XCTestCase {
-    var delegate = SearchEngineDelegateStub()
-    let provider = ServiceProviderStub()
+    var delegate: SearchEngineDelegateStub!
+    var provider: ServiceProviderStub!
 
     override func setUp() {
         super.setUp()
 
+        delegate = SearchEngineDelegateStub()
+        provider = ServiceProviderStub()
         provider.localHistoryProvider.clearData()
         provider.localFavoritesProvider.clearData()
     }
