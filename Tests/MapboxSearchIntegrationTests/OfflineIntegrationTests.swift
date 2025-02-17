@@ -8,8 +8,8 @@ import XCTest
 
 /// Note: ``OfflineIntegrationTests`` does not use Mocked data.
 class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
-    let delegate = SearchEngineDelegateStub()
-    let searchEngine = SearchEngine()
+    var delegate: SearchEngineDelegateStub!
+    var searchEngine: SearchEngine!
 
     let dcLocation = CLLocationCoordinate2D(latitude: 38.89992081005698, longitude: -77.03399849939174)
     let regionId = "dc"
@@ -19,6 +19,8 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
     override func setUpWithError() throws {
         try super.setUpWithError()
 
+        delegate = SearchEngineDelegateStub()
+        searchEngine = SearchEngine()
         searchEngine.delegate = delegate
 
         let enableOfflineExpectation = expectation(description: "Offline mode enabled")

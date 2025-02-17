@@ -2,7 +2,7 @@
 import XCTest
 
 final class SearchBox_UserRecordsLayerTests: XCTestCase {
-    let delegate = SearchEngineDelegateStub()
+    var delegate: SearchEngineDelegateStub!
     var searchEngine: SearchEngine!
 
     let dcLocation = CLLocationCoordinate2D(latitude: 38.89992081005698, longitude: -77.03399849939174)
@@ -11,6 +11,7 @@ final class SearchBox_UserRecordsLayerTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
 
+        delegate = SearchEngineDelegateStub()
         searchEngine = SearchEngine(
             locationProvider: DefaultLocationProvider(),
             defaultSearchOptions: searchOptionsWithUserRecords

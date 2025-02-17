@@ -3,8 +3,15 @@ import CoreLocation
 import XCTest
 
 class IndexableDataProviderTests: XCTestCase {
-    var delegate = SearchEngineDelegateStub()
-    let provider = ServiceProviderStub()
+    var delegate: SearchEngineDelegateStub!
+    var provider: ServiceProviderStub!
+
+    override func setUp() {
+        super.setUp()
+
+        delegate = SearchEngineDelegateStub()
+        provider = ServiceProviderStub()
+    }
 
     func testOneDataProvider() throws {
         let dataProvider = TestDataProvider()
