@@ -185,7 +185,7 @@ enum SBSMockResponse: MockResponse {
     }
 
     static var coreApiType: CoreSearchEngine.ApiType {
-        .searchBox
+        .SBS
     }
 }
 
@@ -262,7 +262,7 @@ enum SearchBoxMockResponse: MockResponse {
             path += "/suggest?q=Minsk"
 
         case .suggestSanFrancisco:
-            path += "/suggest?q=San%20Francisco"
+            path += "/suggest?q=San Francisco"
 
         case .recursion:
             path += "/suggest?q=Recursion"

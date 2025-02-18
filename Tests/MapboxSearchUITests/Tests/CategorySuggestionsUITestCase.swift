@@ -11,7 +11,7 @@ class CategorySuggestionsUITestCase: MockSearchBoxUITestCase {
     }
 
     func testCafeCategorySuggestions() throws {
-        categorySuggestionsTest(categoryName: "Cafe")
+        categorySuggestionsTest(categoryName: "Cafe", displayName: "Café")
     }
 
     func testBarCategorySuggestions() throws {
@@ -22,14 +22,14 @@ class CategorySuggestionsUITestCase: MockSearchBoxUITestCase {
         categorySuggestionsTest(categoryName: "Gas Station")
     }
 
-    func categorySuggestionsTest(categoryName: String) {
+    func categorySuggestionsTest(categoryName: String, displayName: String? = nil) {
         let searchBar = app.searchBar
         waitForHittable(searchBar).tap()
         searchBar.typeText(categoryName)
 
         let searchResult = app.mapboxSearchController.searchResultTableView
         waitForHittable(searchResult, message: "SearchResultTableView not hittable")
-        waitForHittable(searchResult.cells[categoryName].firstMatch).tap()
+        waitForHittable(searchResult.cells[displayName ?? categoryName].firstMatch).tap()
 
         let suggestions = app.categorySuggestionsTableView
         waitForHittable(suggestions, message: "CategorySuggestionsController tableView not hittable")
