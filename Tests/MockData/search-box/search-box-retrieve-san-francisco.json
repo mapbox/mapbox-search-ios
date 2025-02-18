@@ -1,57 +1,61 @@
 {
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "coordinates": [
-          -122.419359,
-          37.7792376
-        ],
-        "type": "Point"
-      },
-      "properties": {
-        "name": "San Francisco",
-        "mapbox_id": "dXJuOm1ieHBsYzpFVzBJN0E",
-        "feature_type": "place",
-        "place_formatted": "California, United States",
-        "context": {
-          "country": {
-            "id": "dXJuOm1ieHBsYzpJdXc",
-            "name": "United States",
-            "country_code": "US",
-            "country_code_alpha_3": "USA"
-          },
-          "region": {
-            "id": "dXJuOm1ieHBsYzpCbVRz",
-            "name": "California",
-            "region_code": "CA",
-            "region_code_full": "US-CA"
-          },
-          "district": {
-            "id": "dXJuOm1ieHBsYzpBVG1HN0E",
-            "name": "San Francisco County"
-          },
-          "place": {
-            "id": "dXJuOm1ieHBsYzpFVzBJN0E",
-            "name": "San Francisco"
-          }
-        },
-        "coordinates": {
-          "latitude": 37.7792376,
-          "longitude": -122.419359
-        },
-        "bbox": [
-          -122.5446375,
-          37.670769,
-          -122.3010701,
-          37.8664883
-        ],
-        "language": "en",
-        "maki": "marker",
-        "metadata": {}
-      }
-    }
-  ],
-  "attribution": "© 2023 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service. (https://www.mapbox.com/about/maps/)"
+    "type":"FeatureCollection",
+    "features":[
+        {
+            "type":"Feature",
+            "geometry":{
+                "coordinates":[
+                    -122.419359,
+                    37.779238
+                ],
+                "type":"Point"
+            },
+            "properties":{
+                "name":"San Francisco",
+                "name_preferred":"San Francisco",
+                "mapbox_id":"dXJuOm1ieHBsYzpFVzBJN0E",
+                "feature_type":"place",
+                "full_address":"California, United States",
+                "place_formatted":"California, United States",
+                "context":{
+                    "country":{
+                        "id":"dXJuOm1ieHBsYzpJdXc",
+                        "name":"United States",
+                        "country_code":"US",
+                        "country_code_alpha_3":"USA"
+                    },
+                    "region":{
+                        "id":"dXJuOm1ieHBsYzpCbVRz",
+                        "name":"California",
+                        "region_code":"CA",
+                        "region_code_full":"US-CA"
+                    },
+                    "district":{
+                        "id":"dXJuOm1ieHBsYzpBVG1HN0E",
+                        "name":"San Francisco County"
+                    },
+                    "place":{
+                        "id":"dXJuOm1ieHBsYzpFVzBJN0E",
+                        "name":"San Francisco"
+                    }
+                },
+                "coordinates":{
+                    "latitude":37.7648,
+                    "longitude":-122.463
+                },
+                "bbox":[
+                    -122.544637,
+                    37.670769,
+                    -122.30107,
+                    37.866488
+                ],
+                "language":"en",
+                "maki":"marker",
+                "metadata":{
+
+                }
+            }
+        }
+    ],
+    "attribution":"© 2025 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service. (https://www.mapbox.com/about/maps/)"
 }
