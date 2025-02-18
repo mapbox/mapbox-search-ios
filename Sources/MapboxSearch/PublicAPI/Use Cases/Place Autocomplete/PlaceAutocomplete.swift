@@ -12,18 +12,18 @@ public final class PlaceAutocomplete {
     private let searchEngine: CoreSearchEngineProtocol
     private let userActivityReporter: CoreUserActivityReporterProtocol
 
-    private static var apiType: CoreSearchEngine.ApiType {
-        return .SBS
-    }
+    private let apiType: CoreSearchEngine.ApiType
 
     /// Basic internal initializer
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used
+    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MBXAccessToken` will be used
     /// for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
+    ///   - apiType:  Specifies which API provider to use through this search feature. Defaults to ``ApiType/searchBox``.
     public convenience init(
         accessToken: String? = nil,
-        locationProvider: LocationProvider? = DefaultLocationProvider()
+        locationProvider: LocationProvider? = DefaultLocationProvider(),
+        apiType: ApiType = .searchBox
     ) {
         guard let accessToken = accessToken ?? ServiceProvider.shared.getStoredAccessToken() else {
             fatalError(
@@ -32,7 +32,7 @@ public final class PlaceAutocomplete {
         }
 
         let searchEngine = ServiceProvider.shared.createEngine(
-            apiType: Self.apiType,
+            apiType: apiType.toCore(),
             accessToken: accessToken,
             locationProvider: WrapperLocationProvider(wrapping: locationProvider)
         )
@@ -44,10 +44,19 @@ public final class PlaceAutocomplete {
             )
         )
 
-        self.init(searchEngine: searchEngine, userActivityReporter: userActivityReporter)
+        self.init(
+            apiType: apiType.toCore(),
+            searchEngine: searchEngine,
+            userActivityReporter: userActivityReporter
+        )
     }
 
-    init(searchEngine: CoreSearchEngineProtocol, userActivityReporter: CoreUserActivityReporterProtocol) {
+    init(
+        apiType: CoreSearchEngine.ApiType,
+        searchEngine: CoreSearchEngineProtocol,
+        userActivityReporter: CoreUserActivityReporterProtocol
+    ) {
+        self.apiType = apiType
         self.searchEngine = searchEngine
         self.userActivityReporter = userActivityReporter
     }
@@ -94,7 +103,7 @@ extension PlaceAutocomplete {
             navigationOptions: navigationOptions,
             filterTypes: filterTypes.map(\.coreType),
             ignoreIndexableRecords: true
-        ).toCore(apiType: Self.apiType)
+        ).toCore(apiType: apiType)
 
         fetchSuggestions(for: query, with: searchOptions, completion: completion)
     }

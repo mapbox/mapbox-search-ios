@@ -14,7 +14,8 @@ final class SearchBox_UserRecordsLayerTests: XCTestCase {
         delegate = SearchEngineDelegateStub()
         searchEngine = SearchEngine(
             locationProvider: DefaultLocationProvider(),
-            defaultSearchOptions: searchOptionsWithUserRecords
+            defaultSearchOptions: searchOptionsWithUserRecords,
+            apiType: .searchBox
         )
 
         searchEngine.delegate = delegate

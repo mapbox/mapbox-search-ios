@@ -3,8 +3,8 @@ import Foundation
 /// Declares the list of methods for receiving result of search and resolve operations
 public protocol SearchEngineDelegate: AnyObject {
     /// Search Engine calls this method for every search update
+    /// - Parameter suggestions: suggestions for search results
     /// - Parameter searchEngine: engine which has updated results
-    /// - Parameter searchEngine: calling engine
     func suggestionsUpdated(suggestions: [SearchSuggestion], searchEngine: SearchEngine)
 
     /// Search Engine calls this method for every offline search update
@@ -420,6 +420,7 @@ extension SearchEngine {
     /// Select one of the provided `SearchSuggestion`'s.
     /// Search flow would continue if category suggestion was selected.
     /// - Parameter suggestion: Suggestion to continue the search and retrieve resolved `SearchResult` via delegate.
+    /// - Parameter retrieveOptions: Defines attribute sets to request additional metadata attributes.
     public func select(suggestion: SearchSuggestion, options retrieveOptions: RetrieveOptions? = nil) {
         userActivityReporter.reportActivity(forComponent: "search-engine-forward-geocoding-selection")
 

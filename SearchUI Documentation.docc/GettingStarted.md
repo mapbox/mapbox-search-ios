@@ -19,13 +19,13 @@ First, to start Search UI integration, you have to instantiate ``MapboxSearchCon
 **Option 1**:
 
 ```swift
-let searchController = MapboxSearchController()
+let searchController = MapboxSearchController(apiType: .searchBox)
 ```
 
 **Option 2**:
 
 ```swift
-let searchController = MapboxSearchController(accessToken: "YOUR_TOKEN")
+let searchController = MapboxSearchController(apiType: .searchBox, accessToken: "YOUR_TOKEN")
 ```
 
 To control data flow, implement ``SearchControllerDelegate`` and assign ``MapboxSearchController/delegate``. That protocol has next required methods:

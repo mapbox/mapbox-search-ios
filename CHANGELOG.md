@@ -6,6 +6,11 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+- [Core] `ApiType.SBS` is deprecated. Use other `ApiType` values that better suit your use case.
+- [Core] `ApiType.default` is deprecated. Specify `ApiType` explicitly instead.
+- [PlaceAutocomplete] `PlaceAutocomplete` now uses `ApiType.searchBox`.
+- [Discover] `PlaceAutocomplete` now uses `ApiType.searchBox`.
+
 ## 2.8.0
 
 - [Core] Update dependencies.

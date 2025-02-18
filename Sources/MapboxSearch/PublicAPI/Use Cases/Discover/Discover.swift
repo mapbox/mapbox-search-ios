@@ -9,14 +9,14 @@ public final class Discover {
 
     /// Basic internal initializer
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used
+    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MBXAccessToken` will be used
     /// for `nil` argument
-    ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
-    ///   - apiType:
+    ///   - locationProvider: Provider configuration of `LocationProvider` that would grant location data by default
+    ///   - apiType:  Specifies which API provider to use through this search feature. Defaults to ``ApiType/searchBox``.
     public convenience init(
         accessToken: String? = nil,
         locationProvider: LocationProvider? = DefaultLocationProvider(),
-        apiType: ApiType = .defaultType
+        apiType: ApiType = .searchBox
     ) {
         guard let accessToken = accessToken ?? ServiceProvider.shared.getStoredAccessToken() else {
             fatalError(
@@ -75,7 +75,7 @@ extension Discover {
 
     /// Search for places nearby the specified geographic point.
     /// - Parameters:
-    ///   - query: Search query
+    ///   - item: Search query.
     ///   - region:  Limit results to only those contained within the supplied bounding box.
     ///   - proximity: Optional geographic point to search nearby.
     ///   - options: Search options

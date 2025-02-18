@@ -20,7 +20,8 @@ class CategorySearchEngineTests: XCTestCase {
         let categorySearchEngine = CategorySearchEngine(
             accessToken: "mapbox-access-token",
             serviceProvider: provider,
-            locationProvider: DefaultLocationProvider()
+            locationProvider: DefaultLocationProvider(),
+            apiType: .searchBox
         )
         let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
         let expectedResults = [CoreSearchResultStub]()
@@ -46,7 +47,8 @@ class CategorySearchEngineTests: XCTestCase {
         let categorySearchEngine = CategorySearchEngine(
             accessToken: "mapbox-access-token",
             serviceProvider: provider,
-            locationProvider: DefaultLocationProvider()
+            locationProvider: DefaultLocationProvider(),
+            apiType: .searchBox
         )
         let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
         let expectedResults = CoreSearchResultStub.makeCategoryResultsSet()
@@ -73,7 +75,8 @@ class CategorySearchEngineTests: XCTestCase {
         let categorySearchEngine = CategorySearchEngine(
             accessToken: "mapbox-access-token",
             serviceProvider: provider,
-            locationProvider: DefaultLocationProvider()
+            locationProvider: DefaultLocationProvider(),
+            apiType: .searchBox
         )
         let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
         let response = CoreSearchResponseStub.failureSample
@@ -102,7 +105,8 @@ class CategorySearchEngineTests: XCTestCase {
         let categorySearchEngine = CategorySearchEngine(
             accessToken: "mapbox-access-token",
             serviceProvider: provider,
-            locationProvider: DefaultLocationProvider()
+            locationProvider: DefaultLocationProvider(),
+            apiType: .searchBox
         )
 
         let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)

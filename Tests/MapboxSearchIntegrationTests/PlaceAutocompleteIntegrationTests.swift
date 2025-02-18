@@ -24,6 +24,7 @@ final class PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase<SBS
         )
 
         placeAutocomplete = PlaceAutocomplete(
+            apiType: .searchBox,
             searchEngine: engine,
             userActivityReporter: reporter
         )
