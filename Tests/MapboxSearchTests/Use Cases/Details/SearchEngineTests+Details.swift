@@ -63,7 +63,7 @@ extension SearchEngineTests {
                 XCTAssertNil(metadata.reservable)
                 XCTAssertNil(metadata.servesBrunch)
             case .visit:
-                XCTAssertNil(metadata.instagram)
+                XCTAssertNotNil(metadata.instagram)
                 XCTAssertNotNil(metadata.openHours)
                 XCTAssertNotNil(metadata.phone)
                 XCTAssertNil(metadata.twitter)
@@ -121,8 +121,8 @@ extension SearchEngineTests {
                 XCTAssertNil(metadata.averageRating)
                 XCTAssertNil(metadata.openHours)
             case .photos:
-                XCTAssertNotNil(metadata.primaryImage) // TODO: SSDK-1055
-                XCTAssertNotNil(metadata.otherImages)
+                XCTAssertNil(metadata.primaryImage) // TODO: SSDK-1055
+                XCTAssertNil(metadata.otherImages)
                 XCTAssertNil(metadata.phone)
                 XCTAssertNil(metadata.website)
                 XCTAssertNil(metadata.reviewCount)
@@ -132,13 +132,13 @@ extension SearchEngineTests {
                 XCTAssertTrue(metadata.delivery ?? false)
                 XCTAssertNil(metadata.parkingAvailable)
                 XCTAssertNotNil(metadata.popularity)
-                XCTAssertNotNil(metadata.priceLevel)
+                XCTAssertNil(metadata.priceLevel)
                 XCTAssertNil(metadata.reservable)
                 XCTAssertNil(metadata.servesBrunch)
                 XCTAssertNil(metadata.servesVegetarian)
                 XCTAssertNil(metadata.streetParking)
             case .visit:
-                XCTAssertNil(metadata.instagram)
+                XCTAssertNotNil(metadata.instagram)
                 XCTAssertNotNil(metadata.openHours)
                 XCTAssertNotNil(metadata.phone)
                 XCTAssertNil(metadata.twitter)

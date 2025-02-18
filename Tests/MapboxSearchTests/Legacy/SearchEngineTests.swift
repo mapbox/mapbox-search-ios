@@ -4,12 +4,14 @@ import CwlPreconditionTesting
 import XCTest
 
 class SearchEngineTests: XCTestCase {
-    var delegate = SearchEngineDelegateStub()
-    let provider = ServiceProviderStub()
+    var delegate: SearchEngineDelegateStub!
+    var provider: ServiceProviderStub!
 
     override func setUp() {
         super.setUp()
 
+        delegate = SearchEngineDelegateStub()
+        provider = ServiceProviderStub()
         provider.localHistoryProvider.clearData()
         provider.localFavoritesProvider.clearData()
     }
@@ -201,7 +203,7 @@ class SearchEngineTests: XCTestCase {
         let records = [IndexableRecordStub(), IndexableRecordStub(), IndexableRecordStub()]
         let dataLayerProvider = DataLayerProviderStub(records: records)
 
-        let serviceProvider = provider
+        let serviceProvider = provider!
         serviceProvider.dataLayerProviders.append(dataLayerProvider)
         let searchEngine = SearchEngine(
             accessToken: "mapbox-access-token",

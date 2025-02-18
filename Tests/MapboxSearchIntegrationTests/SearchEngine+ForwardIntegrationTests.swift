@@ -5,12 +5,13 @@ import CoreLocation
 import XCTest
 
 class SearchEngineForwardIntegrationTests: XCTestCase {
-    let delegate = SearchEngineDelegateStub()
+    var delegate: SearchEngineDelegateStub!
     var searchEngine: SearchEngine!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
 
+        delegate = SearchEngineDelegateStub()
         searchEngine = SearchEngine(
             serviceProvider: ServiceProvider.shared,
             locationProvider: DefaultLocationProvider(),

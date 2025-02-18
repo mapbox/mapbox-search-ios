@@ -4,7 +4,7 @@ import XCTest
 
 class MockServerIntegrationTestCase<Mock: MockResponse>: XCTestCase {
     typealias Mock = Mock
-    let server = MockWebServer<Mock>()
+    var server: MockWebServer<Mock>!
 
     /// Provide test case subclasses with a throwable unwrapped URL
     func mockServerURL() throws -> URL {
@@ -19,6 +19,7 @@ class MockServerIntegrationTestCase<Mock: MockResponse>: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
 
+        server = MockWebServer<Mock>()
         try server.start()
     }
 
