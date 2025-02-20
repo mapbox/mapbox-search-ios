@@ -5,7 +5,7 @@ import UIKit
 
 /// Entry point for Demo app "SearchUI" tab
 class MapRootController: UIViewController {
-    private lazy var searchController = MapboxSearchController()
+    private lazy var searchController = MapboxSearchController(apiType: .searchBox)
 
     private var mapView = MapView(frame: .zero)
     lazy var annotationsManager = mapView.annotations.makePointAnnotationManager()

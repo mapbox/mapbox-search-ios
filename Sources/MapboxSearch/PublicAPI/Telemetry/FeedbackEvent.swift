@@ -118,9 +118,8 @@ extension FeedbackEvent {
 
     /// Build feedback event based on SearchResult.
     /// - Parameters:
-    ///   - result: `SearchResult` to send feedback about.
-    ///   - reason: feedback reason string, `FeedbackEvent.Reason` enum has few default values( e.g. incorrect name,
-    /// position, address ...)
+    ///   - record: `SearchResult` to send feedback about.
+    ///   - reason: feedback reason string, `FeedbackEvent.Reason` enum has few default values( e.g. incorrect name, position, address ...)
     ///   - text: an issue description
     public convenience init(record: SearchResult, reason: String?, text: String?) {
         switch record {
@@ -147,7 +146,7 @@ extension FeedbackEvent {
 
     /// Build feedback event based on SearchResult.
     /// - Parameters:
-    ///   - result: `SearchResult` to send feedback about.
+    ///   - record: `SearchResult` to send feedback about.
     ///   - reason: feedback reason as `FeedbackEvent.Reason`
     ///   - text: an issue description
     public convenience init(record: SearchResult, reason: Reason, text: String?) {

@@ -38,7 +38,7 @@ extension PointAnnotation {
         point.textField = name
         point.textHaloColor = .init(.white)
         point.textHaloWidth = 10
-        if let imageName, let image = UIImage(named: "pin") {
+        if let imageName, let image = UIImage(named: imageName) {
             point.iconAnchor = .bottom
             point.textAnchor = .top
             point.image = .init(image: image, name: "pin")

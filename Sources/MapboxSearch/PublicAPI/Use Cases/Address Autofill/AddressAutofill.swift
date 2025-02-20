@@ -17,7 +17,7 @@ public final class AddressAutofill {
 
     /// Basic internal initializer
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used
+    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MBXAccessToken` will be used
     /// for `nil` argument
     ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
     public convenience init(
@@ -59,6 +59,7 @@ extension AddressAutofill {
     /// - Parameters:
     ///   - query: query string to search
     ///   - options: if no value provided Search Engine will use options from requestOptions field
+    ///   - completion: Result of the search request, one of error or value.
     public func suggestions(
         for query: Query,
         with options: Options? = nil,
@@ -80,6 +81,7 @@ extension AddressAutofill {
     /// - Parameters:
     ///   - coordinate: point Coordinate to resolve
     ///   - options: if no value provided Search Engine will use options from requestOptions field
+    ///   - completion: Result of the search request, one of error or value.
     public func suggestions(
         for coordinate: CLLocationCoordinate2D,
         with options: Options? = nil,

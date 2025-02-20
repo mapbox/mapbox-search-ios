@@ -18,6 +18,7 @@ final class PlaceAutocompleteTests: XCTestCase {
         coordinate = CLLocationCoordinate2D(latitude: 40.730610, longitude: -73.935242)
 
         placeAutocomplete = PlaceAutocomplete(
+            apiType: .searchBox,
             searchEngine: searchEngine,
             userActivityReporter: userActivityReporter
         )

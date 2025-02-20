@@ -124,11 +124,7 @@ class FavoritesUITestCase: MockSearchBoxUITestCase {
     }
 
     func testAddEditLocationRemoveFavorite() throws {
-        try server.setResponse(.suggestMinsk, query: "Minsk")
         try server.setResponse(.suggestSanFrancisco, query: "San Francisco")
-
-        // This one retrieve response used for Minsk and SanFrancisco.
-        // While data is incorrect, for this test it doesn't matter
         try server.setResponse(.retrieveSanFrancisco)
 
         app.launch()
@@ -160,9 +156,12 @@ class FavoritesUITestCase: MockSearchBoxUITestCase {
             favoritesTableView.cells[favoriteName].firstMatch.waitForExistence(timeout: BaseTestCase.defaultTimeout),
             "Selected favorite item not in favorites list"
         )
+        let oldAddress = favoritesTableView.cells[favoriteName].firstMatch.staticTexts["address"].label
 
         editFavoriteLocation(element: favoritesTableView.cells[favoriteName])
 
+        try server.setResponse(.suggestMinsk, query: "Minsk")
+        try server.setResponse(.retrieveMinsk)
         let newFavoriteName = "Minsk"
         searchBar.tap()
         searchBar.typeText(newFavoriteName)
@@ -172,15 +171,14 @@ class FavoritesUITestCase: MockSearchBoxUITestCase {
                 .waitForExistence(timeout: BaseTestCase.defaultTimeout),
             "Search for favorite failed"
         )
-        let addressToChange = app.searchResultTableView.cells[newFavoriteName].firstMatch.staticTexts["address"].title
         app.searchResultTableView.cells[newFavoriteName].firstMatch.tap()
         XCTAssertTrue(
             favoritesTableView.cells[favoriteName].firstMatch.waitForExistence(timeout: BaseTestCase.defaultTimeout),
             "Selected favorite item not in favorites list"
         )
 
-        let newAddress = favoritesTableView.cells[favoriteName].firstMatch.staticTexts["address"].title
-        XCTAssertEqual(addressToChange, newAddress, "New address doesn't applied")
+        let newAddress = favoritesTableView.cells[favoriteName].firstMatch.staticTexts["address"].label
+        XCTAssertNotEqual(oldAddress, newAddress, "New address applied")
 
         deleteFavorite(element: favoritesTableView.cells[favoriteName].firstMatch)
     }

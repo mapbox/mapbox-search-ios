@@ -99,7 +99,7 @@ extension ServiceProvider: EngineProviderProtocol {
     /// Creates and returns an object conforming to `CoreSearchEngineProtocol` configured with the parameters.
     /// Allows programmatically specifying the base URL for all Mapbox API endpoints.
     /// - Parameters:
-    ///   - apiType: Specify the API type from Core types of Geocoding, SBS, Autofill, or SearchBox.
+    ///   - apiType: Specify the API type from Core types of Geocoding or SearchBox.
     ///   - accessToken: Programmatically specified MBX access token.
     ///   - locationProvider: Wrapper for a platform-specific location provider.
     ///   - customBaseURL: Programmatically specified base URL for all Mapbox API endpoints.

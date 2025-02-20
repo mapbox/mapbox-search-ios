@@ -153,18 +153,35 @@ public class MapboxSearchController: UIViewController {
 
     /// Instantiate MapboxSearchController with explicit accessToken and custom location provider
     /// - Parameters:
-    ///   - accessToken: Mapbox public access token. Checkout `init(locationProvider:)` to
+    ///   - accessToken: Mapbox public access token.
     ///   - configuration: configuration for search and categorySearch engines.
-    public required init(accessToken: String, configuration: Configuration = Configuration()) {
+    @available(*, deprecated, message: "Specify ApiType explicitly instead.")
+    public convenience init(
+        accessToken: String? = nil,
+        configuration: Configuration = Configuration())
+    {
+        self.init(apiType: .defaultType, accessToken: accessToken, configuration: configuration)
+    }
+
+    /// Instantiate MapboxSearchController with explicit accessToken and custom location provider
+    /// - Parameters:
+    ///   - apiType: Specifies which API provider to use through this search feature.
+    ///   - accessToken: Mapbox public access token.
+    ///   - configuration: configuration for search and categorySearch engines.
+    public required init(
+        apiType: ApiType,
+        accessToken: String?,
+        configuration: Configuration = Configuration())
+    {
         self.categorySearchEngine = CategorySearchEngine(
             accessToken: accessToken,
             locationProvider: configuration.locationProvider,
-            apiType: .defaultType
+            apiType: apiType
         )
         self.searchEngine = SearchEngine(
             accessToken: accessToken,
             locationProvider: configuration.locationProvider,
-            apiType: .defaultType
+            apiType: apiType
         )
         self.configuration = configuration
 
@@ -175,18 +192,22 @@ public class MapboxSearchController: UIViewController {
 
     /// MapboxSearchController initializer with accessToken taken from application Info.plist
     ///
-    /// Access token is expected to be at `MGLMapboxAccessToken` key in application Info.plist.
+    /// Access token is expected to be at `MBXAccessToken` key in application Info.plist.
     /// Missing accessToken will trigger fatalError
     /// - Parameters:
+    ///   - apiType: Specifies which API provider to use through this search feature.
     ///   - configuration: configuration for search and categorySearch engines.
-    public required init(configuration: Configuration = Configuration()) {
+    public required init(
+        apiType: ApiType,
+        configuration: Configuration = Configuration()
+    ) {
         self.categorySearchEngine = CategorySearchEngine(
             locationProvider: configuration.locationProvider,
-            apiType: .defaultType
+            apiType: apiType
         )
         self.searchEngine = SearchEngine(
             locationProvider: configuration.locationProvider,
-            apiType: .defaultType
+            apiType: apiType
         )
         self.configuration = configuration
 
@@ -195,8 +216,9 @@ public class MapboxSearchController: UIViewController {
         searchEngine.delegate = self
     }
 
+    @available(*, deprecated, message: "Specify ApiType explicitly instead.")
     required convenience init?(coder: NSCoder) {
-        self.init()
+        self.init(apiType: .defaultType)
     }
 
     /// Make initial UI

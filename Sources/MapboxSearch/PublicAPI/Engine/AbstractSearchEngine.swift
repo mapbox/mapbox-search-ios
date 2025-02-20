@@ -9,7 +9,7 @@ public protocol AbstractSearchEngineConfiguration {
     static var `default`: Self { get }
 }
 
-/// Common root for `SearchEngine` and `CategorySearchEngine`.
+/// Common root for ``SearchEngine`` and ``CategorySearchEngine``.
 /// Should never be instantiated directly
 public class AbstractSearchEngine: FeedbackManagerDelegate {
     var dataLayerProviders: [IndexableDataProvider] = []
@@ -49,21 +49,20 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
 
     /// Basic internal initializer
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used
-    /// for `nil` argument
-    ///   - serviceProvider: Internal `ServiceProvider` for sharing common dependencies like favoritesService or
-    /// eventsManager
-    ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
-    ///   - defaultSearchOptions: A SearchOptions instance that will be used for every search function. This value can
+    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MBXAccessToken` will be used for `nil` argument.
+    ///   - serviceProvider: Internal ``ServiceProvider`` for sharing common dependencies like favoritesService or
+    /// eventsManager.
+    ///   - locationProvider: Provider configuration of ``LocationProvider`` that would grant location data by default.
+    ///   - defaultSearchOptions: A ``SearchOptions`` instance that will be used for every search function. This value can
     /// be overridden by any search function's SearchOptions parameter.
-    ///   - apiType: choose which API provider to use through this search engine. Currently defaults to SBS.
+    ///   - apiType: Choose which API provider to use through this search engine.
     ///   - baseURL: A custom Mapbox API endpoint.
     init(
         accessToken: String? = nil,
         serviceProvider: ServiceProviderProtocol & EngineProviderProtocol,
         locationProvider: LocationProvider? = DefaultLocationProvider(),
         defaultSearchOptions: SearchOptions = SearchOptions(),
-        apiType: ApiType = .defaultType,
+        apiType: ApiType,
         baseURL: URL? = nil
     ) {
         guard let accessToken = accessToken ?? serviceProvider.getStoredAccessToken() else {
@@ -111,16 +110,16 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
 
     /// Initializer with safe-to-go defaults
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used
-    /// for `nil` argument
-    ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
-    ///   - defaultSearchOptions: Default options to use when `nil` was passed to the `search(…: options:)` call
-    ///   - apiType: choose which API provider to use through this search engine. Currently defaults to SBS.
+    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MBXAccessToken` will be used
+    /// for `nil` argument.
+    ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default.
+    ///   - defaultSearchOptions: Default options to use when `nil` was passed to the `search(…: options:)` call/
+    ///   - apiType: Choose which API provider to use through this search engine.
     public convenience init(
         accessToken: String? = nil,
         locationProvider: LocationProvider? = DefaultLocationProvider(),
         defaultSearchOptions: SearchOptions = SearchOptions(),
-        apiType: ApiType = .defaultType
+        apiType: ApiType
     ) {
         self.init(
             accessToken: accessToken,
@@ -133,17 +132,38 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
 
     /// Initializer with safe-to-go defaults
     /// - Parameters:
-    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MGLMapboxAccessToken` will be used
-    /// for `nil` argument
-    ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default
+    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MBXAccessToken` will be used
+    /// for `nil` argument.
+    ///   - locationProvider: Provider configuration of LocationProvider that would grant location data by default.
+    ///   - defaultSearchOptions: Default options to use when `nil` was passed to the `search(…: options:)` call.
+    @available(*, deprecated, message: "Specify ApiType explicitly instead.")
+    public convenience init(
+        accessToken: String? = nil,
+        locationProvider: LocationProvider? = DefaultLocationProvider(),
+        defaultSearchOptions: SearchOptions = SearchOptions()
+    ) {
+        self.init(
+            accessToken: accessToken,
+            serviceProvider: ServiceProvider.shared,
+            locationProvider: locationProvider,
+            defaultSearchOptions: defaultSearchOptions,
+            apiType: .defaultType
+        )
+    }
+
+    /// Initializer with safe-to-go defaults.
+    /// - Parameters:
+    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MBXAccessToken` will be used
+    ///   for `nil` argument.
+    ///   - locationProvider: Provider configuration of `LocationProvider` that would grant location data by default.
     ///   - defaultSearchOptions: Default options to use when `nil` was passed to the `search(…: options:)` call
-    ///   - apiType: choose which API provider to use through this search engine. Currently defaults to SBS.
+    ///   - apiType: choose which API provider to use through this search engine.
     ///   - baseURL: A custom Mapbox API endpoint.
     public convenience init(
         accessToken: String? = nil,
         locationProvider: LocationProvider? = DefaultLocationProvider(),
         defaultSearchOptions: SearchOptions = SearchOptions(),
-        apiType: ApiType = .defaultType,
+        apiType: ApiType,
         baseURL: URL
     ) {
         self.init(
@@ -152,6 +172,30 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
             locationProvider: locationProvider,
             defaultSearchOptions: defaultSearchOptions,
             apiType: apiType,
+            baseURL: baseURL
+        )
+    }
+
+    /// Initializer with safe-to-go defaults.
+    /// - Parameters:
+    ///   - accessToken: Mapbox Access Token to be used. Info.plist value for key `MBXAccessToken` will be used
+    ///   for `nil` argument.
+    ///   - locationProvider: Provider configuration of `LocationProvider` that would grant location data by default.
+    ///   - defaultSearchOptions: Default options to use when `nil` was passed to the `search(…: options:)` call.
+    ///   - baseURL: A custom Mapbox API endpoint.
+    @available(*, deprecated, message: "Specify ApiType explicitly instead.")
+    public convenience init(
+        accessToken: String? = nil,
+        locationProvider: LocationProvider? = DefaultLocationProvider(),
+        defaultSearchOptions: SearchOptions = SearchOptions(),
+        baseURL: URL
+    ) {
+        self.init(
+            accessToken: accessToken,
+            serviceProvider: ServiceProvider.shared,
+            locationProvider: locationProvider,
+            defaultSearchOptions: defaultSearchOptions,
+            apiType: .defaultType,
             baseURL: baseURL
         )
     }
