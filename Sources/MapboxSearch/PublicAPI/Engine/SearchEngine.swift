@@ -482,7 +482,7 @@ extension SearchEngine {
     /// - Parameter suggestions: suggestions list to resolve. All suggestions must originate from the same search
     /// request.
     public func select(suggestions: [SearchSuggestion]) {
-        assert(apiType == .geocoding || apiType == .SBS, "Only geocoding and SBS API types support batch results.")
+        assert(apiType == .geocoding || apiType.toCore() == .SBS, "Only geocoding and SBS API types support batch results.")
 
         for suggestion in suggestions {
             let supported = (suggestion as? CoreResponseProvider)?.originalResponse.coreResult.action?.multiRetrievable
