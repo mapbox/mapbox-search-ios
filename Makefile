@@ -2,7 +2,7 @@ CURRENT_DIR := $(shell pwd)
 CARTHAGE_MIN_VERSION = 0.38.0
 CARTHAGE_BUILD_DIR := $(CURRENT_DIR)/Carthage/Build
 PRODUCTS_DIR := $(CURRENT_DIR)/Products
-VERSION := $(shell git describe --tags $(git rev-list --tags='v*' --max-count=1) --abbrev=0)
+VERSION := $(shell git describe --tags $(shell git rev-list --tags='v*' --max-count=1) --abbrev=0)
 MARKETING_VERSION := $(shell echo "${VERSION}" | perl -nle 'print $$v if ($$v)=/([0-9]+([.][0-9]+)+)/')
 
 build products ios: dependencies
