@@ -45,6 +45,10 @@ public class SearchOfflineManager {
         engine.selectTileset(for: dataset, version: version)
     }
 
+    public func selectTileset(for tilesetParameters: TilesetParameters) {
+        engine.selectTileset(for: tilesetParameters.generatedDatasetName, version: tilesetParameters.validatedVersion)
+    }
+
     // MARK: - Tileset with name, version, and language parameters
 
     /// Creates TilesetDescriptor for offline search index data with provided dataset name, version, and language.
@@ -56,16 +60,31 @@ public class SearchOfflineManager {
     ///   - language: Provide a ISO 639-1 Code language from NSLocale. Values will be appended to the place dataset
     /// name.
     /// - Returns: TilesetDescriptor for TileStore
+    @available(*, deprecated, message: "Use SearchOfflineManager.createTilesetDescriptor(tilesetParameters:) instead.")
     public static func createTilesetDescriptor(
         dataset: String,
         version: String? = nil,
         language: String? = nil
-    ) -> MapboxCommon
-    .TilesetDescriptor {
+    ) -> MapboxCommon.TilesetDescriptor {
         CoreSearchEngineStatics.createTilesetDescriptor(
-            dataset: dataset,
-            version: version ?? "",
-            language: language
+            tilesetParameters: .init(
+                dataset: dataset,
+                version: version,
+                language: language
+            )
+        )
+    }
+
+    /// Creates TilesetDescriptor for offline search index data with provided dataset name, version, language, and worldview.
+    /// Providing nil or excluding the language parameter will use the dataset name as-is.
+    /// Providing a language will append it to the name.
+    /// - Parameter tilesetParameters: The tileset parameters.
+    /// - Returns: TilesetDescriptor for TileStore.
+    public static func createTilesetDescriptor(
+        tilesetParameters: TilesetParameters
+    ) -> MapboxCommon.TilesetDescriptor {
+        CoreSearchEngineStatics.createTilesetDescriptor(
+            tilesetParameters: tilesetParameters
         )
     }
 
@@ -77,16 +96,30 @@ public class SearchOfflineManager {
     ///   - version: dataset version
     ///   - language: Provide a ISO 639-1 Code language from NSLocale. Values will be appended to the dataset name.
     /// - Returns: TilesetDescriptor for TileStore
+    @available(*, deprecated, message: "Use SearchOfflineManager.createPlacesTilesetDescriptor(tilesetParameters:) instead.")
     public static func createPlacesTilesetDescriptor(
         dataset: String,
         version: String? = nil,
         language: String? = nil
-    ) -> MapboxCommon
-    .TilesetDescriptor {
+    ) -> MapboxCommon.TilesetDescriptor {
         CoreSearchEngineStatics.createPlacesTilesetDescriptor(
-            dataset: dataset,
-            version: version ?? "",
-            language: language
+            tilesetParameters: .init(
+                dataset: dataset,
+                version: version,
+                language: language
+            )
+        )
+    }
+    /// Creates TilesetDescriptor for offline search boundaries with provided dataset name, version, language, and worldview.
+    /// Providing nil or excluding the language parameter will use the places dataset name as-is.
+    /// Providing a language will append it to the name.
+    /// - Parameter tilesetParameters: The tileset parameters.
+    /// - Returns: TilesetDescriptor for TileStore.
+    public static func createPlacesTilesetDescriptor(
+        tilesetParameters: TilesetParameters
+    ) -> MapboxCommon.TilesetDescriptor {
+        CoreSearchEngineStatics.createTilesetDescriptor(
+            tilesetParameters: tilesetParameters
         )
     }
 
@@ -95,12 +128,12 @@ public class SearchOfflineManager {
     /// Creates TilesetDescriptor for offline search index data using default dataset name.
     /// - Returns: TilesetDescriptor for TileStore
     public static func createDefaultTilesetDescriptor() -> MapboxCommon.TilesetDescriptor {
-        createTilesetDescriptor(dataset: defaultDatasetName, version: nil)
+        createTilesetDescriptor(tilesetParameters: .init(dataset: defaultDatasetName))
     }
 
     /// Creates TilesetDescriptor for offline search boundaries using default dataset name.
     /// - Returns: TilesetDescriptor for TileStore
     public static func createDefaultPlacesTilesetDescriptor() -> MapboxCommon.TilesetDescriptor {
-        createPlacesTilesetDescriptor(dataset: defaultDatasetName, version: nil)
+        createPlacesTilesetDescriptor(tilesetParameters: .init(dataset: defaultDatasetName))
     }
 }

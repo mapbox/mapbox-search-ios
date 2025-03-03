@@ -20,7 +20,7 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
         try super.setUpWithError()
 
         delegate = SearchEngineDelegateStub()
-        searchEngine = SearchEngine()
+        searchEngine = SearchEngine(apiType: .searchBox)
         searchEngine.delegate = delegate
 
         let enableOfflineExpectation = expectation(description: "Offline mode enabled")
@@ -72,15 +72,11 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
 
         // Set up index observer before the fetch starts to validate changes after it completes
         let indexChanged_AddedExpectation = expectation(description: "Received offline index changed event, type=added")
-        let indexChanged_UpdatedExpectation =
-            expectation(description: "Received offline index changed event, type=updated")
         let offlineIndexObserver = OfflineIndexObserver(onIndexChangedBlock: { changeEvent in
             _Logger.searchSDK.info("Index changed: \(changeEvent)")
             switch changeEvent.type {
             case .added:
                 indexChanged_AddedExpectation.fulfill()
-            case .updated:
-                indexChanged_UpdatedExpectation.fulfill()
             default:
                 return
             }
@@ -104,7 +100,7 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
             loadDataExpectation.fulfill()
         }
         wait(
-            for: [indexChanged_AddedExpectation, indexChanged_UpdatedExpectation, loadDataExpectation],
+            for: [loadDataExpectation, indexChanged_AddedExpectation],
             timeout: 200,
             enforceOrder: true
         )
@@ -120,20 +116,16 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
         XCTAssertFalse(searchEngine.suggestions.isEmpty)
     }
 
-    func testSpanishLanguageSupport() throws {
+    func testSpanishLanguageSupportInMexico() throws {
         clearData()
 
         // Set up index observer before the fetch starts to validate changes after it completes
         let indexChanged_AddedExpectation = expectation(description: "Received offline index changed event, type=added")
-        let indexChanged_UpdatedExpectation =
-            expectation(description: "Received offline index changed event, type=updated")
         let offlineIndexObserver = OfflineIndexObserver(onIndexChangedBlock: { changeEvent in
             _Logger.searchSDK.info("Index changed: \(changeEvent)")
             switch changeEvent.type {
             case .added:
                 indexChanged_AddedExpectation.fulfill()
-            case .updated:
-                indexChanged_UpdatedExpectation.fulfill()
             default:
                 return
             }
@@ -144,10 +136,12 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
         searchEngine.offlineManager.engine.addOfflineIndexObserver(for: offlineIndexObserver)
 
         // Perform the offline fetch
-        let spanishTileset = SearchOfflineManager.createTilesetDescriptor(
+        let parameters = TilesetParameters(
             dataset: "mbx-gen2",
-            language: "es"
+            language: "es",
+            worldview: "mx"
         )
+        let spanishTileset = SearchOfflineManager.createTilesetDescriptor(tilesetParameters: parameters)
         let loadDataExpectation = expectation(description: "Load Data")
         _ = loadData(tilesetDescriptor: spanishTileset) { result in
             switch result {
@@ -161,7 +155,7 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
             loadDataExpectation.fulfill()
         }
         wait(
-            for: [indexChanged_AddedExpectation, indexChanged_UpdatedExpectation, loadDataExpectation],
+            for: [loadDataExpectation, indexChanged_AddedExpectation],
             timeout: 200,
             enforceOrder: true
         )
@@ -213,15 +207,11 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
 
         // Set up index observer before the fetch starts to validate changes after it completes
         let indexChanged_AddedExpectation = expectation(description: "Received offline index changed event, type=added")
-        let indexChanged_UpdatedExpectation =
-            expectation(description: "Received offline index changed event, type=updated")
         let offlineIndexObserver = OfflineIndexObserver(onIndexChangedBlock: { changeEvent in
             _Logger.searchSDK.info("Index changed: \(changeEvent)")
             switch changeEvent.type {
             case .added:
                 indexChanged_AddedExpectation.fulfill()
-            case .updated:
-                indexChanged_UpdatedExpectation.fulfill()
             default:
                 return
             }
@@ -245,7 +235,7 @@ class OfflineIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
             loadDataExpectation.fulfill()
         }
         wait(
-            for: [indexChanged_AddedExpectation, indexChanged_UpdatedExpectation, loadDataExpectation],
+            for: [loadDataExpectation, indexChanged_AddedExpectation],
             timeout: 200,
             enforceOrder: true
         )

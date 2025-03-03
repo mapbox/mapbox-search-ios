@@ -6,10 +6,20 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+## 2.9.0-beta.1
+
+- [Core] Update dependencies.
+
+**MapboxCommon**: v24.11.0-beta.1
+**MapboxCoreSearch**: v2.9.0-beta.1
+
 - [Core] `ApiType.SBS` is deprecated. Use other `ApiType` values that better suit your use case.
 - [Core] `ApiType.default` is deprecated. Specify `ApiType` explicitly instead.
 - [PlaceAutocomplete] `PlaceAutocomplete` now uses `ApiType.searchBox`.
 - [Discover] `PlaceAutocomplete` now uses `ApiType.searchBox`.
+- [Offline] Add `SearchOfflineManager.selectTileset(for:)` which allows you to select a tileset with the specified parameters, including language and worldview.
+- [Offline] Add `SearchOfflineManager.createTilesetDescriptor(tilesetParameters:)` and `SearchOfflineManager.createPlacesTilesetDescriptor(tilesetParameters:)` to specify tileset worldview.
+- [Offline] Deprecate `SearchOfflineManager.createTilesetDescriptor(dataset:version:language:)` and `SearchOfflineManager.createPlacesTilesetDescriptor(dataset:version:language:)`. Use corresponding methods with `tilesetParameters` instead.
 
 ## 2.8.0
 
