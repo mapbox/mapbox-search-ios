@@ -2,7 +2,8 @@ CURRENT_DIR := $(shell pwd)
 CARTHAGE_MIN_VERSION = 0.38.0
 CARTHAGE_BUILD_DIR := $(CURRENT_DIR)/Carthage/Build
 PRODUCTS_DIR := $(CURRENT_DIR)/Products
-VERSION := $(shell git describe --tags $(shell git rev-list --tags='v*' --max-count=1) --abbrev=0)
+VERSION ?= $(shell git describe --tags $(shell git rev-list --tags='v*' --max-count=1) --abbrev=0)
+VERSION_STRIPPED ?= $(VERSION:v%=%)
 MARKETING_VERSION := $(shell echo "${VERSION}" | perl -nle 'print $$v if ($$v)=/([0-9]+([.][0-9]+)+)/')
 
 build products ios: dependencies
@@ -50,12 +51,12 @@ generate-docs: dependencies
 
 release-docs: generate-docs
 	git worktree add documentation-production publisher-production
-	cp -r docs/MapboxSearch/ "documentation-production/core/${VERSION}"
-	cp -r docs/MapboxSearchUI/ "documentation-production/ui/${VERSION}"
-	git -C documentation-production add "core/${VERSION}" "ui/${VERSION}"
+	cp -r docs/MapboxSearch/ "documentation-production/core/${VERSION_STRIPPED}"
+	cp -r docs/MapboxSearchUI/ "documentation-production/ui/${VERSION_STRIPPED}"
+	git -C documentation-production add "core/${VERSION_STRIPPED}" "ui/${VERSION_STRIPPED}"
 	git -C documentation-production config user.email "release-bot@mapbox.com"
 	git -C documentation-production config user.name "Release SDK bot"
-	git -C documentation-production commit -m "[bot] Release ${VERSION} documentation"
+	git -C documentation-production commit -m "[bot] Release ${VERSION_STRIPPED} documentation"
 	git -C documentation-production push
 	git worktree remove documentation-production --force
 
