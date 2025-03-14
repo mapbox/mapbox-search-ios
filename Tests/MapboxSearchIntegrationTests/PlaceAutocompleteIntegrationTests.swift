@@ -2,34 +2,33 @@ import CoreLocation
 @testable import MapboxSearch
 import XCTest
 
-final class PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
-    private var placeAutocomplete: PlaceAutocomplete!
-
-    override func setUpWithError() throws {
-        try super.setUpWithError()
-
+extension MockServerIntegrationTestCase {
+    fileprivate func makePlaceAutocomplete() -> PlaceAutocomplete {
         let reporter = CoreUserActivityReporter.getOrCreate(
             for: CoreUserActivityReporterOptions(
-                sdkInformation:
-                SdkInformation.defaultInfo,
+                sdkInformation: SdkInformation.defaultInfo,
                 eventsUrl: nil
             )
         )
 
-        let engine = try ServiceProvider.shared.createEngine(
+        let engine = try! ServiceProvider.shared.createEngine(
             apiType: Mock.coreApiType,
             accessToken: "access-token",
             locationProvider: WrapperLocationProvider(wrapping: DefaultLocationProvider()),
             customBaseURL: mockServerURL()
         )
 
-        placeAutocomplete = PlaceAutocomplete(
+        return PlaceAutocomplete(
+            apiType: Mock.coreApiType,
             searchEngine: engine,
             userActivityReporter: reporter
         )
     }
+}
 
+final class SearchBox_PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase<SearchBoxMockResponse> {
     func testSelectSuggestionsAllWithoutCoordinate() throws {
+        let placeAutocomplete = makePlaceAutocomplete()
         let expectation = XCTestExpectation(description: "Expecting results")
 
         try server.setResponse(.suggestSanFrancisco)
@@ -38,15 +37,15 @@ final class PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase<SBS
         var suggestion: PlaceAutocomplete.Suggestion?
         placeAutocomplete.suggestions(for: "San Francisco") { result in
             switch result {
-            case .success(let suggestions):
-                XCTAssertEqual(suggestions.count, 10)
-                XCTAssertTrue(suggestions.allSatisfy { suggestion in
-                    if case .suggestion = suggestion.underlying { return true }
-                    return false
-                })
-                suggestion = suggestions[0]
-            case .failure:
-                XCTFail("Should return success")
+                case .success(let suggestions):
+                    XCTAssertEqual(suggestions.count, 5)
+                    XCTAssertTrue(suggestions.allSatisfy { suggestion in
+                        if case .suggestion = suggestion.underlying { return true }
+                        return false
+                    })
+                    suggestion = suggestions[0]
+                case .failure:
+                    XCTFail("Should return success")
             }
             expectation.fulfill()
         }
@@ -56,24 +55,27 @@ final class PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase<SBS
         let unwrappedSuggestion = try XCTUnwrap(suggestion)
         placeAutocomplete.select(suggestion: unwrappedSuggestion) { result in
             switch result {
-            case .success(let resolvedSuggestion):
-                XCTAssertEqual(resolvedSuggestion.name, "San Francisco")
-                XCTAssertEqual(resolvedSuggestion.description, "California, United States")
-                XCTAssertEqual(
-                    resolvedSuggestion.coordinate,
-                    CLLocationCoordinate2D(latitude: 37.7648, longitude: -122.463)
-                )
-                XCTAssertNil(resolvedSuggestion.mapboxId)
-            case .failure:
-                XCTFail("Should return success")
+                case .success(let resolvedSuggestion):
+                    XCTAssertEqual(resolvedSuggestion.name, "San Francisco")
+                    XCTAssertEqual(resolvedSuggestion.description, "California, United States")
+                    XCTAssertEqual(
+                        resolvedSuggestion.coordinate,
+                        CLLocationCoordinate2D(latitude: 37.7648, longitude: -122.463)
+                    )
+                    XCTAssertEqual(resolvedSuggestion.mapboxId, "dXJuOm1ieHBsYzpFVzBJN0E")
+                case .failure:
+                    XCTFail("Should return success")
             }
             selectionExpectation.fulfill()
         }
 
         wait(for: [selectionExpectation], timeout: 5)
     }
+}
 
+final class SBS_PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase<SBSMockResponse> {
     func testSelectSuggestionsAllWithCoordinate() throws {
+        let placeAutocomplete = makePlaceAutocomplete()
         let expectation = XCTestExpectation(description: "Expecting results")
 
         try server.setResponse(.suggestWithCoordinates)
@@ -129,6 +131,7 @@ final class PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase<SBS
     }
 
     func testSelectSuggestionsIfSomeWithCoordinates() throws {
+        let placeAutocomplete = makePlaceAutocomplete()
         let expectation = XCTestExpectation(description: "Expecting results")
 
         try server.setResponse(.suggestWithMixedCoordinates)
@@ -202,6 +205,7 @@ final class PlaceAutocompleteIntegrationTests: MockServerIntegrationTestCase<SBS
     }
 
     func testIgnoresCategoryAndQuerySuggestions() throws {
+        let placeAutocomplete = makePlaceAutocomplete()
         let expectation = XCTestExpectation(description: "Expecting results")
 
         try server.setResponse(.suggestCategoryWithCoordinates)

@@ -20,6 +20,6 @@ class MockServerUITestCase<Mock: MockResponse>: BaseTestCase {
     }
 }
 
-/// Specialized default test case that uses SBSMockResponse.
+/// Specialized default test case that uses SearchBoxMockResponse.
 /// SBS is the recommended API engine type and default for the Demo app and UI test cases in the 2.0.0 release series.
-typealias MockSearchBoxUITestCase = MockServerUITestCase<SBSMockResponse>
+typealias MockSearchBoxUITestCase = MockServerUITestCase<SearchBoxMockResponse>

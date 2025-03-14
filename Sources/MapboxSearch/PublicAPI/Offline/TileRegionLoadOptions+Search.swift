@@ -9,6 +9,7 @@ extension TileRegionLoadOptions {
     ///   - geometry: The tile region's associated geometry (optional).
     ///   - descriptors: The tile region's tileset descriptors.
     ///   - metadata: A custom JSON value to be associated with this tile region.
+    ///   - acceptExpired: Accepts expired data when loading tiles.
     ///   - networkRestriction: Restrict the tile region load request to the
     ///         specified network types. If none of the specified network types
     ///         is available, the load request fails with an error.
@@ -19,8 +20,8 @@ extension TileRegionLoadOptions {
     /// downloaded with higher speed, then pause downloading until the rolling
     /// average has dropped below this value.
     ///
-    /// If `metadata` is not a valid JSON object, then this initializer returns
-    /// `nil`.
+    /// - Returns: Describes the tile region load option values.
+    /// If `metadata` is not a valid JSON object, then this initializer returns `nil`. 
     public static func build(
         geometry: Geometry?,
         descriptors: [TilesetDescriptor]?,

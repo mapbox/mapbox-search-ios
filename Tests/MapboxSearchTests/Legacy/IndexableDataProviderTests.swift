@@ -3,17 +3,26 @@ import CoreLocation
 import XCTest
 
 class IndexableDataProviderTests: XCTestCase {
-    var delegate = SearchEngineDelegateStub()
-    let provider = ServiceProviderStub()
+    var delegate: SearchEngineDelegateStub!
+    var provider: ServiceProviderStub!
+    var searchEngine: SearchEngine!
+
+    override func setUp() {
+        super.setUp()
+
+        delegate = SearchEngineDelegateStub()
+        provider = ServiceProviderStub()
+        searchEngine = SearchEngine(
+            accessToken: "Stub_token",
+            serviceProvider: provider,
+            locationProvider: DefaultLocationProvider(),
+            apiType: .searchBox
+        )
+        searchEngine.delegate = delegate
+    }
 
     func testOneDataProvider() throws {
         let dataProvider = TestDataProvider()
-        let searchEngine = SearchEngine(
-            accessToken: "Stub_token",
-            serviceProvider: provider,
-            locationProvider: DefaultLocationProvider()
-        )
-        searchEngine.delegate = delegate
         dataProvider.records = TestDataProviderRecord.testData(count: 2)
         let interactor = try searchEngine.register(dataProvider: dataProvider, priority: 10)
         dataProvider.registerProviderInteractor(interactor: interactor)
@@ -35,12 +44,6 @@ class IndexableDataProviderTests: XCTestCase {
 
     func testDataProviderWithNoRecords() throws {
         let dataProvider = TestDataProvider()
-        let searchEngine = SearchEngine(
-            accessToken: "Stub_token",
-            serviceProvider: provider,
-            locationProvider: DefaultLocationProvider()
-        )
-        searchEngine.delegate = delegate
         let interactor = try searchEngine.register(dataProvider: dataProvider, priority: 10)
         dataProvider.registerProviderInteractor(interactor: interactor)
 
@@ -65,13 +68,6 @@ class IndexableDataProviderTests: XCTestCase {
         dataProviderSomeRecords.records = TestDataProviderRecord.testData(count: 10)
         let dataProviderManyRecords = TestDataProvider()
         dataProviderManyRecords.records = TestDataProviderRecord.testData(count: 10_000)
-
-        let searchEngine = SearchEngine(
-            accessToken: "Stub_token",
-            serviceProvider: provider,
-            locationProvider: DefaultLocationProvider()
-        )
-        searchEngine.delegate = delegate
 
         let dataProviders = [dataProviderNoRecords, dataProviderSomeRecords, dataProviderManyRecords]
         for (index, dataProvider) in dataProviders.enumerated() {

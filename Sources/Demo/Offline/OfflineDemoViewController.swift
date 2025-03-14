@@ -10,7 +10,7 @@ class OfflineDemoViewController: UIViewController {
     lazy var annotationsManager = mapView.makeClusterPointAnnotationManager()
     private var messageLabel = UILabel()
 
-    private lazy var searchController = MapboxSearchController()
+    private lazy var searchController = MapboxSearchController(apiType: .searchBox)
 
     override func viewDidLoad() {
         super.viewDidLoad()

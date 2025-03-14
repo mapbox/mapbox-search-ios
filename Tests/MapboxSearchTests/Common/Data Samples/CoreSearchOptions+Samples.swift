@@ -33,7 +33,7 @@ extension CoreSearchOptions {
         timeDeviation: 10,
         addonAPI: nil,
         ensureResultsPerCategory: nil,
-        attributeSets: nil, 
+        attributeSets: nil,
         evSearchOptions: nil
     )
 

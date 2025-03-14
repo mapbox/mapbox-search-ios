@@ -4,12 +4,14 @@ import CwlPreconditionTesting
 import XCTest
 
 class CategorySearchEngineTests: XCTestCase {
-    var delegate = SearchEngineDelegateStub()
-    let provider = ServiceProviderStub()
+    var delegate: SearchEngineDelegateStub!
+    var provider: ServiceProviderStub!
 
     override func setUp() {
         super.setUp()
 
+        delegate = SearchEngineDelegateStub()
+        provider = ServiceProviderStub()
         provider.localHistoryProvider.clearData()
         provider.localFavoritesProvider.clearData()
     }
@@ -18,7 +20,8 @@ class CategorySearchEngineTests: XCTestCase {
         let categorySearchEngine = CategorySearchEngine(
             accessToken: "mapbox-access-token",
             serviceProvider: provider,
-            locationProvider: DefaultLocationProvider()
+            locationProvider: DefaultLocationProvider(),
+            apiType: .searchBox
         )
         let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
         let expectedResults = [CoreSearchResultStub]()
@@ -44,7 +47,8 @@ class CategorySearchEngineTests: XCTestCase {
         let categorySearchEngine = CategorySearchEngine(
             accessToken: "mapbox-access-token",
             serviceProvider: provider,
-            locationProvider: DefaultLocationProvider()
+            locationProvider: DefaultLocationProvider(),
+            apiType: .searchBox
         )
         let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
         let expectedResults = CoreSearchResultStub.makeCategoryResultsSet()
@@ -71,7 +75,8 @@ class CategorySearchEngineTests: XCTestCase {
         let categorySearchEngine = CategorySearchEngine(
             accessToken: "mapbox-access-token",
             serviceProvider: provider,
-            locationProvider: DefaultLocationProvider()
+            locationProvider: DefaultLocationProvider(),
+            apiType: .searchBox
         )
         let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
         let response = CoreSearchResponseStub.failureSample
@@ -100,7 +105,8 @@ class CategorySearchEngineTests: XCTestCase {
         let categorySearchEngine = CategorySearchEngine(
             accessToken: "mapbox-access-token",
             serviceProvider: provider,
-            locationProvider: DefaultLocationProvider()
+            locationProvider: DefaultLocationProvider(),
+            apiType: .searchBox
         )
 
         let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)

@@ -14,7 +14,7 @@ class SimpleUISearchViewController: MapsViewController {
             distanceFormatter: formatter
         )
 
-        return MapboxSearchController(configuration: configuration)
+        return MapboxSearchController(apiType: .searchBox, configuration: configuration)
     }()
 
     lazy var panelController = MapboxPanelController(rootViewController: searchController)

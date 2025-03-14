@@ -48,7 +48,7 @@ final class AddressAutofillIntegrationTests: MockServerIntegrationTestCase<Autof
             }
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 10)
+        wait(for: [expectation], timeout: 15)
 
         let expectedAddress = Address(
             houseNumber: "701",

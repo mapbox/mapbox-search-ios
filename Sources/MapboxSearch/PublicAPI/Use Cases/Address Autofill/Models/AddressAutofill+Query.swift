@@ -11,7 +11,7 @@ extension AddressAutofill {
 
         /// Query initializer
         /// - Parameters:
-        ///   - query: query string which should satisfy all requirements defined in `Requirements` type.
+        ///   - value: query string which should satisfy all requirements defined in `Requirements` type.
         public init?(value: String) {
             guard value.count >= Requirements.queryLength else { return nil }
 
