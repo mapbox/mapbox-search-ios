@@ -6,6 +6,11 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+## 2.9.0-rc.1
+
+**MapboxCommon**: v24.11.0-rc.2
+**MapboxCoreSearch**: v2.9.0-rc.2
+
 ## 2.9.0-beta.1
 
 - [Core] Update dependencies.
