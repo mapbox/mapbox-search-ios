@@ -122,6 +122,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         self.serverIndex = serverIndex
         self.accuracy = accuracy
         self.categories = categories
+        self.routablePoints = routablePoints
         self.type = resultType
         self.metadata = metadata
         self.searchRequest = searchRequest
