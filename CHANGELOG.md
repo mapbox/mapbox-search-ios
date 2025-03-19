@@ -6,7 +6,14 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+## 2.9.0-rc.2
+
+- [FavoriteRecord] Fix an issue where `routablePoints` were not set during the initialization of `FavoriteRecord`.
+- [Cocoapods] Fix MapboxSearchUI dependency when using cocoapods.
+
 ## 2.9.0-rc.1
+
+- [Core] Update dependencies.
 
 **MapboxCommon**: v24.11.0-rc.2
 **MapboxCoreSearch**: v2.9.0-rc.2
