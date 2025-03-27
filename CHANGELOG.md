@@ -6,6 +6,13 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+## 2.9.0
+
+- [Core] Update dependencies.
+
+**MapboxCommon**: v24.11.0
+**MapboxCoreSearch**: v2.9.0
+
 ## 2.9.0-rc.2
 
 - [FavoriteRecord] Fix an issue where `routablePoints` were not set during the initialization of `FavoriteRecord`.
@@ -32,6 +39,13 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Offline] Add `SearchOfflineManager.selectTileset(for:)` which allows you to select a tileset with the specified parameters, including language and worldview.
 - [Offline] Add `SearchOfflineManager.createTilesetDescriptor(tilesetParameters:)` and `SearchOfflineManager.createPlacesTilesetDescriptor(tilesetParameters:)` to specify tileset worldview.
 - [Offline] Deprecate `SearchOfflineManager.createTilesetDescriptor(dataset:version:language:)` and `SearchOfflineManager.createPlacesTilesetDescriptor(dataset:version:language:)`. Use corresponding methods with `tilesetParameters` instead.
+
+## 2.8.1
+
+- [Core] Update dependencies.
+
+**MapboxCommon**: v24.10.1
+**MapboxCoreSearch**: v2.8.1
 
 ## 2.8.0
 
