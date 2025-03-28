@@ -152,7 +152,8 @@ extension CoreSearchResultProtocol {
             userRecordID: userRecordID,
             userRecordPriority: 100,
             action: action,
-            serverIndex: serverIndex
+            serverIndex: serverIndex,
+            bbox: nil
         )
     }
 }
