@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SearchAddressRegion Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+    <meta class="swiftype" name="type" data-type="enum" content="MapboxSearch Reference" />
+    <meta class="swiftype" name="title" data-type="string" content="SearchAddressRegion" />
+    <style type="text/css">
+      .nav-group-name[data-name="SearchAddressRegion"] > .small-heading,
+      .nav-group-task[data-name="SearchAddressRegion"] {
+        background-color: #f5f8fc;
+        font-family: "Open Sans Bold";
+        border-left: 3px solid #3a68d8;
+        padding-left: 5px
+      }
+    </style>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Struct/SearchAddressRegion" class="dashAnchor"></a>
+
+    <a title="SearchAddressRegion Structure Reference"></a>
+
+    <header class="header-container">
+      <div class="limiter">
+        <div class="header">
+        <p class="header-col header-col--primary">
+          <a class="header-link" href="../index.html">
+            <img style="height: 25px;"  class="header-icon" src="../img/mapbox.svg" alt="MapboxSearch Docs"/>
+            <span class='header-tag'>MapboxSearch 2.9.0 Docs Reference (2.9.0)</span>
+          </a>
+           (64% documented)
+        </p>
+    
+    
+      </div>
+      </div>
+    </header>
+
+    <div class="breadcrumbs">
+      <div class="limiter">
+        <a class="breadcrumb" href="../index.html">MapboxSearch Reference</a>
+        <img class="carat" src="../img/carat.png" />
+        SearchAddressRegion Structure Reference
+      </div>
+    </div>
+
+    <div class="content-wrapper limiter">
+      <nav class="navigation">
+          <div class="header-col--secondary">
+            <form role="search" action="../search.json">
+              <input type="text" placeholder="Search documentation" data-typeahead>
+            </form>
+          </div>
+        <ul class="nav-groups">
+          <li class="nav-group-name" data-name="Classes">
+            <a class="small-heading" href="../Classes.html">Classes<span class="anchor-icon" /></a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task" data-name="AbstractSearchEngine" data-url="Classes/AbstractSearchEngine.html">
+                <a title="AbstractSearchEngine" class="nav-group-task-link" href="../Classes/AbstractSearchEngine.html">AbstractSearchEngine</a>
+              </li>
+              <li class="nav-group-task" data-name="AddressAutofill" data-url="Classes/AddressAutofill.html">
+                <a title="AddressAutofill" class="nav-group-task-link" href="../Classes/AddressAutofill.html">AddressAutofill</a>
+              </li>
+              <li class="nav-group-task" data-name="– AddressComponent" data-url="Classes/AddressAutofill/AddressComponent.html">
+                <a title="– AddressComponent" class="nav-group-task-link" href="../Classes/AddressAutofill/AddressComponent.html">– AddressComponent</a>
+              </li>
+              <li class="nav-group-task" data-name="– Options" data-url="Classes/AddressAutofill/Options.html">
+                <a title="– Options" class="nav-group-task-link" href="../Classes/AddressAutofill/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task" data-name="– Query" data-url="Classes/AddressAutofill/Query.html">
+                <a title="– Query" class="nav-group-task-link" href="../Classes/AddressAutofill/Query.html">– Query</a>
+              </li>
+              <li class="nav-group-task" data-name="– Result" data-url="Classes/AddressAutofill/Result.html">
+                <a title="– Result" class="nav-group-task-link" href="../Classes/AddressAutofill/Result.html">– Result</a>
+              </li>
+              <li class="nav-group-task" data-name="– Suggestion" data-url="Classes/AddressAutofill/Suggestion.html">
+                <a title="– Suggestion" class="nav-group-task-link" href="../Classes/AddressAutofill/Suggestion.html">– Suggestion</a>
+              </li>
+              <li class="nav-group-task" data-name="CategorySearchEngine" data-url="Classes/CategorySearchEngine.html">
+                <a title="CategorySearchEngine" class="nav-group-task-link" href="../Classes/CategorySearchEngine.html">CategorySearchEngine</a>
+              </li>
+              <li class="nav-group-task" data-name="CodablePersistentService" data-url="Classes/CodablePersistentService.html">
+                <a title="CodablePersistentService" class="nav-group-task-link" href="../Classes/CodablePersistentService.html">CodablePersistentService</a>
+              </li>
+              <li class="nav-group-task" data-name="DefaultLocationProvider" data-url="Classes/DefaultLocationProvider.html">
+                <a title="DefaultLocationProvider" class="nav-group-task-link" href="../Classes/DefaultLocationProvider.html">DefaultLocationProvider</a>
+              </li>
+              <li class="nav-group-task" data-name="Discover" data-url="Classes/Discover.html">
+                <a title="Discover" class="nav-group-task-link" href="../Classes/Discover.html">Discover</a>
+              </li>
+              <li class="nav-group-task" data-name="– Address" data-url="Classes/Discover/Address.html">
+                <a title="– Address" class="nav-group-task-link" href="../Classes/Discover/Address.html">– Address</a>
+              </li>
+              <li class="nav-group-task" data-name="– Options" data-url="Classes/Discover/Options.html">
+                <a title="– Options" class="nav-group-task-link" href="../Classes/Discover/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task" data-name="– Query" data-url="Classes/Discover/Query.html">
+                <a title="– Query" class="nav-group-task-link" href="../Classes/Discover/Query.html">– Query</a>
+              </li>
+              <li class="nav-group-task" data-name="– Result" data-url="Classes/Discover/Result.html">
+                <a title="– Result" class="nav-group-task-link" href="../Classes/Discover/Result.html">– Result</a>
+              </li>
+              <li class="nav-group-task" data-name="EventsManager" data-url="Classes/EventsManager.html">
+                <a title="EventsManager" class="nav-group-task-link" href="../Classes/EventsManager.html">EventsManager</a>
+              </li>
+              <li class="nav-group-task" data-name="FeedbackEvent" data-url="Classes/FeedbackEvent.html">
+                <a title="FeedbackEvent" class="nav-group-task-link" href="../Classes/FeedbackEvent.html">FeedbackEvent</a>
+              </li>
+              <li class="nav-group-task" data-name="– Reason" data-url="Classes/FeedbackEvent/Reason.html">
+                <a title="– Reason" class="nav-group-task-link" href="../Classes/FeedbackEvent/Reason.html">– Reason</a>
+              </li>
+              <li class="nav-group-task" data-name="FeedbackManager" data-url="Classes/FeedbackManager.html">
+                <a title="FeedbackManager" class="nav-group-task-link" href="../Classes/FeedbackManager.html">FeedbackManager</a>
+              </li>
+              <li class="nav-group-task" data-name="LocalDataProvider" data-url="Classes/LocalDataProvider.html">
+                <a title="LocalDataProvider" class="nav-group-task-link" href="../Classes/LocalDataProvider.html">LocalDataProvider</a>
+              </li>
+              <li class="nav-group-task" data-name="PlaceAutocomplete" data-url="Classes/PlaceAutocomplete.html">
+                <a title="PlaceAutocomplete" class="nav-group-task-link" href="../Classes/PlaceAutocomplete.html">PlaceAutocomplete</a>
+              </li>
+              <li class="nav-group-task" data-name="– Options" data-url="Classes/PlaceAutocomplete/Options.html">
+                <a title="– Options" class="nav-group-task-link" href="../Classes/PlaceAutocomplete/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task" data-name="– PlaceType" data-url="Classes/PlaceAutocomplete/PlaceType.html">
+                <a title="– PlaceType" class="nav-group-task-link" href="../Classes/PlaceAutocomplete/PlaceType.html">– PlaceType</a>
+              </li>
+              <li class="nav-group-task" data-name="– Result" data-url="Classes/PlaceAutocomplete/Result.html">
+                <a title="– Result" class="nav-group-task-link" href="../Classes/PlaceAutocomplete/Result.html">– Result</a>
+              </li>
+              <li class="nav-group-task" data-name="– Suggestion" data-url="Classes/PlaceAutocomplete/Suggestion.html">
+                <a title="– Suggestion" class="nav-group-task-link" href="../Classes/PlaceAutocomplete/Suggestion.html">– Suggestion</a>
+              </li>
+              <li class="nav-group-task" data-name="PointLocationProvider" data-url="Classes/PointLocationProvider.html">
+                <a title="PointLocationProvider" class="nav-group-task-link" href="../Classes/PointLocationProvider.html">PointLocationProvider</a>
+              </li>
+              <li class="nav-group-task" data-name="Route" data-url="Classes/Route.html">
+                <a title="Route" class="nav-group-task-link" href="../Classes/Route.html">Route</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchEngine" data-url="Classes/SearchEngine.html">
+                <a title="SearchEngine" class="nav-group-task-link" href="../Classes/SearchEngine.html">SearchEngine</a>
+              </li>
+              <li class="nav-group-task" data-name="– OfflineMode" data-url="Classes/SearchEngine/OfflineMode.html">
+                <a title="– OfflineMode" class="nav-group-task-link" href="../Classes/SearchEngine/OfflineMode.html">– OfflineMode</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchOfflineManager" data-url="Classes/SearchOfflineManager.html">
+                <a title="SearchOfflineManager" class="nav-group-task-link" href="../Classes/SearchOfflineManager.html">SearchOfflineManager</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchResponseInfo" data-url="Classes/SearchResponseInfo.html">
+                <a title="SearchResponseInfo" class="nav-group-task-link" href="../Classes/SearchResponseInfo.html">SearchResponseInfo</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchTileStore" data-url="Classes/SearchTileStore.html">
+                <a title="SearchTileStore" class="nav-group-task-link" href="../Classes/SearchTileStore.html">SearchTileStore</a>
+              </li>
+              <li class="nav-group-task" data-name="ServiceProvider" data-url="Classes/ServiceProvider.html">
+                <a title="ServiceProvider" class="nav-group-task-link" href="../Classes/ServiceProvider.html">ServiceProvider</a>
+              </li>
+              <li class="nav-group-task" data-name="_Logger" data-url="Classes/_Logger.html">
+                <a title="_Logger" class="nav-group-task-link" href="../Classes/_Logger.html">_Logger</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name" data-name="Global Variables">
+            <a class="small-heading" href="../Global Variables.html">Global Variables<span class="anchor-icon" /></a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task" data-name="mapboxSearchErrorDomain" data-url="Global%20Variables.html#/mapboxSearchErrorDomain">
+                <a title="mapboxSearchErrorDomain" class="nav-group-task-link" href="../Global%20Variables.html#/mapboxSearchErrorDomain">mapboxSearchErrorDomain</a>
+              </li>
+              <li class="nav-group-task" data-name="mapboxSearchErrorDomain" data-url="Global%20Variables.html#/s:12MapboxSearch06mapboxB11ErrorDomainSSvp">
+                <a title="mapboxSearchErrorDomain" class="nav-group-task-link" href="../Global%20Variables.html#/s:12MapboxSearch06mapboxB11ErrorDomainSSvp">mapboxSearchErrorDomain</a>
+              </li>
+              <li class="nav-group-task" data-name="mapboxSearchSDKVersion" data-url="Global%20Variables.html#/s:12MapboxSearch06mapboxB10SDKVersionSSvp">
+                <a title="mapboxSearchSDKVersion" class="nav-group-task-link" href="../Global%20Variables.html#/s:12MapboxSearch06mapboxB10SDKVersionSSvp">mapboxSearchSDKVersion</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name" data-name="Enumerations">
+            <a class="small-heading" href="../Enumerations.html">Enumerations<span class="anchor-icon" /></a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task" data-name="AddOfflineRegionError" data-url="Enums/AddOfflineRegionError.html">
+                <a title="AddOfflineRegionError" class="nav-group-task-link" href="../Enums/AddOfflineRegionError.html">AddOfflineRegionError</a>
+              </li>
+              <li class="nav-group-task" data-name="ApiType" data-url="Enums/ApiType.html">
+                <a title="ApiType" class="nav-group-task-link" href="../Enums/ApiType.html">ApiType</a>
+              </li>
+              <li class="nav-group-task" data-name="AttributeSet" data-url="Enums/AttributeSet.html">
+                <a title="AttributeSet" class="nav-group-task-link" href="../Enums/AttributeSet.html">AttributeSet</a>
+              </li>
+              <li class="nav-group-task" data-name="HighlightsCalculator" data-url="Enums/HighlightsCalculator.html">
+                <a title="HighlightsCalculator" class="nav-group-task-link" href="../Enums/HighlightsCalculator.html">HighlightsCalculator</a>
+              </li>
+              <li class="nav-group-task" data-name="LogCategory" data-url="Enums/LogCategory.html">
+                <a title="LogCategory" class="nav-group-task-link" href="../Enums/LogCategory.html">LogCategory</a>
+              </li>
+              <li class="nav-group-task" data-name="LoggerLevel" data-url="Enums/LoggerLevel.html">
+                <a title="LoggerLevel" class="nav-group-task-link" href="../Enums/LoggerLevel.html">LoggerLevel</a>
+              </li>
+              <li class="nav-group-task" data-name="Maki" data-url="Enums/Maki.html">
+                <a title="Maki" class="nav-group-task-link" href="../Enums/Maki.html">Maki</a>
+              </li>
+              <li class="nav-group-task" data-name="OpenHours" data-url="Enums/OpenHours.html">
+                <a title="OpenHours" class="nav-group-task-link" href="../Enums/OpenHours.html">OpenHours</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchAddressType" data-url="Enums/SearchAddressType.html">
+                <a title="SearchAddressType" class="nav-group-task-link" href="../Enums/SearchAddressType.html">SearchAddressType</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchError" data-url="Enums/SearchError.html">
+                <a title="SearchError" class="nav-group-task-link" href="../Enums/SearchError.html">SearchError</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchNavigationProfile" data-url="Enums/SearchNavigationProfile.html">
+                <a title="SearchNavigationProfile" class="nav-group-task-link" href="../Enums/SearchNavigationProfile.html">SearchNavigationProfile</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchQueryType" data-url="Enums/SearchQueryType.html">
+                <a title="SearchQueryType" class="nav-group-task-link" href="../Enums/SearchQueryType.html">SearchQueryType</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchResultAccuracy" data-url="Enums/SearchResultAccuracy.html">
+                <a title="SearchResultAccuracy" class="nav-group-task-link" href="../Enums/SearchResultAccuracy.html">SearchResultAccuracy</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchResultType" data-url="Enums/SearchResultType.html">
+                <a title="SearchResultType" class="nav-group-task-link" href="../Enums/SearchResultType.html">SearchResultType</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchSuggestType" data-url="Enums/SearchSuggestType.html">
+                <a title="SearchSuggestType" class="nav-group-task-link" href="../Enums/SearchSuggestType.html">SearchSuggestType</a>
+              </li>
+              <li class="nav-group-task" data-name="TileRegionError" data-url="Enums/TileRegionError.html">
+                <a title="TileRegionError" class="nav-group-task-link" href="../Enums/TileRegionError.html">TileRegionError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name" data-name="Extensions">
+            <a class="small-heading" href="../Extensions.html">Extensions<span class="anchor-icon" /></a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task" data-name="TileRegionLoadOptions" data-url="Extensions/TileRegionLoadOptions.html">
+                <a title="TileRegionLoadOptions" class="nav-group-task-link" href="../Extensions/TileRegionLoadOptions.html">TileRegionLoadOptions</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name" data-name="Protocols">
+            <a class="small-heading" href="../Protocols.html">Protocols<span class="anchor-icon" /></a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task" data-name="AbstractSearchEngineConfiguration" data-url="Protocols/AbstractSearchEngineConfiguration.html">
+                <a title="AbstractSearchEngineConfiguration" class="nav-group-task-link" href="../Protocols/AbstractSearchEngineConfiguration.html">AbstractSearchEngineConfiguration</a>
+              </li>
+              <li class="nav-group-task" data-name="IndexableDataProvider" data-url="Protocols/IndexableDataProvider.html">
+                <a title="IndexableDataProvider" class="nav-group-task-link" href="../Protocols/IndexableDataProvider.html">IndexableDataProvider</a>
+              </li>
+              <li class="nav-group-task" data-name="IndexableDataResolver" data-url="Protocols/IndexableDataResolver.html">
+                <a title="IndexableDataResolver" class="nav-group-task-link" href="../Protocols/IndexableDataResolver.html">IndexableDataResolver</a>
+              </li>
+              <li class="nav-group-task" data-name="IndexableRecord" data-url="Protocols/IndexableRecord.html">
+                <a title="IndexableRecord" class="nav-group-task-link" href="../Protocols/IndexableRecord.html">IndexableRecord</a>
+              </li>
+              <li class="nav-group-task" data-name="LocationProvider" data-url="Protocols/LocationProvider.html">
+                <a title="LocationProvider" class="nav-group-task-link" href="../Protocols/LocationProvider.html">LocationProvider</a>
+              </li>
+              <li class="nav-group-task" data-name="RecordsProviderInteractor" data-url="Protocols/RecordsProviderInteractor.html">
+                <a title="RecordsProviderInteractor" class="nav-group-task-link" href="../Protocols/RecordsProviderInteractor.html">RecordsProviderInteractor</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchCancelable" data-url="Protocols/SearchCancelable.html">
+                <a title="SearchCancelable" class="nav-group-task-link" href="../Protocols/SearchCancelable.html">SearchCancelable</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchCategorySuggestion" data-url="Protocols/SearchCategorySuggestion.html">
+                <a title="SearchCategorySuggestion" class="nav-group-task-link" href="../Protocols/SearchCategorySuggestion.html">SearchCategorySuggestion</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchEngineDelegate" data-url="Protocols/SearchEngineDelegate.html">
+                <a title="SearchEngineDelegate" class="nav-group-task-link" href="../Protocols/SearchEngineDelegate.html">SearchEngineDelegate</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchQuerySuggestion" data-url="Protocols.html#/s:12MapboxSearch0B15QuerySuggestionP">
+                <a title="SearchQuerySuggestion" class="nav-group-task-link" href="../Protocols.html#/s:12MapboxSearch0B15QuerySuggestionP">SearchQuerySuggestion</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchResult" data-url="Protocols/SearchResult.html">
+                <a title="SearchResult" class="nav-group-task-link" href="../Protocols/SearchResult.html">SearchResult</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchResultSuggestion" data-url="Protocols/SearchResultSuggestion.html">
+                <a title="SearchResultSuggestion" class="nav-group-task-link" href="../Protocols/SearchResultSuggestion.html">SearchResultSuggestion</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchSuggestion" data-url="Protocols/SearchSuggestion.html">
+                <a title="SearchSuggestion" class="nav-group-task-link" href="../Protocols/SearchSuggestion.html">SearchSuggestion</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name" data-name="Structures">
+            <a class="small-heading" href="../Structures.html">Structures<span class="anchor-icon" /></a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task" data-name="Address" data-url="Structs/Address.html">
+                <a title="Address" class="nav-group-task-link" href="../Structs/Address.html">Address</a>
+              </li>
+              <li class="nav-group-task" data-name="– AddressFormatStyle" data-url="Structs/Address/AddressFormatStyle.html">
+                <a title="– AddressFormatStyle" class="nav-group-task-link" href="../Structs/Address/AddressFormatStyle.html">– AddressFormatStyle</a>
+              </li>
+              <li class="nav-group-task" data-name="AddressComponents" data-url="Structs/AddressComponents.html">
+                <a title="AddressComponents" class="nav-group-task-link" href="../Structs/AddressComponents.html">AddressComponents</a>
+              </li>
+              <li class="nav-group-task" data-name="– FormatStyle" data-url="Structs/AddressComponents/FormatStyle.html">
+                <a title="– FormatStyle" class="nav-group-task-link" href="../Structs/AddressComponents/FormatStyle.html">– FormatStyle</a>
+              </li>
+              <li class="nav-group-task" data-name="AdministrativeUnit" data-url="Structs/AdministrativeUnit.html">
+                <a title="AdministrativeUnit" class="nav-group-task-link" href="../Structs/AdministrativeUnit.html">AdministrativeUnit</a>
+              </li>
+              <li class="nav-group-task" data-name="BoundingBox" data-url="Structs/BoundingBox.html">
+                <a title="BoundingBox" class="nav-group-task-link" href="../Structs/BoundingBox.html">BoundingBox</a>
+              </li>
+              <li class="nav-group-task" data-name="Country" data-url="Structs/Country.html">
+                <a title="Country" class="nav-group-task-link" href="../Structs/Country.html">Country</a>
+              </li>
+              <li class="nav-group-task" data-name="– ISO3166_1_alpha2" data-url="Structs/Country/ISO3166_1_alpha2.html">
+                <a title="– ISO3166_1_alpha2" class="nav-group-task-link" href="../Structs/Country/ISO3166_1_alpha2.html">– ISO3166_1_alpha2</a>
+              </li>
+              <li class="nav-group-task" data-name="DetailsOptions" data-url="Structs/DetailsOptions.html">
+                <a title="DetailsOptions" class="nav-group-task-link" href="../Structs/DetailsOptions.html">DetailsOptions</a>
+              </li>
+              <li class="nav-group-task" data-name="FavoriteRecord" data-url="Structs/FavoriteRecord.html">
+                <a title="FavoriteRecord" class="nav-group-task-link" href="../Structs/FavoriteRecord.html">FavoriteRecord</a>
+              </li>
+              <li class="nav-group-task" data-name="HistoryRecord" data-url="Structs/HistoryRecord.html">
+                <a title="HistoryRecord" class="nav-group-task-link" href="../Structs/HistoryRecord.html">HistoryRecord</a>
+              </li>
+              <li class="nav-group-task" data-name="– HistoryType" data-url="Structs/HistoryRecord/HistoryType.html">
+                <a title="– HistoryType" class="nav-group-task-link" href="../Structs/HistoryRecord/HistoryType.html">– HistoryType</a>
+              </li>
+              <li class="nav-group-task" data-name="Image" data-url="Structs/Image.html">
+                <a title="Image" class="nav-group-task-link" href="../Structs/Image.html">Image</a>
+              </li>
+              <li class="nav-group-task" data-name="– SizedImage" data-url="Structs/Image/SizedImage.html">
+                <a title="– SizedImage" class="nav-group-task-link" href="../Structs/Image/SizedImage.html">– SizedImage</a>
+              </li>
+              <li class="nav-group-task" data-name="Language" data-url="Structs/Language.html">
+                <a title="Language" class="nav-group-task-link" href="../Structs/Language.html">Language</a>
+              </li>
+              <li class="nav-group-task" data-name="– ISO639_1" data-url="Structs/Language/ISO639_1.html">
+                <a title="– ISO639_1" class="nav-group-task-link" href="../Structs/Language/ISO639_1.html">– ISO639_1</a>
+              </li>
+              <li class="nav-group-task" data-name="NonEmptyArray" data-url="Structs/NonEmptyArray.html">
+                <a title="NonEmptyArray" class="nav-group-task-link" href="../Structs/NonEmptyArray.html">NonEmptyArray</a>
+              </li>
+              <li class="nav-group-task" data-name="OpenPeriod" data-url="Structs/OpenPeriod.html">
+                <a title="OpenPeriod" class="nav-group-task-link" href="../Structs/OpenPeriod.html">OpenPeriod</a>
+              </li>
+              <li class="nav-group-task" data-name="ResultChildMetadata" data-url="Structs/ResultChildMetadata.html">
+                <a title="ResultChildMetadata" class="nav-group-task-link" href="../Structs/ResultChildMetadata.html">ResultChildMetadata</a>
+              </li>
+              <li class="nav-group-task" data-name="RetrieveOptions" data-url="Structs/RetrieveOptions.html">
+                <a title="RetrieveOptions" class="nav-group-task-link" href="../Structs/RetrieveOptions.html">RetrieveOptions</a>
+              </li>
+              <li class="nav-group-task" data-name="ReverseGeocodingOptions" data-url="Structs/ReverseGeocodingOptions.html">
+                <a title="ReverseGeocodingOptions" class="nav-group-task-link" href="../Structs/ReverseGeocodingOptions.html">ReverseGeocodingOptions</a>
+              </li>
+              <li class="nav-group-task" data-name="– Mode" data-url="Structs/ReverseGeocodingOptions/Mode.html">
+                <a title="– Mode" class="nav-group-task-link" href="../Structs/ReverseGeocodingOptions/Mode.html">– Mode</a>
+              </li>
+              <li class="nav-group-task" data-name="RoutablePoint" data-url="Structs/RoutablePoint.html">
+                <a title="RoutablePoint" class="nav-group-task-link" href="../Structs/RoutablePoint.html">RoutablePoint</a>
+              </li>
+              <li class="nav-group-task" data-name="RouteOptions" data-url="Structs/RouteOptions.html">
+                <a title="RouteOptions" class="nav-group-task-link" href="../Structs/RouteOptions.html">RouteOptions</a>
+              </li>
+              <li class="nav-group-task" data-name="– Deviation" data-url="Structs/RouteOptions/Deviation.html">
+                <a title="– Deviation" class="nav-group-task-link" href="../Structs/RouteOptions/Deviation.html">– Deviation</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchAddressCountry" data-url="Structs/SearchAddressCountry.html">
+                <a title="SearchAddressCountry" class="nav-group-task-link" href="../Structs/SearchAddressCountry.html">SearchAddressCountry</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchAddressRegion" data-url="Structs/SearchAddressRegion.html">
+                <a title="SearchAddressRegion" class="nav-group-task-link" href="../Structs/SearchAddressRegion.html">SearchAddressRegion</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchNavigationOptions" data-url="Structs/SearchNavigationOptions.html">
+                <a title="SearchNavigationOptions" class="nav-group-task-link" href="../Structs/SearchNavigationOptions.html">SearchNavigationOptions</a>
+              </li>
+              <li class="nav-group-task" data-name="– ETAType" data-url="Structs/SearchNavigationOptions/ETAType.html">
+                <a title="– ETAType" class="nav-group-task-link" href="../Structs/SearchNavigationOptions/ETAType.html">– ETAType</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchOptions" data-url="Structs/SearchOptions.html">
+                <a title="SearchOptions" class="nav-group-task-link" href="../Structs/SearchOptions.html">SearchOptions</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchRequestOptions" data-url="Structs/SearchRequestOptions.html">
+                <a title="SearchRequestOptions" class="nav-group-task-link" href="../Structs/SearchRequestOptions.html">SearchRequestOptions</a>
+              </li>
+              <li class="nav-group-task" data-name="SearchResultMetadata" data-url="Structs/SearchResultMetadata.html">
+                <a title="SearchResultMetadata" class="nav-group-task-link" href="../Structs/SearchResultMetadata.html">SearchResultMetadata</a>
+              </li>
+              <li class="nav-group-task" data-name="TilesetParameters" data-url="Structs/TilesetParameters.html">
+                <a title="TilesetParameters" class="nav-group-task-link" href="../Structs/TilesetParameters.html">TilesetParameters</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name" data-name="Type Aliases">
+            <a class="small-heading" href="../Type Aliases.html">Type Aliases<span class="anchor-icon" /></a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task" data-name="FavoritesProvider" data-url="Typealiases.html#/s:12MapboxSearch17FavoritesProvidera">
+                <a title="FavoritesProvider" class="nav-group-task-link" href="../Typealiases.html#/s:12MapboxSearch17FavoritesProvidera">FavoritesProvider</a>
+              </li>
+              <li class="nav-group-task" data-name="HistoryProvider" data-url="Typealiases.html#/s:12MapboxSearch15HistoryProvidera">
+                <a title="HistoryProvider" class="nav-group-task-link" href="../Typealiases.html#/s:12MapboxSearch15HistoryProvidera">HistoryProvider</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            <a href="#/SearchAddressRegion"><h1 id="SearchAddressRegion">SearchAddressRegion<span class="anchor-icon" /></h1></a>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SearchAddressRegion</span> <span class="p">:</span> <span class="kt">Codable</span><span class="p">,</span> <span class="kt">Hashable</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Contains details for top-level sub-national administrative features, such as states in the United States or
+provinces in Canada or China, including name (required) and code identifiers (optional)</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12MapboxSearch0B13AddressRegionV4nameSSvp"></a>
+                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12MapboxSearch0B13AddressRegionV4nameSSvp"><span class="token-name">name</span><span class="token-icon" /></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <section class="section">
+                      <div class="abstract">
+                        <p>Colloquial name for this region</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language keyline-blue">
+                          <p  style="background: rgba(65, 131, 196, 0.15);" class="aside-title text-blue">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12MapboxSearch0B13AddressRegionV10regionCodeSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/regionCode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12MapboxSearch0B13AddressRegionV10regionCodeSSSgvp"><span class="token-name">regionCode</span><span class="token-icon" /></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <section class="section">
+                      <div class="abstract">
+                        <p>Subdivision portion of ISO 3166-2 code</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language keyline-blue">
+                          <p  style="background: rgba(65, 131, 196, 0.15);" class="aside-title text-blue">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">regionCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12MapboxSearch0B13AddressRegionV14regionCodeFullSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/regionCodeFull" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12MapboxSearch0B13AddressRegionV14regionCodeFullSSSgvp"><span class="token-name">regionCodeFull</span><span class="token-icon" /></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <section class="section">
+                      <div class="abstract">
+                        <p>ISO 3166-2 region code</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language keyline-blue">
+                          <p  style="background: rgba(65, 131, 196, 0.15);" class="aside-title text-blue">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">regionCodeFull</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer limiter">
+      <p>Copyright © 2020 - 2025 Mapbox, Inc. You may use this code with your Mapbox account and under the Mapbox Terms of Service (available at: <a href="https://www.mapbox.com/legal/tos">https://www.mapbox.com/legal/tos</a>). All other rights reserved.</p> Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.
+    </section>
+  </body>
+</div>
+</html>
