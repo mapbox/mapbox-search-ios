@@ -87,7 +87,8 @@ extension ServiceProvider: EngineProviderProtocol {
             baseUrl: Self.customBaseURL,
             apiType: NSNumber(value: apiType.rawValue),
             sdkInformation: SdkInformation.defaultInfo,
-            eventsUrl: nil
+            eventsUrl: nil,
+            onlineRequestTimeout: nil
         )
 
         return CoreSearchEngine(
@@ -118,7 +119,8 @@ extension ServiceProvider: EngineProviderProtocol {
             baseUrl: customBaseURL,
             apiType: NSNumber(value: apiType.rawValue),
             sdkInformation: SdkInformation.defaultInfo,
-            eventsUrl: nil
+            eventsUrl: nil,
+            onlineRequestTimeout: nil
         )
 
         return CoreSearchEngine(
