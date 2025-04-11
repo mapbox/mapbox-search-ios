@@ -243,7 +243,7 @@ GEM
     multi_json (1.15.0)
     multipart-post (2.4.1)
     mustache (1.1.1)
-    mutex_m (0.2.0)
+    mutex_m (0.3.0)
     nanaimo (0.4.0)
     nap (1.1.0)
     naturally (2.2.1)
@@ -319,4 +319,4 @@ DEPENDENCIES
   jazzy (~> 0.14.4)
 
 BUNDLED WITH
-   2.4.20
+   2.6.7
