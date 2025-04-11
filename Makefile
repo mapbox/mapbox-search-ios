@@ -31,10 +31,10 @@ offline:
 	aws s3 cp s3://vng-temp/HERE/luxembourg.tgz - | tar -xz -C Sources/Demo/offline/
 
 ci-dev-test: dependencies
-	fastlane scan --scheme "Demo" --device "iPhone 15" --result_bundle "true" --testplan "CI-dev" --output_directory "output"
+	bundle exect fastlane scan --scheme "Demo" --device "iPhone 15 OS=17.5" --result_bundle "true" --testplan "CI-dev" --output_directory "output"
 
 ci-full-test: dependencies
-	fastlane scan --scheme "Demo" --device "iPhone 15" --result_bundle "true" --testplan "Demo" --output_directory "output"
+	bundle exect fastlane scan --scheme "Demo" --device "iPhone 15 OS=17.5" --result_bundle "true" --testplan "Demo" --output_directory "output"
 
 test: dependencies
 	xcodebuild -scheme MapboxSearchUI -destination platform\=iOS\ Simulator,name\=iPhone\ 15 clean test
