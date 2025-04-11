@@ -114,6 +114,7 @@ jobs:
       - ios-prestart-simulator
       - upgrade-carthage
       - install-swiftlint
+      - install-gems
       - run:
           name: Build dependencies
           command: make dependencies
@@ -330,3 +331,8 @@ commands:
             curl -LO https://github.com/realm/SwiftLint/releases/download/0.53.0/SwiftLint.pkg
             sudo installer -pkg SwiftLint.pkg -target /
             rm SwiftLint.pkg
+
+  install-gems:
+    steps:
+      - run: |
+          bundle install
