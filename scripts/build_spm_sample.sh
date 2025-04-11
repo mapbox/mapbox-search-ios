@@ -38,7 +38,7 @@ EOF
 
 BASEDIR="${BASEDIR}" xcodegen
 xcodebuild -resolvePackageDependencies -derivedDataPath derivedData -scheme CircleCIApp
-xcodebuild -scheme "CircleCIApp" -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.0' -derivedDataPath derivedData/ -project CircleCIApp.xcodeproj CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+xcodebuild -scheme "CircleCIApp" -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' -derivedDataPath derivedData/ -project CircleCIApp.xcodeproj CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 
 popd
 
