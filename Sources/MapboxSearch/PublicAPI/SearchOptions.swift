@@ -109,6 +109,7 @@ public struct SearchOptions {
     /// - Parameter unsafeParameters: Non-verified query parameters to the server API
     /// - Parameter attributeSets: Configures additional metadata attributes besides the basic ones.  If `attributeSets`
     /// is `nil` or empty, ``AttributeSet/basic`` will be requested.
+    /// - Parameter ensureResultsPerCategory: Configures if results will include at least one POI for each category, provided a POI is available in a nearby location.
     public init(
         countries: [String]? = nil,
         languages: [String]? = nil,
@@ -124,7 +125,8 @@ public struct SearchOptions {
         ignoreIndexableRecords: Bool = false,
         indexableRecordsDistanceThreshold: CLLocationDistance? = nil,
         unsafeParameters: [String: String]? = nil,
-        attributeSets: [AttributeSet]? = nil
+        attributeSets: [AttributeSet]? = nil,
+        ensureResultsPerCategory: Bool? = nil
     ) {
         self.countries = countries
         self.languages = languages ?? Locale.defaultLanguages()
@@ -141,6 +143,7 @@ public struct SearchOptions {
         self.indexableRecordsDistanceThreshold = indexableRecordsDistanceThreshold
         self.unsafeParameters = unsafeParameters
         self.attributeSets = attributeSets
+        self.ensureResultsPerCategory = ensureResultsPerCategory
     }
 
     /// Search request options with custom proximity.
@@ -199,6 +202,23 @@ public struct SearchOptions {
     /// That helps to reduce pressure on the server
     public var defaultDebounce: TimeInterval = 300
 
+    /// When set to true and multiple categories are requested, e.g. `CategorySearchEngine.search(categoryNames: ["coffee_shop", "hotel"], ...)`,
+    /// results will include at least one POI for each category, provided a POI is available in a nearby location.
+    ///
+    /// A comma-separated list of multiple category values in the request determines the sort order of the POI result.
+    /// For example, for request `CategorySearchEngine.search(categoryNames: ["coffee_shop", "hotel"], ...)`,
+    /// `coffee_shop` POI will be listed first in the results.
+    ///
+    /// If there is more than one POI for categories, the number of search results will include multiple features for each category.
+    ///
+    /// For example, assuming that `restaurant`, `coffee`, `parking_lot` categories are requested and limit parameter is
+    /// 10, the result will be ranked as follows:
+    /// - 1st to 4th: `restaurant` POIs
+    /// - 5th to 7th: `coffee` POIs
+    /// - 8th to 10th: `parking_lot` POI
+    /// - Note: ``ApiType/searchBox`` only.
+    public var ensureResultsPerCategory: Bool? = nil
+
     init(coreSearchOptions options: CoreSearchOptions) {
         let proximity = options.proximity.map { CLLocationCoordinate2D(
             latitude: $0.value.latitude,
@@ -241,6 +261,7 @@ public struct SearchOptions {
             fuzzyMatch: options.fuzzyMatch?.boolValue,
             proximity: proximity,
             boundingBox: options.bbox.map { BoundingBox($0.min, $0.max) },
+            offlineSearchPlacesOutsideBbox: options.offlineSearchPlacesOutsideBbox,
             origin: origin,
             navigationOptions: profile,
             routeOptions: routeOptions,
@@ -248,7 +269,8 @@ public struct SearchOptions {
             ignoreIndexableRecords: options.ignoreUR,
             indexableRecordsDistanceThreshold: options.urDistanceThreshold?.doubleValue,
             unsafeParameters: options.addonAPI,
-            attributeSets: attributeSets
+            attributeSets: attributeSets,
+            ensureResultsPerCategory: options.ensureResultsPerCategory?.boolValue
         )
     }
 
@@ -283,8 +305,7 @@ public struct SearchOptions {
             timeDeviation: timeDeviation,
             addonAPI: unsafeParameters,
             offlineSearchPlacesOutsideBbox: offlineSearchPlacesOutsideBbox,
-            ensureResultsPerCategory: nil,
-            // TODO: NAVIOS-2054 Support multiple categories search and ability to ensure results per category.
+            ensureResultsPerCategory: ensureResultsPerCategory.map(NSNumber.init(value:)),
             attributeSets: attributeSets?.map { NSNumber(value: $0.coreValue.rawValue) },
             evSearchOptions: nil
         )
@@ -423,6 +444,7 @@ public struct SearchOptions {
             fuzzyMatch: fuzzyMatch ?? with.fuzzyMatch,
             proximity: proximity ?? with.proximity,
             boundingBox: boundingBox ?? with.boundingBox,
+            offlineSearchPlacesOutsideBbox: offlineSearchPlacesOutsideBbox,
             origin: origin ?? with.origin,
             navigationOptions: navigationOptions ?? with.navigationOptions,
             routeOptions: routeOptions ?? with.routeOptions,
@@ -431,7 +453,8 @@ public struct SearchOptions {
             indexableRecordsDistanceThreshold: indexableRecordsDistanceThreshold ??
                 with.indexableRecordsDistanceThreshold,
             unsafeParameters: unsafeParameters ?? with.unsafeParameters,
-            attributeSets: attributeSets ?? with.attributeSets
+            attributeSets: attributeSets ?? with.attributeSets,
+            ensureResultsPerCategory: ensureResultsPerCategory ?? with.ensureResultsPerCategory
         )
     }
 }
