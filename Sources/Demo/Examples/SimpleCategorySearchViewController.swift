@@ -8,7 +8,7 @@ class SimpleCategorySearchViewController: MapsViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        let searchOptions = SearchOptions(attributeSets: [.basic, .photos, .venue, .visit])
+        let searchOptions = CategorySearchOptions(attributeSets: [.basic, .photos, .venue, .visit])
         searchEngine.search(categoryName: "cafe", options: searchOptions) { response in
             do {
                 let results = try response.get()

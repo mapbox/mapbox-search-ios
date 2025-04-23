@@ -40,10 +40,17 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
 
     /// Default options to use when `nil` was passed to the `search(…: options:)` call
     ///
-    /// Full `SearchOptions` structure would be used when nothing was passed to the `search` function
+    /// Full ``SearchOptions`` structure would be used when nothing was passed to the `search` function
     /// In other case, each structure field would be tested. Each `nil` field in `search(options:)` parameter
     /// would be replaced with the value from `defaultSearchOptions`
     public var defaultSearchOptions: SearchOptions
+
+    /// Default options to use when `nil` was passed to the `search(…: options:)` call
+    ///
+    /// Full ``CategorySearchOptions`` structure would be used when nothing was passed to the `search` function
+    /// In other case, each structure field would be tested. Each `nil` field in `search(options:)` parameter
+    /// would be replaced with the value from `defaultCategorySearchOptions`
+    public var defaultCategorySearchOptions: CategorySearchOptions
 
     let internalProvidersBasePriority = 100
 
@@ -62,6 +69,7 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
         serviceProvider: ServiceProviderProtocol & EngineProviderProtocol,
         locationProvider: LocationProvider? = DefaultLocationProvider(),
         defaultSearchOptions: SearchOptions = SearchOptions(),
+        defaultCategorySearchOptions: CategorySearchOptions? = nil,
         apiType: ApiType,
         baseURL: URL? = nil
     ) {
@@ -76,6 +84,8 @@ public class AbstractSearchEngine: FeedbackManagerDelegate {
         self.eventsManager = serviceProvider.eventsManager
         self.feedbackManager = serviceProvider.feedbackManager
         self.defaultSearchOptions = defaultSearchOptions
+        self.defaultCategorySearchOptions = defaultCategorySearchOptions ??
+            CategorySearchOptions().merged(defaultSearchOptions)
         self.apiType = apiType
         self.engineApi = apiType.toCore()
 

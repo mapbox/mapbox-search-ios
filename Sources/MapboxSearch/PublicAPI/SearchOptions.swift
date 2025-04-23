@@ -50,11 +50,11 @@ public struct SearchOptions {
     public var origin: CLLocationCoordinate2D?
 
     /// Navigation options used for proper calculation of ETA and results ranking
-    /// - Note: Single-Box Search API only
+    /// - Note: ``ApiType/searchBox`` only.
     public var navigationOptions: SearchNavigationOptions?
 
     /// Options to filter search results along the route
-    /// - Note: Single-Box Search API only
+    /// - Note: ``ApiType/searchBox`` only.
     public var routeOptions: RouteOptions?
 
     /// Filter results to include only a subset (one or more) of the available  types.
@@ -98,7 +98,8 @@ public struct SearchOptions {
     /// - Parameter fuzzyMatch: Use non-strict (`true`) or strict (`false`) matching
     /// - Parameter proximity: Coordinate to search around
     /// - Parameter boundingBox: Limit search result to a region
-    /// - Parameter offlineSearchPlacesOutsideBbox: Configures if places can be looked through all available files ignoring the bounding box
+    /// - Parameter offlineSearchPlacesOutsideBbox: Configures if places can be looked through all available files
+    /// ignoring the bounding box
     /// - Parameter origin: Search origin point. This point is used for calculation of SearchResult ETA and distance
     /// fields
     /// - Parameter navigationOptions: Navigation options used for proper calculation of ETA and results ranking
@@ -284,79 +285,29 @@ public struct SearchOptions {
             addonAPI: unsafeParameters,
             offlineSearchPlacesOutsideBbox: offlineSearchPlacesOutsideBbox,
             ensureResultsPerCategory: nil,
-            // TODO: NAVIOS-2054 Support multiple categories search and ability to ensure results per category.
             attributeSets: attributeSets?.map { NSNumber(value: $0.coreValue.rawValue) },
+            // TODO: Support EV Search
             evSearchOptions: nil
         )
     }
 
-    mutating func forceNilArg(_ arg: WritableKeyPath<Self, (some Any)?>, message: String) {
-        if self[keyPath: arg] != nil {
-            self[keyPath: arg] = nil
-            _Logger.searchSDK.info(message)
-        }
-    }
-
-    // swiftlint:disable cyclomatic_complexity
     /// Build new instance, validating each field over endpoint specification.
     /// - Parameter apiType: actual SearchEngine endpoint
     /// - Returns: New instance with valid fields
     func validateSupportedOptions(apiType: CoreSearchEngine.ApiType) -> SearchOptions {
-        var validSearchOptions = self
+        var validSearchOptions = SearchOptionsTypeValidator.validate(options: self, apiType: apiType)
         let info: (String) -> Void = { _Logger.searchSDK.info($0) }
 
         switch apiType {
         case .geocoding:
             let unsupportedFilterTypes: [SearchQueryType] = [.street, .category]
-            let topLimit = 10
-
             validSearchOptions.filterTypes = filterTypes?.filter { !unsupportedFilterTypes.contains($0) }
             if validSearchOptions.filterTypes?.count != filterTypes?.count {
                 info("Geocoding API doesn't support following filter types: \(unsupportedFilterTypes)")
             }
 
-            validSearchOptions.limit = limit.map { min($0, topLimit) }
-            if validSearchOptions.limit != limit {
-                info("Geocoding API supports as maximum as \(topLimit) limit.")
-            }
-
-            validSearchOptions.forceNilArg(
-                \.navigationOptions,
-                message: "Geocoding API doesn't support navigation options"
-            )
-            validSearchOptions.forceNilArg(\.routeOptions, message: "Geocoding API doesn't support route options")
-            validSearchOptions.forceNilArg(
-                \.origin,
-                message: "Geocoding API doesn't support proximity point. Please, use 'proximity' instead."
-            )
-
         case .SBS:
-            validSearchOptions.forceNilArg(\.fuzzyMatch, message: "SBS API doesn't support fuzzyMatch mode")
-
-            if languages.count > 1 {
-                validSearchOptions.languages = [languages[0]]
-                info("SBS API doesn't support multiple languages at once. Search SDK will use the first")
-            }
-
-            if case .time(let value, _) = validSearchOptions.routeOptions?.deviation {
-                let minimumTime = Measurement(
-                    value: 1,
-                    unit: UnitDuration.minutes
-                )
-                .converted(to: .seconds)
-                let maximumTime = Measurement(
-                    value: 30,
-                    unit: UnitDuration.minutes
-                )
-                .converted(to: .seconds)
-                let timeRange = (minimumTime...maximumTime)
-
-                if !timeRange.contains(value) {
-                    info(
-                        "SBS API time_deviation must be within 1 minute and 30 minutes (found \(value.value) seconds)"
-                    )
-                }
-            }
+            break
 
         case .autofill:
             let unsupportedFilterTypes: [SearchQueryType] = [.category]
@@ -367,39 +318,7 @@ public struct SearchOptions {
             }
 
         case .searchBox:
-            let topLimit = 10
-
-            validSearchOptions.limit = limit.map { min($0, topLimit) }
-            if validSearchOptions.limit != limit {
-                info("search-box API supports as maximum as \(topLimit) limit.")
-            }
-
-            if languages.count > 1, let first = languages.first {
-                validSearchOptions.languages = [first]
-                info(
-                    "search-box API doesn't support multiple languages at once. Search SDK will use the first ('\(first)')"
-                )
-            }
-
-            if case .time(let value, _) = validSearchOptions.routeOptions?.deviation {
-                let minimumTime = Measurement(
-                    value: 1,
-                    unit: UnitDuration.minutes
-                )
-                .converted(to: .seconds)
-                let maximumTime = Measurement(
-                    value: 30,
-                    unit: UnitDuration.minutes
-                )
-                .converted(to: .seconds)
-                let timeRange = (minimumTime...maximumTime)
-
-                if !timeRange.contains(value) {
-                    info(
-                        "search-box API time_deviation must be within 1 minute and 30 minutes (found \(value.value) seconds)"
-                    )
-                }
-            }
+            break
 
         @unknown default:
             _Logger.searchSDK.warning("Unexpected engine API Type: \(apiType)")
@@ -407,8 +326,6 @@ public struct SearchOptions {
 
         return validSearchOptions
     }
-
-    // swiftlint:enable cyclomatic_complexity
 
     /// Replace missing values with values from the other instance
     ///

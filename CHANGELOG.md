@@ -4,6 +4,12 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
+## Unreleased
+
+- [Core] Added new function to search for multiple categories `CategorySearchEngine.search(categoryNames:options:completionQueue:completion:)`.
+- [Core] New option `CategorySearchOptions.ensureResultsPerCategory` is available. It allows to request category search results to include at least one POI for each category, provided a POI is available in a nearby location.
+- [Core] `SearchOptions` is deprecated in `CategorySearchEngine`. Use `CategorySearchOptions` instead.
+
 ## 2.12.0-beta.2
 
 - [Core] Update dependencies.

@@ -9,7 +9,7 @@ class MapboxMapsCategoryResultsViewController: MapsViewController {
         super.viewDidAppear(animated)
 
         /// Configure RequestOptions to perform search near the Mapbox Office in San Francisco
-        let requestOptions = SearchOptions(proximity: .sanFrancisco)
+        let requestOptions = CategorySearchOptions(proximity: .sanFrancisco)
 
         searchEngine.search(categoryName: "cafe", options: requestOptions) { response in
             do {

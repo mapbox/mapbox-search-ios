@@ -62,11 +62,11 @@ extension Discover {
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
         userActivityReporter.reportActivity(forComponent: "category-search-nearby")
-        let searchOptions = SearchOptions(
+        let searchOptions = CategorySearchOptions(
+            proximity: proximity,
             countries: [options.country?.countryCode].compactMap { $0 },
             languages: [options.language.languageCode],
             limit: options.limit,
-            proximity: proximity,
             origin: options.origin
         )
 
@@ -89,12 +89,12 @@ extension Discover {
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
         userActivityReporter.reportActivity(forComponent: "category-search-in-area")
-        let searchOptions = SearchOptions(
+        let searchOptions = CategorySearchOptions(
+            proximity: proximity ?? options.proximity,
+            boundingBox: region,
             countries: [options.country?.countryCode].compactMap { $0 },
             languages: [options.language.languageCode],
             limit: options.limit,
-            proximity: proximity ?? options.proximity,
-            boundingBox: region,
             origin: options.origin
         )
 
@@ -116,11 +116,11 @@ extension Discover {
     ) {
         userActivityReporter.reportActivity(forComponent: "category-search-along-the-route")
 
-        let searchOptions = SearchOptions(
+        let searchOptions = CategorySearchOptions(
+            proximity: options.proximity,
             countries: [options.country?.countryCode].compactMap { $0 },
             languages: [options.language.languageCode],
             limit: options.limit,
-            proximity: options.proximity,
             origin: options.origin,
             routeOptions: route
         )
@@ -134,7 +134,7 @@ extension Discover {
 extension Discover {
     private func search(
         for item: Discover.Query,
-        with searchOptions: SearchOptions,
+        with searchOptions: CategorySearchOptions,
         completion: @escaping (Swift.Result<[Result], Error>) -> Void
     ) {
         searchEngine.search(

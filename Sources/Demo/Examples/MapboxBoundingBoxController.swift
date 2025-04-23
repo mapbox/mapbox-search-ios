@@ -37,8 +37,7 @@ class MapboxBoundingBoxController: MapsViewController {
     func updateSearchResults(proximity: CLLocationCoordinate2D? = nil, boundingBox: MapboxSearch.BoundingBox? = nil) {
         /// Configure RequestOptions to perform search near the Mapbox Office in San Francisco
 
-        let requestOptions = SearchOptions(proximity: proximity, boundingBox: boundingBox)
-
+        let requestOptions = CategorySearchOptions(proximity: proximity, boundingBox: boundingBox)
         searchEngine.search(categoryName: categoryName, options: requestOptions) { response in
             do {
                 let results = try response.get()

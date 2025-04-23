@@ -1,7 +1,7 @@
 import CoreLocation
 
 /// Category Search Engine used specifically for category search
-/// Checkout `SearchEngine` for more details
+/// Checkout ``SearchEngine`` for more details
 public class CategorySearchEngine: AbstractSearchEngine {
     /// Search response information for current search items.
     /// Can be used for submitting `missing result` feedback
@@ -13,19 +13,76 @@ public class CategorySearchEngine: AbstractSearchEngine {
     ///   - options: search request options
     ///   - completionQueue: DispatchQueue.main is default
     ///   - completion: completion closure
+    @available(*, deprecated, message: "Use `CategorySearchOptions` instead of `SearchOptions`.")
     public func search(
         categoryName: String,
-        options: SearchOptions? = nil,
+        options: SearchOptions?,
         completionQueue: DispatchQueue = .main,
+        completion: @escaping (Result<[SearchResult], SearchError>) -> Void
+    ) {
+        let options = options?.merged(defaultSearchOptions) ?? defaultSearchOptions
+        let coreOptions = options.toCore(apiType: engineApi)
+        search(
+            categoryNames: [categoryName],
+            coreOptions: coreOptions,
+            completionQueue: completionQueue,
+            completion: completion
+        )
+    }
+
+    /// Start searching for query with provided options
+    /// - Parameters:
+    ///   - categoryName: Search category name
+    ///   - options: Category search request options.
+    ///   - completionQueue: DispatchQueue.main is default
+    ///   - completion: completion closure
+    public func search(
+        categoryName: String,
+        options: CategorySearchOptions? = nil,
+        completionQueue: DispatchQueue = .main,
+        completion: @escaping (Result<[SearchResult], SearchError>) -> Void
+    ) {
+        search(
+            categoryNames: [categoryName],
+            options: options,
+            completionQueue: completionQueue,
+            completion: completion
+        )
+    }
+
+    /// Start searching for query with provided options
+    /// - Parameters:
+    ///   - categoryNames: Search category names.
+    ///   - options: Category search request options.
+    ///   - completionQueue: DispatchQueue.main is default.
+    ///   - completion: Completion closure
+    public func search(
+        categoryNames: [String],
+        options: CategorySearchOptions? = nil,
+        completionQueue: DispatchQueue = .main,
+        completion: @escaping (Result<[SearchResult], SearchError>) -> Void
+    ) {
+        let options = options?.merged(defaultCategorySearchOptions) ?? defaultCategorySearchOptions
+        let coreOptions = options.toCore(apiType: engineApi)
+        search(
+            categoryNames: categoryNames,
+            coreOptions: coreOptions,
+            completionQueue: completionQueue,
+            completion: completion
+        )
+    }
+
+    func search(
+        categoryNames: [String],
+        coreOptions: CoreSearchOptions,
+        completionQueue: DispatchQueue,
         completion: @escaping (Result<[SearchResult], SearchError>) -> Void
     ) {
         userActivityReporter.reportActivity(forComponent: "search-engine-category-search")
 
-        let options = options?.merged(defaultSearchOptions) ?? defaultSearchOptions
-        let coreOptions = options.toCore(apiType: engineApi)
         engine.search(
             forQuery: "",
-            categories: [categoryName],
+            categories: categoryNames,
             options: coreOptions
         ) { [weak self, weak eventsManager] coreResponse in
             guard let self else {
