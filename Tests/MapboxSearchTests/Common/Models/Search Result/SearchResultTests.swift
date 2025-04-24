@@ -42,7 +42,7 @@ class SearchResultTests: XCTestCase {
         let resultStub = SearchResultStub(
             id: "unit-test-random",
             mapboxId: nil,
-            categories: expectedCategoryIDs,
+            categoryIDs: expectedCategoryIDs,
             name: "Unit Test",
             matchingName: nil,
             serverIndex: nil,
