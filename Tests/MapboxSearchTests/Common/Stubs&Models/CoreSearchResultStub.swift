@@ -55,7 +55,9 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
             mapboxId: dataProviderRecord.mapboxId,
             type: dataProviderRecord.type.coreType,
             names: [dataProviderRecord.name],
-            languages: ["en"]
+            languages: ["en"],
+            categories: dataProviderRecord.categories,
+            categoryIDs: dataProviderRecord.categoryIDs
         )
     }
 

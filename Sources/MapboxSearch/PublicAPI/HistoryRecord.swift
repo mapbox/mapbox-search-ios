@@ -79,8 +79,11 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     /// SearchEngine would track that tokens to match results
     public var additionalTokens: Set<String>?
 
-    /// Categories associated with original result
+    /// POI categories associated with the original result
     public var categories: [String]?
+
+    /// Canonical POI category IDs associated with the original result
+    public var categoryIDs: [String]?
 
     /// Original search request.
     public let searchRequest: SearchRequestOptions
@@ -104,6 +107,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     ///   - address: History address
     ///   - metadata: Associated metadata
     ///   - categories: Categories of original object
+    ///   - categoryIDs: Category IDs of original object
     ///   - searchRequest: The original search request
     ///   - routablePoints: Coordinates of building entries
     ///   - descriptionText: Address formatted with the medium style
@@ -122,6 +126,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         address: Address?,
         metadata: SearchResultMetadata? = nil,
         categories: [String]? = nil,
+        categoryIDs: [String]? = nil,
         searchRequest: SearchRequestOptions,
         routablePoints: [RoutablePoint]? = nil,
         descriptionText: String? = nil
@@ -140,6 +145,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         self.address = address
         self.metadata = metadata
         self.categories = categories
+        self.categoryIDs = categoryIDs
         self.searchRequest = searchRequest
         self.routablePoints = routablePoints
         self.descriptionText = descriptionText ?? address?.formattedAddress(style: .medium)
@@ -169,6 +175,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         self.address = searchResult.address
         self.metadata = searchResult.metadata
         self.categories = searchResult.categories
+        self.categoryIDs = searchResult.categoryIDs
         self.searchRequest = searchResult.searchRequest
         self.routablePoints = searchResult.routablePoints
         self.descriptionText = searchResult.descriptionText

@@ -29,6 +29,8 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
 
     var categories: [String]?
 
+    var categoryIDs: [String]?
+
     var routablePoints: [RoutablePoint]?
 
     let dataLayerIdentifier = SearchEngine.providerIdentifier
@@ -80,6 +82,7 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
         self.accuracy = coreResult.resultAccuracy.flatMap(SearchResultAccuracy.from(coreAccuracy:))
         self.address = coreResult.addresses?.first.map(Address.init)
         self.categories = coreResult.categories
+        self.categoryIDs = coreResult.categoryIDs
         self.coordinateCodable = .init(center.coordinate)
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
 

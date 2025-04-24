@@ -91,4 +91,24 @@ class ServerSearchResultTests: XCTestCase {
         XCTAssertNotNil(result.distance)
         XCTAssertEqual(result.distance, 0.0)
     }
+
+    func testServerSearchResultCategoriesField() throws {
+        let expectedCategories = ["category1", "category2"]
+        let coreResult = CoreSearchResultStub(id: UUID().uuidString, mapboxId: "", type: .address, categories: expectedCategories)
+        let result = try XCTUnwrap(ServerSearchResult(
+            coreResult: coreResult,
+            response: CoreSearchResponseStub.failureSample
+        ))
+        XCTAssertEqual(result.categories, expectedCategories)
+    }
+
+    func testServerSearchResultCategoryIDsField() throws {
+        let expectedCategoryIDs = ["categoryID1", "categoryID2"]
+        let coreResult = CoreSearchResultStub(id: UUID().uuidString, mapboxId: "", type: .address, categoryIDs: expectedCategoryIDs)
+        let result = try XCTUnwrap(ServerSearchResult(
+            coreResult: coreResult,
+            response: CoreSearchResponseStub.failureSample
+        ))
+        XCTAssertEqual(result.categoryIDs, expectedCategoryIDs)
+    }
 }
