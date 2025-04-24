@@ -57,7 +57,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     public var categories: [String]?
 
     /// Canonical POI category IDs. Always empty for non-POI results.
-    public var categoryIDs: [String]?
+    public var categoryIds: [String]?
 
     /// Coordinates of building entries
     public var routablePoints: [RoutablePoint]?
@@ -91,7 +91,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     ///   - serverIndex: The index in response from server
     ///   - accuracy: A point accuracy metric for the returned address
     ///   - categories: Favorite categories list
-    ///   - categoryIDs: Favorite category IDs list
+    ///   - categoryIds: Favorite category IDs list
     ///   - routablePoints: Coordinates of building entries
     ///   - searchRequest: original search request
     ///   - metadata: Associated metadata
@@ -109,7 +109,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         serverIndex: Int?,
         accuracy: SearchResultAccuracy?,
         categories: [String]?,
-        categoryIDs: [String]?,
+        categoryIds: [String]?,
         routablePoints: [RoutablePoint]? = nil,
         resultType: SearchResultType,
         searchRequest: SearchRequestOptions,
@@ -127,7 +127,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         self.serverIndex = serverIndex
         self.accuracy = accuracy
         self.categories = categories
-        self.categoryIDs = categoryIDs
+        self.categoryIds = categoryIds
         self.routablePoints = routablePoints
         self.type = resultType
         self.metadata = metadata
@@ -157,7 +157,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
             serverIndex: searchResult.serverIndex,
             accuracy: searchResult.accuracy,
             categories: searchResult.categories,
-            categoryIDs: searchResult.categoryIDs,
+            categoryIds: searchResult.categoryIds,
             routablePoints: searchResult.routablePoints,
             resultType: searchResult.type,
             searchRequest: searchResult.searchRequest,

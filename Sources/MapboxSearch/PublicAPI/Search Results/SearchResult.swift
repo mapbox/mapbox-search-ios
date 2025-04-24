@@ -42,7 +42,7 @@ public protocol SearchResult {
     var categories: [String]? { get }
 
     /// Canonical POI category IDs. Always empty for non-POI results.
-    var categoryIDs: [String]? { get }
+    var categoryIds: [String]? { get }
 
     /// Coordinates of building entries
     var routablePoints: [RoutablePoint]? { get }

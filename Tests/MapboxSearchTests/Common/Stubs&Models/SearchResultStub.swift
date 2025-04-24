@@ -7,7 +7,7 @@ class SearchResultStub: SearchResult {
         mapboxId: String?,
         accuracy: SearchResultAccuracy? = nil,
         categories: [String]? = nil,
-        categoryIDs: [String]? = nil,
+        categoryIds: [String]? = nil,
         name: String,
         matchingName: String?,
         serverIndex: Int?,
@@ -25,7 +25,7 @@ class SearchResultStub: SearchResult {
         self.mapboxId = mapboxId
         self.accuracy = accuracy
         self.categories = categories
-        self.categoryIDs = categoryIDs
+        self.categoryIds = categoryIds
         self.name = name
         self.matchingName = matchingName
         self.serverIndex = serverIndex
@@ -46,7 +46,7 @@ class SearchResultStub: SearchResult {
     var mapboxId: String?
     var accuracy: SearchResultAccuracy?
     var categories: [String]?
-    var categoryIDs: [String]?
+    var categoryIds: [String]?
     var name: String
     var matchingName: String?
     var serverIndex: Int?

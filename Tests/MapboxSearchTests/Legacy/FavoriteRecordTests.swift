@@ -11,7 +11,7 @@ class FavoriteRecordTests: XCTestCase {
         XCTAssertEqual(record.name, "Custom Name")
         XCTAssertEqual(record.address, resultStub.address)
         XCTAssertEqual(record.categories, resultStub.categories)
-        XCTAssertEqual(record.categoryIDs, resultStub.categoryIDs)
+        XCTAssertEqual(record.categoryIds, resultStub.categoryIds)
         XCTAssertEqual(record.coordinateCodable, resultStub.coordinateCodable)
         XCTAssertEqual(record.coordinate, resultStub.coordinate)
         XCTAssertEqual(record.icon, .bar)

@@ -24,7 +24,7 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
 
     var categories: [String]?
 
-    var categoryIDs: [String]?
+    var categoryIds: [String]?
 
     var suggestionType: SearchSuggestType = .POI
 
@@ -50,7 +50,7 @@ class ExternalRecordPlaceholder: SearchResultSuggestion, CoreResponseProvider {
         self.distance = coreResult.distanceToProximity
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
         self.categories = coreResult.categories
-        self.categoryIDs = coreResult.categoryIDs
+        self.categoryIds = coreResult.categoryIDs
         self.serverIndex = coreResult.serverIndex?.intValue
         self.estimatedTime = coreResult.estimatedTime
         self.descriptionText = coreResult.addresses?.first.map(Address.init)?.formattedAddress(style: .medium)

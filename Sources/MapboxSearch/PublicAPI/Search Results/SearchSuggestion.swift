@@ -30,7 +30,7 @@ public protocol SearchSuggestion {
     var categories: [String]? { get }
 
     /// Canonical POI category IDs. Always empty for non-POI search suggestions.
-    var categoryIDs: [String]? { get }
+    var categoryIds: [String]? { get }
 
     /// Result address.
     var address: Address? { get }

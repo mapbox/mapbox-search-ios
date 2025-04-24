@@ -67,7 +67,7 @@ class SearchResultSuggestionImplTests: XCTestCase {
         XCTAssertEqual(suggestionImpl.categories, coreResult.categories)
     }
 
-    func testSuccessfulInitForCategoryIDs() throws {
+    func testSuccessfulInitForCategoryIds() throws {
         let coreResult = CoreSearchResultStub(
             id: "sample-2",
             mapboxId: "sample-2",
@@ -85,7 +85,7 @@ class SearchResultSuggestionImplTests: XCTestCase {
         ))
         XCTAssertEqual(suggestionImpl.suggestionType, .POI)
         XCTAssertEqual(suggestionImpl.name, coreResult.names.first)
-        XCTAssertEqual(suggestionImpl.categoryIDs, coreResult.categoryIDs)
+        XCTAssertEqual(suggestionImpl.categoryIds, coreResult.categoryIDs)
     }
 
     func testFailedInit() throws {

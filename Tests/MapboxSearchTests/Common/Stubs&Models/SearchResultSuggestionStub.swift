@@ -18,7 +18,7 @@ struct SearchResultSuggestionStub: SearchResultSuggestion {
 
     var categories: [String]?
 
-    var categoryIDs: [String]?
+    var categoryIds: [String]?
 
     var descriptionText: String? = "Test description text"
 

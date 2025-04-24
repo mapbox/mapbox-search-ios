@@ -41,7 +41,7 @@ class CodablePersistentServiceTests: XCTestCase {
             serverIndex: nil,
             accuracy: nil,
             categories: [],
-            categoryIDs: [],
+            categoryIds: [],
             resultType: .address(subtypes: [.address]),
             searchRequest: .init(query: "Sample", proximity: nil)
         )

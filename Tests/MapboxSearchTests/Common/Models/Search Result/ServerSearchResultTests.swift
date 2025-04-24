@@ -102,13 +102,13 @@ class ServerSearchResultTests: XCTestCase {
         XCTAssertEqual(result.categories, expectedCategories)
     }
 
-    func testServerSearchResultCategoryIDsField() throws {
-        let expectedCategoryIDs = ["categoryID1", "categoryID2"]
-        let coreResult = CoreSearchResultStub(id: UUID().uuidString, mapboxId: "", type: .address, categoryIDs: expectedCategoryIDs)
+    func testServerSearchResultCategoryIdsField() throws {
+        let expectedCategoryIds = ["categoryID1", "categoryID2"]
+        let coreResult = CoreSearchResultStub(id: UUID().uuidString, mapboxId: "", type: .address, categoryIDs: expectedCategoryIds)
         let result = try XCTUnwrap(ServerSearchResult(
             coreResult: coreResult,
             response: CoreSearchResponseStub.failureSample
         ))
-        XCTAssertEqual(result.categoryIDs, expectedCategoryIDs)
+        XCTAssertEqual(result.categoryIds, expectedCategoryIds)
     }
 }

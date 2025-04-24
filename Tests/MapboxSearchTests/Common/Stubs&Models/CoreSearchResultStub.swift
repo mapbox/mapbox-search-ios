@@ -57,7 +57,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
             names: [dataProviderRecord.name],
             languages: ["en"],
             categories: dataProviderRecord.categories,
-            categoryIDs: dataProviderRecord.categoryIDs
+            categoryIDs: dataProviderRecord.categoryIds
         )
     }
 

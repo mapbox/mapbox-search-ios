@@ -76,7 +76,7 @@ class HistoryRecordTests: XCTestCase {
         XCTAssertEqual(record.type, result.type)
         XCTAssertEqual(record.address, result.address)
         XCTAssertEqual(record.categories, result.categories)
-        XCTAssertEqual(record.categoryIDs, result.categoryIDs)
+        XCTAssertEqual(record.categoryIds, result.categoryIds)
         XCTAssertEqual(record.metadata, result.metadata)
         XCTAssertEqual(record.routablePoints, result.routablePoints)
         XCTAssertEqual(record.distance, 100.0)

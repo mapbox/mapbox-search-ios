@@ -172,10 +172,10 @@ extension SearchResult {
             )
         }
 
-        if let categoryIDs, !categoryIDs.isEmpty {
+        if let categoryIds, !categoryIds.isEmpty {
 
             components.append(
-                (name: "Category IDs", value: categoryIDs.joined(separator: ","))
+                (name: "Category IDs", value: categoryIds.joined(separator: ","))
             )
         }
 

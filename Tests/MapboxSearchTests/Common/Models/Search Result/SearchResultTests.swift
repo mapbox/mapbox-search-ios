@@ -37,12 +37,12 @@ class SearchResultTests: XCTestCase {
         XCTAssertEqual(resultStub.categories, expectedCategories)
     }
 
-    func testCategoryIDs() throws {
-        let expectedCategoryIDs = ["categoryID1", "categoryID2"]
+    func testCategoryIds() throws {
+        let expectedCategoryIds = ["categoryID1", "categoryID2"]
         let resultStub = SearchResultStub(
             id: "unit-test-random",
             mapboxId: nil,
-            categoryIDs: expectedCategoryIDs,
+            categoryIds: expectedCategoryIds,
             name: "Unit Test",
             matchingName: nil,
             serverIndex: nil,
@@ -52,6 +52,6 @@ class SearchResultTests: XCTestCase {
             metadata: .pizzaMetadata
         )
 
-        XCTAssertEqual(resultStub.categoryIDs, expectedCategoryIDs)
+        XCTAssertEqual(resultStub.categoryIds, expectedCategoryIds)
     }
 }

@@ -83,7 +83,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     public var categories: [String]?
 
     /// Canonical POI category IDs associated with the original result
-    public var categoryIDs: [String]?
+    public var categoryIds: [String]?
 
     /// Original search request.
     public let searchRequest: SearchRequestOptions
@@ -107,7 +107,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     ///   - address: History address
     ///   - metadata: Associated metadata
     ///   - categories: Categories of original object
-    ///   - categoryIDs: Category IDs of original object
+    ///   - categoryIds: Category IDs of original object
     ///   - searchRequest: The original search request
     ///   - routablePoints: Coordinates of building entries
     ///   - descriptionText: Address formatted with the medium style
@@ -126,7 +126,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         address: Address?,
         metadata: SearchResultMetadata? = nil,
         categories: [String]? = nil,
-        categoryIDs: [String]? = nil,
+        categoryIds: [String]? = nil,
         searchRequest: SearchRequestOptions,
         routablePoints: [RoutablePoint]? = nil,
         descriptionText: String? = nil
@@ -145,7 +145,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         self.address = address
         self.metadata = metadata
         self.categories = categories
-        self.categoryIDs = categoryIDs
+        self.categoryIds = categoryIds
         self.searchRequest = searchRequest
         self.routablePoints = routablePoints
         self.descriptionText = descriptionText ?? address?.formattedAddress(style: .medium)
@@ -175,7 +175,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         self.address = searchResult.address
         self.metadata = searchResult.metadata
         self.categories = searchResult.categories
-        self.categoryIDs = searchResult.categoryIDs
+        self.categoryIds = searchResult.categoryIds
         self.searchRequest = searchResult.searchRequest
         self.routablePoints = searchResult.routablePoints
         self.descriptionText = searchResult.descriptionText
