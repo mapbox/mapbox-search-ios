@@ -166,10 +166,16 @@ extension SearchResult {
         }
 
         if let categories, !categories.isEmpty {
-            let categories = categories.count > 2 ? Array(categories.dropFirst(2)) : categories
 
             components.append(
                 (name: "Categories", value: categories.joined(separator: ","))
+            )
+        }
+
+        if let categoryIds, !categoryIds.isEmpty {
+
+            components.append(
+                (name: "Category IDs", value: categoryIds.joined(separator: ","))
             )
         }
 

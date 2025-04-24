@@ -5,6 +5,7 @@ extension SearchResultStub {
         id: "sample-1",
         mapboxId: UUID().uuidString, // not actually UUID format but useful for tests
         categories: ["sample-1", "sample-2"],
+        categoryIds: ["sample-catID-1", "sample-catID-2"],
         name: "Sample No 1",
         matchingName: nil,
         serverIndex: nil,

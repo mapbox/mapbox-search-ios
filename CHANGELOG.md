@@ -4,7 +4,18 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
+## 2.12.0-rc.1
+
+- [SearchResult] Added property `categoryIds` that returns canonical POI category IDs.
+- [SearchSuggestion] Added property `categoryIds` that returns canonical POI category IDs.
+- [Core] Update dependencies.
+
+**MapboxCommon**: v24.12.0-rc.1
+**MapboxCoreSearch**: v2.12.0-rc.1
+
 ## 2.12.0-beta.2
+
+⚠️ Minor version has been aligned with other Mapbox SDK offerings. Search SDK v2.12.0 is a successor to v2.9.0. Versions 2.10 and 2.11 of the Search SDK do not exist.
 
 - [Core] Update dependencies.
 
