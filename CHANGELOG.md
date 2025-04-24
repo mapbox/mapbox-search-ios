@@ -6,6 +6,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## 2.12.0-rc.1
 
+- [SearchResult] Added property `categoryIds` that returns canonical POI category IDs.
+- [SearchSuggestion] Added property `categoryIds` that returns canonical POI category IDs.
 - [Core] Update dependencies.
 
 **MapboxCommon**: v24.12.0-rc.1

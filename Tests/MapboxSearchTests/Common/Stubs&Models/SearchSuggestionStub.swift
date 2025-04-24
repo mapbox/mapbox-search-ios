@@ -7,6 +7,7 @@ struct SearchSuggestionStub: SearchSuggestion {
     var name: String = "Test Name"
     var namePreferred: String? = "POI Preferred name"
     var categories: [String]?
+    var categoryIds: [String]?
     var descriptionText: String? = "Test Description"
     var address: Address?
     var iconName: String?

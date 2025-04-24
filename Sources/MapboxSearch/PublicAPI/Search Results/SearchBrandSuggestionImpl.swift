@@ -30,7 +30,7 @@ class SearchBrandSuggestionImpl: SearchBrandSuggestion, CoreResponseProvider {
 
     var categories: [String]?
 
-    var categoryIDs: [String]?
+    var categoryIds: [String]?
 
     var distance: CLLocationDistance?
 
@@ -59,7 +59,7 @@ class SearchBrandSuggestionImpl: SearchBrandSuggestion, CoreResponseProvider {
         self.distance = coreResult.distanceToProximity
         self.batchResolveSupported = coreResult.action?.multiRetrievable ?? false
         self.categories = coreResult.categories
-        self.categoryIDs = coreResult.categoryIDs
+        self.categoryIds = coreResult.categoryIDs
 
         self.descriptionText = coreResult.addressDescription
         self.estimatedTime = coreResult.estimatedTime

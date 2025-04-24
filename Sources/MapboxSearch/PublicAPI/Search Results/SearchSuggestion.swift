@@ -26,8 +26,11 @@ public protocol SearchSuggestion {
     /// Usually contains pre-formatted address.
     var descriptionText: String? { get }
 
-    /// Result categories types.
+    /// POI categories. Always empty for non-POI search suggestions.
     var categories: [String]? { get }
+
+    /// Canonical POI category IDs. Always empty for non-POI search suggestions.
+    var categoryIds: [String]? { get }
 
     /// Result address.
     var address: Address? { get }

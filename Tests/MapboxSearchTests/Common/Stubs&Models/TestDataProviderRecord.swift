@@ -12,6 +12,7 @@ struct TestDataProviderRecord: IndexableRecord, SearchResult {
     var coordinate: CLLocationCoordinate2D
     var iconName: String?
     var categories: [String]?
+    var categoryIds: [String]?
     var routablePoints: [RoutablePoint]?
     var distance: CLLocationDistance?
     var address: Address?
@@ -28,7 +29,9 @@ struct TestDataProviderRecord: IndexableRecord, SearchResult {
             let record = TestDataProviderRecord(
                 type: .POI,
                 name: "name_\(index)",
-                coordinate: CLLocationCoordinate2D(latitude: 53.89, longitude: 27.55)
+                coordinate: CLLocationCoordinate2D(latitude: 53.89, longitude: 27.55),
+                categories: ["cat-1", "cat-2"],
+                categoryIds: ["cat-ID-1", "cat-ID-2"]
             )
             results.append(record)
         }
