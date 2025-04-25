@@ -1,0 +1,3596 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/AttributeSet.swift",
+      "line": 5,
+      "symbol": "AttributeSet",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Address/Address.swift",
+      "line": 67,
+      "symbol": "Address.empty",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Administrative Unit/AdministrativeUnits.swift",
+      "line": 3,
+      "symbol": "AdministrativeUnit",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Administrative Unit/AdministrativeUnits.swift",
+      "line": 6,
+      "symbol": "AdministrativeUnit.init(rawValue:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Administrative Unit/AdministrativeUnits.swift",
+      "line": 60,
+      "symbol": "AdministrativeUnit.all",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 5,
+      "symbol": "Country.ISO3166_1_alpha2",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 6,
+      "symbol": "Country.ISO3166_1_alpha2.af",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 7,
+      "symbol": "Country.ISO3166_1_alpha2.ax",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 8,
+      "symbol": "Country.ISO3166_1_alpha2.al",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 9,
+      "symbol": "Country.ISO3166_1_alpha2.dz",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 10,
+      "symbol": "Country.ISO3166_1_alpha2.as",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 11,
+      "symbol": "Country.ISO3166_1_alpha2.ad",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 12,
+      "symbol": "Country.ISO3166_1_alpha2.ao",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 13,
+      "symbol": "Country.ISO3166_1_alpha2.ai",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 14,
+      "symbol": "Country.ISO3166_1_alpha2.aq",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 15,
+      "symbol": "Country.ISO3166_1_alpha2.ag",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 16,
+      "symbol": "Country.ISO3166_1_alpha2.ar",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 17,
+      "symbol": "Country.ISO3166_1_alpha2.am",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 18,
+      "symbol": "Country.ISO3166_1_alpha2.aw",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 19,
+      "symbol": "Country.ISO3166_1_alpha2.au",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 20,
+      "symbol": "Country.ISO3166_1_alpha2.at",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 21,
+      "symbol": "Country.ISO3166_1_alpha2.az",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 22,
+      "symbol": "Country.ISO3166_1_alpha2.bs",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 23,
+      "symbol": "Country.ISO3166_1_alpha2.bh",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 24,
+      "symbol": "Country.ISO3166_1_alpha2.bd",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 25,
+      "symbol": "Country.ISO3166_1_alpha2.bb",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 26,
+      "symbol": "Country.ISO3166_1_alpha2.by",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 27,
+      "symbol": "Country.ISO3166_1_alpha2.be",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 28,
+      "symbol": "Country.ISO3166_1_alpha2.bz",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 29,
+      "symbol": "Country.ISO3166_1_alpha2.bj",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 30,
+      "symbol": "Country.ISO3166_1_alpha2.bm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 31,
+      "symbol": "Country.ISO3166_1_alpha2.bt",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 32,
+      "symbol": "Country.ISO3166_1_alpha2.bo",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 33,
+      "symbol": "Country.ISO3166_1_alpha2.bq",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 34,
+      "symbol": "Country.ISO3166_1_alpha2.ba",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 35,
+      "symbol": "Country.ISO3166_1_alpha2.bw",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 36,
+      "symbol": "Country.ISO3166_1_alpha2.bv",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 37,
+      "symbol": "Country.ISO3166_1_alpha2.br",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 38,
+      "symbol": "Country.ISO3166_1_alpha2.io",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 39,
+      "symbol": "Country.ISO3166_1_alpha2.bn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 40,
+      "symbol": "Country.ISO3166_1_alpha2.bg",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 41,
+      "symbol": "Country.ISO3166_1_alpha2.bf",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 42,
+      "symbol": "Country.ISO3166_1_alpha2.bi",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 43,
+      "symbol": "Country.ISO3166_1_alpha2.cv",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 44,
+      "symbol": "Country.ISO3166_1_alpha2.kh",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 45,
+      "symbol": "Country.ISO3166_1_alpha2.cm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 46,
+      "symbol": "Country.ISO3166_1_alpha2.ca",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 47,
+      "symbol": "Country.ISO3166_1_alpha2.ky",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 48,
+      "symbol": "Country.ISO3166_1_alpha2.cf",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 49,
+      "symbol": "Country.ISO3166_1_alpha2.td",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 50,
+      "symbol": "Country.ISO3166_1_alpha2.cl",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 51,
+      "symbol": "Country.ISO3166_1_alpha2.cn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 52,
+      "symbol": "Country.ISO3166_1_alpha2.cx",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 53,
+      "symbol": "Country.ISO3166_1_alpha2.cc",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 54,
+      "symbol": "Country.ISO3166_1_alpha2.co",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 55,
+      "symbol": "Country.ISO3166_1_alpha2.km",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 56,
+      "symbol": "Country.ISO3166_1_alpha2.cg",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 57,
+      "symbol": "Country.ISO3166_1_alpha2.cd",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 58,
+      "symbol": "Country.ISO3166_1_alpha2.ck",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 59,
+      "symbol": "Country.ISO3166_1_alpha2.cr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 60,
+      "symbol": "Country.ISO3166_1_alpha2.ci",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 61,
+      "symbol": "Country.ISO3166_1_alpha2.hr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 62,
+      "symbol": "Country.ISO3166_1_alpha2.cu",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 63,
+      "symbol": "Country.ISO3166_1_alpha2.cw",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 64,
+      "symbol": "Country.ISO3166_1_alpha2.cy",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 65,
+      "symbol": "Country.ISO3166_1_alpha2.cz",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 66,
+      "symbol": "Country.ISO3166_1_alpha2.dk",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 67,
+      "symbol": "Country.ISO3166_1_alpha2.dj",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 68,
+      "symbol": "Country.ISO3166_1_alpha2.dm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 69,
+      "symbol": "Country.ISO3166_1_alpha2.do",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 70,
+      "symbol": "Country.ISO3166_1_alpha2.ec",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 71,
+      "symbol": "Country.ISO3166_1_alpha2.eg",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 72,
+      "symbol": "Country.ISO3166_1_alpha2.sv",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 73,
+      "symbol": "Country.ISO3166_1_alpha2.gq",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 74,
+      "symbol": "Country.ISO3166_1_alpha2.er",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 75,
+      "symbol": "Country.ISO3166_1_alpha2.ee",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 76,
+      "symbol": "Country.ISO3166_1_alpha2.et",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 77,
+      "symbol": "Country.ISO3166_1_alpha2.fk",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 78,
+      "symbol": "Country.ISO3166_1_alpha2.fo",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 79,
+      "symbol": "Country.ISO3166_1_alpha2.fj",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 80,
+      "symbol": "Country.ISO3166_1_alpha2.fi",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 81,
+      "symbol": "Country.ISO3166_1_alpha2.fr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 82,
+      "symbol": "Country.ISO3166_1_alpha2.gf",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 83,
+      "symbol": "Country.ISO3166_1_alpha2.pf",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 84,
+      "symbol": "Country.ISO3166_1_alpha2.tf",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 85,
+      "symbol": "Country.ISO3166_1_alpha2.ga",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 86,
+      "symbol": "Country.ISO3166_1_alpha2.gm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 87,
+      "symbol": "Country.ISO3166_1_alpha2.ge",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 88,
+      "symbol": "Country.ISO3166_1_alpha2.de",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 89,
+      "symbol": "Country.ISO3166_1_alpha2.gh",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 90,
+      "symbol": "Country.ISO3166_1_alpha2.gi",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 91,
+      "symbol": "Country.ISO3166_1_alpha2.gr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 92,
+      "symbol": "Country.ISO3166_1_alpha2.gl",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 93,
+      "symbol": "Country.ISO3166_1_alpha2.gd",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 94,
+      "symbol": "Country.ISO3166_1_alpha2.gp",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 95,
+      "symbol": "Country.ISO3166_1_alpha2.gu",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 96,
+      "symbol": "Country.ISO3166_1_alpha2.gt",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 97,
+      "symbol": "Country.ISO3166_1_alpha2.gg",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 98,
+      "symbol": "Country.ISO3166_1_alpha2.gn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 99,
+      "symbol": "Country.ISO3166_1_alpha2.gw",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 100,
+      "symbol": "Country.ISO3166_1_alpha2.gy",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 101,
+      "symbol": "Country.ISO3166_1_alpha2.ht",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 102,
+      "symbol": "Country.ISO3166_1_alpha2.hm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 103,
+      "symbol": "Country.ISO3166_1_alpha2.va",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 104,
+      "symbol": "Country.ISO3166_1_alpha2.hn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 105,
+      "symbol": "Country.ISO3166_1_alpha2.hk",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 106,
+      "symbol": "Country.ISO3166_1_alpha2.hu",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 107,
+      "symbol": "Country.ISO3166_1_alpha2.is",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 108,
+      "symbol": "Country.ISO3166_1_alpha2.in",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 109,
+      "symbol": "Country.ISO3166_1_alpha2.id",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 110,
+      "symbol": "Country.ISO3166_1_alpha2.ir",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 111,
+      "symbol": "Country.ISO3166_1_alpha2.iq",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 112,
+      "symbol": "Country.ISO3166_1_alpha2.ie",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 113,
+      "symbol": "Country.ISO3166_1_alpha2.im",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 114,
+      "symbol": "Country.ISO3166_1_alpha2.il",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 115,
+      "symbol": "Country.ISO3166_1_alpha2.it",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 116,
+      "symbol": "Country.ISO3166_1_alpha2.jm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 117,
+      "symbol": "Country.ISO3166_1_alpha2.jp",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 118,
+      "symbol": "Country.ISO3166_1_alpha2.je",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 119,
+      "symbol": "Country.ISO3166_1_alpha2.jo",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 120,
+      "symbol": "Country.ISO3166_1_alpha2.kz",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 121,
+      "symbol": "Country.ISO3166_1_alpha2.ke",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 122,
+      "symbol": "Country.ISO3166_1_alpha2.ki",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 123,
+      "symbol": "Country.ISO3166_1_alpha2.kp",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 124,
+      "symbol": "Country.ISO3166_1_alpha2.kr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 125,
+      "symbol": "Country.ISO3166_1_alpha2.kw",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 126,
+      "symbol": "Country.ISO3166_1_alpha2.kg",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 127,
+      "symbol": "Country.ISO3166_1_alpha2.la",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 128,
+      "symbol": "Country.ISO3166_1_alpha2.lv",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 129,
+      "symbol": "Country.ISO3166_1_alpha2.lb",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 130,
+      "symbol": "Country.ISO3166_1_alpha2.ls",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 131,
+      "symbol": "Country.ISO3166_1_alpha2.lr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 132,
+      "symbol": "Country.ISO3166_1_alpha2.ly",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 133,
+      "symbol": "Country.ISO3166_1_alpha2.li",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 134,
+      "symbol": "Country.ISO3166_1_alpha2.lt",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 135,
+      "symbol": "Country.ISO3166_1_alpha2.lu",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 136,
+      "symbol": "Country.ISO3166_1_alpha2.mo",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 137,
+      "symbol": "Country.ISO3166_1_alpha2.mk",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 138,
+      "symbol": "Country.ISO3166_1_alpha2.mg",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 139,
+      "symbol": "Country.ISO3166_1_alpha2.mw",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 140,
+      "symbol": "Country.ISO3166_1_alpha2.my",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 141,
+      "symbol": "Country.ISO3166_1_alpha2.mv",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 142,
+      "symbol": "Country.ISO3166_1_alpha2.ml",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 143,
+      "symbol": "Country.ISO3166_1_alpha2.mt",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 144,
+      "symbol": "Country.ISO3166_1_alpha2.mh",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 145,
+      "symbol": "Country.ISO3166_1_alpha2.mq",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 146,
+      "symbol": "Country.ISO3166_1_alpha2.mr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 147,
+      "symbol": "Country.ISO3166_1_alpha2.mu",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 148,
+      "symbol": "Country.ISO3166_1_alpha2.yt",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 149,
+      "symbol": "Country.ISO3166_1_alpha2.mx",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 150,
+      "symbol": "Country.ISO3166_1_alpha2.fm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 151,
+      "symbol": "Country.ISO3166_1_alpha2.md",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 152,
+      "symbol": "Country.ISO3166_1_alpha2.mc",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 153,
+      "symbol": "Country.ISO3166_1_alpha2.mn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 154,
+      "symbol": "Country.ISO3166_1_alpha2.me",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 155,
+      "symbol": "Country.ISO3166_1_alpha2.ms",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 156,
+      "symbol": "Country.ISO3166_1_alpha2.ma",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 157,
+      "symbol": "Country.ISO3166_1_alpha2.mz",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 158,
+      "symbol": "Country.ISO3166_1_alpha2.mm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 159,
+      "symbol": "Country.ISO3166_1_alpha2.na",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 160,
+      "symbol": "Country.ISO3166_1_alpha2.nr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 161,
+      "symbol": "Country.ISO3166_1_alpha2.np",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 162,
+      "symbol": "Country.ISO3166_1_alpha2.nl",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 163,
+      "symbol": "Country.ISO3166_1_alpha2.nc",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 164,
+      "symbol": "Country.ISO3166_1_alpha2.nz",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 165,
+      "symbol": "Country.ISO3166_1_alpha2.ni",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 166,
+      "symbol": "Country.ISO3166_1_alpha2.ne",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 167,
+      "symbol": "Country.ISO3166_1_alpha2.ng",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 168,
+      "symbol": "Country.ISO3166_1_alpha2.nu",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 169,
+      "symbol": "Country.ISO3166_1_alpha2.nf",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 170,
+      "symbol": "Country.ISO3166_1_alpha2.mp",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 171,
+      "symbol": "Country.ISO3166_1_alpha2.no",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 172,
+      "symbol": "Country.ISO3166_1_alpha2.om",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 173,
+      "symbol": "Country.ISO3166_1_alpha2.pk",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 174,
+      "symbol": "Country.ISO3166_1_alpha2.pw",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 175,
+      "symbol": "Country.ISO3166_1_alpha2.ps",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 176,
+      "symbol": "Country.ISO3166_1_alpha2.pa",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 177,
+      "symbol": "Country.ISO3166_1_alpha2.pg",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 178,
+      "symbol": "Country.ISO3166_1_alpha2.py",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 179,
+      "symbol": "Country.ISO3166_1_alpha2.pe",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 180,
+      "symbol": "Country.ISO3166_1_alpha2.ph",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 181,
+      "symbol": "Country.ISO3166_1_alpha2.pn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 182,
+      "symbol": "Country.ISO3166_1_alpha2.pl",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 183,
+      "symbol": "Country.ISO3166_1_alpha2.pt",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 184,
+      "symbol": "Country.ISO3166_1_alpha2.pr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 185,
+      "symbol": "Country.ISO3166_1_alpha2.qa",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 186,
+      "symbol": "Country.ISO3166_1_alpha2.re",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 187,
+      "symbol": "Country.ISO3166_1_alpha2.ro",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 188,
+      "symbol": "Country.ISO3166_1_alpha2.ru",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 189,
+      "symbol": "Country.ISO3166_1_alpha2.rw",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 190,
+      "symbol": "Country.ISO3166_1_alpha2.bl",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 191,
+      "symbol": "Country.ISO3166_1_alpha2.sh",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 192,
+      "symbol": "Country.ISO3166_1_alpha2.kn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 193,
+      "symbol": "Country.ISO3166_1_alpha2.lc",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 194,
+      "symbol": "Country.ISO3166_1_alpha2.mf",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 195,
+      "symbol": "Country.ISO3166_1_alpha2.pm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 196,
+      "symbol": "Country.ISO3166_1_alpha2.vc",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 197,
+      "symbol": "Country.ISO3166_1_alpha2.ws",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 198,
+      "symbol": "Country.ISO3166_1_alpha2.sm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 199,
+      "symbol": "Country.ISO3166_1_alpha2.st",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 200,
+      "symbol": "Country.ISO3166_1_alpha2.sa",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 201,
+      "symbol": "Country.ISO3166_1_alpha2.sn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 202,
+      "symbol": "Country.ISO3166_1_alpha2.rs",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 203,
+      "symbol": "Country.ISO3166_1_alpha2.sc",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 204,
+      "symbol": "Country.ISO3166_1_alpha2.sl",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 205,
+      "symbol": "Country.ISO3166_1_alpha2.sg",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 206,
+      "symbol": "Country.ISO3166_1_alpha2.sx",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 207,
+      "symbol": "Country.ISO3166_1_alpha2.sk",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 208,
+      "symbol": "Country.ISO3166_1_alpha2.si",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 209,
+      "symbol": "Country.ISO3166_1_alpha2.sb",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 210,
+      "symbol": "Country.ISO3166_1_alpha2.so",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 211,
+      "symbol": "Country.ISO3166_1_alpha2.za",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 212,
+      "symbol": "Country.ISO3166_1_alpha2.gs",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 213,
+      "symbol": "Country.ISO3166_1_alpha2.ss",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 214,
+      "symbol": "Country.ISO3166_1_alpha2.es",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 215,
+      "symbol": "Country.ISO3166_1_alpha2.lk",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 216,
+      "symbol": "Country.ISO3166_1_alpha2.sd",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 217,
+      "symbol": "Country.ISO3166_1_alpha2.sr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 218,
+      "symbol": "Country.ISO3166_1_alpha2.sj",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 219,
+      "symbol": "Country.ISO3166_1_alpha2.sz",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 220,
+      "symbol": "Country.ISO3166_1_alpha2.se",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 221,
+      "symbol": "Country.ISO3166_1_alpha2.ch",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 222,
+      "symbol": "Country.ISO3166_1_alpha2.sy",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 223,
+      "symbol": "Country.ISO3166_1_alpha2.tw",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 224,
+      "symbol": "Country.ISO3166_1_alpha2.tj",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 225,
+      "symbol": "Country.ISO3166_1_alpha2.tz",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 226,
+      "symbol": "Country.ISO3166_1_alpha2.th",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 227,
+      "symbol": "Country.ISO3166_1_alpha2.tl",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 228,
+      "symbol": "Country.ISO3166_1_alpha2.tg",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 229,
+      "symbol": "Country.ISO3166_1_alpha2.tk",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 230,
+      "symbol": "Country.ISO3166_1_alpha2.to",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 231,
+      "symbol": "Country.ISO3166_1_alpha2.tt",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 232,
+      "symbol": "Country.ISO3166_1_alpha2.tn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 233,
+      "symbol": "Country.ISO3166_1_alpha2.tr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 234,
+      "symbol": "Country.ISO3166_1_alpha2.tm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 235,
+      "symbol": "Country.ISO3166_1_alpha2.tc",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 236,
+      "symbol": "Country.ISO3166_1_alpha2.tv",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 237,
+      "symbol": "Country.ISO3166_1_alpha2.ug",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 238,
+      "symbol": "Country.ISO3166_1_alpha2.ua",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 239,
+      "symbol": "Country.ISO3166_1_alpha2.ae",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 240,
+      "symbol": "Country.ISO3166_1_alpha2.gb",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 241,
+      "symbol": "Country.ISO3166_1_alpha2.us",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 242,
+      "symbol": "Country.ISO3166_1_alpha2.um",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 243,
+      "symbol": "Country.ISO3166_1_alpha2.uy",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 244,
+      "symbol": "Country.ISO3166_1_alpha2.uz",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 245,
+      "symbol": "Country.ISO3166_1_alpha2.vu",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 246,
+      "symbol": "Country.ISO3166_1_alpha2.ve",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 247,
+      "symbol": "Country.ISO3166_1_alpha2.vn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 248,
+      "symbol": "Country.ISO3166_1_alpha2.vg",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 249,
+      "symbol": "Country.ISO3166_1_alpha2.vi",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 250,
+      "symbol": "Country.ISO3166_1_alpha2.wf",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 251,
+      "symbol": "Country.ISO3166_1_alpha2.eh",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 252,
+      "symbol": "Country.ISO3166_1_alpha2.ye",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 253,
+      "symbol": "Country.ISO3166_1_alpha2.zm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country+ISO3166-1.swift",
+      "line": 254,
+      "symbol": "Country.ISO3166_1_alpha2.zw",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country.swift",
+      "line": 3,
+      "symbol": "Country",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country.swift",
+      "line": 4,
+      "symbol": "Country",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Country/Country.swift",
+      "line": 4,
+      "symbol": "Country.countryCode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Image/Image.swift",
+      "line": 6,
+      "symbol": "Image.sizes",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Image/Image.swift",
+      "line": 8,
+      "symbol": "Image.init(sizes:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Image/Image.swift",
+      "line": 22,
+      "symbol": "Image.SizedImage.init(url:size:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 7,
+      "symbol": "Language.ISO639_1",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 8,
+      "symbol": "Language.ISO639_1.ab",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 9,
+      "symbol": "Language.ISO639_1.aa",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 10,
+      "symbol": "Language.ISO639_1.af",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 11,
+      "symbol": "Language.ISO639_1.ak",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 12,
+      "symbol": "Language.ISO639_1.sq",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 13,
+      "symbol": "Language.ISO639_1.am",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 14,
+      "symbol": "Language.ISO639_1.ar",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 15,
+      "symbol": "Language.ISO639_1.an",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 16,
+      "symbol": "Language.ISO639_1.hy",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 17,
+      "symbol": "Language.ISO639_1.as",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 18,
+      "symbol": "Language.ISO639_1.av",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 19,
+      "symbol": "Language.ISO639_1.ae",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 20,
+      "symbol": "Language.ISO639_1.ay",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 21,
+      "symbol": "Language.ISO639_1.az",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 22,
+      "symbol": "Language.ISO639_1.bm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 23,
+      "symbol": "Language.ISO639_1.ba",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 24,
+      "symbol": "Language.ISO639_1.eu",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 25,
+      "symbol": "Language.ISO639_1.be",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 26,
+      "symbol": "Language.ISO639_1.bn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 27,
+      "symbol": "Language.ISO639_1.bh",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 28,
+      "symbol": "Language.ISO639_1.bi",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 29,
+      "symbol": "Language.ISO639_1.bs",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 30,
+      "symbol": "Language.ISO639_1.br",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 31,
+      "symbol": "Language.ISO639_1.bg",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 32,
+      "symbol": "Language.ISO639_1.my",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 33,
+      "symbol": "Language.ISO639_1.ca",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 34,
+      "symbol": "Language.ISO639_1.ch",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 35,
+      "symbol": "Language.ISO639_1.ce",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 36,
+      "symbol": "Language.ISO639_1.ny",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 37,
+      "symbol": "Language.ISO639_1.zh",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 38,
+      "symbol": "Language.ISO639_1.cv",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 39,
+      "symbol": "Language.ISO639_1.kw",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 40,
+      "symbol": "Language.ISO639_1.co",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 41,
+      "symbol": "Language.ISO639_1.cr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 42,
+      "symbol": "Language.ISO639_1.hr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 43,
+      "symbol": "Language.ISO639_1.cs",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 44,
+      "symbol": "Language.ISO639_1.da",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 45,
+      "symbol": "Language.ISO639_1.dv",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 46,
+      "symbol": "Language.ISO639_1.nl",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 47,
+      "symbol": "Language.ISO639_1.dz",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 48,
+      "symbol": "Language.ISO639_1.en",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 49,
+      "symbol": "Language.ISO639_1.eo",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 50,
+      "symbol": "Language.ISO639_1.et",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 51,
+      "symbol": "Language.ISO639_1.ee",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 52,
+      "symbol": "Language.ISO639_1.fo",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 53,
+      "symbol": "Language.ISO639_1.fj",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 54,
+      "symbol": "Language.ISO639_1.fi",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 55,
+      "symbol": "Language.ISO639_1.fr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 56,
+      "symbol": "Language.ISO639_1.ff",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 57,
+      "symbol": "Language.ISO639_1.gl",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 58,
+      "symbol": "Language.ISO639_1.ka",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 59,
+      "symbol": "Language.ISO639_1.de",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 60,
+      "symbol": "Language.ISO639_1.el",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 61,
+      "symbol": "Language.ISO639_1.gn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 62,
+      "symbol": "Language.ISO639_1.gu",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 63,
+      "symbol": "Language.ISO639_1.ht",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 64,
+      "symbol": "Language.ISO639_1.ha",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 65,
+      "symbol": "Language.ISO639_1.he",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 66,
+      "symbol": "Language.ISO639_1.hz",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 67,
+      "symbol": "Language.ISO639_1.hi",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 68,
+      "symbol": "Language.ISO639_1.ho",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 69,
+      "symbol": "Language.ISO639_1.hu",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 70,
+      "symbol": "Language.ISO639_1.ia",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 71,
+      "symbol": "Language.ISO639_1.id",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 72,
+      "symbol": "Language.ISO639_1.ie",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 73,
+      "symbol": "Language.ISO639_1.ga",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 74,
+      "symbol": "Language.ISO639_1.ig",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 75,
+      "symbol": "Language.ISO639_1.ik",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 76,
+      "symbol": "Language.ISO639_1.io",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 77,
+      "symbol": "Language.ISO639_1.is",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 78,
+      "symbol": "Language.ISO639_1.it",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 79,
+      "symbol": "Language.ISO639_1.iu",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 80,
+      "symbol": "Language.ISO639_1.ja",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 81,
+      "symbol": "Language.ISO639_1.jv",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 82,
+      "symbol": "Language.ISO639_1.kl",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 83,
+      "symbol": "Language.ISO639_1.kn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 84,
+      "symbol": "Language.ISO639_1.kr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 85,
+      "symbol": "Language.ISO639_1.ks",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 86,
+      "symbol": "Language.ISO639_1.kk",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 87,
+      "symbol": "Language.ISO639_1.km",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 88,
+      "symbol": "Language.ISO639_1.ki",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 89,
+      "symbol": "Language.ISO639_1.rw",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 90,
+      "symbol": "Language.ISO639_1.ky",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 91,
+      "symbol": "Language.ISO639_1.kv",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 92,
+      "symbol": "Language.ISO639_1.kg",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 93,
+      "symbol": "Language.ISO639_1.ko",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 94,
+      "symbol": "Language.ISO639_1.ku",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 95,
+      "symbol": "Language.ISO639_1.kj",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 96,
+      "symbol": "Language.ISO639_1.la",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 97,
+      "symbol": "Language.ISO639_1.lb",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 98,
+      "symbol": "Language.ISO639_1.lg",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 99,
+      "symbol": "Language.ISO639_1.li",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 100,
+      "symbol": "Language.ISO639_1.ln",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 101,
+      "symbol": "Language.ISO639_1.lo",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 102,
+      "symbol": "Language.ISO639_1.lt",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 103,
+      "symbol": "Language.ISO639_1.lu",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 104,
+      "symbol": "Language.ISO639_1.lv",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 105,
+      "symbol": "Language.ISO639_1.gv",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 106,
+      "symbol": "Language.ISO639_1.mk",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 107,
+      "symbol": "Language.ISO639_1.mg",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 108,
+      "symbol": "Language.ISO639_1.ms",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 109,
+      "symbol": "Language.ISO639_1.ml",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 110,
+      "symbol": "Language.ISO639_1.mt",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 111,
+      "symbol": "Language.ISO639_1.mi",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 112,
+      "symbol": "Language.ISO639_1.mr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 113,
+      "symbol": "Language.ISO639_1.mh",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 114,
+      "symbol": "Language.ISO639_1.mn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 115,
+      "symbol": "Language.ISO639_1.na",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 116,
+      "symbol": "Language.ISO639_1.nv",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 117,
+      "symbol": "Language.ISO639_1.nd",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 118,
+      "symbol": "Language.ISO639_1.ne",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 119,
+      "symbol": "Language.ISO639_1.ng",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 120,
+      "symbol": "Language.ISO639_1.nb",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 121,
+      "symbol": "Language.ISO639_1.nn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 122,
+      "symbol": "Language.ISO639_1.no",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 123,
+      "symbol": "Language.ISO639_1.ii",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 124,
+      "symbol": "Language.ISO639_1.nr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 125,
+      "symbol": "Language.ISO639_1.oc",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 126,
+      "symbol": "Language.ISO639_1.oj",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 127,
+      "symbol": "Language.ISO639_1.cu",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 128,
+      "symbol": "Language.ISO639_1.om",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 129,
+      "symbol": "Language.ISO639_1.or",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 130,
+      "symbol": "Language.ISO639_1.os",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 131,
+      "symbol": "Language.ISO639_1.pa",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 132,
+      "symbol": "Language.ISO639_1.pi",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 133,
+      "symbol": "Language.ISO639_1.fa",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 134,
+      "symbol": "Language.ISO639_1.pox",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 135,
+      "symbol": "Language.ISO639_1.pl",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 136,
+      "symbol": "Language.ISO639_1.ps",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 137,
+      "symbol": "Language.ISO639_1.pt",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 138,
+      "symbol": "Language.ISO639_1.qu",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 139,
+      "symbol": "Language.ISO639_1.rm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 140,
+      "symbol": "Language.ISO639_1.rn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 141,
+      "symbol": "Language.ISO639_1.ro",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 142,
+      "symbol": "Language.ISO639_1.ru",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 143,
+      "symbol": "Language.ISO639_1.sa",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 144,
+      "symbol": "Language.ISO639_1.sc",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 145,
+      "symbol": "Language.ISO639_1.sd",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 146,
+      "symbol": "Language.ISO639_1.se",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 147,
+      "symbol": "Language.ISO639_1.sm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 148,
+      "symbol": "Language.ISO639_1.sg",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 149,
+      "symbol": "Language.ISO639_1.sr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 150,
+      "symbol": "Language.ISO639_1.gd",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 151,
+      "symbol": "Language.ISO639_1.sn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 152,
+      "symbol": "Language.ISO639_1.si",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 153,
+      "symbol": "Language.ISO639_1.sk",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 154,
+      "symbol": "Language.ISO639_1.sl",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 155,
+      "symbol": "Language.ISO639_1.so",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 156,
+      "symbol": "Language.ISO639_1.st",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 157,
+      "symbol": "Language.ISO639_1.es",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 158,
+      "symbol": "Language.ISO639_1.su",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 159,
+      "symbol": "Language.ISO639_1.sw",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 160,
+      "symbol": "Language.ISO639_1.ss",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 161,
+      "symbol": "Language.ISO639_1.sv",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 162,
+      "symbol": "Language.ISO639_1.ta",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 163,
+      "symbol": "Language.ISO639_1.te",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 164,
+      "symbol": "Language.ISO639_1.tg",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 165,
+      "symbol": "Language.ISO639_1.th",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 166,
+      "symbol": "Language.ISO639_1.ti",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 167,
+      "symbol": "Language.ISO639_1.bo",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 168,
+      "symbol": "Language.ISO639_1.tk",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 169,
+      "symbol": "Language.ISO639_1.tl",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 170,
+      "symbol": "Language.ISO639_1.tn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 171,
+      "symbol": "Language.ISO639_1.to",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 172,
+      "symbol": "Language.ISO639_1.tr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 173,
+      "symbol": "Language.ISO639_1.ts",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 174,
+      "symbol": "Language.ISO639_1.tt",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 175,
+      "symbol": "Language.ISO639_1.tw",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 176,
+      "symbol": "Language.ISO639_1.ty",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 177,
+      "symbol": "Language.ISO639_1.ug",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 178,
+      "symbol": "Language.ISO639_1.uk",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 179,
+      "symbol": "Language.ISO639_1.ur",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 180,
+      "symbol": "Language.ISO639_1.uz",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 181,
+      "symbol": "Language.ISO639_1.ve",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 182,
+      "symbol": "Language.ISO639_1.vi",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 183,
+      "symbol": "Language.ISO639_1.vo",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 184,
+      "symbol": "Language.ISO639_1.wa",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 185,
+      "symbol": "Language.ISO639_1.cy",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 186,
+      "symbol": "Language.ISO639_1.wo",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 187,
+      "symbol": "Language.ISO639_1.fy",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 188,
+      "symbol": "Language.ISO639_1.xh",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 189,
+      "symbol": "Language.ISO639_1.yi",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 190,
+      "symbol": "Language.ISO639_1.yo",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 191,
+      "symbol": "Language.ISO639_1.za",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language+ISO639-1.swift",
+      "line": 192,
+      "symbol": "Language.ISO639_1.zu",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language.swift",
+      "line": 3,
+      "symbol": "Language",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language.swift",
+      "line": 4,
+      "symbol": "Language.languageCode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/Language/Language.swift",
+      "line": 6,
+      "symbol": "Language",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/NonEmptyArray/NonEmptyArray.swift",
+      "line": 3,
+      "symbol": "NonEmptyArray",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/NonEmptyArray/NonEmptyArray.swift",
+      "line": 4,
+      "symbol": "NonEmptyArray.first",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/NonEmptyArray/NonEmptyArray.swift",
+      "line": 5,
+      "symbol": "NonEmptyArray.others",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/NonEmptyArray/NonEmptyArray.swift",
+      "line": 7,
+      "symbol": "NonEmptyArray.all",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Common/Models/NonEmptyArray/NonEmptyArray.swift",
+      "line": 9,
+      "symbol": "NonEmptyArray.init(first:others:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Engine/SearchRequest/DetailsOptions.swift",
+      "line": 20,
+      "symbol": "DetailsOptions.init(attributeSets:language:worldview:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Engine/SearchRequest/RetrieveOptions.swift",
+      "line": 5,
+      "symbol": "RetrieveOptions",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Engine/SearchRequest/RetrieveOptions.swift",
+      "line": 12,
+      "symbol": "RetrieveOptions.init(attributeSets:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Offline/SearchCancelable.swift",
+      "line": 6,
+      "symbol": "SearchCancelable.cancel()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Offline/SearchOfflineManager.swift",
+      "line": 44,
+      "symbol": "SearchOfflineManager.selectTileset(for:version:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Offline/SearchOfflineManager.swift",
+      "line": 48,
+      "symbol": "SearchOfflineManager.selectTileset(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Offline/TilesetParameters.swift",
+      "line": 14,
+      "symbol": "TilesetParameters.init(dataset:version:language:worldview:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/OpenPeriod.swift",
+      "line": 11,
+      "symbol": "OpenPeriod.init(start:end:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/RoutablePoint.swift",
+      "line": 26,
+      "symbol": "RoutablePoint.init(name:coordinate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Search Results/ResultChildMetadata.swift",
+      "line": 5,
+      "symbol": "ResultChildMetadata",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Search Results/ResultChildMetadata.swift",
+      "line": 6,
+      "symbol": "ResultChildMetadata.category",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Search Results/ResultChildMetadata.swift",
+      "line": 8,
+      "symbol": "ResultChildMetadata.coordinates",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Search Results/ResultChildMetadata.swift",
+      "line": 14,
+      "symbol": "ResultChildMetadata.mapboxId",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Search Results/ResultChildMetadata.swift",
+      "line": 16,
+      "symbol": "ResultChildMetadata.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Search Results/SearchResultMetadata.swift",
+      "line": 167,
+      "symbol": "SearchResultMetadata.init(data:primaryImage:otherImages:phone:website:reviewCount:averageRating:openHours:detailedDescription:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Search Results/SearchResultMetadata.swift",
+      "line": 262,
+      "symbol": "SearchResultMetadata.init(data:primaryImage:otherImages:phone:website:reviewCount:rating:openHours:children:description:priceLevel:popularity:wheelchairAccessible:delivery:driveThrough:reservable:parkingAvailable:valetParking:streetParking:servesBreakfast:servesBrunch:servesDinner:servesLunch:servesWine:servesBeer:servesVegan:servesVegetarian:takeout:facebookId:fax:email:instagram:twitter:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Search Results/SearchSuggestion.swift",
+      "line": 54,
+      "symbol": "SearchSuggestion.brand",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Search Results/SearchSuggestion.swift",
+      "line": 56,
+      "symbol": "SearchSuggestion.brandID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/SearchRequestOptions.swift",
+      "line": 15,
+      "symbol": "SearchRequestOptions.init(query:proximity:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/AddressAutofill.swift",
+      "line": 3,
+      "symbol": "AddressAutofill",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/AddressAutofill.swift",
+      "line": 3,
+      "symbol": "AddressAutofill",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/AddressAutofill.swift",
+      "line": 3,
+      "symbol": "AddressAutofill",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/AddressAutofill.swift",
+      "line": 3,
+      "symbol": "AddressAutofill",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/AddressAutofill.swift",
+      "line": 4,
+      "symbol": "AddressAutofill",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/AddressAutofill.swift",
+      "line": 10,
+      "symbol": "AddressAutofill",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/AddressAutofill.swift",
+      "line": 57,
+      "symbol": "AddressAutofill",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/Models/AddressAutofill+AddressComponent.swift",
+      "line": 4,
+      "symbol": "AddressAutofill.AddressComponent",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/Models/AddressAutofill+AddressComponent.swift",
+      "line": 5,
+      "symbol": "AddressAutofill.AddressComponent.kind",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/Models/AddressAutofill+AddressComponent.swift",
+      "line": 6,
+      "symbol": "AddressAutofill.AddressComponent.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/Models/AddressAutofill+AddressComponent.swift",
+      "line": 10,
+      "symbol": "AddressAutofill.AddressComponent",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/Models/AddressAutofill+AddressComponent.swift",
+      "line": 11,
+      "symbol": "AddressAutofill.AddressComponent.Kind",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/Models/AddressAutofill+Options.swift",
+      "line": 4,
+      "symbol": "AddressAutofill.Options",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/Models/AddressAutofill+Options.swift",
+      "line": 19,
+      "symbol": "AddressAutofill.Options.init(countries:language:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/Models/AddressAutofill+Query.swift",
+      "line": 4,
+      "symbol": "AddressAutofill.Query",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/Models/AddressAutofill+Query.swift",
+      "line": 5,
+      "symbol": "AddressAutofill.Query.Requirements",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/Models/AddressAutofill+Query.swift",
+      "line": 6,
+      "symbol": "AddressAutofill.Query.Requirements.queryLength",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/Models/AddressAutofill+Result.swift",
+      "line": 4,
+      "symbol": "AddressAutofill.Result",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Autofill/Models/Suggestion/AddressAutofill+Suggestion.swift",
+      "line": 5,
+      "symbol": "AddressAutofill.Suggestion",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Components/AddressComponents.swift",
+      "line": 4,
+      "symbol": "AddressComponents",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Components/AddressComponents.swift",
+      "line": 79,
+      "symbol": "AddressComponents",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Address Components/AddressComponents.swift",
+      "line": 100,
+      "symbol": "AddressComponents",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Discover/Discover.swift",
+      "line": 3,
+      "symbol": "Discover",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Discover/Discover.swift",
+      "line": 4,
+      "symbol": "Discover",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Discover/Discover.swift",
+      "line": 4,
+      "symbol": "Discover",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Discover/Discover.swift",
+      "line": 4,
+      "symbol": "Discover",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Discover/Discover.swift",
+      "line": 5,
+      "symbol": "Discover",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Discover/Discover.swift",
+      "line": 8,
+      "symbol": "Discover.apiType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Discover/Discover.swift",
+      "line": 50,
+      "symbol": "Discover",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Discover/Models/Discover+Address.swift",
+      "line": 5,
+      "symbol": "Discover.Address",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Discover/Models/Discover+Address.swift",
+      "line": 83,
+      "symbol": "Discover.Address",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Discover/Models/Discover+Options.swift",
+      "line": 35,
+      "symbol": "Discover.Options.init(limit:language:country:proximity:origin:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Discover/Models/Discover+Result.swift",
+      "line": 5,
+      "symbol": "Discover.Result",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Place Autocomplete/Models/PlaceAutocomplete+Options.swift",
+      "line": 4,
+      "symbol": "PlaceAutocomplete.Options",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Place Autocomplete/Models/PlaceAutocomplete+Options.swift",
+      "line": 29,
+      "symbol": "PlaceAutocomplete.Options.init(countries:language:types:navigationProfile:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Place Autocomplete/Models/PlaceAutocomplete+PlaceType.swift",
+      "line": 9,
+      "symbol": "PlaceAutocomplete.PlaceType.administrativeUnit(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Place Autocomplete/Models/PlaceAutocomplete+PlaceType.swift",
+      "line": 11,
+      "symbol": "PlaceAutocomplete.PlaceType.allTypes",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Place Autocomplete/Models/PlaceAutocomplete+Result.swift",
+      "line": 4,
+      "symbol": "PlaceAutocomplete.Result",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/Sources/MapboxSearch/PublicAPI/Use Cases/Place Autocomplete/Models/PlaceAutocomplete+Suggestion.swift",
+      "line": 5,
+      "symbol": "PlaceAutocomplete.Suggestion",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/distiller/project"
+}
