@@ -19,7 +19,7 @@ class MapsViewController: UIViewController, ExampleController {
     }
 
     func showAnnotations(results: [SearchResult], cameraShouldFollow: Bool = true) {
-        annotationsManager.annotations = results.map(PointAnnotation.init)
+        annotationsManager.annotations = results.map { PointAnnotation.pointAnnotation($0) }
 
         if cameraShouldFollow {
             cameraToAnnotations(annotationsManager.annotations)

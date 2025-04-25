@@ -1,7 +1,7 @@
 import CoreLocation
 
 /// Category Search Engine used specifically for category search
-/// Checkout `SearchEngine` for more details
+/// Checkout ``SearchEngine`` for more details
 public class CategorySearchEngine: AbstractSearchEngine {
     /// Search response information for current search items.
     /// Can be used for submitting `missing result` feedback
@@ -9,12 +9,32 @@ public class CategorySearchEngine: AbstractSearchEngine {
 
     /// Start searching for query with provided options
     /// - Parameters:
-    ///   - categoryName: Search category name
-    ///   - options: search request options
-    ///   - completionQueue: DispatchQueue.main is default
-    ///   - completion: completion closure
+    ///   - categoryName: Search category name.
+    ///   - options: Category search request options.
+    ///   - completionQueue: `DispatchQueue.main` is default.
+    ///   - completion: Completion closure.
     public func search(
         categoryName: String,
+        options: SearchOptions? = nil,
+        completionQueue: DispatchQueue = .main,
+        completion: @escaping (Result<[SearchResult], SearchError>) -> Void
+    ) {
+        search(
+            categoryNames: [categoryName],
+            options: options,
+            completionQueue: completionQueue,
+            completion: completion
+        )
+    }
+
+    /// Start searching for query with provided options
+    /// - Parameters:
+    ///   - categoryNames: Search category names.
+    ///   - options: Category search request options.
+    ///   - completionQueue: `DispatchQueue.main` is default.
+    ///   - completion: Completion closure
+    public func search(
+        categoryNames: [String],
         options: SearchOptions? = nil,
         completionQueue: DispatchQueue = .main,
         completion: @escaping (Result<[SearchResult], SearchError>) -> Void
@@ -25,7 +45,7 @@ public class CategorySearchEngine: AbstractSearchEngine {
         let coreOptions = options.toCore(apiType: engineApi)
         engine.search(
             forQuery: "",
-            categories: [categoryName],
+            categories: categoryNames,
             options: coreOptions
         ) { [weak self, weak eventsManager] coreResponse in
             guard let self else {

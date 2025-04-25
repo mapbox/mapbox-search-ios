@@ -19,13 +19,31 @@ final class SearchBox_CategorySearchEngineIntegrationTests: MockServerIntegratio
         searchOptions = SearchOptions(attributeSets: [.basic, .photos, .venue, .visit])
     }
 
+    func testMultipleCategorySearch() throws {
+        try server.setResponse(.categoryCafe)
+
+        let expectation = XCTestExpectation(description: "Expecting results")
+        searchEngine.search(categoryNames: ["cafe", "food"], options: searchOptions) { [weak self] result in
+            self?.checkCategorySearchResults(result, expectation: expectation)
+        }
+        wait(for: [expectation], timeout: 10)
+    }
+
     func testCategorySearch() throws {
         try server.setResponse(.categoryCafe)
 
         let expectation = XCTestExpectation(description: "Expecting results")
         searchEngine.search(categoryName: "cafe", options: searchOptions) { [weak self] result in
-            guard let self else { return }
-            switch result {
+            self?.checkCategorySearchResults(result, expectation: expectation)
+        }
+        wait(for: [expectation], timeout: 10)
+    }
+
+    private func checkCategorySearchResults(
+        _ result: Result<[SearchResult], SearchError>,
+        expectation: XCTestExpectation
+    ) {
+        switch result {
             case .success(let searchResults):
                 XCTAssertFalse(searchResults.isEmpty)
                 let matchingNames = searchResults.compactMap(\.matchingName)
@@ -38,10 +56,8 @@ final class SearchBox_CategorySearchEngineIntegrationTests: MockServerIntegratio
                 expectation.fulfill()
             case .failure:
                 XCTFail("Error not expected")
-            }
-            expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 10)
+        expectation.fulfill()
     }
 
     func testCategorySearchFailed() throws {
