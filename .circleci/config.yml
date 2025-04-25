@@ -236,12 +236,13 @@ jobs:
       - parse-release-version
       - setup-authentication
       - install-mbx-ci-darwin
+      - install-gems
       - run: scripts/generate_podspecs.sh
       - run:
           name: Push podspecs to CocoaPods CDN Trunk
           command: |
-            pod trunk push MapboxSearch.podspec --synchronous
-            pod trunk push MapboxSearchUI.podspec --synchronous
+            bundle exec pod trunk push MapboxSearch.podspec --synchronous
+            bundle exec pod trunk push MapboxSearchUI.podspec --synchronous
       - run: brew install gh taiki-e/tap/parse-changelog
       - run: scripts/release_notes.sh
 
