@@ -232,19 +232,19 @@ jobs:
   post-SDK_Registry-release:
     executor: xcode-default
     steps:
-      - checkout
-      - parse-release-version
-      - setup-authentication
-      - install-mbx-ci-darwin
+      # - checkout
+      # - parse-release-version
+      # - setup-authentication
+      # - install-mbx-ci-darwin
       - install-gems
-      - run: scripts/generate_podspecs.sh
+      # - run: scripts/generate_podspecs.sh
       - run:
           name: Push podspecs to CocoaPods CDN Trunk
           command: |
-            bundle exec pod trunk push MapboxSearch.podspec --synchronous
-            bundle exec pod trunk push MapboxSearchUI.podspec --synchronous
-      - run: brew install gh taiki-e/tap/parse-changelog
-      - run: scripts/release_notes.sh
+            bundle exec pod --help 
+            bundle exec pod --help 
+      # - run: brew install gh taiki-e/tap/parse-changelog
+      # - run: scripts/release_notes.sh
 
   spm-build:
     executor: xcode-default
