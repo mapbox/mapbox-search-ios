@@ -8,7 +8,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 - [Core] Added the new function to search for multiple categories `CategorySearchEngine.search(categoryNames:options:completionQueue:completion:)`.
 - [SearchOptions] The new option `SearchOptions.ensureResultsPerCategory` is available. It allows to request category search results to include at least one POI for each category, provided a POI is available in a nearby location.
-- [FavoriteRecord] `categories`and`categoryIds` parameters in `init` now have default `nil` value.
+- [FavoriteRecord] `categories` and `categoryIds` parameters in `init` now have default `nil` value.
 
 ## 2.12.0-rc.1
 
