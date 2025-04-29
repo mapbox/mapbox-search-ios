@@ -4,9 +4,11 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
-## Unreleased
+## 2.2.1
 
-<!-- Add changes for active work here -->
+- [Core] Update MapboxCommon
+
+**MapboxCommon**: v24.5.1
 
 ## 2.2.0
 
