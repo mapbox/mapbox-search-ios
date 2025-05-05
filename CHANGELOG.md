@@ -9,7 +9,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Core] Update MapboxCommon and MapboxCoreSearch package dependencies
 
 **MapboxCommon**: v24.5.1
-**MapboxCoreSearch**: v2.2.1
+**MapboxCoreSearch**: v2.2.1 (Swift Package Manager) / v2.2.2 (CocoaPods)
 
 ## 2.2.0
 
