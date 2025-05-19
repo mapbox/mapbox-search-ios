@@ -4,6 +4,12 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
+## 2.12.1
+
+- [Core] Update dependencies.
+   - **MapboxCommon**: v24.12.0
+   - **MapboxCoreSearch**: v2.12.0
+
 ## 2.12.0
 
 - [Core] Added the new function to search for multiple categories `CategorySearchEngine.search(categoryNames:options:completionQueue:completion:)`.
