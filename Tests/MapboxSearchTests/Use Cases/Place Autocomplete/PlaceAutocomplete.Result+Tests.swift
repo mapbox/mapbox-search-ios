@@ -23,4 +23,15 @@ final class PlaceAutocompleteResultTests: XCTestCase {
         XCTAssertEqual(result.address?.countryISO1, "US")
         XCTAssertEqual(result.address?.countryISO2, "US-NY")
     }
+
+    func testCreateFromCoreSearchResult() throws {
+        let coreResult = CoreSearchResultStub.makeSuggestion()
+        let response = CoreSearchResponseStub.successSample(results: [coreResult])
+        let searchResult = ServerSearchResult(coreResult: coreResult, response: response)!
+        let result = try PlaceAutocomplete.Suggestion.from(searchResult)
+            .result(for: searchResult)
+        XCTAssertEqual(result.boundingBox, BoundingBox(.sample1, .sample2))
+        XCTAssertEqual(result.categories, coreResult.categories)
+        XCTAssertEqual(result.categoryIds, coreResult.categoryIDs)
+    }
 }

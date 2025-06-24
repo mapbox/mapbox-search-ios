@@ -32,14 +32,18 @@ final class PlaceAutocompleteSuggestionTests: XCTestCase {
             options: options
         )
         XCTAssertNotNil(suggestion)
-        guard case .suggestion = suggestion!.underlying else {
+        guard let suggestion,
+            case .suggestion = suggestion.underlying else {
             XCTFail("Should have underlying suggestion")
             return
         }
+
+        XCTAssertEqual(suggestion.categories, coreSuggestion.categories)
+        XCTAssertEqual(suggestion.categoryIds, coreSuggestion.categoryIDs)
     }
 
     func testCreationFromCoreSuggestionIfIncorrectCoordinate() {
-        let coreSuggestion = CoreSearchResultStub.makeSuggestion()
+        let coreSuggestion = CoreSearchResultStub.makeSuggestion(centerLocation: nil)
 
         XCTAssertThrowsError(
             try PlaceAutocomplete.Suggestion.from(
