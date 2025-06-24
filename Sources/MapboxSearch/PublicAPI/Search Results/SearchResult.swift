@@ -62,6 +62,9 @@ public protocol SearchResult {
 
     /// Additional search result data, such as phone number, website and other
     var metadata: SearchResultMetadata? { get }
+
+    /// Optional bounding box that represents the geographical boundaries of a location, e.g., a building.
+    var boundingBox: BoundingBox? { get }
 }
 
 extension SearchResult {

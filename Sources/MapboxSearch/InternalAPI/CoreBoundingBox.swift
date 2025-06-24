@@ -13,3 +13,9 @@ extension CoreBoundingBox {
         return log2(Swift.min(longitudeZoom, latitudeZoom))
     }
 }
+
+extension BoundingBox {
+    init(_ coreBoundingBox: CoreBoundingBox) {
+        self.init(coreBoundingBox.min, coreBoundingBox.max)
+    }
+}

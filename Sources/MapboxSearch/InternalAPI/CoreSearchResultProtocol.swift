@@ -68,6 +68,8 @@ protocol CoreSearchResultProtocol {
     var brand: [String]? { get }
 
     var brandID: String? { get }
+
+    var boundingBox: CoreBoundingBox? { get }
 }
 
 extension CoreSearchResult: CoreSearchResultProtocol {
@@ -94,4 +96,7 @@ extension CoreSearchResult: CoreSearchResultProtocol {
     var addressDescription: String? { descrAddress }
 
     var externalIds: [String: String]? { externalIDs }
+
+    var boundingBox: CoreBoundingBox? { bbox }
+
 }

@@ -64,6 +64,8 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
         }
     }
 
+    var boundingBox: BoundingBox?
+
     init?(coreResult: CoreSearchResultProtocol, response: CoreSearchResponseProtocol) {
         guard let center = coreResult.centerLocation else { return nil }
 
@@ -95,6 +97,7 @@ class ServerSearchResult: SearchResult, SearchResultSuggestion, CoreResponseProv
 
         self.brand = coreResult.brand
         self.brandID = coreResult.brandID
+        self.boundingBox = coreResult.boundingBox.map(BoundingBox.init)
 
         assert(!id.isEmpty)
         assert(!name.isEmpty)

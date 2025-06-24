@@ -75,6 +75,9 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     /// Original search request.
     public let searchRequest: SearchRequestOptions
 
+    /// Optional bounding box that represents the geographical boundaries of a location, e.g., a building.
+    public let boundingBox: BoundingBox?
+
     /// Associated metadata
     public var metadata: SearchResultMetadata?
 
@@ -97,6 +100,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
     ///   - metadata: Associated metadata
     ///   - resultType: Favorite result type
     ///   - descriptionText: Address formatted with the medium style
+    ///   - boundingBox: Bounding box that represents the geographical boundaries of a location
     public init(
         id: String? = nil,
         mapboxId: String? = nil,
@@ -114,7 +118,8 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         resultType: SearchResultType,
         searchRequest: SearchRequestOptions,
         metadata: SearchResultMetadata? = nil,
-        descriptionText: String? = nil
+        descriptionText: String? = nil,
+        boundingBox: BoundingBox? = nil
     ) {
         self.id = id ?? UUID().uuidString
         self.mapboxId = mapboxId
@@ -133,6 +138,7 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
         self.metadata = metadata
         self.searchRequest = searchRequest
         self.descriptionText = descriptionText ?? address?.formattedAddress(style: .medium)
+        self.boundingBox = boundingBox
     }
 
     /// Build Favorite record from SearchResult
@@ -161,7 +167,9 @@ public struct FavoriteRecord: IndexableRecord, SearchResult, Codable, Equatable 
             routablePoints: searchResult.routablePoints,
             resultType: searchResult.type,
             searchRequest: searchResult.searchRequest,
-            metadata: searchResult.metadata
+            metadata: searchResult.metadata,
+            descriptionText: searchResult.descriptionText,
+            boundingBox: searchResult.boundingBox
         )
     }
 }

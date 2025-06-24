@@ -16,6 +16,7 @@ extension SearchResultStub {
         distance: 100.0,
         address: .fullAddress,
         metadata: .pizzaMetadata,
-        dataLayerIdentifier: "sample-data-layer-identifier"
+        dataLayerIdentifier: "sample-data-layer-identifier",
+        boundingBox: BoundingBox(.sample1, .sample2)
     )
 }
