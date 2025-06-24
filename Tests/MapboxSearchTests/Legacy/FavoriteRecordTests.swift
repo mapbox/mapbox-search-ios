@@ -17,6 +17,7 @@ class FavoriteRecordTests: XCTestCase {
         XCTAssertEqual(record.icon, .bar)
         XCTAssertEqual(record.type, resultStub.type)
         XCTAssertEqual(record.distance, 100.0)
+        XCTAssertEqual(record.boundingBox, record.boundingBox)
 
         XCTAssertNil(record.additionalTokens)
     }

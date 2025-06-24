@@ -84,6 +84,7 @@ extension PlaceAutocomplete.Suggestion {
             routablePoints: underlyingResult.routablePoints ?? [],
             categories: underlyingResult.categories ?? [],
             address: AddressComponents(searchResult: underlyingResult),
+            boundingBox: underlyingResult.boundingBox,
             phone: underlyingResult.metadata?.phone,
             website: underlyingResult.metadata?.website,
             reviewCount: underlyingResult.metadata?.reviewCount,

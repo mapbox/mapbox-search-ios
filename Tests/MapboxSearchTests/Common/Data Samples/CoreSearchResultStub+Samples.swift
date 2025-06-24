@@ -93,7 +93,8 @@ extension CoreSearchResultStub {
             languages: ["en"],
             centerLocation: center,
             categories: ["cafe"],
-            icon: Maki.alcoholShop.name
+            icon: Maki.alcoholShop.name,
+            boundingBox: .init(min: .sample1, max: .sample2)
         )
         return result
     }

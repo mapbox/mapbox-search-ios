@@ -35,6 +35,9 @@ extension PlaceAutocomplete {
         /// Type representing address components.
         public let address: AddressComponents?
 
+        /// Optional bounding box that represents the geographical boundaries of a location, e.g., a building.
+        public let boundingBox: BoundingBox?
+
         /// Business phone number
         public let phone: String?
 

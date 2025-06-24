@@ -111,4 +111,18 @@ class ServerSearchResultTests: XCTestCase {
         ))
         XCTAssertEqual(result.categoryIds, expectedCategoryIds)
     }
+
+    func testServerSearchResultBoundingBox() {
+        let coreResult = CoreSearchResultStub(
+            id: UUID().uuidString,
+            mapboxId: "",
+            type: .address,
+            boundingBox: CoreBoundingBox(min: .sample1, max: .sample2)
+        )
+        let result = ServerSearchResult(
+            coreResult: coreResult,
+            response: CoreSearchResponseStub.failureSample
+        )
+        XCTAssertEqual(result?.boundingBox, BoundingBox(.sample1, .sample2))
+    }
 }
