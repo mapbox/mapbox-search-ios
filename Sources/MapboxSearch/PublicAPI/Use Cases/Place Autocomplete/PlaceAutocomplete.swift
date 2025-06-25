@@ -335,6 +335,7 @@ extension PlaceAutocomplete {
                 estimatedTime: result.estimatedTime,
                 placeType: placeTypes ?? .POI,
                 categories: categories,
+                categoryIds: result.categoryIDs ?? [],
                 routablePoints: routablePoints,
                 underlying: underlying
             )

@@ -217,7 +217,7 @@ public struct SearchOptions {
     /// - 5th to 7th: `coffee` POIs
     /// - 8th to 10th: `parking_lot` POI
     /// - Note: ``ApiType/searchBox`` only.
-    public var ensureResultsPerCategory: Bool? = nil
+    public var ensureResultsPerCategory: Bool?
 
     init(coreSearchOptions options: CoreSearchOptions) {
         let proximity = options.proximity.map { CLLocationCoordinate2D(

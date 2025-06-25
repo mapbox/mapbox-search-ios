@@ -34,17 +34,22 @@ extension CoreSearchResultStub {
         return results
     }
 
-    static func makeSuggestion(metadata: CoreResultMetadata? = nil) -> CoreSearchResultStub {
+    static func makeSuggestion(
+        centerLocation: CLLocation? = .sample1,
+        metadata: CoreResultMetadata? = nil
+    ) -> CoreSearchResultStub {
         let result = CoreSearchResultStub(
             id: UUID().uuidString,
             mapboxId: "",
             type: .place,
             names: ["Some Place Name"],
             languages: ["en"],
-            centerLocation: nil,
+            centerLocation: centerLocation,
             categories: ["cafe"],
+            categoryIDs: ["cafe-ID"],
             icon: Maki.alcoholShop.name,
-            metadata: metadata
+            metadata: metadata,
+            boundingBox: .init(min: .sample1, max: .sample2)
         )
         return result
     }
@@ -93,7 +98,8 @@ extension CoreSearchResultStub {
             languages: ["en"],
             centerLocation: center,
             categories: ["cafe"],
-            icon: Maki.alcoholShop.name
+            icon: Maki.alcoholShop.name,
+            boundingBox: .init(min: .sample1, max: .sample2)
         )
         return result
     }

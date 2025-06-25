@@ -19,7 +19,8 @@ class SearchResultStub: SearchResult {
         address: Address? = nil,
         metadata: SearchResultMetadata?,
         searchRequest: SearchRequestOptions = .init(query: "Sample", proximity: nil),
-        dataLayerIdentifier: String = "unit-test-stub"
+        dataLayerIdentifier: String = "unit-test-stub",
+        boundingBox: BoundingBox? = .init(.init(latitude: 1.0, longitude: 2.0), .init(latitude: 2.0, longitude: 3.0))
     ) {
         self.id = id
         self.mapboxId = mapboxId
@@ -38,6 +39,7 @@ class SearchResultStub: SearchResult {
         self.metadata = metadata
         self.dataLayerIdentifier = dataLayerIdentifier
         self.searchRequest = searchRequest
+        self.boundingBox = boundingBox
     }
 
     var dataLayerIdentifier: String
@@ -69,6 +71,7 @@ class SearchResultStub: SearchResult {
     var address: Address?
     var descriptionText: String?
     var searchRequest: SearchRequestOptions
+    var boundingBox: BoundingBox?
 }
 
 // MARK: - SearchResultStub

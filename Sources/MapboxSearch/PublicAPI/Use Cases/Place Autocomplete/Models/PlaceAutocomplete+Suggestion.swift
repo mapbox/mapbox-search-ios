@@ -30,6 +30,9 @@ extension PlaceAutocomplete {
         /// Poi categories. Always empty for non-POI suggestions.
         public let categories: [String]
 
+        /// Canonical POI category IDs. Always empty for non-POI search suggestions.
+        public let categoryIds: [String]
+
         /// List of points near `coordinate`, that represents entries to associated building.
         public let routablePoints: [RoutablePoint]
 
@@ -47,6 +50,7 @@ extension PlaceAutocomplete {
             estimatedTime: Measurement<UnitDuration>?,
             placeType: SearchResultType,
             categories: [String],
+            categoryIds: [String],
             routablePoints: [RoutablePoint],
             underlying: Underlying
         ) {
@@ -59,6 +63,7 @@ extension PlaceAutocomplete {
             self.estimatedTime = estimatedTime
             self.placeType = placeType
             self.categories = categories
+            self.categoryIds = categoryIds
             self.routablePoints = routablePoints
             self.underlying = underlying
         }
@@ -83,7 +88,9 @@ extension PlaceAutocomplete.Suggestion {
             estimatedTime: estimatedTime,
             routablePoints: underlyingResult.routablePoints ?? [],
             categories: underlyingResult.categories ?? [],
+            categoryIds: underlyingResult.categoryIds ?? [],
             address: AddressComponents(searchResult: underlyingResult),
+            boundingBox: underlyingResult.boundingBox,
             phone: underlyingResult.metadata?.phone,
             website: underlyingResult.metadata?.website,
             reviewCount: underlyingResult.metadata?.reviewCount,
@@ -122,6 +129,7 @@ extension PlaceAutocomplete.Suggestion {
             estimatedTime: searchResultType.estimatedTime,
             placeType: searchResultType.type,
             categories: searchResultType.categories ?? [],
+            categoryIds: searchResultType.categoryIds ?? [],
             routablePoints: searchResultType.routablePoints ?? [],
             underlying: .result(searchResult)
         )
@@ -151,6 +159,7 @@ extension PlaceAutocomplete.Suggestion {
             estimatedTime: searchSuggestion.estimatedTime,
             placeType: type,
             categories: searchSuggestion.categories ?? [],
+            categoryIds: searchSuggestion.categoryIDs ?? [],
             routablePoints: searchSuggestion.routablePoints?.map(RoutablePoint.init) ?? [],
             underlying: .suggestion(searchSuggestion, options)
         )
