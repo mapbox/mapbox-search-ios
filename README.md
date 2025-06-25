@@ -65,7 +65,16 @@ You can install MapboxSearch and/or MapboxSearchUI packages with Swift Package M
 
 ### Swift Package Manager
 
-Add the MapboxSearch dependency to your Package.swift or use the Xcode > Project settings > Package Dependencies tab.
+1. Set up .netrc file for sdk registry access
+    1. Create .netrc file in user home directory (`$HOME/.netrc`, e.g. `/Users/victorprivalov/.netrc`)
+    2. File content:
+    ```
+    machine api.mapbox.com
+    login mapbox
+    password sk.ey_Your_Access_Token_With_Read_permission
+    ```
+
+2. Add the MapboxSearch dependency to your Package.swift or use the Xcode > Project settings > Package Dependencies tab.
 ```swift
 dependencies: [
     .package(url: "https://github.com/mapbox/mapbox-search-ios.git")
