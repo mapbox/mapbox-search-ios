@@ -17,6 +17,7 @@ extension PlaceAutocomplete.Suggestion {
             estimatedTime: nil,
             placeType: placeType,
             categories: ["coffee"],
+            categoryIds: ["cat-ID-1", "cat-ID-2"],
             routablePoints: routablePoints,
             underlying: underlying
         )

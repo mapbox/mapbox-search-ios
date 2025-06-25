@@ -24,7 +24,8 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         serverIndex: NSNumber? = 1,
         distance: NSNumber? = nil,
         metadata: CoreResultMetadata? = nil,
-        estimatedTime: Measurement<UnitDuration>? = nil
+        estimatedTime: Measurement<UnitDuration>? = nil,
+        boundingBox: CoreBoundingBox? = nil
     ) {
         self.id = id
         self.mapboxId = mapboxId
@@ -47,6 +48,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         self.distance = distance
         self.metadata = metadata
         self.estimatedTime = estimatedTime
+        self.boundingBox = boundingBox
     }
 
     convenience init(dataProviderRecord: TestDataProviderRecord) {
@@ -57,7 +59,8 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
             names: [dataProviderRecord.name],
             languages: ["en"],
             categories: dataProviderRecord.categories,
-            categoryIDs: dataProviderRecord.categoryIds
+            categoryIDs: dataProviderRecord.categoryIds,
+            boundingBox: dataProviderRecord.boundingBox.map(CoreBoundingBox.init(boundingBox:))
         )
     }
 
@@ -87,6 +90,7 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
     var externalIds: [String: String]?
     var brand: [String]?
     var brandID: String?
+    var boundingBox: CoreBoundingBox?
 
     var distanceToProximity: CLLocationDistance? {
         distance.map(\.doubleValue)
@@ -122,6 +126,9 @@ extension CoreSearchResultStub: Equatable {
             && lhs.action == rhs.action
             && lhs.serverIndex == rhs.serverIndex
             && lhs.distance == rhs.distance
+            && lhs.brand == rhs.brand
+            && lhs.brandID == rhs.brandID
+            && lhs.boundingBox == rhs.boundingBox
     }
 }
 
@@ -155,7 +162,7 @@ extension CoreSearchResultProtocol {
             userRecordPriority: 100,
             action: action,
             serverIndex: serverIndex,
-            bbox: nil
+            bbox: boundingBox
         )
     }
 }

@@ -32,8 +32,14 @@ extension PlaceAutocomplete {
         /// Poi categories. Always empty for non-POI suggestions.
         public let categories: [String]
 
+        /// Canonical POI category IDs. Always empty for non-POI search suggestions.
+        public let categoryIds: [String]
+
         /// Type representing address components.
         public let address: AddressComponents?
+
+        /// Optional bounding box that represents the geographical boundaries of a location, e.g., a building.
+        public let boundingBox: BoundingBox?
 
         /// Business phone number
         public let phone: String?

@@ -91,6 +91,9 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     /// Coordinates of building entries
     public var routablePoints: [RoutablePoint]?
 
+    /// Optional bounding box that represents the geographical boundaries of a location, e.g., a building.
+    public let boundingBox: BoundingBox?
+
     /// History record constructor
     /// - Parameters:
     ///   - id: UUID used by default
@@ -111,6 +114,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
     ///   - searchRequest: The original search request
     ///   - routablePoints: Coordinates of building entries
     ///   - descriptionText: Address formatted with the medium style
+    ///   - boundingBox: Bounding box that represents the geographical boundaries of a location
     public init(
         id: String = UUID().uuidString,
         mapboxId: String?,
@@ -129,7 +133,8 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         categoryIds: [String]? = nil,
         searchRequest: SearchRequestOptions,
         routablePoints: [RoutablePoint]? = nil,
-        descriptionText: String? = nil
+        descriptionText: String? = nil,
+        boundingBox: BoundingBox? = nil
     ) {
         self.id = id
         self.mapboxId = mapboxId
@@ -149,6 +154,7 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         self.searchRequest = searchRequest
         self.routablePoints = routablePoints
         self.descriptionText = descriptionText ?? address?.formattedAddress(style: .medium)
+        self.boundingBox = boundingBox
     }
 
     /// Construct `HistoryRecord` based on concrete `SearchResult`
@@ -179,5 +185,6 @@ public struct HistoryRecord: IndexableRecord, SearchResult, Codable, Hashable {
         self.searchRequest = searchResult.searchRequest
         self.routablePoints = searchResult.routablePoints
         self.descriptionText = searchResult.descriptionText
+        self.boundingBox = searchResult.boundingBox
     }
 }
