@@ -1,7 +1,7 @@
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/mapbox/mapbox-search-ios/tree/main.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/mapbox/mapbox-search-ios/tree/main)
 [![Swift version](https://img.shields.io/badge/swift-5.9+-orange.svg?style=flat&logo=swift)](https://developer.apple.com/swift)
 [![iOS version](https://img.shields.io/badge/iOS-12.0+-green.svg?style=flat&logo=apple)](https://developer.apple.com/ios/)
-[![Xcode version](https://img.shields.io/badge/Xcode-15.0+-DeepSkyBlue.svg?style=flat&logo=xcode&logoColor=lightGray)](https://developer.apple.com/xcode/)
+[![Xcode version](https://img.shields.io/badge/Xcode-16.0+-DeepSkyBlue.svg?style=flat&logo=xcode&logoColor=lightGray)](https://developer.apple.com/xcode/)
 [![swift-doc](https://img.shields.io/badge/swift--doc-64.94%25-orange?logo=read-the-docs)](https://github.com/SwiftDocOrg/swift-doc)
 # Mapbox Search SDK for iOS
 
@@ -44,7 +44,7 @@ You can find more documentation at docs.mapbox.com:
 ## Requirements
 
 - iOS 12.0 and newer
-- Xcode 15.0 and newer
+- Xcode 16.0 and newer
 - Swift 5.9 and newer
 - Objective-C is not supported
 - macOS/tvOS/watchOS platforms currently are not supported
@@ -63,6 +63,21 @@ You can find more documentation at docs.mapbox.com:
 
 You can install MapboxSearch and/or MapboxSearchUI packages with Swift Package Manager, Cocoapods, or Carthage. Swift Package Manage is our preferred distribution system.
 
+## Installation
+
+### Private token configuration
+
+To download the SDK you will need to configure a [private token](https://docs.mapbox.com/help/dive-deeper/access-tokens/#secret-tokens). This token is required for every supported distribution system.
+
+1. Go to your [Mapbox account dashboard](https://account.mapbox.com/) and create an access token that has the `DOWNLOADS:READ` scope. **PLEASE NOTE: This is not the same as your production Mapbox API token. Make sure to keep it private and do not insert it into any Info.plist file.** 
+1. Create a file named `.netrc` in your home directory (`$HOME/.netrc`, e.g. `/Users/username/.netrc`) if it doesn’t already exist, then add the following lines to the end of the file:
+   ```
+   machine api.mapbox.com
+     login mapbox
+     password PRIVATE_MAPBOX_API_TOKEN
+   ```
+   where _PRIVATE_MAPBOX_API_TOKEN_ is your Mapbox API token with the `DOWNLOADS:READ` scope.
+
 ### Swift Package Manager
 
 Add the MapboxSearch dependency to your Package.swift or use the Xcode > Project settings > Package Dependencies tab.
@@ -74,22 +89,13 @@ dependencies: [
 
 ### Cocoapods
 
-1. Set up .netrc file for sdk registry access
-    1. Create .netrc file in user home directory (`$HOME/.netrc`, e.g. `/Users/victorprivalov/.netrc`)
-    2. File content:
-    ```
-    machine api.mapbox.com
-    login mapbox
-    password sk.ey_Your_Access_Token_With_Read_permission
-    ```
-
-##### MapboxSearch
+#### MapboxSearch
 To integrate latest pre-release version of `MapboxSearch` into your Xcode project using CocoaPods, specify it in your `Podfile`:
 ```
 pod 'MapboxSearch', ">= 2.14.0-alpha.2", "< 3.0"
 ```
 
-##### MapboxSearchUI
+#### MapboxSearchUI
 To integrate latest pre-release version of `MapboxSearchUI` into your Xcode project using CocoaPods, specify it in your `Podfile`:
 ```
 pod 'MapboxSearchUI', ">= 2.14.0-alpha.2", "< 3.0"
@@ -97,16 +103,7 @@ pod 'MapboxSearchUI', ">= 2.14.0-alpha.2", "< 3.0"
 
 ### Carthage
 
-1. Set up .netrc file for sdk registry access
-    1. Create .netrc file in user home directory (`$HOME/.netrc`, e.g. `/Users/victorprivalov/.netrc`)
-    2. File content:
-    ```
-    machine api.mapbox.com
-    login mapbox
-    password sk.ey_Your_Access_Token_With_Read_permission
-    ```
-
-2. Follow the [Carthage Quick Start](https://github.com/Carthage/Carthage?tab=readme-ov-file#quick-start) and specificy the MapboxSearch dependency in your `Cartfile`:
+1. Follow the [Carthage Quick Start](https://github.com/Carthage/Carthage?tab=readme-ov-file#quick-start) and specificy the MapboxSearch dependency in your `Cartfile`:
 
 ```
 github "Mapbox/mapbox-search-ios" ~> 2.14.0-alpha.2
