@@ -6,8 +6,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
-- [Core] Added an optional property `SearchResult.boundingBox` which represents the geographical boundaries of a location.
-- [PlaceAutocomplete] Added new properties `PlaceAutocomplete.Suggestion.categoryIds`, `PlaceAutocomplete.Result.categoryIds`, and `PlaceAutocomplete.Result.boundingBox`.
+- [SearchUI] Fix alert presentation on iPad.
 
 ## 2.14.0-alpha.2
 
@@ -21,6 +20,25 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 **MapboxCommon**: v24.14.0-alpha.1
 **MapboxCoreSearch**: v2.14.0-alpha.1
+
+# 2.13.2
+
+- [Core] Added an optional property `SearchResult.boundingBox` which represents the geographical boundaries of a location.
+- [PlaceAutocomplete] Added new properties `PlaceAutocomplete.Suggestion.categoryIds`, `PlaceAutocomplete.Result.categoryIds`, and `PlaceAutocomplete.Result.boundingBox`.
+
+## 2.13.1
+
+- [Core] Update dependencies.
+
+**MapboxCommon**: v24.13.1
+**MapboxCoreSearch**: v2.13.1
+
+## 2.13.0
+
+- [Core] Update dependencies.
+
+**MapboxCommon**: v24.13.0
+**MapboxCoreSearch**: v2.13.0
 
 ## 2.13.0-rc.1
 
