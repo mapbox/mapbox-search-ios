@@ -7,6 +7,7 @@ Guide: https://keepachangelog.com/en/1.0.0/
 ## Unreleased
 
 - [SearchUI] Fix alert presentation on iPad.
+- [Core] Use `SearchResponseInfo` for feedback reporting for reverse geocoding and geocoding.
 
 ## 2.14.0-alpha.2
 
