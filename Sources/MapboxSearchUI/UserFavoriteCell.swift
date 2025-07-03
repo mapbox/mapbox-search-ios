@@ -128,6 +128,10 @@ class UserFavoriteCell: UITableViewCell {
             assertionFailure("Unexpected controller missing")
             return
         }
+        if let popoverController = actionSheetController.popoverPresentationController {
+            popoverController.sourceView = moreButton
+            popoverController.sourceRect = moreButton.bounds
+        }
         controller.present(actionSheetController, animated: true, completion: nil)
     }
 
