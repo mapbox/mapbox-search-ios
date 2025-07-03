@@ -4,7 +4,11 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
-## 2.13.2
+## 2.13.3
+
+- [SearchUI] Fix alert presentation on iPad.
+
+# 2.13.2
 
 - [Core] Added an optional property `SearchResult.boundingBox` which represents the geographical boundaries of a location.
 - [PlaceAutocomplete] Added new properties `PlaceAutocomplete.Suggestion.categoryIds`, `PlaceAutocomplete.Result.categoryIds`, and `PlaceAutocomplete.Result.boundingBox`.
