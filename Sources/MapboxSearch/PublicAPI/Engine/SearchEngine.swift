@@ -543,11 +543,9 @@ extension SearchEngine {
 
             switch response.result {
             case .success(let results):
-                completion(
-                    .success(
-                        results.compactMap { ServerSearchResult(coreResult: $0, response: response) }
-                    )
-                )
+                responseInfo = SearchResponseInfo(response: response, suggestion: nil)
+                let mappedResults = results.compactMap { ServerSearchResult(coreResult: $0, response: response) }
+                completion(.success(mappedResults))
 
             case .failure(let responseError):
                 let wrappedError = SearchError.reverseGeocodingFailed(
@@ -595,11 +593,9 @@ extension SearchEngine {
 
             switch response.result {
             case .success(let results):
-                completion(
-                    .success(
-                        results.compactMap { ServerSearchResult(coreResult: $0, response: response) }
-                    )
-                )
+                responseInfo = SearchResponseInfo(response: response, suggestion: nil)
+                let mappedResults = results.compactMap { ServerSearchResult(coreResult: $0, response: response) }
+                completion(.success(mappedResults))
 
             case .failure(let responseError):
                 let wrappedError = SearchError.searchRequestFailed(reason: responseError)
