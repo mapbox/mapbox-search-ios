@@ -10,7 +10,6 @@ Guide: https://keepachangelog.com/en/1.0.0/
 **MapboxCommon**: v24.14.0-beta.1
 **MapboxCoreSearch**: v2.14.0-beta.1
 
-- [SearchUI] Fix alert presentation on iPad.
 - [Core] Use `SearchResponseInfo` for feedback reporting for reverse geocoding and geocoding.
 
 ## 2.14.0-alpha.2
@@ -26,7 +25,11 @@ Guide: https://keepachangelog.com/en/1.0.0/
 **MapboxCommon**: v24.14.0-alpha.1
 **MapboxCoreSearch**: v2.14.0-alpha.1
 
-# 2.13.2
+## 2.13.3
+
+- [SearchUI] Fix alert presentation on iPad.
+
+## 2.13.2
 
 - [Core] Added an optional property `SearchResult.boundingBox` which represents the geographical boundaries of a location.
 - [PlaceAutocomplete] Added new properties `PlaceAutocomplete.Suggestion.categoryIds`, `PlaceAutocomplete.Result.categoryIds`, and `PlaceAutocomplete.Result.boundingBox`.
@@ -970,10 +973,10 @@ Use `PlaceAutocomplete.select(PlaceAutocomplete.Suggestion)` instead. Note that 
 
 ### Fixed
 
-- Unit tests only issue related to DataLayerProvides
-- MapboxPanelController shadow fix
-- Possible fix for crash in 1tap
-- Fix for keyboard issue on result selection
+- Unit tests only issue related to DataLayerProvides  
+- MapboxPanelController shadow fix  
+- Possible fix for crash in 1tap  
+- Fix for keyboard issue on result selection  
 
 ## [1.0.0-beta.2] - 2020-10-06
 
