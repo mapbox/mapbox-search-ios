@@ -69,7 +69,8 @@ extension CoreResultMetadata {
             facilities: nil,
             timezone: nil,
             lastUpdated: nil,
-            cuisines: nil
+            cuisines: nil,
+            parkingInfo: nil
         )
     }
 }
