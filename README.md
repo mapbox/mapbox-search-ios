@@ -69,7 +69,7 @@ You can install MapboxSearch and/or MapboxSearchUI packages with Swift Package M
 
 To download the SDK you will need to configure a [private token](https://docs.mapbox.com/help/dive-deeper/access-tokens/#secret-tokens). This token is required for every supported distribution system.
 
-1. Go to your [Mapbox account dashboard](https://account.mapbox.com/) and create an access token that has the `DOWNLOADS:READ` scope. **PLEASE NOTE: This is not the same as your production Mapbox API token. Make sure to keep it private and do not insert it into any Info.plist file.** 
+1. Go to your [Mapbox account dashboard](https://account.mapbox.com/) and create an access token that has the `DOWNLOADS:READ` scope. **PLEASE NOTE: This is not the same as your production Mapbox API token. Make sure to keep it private and do not insert it into any Info.plist file.**
 1. Create a file named `.netrc` in your home directory (`$HOME/.netrc`, e.g. `/Users/username/.netrc`) if it doesn’t already exist, then add the following lines to the end of the file:
    ```
    machine api.mapbox.com
@@ -92,13 +92,13 @@ dependencies: [
 #### MapboxSearch
 To integrate latest pre-release version of `MapboxSearch` into your Xcode project using CocoaPods, specify it in your `Podfile`:
 ```
-pod 'MapboxSearch', ">= 2.14.0-alpha.2", "< 3.0"
+pod 'MapboxSearch', ">= 2.14.0-beta.1", "< 3.0"
 ```
 
 #### MapboxSearchUI
 To integrate latest pre-release version of `MapboxSearchUI` into your Xcode project using CocoaPods, specify it in your `Podfile`:
 ```
-pod 'MapboxSearchUI', ">= 2.14.0-alpha.2", "< 3.0"
+pod 'MapboxSearchUI', ">= 2.14.0-beta.1", "< 3.0"
 ```
 
 ### Carthage
@@ -106,7 +106,7 @@ pod 'MapboxSearchUI', ">= 2.14.0-alpha.2", "< 3.0"
 1. Follow the [Carthage Quick Start](https://github.com/Carthage/Carthage?tab=readme-ov-file#quick-start) and specificy the MapboxSearch dependency in your `Cartfile`:
 
 ```
-github "Mapbox/mapbox-search-ios" ~> 2.14.0-alpha.2
+github "Mapbox/mapbox-search-ios" ~> 2.14.0-beta.1
 ```
 
 ## Contributing
