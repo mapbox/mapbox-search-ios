@@ -1,0 +1,34 @@
+public enum SearchResultParkingPaymentType {
+    case unknown
+    case coins
+    case notes
+    case contactless
+    case cards
+    case mobile
+    case cardsVisa
+    case cardsMastercard
+    case cardsAmex
+    case cardsMaestro
+    case eftpos
+    case cardsDiners
+    case cardsGeldkarte
+    case cardsDiscover
+    case cheque
+    case cardsEcash
+    case cardsJcb
+    case cardsOperatorcard
+    case cardsSmartcard
+    case cardsTelepeage
+    case cardsTotalgr
+    case cardsMoneo
+    case cardsFlashpay
+    case cardsCashcard
+    case cardsVcashcard
+    case cardsCepas
+    case cardsOctopus
+    case alipay
+    case wechatpay
+    case cardsEasycard
+    case cardsCartebleue
+    case cardsTouchngo
+}
