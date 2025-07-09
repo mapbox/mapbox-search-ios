@@ -182,6 +182,19 @@
 		2CE91AB12D7603A5001EBD6E /* TilesetParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE91AB02D7603A4001EBD6E /* TilesetParameters.swift */; };
 		2CE91AB42D7609E8001EBD6E /* TilesetParametersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE91AB32D7609E8001EBD6E /* TilesetParametersTests.swift */; };
 		3A0D7E56233522D5006D81BB /* MapboxSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */; };
+		C9A971FB2E17DB65006C6228 /* SearchResultParkingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A971FA2E17DB58006C6228 /* SearchResultParkingInfo.swift */; };
+		C9A971FD2E17DBA4006C6228 /* SearchResultParkingRateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A971FC2E17DB9C006C6228 /* SearchResultParkingRateInfo.swift */; };
+		C9A971FF2E17DBC6006C6228 /* SearchResultParkingRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A971FE2E17DBBF006C6228 /* SearchResultParkingRate.swift */; };
+		C9A972012E17DBFF006C6228 /* SearchResultParkingRateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A972002E17DBF7006C6228 /* SearchResultParkingRateTime.swift */; };
+		C9A972062E17DC2B006C6228 /* SearchResultParkingRateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A972052E17DC22006C6228 /* SearchResultParkingRateValue.swift */; };
+		C9A972082E17DC54006C6228 /* SearchResultParkingRateCustomValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A972072E17DC4E006C6228 /* SearchResultParkingRateCustomValue.swift */; };
+		C9A9720A2E1BBA8C006C6228 /* SearchResultParkingPaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A972092E1BBA80006C6228 /* SearchResultParkingPaymentType.swift */; };
+		C9A9720C2E1BBB98006C6228 /* SearchResultParkingPaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9720B2E1BBB8B006C6228 /* SearchResultParkingPaymentMethod.swift */; };
+		C9A9720E2E1BBDC1006C6228 /* SearchResultParkingTrend.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9720D2E1BBDBB006C6228 /* SearchResultParkingTrend.swift */; };
+		C9A972102E1BBE2A006C6228 /* SearchResultParkingAvailabilityLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A9720F2E1BBE1E006C6228 /* SearchResultParkingAvailabilityLevel.swift */; };
+		C9A972122E1BBEBF006C6228 /* SearchResultParkingPriceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A972112E1BBEB5006C6228 /* SearchResultParkingPriceType.swift */; };
+		C9D7330D2E1E98A400D7A21D /* SearchResultParkingRatePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A972022E17DC06006C6228 /* SearchResultParkingRatePrice.swift */; };
+		C9D7330F2E1E9B0600D7A21D /* SearchResultParkingRestriction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D7330E2E1E9AF900D7A21D /* SearchResultParkingRestriction.swift */; };
 		DFBC8A6D2AD42F5F00D394EF /* Any+dumpAsString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBC8A6C2AD42F5F00D394EF /* Any+dumpAsString.swift */; };
 		E648C0B626428D2B0044315F /* MapboxCoreSearch.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */; };
 		E648C0C9264297A10044315F /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E648C0C8264297730044315F /* libc++.1.tbd */; };
@@ -695,6 +708,19 @@
 		2CE91AB32D7609E8001EBD6E /* TilesetParametersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TilesetParametersTests.swift; sourceTree = "<group>"; };
 		3A0D7E4C233522D4006D81BB /* MapboxSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0D7E55233522D5006D81BB /* MapboxSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapboxSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9A971FA2E17DB58006C6228 /* SearchResultParkingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultParkingInfo.swift; sourceTree = "<group>"; };
+		C9A971FC2E17DB9C006C6228 /* SearchResultParkingRateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultParkingRateInfo.swift; sourceTree = "<group>"; };
+		C9A971FE2E17DBBF006C6228 /* SearchResultParkingRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultParkingRate.swift; sourceTree = "<group>"; };
+		C9A972002E17DBF7006C6228 /* SearchResultParkingRateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultParkingRateTime.swift; sourceTree = "<group>"; };
+		C9A972022E17DC06006C6228 /* SearchResultParkingRatePrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultParkingRatePrice.swift; sourceTree = "<group>"; };
+		C9A972052E17DC22006C6228 /* SearchResultParkingRateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultParkingRateValue.swift; sourceTree = "<group>"; };
+		C9A972072E17DC4E006C6228 /* SearchResultParkingRateCustomValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultParkingRateCustomValue.swift; sourceTree = "<group>"; };
+		C9A972092E1BBA80006C6228 /* SearchResultParkingPaymentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultParkingPaymentType.swift; sourceTree = "<group>"; };
+		C9A9720B2E1BBB8B006C6228 /* SearchResultParkingPaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultParkingPaymentMethod.swift; sourceTree = "<group>"; };
+		C9A9720D2E1BBDBB006C6228 /* SearchResultParkingTrend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultParkingTrend.swift; sourceTree = "<group>"; };
+		C9A9720F2E1BBE1E006C6228 /* SearchResultParkingAvailabilityLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultParkingAvailabilityLevel.swift; sourceTree = "<group>"; };
+		C9A972112E1BBEB5006C6228 /* SearchResultParkingPriceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultParkingPriceType.swift; sourceTree = "<group>"; };
+		C9D7330E2E1E9AF900D7A21D /* SearchResultParkingRestriction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultParkingRestriction.swift; sourceTree = "<group>"; };
 		DFBC8A6C2AD42F5F00D394EF /* Any+dumpAsString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Any+dumpAsString.swift"; sourceTree = "<group>"; };
 		E648C0B526428D2B0044315F /* MapboxCoreSearch.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxCoreSearch.xcframework; path = Carthage/Build/MapboxCoreSearch.xcframework; sourceTree = "<group>"; };
 		E648C0B926428D3D0044315F /* MapboxCommon.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:GJZR2MEM28:Mapbox, Inc."; lastKnownFileType = wrapper.xcframework; name = MapboxCommon.xcframework; path = Carthage/Build/MapboxCommon.xcframework; sourceTree = "<group>"; };
@@ -1953,6 +1979,19 @@
 		FEEDD2E42508DFE400DC0A98 /* Search Results */ = {
 			isa = PBXGroup;
 			children = (
+				C9D7330E2E1E9AF900D7A21D /* SearchResultParkingRestriction.swift */,
+				C9A972112E1BBEB5006C6228 /* SearchResultParkingPriceType.swift */,
+				C9A9720F2E1BBE1E006C6228 /* SearchResultParkingAvailabilityLevel.swift */,
+				C9A9720D2E1BBDBB006C6228 /* SearchResultParkingTrend.swift */,
+				C9A9720B2E1BBB8B006C6228 /* SearchResultParkingPaymentMethod.swift */,
+				C9A972092E1BBA80006C6228 /* SearchResultParkingPaymentType.swift */,
+				C9A972072E17DC4E006C6228 /* SearchResultParkingRateCustomValue.swift */,
+				C9A972052E17DC22006C6228 /* SearchResultParkingRateValue.swift */,
+				C9A972022E17DC06006C6228 /* SearchResultParkingRatePrice.swift */,
+				C9A972002E17DBF7006C6228 /* SearchResultParkingRateTime.swift */,
+				C9A971FE2E17DBBF006C6228 /* SearchResultParkingRate.swift */,
+				C9A971FC2E17DB9C006C6228 /* SearchResultParkingRateInfo.swift */,
+				C9A971FA2E17DB58006C6228 /* SearchResultParkingInfo.swift */,
 				FEEDD2C22508DFE400DC0A98 /* ExternalRecordPlaceholder.swift */,
 				FEEDD2E92508DFE400DC0A98 /* SearchCategorySuggestion.swift */,
 				FE059C59251A0AE6001F7701 /* SearchCategorySuggestionImpl.swift */,
@@ -2671,7 +2710,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "scripts/generate_sdk_version_swift.sh\n";
+			shellScript = "#scripts/generate_sdk_version_swift.sh\n";
 		};
 		FEEDD3D42508E5E600DC0A98 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2709,6 +2748,7 @@
 				FEEDD3092508DFE400DC0A98 /* CodablePersistentService.swift in Sources */,
 				FEEDD3192508DFE400DC0A98 /* IndexableDataProvider.swift in Sources */,
 				04C0848D2B4C82F3002F9C69 /* SdkInformation.swift in Sources */,
+				C9A9720C2E1BBB98006C6228 /* SearchResultParkingPaymentMethod.swift in Sources */,
 				14173C302878437D00B20E1C /* Country+ISO3166-1.swift in Sources */,
 				FEEDD3162508DFE400DC0A98 /* SearchCategorySuggestion.swift in Sources */,
 				FEEDD31D2508DFE400DC0A98 /* HighlightsCalculator.swift in Sources */,
@@ -2734,17 +2774,24 @@
 				F914EE642743E4F400D4F173 /* CoreAliases.swift in Sources */,
 				F998AED825D17DFF00230F34 /* SearchResponseInfo.swift in Sources */,
 				FEEDD3082508DFE400DC0A98 /* HistoryRecord.swift in Sources */,
+				C9A972012E17DBFF006C6228 /* SearchResultParkingRateTime.swift in Sources */,
 				04A26C652C7535BD00443527 /* DetailsOptions.swift in Sources */,
 				FEEDD3032508DFE400DC0A98 /* SearchRequestOptions.swift in Sources */,
 				FEEDD2F82508DFE400DC0A98 /* RecordsProviderInteractorNativeCore.swift in Sources */,
 				F97E9A84268C7BBE00F6353D /* DefaultStringInterpolation+Extensions.swift in Sources */,
 				14FA657F295355BC00056E5B /* AdministrativeUnits.swift in Sources */,
+				C9A972082E17DC54006C6228 /* SearchResultParkingRateCustomValue.swift in Sources */,
 				2C88C6532D0C62ED00F46FBF /* EventsServiceProtocol.swift in Sources */,
 				F9274FF227394AE600708F37 /* TileRegionError.swift in Sources */,
+				C9A971FB2E17DB65006C6228 /* SearchResultParkingInfo.swift in Sources */,
 				FE1064F525B9A1C9007837BC /* NavigationOptions.swift in Sources */,
+				C9A9720A2E1BBA8C006C6228 /* SearchResultParkingPaymentType.swift in Sources */,
 				148DE668285755500085684D /* AddressAutofill+Suggestion.swift in Sources */,
 				F9274FEF27393A7E00708F37 /* SearchCancelable.swift in Sources */,
+				C9A972122E1BBEBF006C6228 /* SearchResultParkingPriceType.swift in Sources */,
+				C9A972102E1BBE2A006C6228 /* SearchResultParkingAvailabilityLevel.swift in Sources */,
 				FE4D4BCA25CAD6810039F933 /* SearchAddressType.swift in Sources */,
+				C9A9720E2E1BBDC1006C6228 /* SearchResultParkingTrend.swift in Sources */,
 				F9F5D75E256D0393007E32BE /* SearchResponse.swift in Sources */,
 				F931B35225A32CC400AA1674 /* SearchQuerySuggestion.swift in Sources */,
 				F9F88289258227D200062A82 /* CoreImageInfoProtocol.swift in Sources */,
@@ -2753,6 +2800,7 @@
 				FEEDD2FB2508DFE400DC0A98 /* WrapperLocationProvider.swift in Sources */,
 				FE7C73A62566804E0047CA20 /* CoreUserRecordsLayerProtocol.swift in Sources */,
 				04E5FF992B48829200DADC18 /* SearchAddressRegion.swift in Sources */,
+				C9A971FF2E17DBC6006C6228 /* SearchResultParkingRate.swift in Sources */,
 				04E5FF962B48828500DADC18 /* SearchAddressCountry.swift in Sources */,
 				F9274FEB2732BF0E00708F37 /* SearchTileStore.swift in Sources */,
 				148DE66C285757AA0085684D /* AddressAutofill+Result.swift in Sources */,
@@ -2760,6 +2808,7 @@
 				FEEDD3062508DFE400DC0A98 /* SearchEngine.swift in Sources */,
 				F98BECBD2577B93D0081D3BC /* FeedbackEvent.swift in Sources */,
 				FEEDD2F12508DFE400DC0A98 /* ExternalRecordPlaceholder.swift in Sources */,
+				C9D7330D2E1E98A400D7A21D /* SearchResultParkingRatePrice.swift in Sources */,
 				148DE6622857501D0085684D /* Country.swift in Sources */,
 				FEEDD2F72508DFE400DC0A98 /* Logger.swift in Sources */,
 				14FA6590295454F100056E5B /* Image.swift in Sources */,
@@ -2767,6 +2816,7 @@
 				148DE666285750710085684D /* Language.swift in Sources */,
 				140E47AA298BE3A200677E30 /* Discover+Result.swift in Sources */,
 				FE059C61251A0E27001F7701 /* SearchSuggestType.swift in Sources */,
+				C9A972062E17DC2B006C6228 /* SearchResultParkingRateValue.swift in Sources */,
 				FEEDD3112508DFE400DC0A98 /* AbstractSearchEngine.swift in Sources */,
 				148DE68B285A18900085684D /* AddressAutofill+AddressComponent.swift in Sources */,
 				FEEDD3182508DFE400DC0A98 /* CategorySearchEngine.swift in Sources */,
@@ -2803,6 +2853,7 @@
 				04C127552B62F6BC00884325 /* ApiType.swift in Sources */,
 				FE059C5A251A0AE6001F7701 /* SearchCategorySuggestionImpl.swift in Sources */,
 				2CE91AB12D7603A5001EBD6E /* TilesetParameters.swift in Sources */,
+				C9D7330F2E1E9B0600D7A21D /* SearchResultParkingRestriction.swift in Sources */,
 				FEEDD2F62508DFE400DC0A98 /* CoreSearchResultResponse.swift in Sources */,
 				0484BCDF2BC4865C003CF408 /* OfflineIndexObserver.swift in Sources */,
 				FE260A6725C063880037B725 /* ReverseGeocodingOptions.swift in Sources */,
@@ -2810,6 +2861,7 @@
 				049FE3A82C6A50BB00F54FB2 /* RetrieveOptions.swift in Sources */,
 				04764E682C5AB93E0040A7FE /* AttributeSet.swift in Sources */,
 				FEEDD2F32508DFE400DC0A98 /* CoreBoundingBox.swift in Sources */,
+				C9A971FD2E17DBA4006C6228 /* SearchResultParkingRateInfo.swift in Sources */,
 				148DE66A285756C20085684D /* NonEmptyArray.swift in Sources */,
 				F97FA24025C95ACD0085A311 /* EventAppMetadata.swift in Sources */,
 				FEEDD31A2508DFE400DC0A98 /* FavoriteRecord.swift in Sources */,

@@ -42,6 +42,20 @@ typealias CoreOfflineIndexChangeEvent = MapboxCoreSearch.OfflineIndexChangeEvent
 typealias CoreOfflineIndexError = MapboxCoreSearch.OfflineIndexError
 typealias CoreOfflineIndexChangeEventType = MapboxCoreSearch.OfflineIndexChangeEventType
 
+typealias CoreParkingInfo = MapboxCoreSearch.ParkingInfo
+typealias CoreParkingPaymentType = MapboxCoreSearch.ParkingPaymentType
+typealias CoreParkingPaymentMethod = MapboxCoreSearch.ParkingPaymentMethod
+typealias CoreParkingTrend = MapboxCoreSearch.ParkingTrend
+typealias CoreParkingAvailabilityLevel = MapboxCoreSearch.ParkingAvailabilityLevel
+typealias CoreParkingRestriction = MapboxCoreSearch.ParkingRestriction
+typealias CoreParkingPriceType = MapboxCoreSearch.ParkingPriceType
+typealias CoreParkingRateCustomValue = MapboxCoreSearch.ParkingRateCustomValue
+typealias CoreParkingRateValue = MapboxCoreSearch.ParkingRateValue
+typealias CoreParkingRate = MapboxCoreSearch.ParkingRate
+typealias CoreParkingRatePrice = MapboxCoreSearch.ParkingRatePrice
+typealias CoreParkingRateTime = MapboxCoreSearch.ParkingRateTime
+typealias CoreParkingRateInfo = MapboxCoreSearch.ParkingRateInfo
+
 let mapboxCoreSearchErrorDomain = "MapboxCoreSearchErrorDomain"
 
 extension CoreSearchEngine {
