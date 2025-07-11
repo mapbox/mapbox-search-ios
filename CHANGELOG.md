@@ -4,6 +4,14 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
+
+## 2.13.4
+
+- [Core] Update dependencies.
+
+**MapboxCommon**: v24.13.3
+**MapboxCoreSearch**: v2.13.3
+
 ## 2.13.3
 
 - [SearchUI] Fix alert presentation on iPad.
