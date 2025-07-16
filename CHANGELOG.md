@@ -6,6 +6,15 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## Unreleased
 
+## 2.8.2
+
+- [Core] Update dependencies.
+
+**MapboxCommon**: v24.10.2
+**MapboxCoreSearch**: v2.8.2
+
+- Fixed code signing validation issues for multiple .xcframework binaries "The signature of "*.xcframework" cannot be validated and may have been compromised".
+
 ## 2.8.1
 
 - [Core] Update dependencies.
