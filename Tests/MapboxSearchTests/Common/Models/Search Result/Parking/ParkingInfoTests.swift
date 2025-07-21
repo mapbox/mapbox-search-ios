@@ -1,7 +1,7 @@
 @_spi(Experimental) @testable import MapboxSearch
 import XCTest
 
-class ParkingInfoTests: XCTestCase {
+final class ParkingInfoTests: XCTestCase {
     @available(iOS 15.0, *)
     func testCoreToPublicMapping() {
         let coreParkingInfo = CoreParkingInfo(
@@ -10,37 +10,40 @@ class ParkingInfoTests: XCTestCase {
                 currencySymbol: "$",
                 currencyCode: "USD",
                 rates: [
-                    .init(maxStay: "PT6M",
-                          times: [
-                            .init(days: [0],
-                                  fromHour: 6,
-                                  fromMinute: 0,
-                                  toHour: 20,
-                                  toMinute: 0
-                                 )
-                          ],
-                          prices: [
+                    .init(
+                        maxStay: "PT6M",
+                        times: [
+                            .init(
+                                days: [0],
+                                fromHour: 6,
+                                fromMinute: 0,
+                                toHour: 20,
+                                toMinute: 0
+                            ),
+                        ],
+                        prices: [
                             .init(
                                 type: 3,
                                 amount: 5,
                                 value: CoreParkingRateValue
                                     .fromParkingRateCustomValue(.evening)
-                            )
-                          ])
-                ]),
+                            ),
+                        ]
+                    ),
+                ]
+            ),
             availability: 5,
             availabilityLevel: 2,
             availabilityAt: Date().ISO8601Format(),
             trend: 2,
-            paymentMethods: [2,3,4,5],
-            paymentTypes: [2,3],
-            restrictions: [4,5]
+            paymentMethods: [2, 3, 4, 5],
+            paymentTypes: [2, 3],
+            restrictions: [4, 5]
         )
         let parkingInfo = coreParkingInfo.parkingInfo
         XCTAssertEqual(coreParkingInfo.capacity?.intValue, parkingInfo.capacity)
         XCTAssertEqual(coreParkingInfo.rateInfo?.currencySymbol, parkingInfo.rateInfo?.currencySymbol)
         XCTAssertEqual(coreParkingInfo.rateInfo?.currencyCode, parkingInfo.rateInfo?.currencyCode)
-
 
         let firstCoreRate = coreParkingInfo.rateInfo!.rates!.first!
         let firstRate = parkingInfo.rateInfo!.rates.first!

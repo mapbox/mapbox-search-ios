@@ -1,3 +1,4 @@
+/// Pricing information for parking rates.
 @_spi(Experimental)
 public struct ParkingRatePrice: Codable, Hashable {
     public let type: ParkingPriceType

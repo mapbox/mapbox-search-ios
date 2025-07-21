@@ -1,12 +1,15 @@
+/// Rate information for parking facilities.
 @_spi(Experimental)
 public struct ParkingRateInfo: Codable, Hashable {
     public let currencySymbol: String?
     public let currencyCode: String?
     public let rates: [ParkingRate]
 
-    public init(currencySymbol: String?,
-         currencyCode: String?,
-         rates: [ParkingRate]) {
+    public init(
+        currencySymbol: String?,
+        currencyCode: String?,
+        rates: [ParkingRate]
+    ) {
         self.currencySymbol = currencySymbol
         self.currencyCode = currencyCode
         self.rates = rates
