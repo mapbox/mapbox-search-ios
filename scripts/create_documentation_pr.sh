@@ -23,5 +23,5 @@ TITLE="Search SDK for iOS: Update documentation @ ${VERSION}"
 BODY="* Release ${VERSION} documentation — Search SDK for iOS"
 
 echo ">>> Creating PR to mapbox/ios-sdk"
-gh pr create --title "${TITLE}" --body "${BODY}" --reviewer don1ck --draft
+gh pr create --title "${TITLE}" --body "${BODY}" --draft
 popd
