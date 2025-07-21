@@ -4,6 +4,15 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
+## 2.2.2
+
+- [Core] Update MapboxCommon and MapboxCoreSearch package dependencies
+
+**MapboxCommon**: v24.5.2
+**MapboxCoreSearch**: v2.2.3 (CocoaPods)
+
+- Fixed the code signing validation issue for MapboxCommon.xcframework binary "The signature of "MapboxCommon.xcframework" cannot be validated and may have been compromised".
+
 ## 2.2.1
 
 - [Core] Update MapboxCommon and MapboxCoreSearch package dependencies
