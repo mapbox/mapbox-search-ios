@@ -1,6 +1,6 @@
 /// Availability level for parking facilities.
 @_spi(Experimental)
-public struct ParkingAvailabilityLevel: Codable, Hashable {
+public struct ParkingAvailabilityLevel: Codable, Hashable, Sendable {
     public static let unknown: ParkingAvailabilityLevel = .init(rawValue: 0)
     public static let low: ParkingAvailabilityLevel = .init(rawValue: 1)
     public static let mid: ParkingAvailabilityLevel = .init(rawValue: 2)

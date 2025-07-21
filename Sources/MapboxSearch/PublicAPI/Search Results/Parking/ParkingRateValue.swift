@@ -1,6 +1,6 @@
 /// Value for parking rate pricing - either ISO duration string or custom value.
 @_spi(Experimental)
-public enum ParkingRateValue: Codable, Hashable {
+public enum ParkingRateValue: Codable, Hashable, Sendable {
     case unknown
     case iso8601DurationFormat(String)
     case customValue(ParkingRateCustomValue)

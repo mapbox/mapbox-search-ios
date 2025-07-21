@@ -1,6 +1,6 @@
 /// Parking information for POIs that represent parking facilities (e.g., parking lots, garages, street parking etc.).
 @_spi(Experimental)
-public struct ParkingInfo: Codable, Hashable {
+public struct ParkingInfo: Codable, Hashable, Sendable {
     public let capacity: Int?
     public let rateInfo: ParkingRateInfo?
     public let availability: Int?

@@ -1,6 +1,6 @@
 /// Custom parking rate values.
 @_spi(Experimental)
-public struct ParkingRateCustomValue: Codable, Hashable {
+public struct ParkingRateCustomValue: Codable, Hashable, Sendable {
     /// Unknown value.
     public static let unknown: ParkingRateCustomValue = .init(rawValue: 0)
     /// 6 months Monday to Friday.

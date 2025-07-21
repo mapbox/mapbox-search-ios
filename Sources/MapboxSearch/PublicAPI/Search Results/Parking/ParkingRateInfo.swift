@@ -1,6 +1,6 @@
 /// Rate information for parking facilities.
 @_spi(Experimental)
-public struct ParkingRateInfo: Codable, Hashable {
+public struct ParkingRateInfo: Codable, Hashable, Sendable {
     public let currencySymbol: String?
     public let currencyCode: String?
     public let rates: [ParkingRate]

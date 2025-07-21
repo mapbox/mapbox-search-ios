@@ -1,6 +1,6 @@
 /// Time period for parking rates.
 @_spi(Experimental)
-public struct ParkingRateTime: Codable, Hashable {
+public struct ParkingRateTime: Codable, Hashable, Sendable {
     public typealias WeekDay = Int
 
     public let days: [WeekDay]

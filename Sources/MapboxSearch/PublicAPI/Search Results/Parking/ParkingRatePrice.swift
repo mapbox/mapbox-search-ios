@@ -1,6 +1,6 @@
 /// Pricing information for parking rates.
 @_spi(Experimental)
-public struct ParkingRatePrice: Codable, Hashable {
+public struct ParkingRatePrice: Codable, Hashable, Sendable {
     public let type: ParkingPriceType
     public let amount: Decimal
     public let value: ParkingRateValue
