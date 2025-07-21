@@ -45,7 +45,7 @@ extension CoreParkingInfo {
             trend: trend?.parkingTrend ?? .unknown,
             paymentMethods: paymentMethods?.map(\.parkingPaymentMethod) ?? [],
             paymentTypes: paymentTypes?.map(\.parkingPaymentType) ?? [],
-            restrictions: restrictions?.map(\.parkingResticution) ?? []
+            restrictions: restrictions?.map(\.parkingRestriction) ?? []
         )
     }
 }
