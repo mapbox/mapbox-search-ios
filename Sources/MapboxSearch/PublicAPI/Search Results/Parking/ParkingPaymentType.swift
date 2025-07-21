@@ -1,3 +1,4 @@
+/// Payment types for parking.
 @_spi(Experimental)
 public struct ParkingPaymentType: Codable, Hashable {
     public static let unknown: ParkingPaymentType = .init(rawValue: 0)

@@ -1,3 +1,4 @@
+/// Parking information for POIs that represent parking facilities (e.g., parking lots, garages, street parking etc.).
 @_spi(Experimental)
 public struct ParkingInfo: Codable, Hashable {
     public let capacity: Int?
@@ -10,15 +11,17 @@ public struct ParkingInfo: Codable, Hashable {
     public let paymentTypes: [ParkingPaymentType]
     public let restrictions: [ParkingRestriction]
 
-    public init(capacity: Int?,
-         rateInfo: ParkingRateInfo?,
-         availability: Int?,
-         availabilityLevel: ParkingAvailabilityLevel,
-         availabilityAt: String?,
-         trend: ParkingTrend,
-         paymentMethods: [ParkingPaymentMethod],
-         paymentTypes: [ParkingPaymentType],
-         restrictions: [ParkingRestriction]) {
+    public init(
+        capacity: Int?,
+        rateInfo: ParkingRateInfo?,
+        availability: Int?,
+        availabilityLevel: ParkingAvailabilityLevel,
+        availabilityAt: String?,
+        trend: ParkingTrend,
+        paymentMethods: [ParkingPaymentMethod],
+        paymentTypes: [ParkingPaymentType],
+        restrictions: [ParkingRestriction]
+    ) {
         self.capacity = capacity
         self.rateInfo = rateInfo
         self.availability = availability
