@@ -2,82 +2,68 @@
 import XCTest
 
 final class ParkingInfoTests: XCTestCase {
-    @available(iOS 15.0, *)
     func testCoreToPublicMapping() {
+        let date = "date_string"
+        let coreCoreParkingRateTime1 = CoreParkingRateTime(
+            days: [0, 1],
+            fromHour: 6,
+            fromMinute: 0,
+            toHour: 20,
+            toMinute: 0
+        )
+        let coreCoreParkingRateTime2 = CoreParkingRateTime(
+            days: [2, 3, 4, 5],
+            fromHour: 5,
+            fromMinute: 30,
+            toHour: 21,
+            toMinute: 30
+        )
+        let coreParkingRatePrice = CoreParkingRatePrice(
+            type: 3,
+            amount: 500,
+            value: CoreParkingRateValue.fromParkingRateCustomValue(.evening)
+        )
+        let coreParkingRate = CoreParkingRate(
+            maxStay: "PT6M",
+            times: [coreCoreParkingRateTime1, coreCoreParkingRateTime2],
+            prices: [coreParkingRatePrice]
+        )
+
+        let paymentMethods: [CoreParkingPaymentMethod] = [.payOnFoot, .attendant]
+        let paymentTypes: [CoreParkingPaymentType] = [.cards, .cardsAmex]
+        let paymentRestrictions: [CoreParkingRestriction] = [.bookingOnly, .customers, .monthlyOnly]
         let coreParkingInfo = CoreParkingInfo(
             capacity: 10,
             rateInfo: CoreParkingRateInfo(
                 currencySymbol: "$",
                 currencyCode: "USD",
-                rates: [
-                    .init(
-                        maxStay: "PT6M",
-                        times: [
-                            .init(
-                                days: [0],
-                                fromHour: 6,
-                                fromMinute: 0,
-                                toHour: 20,
-                                toMinute: 0
-                            ),
-                        ],
-                        prices: [
-                            .init(
-                                type: 3,
-                                amount: 5,
-                                value: CoreParkingRateValue
-                                    .fromParkingRateCustomValue(.evening)
-                            ),
-                        ]
-                    ),
-                ]
+                rates: [coreParkingRate]
             ),
             availability: 5,
-            availabilityLevel: 2,
-            availabilityAt: Date().ISO8601Format(),
-            trend: 2,
-            paymentMethods: [2, 3, 4, 5],
-            paymentTypes: [2, 3],
-            restrictions: [4, 5]
-        )
-        let parkingInfo = coreParkingInfo.parkingInfo
-        XCTAssertEqual(coreParkingInfo.capacity?.intValue, parkingInfo.capacity)
-        XCTAssertEqual(coreParkingInfo.rateInfo?.currencySymbol, parkingInfo.rateInfo?.currencySymbol)
-        XCTAssertEqual(coreParkingInfo.rateInfo?.currencyCode, parkingInfo.rateInfo?.currencyCode)
-
-        let firstCoreRate = coreParkingInfo.rateInfo!.rates!.first!
-        let firstRate = parkingInfo.rateInfo!.rates.first!
-
-        XCTAssertEqual(
-            firstCoreRate.maxStay,
-            firstRate.maxStayISO8601
+            availabilityLevel: NSNumber(value: CoreParkingAvailabilityLevel.mid.rawValue),
+            availabilityAt: date,
+            trend: NSNumber(value: CoreParkingTrend.increasing.rawValue),
+            paymentMethods: paymentMethods.map { NSNumber(value: $0.rawValue) },
+            paymentTypes: paymentTypes.map { NSNumber(value: $0.rawValue) },
+            restrictions: paymentRestrictions.map { NSNumber(value: $0.rawValue) }
         )
 
-        XCTAssertEqual(
-            firstCoreRate.times?.first!.days?.first!.intValue,
-            firstRate.times.first!.days.first!
+        let time1 = ParkingRateTime(days: [0, 1], fromHour: 6, fromMinute: 0, toHour: 20, toMinute: 0)
+        let time2 = ParkingRateTime(days: [2, 3, 4, 5], fromHour: 5, fromMinute: 30, toHour: 21, toMinute: 30)
+        let price = ParkingRatePrice(type: .custom, amount: 500, value: .customValue(.evening))
+        let rate = ParkingRate(maxStayISO8601: "PT6M", times: [time1, time2], prices: [price])
+        let expectedParkingInfo = ParkingInfo(
+            capacity: 10,
+            rateInfo: ParkingRateInfo(currencySymbol: "$", currencyCode: "USD", rates: [rate]),
+            availability: 5,
+            availabilityLevel: .mid,
+            availabilityUpdatedAt: date,
+            trend: .increasing,
+            paymentMethods: [.payOnFoot, .attendant],
+            paymentTypes: [.cards, .cardsAmex],
+            restrictions: [.bookingOnly, .customers, .monthlyOnly]
         )
 
-        XCTAssertEqual(
-            firstCoreRate.times?.first!.days?.first!.intValue,
-            firstRate.times.first!.days.first!
-        )
-
-        XCTAssertEqual(
-            firstCoreRate.prices?.first!.type?.intValue,
-            firstRate.prices.first!.type.rawValue
-        )
-
-        XCTAssertEqual(
-            ParkingRateValue.customValue(.earlyBird),
-            parkingInfo.rateInfo?.rates.first!.prices.first!.value
-        )
-
-        XCTAssertEqual(coreParkingInfo.availability?.intValue, parkingInfo.availability)
-        XCTAssertEqual(coreParkingInfo.availabilityLevel?.intValue, parkingInfo.availabilityLevel.rawValue)
-        XCTAssertEqual(coreParkingInfo.trend?.intValue, parkingInfo.trend.rawValue)
-        XCTAssertEqual(coreParkingInfo.paymentMethods?.last!.intValue, parkingInfo.paymentMethods.last!.rawValue)
-        XCTAssertEqual(coreParkingInfo.paymentTypes?.last!.intValue, parkingInfo.paymentTypes.last!.rawValue)
-        XCTAssertEqual(coreParkingInfo.restrictions?.last!.intValue, parkingInfo.restrictions.last!.rawValue)
+        XCTAssertEqual(coreParkingInfo.parkingInfo, expectedParkingInfo)
     }
 }

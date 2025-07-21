@@ -1,3 +1,4 @@
+/// Represents the restriction to the parking spot for different purposes.
 @_spi(Experimental)
 public struct ParkingRestriction: Codable, Hashable, Sendable {
     /// Unknown or unspecified parking restriction.
@@ -35,7 +36,7 @@ public struct ParkingRestriction: Codable, Hashable, Sendable {
     /// Parking disk required for time-limited parking.
     public static let parkingDisk: ParkingRestriction = .init(rawValue: 16)
 
-    var rawValue: Int
+    let rawValue: Int
 
     public init(rawValue: Int) {
         self.rawValue = rawValue
@@ -43,7 +44,7 @@ public struct ParkingRestriction: Codable, Hashable, Sendable {
 }
 
 extension NSNumber {
-    var parkingResticution: ParkingRestriction {
+    var parkingRestriction: ParkingRestriction {
         ParkingRestriction(rawValue: intValue)
     }
 }
