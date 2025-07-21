@@ -5,7 +5,7 @@ public struct ParkingInfo: Codable, Hashable, Sendable {
     public let rateInfo: ParkingRateInfo?
     public let availability: Int?
     public let availabilityLevel: ParkingAvailabilityLevel
-    public let availabilityAt: String?
+    public let availabilityUpdatedAt: String?
     public let trend: ParkingTrend
     public let paymentMethods: [ParkingPaymentMethod]
     public let paymentTypes: [ParkingPaymentType]
@@ -16,7 +16,7 @@ public struct ParkingInfo: Codable, Hashable, Sendable {
         rateInfo: ParkingRateInfo?,
         availability: Int?,
         availabilityLevel: ParkingAvailabilityLevel,
-        availabilityAt: String?,
+        availabilityUpdatedAt: String?,
         trend: ParkingTrend,
         paymentMethods: [ParkingPaymentMethod],
         paymentTypes: [ParkingPaymentType],
@@ -26,7 +26,7 @@ public struct ParkingInfo: Codable, Hashable, Sendable {
         self.rateInfo = rateInfo
         self.availability = availability
         self.availabilityLevel = availabilityLevel
-        self.availabilityAt = availabilityAt
+        self.availabilityUpdatedAt = availabilityUpdatedAt
         self.trend = trend
         self.paymentMethods = paymentMethods
         self.paymentTypes = paymentTypes
@@ -41,7 +41,7 @@ extension CoreParkingInfo {
             rateInfo: rateInfo?.parkingRateInfo,
             availability: availability?.intValue,
             availabilityLevel: availabilityLevel?.parkingAvailabilityLevel ?? .unknown,
-            availabilityAt: availabilityAt,
+            availabilityUpdatedAt: availabilityAt,
             trend: trend?.parkingTrend ?? .unknown,
             paymentMethods: paymentMethods?.map(\.parkingPaymentMethod) ?? [],
             paymentTypes: paymentTypes?.map(\.parkingPaymentType) ?? [],
