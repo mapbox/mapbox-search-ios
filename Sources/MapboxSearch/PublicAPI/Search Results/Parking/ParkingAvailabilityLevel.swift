@@ -5,7 +5,7 @@ public struct ParkingAvailabilityLevel: Codable, Hashable {
     public static let mid: ParkingAvailabilityLevel = .init(rawValue: 2)
     public static let high: ParkingAvailabilityLevel = .init(rawValue: 3)
 
-    var rawValue: Int
+    let rawValue: Int
 
     public init(rawValue: Int) {
         self.rawValue = rawValue

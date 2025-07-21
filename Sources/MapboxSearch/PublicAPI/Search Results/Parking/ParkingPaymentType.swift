@@ -33,7 +33,7 @@ public struct ParkingPaymentType: Codable, Hashable {
     public static let cardsCartebleue: ParkingPaymentType = .init(rawValue: 30)
     public static let cardsTouchngo: ParkingPaymentType = .init(rawValue: 31)
 
-    var rawValue: Int
+    let rawValue: Int
 
     public init(rawValue: Int) {
         self.rawValue = rawValue

@@ -39,7 +39,7 @@ public struct ParkingRateCustomValue: Codable, Hashable {
     /** Yearly rate Monday to Friday. */
     public static let yearMonFri: ParkingRateCustomValue = .init(rawValue: 18)
 
-    var rawValue: Int
+    let rawValue: Int
 
     public init(rawValue: Int) {
         self.rawValue = rawValue

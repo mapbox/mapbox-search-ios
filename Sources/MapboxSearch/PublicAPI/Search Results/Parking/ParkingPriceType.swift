@@ -5,7 +5,7 @@ public struct ParkingPriceType: Codable, Hashable {
     public static let durationAdditional: ParkingPriceType = .init(rawValue: 2)
     public static let custom: ParkingPriceType = .init(rawValue: 3)
 
-    var rawValue: Int
+    let rawValue: Int
 
     public init(rawValue: Int) {
         self.rawValue = rawValue
