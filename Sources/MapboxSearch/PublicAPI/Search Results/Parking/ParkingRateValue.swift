@@ -1,19 +1,18 @@
 /// Value for parking rate pricing - either ISO duration string or custom value.
 @_spi(Experimental)
 public enum ParkingRateValue: Codable, Hashable, Sendable {
-    case unknown
     case iso8601DurationFormat(String)
     case customValue(ParkingRateCustomValue)
 }
 
 extension CoreParkingRateValue {
-    var parkingRateValue: ParkingRateValue {
+    var parkingRateValue: ParkingRateValue? {
         if isNSString() {
             return .iso8601DurationFormat(getNSString())
-        } else if isParkingRateCustomValue() {
-            return .customValue(getParkingRateCustomValue().parkingRateCustomValue)
-        } else {
-            return .unknown
         }
+        if isParkingRateCustomValue() {
+            return .customValue(getParkingRateCustomValue().parkingRateCustomValue)
+        }
+        return nil
     }
 }
