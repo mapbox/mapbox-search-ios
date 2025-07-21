@@ -299,7 +299,7 @@ commands:
       - run:
           name: Force update Homebrew
           command: cd "$(brew --repository)" && git fetch && git reset --hard origin/master
-      - run: brew update-reset
+      # - run: brew update-reset
       - run: brew upgrade carthage
 
   parse-release-version:
