@@ -19,7 +19,7 @@ final class ParkingInfoTests: XCTestCase {
             toMinute: 30
         )
         let coreParkingRatePrice = CoreParkingRatePrice(
-            type: 3,
+            type: NSNumber(value: CoreParkingPriceType.custom.rawValue),
             amount: 500,
             value: CoreParkingRateValue.fromParkingRateCustomValue(.evening)
         )
