@@ -1,6 +1,6 @@
 /// Type of parking pricing.
 @_spi(Experimental)
-public struct ParkingPriceType: Codable, Hashable {
+public struct ParkingPriceType: Codable, Hashable, Sendable {
     public static let unknown: ParkingPriceType = .init(rawValue: 0)
     public static let duration: ParkingPriceType = .init(rawValue: 1)
     public static let durationAdditional: ParkingPriceType = .init(rawValue: 2)

@@ -1,6 +1,6 @@
 /// Payment methods for parking.
 @_spi(Experimental)
-public struct ParkingPaymentMethod: Codable, Hashable {
+public struct ParkingPaymentMethod: Codable, Hashable, Sendable {
     public static let unknown: ParkingPaymentMethod = .init(rawValue: 0)
     public static let payOnFoot: ParkingPaymentMethod = .init(rawValue: 1)
     public static let payAndDisplay: ParkingPaymentMethod = .init(rawValue: 2)

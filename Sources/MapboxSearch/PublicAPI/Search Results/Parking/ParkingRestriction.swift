@@ -1,5 +1,5 @@
 @_spi(Experimental)
-public struct ParkingRestriction: Codable, Hashable {
+public struct ParkingRestriction: Codable, Hashable, Sendable {
     /// Unknown or unspecified parking restriction.
     public static let unknown: ParkingRestriction = .init(rawValue: 0)
     /// Parking restricted to electric vehicles only.

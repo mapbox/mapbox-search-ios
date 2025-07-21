@@ -1,6 +1,6 @@
 /// Individual parking rate structure.
 @_spi(Experimental)
-public struct ParkingRate: Codable, Hashable {
+public struct ParkingRate: Codable, Hashable, Sendable {
     public let maxStayISO8601: String?
     public let times: [ParkingRateTime]
     public let prices: [ParkingRatePrice]
