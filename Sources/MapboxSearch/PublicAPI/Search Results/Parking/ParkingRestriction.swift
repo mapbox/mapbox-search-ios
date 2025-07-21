@@ -35,7 +35,7 @@ public struct ParkingRestriction: Codable, Hashable {
     /** Parking disk required for time-limited parking. */
     public static let parkingDisk: ParkingRestriction = .init(rawValue: 16)
 
-    var rawValue: Int
+    let rawValue: Int
 
     public init(rawValue: Int) {
         self.rawValue = rawValue

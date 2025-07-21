@@ -15,7 +15,7 @@ public struct ParkingPaymentMethod: Codable, Hashable {
     public static let payByCoupon: ParkingPaymentMethod = .init(rawValue: 12)
     public static let electronicParkingSystem: ParkingPaymentMethod = .init(rawValue: 13)
 
-    var rawValue: Int
+    let rawValue: Int
 
     public init(rawValue: Int) {
         self.rawValue = rawValue
