@@ -41,4 +41,4 @@ TITLE="Update config for Search Core SDK @ ${VERSION}"
 BODY="* Release new ${VERSION} of Search Core SDK"
 
 echo ">>> Creating PR to mapbox/api-downloads"
-gh pr create --title "${TITLE}" --body "${BODY}" --reviewer don1ck --draft
+gh pr create --title "${TITLE}" --body "${BODY}" --draft
