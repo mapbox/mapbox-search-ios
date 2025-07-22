@@ -71,6 +71,7 @@ class CoreSearchResultMetadataStub: CoreResultMetadataProtocol {
     var website: String?
     var openHours: CoreOpenHours?
     var children: [CoreResultChildMetadata]?
+    var parkingInfo: CoreParkingInfo?
 
     static let sample1 = CoreSearchResultMetadataStub(
         data: [

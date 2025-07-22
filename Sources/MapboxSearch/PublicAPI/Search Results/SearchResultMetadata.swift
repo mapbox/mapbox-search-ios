@@ -116,6 +116,10 @@ public struct SearchResultMetadata: Codable, Hashable {
     /// Detailed description
     public var detailedDescription: String?
 
+    /// Parking information for POIs that represent parking facilities (e.g., parking lots, garages, street parking, etc.).
+    @_spi(Experimental)
+    public var parkingInfo: ParkingInfo?
+
     init(metadata: CoreResultMetadataProtocol) {
         self.data = metadata.data
         self.phone = metadata.phone
@@ -162,6 +166,7 @@ public struct SearchResultMetadata: Codable, Hashable {
         self.email = metadata.email
         self.instagram = metadata.instagram
         self.twitter = metadata.twitter
+        self.parkingInfo = metadata.parkingInfo?.parkingInfo
     }
 
     public init(
