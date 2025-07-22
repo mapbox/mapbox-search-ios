@@ -92,13 +92,13 @@ dependencies: [
 #### MapboxSearch
 To integrate latest pre-release version of `MapboxSearch` into your Xcode project using CocoaPods, specify it in your `Podfile`:
 ```
-pod 'MapboxSearch', ">= 2.14.0-beta.1", "< 3.0"
+pod 'MapboxSearch', ">= 2.14.0-rc.1", "< 3.0"
 ```
 
 #### MapboxSearchUI
 To integrate latest pre-release version of `MapboxSearchUI` into your Xcode project using CocoaPods, specify it in your `Podfile`:
 ```
-pod 'MapboxSearchUI', ">= 2.14.0-beta.1", "< 3.0"
+pod 'MapboxSearchUI', ">= 2.14.0-rc.1", "< 3.0"
 ```
 
 ### Carthage
@@ -106,7 +106,7 @@ pod 'MapboxSearchUI', ">= 2.14.0-beta.1", "< 3.0"
 1. Follow the [Carthage Quick Start](https://github.com/Carthage/Carthage?tab=readme-ov-file#quick-start) and specificy the MapboxSearch dependency in your `Cartfile`:
 
 ```
-github "Mapbox/mapbox-search-ios" ~> 2.14.0-beta.1
+github "Mapbox/mapbox-search-ios" ~> 2.14.0-rc.1
 ```
 
 ## Contributing
