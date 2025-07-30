@@ -10,7 +10,7 @@ public struct ParkingRatePrice: Codable, Hashable, Sendable {
     /// Value associated with the price - either ISO duration string or custom value.
     public let value: ParkingRateValue?
 
-    public init(type: ParkingPriceType?, amount: Decimal, value: ParkingRateValue?) {
+    public init(type: ParkingPriceType?, amount: Decimal?, value: ParkingRateValue?) {
         self.type = type
         self.amount = amount
         self.value = value
