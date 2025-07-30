@@ -5,7 +5,7 @@ public struct ParkingRatePrice: Codable, Hashable, Sendable {
     public let type: ParkingPriceType?
 
     /// Amount to pay.
-    public let amount: Decimal
+    public let amount: Decimal?
 
     /// Value associated with the price - either ISO duration string or custom value.
     public let value: ParkingRateValue?
@@ -21,7 +21,7 @@ extension CoreParkingRatePrice {
     var parkingRatePrice: ParkingRatePrice {
         ParkingRatePrice(
             type: type?.parkingPriceType,
-            amount: amount?.decimalValue ?? 0,
+            amount: amount?.decimalValue,
             value: value?.parkingRateValue
         )
     }
