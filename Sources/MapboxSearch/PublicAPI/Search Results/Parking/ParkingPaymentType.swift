@@ -36,7 +36,7 @@ public struct ParkingPaymentType: Codable, Hashable, Sendable {
 
     let rawValue: Int
 
-    public init(rawValue: Int) {
+    init(rawValue: Int) {
         self.rawValue = rawValue
     }
 }
