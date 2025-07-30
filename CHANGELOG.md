@@ -10,6 +10,9 @@ Guide: https://keepachangelog.com/en/1.0.0/
 **MapboxCommon**: v24.14.0
 **MapboxCoreSearch**: v2.14.0
 
+- [Core] Populate `descrAddress` for places without a full address.
+- [Core] Support secondary address in autofill.
+
 ## 2.14.0-rc.1
 
 - [Core] Update dependencies.
