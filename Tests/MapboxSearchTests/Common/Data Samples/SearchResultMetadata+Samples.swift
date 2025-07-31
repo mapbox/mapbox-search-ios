@@ -70,7 +70,7 @@ extension CoreResultMetadata {
             timezone: nil,
             lastUpdated: nil,
             cuisines: nil,
-            parkingInfo: nil // TODO: NAVIOS-2277
+            parkingInfo: nil // TODO: Parking metadata for parking locations
         )
     }
 }
