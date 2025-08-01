@@ -113,6 +113,9 @@ protocol CoreResultMetadataProtocol {
 
     /** The Twitter handle associated with the location. */
     var twitter: String? { get }
+
+    /** Parking information for POIs that represent parking facilities (e.g., parking lots, garages, street parking, etc.). */
+    var parkingInfo: CoreParkingInfo? { get }
 }
 
 extension CoreResultMetadata: CoreResultMetadataProtocol {
