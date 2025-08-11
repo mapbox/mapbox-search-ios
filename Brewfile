@@ -1,5 +1,4 @@
 brew "swiftlint"
 brew "swiftformat"
-brew "carthage"
 brew "xcodegen"
 brew "sqlite3"

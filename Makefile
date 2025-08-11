@@ -1,6 +1,4 @@
 CURRENT_DIR := $(shell pwd)
-CARTHAGE_MIN_VERSION = 0.38.0
-CARTHAGE_BUILD_DIR := $(CURRENT_DIR)/Carthage/Build
 PRODUCTS_DIR := $(CURRENT_DIR)/Products
 VERSION ?= $(shell git describe --tags $(shell git rev-list --tags='v*' --max-count=1) --abbrev=0)
 VERSION_STRIPPED ?= $(VERSION:v%=%)
@@ -28,7 +26,7 @@ dependencies-update deps-update: carthage-min-version
 	scripts/generate_sdk_version_swift.sh
 
 offline:
-	aws s3 cp s3://vng-temp/HERE/luxembourg.tgz - | tar -xz -C Sources/Demo/offline/
+	aws s3 cp s3://vng-temp/HERE/luxembourg.tgz - | tar -xz -C Demo/offline/
 
 ci-dev-test: dependencies
 	bundle exec fastlane scan --scheme "Demo" --device "iPhone 15" --result_bundle "true" --testplan "CI-dev" --output_directory "output"
