@@ -18,7 +18,6 @@ excluded:
   - Modules/Firebase
   - vendored
   - fastlane
-  - Carthage
   - vendor
   - scripts
   - Danger
@@ -32,7 +31,7 @@ custom_rules:
     included:
       - ".*\\.swift"
     excluded:
-      - "Sources/Demo"
+      - "Demo"
     name: "Don't use `print`"
     regex: "(^|[^\\w])(print)\\("
     match_kinds:

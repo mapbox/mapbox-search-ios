@@ -61,7 +61,7 @@ You can find more documentation at docs.mapbox.com:
 
 ## Getting Started
 
-You can install MapboxSearch and/or MapboxSearchUI packages with Swift Package Manager, Cocoapods, or Carthage. Swift Package Manage is our preferred distribution system.
+You can install MapboxSearch and/or MapboxSearchUI packages with Swift Package Manager and Cocoapods. Swift Package Manage is our preferred distribution system.
 
 ## Installation
 
@@ -101,14 +101,6 @@ To integrate latest pre-release version of `MapboxSearchUI` into your Xcode proj
 pod 'MapboxSearchUI', ">= 2.15.0-beta.2", "< 3.0"
 ```
 
-### Carthage
-
-1. Follow the [Carthage Quick Start](https://github.com/Carthage/Carthage?tab=readme-ov-file#quick-start) and specificy the MapboxSearch dependency in your `Cartfile`:
-
-```
-github "Mapbox/mapbox-search-ios" ~> 2.15.0-beta.2
-```
-
 ## Contributing
 
 We welcome feedback and code contributions!
@@ -117,9 +109,8 @@ If you found a bug or want to request a feature [open a github issue](https://gi
 
 ### Development
 
-The SDK requires Carthage which you can install using Homebrew.
 1. Check that Homebrew is installed by running `brew -v`. If you don't have Homebrew, [install before proceeding.](https://brew.sh/)
-1. Update Homebrew data to install latest tools versions including Carthage (v0.38 or newer)
+1. Update Homebrew data to install latest tools versions:
     - `brew update && brew bundle install`
 1. Set up .netrc file for sdk registry access
     1. Create .netrc file in user home directory (`$HOME/.netrc`, e.g. `/Users/victorprivalov/.netrc`)

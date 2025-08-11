@@ -41,8 +41,6 @@
       }
     },
     {
-      "skippedTests" : [
-      ],
       "target" : {
         "containerPath" : "container:MapboxSearch.xcodeproj",
         "identifier" : "3A0D7E54233522D4006D81BB",
@@ -52,7 +50,7 @@
     {
       "enabled" : false,
       "skippedTests" : [
-        "BaseTestCase",
+        "BaseTestCase"
       ],
       "target" : {
         "containerPath" : "container:MapboxSearch.xcodeproj",
