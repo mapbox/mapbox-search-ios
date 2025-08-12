@@ -2,7 +2,7 @@ import json
 import subprocess
 
 def cocoapods_version(depName):
-    command = f"grep -o \"{depName}.*\" MapboxSearch.podspec | cut -d \\\" -f3 | grep -o \"\\d.*\""
+    command = f"grep -o \"{depName}.*\" MapboxSearch.podspec | cut -d \"'\" -f2"
     return run_shell(command)
 
 def run_shell(command):
