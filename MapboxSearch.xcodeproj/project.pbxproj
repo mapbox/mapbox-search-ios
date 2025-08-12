@@ -393,6 +393,8 @@
 		2C812B782E4A3AC300A306F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C812B7A2E4A3B9D00A306F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C812B7C2E4A3B9D00A306F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		2C812B832E4A485800A306F0 /* UnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTests.xctestplan; sourceTree = "<group>"; };
+		2C812B842E4A488F00A306F0 /* UITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UITests.xctestplan; sourceTree = "<group>"; };
 		2CA1E22029F09CD200A533CF /* PlaceAutocomplete.Suggestion+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceAutocomplete.Suggestion+Tests.swift"; sourceTree = "<group>"; };
 		2CA1E22229F0A47600A533CF /* PlaceAutocompleteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAutocompleteTests.swift; sourceTree = "<group>"; };
 		2CB2C4B92E2E5CA7006B0A4F /* ParkingPriceTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPriceTypeTests.swift; sourceTree = "<group>"; };
@@ -1120,6 +1122,8 @@
 		FEEDD3842508E22800DC0A98 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				2C812B842E4A488F00A306F0 /* UITests.xctestplan */,
+				2C812B832E4A485800A306F0 /* UnitTests.xctestplan */,
 				F91D2D162617513700F7DFDF /* MockWebServer */,
 				046818D52B87FA2E0082B188 /* MockData */,
 				FEF87CF7254C362200AD97AB /* CI-dev.xctestplan */,
@@ -1328,7 +1332,7 @@
 				042BEB182C2DE30E0004CD7B /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
 				043339CB2C61295D001650FA /* XCRemoteSwiftPackageReference "atlantis" */,
 				2C75CD7E2D7658750024451A /* XCRemoteSwiftPackageReference "mapbox-common-ios" */,
-				2C812B432E4A38AF00A306F0 /* XCLocalSwiftPackageReference "../mapbox-search-ios" */,
+				2C812B432E4A38AF00A306F0 /* XCLocalSwiftPackageReference "." */,
 			);
 			productRefGroup = 3A0D7E4D233522D4006D81BB /* Products */;
 			projectDirPath = "";
