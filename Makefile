@@ -1,6 +1,4 @@
 CURRENT_DIR := $(shell pwd)
-CARTHAGE_MIN_VERSION = 0.38.0
-CARTHAGE_BUILD_DIR := $(CURRENT_DIR)/Carthage/Build
 PRODUCTS_DIR := $(CURRENT_DIR)/Products
 VERSION ?= $(shell git describe --tags $(shell git rev-list --tags='v*' --max-count=1) --abbrev=0)
 VERSION_STRIPPED ?= $(VERSION:v%=%)
@@ -9,26 +7,12 @@ MARKETING_VERSION := $(shell echo "${VERSION}" | perl -nle 'print $$v if ($$v)=/
 build products ios: dependencies
 	$(CURRENT_DIR)/scripts/build.sh
 
-carthage-min-version:
-# Test minimal Carthage version.
-#    1. Build a string "0.39.1\n0.38.0" (one value is actual version, second one – minimal)
-#    2. Sort string with `sort -V` to apply SemVer sorting algo
-#    3. Get the first (minimal) version with `head -n1`
-#    4. Compare minimal version from the list with the required minimal.
-#       Fail if actual version is lower than min requirement
-	@test $(shell echo "$(shell carthage version)\n${CARTHAGE_MIN_VERSION}" | sort -V | head -n1) = ${CARTHAGE_MIN_VERSION}
-
-
-dependencies deps: carthage-min-version
-	XCODE_XCCONFIG_FILE="${CURRENT_DIR}/scripts/carthage-support.xcconfig" carthage bootstrap --use-xcframeworks --cache-builds --use-netrc
-	scripts/generate_sdk_version_swift.sh
-
-dependencies-update deps-update: carthage-min-version
-	XCODE_XCCONFIG_FILE="${CURRENT_DIR}/scripts/carthage-support.xcconfig" carthage update --use-xcframeworks --cache-builds --use-netrc
-	scripts/generate_sdk_version_swift.sh
+dependencies deps:
+	swift package resolve
+	xcodebuild -resolvePackageDependencies -project MapboxSearch.xcodeproj
 
 offline:
-	aws s3 cp s3://vng-temp/HERE/luxembourg.tgz - | tar -xz -C Sources/Demo/offline/
+	aws s3 cp s3://vng-temp/HERE/luxembourg.tgz - | tar -xz -C Demo/offline/
 
 ci-dev-test: dependencies
 	bundle exec fastlane scan --scheme "Demo" --device "iPhone 15" --result_bundle "true" --testplan "CI-dev" --output_directory "output"
@@ -70,7 +54,7 @@ validate-spm-build:
 	$(CURRENT_DIR)/scripts/build_spm_sample.sh
 
 clean:
-	-rm -rf $(CARTHAGE_BUILD_DIR) $(PRODUCTS_DIR) $(CURRENT_DIR)/docs $(CURRENT_DIR)/jazzy-theme
+	-rm -rf $(PRODUCTS_DIR) $(CURRENT_DIR)/docs $(CURRENT_DIR)/jazzy-theme
 
 pristine:
 	git reset --hard && git clean -dfx && git submodule foreach "git reset --hard && git clean -dfx"
@@ -104,5 +88,5 @@ git-version:
 
 .PHONY: git-version git-versions check-aws update-registry push-trunk lint pristine clean internal-release generate-maki
 .PHONY: generate-docs xctest test ci-full-test ci-dev-test dependencies products build validate-spm-build
-.PHONY: deps-update deps ios carthage-min-version codecov list-registry-latest
+.PHONY: dependencies deps ios codecov list-registry-latest
 
