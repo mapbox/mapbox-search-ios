@@ -1332,7 +1332,7 @@
 				042BEB182C2DE30E0004CD7B /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
 				043339CB2C61295D001650FA /* XCRemoteSwiftPackageReference "atlantis" */,
 				2C75CD7E2D7658750024451A /* XCRemoteSwiftPackageReference "mapbox-common-ios" */,
-				2C812B432E4A38AF00A306F0 /* XCLocalSwiftPackageReference "." */,
+				2C812B432E4A38AF00A306F0 /* XCLocalSwiftPackageReference "../mapbox-search-ios" */,
 			);
 			productRefGroup = 3A0D7E4D233522D4006D81BB /* Products */;
 			projectDirPath = "";
