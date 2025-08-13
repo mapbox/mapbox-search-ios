@@ -6,7 +6,7 @@ def carthage_version(depName):
     return run_shell(command)
 
 def cocoapods_version(depName):
-    command = f"grep -o \"{depName}.*\" MapboxSearch.podspec | cut -d \\\" -f3 | grep -o \"\\d.*\""
+    command = f"grep -o \"{depName}.*\" MapboxSearch.podspec | cut -d \"'\" -f2"
     return run_shell(command)
 
 def run_shell(command):
@@ -26,8 +26,8 @@ coreSearchHash_spm = run_shell('grep \"let (coreSearchVersion, coreSearchVersion
 # MapboxCommon – SPM
 with open('Package.resolved') as json_file:
     json_data = json.load(json_file)
-    pins = json_data["object"]["pins"]
-    commonVersion_spm = [x['state']['version'] for x in pins if x['repositoryURL'] == 'https://github.com/mapbox/mapbox-common-ios.git'][0]
+    pins = json_data["pins"]
+    commonVersion_spm = [x['state']['version'] for x in pins if x['location'] == 'https://github.com/mapbox/mapbox-common-ios.git'][0]
 
 mapboxCoreSearch_build_with_commonVersion = run_shell('/usr/libexec/PlistBuddy -c \"Print :MBXCommonSDKVersion\" Carthage/Build/MapboxCoreSearch.xcframework/Info.plist | cut -c2-')
 
