@@ -39,10 +39,6 @@ public struct ParkingRateCustomValue: Codable, Hashable, Sendable {
     public static let yearMonFri: ParkingRateCustomValue = .init(rawValue: 17)
 
     let rawValue: Int
-
-    init(rawValue: Int) {
-        self.rawValue = rawValue
-    }
 }
 
 extension CoreParkingRateCustomValue {

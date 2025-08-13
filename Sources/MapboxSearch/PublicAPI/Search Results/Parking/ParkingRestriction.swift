@@ -37,10 +37,6 @@ public struct ParkingRestriction: Codable, Hashable, Sendable {
     public static let parkingDisk: ParkingRestriction = .init(rawValue: 16)
 
     let rawValue: Int
-
-    init(rawValue: Int) {
-        self.rawValue = rawValue
-    }
 }
 
 extension NSNumber {

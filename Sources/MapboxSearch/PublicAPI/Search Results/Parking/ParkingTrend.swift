@@ -7,10 +7,6 @@ public struct ParkingTrend: Codable, Hashable, Sendable {
     public static let increasing: ParkingTrend = .init(rawValue: 3)
 
     let rawValue: Int
-
-    init(rawValue: Int) {
-        self.rawValue = rawValue
-    }
 }
 
 extension NSNumber {
