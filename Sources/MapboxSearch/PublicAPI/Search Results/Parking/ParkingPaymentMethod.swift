@@ -17,10 +17,6 @@ public struct ParkingPaymentMethod: Codable, Hashable, Sendable {
     public static let electronicParkingSystem: ParkingPaymentMethod = .init(rawValue: 13)
 
     let rawValue: Int
-
-    init(rawValue: Int) {
-        self.rawValue = rawValue
-    }
 }
 
 extension NSNumber {

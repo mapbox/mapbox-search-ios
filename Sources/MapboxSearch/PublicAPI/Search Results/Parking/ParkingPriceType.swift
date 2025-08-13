@@ -6,10 +6,6 @@ public struct ParkingPriceType: Codable, Hashable, Sendable {
     public static let custom: ParkingPriceType = .init(rawValue: 2)
 
     let rawValue: Int
-
-    init(rawValue: Int) {
-        self.rawValue = rawValue
-    }
 }
 
 extension NSNumber {

@@ -35,10 +35,6 @@ public struct ParkingPaymentType: Codable, Hashable, Sendable {
     public static let cardsTouchngo: ParkingPaymentType = .init(rawValue: 31)
 
     let rawValue: Int
-
-    init(rawValue: Int) {
-        self.rawValue = rawValue
-    }
 }
 
 extension NSNumber {

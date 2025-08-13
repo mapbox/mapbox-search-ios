@@ -292,6 +292,8 @@ public struct SearchOptions {
             navProfile: navigationOptions?.profile.string,
             etaType: navigationOptions?.etaType.toCore(),
             bbox: boundingBox.map(CoreBoundingBox.init),
+            // TODO: add support for viewport
+            viewport: nil,
             countries: countries,
             fuzzyMatch: fuzzyMatch.map(NSNumber.init(value:)),
             language: searchLanguages,
