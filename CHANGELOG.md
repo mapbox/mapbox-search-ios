@@ -4,7 +4,11 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
-## [Unreleased]
+## 2.15.0-beta.1
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.15.0-beta.1
+**MapboxCoreSearch**: v2.15.0-beta.1
 
 - [Core] Experimental. Add support for searching parking locations with access to dynamic and static parking metadata.
 

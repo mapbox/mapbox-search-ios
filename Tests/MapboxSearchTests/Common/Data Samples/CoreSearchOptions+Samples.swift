@@ -12,6 +12,7 @@ extension CoreSearchOptions {
             min: .sample1,
             max: .sample2
         ),
+        viewport: nil,
         countries: ["France"],
         fuzzyMatch: true,
         language: ["en"],
@@ -46,6 +47,7 @@ extension CoreSearchOptions {
             min: .sample2,
             max: .sample1
         ),
+        viewport: nil,
         countries: ["UK"],
         fuzzyMatch: true,
         language: ["en"],
