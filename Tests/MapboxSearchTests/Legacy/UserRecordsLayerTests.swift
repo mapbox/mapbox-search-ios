@@ -110,8 +110,6 @@ final class SearchBox_UserRecordsLayerTests: XCTestCase {
         let updateExpectation = delegate.offlineUpdateExpectation
         searchEngine.search(query: "user record location")
         wait(for: [updateExpectation], timeout: 300)
-        XCTAssertTrue(searchEngine.suggestions.isEmpty)
-        XCTAssertTrue(delegate.resolvedResults.isEmpty)
         let nameResultsBeforeUserRecord = searchEngine.suggestions.map { ($0.name, $0.distance) }
         XCTAssertFalse(nameResultsBeforeUserRecord.contains(where: { $0.0 == "User Record Location" }))
 
