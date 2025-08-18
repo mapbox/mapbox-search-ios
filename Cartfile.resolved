@@ -1,2 +1,2 @@
-binary "https://api.mapbox.com/downloads/v2/carthage/mapbox-common/MapboxCommon.json" "24.15.0-beta.1"
-binary "https://api.mapbox.com/downloads/v2/carthage/search-core-sdk/MapboxCoreSearch.xcframework.json" "2.15.0-beta.1"
+binary "https://api.mapbox.com/downloads/v2/carthage/mapbox-common/MapboxCommon.json" "24.15.0-beta.2"
+binary "https://api.mapbox.com/downloads/v2/carthage/search-core-sdk/MapboxCoreSearch.xcframework.json" "2.15.0-beta.2"
