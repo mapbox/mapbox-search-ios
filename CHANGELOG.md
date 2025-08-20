@@ -4,6 +4,10 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
+## [Unreleased]
+
+- [Core] Remove Carthage integration.
+
 ## 2.15.0-beta.2
 
 - [Core] Update dependencies.

@@ -2,9 +2,12 @@
   "configurations" : [
     {
       "id" : "E3D1A9DD-4BD1-48EF-B27F-368A69D5E534",
-      "name" : "Configuration 1",
+      "name" : "SBS, San Francisco",
       "options" : {
-
+        "locationScenario" : {
+          "identifier" : "San Francisco, CA, USA",
+          "referenceType" : "built-in"
+        }
       }
     }
   ],
@@ -31,31 +34,10 @@
   },
   "testTargets" : [
     {
-      "skippedTests" : [
-        "OfflineIntegrationTests"
-      ],
-      "target" : {
-        "containerPath" : "container:MapboxSearch.xcodeproj",
-        "identifier" : "F9C557382670CB0400BE8B94",
-        "name" : "MapboxSearchIntegrationTests"
-      }
-    },
-    {
       "target" : {
         "containerPath" : "container:MapboxSearch.xcodeproj",
         "identifier" : "3A0D7E54233522D4006D81BB",
         "name" : "MapboxSearchTests"
-      }
-    },
-    {
-      "enabled" : false,
-      "skippedTests" : [
-        "BaseTestCase"
-      ],
-      "target" : {
-        "containerPath" : "container:MapboxSearch.xcodeproj",
-        "identifier" : "F9190D582453126600C169AB",
-        "name" : "MapboxSearchUITests"
       }
     }
   ],

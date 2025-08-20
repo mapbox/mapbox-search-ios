@@ -86,23 +86,20 @@ executors:
     macos:
       xcode: 16.0.0
     resource_class: macos.m1.medium.gen1
+    working_directory: ~/mapbox-search-ios
 
 jobs:
   pre-check:
     executor: xcode-default
     steps:
       - checkout
-      - ios-install-carthage-dependencies
+      - ios-install-dependencies
       - run: python3 scripts/cmp_deps_across_managers.py
 
   release-pre-check:
     executor: xcode-default
     steps:
       - parse-release-version
-      - run:
-          name: Check existing public release
-          # Escape the quotes to check for exact versions
-          command: curl -L https://api.mapbox.com/downloads/v2/carthage/search-sdk/MapboxSearch.json | grep -v \"$VERSION\"
 
   build:
     executor: xcode-default # Specify the Xcode version to use
@@ -112,7 +109,6 @@ jobs:
       - checkout
       - setup-authentication
       - ios-prestart-simulator
-      - upgrade-carthage
       - install-swiftlint
       - install-gems
       - run:
@@ -192,7 +188,6 @@ jobs:
     steps:
       - checkout
       - setup-authentication
-      - upgrade-carthage
       - parse-release-version
       - run: make ios
       - persist_to_workspace:
@@ -286,7 +281,7 @@ commands:
           name: Inject Mapbox token
           command: echo $SDK_REGISTRY_TOKEN > ~/.mapbox
 
-  ios-install-carthage-dependencies:
+  ios-install-dependencies:
     steps:
       - setup-authentication
       - run: make deps
@@ -296,14 +291,6 @@ commands:
       - run:
           name: pre-start simulator
           command: xcrun instruments -w "iPhone 15 [" || true
-
-  upgrade-carthage:
-    steps:
-      - run:
-          name: Force update Homebrew
-          command: cd "$(brew --repository)" && git fetch && git reset --hard origin/master
-      - run: brew update-reset
-      - run: brew upgrade carthage
 
   parse-release-version:
     description: >
