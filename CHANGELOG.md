@@ -4,6 +4,10 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
+## [Unreleased]
+
+- [Core] Remove Carthage integration.
+
 ## 2.15.0-beta.2
 
 - [Core] Update dependencies.
@@ -17,7 +21,6 @@ Guide: https://keepachangelog.com/en/1.0.0/
 **MapboxCoreSearch**: v2.15.0-beta.1
 
 - [Core] Experimental. Add support for searching parking locations with access to dynamic and static parking metadata.
-- [Core] Remove Carthage integration.
 
 ## 2.14.0
 
