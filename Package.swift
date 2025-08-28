@@ -38,18 +38,20 @@ let package = Package(
                 "MapboxCoreSearch",
                 .product(name: "MapboxCommon", package: "mapbox-common-ios")
             ],
-            exclude: ["Info.plist"],
+            exclude: ["Info.plist", "Resources/PrivacyInfo.xcprivacy"],
             resources: [
                 .copy("Resources/PrivacyInfo.xcprivacy"),
+                .process("Resources"),
             ],
             linkerSettings: [.linkedLibrary("c++")]
         ),
         .target(
             name: "MapboxSearchUI",
             dependencies: ["MapboxSearch"],
-            exclude: ["Info.plist", "Resources-Info.plist"],
+            exclude: ["Info.plist", "Resources-Info.plist", "Resources/PrivacyInfo.xcprivacy"],
             resources: [
                 .copy("Resources/PrivacyInfo.xcprivacy"),
+                .process("Resources"),
             ]
         ),
 

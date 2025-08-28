@@ -6,14 +6,17 @@
 
 set -euo pipefail
 BASEDIR=$(dirname "$0")
-PROJECT_ROOT="${BASEDIR}/.."
+PROJECT_ROOT="$(cd "${BASEDIR}/.." && pwd)"
 RESULT_PRODUCTS_DIR="${PROJECT_ROOT}/Products"
+PACKAGE_FILE="${PROJECT_ROOT}/Package.swift"
+BACKUP_FILE="${PROJECT_ROOT}/Package.swift.bak"
+
+cp "$PACKAGE_FILE" "$BACKUP_FILE"
 
 INFO_PLIST_COMMIT_HASH_KEY="MBXCommitHash"
 INFO_PLIST_BRANCH_KEY="MBXBranch"
 
 rm -rf "${RESULT_PRODUCTS_DIR}"
-
 
 BASEDIR=$(dirname "$0")
 
@@ -22,6 +25,11 @@ MARKETING_VERSION=$(echo "${LATEST_GIT_TAG}" | perl -nle 'print $v if ($v)=/([0-
 echo "Compiling frameworks, marketing version: ${MARKETING_VERSION}, git tag: ${LATEST_GIT_TAG}"
 
 pushd "${PROJECT_ROOT}" > /dev/null
+
+for frameworkName in "MapboxSearch" "MapboxSearchUI" 
+do
+  sed -i '' "s/targets: \[\"$frameworkName\"\]/type: .dynamic, targets: [\"$frameworkName\"]/g" "$PACKAGE_FILE"
+done
 
 build_xcframework() {
   local frameworkName="$1"
@@ -35,6 +43,7 @@ build_xcframework() {
     -scheme "${frameworkName}" \
     -destination "generic/platform=iOS Simulator" \
     -archivePath "${SIMULATOR_ARCHIVE_NAME}" \
+    -configuration Release \
     SKIP_INSTALL=NO \
     ${MARKETING_VERSION:+MARKETING_VERSION=${MARKETING_VERSION}} \
     BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
@@ -48,6 +57,7 @@ build_xcframework() {
     -scheme "${frameworkName}" \
     -destination "generic/platform=iOS" \
     -archivePath "${DEVICE_ARCHIVE_NAME}" \
+    -configuration Release \
     SKIP_INSTALL=NO \
     ${MARKETING_VERSION:+MARKETING_VERSION=${MARKETING_VERSION}} \
     BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
@@ -102,11 +112,12 @@ build_xcframework() {
     rm -r "${DEVICE_ARCHIVE_NAME}"
 }
 
-
 for frameworkName in "MapboxSearch" "MapboxSearchUI" 
 do
     build_xcframework ${frameworkName}
 done
+
+mv "$BACKUP_FILE" "$PACKAGE_FILE"
 
 if [ -x "$(command -v tree)" ]; then
   tree -L 2 "${RESULT_PRODUCTS_DIR}"
