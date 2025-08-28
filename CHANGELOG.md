@@ -4,7 +4,11 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
-## [Unreleased]
+## 2.15.0-rc.1
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.15.0-rc.1
+**MapboxCoreSearch**: v2.15.0-rc.1
 
 - [Core] Remove Carthage integration.
 
