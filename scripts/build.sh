@@ -64,24 +64,6 @@ build_xcframework() {
     CODE_SIGN_IDENTITY="" \
     CODE_SIGNING_REQUIRED=NO \
     CODE_SIGNING_ALLOWED=NO
-    
-    ### OUTPUT ###
-
-    # Products
-    # ├── LICENSE.md
-    # ├── MapboxSearch.xcframework
-    # │   ├── Info.plist
-    # │   ├── LICENSE.md
-    # │   ├── ios-arm64
-    # │   └── ios-arm64_x86_64-simulator
-    # ├── MapboxSearch.xcframework.zip
-    # ├── MapboxSearchUI.xcframework
-    # │   ├── Info.plist
-    # │   ├── LICENSE.md
-    # │   ├── ios-arm64
-    # │   └── ios-arm64_x86_64-simulator
-    # ├── MapboxSearchUI.xcframework.zip
-    # └── ${frameworkName}.xcframework.zip
 
     rm -rf "${frameworkName}.xcframework"
 
@@ -105,7 +87,6 @@ build_xcframework() {
 
     pushd "${RESULT_PRODUCTS_DIR}"
     zip -r "${frameworkName}.zip" "${frameworkName}.xcframework" > /dev/null
-    rm -r "${frameworkName}.xcframework"
     popd
     
     rm -r "${SIMULATOR_ARCHIVE_NAME}"
@@ -122,5 +103,23 @@ mv "$BACKUP_FILE" "$PACKAGE_FILE"
 if [ -x "$(command -v tree)" ]; then
   tree -L 2 "${RESULT_PRODUCTS_DIR}"
 fi
+
+    ### OUTPUT ###
+
+    # Products
+    # ├── LICENSE.md
+    # ├── MapboxSearch.xcframework
+    # │   ├── Info.plist
+    # │   ├── LICENSE.md
+    # │   ├── ios-arm64
+    # │   └── ios-arm64_x86_64-simulator
+    # ├── MapboxSearch.xcframework.zip
+    # ├── MapboxSearchUI.xcframework
+    # │   ├── Info.plist
+    # │   ├── LICENSE.md
+    # │   ├── ios-arm64
+    # │   └── ios-arm64_x86_64-simulator
+    # ├── MapboxSearchUI.xcframework.zip
+    # └── ${frameworkName}.xcframework.zip
 
 popd
