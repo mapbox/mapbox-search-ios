@@ -23,14 +23,38 @@ echo "Compiling frameworks, marketing version: ${MARKETING_VERSION}, git tag: ${
 
 pushd "${PROJECT_ROOT}" > /dev/null
 
-SIMULATOR_ARCHIVE_NAME="${RESULT_PRODUCTS_DIR}/Search-iphonesimulator.xcarchive"
-DEVICE_ARCHIVE_NAME="${RESULT_PRODUCTS_DIR}/Search-iphoneos.xcarchive"
+build_xcframework() {
+  local frameworkName="$1"
 
-xcodebuild archive -scheme "MapboxSearchUI" -destination "generic/platform=iOS Simulator" SKIP_INSTALL=NO ${MARKETING_VERSION:+MARKETING_VERSION=${MARKETING_VERSION}} -archivePath "${SIMULATOR_ARCHIVE_NAME}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
-xcodebuild archive -scheme "MapboxSearchUI" -destination "generic/platform=iOS" SKIP_INSTALL=NO ${MARKETING_VERSION:+MARKETING_VERSION=${MARKETING_VERSION}}  -archivePath "${DEVICE_ARCHIVE_NAME}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+  local SIMULATOR_ARCHIVE_NAME="${RESULT_PRODUCTS_DIR}/Search-iphonesimulator.xcarchive"
+  local DEVICE_ARCHIVE_NAME="${RESULT_PRODUCTS_DIR}/Search-iphoneos.xcarchive"
 
-for frameworkName in "MapboxSearch" "MapboxSearchUI"
-do
+  echo "Building ${frameworkName} for iOS Simulator..."
+  xcodebuild archive \
+    -project MapboxSearch.xcodeproj \
+    -scheme "${frameworkName}" \
+    -destination "generic/platform=iOS Simulator" \
+    -archivePath "${SIMULATOR_ARCHIVE_NAME}" \
+    SKIP_INSTALL=NO \
+    ${MARKETING_VERSION:+MARKETING_VERSION=${MARKETING_VERSION}} \
+    BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+    CODE_SIGN_IDENTITY="" \
+    CODE_SIGNING_REQUIRED=NO \
+    CODE_SIGNING_ALLOWED=NO
+
+  echo "Building ${frameworkName} for iOS Device..."
+  xcodebuild archive \
+    -project MapboxSearch.xcodeproj \
+    -scheme "${frameworkName}" \
+    -destination "generic/platform=iOS" \
+    -archivePath "${DEVICE_ARCHIVE_NAME}" \
+    SKIP_INSTALL=NO \
+    ${MARKETING_VERSION:+MARKETING_VERSION=${MARKETING_VERSION}} \
+    BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+    CODE_SIGN_IDENTITY="" \
+    CODE_SIGNING_REQUIRED=NO \
+    CODE_SIGNING_ALLOWED=NO
+    
     ### OUTPUT ###
 
     # Products
@@ -71,11 +95,18 @@ do
 
     pushd "${RESULT_PRODUCTS_DIR}"
     zip -r "${frameworkName}.zip" "${frameworkName}.xcframework" > /dev/null
+    rm -r "${frameworkName}.xcframework"
     popd
-done
+    
+    rm -r "${SIMULATOR_ARCHIVE_NAME}"
+    rm -r "${DEVICE_ARCHIVE_NAME}"
+}
 
-rm -r "${SIMULATOR_ARCHIVE_NAME}"
-rm -r "${DEVICE_ARCHIVE_NAME}"
+
+for frameworkName in "MapboxSearch" "MapboxSearchUI" 
+do
+    build_xcframework ${frameworkName}
+done
 
 if [ -x "$(command -v tree)" ]; then
   tree -L 2 "${RESULT_PRODUCTS_DIR}"
