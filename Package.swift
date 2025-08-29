@@ -18,8 +18,10 @@ let package = Package(
             name: "MapboxSearch",
             targets: ["MapboxSearch"]
         ),
-        .library(name: "MapboxSearchUI",
-                 targets: ["MapboxSearchUI"])
+        .library(
+            name: "MapboxSearchUI",
+            targets: ["MapboxSearchUI"]
+        )
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.

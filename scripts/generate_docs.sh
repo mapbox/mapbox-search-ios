@@ -14,7 +14,7 @@ bundle exec jazzy \
   --copyright "${COPYRIGHT_TEXT}" \
   --theme "${JAZZY_THEME}" \
   --module-version "${VERSION}" \
-  --build-tool-arguments -scheme,MapboxSearch \
+  --build-tool-arguments -scheme,MapboxSearch,-project,MapboxSearchFramework.xcodeproj \
   --module MapboxSearch \
   --output docs/MapboxSearch
 
@@ -25,7 +25,7 @@ bundle exec jazzy \
   --copyright "${COPYRIGHT_TEXT}" \
   --theme "${JAZZY_THEME}" \
   --module-version "${VERSION}" \
-  --build-tool-arguments -scheme,MapboxSearchUI \
+  --build-tool-arguments -scheme,MapboxSearchUI,-project,MapboxSearchFramework.xcodeproj \
   --module MapboxSearchUI \
   --output docs/MapboxSearchUI
 

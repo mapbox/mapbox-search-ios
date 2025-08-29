@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Kila2/XcodeGen/master/Assets/json-schema/project.json
+
+name: MapboxSearchFramework
+options:
+  bundleIdPrefix: com.mapbox
+  deploymentTarget:
+    iOS: 12.0
+
+packages:
+  MapboxCommon:
+    url: "https://github.com/mapbox/mapbox-common-ios.git"
+    exactVersion: "24.15.0-rc.1"
+
+targets:
+  MapboxSearch:
+    type: framework
+    supportedDestinations: [iOS]
+    settings:
+      base:
+        MACH_O_TYPE: mh_dylib
+        PRODUCT_NAME: $(TARGET_NAME:c99extidentifier)
+        PRODUCT_BUNDLE_IDENTIFIER: com.mapbox.mapboxsearch
+        SKIP_INSTALL: NO
+        DEFINES_MODULE: YES
+        LD_RUNPATH_SEARCH_PATHS: $(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/libraries
+        LIBRARY_SEARCH_PATHS: $(inherited) $(PROJECT_DIR)/libraries
+        SWIFT_EMIT_PRIVATE_MODULE_INTERFACE: YES
+        SWIFT_INSTALL_OBJC_HEADER: NO
+        SWIFT_TREAT_WARNINGS_AS_ERRORS: NO
+        BUILD_LIBRARY_FOR_DISTRIBUTION: YES
+    sources:
+      - path: "Sources/MapboxSearch"
+    resources: 
+      - path: "Resources"
+        excludes:
+          - "**/*.xcprivacy"
+    dependencies:
+      - package: MapboxCommon
+        product: MapboxCommon
+      - framework: libraries/MapboxCoreSearch.xcframework
+        embed: false
+        
+  MapboxSearchUI:
+    type: framework
+    supportedDestinations: [iOS]
+    settings:
+      base:
+        MACH_O_TYPE: mh_dylib
+        PRODUCT_NAME: $(TARGET_NAME:c99extidentifier)
+        PRODUCT_BUNDLE_IDENTIFIER: com.mapbox.mapboxsearchui
+        SKIP_INSTALL: NO
+        DEFINES_MODULE: YES
+        LD_RUNPATH_SEARCH_PATHS: $(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/libraries
+        LIBRARY_SEARCH_PATHS: $(inherited) $(PROJECT_DIR)/libraries
+        SWIFT_EMIT_PRIVATE_MODULE_INTERFACE: YES
+        SWIFT_INSTALL_OBJC_HEADER: NO
+        SWIFT_TREAT_WARNINGS_AS_ERRORS: NO
+        BUILD_LIBRARY_FOR_DISTRIBUTION: YES
+    sources:
+      - path: "Sources/MapboxSearchUI"
+    resources: 
+      - path: "Resources/"
+        excludes:
+          - "**/*.xcprivacy"
+    dependencies:
+      - target: MapboxSearch

@@ -159,6 +159,9 @@ jobs:
       - run: |
           git remote set-url origin https://x-access-token:$(mbx-ci github writer private token)@github.com/mapbox/mapbox-search-ios.git
 
+      - run: |
+          brew install xcodegen
+
       - run: make release-docs
 
   documentation-pr:
@@ -189,6 +192,7 @@ jobs:
       - checkout
       - setup-authentication
       - parse-release-version
+      - run: brew install xcodegen
       - run: make ios
       - persist_to_workspace:
           root: Products

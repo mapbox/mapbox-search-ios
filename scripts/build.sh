@@ -26,8 +26,8 @@ pushd "${PROJECT_ROOT}" > /dev/null
 SIMULATOR_ARCHIVE_NAME="${RESULT_PRODUCTS_DIR}/Search-iphonesimulator.xcarchive"
 DEVICE_ARCHIVE_NAME="${RESULT_PRODUCTS_DIR}/Search-iphoneos.xcarchive"
 
-xcodebuild archive -scheme "MapboxSearchUI" -destination "generic/platform=iOS Simulator" SKIP_INSTALL=NO ${MARKETING_VERSION:+MARKETING_VERSION=${MARKETING_VERSION}} -archivePath "${SIMULATOR_ARCHIVE_NAME}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
-xcodebuild archive -scheme "MapboxSearchUI" -destination "generic/platform=iOS" SKIP_INSTALL=NO ${MARKETING_VERSION:+MARKETING_VERSION=${MARKETING_VERSION}}  -archivePath "${DEVICE_ARCHIVE_NAME}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+xcodebuild archive -project MapboxSearchFramework.xcodeproj -scheme "MapboxSearchUI" -destination "generic/platform=iOS Simulator" SKIP_INSTALL=NO ${MARKETING_VERSION:+MARKETING_VERSION=${MARKETING_VERSION}} -archivePath "${SIMULATOR_ARCHIVE_NAME}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+xcodebuild archive -project MapboxSearchFramework.xcodeproj -scheme "MapboxSearchUI" -destination "generic/platform=iOS" SKIP_INSTALL=NO ${MARKETING_VERSION:+MARKETING_VERSION=${MARKETING_VERSION}}  -archivePath "${DEVICE_ARCHIVE_NAME}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 
 for frameworkName in "MapboxSearch" "MapboxSearchUI"
 do
