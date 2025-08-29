@@ -12,6 +12,7 @@ dependencies deps:
 	xcodebuild -resolvePackageDependencies -project MapboxSearch.xcodeproj
     
 generate-xcodeproj:
+	scripts/xcodegen_prepare_dependecies.sh
 	xcodegen generate
 
 offline:
