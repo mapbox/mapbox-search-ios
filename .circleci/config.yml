@@ -189,6 +189,7 @@ jobs:
       - checkout
       - setup-authentication
       - parse-release-version
+      - run: brew install xcodegen
       - run: make ios
       - persist_to_workspace:
           root: Products
