@@ -4,12 +4,15 @@ VERSION ?= $(shell git describe --tags $(shell git rev-list --tags='v*' --max-co
 VERSION_STRIPPED ?= $(VERSION:v%=%)
 MARKETING_VERSION := $(shell echo "${VERSION}" | perl -nle 'print $$v if ($$v)=/([0-9]+([.][0-9]+)+)/')
 
-build products ios: dependencies
+build products ios: generate-xcodeproj
 	$(CURRENT_DIR)/scripts/build.sh
 
 dependencies deps:
 	swift package resolve
 	xcodebuild -resolvePackageDependencies -project MapboxSearch.xcodeproj
+    
+generate-xcodeproj:
+	xcodegen generate
 
 offline:
 	aws s3 cp s3://vng-temp/HERE/luxembourg.tgz - | tar -xz -C Demo/offline/
@@ -30,7 +33,7 @@ codecov:
 	scripts/coverage/gather_coverage.sh "^MapboxSearch$$" coverage
 	scripts/coverage/upload_codecov.sh coverage/MapboxSearch.framework.coverage.txt
 
-generate-docs: dependencies
+generate-docs: generate-xcodeproj
 	VERSION="${VERSION}" $(CURRENT_DIR)/scripts/generate_docs.sh
 
 release-docs: generate-docs

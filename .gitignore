@@ -10,6 +10,7 @@
 build/
 DerivedData/
 MapboxSearchFramework.xcodeproj
+jazzy-theme/
 
 ## Various settings
 *.pbxuser
