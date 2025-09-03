@@ -35,7 +35,6 @@ FRAMEWORK_NAME="MapboxCoreSearch.xcframework"
 rm -rf "$TARGET_DIR"
 mkdir -p "$TARGET_DIR"
 curl -L --netrc -o "$TARGET_DIR/temp.zip" "$URL"
-git clean -fd -- "$TARGET_DIR/$FRAMEWORK_NAME"
 unzip -qq -o "$TARGET_DIR/temp.zip" -d "$TARGET_DIR"
 rm "$TARGET_DIR/temp.zip"
 
