@@ -9,6 +9,8 @@
 ## Build generated
 build/
 DerivedData/
+MapboxSearchFramework.xcodeproj
+jazzy-theme/
 
 ## Various settings
 *.pbxuser
@@ -79,6 +81,7 @@ fastlane/test_output
 .DS_Store
 .mapbox
 *framework.zip
+libraries
 Products/
 /Carthage/.resolved.md5
 /docs
