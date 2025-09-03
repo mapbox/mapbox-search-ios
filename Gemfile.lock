@@ -127,7 +127,7 @@ GEM
     faraday_middleware (1.2.1)
       faraday (~> 1.0)
     fastimage (2.4.0)
-    fastlane (2.228.0)
+    fastlane (2.227.1)
       CFPropertyList (>= 2.3, < 4.0.0)
       addressable (>= 2.8, < 3.0.0)
       artifactory (~> 3.0)
@@ -192,12 +192,12 @@ GEM
       google-apis-core (>= 0.11.0, < 2.a)
     google-apis-storage_v1 (0.31.0)
       google-apis-core (>= 0.11.0, < 2.a)
-    google-cloud-core (1.7.1)
+    google-cloud-core (1.8.0)
       google-cloud-env (>= 1.0, < 3.a)
       google-cloud-errors (~> 1.0)
     google-cloud-env (1.6.0)
       faraday (>= 0.17.3, < 3.0)
-    google-cloud-errors (1.4.0)
+    google-cloud-errors (1.5.0)
     google-cloud-storage (1.47.0)
       addressable (~> 2.8)
       digest-crc (~> 0.4)
@@ -319,4 +319,4 @@ DEPENDENCIES
   jazzy (~> 0.14.4)
 
 BUNDLED WITH
-   2.4.13
+   2.6.7
