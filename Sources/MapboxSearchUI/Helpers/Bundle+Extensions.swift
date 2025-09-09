@@ -15,9 +15,6 @@ extension Bundle {
 #if SWIFT_PACKAGE
     static let mapboxSearchUI = module
 #else
-    static let mapboxSearchUI = Bundle(url: Bundle(for: MapboxSearchController.self).url(
-        forResource: "MapboxSearchUIResources",
-        withExtension: "bundle"
-    )!)!
+    static let mapboxSearchUI = Bundle(for: MapboxSearchController.self)
 #endif
 }
