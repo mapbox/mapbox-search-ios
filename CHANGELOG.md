@@ -4,13 +4,28 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
-## 2.15.0-rc.1
+## 2.16.0-beta.1
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.16.0-beta.1
+**MapboxCoreSearch**: v2.16.0-beta.1
+
+- [Core] Remove Carthage integration.
+
+## 2.15.0
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.15.0
+**MapboxCoreSearch**: v2.15.0
+
+- [Core] Fixed an issue where results were sometimes empty when bounding box was provided but proximity was not set.
+- [Core] Ignore invalid place types in offline search to prevent broken addresses.
+
+## 2.15.0-rc.2
 
 - [Core] Update dependencies.
 **MapboxCommon**: v24.15.0-rc.1
 **MapboxCoreSearch**: v2.15.0-rc.1
-
-- [Core] Remove Carthage integration.
 
 ## 2.15.0-beta.2
 

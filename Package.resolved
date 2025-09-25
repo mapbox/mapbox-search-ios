@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mapbox/mapbox-common-ios.git",
       "state" : {
-        "revision" : "7e2810ab560f3cb51a69d93dd05bcd1e33dcca9d",
-        "version" : "24.15.0-rc.1"
+        "revision" : "e738083ad5952972393ea5417b58a894caf7a050",
+        "version" : "24.16.0-beta.1"
       }
     },
     {
