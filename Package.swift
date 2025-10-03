@@ -4,9 +4,9 @@
 import PackageDescription
 import Foundation
 
-let (coreSearchVersion, coreSearchVersionHash) = ("2.15.0", "3b25405bd34a4206e6cf3b8b1778d3fa531339bc80a47767a9a286d520b83e35")
+let (coreSearchVersion, coreSearchVersionHash) = ("2.15.2", "12a8d58710b9c83b8ee46b8ae6f75c1e45575d7967d5d0e25a252b44698d9588")
 
-let mapboxCommonSDKVersion = Version("24.15.0")
+let mapboxCommonSDKVersion = Version("24.15.2")
 
 let package = Package(
     name: "MapboxSearch",
