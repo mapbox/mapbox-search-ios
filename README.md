@@ -92,13 +92,13 @@ dependencies: [
 #### MapboxSearch
 To integrate latest pre-release version of `MapboxSearch` into your Xcode project using CocoaPods, specify it in your `Podfile`:
 ```
-pod 'MapboxSearch', ">= 2.16.0", "< 3.0"
+pod 'MapboxSearch', ">= 2.16.1", "< 3.0"
 ```
 
 #### MapboxSearchUI
 To integrate latest pre-release version of `MapboxSearchUI` into your Xcode project using CocoaPods, specify it in your `Podfile`:
 ```
-pod 'MapboxSearchUI', ">= 2.16.0", "< 3.0"
+pod 'MapboxSearchUI', ">= 2.16.1", "< 3.0"
 ```
 
 ## Contributing
