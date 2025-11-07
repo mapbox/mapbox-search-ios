@@ -59,7 +59,7 @@ To add the Mapbox Search SDK dependency with CocoaPods, you will need to configu
     ```ruby
     use_frameworks!
     target "TargetNameForYourApp" do
-      pod 'MapboxSearchUI', ">= 2.16.1", "< 3.0"
+      pod 'MapboxSearchUI', ">= 2.17.0-beta.1", "< 3.0"
     end
     ```
 
@@ -68,7 +68,7 @@ To add the Mapbox Search SDK dependency with CocoaPods, you will need to configu
     ```ruby
     use_frameworks!
     target "TargetNameForYourApp" do
-      pod 'MapboxSearch', ">= 2.16.1", "< 3.0"
+      pod 'MapboxSearch', ">= 2.17.0-beta.1", "< 3.0"
     end
     ```
 
