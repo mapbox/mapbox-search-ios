@@ -49,76 +49,90 @@ extension SearchEngineDelegate {
     ) {}
 }
 
-/**
- An entry object for online search with autocomplete suggestions powered by Mapbox Search services
-
- SearchEngine requires [Mapbox Access Token](https://account.mapbox.com/access-tokens/) with any scope and visibility.
- We recommend to pass your token through  `MBXAccessToken` key in application's `Info.plist` to share the token with the Mapbox SDKs. You may choose to provide the accessToken as a parameter value instead.
-
- You must always assign `delegate` to receive search results provided by the engine.
- Update the `SearchEngine.query` value to start or continue your search experience.
- It is possible to update `query` value in real-time as the user types because the actual requests have a debounce logic.
-
- __Listing 1__ Create you first search request
-
-     let engine = SearchEngine()
-     engine.delegate = self
-     engine.query = "Mapbox"
-
- Implement `SearchEngineDelegate` protocol to receive updates and search results with coordinates data. Pay attention that SearchEngine provides a list of `SearchSuggestion` which doesn't include coordinates information.
-
- __Listing 2__ Implement `SearchEngineDelegate` protocol
-
-        extension ViewController: SearchEngineDelegate {
-            func resultsUpdated(searchEngine: SearchEngine) {
-                displaySearchResults(searchEngine)
-            }
-
-            func resolvedResult(result: SearchResult) {
-                presentSelectedResult(result)
-            }
-
-            func searchErrorHappened(searchError: SearchError) {
-                presentSearchError(searchError)
-            }
-        }
-
- # Retrieve coordinates
- Call `select(suggestion: SearchSuggestion)` when a customer makes a choice from the search results list to receive a `SearchResult` with populated coordinates field.
- You can expect a resolved search result with populated coordinates to be returned in `SearchEngineDelegate.resolvedResult(result: SearchResult)` delegate method.
-
- __Listing 3__ Select search result
-
-        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let suggestion = searchSuggestions[indexPath.row]
-
-            dataSource.select(suggestion: suggestion)
-        }
-
-        …
-        // SearchEngineDelegate implementation
-        func resolvedResult(result: SearchResult) {
-            presentAnnotationAt(coordinate: result.coordinate,
-                                     title: result.name,
-                                  subtitle: result.address?.formattedAddress(style: .medium))
-        }
-
- - Note: SearchEngine may respond with category suggestion. Selecting such suggestion would produce a new set of search results.
-
- # Location bias
- Location is strongly recommended for accurate search results. By default, `SearchEngine` would anticipate `DefaultLocationProvider` to fulfill location data.
- `DefaultLocationProvider` would receive location updates if application already have a location permission. The default implementation declare low accuracy
- for better battery efficiency.
- It's possible to provide exact coordinate for search request with `search(query:options:)` function.
- Engine will reuse these coordinates on each search request. To reset to default LocationProvider behavior,
- call `search(query:options:)` with nil proximity in `SearchRequest`.
-
- __Listing 4__ Provide search coordinate
-
-        let engine = SearchEngine()
-        engine.search(query: "mapbox", options: SearchOptions(proximity: CLLocationCoordinate2D(latitude: 38.8998315, longitude: -77.0346164)))
-
- */
+/// An entry object for online search with autocomplete suggestions powered by Mapbox Search services.
+///
+/// ``SearchEngine`` requires [Mapbox Access Token](https://account.mapbox.com/access-tokens/) with any scope and
+/// visibility.
+/// We recommend to pass your token through  `MBXAccessToken` key in application's `Info.plist` to share the token with
+/// the Mapbox SDKs. You may choose to provide the accessToken as a parameter value instead.
+///
+/// You must always assign ``delegate`` to receive search results provided by the engine.
+///
+/// Update the ``SearchEngine/query`` value to start or continue your search experience.
+/// It is possible to update `query` value in real-time as the user types because the actual requests have a debounce
+/// logic.
+///
+/// __Listing 1__ Create you first search request
+///
+///  ```swift
+///  let engine = SearchEngine()
+///  engine.delegate = self
+///  engine.query = "Mapbox"
+///  ```
+///
+/// Implement ``SearchEngineDelegate`` protocol to receive updates and search results with coordinates data. Pay
+/// attention that `SearchEngine` provides a list of ``SearchSuggestion`` which doesn't include coordinates information.
+///
+/// __Listing 2__ Implement ``SearchEngineDelegate`` protocol
+///  ```swift
+///        extension ViewController: SearchEngineDelegate {
+///            func suggestionsUpdated(suggestions: [any SearchSuggestion], searchEngine: SearchEngine) {
+///                displaySearchSuggestions(suggestions)
+///            }
+///
+///            func resultResolved(result: any SearchResult, searchEngine: SearchEngine) {
+///                presentSelectedResult(result)
+///            }
+///
+///            func searchErrorHappened(searchError: SearchError, searchEngine: SearchEngine) {
+///                presentSearchError(searchError)
+///            }
+///        }
+///  ```
+///
+/// # Retrieve coordinates
+///
+/// Call ``SearchEngine/select(suggestion:options:)`` when a customer makes a choice from the search results list to receive a ``SearchResult`` with populated coordinates field.
+/// You can expect a resolved search result with populated coordinates to be returned in
+/// ``SearchEngineDelegate/resultResolved(result:searchEngine:)`` delegate method.
+///
+/// __Listing 3__ Select search result
+///
+///  ```swift
+///  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+///      let suggestion = searchSuggestions[indexPath.row]
+///
+///      dataSource.select(suggestion: suggestion)
+///  }
+///
+///  …
+///  // SearchEngineDelegate implementation
+///  func resultResolved(result: any SearchResult, searchEngine: SearchEngine) {
+///      presentAnnotationAt(coordinate: result.coordinate,
+///                               title: result.name,
+///                            subtitle: result.address?.formattedAddress(style: .medium))
+///  }
+///  ```
+///
+/// - Note: SearchEngine may respond with category suggestion. Selecting such suggestion would produce a new set of
+/// search results.
+///
+/// # Location bias
+/// Location is strongly recommended for accurate search results. By default, ``SearchEngine`` would anticipate
+/// ``DefaultLocationProvider`` to fulfill location data.
+/// `DefaultLocationProvider` would receive location updates if application already have a location permission. The
+/// default implementation declare low accuracy for better battery efficiency.
+/// It's possible to provide exact coordinate for search request with ``search(query:options:)`` function.
+/// Engine will reuse these coordinates on each search request. To reset to default LocationProvider behavior, call
+/// ``search(query:options:)`` with nil proximity in ``SearchRequest``.
+///
+/// __Listing 4__ Provide search coordinate
+///
+///  ```swift
+///  let engine = SearchEngine()
+///  let searchOptions = SearchOptions(proximity: CLLocationCoordinate2D(latitude: 38.8998315, longitude: -77.0346164))
+///  engine.search(query: "mapbox", options: searchOptions)
+///  ```
 public class SearchEngine: AbstractSearchEngine {
     /// Offline mode types
     public enum OfflineMode {
@@ -417,9 +431,9 @@ extension SearchEngine {
         startSearch(options: options)
     }
 
-    /// Select one of the provided `SearchSuggestion`'s.
+    /// Select one of the provided ``SearchSuggestion``'s.
     /// Search flow would continue if category suggestion was selected.
-    /// - Parameter suggestion: Suggestion to continue the search and retrieve resolved `SearchResult` via delegate.
+    /// - Parameter suggestion: Suggestion to continue the search and retrieve resolved ``SearchResult`` via delegate.
     /// - Parameter retrieveOptions: Defines attribute sets to request additional metadata attributes.
     public func select(suggestion: SearchSuggestion, options retrieveOptions: RetrieveOptions? = nil) {
         userActivityReporter.reportActivity(forComponent: "search-engine-forward-geocoding-selection")
@@ -482,7 +496,10 @@ extension SearchEngine {
     /// - Parameter suggestions: suggestions list to resolve. All suggestions must originate from the same search
     /// request.
     public func select(suggestions: [SearchSuggestion]) {
-        assert(apiType == .geocoding || apiType.toCore() == .SBS, "Only geocoding and SBS API types support batch results.")
+        assert(
+            apiType == .geocoding || apiType.toCore() == .SBS,
+            "Only geocoding and SBS API types support batch results."
+        )
 
         for suggestion in suggestions {
             let supported = (suggestion as? CoreResponseProvider)?.originalResponse.coreResult.action?.multiRetrievable

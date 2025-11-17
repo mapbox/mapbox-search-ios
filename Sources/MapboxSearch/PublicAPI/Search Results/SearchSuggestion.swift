@@ -3,7 +3,7 @@ import Foundation
 /// Autocomplete common suggestion type.
 ///
 /// To retrieve coordinate and detailed address information, you have to push suggestion
-/// back to `SearchEngine.select(suggestion:)` method.
+/// back to ``SearchEngine/select(suggestion:options:)`` method.
 public protocol SearchSuggestion {
     /// Unique identifier for suggestion result.
     ///
