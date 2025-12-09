@@ -2,7 +2,7 @@
 
 What does SDK support
 
-## Overview 
+## Overview
 
 Mapbox Search SDK works with:
 - iOS 12 or newer on any supported iOS powered device including iPad.
@@ -18,7 +18,7 @@ Mapbox Search SDK works with:
 
 ## Integration with the other Mapbox SDKs
 
-To make integration with Mapbox Maps SDK or Mapbox Navigation SDK simple, it is highly recommended 
+To make integration with Mapbox Maps SDK or Mapbox Navigation SDK simple, it is highly recommended
 to keep Mapbox Search SDK updated. Mapbox SDKs has Mapbox Common SDK in common so it's extremely important
 to have the same Common SDK version.
 

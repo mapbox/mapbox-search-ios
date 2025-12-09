@@ -34,7 +34,7 @@ do
                     --write-out %{http_code}\
                     --silent --output /dev/null\
                     https://api.bintray.com/content/mapbox/mapbox_collab/mapbox-search-ios/${VERSION}/${VERSION}/)
-    
+
     if [ ${HTTP_STATUS_CODE} -ge 400 ] ; then
         >&2 echo "Cannot upload binary to Bintray. Status code: ${HTTP_STATUS_CODE}"
         exit 1

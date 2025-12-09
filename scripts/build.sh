@@ -62,7 +62,7 @@ do
 
     # Set commit short SHA1 hash into .xcframework/Info.Plist:$INFO_PLIST_COMMIT_HASH_KEY
     plutil -insert "${INFO_PLIST_COMMIT_HASH_KEY}" -string "$(git rev-parse --short HEAD)" "${RESULT_PRODUCTS_DIR}/${frameworkName}.xcframework/Info.plist"
-    
+
     # Set branch name hash into .xcframework/Info.Plist:$INFO_PLIST_BRANCH_KEY
     plutil -insert "${INFO_PLIST_BRANCH_KEY}" -string "$(git rev-parse --abbrev-ref HEAD)" "${RESULT_PRODUCTS_DIR}/${frameworkName}.xcframework/Info.plist"
 

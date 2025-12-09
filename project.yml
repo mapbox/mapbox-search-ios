@@ -9,7 +9,10 @@ options:
 packages:
   MapboxCommon:
     url: "https://github.com/mapbox/mapbox-common-ios.git"
-    exactVersion: "24.15.0-rc.1"
+    exactVersion: 24.18.0-SNAPSHOT-12-09--04-30.git-9504878
+  MapboxCoreSearch:
+    url: "https://github.com/mapbox/mapbox-core-search-ios.git"
+    exactVersion: 2.18.0-SNAPSHOT-12-09--04-30.git-9504878
 
 targets:
   MapboxSearch:
@@ -30,16 +33,16 @@ targets:
         BUILD_LIBRARY_FOR_DISTRIBUTION: YES
     sources:
       - path: "Sources/MapboxSearch"
-    resources: 
+    resources:
       - path: "Resources"
         excludes:
           - "**/*.xcprivacy"
     dependencies:
       - package: MapboxCommon
         product: MapboxCommon
-      - framework: libraries/MapboxCoreSearch.xcframework
-        embed: false
-        
+      - package: MapboxCoreSearch
+        product: MapboxCoreSearch
+
   MapboxSearchUI:
     type: framework
     supportedDestinations: [iOS]
@@ -58,7 +61,7 @@ targets:
         BUILD_LIBRARY_FOR_DISTRIBUTION: YES
     sources:
       - path: "Sources/MapboxSearchUI"
-    resources: 
+    resources:
       - path: "Resources/"
         excludes:
           - "**/*.xcprivacy"

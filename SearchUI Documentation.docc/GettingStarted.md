@@ -2,10 +2,10 @@
 
 Integrate Mapbox Search UI right into your application
 
-## Overview 
+## Overview
 
 Built-in UI is implemented via ``MapboxSearchController`` and provides options to make:
-- Search locations by name or address 
+- Search locations by name or address
 - Search locations by name of the POI category (e.g. `bar`, `ATM` or `Hotel`)
 - Save and match search results with user favorite records and search history
 
@@ -33,7 +33,7 @@ To control data flow, implement ``SearchControllerDelegate`` and assign ``Mapbox
 2. ``SearchControllerDelegate/categorySearchResultsReceived(category:results:)`` returns a collection of `SearchResult` object matches with requested category name.
 3. ``SearchControllerDelegate/userFavoriteSelected(_:)`` returns `FavoriteRecord` representing user-provided record.
 
-#### Presentation 
+#### Presentation
 
 Out of the box you can present ``MapboxSearchController`` in a floating panel with a ``MapboxPanelController``. Initialize Panel Controller as following:
 

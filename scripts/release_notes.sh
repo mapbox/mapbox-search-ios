@@ -7,7 +7,7 @@ MAPBOX_MOBILE_EVENTS_DEPENDENCY_VERSION="$(grep -o "MapboxMobileEvents.*" Cartfi
 
 CHANGELOG_NOTES=$(parse-changelog CHANGELOG.md "$VERSION")
 
-# disabled auto release creation 
+# disabled auto release creation
 # gh api --silent -X POST "/repos/{owner}/{repo}/releases" -F tag_name="v${VERSION}" -F name="Release v${VERSION}" \
 # -f body=
 

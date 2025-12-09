@@ -4,9 +4,8 @@
 import PackageDescription
 import Foundation
 
-let (coreSearchVersion, coreSearchVersionHash) = ("2.17.0", "864989763c94ba72e32f817adec66915acf2eca76a7ff31d4be0055dab5e08aa")
-
-let mapboxCommonSDKVersion = Version("24.17.0")
+let coreSearchVersion: Version = "2.17.0-SNAPSHOT-10-15--04-29.git-e8419fa"
+let mapboxCommonSDKVersion: Version = "24.18.0-SNAPSHOT-12-09--04-30.git-9504878"
 
 let package = Package(
     name: "MapboxSearch",
@@ -27,6 +26,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         .package(url: "https://github.com/mapbox/mapbox-common-ios.git", exact: mapboxCommonSDKVersion),
+        .package(url: "https://github.com/mapbox/mapbox-core-search-ios.git", exact: coreSearchVersion),
         .package(url: "https://github.com/mattgallagher/CwlPreconditionTesting.git", from: "2.0.0")
     ],
     targets: [
@@ -35,7 +35,7 @@ let package = Package(
         .target(
             name: "MapboxSearch",
             dependencies: [
-                "MapboxCoreSearch",
+                .product(name: "MapboxCoreSearch", package: "mapbox-core-search-ios"),
                 .product(name: "MapboxCommon", package: "mapbox-common-ios")
             ],
             exclude: ["Info.plist"],
@@ -53,12 +53,6 @@ let package = Package(
             ]
         ),
 
-        coreSearchTarget(
-            name: "MapboxCoreSearch",
-            version: coreSearchVersion,
-            checksum: coreSearchVersionHash
-        ),
-
         .testTarget(
             name: "MapboxSearchTests",
             dependencies: [
@@ -68,13 +62,5 @@ let package = Package(
             ],
             exclude: ["Info.plist"]
         ),
-    ],
-    cxxLanguageStandard: .cxx14
+    ]
 )
-
-private func coreSearchTarget(name: String, version: String, checksum: String) -> Target {
-    let host = "api.mapbox.com"
-    let url = "https://\(host)/downloads/v2/search-core-sdk/releases/ios/packages/\(version)/MapboxCoreSearch.xcframework.zip"
-
-    return .binaryTarget(name: name, url: url, checksum: checksum)
-}

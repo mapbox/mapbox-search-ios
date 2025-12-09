@@ -1061,10 +1061,10 @@ Use `PlaceAutocomplete.select(PlaceAutocomplete.Suggestion)` instead. Note that 
 
 ### Fixed
 
-- Unit tests only issue related to DataLayerProvides  
-- MapboxPanelController shadow fix  
-- Possible fix for crash in 1tap  
-- Fix for keyboard issue on result selection  
+- Unit tests only issue related to DataLayerProvides
+- MapboxPanelController shadow fix
+- Possible fix for crash in 1tap
+- Fix for keyboard issue on result selection
 
 ## [1.0.0-beta.2] - 2020-10-06
 
