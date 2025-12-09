@@ -2,7 +2,7 @@
 
 Run your first search
 
-## Overview 
+## Overview
 In this article we would get through initialization phase, run our first request and discuss how to process response options.
 
 ## Discussion
@@ -43,11 +43,11 @@ extension LocationFinderController: SearchEngineDelegate {
     func suggestionsUpdated(suggestions: [SearchSuggestion], searchEngine: SearchEngine) {
         showLocationSuggestions(suggestions)
     }
-    
+
     func resultResolved(result: SearchResult, searchEngine: SearchEngine) {
         showSelectedLocation(result)
     }
-    
+
     func searchErrorHappened(searchError: SearchError, searchEngine: SearchEngine) {
         processSearchError(searchError)
     }
@@ -70,4 +70,4 @@ Now we are ready to start our very first search 🎉!
 
 There are two options to trigger a search request:
 1. Update ``SearchEngine/query`` property to start new search with ``AbstractSearchEngine/defaultSearchOptions``. It easy to use in pair with text fields or bindings.
-2. Call ``SearchEngine/search(query:options:)`` function with explicit ``SearchOptions`` per concrete search request. That function provides more granular control over the search options.  
+2. Call ``SearchEngine/search(query:options:)`` function with explicit ``SearchOptions`` per concrete search request. That function provides more granular control over the search options.

@@ -21,7 +21,7 @@ extension TileRegionLoadOptions {
     /// average has dropped below this value.
     ///
     /// - Returns: Describes the tile region load option values.
-    /// If `metadata` is not a valid JSON object, then this initializer returns `nil`. 
+    /// If `metadata` is not a valid JSON object, then this initializer returns `nil`.
     public static func build(
         geometry: Geometry?,
         descriptors: [TilesetDescriptor]?,

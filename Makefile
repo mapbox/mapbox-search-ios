@@ -10,7 +10,7 @@ build products ios: generate-xcodeproj
 dependencies deps:
 	swift package resolve
 	xcodebuild -resolvePackageDependencies -project MapboxSearch.xcodeproj
-    
+
 generate-xcodeproj:
 	scripts/xcodegen_prepare_dependencies.sh
 	xcodegen generate
@@ -93,4 +93,3 @@ git-version:
 .PHONY: git-version git-versions check-aws update-registry push-trunk lint pristine clean internal-release generate-maki
 .PHONY: generate-docs xctest test ci-full-test ci-dev-test dependencies products build validate-spm-build
 .PHONY: dependencies deps ios codecov list-registry-latest
-

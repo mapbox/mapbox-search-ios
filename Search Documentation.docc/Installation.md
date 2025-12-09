@@ -42,7 +42,7 @@ Mapbox Search can be consumed via Swift Package Manager (SPM). To add the Mapbox
 2. Insert `https://github.com/mapbox/search-ios.git` as the URL and pull in the package.
 3. Select the exact version option and insert the desired version.
 4. At this point, everything should be fetched and loaded up. Select the "MapboxSearch" and "MapboxSearchUI" libraries and then press finish.
-5. In your code, you can now `import MapboxSearchUI` as well as any of the other packages that were downloaded as dependencies. 
+5. In your code, you can now `import MapboxSearchUI` as well as any of the other packages that were downloaded as dependencies.
 
 **Notes**
 - If you need to update your packages, you can click on **File** > **Swift Packages** > **Update To Latest Package Versions**
