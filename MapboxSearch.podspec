@@ -1,6 +1,6 @@
 Pod::Spec.new do |m|
   m.name = 'MapboxSearch'
-  m.version = '2.17.0-SNAPSHOT-10-15--04-29.git-e8419fa'
+  m.version = '2.18.0-SNAPSHOT-12-09--04-30.git-9504878'
   m.summary = 'Search SDK for Mapbox Search API'
 
 # This description is used to generate tags and improve search results.
