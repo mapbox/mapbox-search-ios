@@ -9,10 +9,10 @@ options:
 packages:
   MapboxCommon:
     url: "https://github.com/mapbox/mapbox-common-ios.git"
-    exactVersion: 24.18.0-beta.1-SNAPSHOT-12-15--08-47.git-906fc31
+    exactVersion: 24.18.0-beta.1
   MapboxCoreSearch:
     url: "https://github.com/mapbox/mapbox-core-search-ios.git"
-    exactVersion: 2.18.0-beta.1-SNAPSHOT-12-15--08-47.git-906fc31
+    exactVersion: 2.18.0-beta.1
 
 targets:
   MapboxSearch:
