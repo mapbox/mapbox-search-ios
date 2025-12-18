@@ -6,6 +6,8 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 ## 2.18.0-beta.1
 
+- [Core] This pre-release version temporarily removes Mac Catalyst support. It will be restored in stable release.
+
 - [Core] Update dependencies.
 **MapboxCommon**: v24.18.0-beta.1
 **MapboxSearch**: v2.18.0-beta.1
