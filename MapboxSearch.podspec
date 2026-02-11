@@ -1,6 +1,6 @@
 Pod::Spec.new do |m|
   m.name = 'MapboxSearch'
-  m.version = '2.19.0-beta.1-SNAPSHOT-02-10--14-39.git-11a7b9c'
+  m.version = '2.19.0-beta.1-SNAPSHOT-02-11--17-56.git-0fda949'
   m.summary = 'Search SDK for Mapbox Search API'
 
 # This description is used to generate tags and improve search results.
@@ -24,6 +24,6 @@ Some iOS platform specifics applies.
 
   m.vendored_frameworks = "**/#{m.name}.xcframework"
 
-  m.dependency 'MapboxCoreSearch', '2.19.0-beta.1-SNAPSHOT-02-10--14-39.git-11a7b9c'
-  m.dependency 'MapboxCommon', '24.19.0-beta.1-SNAPSHOT-02-10--14-39.git-11a7b9c'
+  m.dependency 'MapboxCoreSearch', '2.19.0-beta.1-SNAPSHOT-02-11--17-56.git-0fda949'
+  m.dependency 'MapboxCommon', '24.19.0-beta.1-SNAPSHOT-02-11--17-56.git-0fda949'
 end
