@@ -69,6 +69,9 @@
          <TestPlanReference
             reference = "container:Tests/CI-dev.xctestplan">
          </TestPlanReference>
+         <TestPlanReference
+            reference = "container:Tests/UnitTests.xctestplan">
+         </TestPlanReference>
       </TestPlans>
       <Testables>
          <TestableReference

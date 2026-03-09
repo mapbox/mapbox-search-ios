@@ -24,6 +24,9 @@ ci-dev-test: dependencies
 ci-full-test: dependencies
 	bundle exec fastlane scan --scheme "Demo" --device "iPhone 15" --result_bundle "true" --testplan "Demo" --output_directory "output"
 
+ci-unit-test: dependencies
+	bundle exec fastlane scan --scheme "Demo" --device "iPhone 15" --result_bundle "true" --testplan "UnitTests" --output_directory "output"
+
 test: dependencies
 	xcodebuild -scheme MapboxSearchUI -destination platform\=iOS\ Simulator,name\=iPhone\ 15 clean test
 
@@ -91,5 +94,5 @@ git-version:
 
 
 .PHONY: git-version git-versions check-aws update-registry push-trunk lint pristine clean internal-release generate-maki
-.PHONY: generate-docs xctest test ci-full-test ci-dev-test dependencies products build validate-spm-build
+.PHONY: generate-docs xctest test ci-full-test ci-dev-test ci-unit-test dependencies products build validate-spm-build
 .PHONY: dependencies deps ios codecov list-registry-latest
