@@ -1329,7 +1329,7 @@
 			packageReferences = (
 				FE1122EF2567D07B0064FD53 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */,
 				149948E5290A8ACE00E7E619 /* XCRemoteSwiftPackageReference "swifter" */,
-				042BEB182C2DE30E0004CD7B /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
+				042BEB182C2DE30E0004CD7B /* XCRemoteSwiftPackageReference "mapbox-maps-ios-binary" */,
 				043339CB2C61295D001650FA /* XCRemoteSwiftPackageReference "atlantis" */,
 				2C75CD7E2D7658750024451A /* XCRemoteSwiftPackageReference "mapbox-common-ios" */,
 				2C812B432E4A38AF00A306F0 /* XCLocalSwiftPackageReference "../mapbox-search-ios" */,
@@ -2182,12 +2182,12 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		042BEB182C2DE30E0004CD7B /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
+		042BEB182C2DE30E0004CD7B /* XCRemoteSwiftPackageReference "mapbox-maps-ios-binary" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
+			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios-binary.git";
 			requirement = {
 				kind = exactVersion;
-				version = 11.17.0;
+				version = 11.21.0-SNAPSHOT-03-17--04-59.git-8b07d4a;
 			};
 		};
 		043339CB2C61295D001650FA /* XCRemoteSwiftPackageReference "atlantis" */ = {
@@ -2211,7 +2211,7 @@
 			repositoryURL = "https://github.com/mapbox/mapbox-common-ios";
 			requirement = {
 				kind = exactVersion;
-				version = 24.17.0;
+				version = 24.21.0-SNAPSHOT-03-17--04-59.git-8b07d4a;
 			};
 		};
 		F9C5573E2670CB0400BE8B94 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */ = {
@@ -2235,7 +2235,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		042BEB192C2DE30E0004CD7B /* MapboxMaps */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 042BEB182C2DE30E0004CD7B /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
+			package = 042BEB182C2DE30E0004CD7B /* XCRemoteSwiftPackageReference "mapbox-maps-ios-binary" */;
 			productName = MapboxMaps;
 		};
 		043339CC2C61295D001650FA /* Atlantis */ = {
