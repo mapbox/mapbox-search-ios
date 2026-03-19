@@ -1,4 +1,6 @@
 /// Enum for various filter result types.
+/// - Note: Deprecated. Use ``QueryType`` instead.
+@available(*, deprecated, message: "Use `QueryType` instead")
 public enum SearchQueryType {
     /// Generally recognized countries or, in some cases like Hong Kong, an area of quasi-national administrative status
     /// that has been given a designated country code under ISO 3166-1.
@@ -106,5 +108,51 @@ public enum SearchQueryType {
         @unknown default:
             return nil
         }
+    }
+}
+
+@available(*, deprecated)
+extension SearchQueryType {
+    var queryType: QueryType {
+        switch self {
+        case .country:
+            return .country
+        case .region:
+            return .region
+        case .postcode:
+            return .postcode
+        case .district:
+            return .district
+        case .place:
+            return .place
+        case .locality:
+            return .locality
+        case .neighborhood:
+            return .neighborhood
+        case .address:
+            return .address
+        case .poi:
+            return .poi
+        case .street:
+            return .street
+        case .category:
+            return .category
+        }
+    }
+}
+
+// MARK: - Array Bridging
+
+@available(*, deprecated, message: "Use `[QueryType]` instead")
+extension Array where Element == SearchQueryType {
+    var asQueryTypes: [QueryType] {
+        map(\.queryType)
+    }
+}
+
+extension Array where Element == QueryType {
+    @available(*, deprecated, message: "Use `[QueryType]` instead")
+    var asSearchQueryTypes: [SearchQueryType] {
+        compactMap { $0.coreValue.flatMap(SearchQueryType.fromCoreValue) }
     }
 }

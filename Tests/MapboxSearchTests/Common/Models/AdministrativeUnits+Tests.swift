@@ -3,21 +3,21 @@ import XCTest
 
 final class AdministrativeUnitsTests: XCTestCase {
     func testCommonAdministrativeUnits() {
-        XCTAssertEqual(AdministrativeUnit.address.rawValue, SearchQueryType.address)
-        XCTAssertEqual(AdministrativeUnit.country.rawValue, SearchQueryType.country)
-        XCTAssertEqual(AdministrativeUnit.region.rawValue, SearchQueryType.region)
-        XCTAssertEqual(AdministrativeUnit.postcode.rawValue, SearchQueryType.postcode)
-        XCTAssertEqual(AdministrativeUnit.district.rawValue, SearchQueryType.district)
-        XCTAssertEqual(AdministrativeUnit.place.rawValue, SearchQueryType.place)
-        XCTAssertEqual(AdministrativeUnit.locality.rawValue, SearchQueryType.locality)
-        XCTAssertEqual(AdministrativeUnit.neighborhood.rawValue, SearchQueryType.neighborhood)
-        XCTAssertEqual(AdministrativeUnit.street.rawValue, SearchQueryType.street)
+        XCTAssertEqual(AdministrativeUnit.address.rawValue, .address)
+        XCTAssertEqual(AdministrativeUnit.country.rawValue, .country)
+        XCTAssertEqual(AdministrativeUnit.region.rawValue, .region)
+        XCTAssertEqual(AdministrativeUnit.postcode.rawValue, .postcode)
+        XCTAssertEqual(AdministrativeUnit.district.rawValue, .district)
+        XCTAssertEqual(AdministrativeUnit.place.rawValue, .place)
+        XCTAssertEqual(AdministrativeUnit.locality.rawValue, .locality)
+        XCTAssertEqual(AdministrativeUnit.neighborhood.rawValue, .neighborhood)
+        XCTAssertEqual(AdministrativeUnit.street.rawValue, .street)
     }
 
     func testJapanAdministrativeUnits() {
-        XCTAssertEqual(AdministrativeUnit.prefecture.rawValue, SearchQueryType.region)
-        XCTAssertEqual(AdministrativeUnit.city.rawValue, SearchQueryType.place)
-        XCTAssertEqual(AdministrativeUnit.oaza.rawValue, SearchQueryType.locality)
-        XCTAssertEqual(AdministrativeUnit.chome.rawValue, SearchQueryType.neighborhood)
+        XCTAssertEqual(AdministrativeUnit.prefecture.rawValue, .region)
+        XCTAssertEqual(AdministrativeUnit.city.rawValue, .place)
+        XCTAssertEqual(AdministrativeUnit.oaza.rawValue, .locality)
+        XCTAssertEqual(AdministrativeUnit.chome.rawValue, .neighborhood)
     }
 }

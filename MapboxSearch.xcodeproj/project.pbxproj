@@ -114,6 +114,7 @@
 		2C812B7F2E4A3B9D00A306F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C812B7B2E4A3B9D00A306F0 /* LaunchScreen.storyboard */; };
 		2C812B802E4A3B9D00A306F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C812B7D2E4A3B9D00A306F0 /* Main.storyboard */; };
 		2C812B822E4A3C8A00A306F0 /* MapboxSearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2C812B812E4A3C8A00A306F0 /* MapboxSearchUI */; };
+		2C8EF6162F6980B700387031 /* QueryTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8EF6152F6980B700387031 /* QueryTypeTests.swift */; };
 		2CA1E22129F09CD200A533CF /* PlaceAutocomplete.Suggestion+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1E22029F09CD200A533CF /* PlaceAutocomplete.Suggestion+Tests.swift */; };
 		2CA1E22329F0A47600A533CF /* PlaceAutocompleteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1E22229F0A47600A533CF /* PlaceAutocompleteTests.swift */; };
 		2CB2C4BA2E2E5CA7006B0A4F /* ParkingPriceTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB2C4B92E2E5CA7006B0A4F /* ParkingPriceTypeTests.swift */; };
@@ -395,6 +396,7 @@
 		2C812B7C2E4A3B9D00A306F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		2C812B832E4A485800A306F0 /* UnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTests.xctestplan; sourceTree = "<group>"; };
 		2C812B842E4A488F00A306F0 /* UITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UITests.xctestplan; sourceTree = "<group>"; };
+		2C8EF6152F6980B700387031 /* QueryTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryTypeTests.swift; sourceTree = "<group>"; };
 		2CA1E22029F09CD200A533CF /* PlaceAutocomplete.Suggestion+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceAutocomplete.Suggestion+Tests.swift"; sourceTree = "<group>"; };
 		2CA1E22229F0A47600A533CF /* PlaceAutocompleteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAutocompleteTests.swift; sourceTree = "<group>"; };
 		2CB2C4B92E2E5CA7006B0A4F /* ParkingPriceTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPriceTypeTests.swift; sourceTree = "<group>"; };
@@ -765,6 +767,7 @@
 				14173C34287847B000B20E1C /* Language+Tests.swift */,
 				14173C2D28783E1000B20E1C /* Country+Tests.swift */,
 				14FA658029535AB100056E5B /* AdministrativeUnits+Tests.swift */,
+				2C8EF6152F6980B700387031 /* QueryTypeTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1611,6 +1614,7 @@
 				F96E710C25FB8A5F005B8A3F /* SearchSuggestionStub.swift in Sources */,
 				FE7C73B3256687310047CA20 /* IndexableRecordStub.swift in Sources */,
 				2CB2C4C02E2E8076006B0A4F /* ParkingAvailabilityLevelTests.swift in Sources */,
+				2C8EF6162F6980B700387031 /* QueryTypeTests.swift in Sources */,
 				FEEDD3A42508E24900DC0A98 /* SearchErrorTests.swift in Sources */,
 				FE8F821C256D509600A100D4 /* RoutablePointTests.swift in Sources */,
 				14A0B83D2A5FF20B00D281F1 /* PlaceAutocomplete.Result+Tests.swift in Sources */,

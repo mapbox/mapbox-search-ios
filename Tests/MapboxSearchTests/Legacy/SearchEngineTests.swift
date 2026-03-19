@@ -402,19 +402,6 @@ class SearchEngineTests: XCTestCase {
         XCTAssertEqual(options.point, CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0))
     }
 
-    func testQueryTypeConversions() {
-        XCTAssertEqual(SearchQueryType.country.coreValue, .country)
-        XCTAssertEqual(SearchQueryType.country.coreValue, .country)
-        XCTAssertEqual(SearchQueryType.region.coreValue, .region)
-        XCTAssertEqual(SearchQueryType.postcode.coreValue, .postcode)
-        XCTAssertEqual(SearchQueryType.district.coreValue, .district)
-        XCTAssertEqual(SearchQueryType.place.coreValue, .place)
-        XCTAssertEqual(SearchQueryType.locality.coreValue, .locality)
-        XCTAssertEqual(SearchQueryType.neighborhood.coreValue, .neighborhood)
-        XCTAssertEqual(SearchQueryType.address.coreValue, .address)
-        XCTAssertEqual(SearchQueryType.poi.coreValue, .poi)
-    }
-
     func testQueryGetterSetter() {
         let searchEngine = makeSearchEngine()
         XCTAssertEqual(searchEngine.query, "")
@@ -433,7 +420,7 @@ class SearchEngineTests: XCTestCase {
         let searchOptions = SearchOptions(
             limit: 100,
             origin: CLLocationCoordinate2D(latitude: 38.902309, longitude: -77.029129),
-            filterTypes: [.poi]
+            filterQueryTypes: [.poi]
         )
 
         searchEngine.search(query: "planet word", options: searchOptions)

@@ -27,7 +27,14 @@ public struct ReverseGeocodingOptions {
     public var limit: Int?
 
     /// Setting limit to a higher-than-default value requires specifying exactly one types parameter.
-    public var types: [SearchQueryType]?
+    @available(*, deprecated, message: "Use `filterQueryTypes` instead")
+    public var types: [SearchQueryType]? {
+        set { filterQueryTypes = newValue?.asQueryTypes }
+        get { filterQueryTypes?.asSearchQueryTypes }
+    }
+
+    /// Filter results to include only a subset (one or more) of the available  types.
+    public var filterQueryTypes: [QueryType]?
 
     /// Limit results to one or more countries. Permitted values are ISO 3166 alpha 2 country codes (e.g. US, DE, GB)
     public var countries: [String]?
@@ -47,7 +54,7 @@ public struct ReverseGeocodingOptions {
     ///   - point: Point to reverse geocode
     ///   - mode: Decides how results are sorted. Distance by default.
     ///   - limit: Specify the maximum number of results to return. The default is 1 and the maximum supported is 5.
-    ///   - types: Setting limit to a higher-than-default value requires specifying exactly one types parameter.
+    ///   - filterQueryTypes: Setting limit to a higher-than-default value requires specifying exactly one types parameter.
     ///   - countries: Limit results to one or more countries. Permitted values are ISO 3166 alpha 2 country codes (e.g.
     /// US, DE, GB)
     ///   - languages: List of  language codes which used to provide localized results, order matters.
@@ -55,16 +62,44 @@ public struct ReverseGeocodingOptions {
         point: CLLocationCoordinate2D,
         mode: Mode? = nil,
         limit: Int? = nil,
-        types: [SearchQueryType]? = nil,
+        filterQueryTypes: [QueryType]? = nil,
         countries: [String]? = nil,
         languages: [String]? = nil
     ) {
         self.point = point
         self.mode = mode
         self.limit = limit
-        self.types = types
+        self.filterQueryTypes = filterQueryTypes
         self.countries = countries
         self.languages = languages ?? Locale.defaultLanguages()
+    }
+
+    /// Designated initialiser
+    /// - Parameters:
+    ///   - point: Point to reverse geocode
+    ///   - mode: Decides how results are sorted. Distance by default.
+    ///   - limit: Specify the maximum number of results to return. The default is 1 and the maximum supported is 5.
+    ///   - types: Setting limit to a higher-than-default value requires specifying exactly one types parameter.
+    ///   - countries: Limit results to one or more countries. Permitted values are ISO 3166 alpha 2 country codes (e.g.
+    /// US, DE, GB)
+    ///   - languages: List of  language codes which used to provide localized results, order matters.
+    @available(*, deprecated, message: "Use the initializer with `filterQueryTypes` instead of `types`")
+    public init(
+        point: CLLocationCoordinate2D,
+        mode: Mode? = nil,
+        limit: Int? = nil,
+        types: [SearchQueryType]?,
+        countries: [String]? = nil,
+        languages: [String]? = nil
+    ) {
+        self.init(
+            point: point,
+            mode: mode,
+            limit: limit,
+            filterQueryTypes: types?.asQueryTypes,
+            countries: countries,
+            languages: languages
+        )
     }
 
     func toCore() -> CoreReverseGeoOptions {
@@ -74,7 +109,7 @@ public struct ReverseGeocodingOptions {
             countries: countries,
             language: languages,
             limit: limit.map(NSNumber.init(value:)),
-            types: types.map { $0.map { NSNumber(value: $0.coreValue.rawValue) } }
+            types: filterQueryTypes?.compactMap { $0.coreValue.map { NSNumber(value: $0.rawValue) } }
         )
     }
 }

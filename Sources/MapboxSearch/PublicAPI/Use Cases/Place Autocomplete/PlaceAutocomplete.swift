@@ -88,10 +88,7 @@ extension PlaceAutocomplete {
         }
 
         // We should not leave core types list empty or null in order to avoid unsupported types being requested
-        var filterTypes = options.types
-        if filterTypes.isEmpty {
-            filterTypes = PlaceType.allTypes
-        }
+        let types = options.types.isEmpty ? PlaceType.allTypes : options.types
 
         let searchOptions = SearchOptions(
             countries: options.countries.map(\.countryCode),
@@ -101,7 +98,7 @@ extension PlaceAutocomplete {
             boundingBox: region,
             origin: proximity,
             navigationOptions: navigationOptions,
-            filterTypes: filterTypes.map(\.coreType),
+            filterQueryTypes: types.map(\.queryType),
             ignoreIndexableRecords: true
         ).toCore(apiType: apiType)
 
@@ -121,14 +118,11 @@ extension PlaceAutocomplete {
         userActivityReporter.reportActivity(forComponent: "place-autocomplete-reverse-geocoding")
 
         // We should not leave core types list empty or null in order to avoid unsupported types being requested
-        var filterTypes = options.types
-        if filterTypes.isEmpty {
-            filterTypes = PlaceType.allTypes
-        }
+        let types = options.types.isEmpty ? PlaceType.allTypes : options.types
 
         let searchOptions = ReverseGeocodingOptions(
             point: query,
-            types: filterTypes.map(\.coreType),
+            filterQueryTypes: types.map(\.queryType),
             countries: options.countries.map(\.countryCode),
             languages: [options.language.languageCode]
         ).toCore()

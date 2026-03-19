@@ -4,6 +4,13 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
+## Unreleased
+
+- [Core] Added support for `QueryType.brand` search filter.
+- [SearchOptions] `SearchOptions.filterTypes` is deprecated. Use `SearchOptions.filterQueryTypes` instead.
+- [SearchOptions] `ReverseGeocodingOptions.types` is deprecated. Use `ReverseGeocodingOptions.filterQueryTypes` instead.
+- [SearchOptions] `SearchQueryType` is deprecated. Use `QueryType` instead.
+
 ## 2.20.1
 
 - [Core] Update dependencies.

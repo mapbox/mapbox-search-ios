@@ -1,4 +1,5 @@
 @testable import MapboxSearch
+import MapboxCoreSearch
 import XCTest
 
 final class PlaceAutocompleteTests: XCTestCase {
@@ -84,7 +85,8 @@ final class PlaceAutocompleteTests: XCTestCase {
         XCTAssertEqual(searchEngine.searchOptions?.etaType, "navigation")
         XCTAssertEqual(searchEngine.searchOptions?.countries, ["us", "gb"])
         XCTAssertEqual(searchEngine.searchOptions?.language, ["en"])
-        XCTAssertEqual(searchEngine.searchOptions?.types, types.map { $0.coreType.coreValue.rawValue as NSNumber })
+        let expectedTypes = types.compactMap { $0.queryType.coreValue.map { NSNumber(value: $0.rawValue) } }
+        XCTAssertEqual(searchEngine.searchOptions?.types, expectedTypes)
     }
 
     func testFilterOutCategoryAndQuerySuggestion() {

@@ -12,19 +12,18 @@ extension PlaceAutocomplete {
             [.POI] + AdministrativeUnit.all.map(PlaceType.administrativeUnit)
         }
 
-        var coreType: SearchQueryType {
+        var queryType: QueryType {
             switch self {
             case .POI: return .poi
             case .administrativeUnit(let unit): return unit.rawValue
             }
         }
 
-        static func from(_ coreType: SearchQueryType) -> PlaceType {
-            if coreType == .poi {
+        static func from(_ queryType: QueryType) -> PlaceType {
+            if queryType == .poi {
                 return .POI
-            } else {
-                return .administrativeUnit(.init(rawValue: coreType))
             }
+            return .administrativeUnit(.init(queryType: queryType))
         }
     }
 }

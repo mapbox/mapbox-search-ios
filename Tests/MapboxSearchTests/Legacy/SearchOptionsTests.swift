@@ -26,6 +26,21 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertEqual(searchOptions.ensureResultsPerCategory, true)
     }
 
+    @available(*, deprecated)
+    func testFilterQueryTypes() {
+        var options = SearchOptions(origin: .sample1, filterTypes: [.district, .place])
+        XCTAssertEqual(options.filterQueryTypes, [.district, .place])
+        XCTAssertEqual(options.filterTypes, [.district, .place])
+
+        options.filterTypes = [.address]
+        XCTAssertEqual(options.filterQueryTypes, [.address])
+        XCTAssertEqual(options.filterTypes, [.address])
+
+        options.filterQueryTypes = [.brand]
+        XCTAssertEqual(options.filterQueryTypes, [.brand])
+        XCTAssertEqual(options.filterTypes, [.poi])
+    }
+
     func testSearchOptionBoundingBoxConstructor() {
         let bbOptions = SearchOptions(boundingBox: BoundingBox(.sample1, .sample2), origin: .sample1, limit: 13)
 
@@ -40,7 +55,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertNil(bbOptions.navigationOptions)
         XCTAssertNil(bbOptions.routeOptions)
         XCTAssertNil(bbOptions.unsafeParameters)
-        XCTAssertNil(bbOptions.filterTypes)
+        XCTAssertNil(bbOptions.filterQueryTypes)
         XCTAssertFalse(bbOptions.ignoreIndexableRecords)
         XCTAssertNil(bbOptions.indexableRecordsDistanceThreshold)
         XCTAssertNil(bbOptions.attributeSets)
@@ -60,7 +75,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertNil(proximityOptions.navigationOptions)
         XCTAssertNil(proximityOptions.routeOptions)
         XCTAssertNil(proximityOptions.unsafeParameters)
-        XCTAssertNil(proximityOptions.filterTypes)
+        XCTAssertNil(proximityOptions.filterQueryTypes)
         XCTAssertFalse(proximityOptions.ignoreIndexableRecords)
         XCTAssertNil(proximityOptions.indexableRecordsDistanceThreshold)
         XCTAssertNil(proximityOptions.attributeSets)
@@ -85,7 +100,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertEqual(navigationOptions.navigationOptions?.etaType, .navigation)
         XCTAssertNil(navigationOptions.routeOptions)
         XCTAssertNil(navigationOptions.unsafeParameters)
-        XCTAssertNil(navigationOptions.filterTypes)
+        XCTAssertNil(navigationOptions.filterQueryTypes)
         XCTAssertFalse(navigationOptions.ignoreIndexableRecords)
         XCTAssertNil(navigationOptions.indexableRecordsDistanceThreshold)
         XCTAssertNil(navigationOptions.attributeSets)
@@ -109,7 +124,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertEqual(routeOptions.routeOptions?.deviation.time, 300)
         XCTAssertEqual(routeOptions.routeOptions?.deviation.sarType, .isochrone)
         XCTAssertNil(routeOptions.unsafeParameters)
-        XCTAssertNil(routeOptions.filterTypes)
+        XCTAssertNil(routeOptions.filterQueryTypes)
         XCTAssertFalse(routeOptions.ignoreIndexableRecords)
         XCTAssertNil(routeOptions.indexableRecordsDistanceThreshold)
         XCTAssertNil(routeOptions.attributeSets)
@@ -132,7 +147,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertNil(fromCoreSearchOptions.navigationOptions)
         XCTAssertNil(fromCoreSearchOptions.routeOptions)
         XCTAssertEqual(fromCoreSearchOptions.unsafeParameters, searchOptions.unsafeParameters)
-        XCTAssertEqual(fromCoreSearchOptions.filterTypes, searchOptions.filterTypes)
+        XCTAssertEqual(fromCoreSearchOptions.filterQueryTypes, searchOptions.filterQueryTypes)
         XCTAssertEqual(fromCoreSearchOptions.ignoreIndexableRecords, searchOptions.ignoreIndexableRecords)
         XCTAssertEqual(
             fromCoreSearchOptions.indexableRecordsDistanceThreshold,
@@ -163,7 +178,7 @@ class SearchOptionsTests: XCTestCase {
             searchOptions.routeOptions?.deviation.sarType
         )
         XCTAssertEqual(fromCoreSearchOptions.unsafeParameters, searchOptions.unsafeParameters)
-        XCTAssertEqual(fromCoreSearchOptions.filterTypes, searchOptions.filterTypes)
+        XCTAssertEqual(fromCoreSearchOptions.filterQueryTypes, searchOptions.filterQueryTypes)
         XCTAssertEqual(fromCoreSearchOptions.ignoreIndexableRecords, searchOptions.ignoreIndexableRecords)
         XCTAssertEqual(
             fromCoreSearchOptions.indexableRecordsDistanceThreshold,
@@ -196,7 +211,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertNil(searchOptions.origin)
         XCTAssertNil(searchOptions.navigationOptions)
         XCTAssertNil(searchOptions.unsafeParameters)
-        XCTAssertNil(searchOptions.filterTypes)
+        XCTAssertNil(searchOptions.filterQueryTypes)
         XCTAssertFalse(searchOptions.ignoreIndexableRecords)
         XCTAssertNil(searchOptions.indexableRecordsDistanceThreshold)
         XCTAssertNil(searchOptions.attributeSets)
@@ -219,7 +234,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertEqual(mergedOptions.fuzzyMatch, fullOptions.fuzzyMatch)
         XCTAssertEqual(mergedOptions.navigationOptions, fullOptions.navigationOptions)
         XCTAssertEqual(mergedOptions.routeOptions, fullOptions.routeOptions)
-        XCTAssertEqual(mergedOptions.filterTypes, fullOptions.filterTypes)
+        XCTAssertEqual(mergedOptions.filterQueryTypes, fullOptions.filterQueryTypes)
         XCTAssertNotEqual(mergedOptions.unsafeParameters, fullOptions.unsafeParameters)
         XCTAssertEqual(mergedOptions.unsafeParameters, ["api": "v3"])
         XCTAssertEqual(mergedOptions.ignoreIndexableRecords, emptyOptions.ignoreIndexableRecords)
@@ -248,7 +263,7 @@ extension SearchOptions {
             route: .sample1,
             deviation: .time(.init(value: 5, unit: .minutes), .isochrone)
         ),
-        filterTypes: [.poi, .address, .place],
+        filterQueryTypes: [.poi, .address, .place, .brand],
         ignoreIndexableRecords: true,
         indexableRecordsDistanceThreshold: 2_000,
         unsafeParameters: ["arg": "value"],

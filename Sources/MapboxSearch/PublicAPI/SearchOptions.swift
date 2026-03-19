@@ -58,7 +58,14 @@ public struct SearchOptions {
     public var routeOptions: RouteOptions?
 
     /// Filter results to include only a subset (one or more) of the available  types.
-    public var filterTypes: [SearchQueryType]?
+    @available(*, deprecated, message: "Use `filterQueryTypes` instead")
+    public var filterTypes: [SearchQueryType]? {
+        set { filterQueryTypes = newValue?.asQueryTypes }
+        get { filterQueryTypes?.asSearchQueryTypes }
+    }
+
+    /// Filter results to include only a subset (one or more) of the available  types.
+    public var filterQueryTypes: [QueryType]?
 
     /// Do not search external records in `IndexableDataProvider`s. Defaults to `false`
     /// - Attention: History and Favorites functionality is implemented as `IndexableDataProvider`s
@@ -98,18 +105,20 @@ public struct SearchOptions {
     /// - Parameter fuzzyMatch: Use non-strict (`true`) or strict (`false`) matching
     /// - Parameter proximity: Coordinate to search around
     /// - Parameter boundingBox: Limit search result to a region
-    /// - Parameter offlineSearchPlacesOutsideBbox: Configures if places can be looked through all available files ignoring the bounding box
+    /// - Parameter offlineSearchPlacesOutsideBbox: Configures if places can be looked through all available files
+    /// ignoring the bounding box
     /// - Parameter origin: Search origin point. This point is used for calculation of SearchResult ETA and distance
     /// fields
     /// - Parameter navigationOptions: Navigation options used for proper calculation of ETA and results ranking
     /// - Parameter routeOptions: Options to filter search results along the route
-    /// - Parameter filterTypes: Filter results by types. `CategorySearchEngine` doesn't support that option.
+    /// - Parameter filterQueryTypes: Filter results by types. `CategorySearchEngine` doesn't support that option.
     /// - Parameter ignoreIndexableRecords: Do not search external records in `IndexableDataProvider`s
     /// - Parameter indexableRecordsDistanceThreshold: Radius of circle around `proximity` to filter indexable records
     /// - Parameter unsafeParameters: Non-verified query parameters to the server API
     /// - Parameter attributeSets: Configures additional metadata attributes besides the basic ones.  If `attributeSets`
     /// is `nil` or empty, ``AttributeSet/basic`` will be requested.
-    /// - Parameter ensureResultsPerCategory: Configures if results will include at least one POI for each category, provided a POI is available in a nearby location.
+    /// - Parameter ensureResultsPerCategory: Configures if results will include at least one POI for each category,
+    /// provided a POI is available in a nearby location.
     public init(
         countries: [String]? = nil,
         languages: [String]? = nil,
@@ -121,7 +130,7 @@ public struct SearchOptions {
         origin: CLLocationCoordinate2D? = nil,
         navigationOptions: SearchNavigationOptions? = nil,
         routeOptions: RouteOptions? = nil,
-        filterTypes: [SearchQueryType]? = nil,
+        filterQueryTypes: [QueryType]? = nil,
         ignoreIndexableRecords: Bool = false,
         indexableRecordsDistanceThreshold: CLLocationDistance? = nil,
         unsafeParameters: [String: String]? = nil,
@@ -138,12 +147,74 @@ public struct SearchOptions {
         self.origin = origin
         self.navigationOptions = navigationOptions
         self.routeOptions = routeOptions
-        self.filterTypes = filterTypes
+        self.filterQueryTypes = filterQueryTypes
         self.ignoreIndexableRecords = ignoreIndexableRecords
         self.indexableRecordsDistanceThreshold = indexableRecordsDistanceThreshold
         self.unsafeParameters = unsafeParameters
         self.attributeSets = attributeSets
         self.ensureResultsPerCategory = ensureResultsPerCategory
+    }
+
+    /// Search request options constructor
+    /// - Parameter countries: Limit results to one or more countries. Permitted values are ISO 3166 alpha 2 country
+    /// codes (e.g. US, DE, GB)
+    /// - Parameter languages: List of  language codes which used to provide localized results, order matters.
+    /// Locale.preferredLanguages used as default or ["en"] if none.
+    /// - Parameter limit: Specify the maximum number of results to return
+    /// - Parameter fuzzyMatch: Use non-strict (`true`) or strict (`false`) matching
+    /// - Parameter proximity: Coordinate to search around
+    /// - Parameter boundingBox: Limit search result to a region
+    /// - Parameter offlineSearchPlacesOutsideBbox: Configures if places can be looked through all available files
+    /// ignoring the bounding box
+    /// - Parameter origin: Search origin point. This point is used for calculation of SearchResult ETA and distance
+    /// fields
+    /// - Parameter navigationOptions: Navigation options used for proper calculation of ETA and results ranking
+    /// - Parameter routeOptions: Options to filter search results along the route
+    /// - Parameter filterTypes: Filter results by types. `CategorySearchEngine` doesn't support that option.
+    /// - Parameter ignoreIndexableRecords: Do not search external records in `IndexableDataProvider`s
+    /// - Parameter indexableRecordsDistanceThreshold: Radius of circle around `proximity` to filter indexable records
+    /// - Parameter unsafeParameters: Non-verified query parameters to the server API
+    /// - Parameter attributeSets: Configures additional metadata attributes besides the basic ones.  If `attributeSets`
+    /// is `nil` or empty, ``AttributeSet/basic`` will be requested.
+    /// - Parameter ensureResultsPerCategory: Configures if results will include at least one POI for each category,
+    /// provided a POI is available in a nearby location.
+    @available(*, deprecated, message: "Use the initializer with `filterQueryTypes` instead of `filterTypes`")
+    public init(
+        countries: [String]? = nil,
+        languages: [String]? = nil,
+        limit: Int? = nil,
+        fuzzyMatch: Bool? = nil,
+        proximity: CLLocationCoordinate2D? = nil,
+        boundingBox: BoundingBox? = nil,
+        offlineSearchPlacesOutsideBbox: Bool = false,
+        origin: CLLocationCoordinate2D? = nil,
+        navigationOptions: SearchNavigationOptions? = nil,
+        routeOptions: RouteOptions? = nil,
+        filterTypes: [SearchQueryType]?,
+        ignoreIndexableRecords: Bool = false,
+        indexableRecordsDistanceThreshold: CLLocationDistance? = nil,
+        unsafeParameters: [String: String]? = nil,
+        attributeSets: [AttributeSet]? = nil,
+        ensureResultsPerCategory: Bool? = nil
+    ) {
+        self.init(
+            countries: countries,
+            languages: languages,
+            limit: limit,
+            fuzzyMatch: fuzzyMatch,
+            proximity: proximity,
+            boundingBox: boundingBox,
+            offlineSearchPlacesOutsideBbox: offlineSearchPlacesOutsideBbox,
+            origin: origin,
+            navigationOptions: navigationOptions,
+            routeOptions: routeOptions,
+            filterQueryTypes: filterTypes?.asQueryTypes,
+            ignoreIndexableRecords: ignoreIndexableRecords,
+            indexableRecordsDistanceThreshold: indexableRecordsDistanceThreshold,
+            unsafeParameters: unsafeParameters,
+            attributeSets: attributeSets,
+            ensureResultsPerCategory: ensureResultsPerCategory
+        )
     }
 
     /// Search request options with custom proximity.
@@ -202,14 +273,16 @@ public struct SearchOptions {
     /// That helps to reduce pressure on the server
     public var defaultDebounce: TimeInterval = 300
 
-    /// When set to true and multiple categories are requested, e.g. `CategorySearchEngine.search(categoryNames: ["coffee_shop", "hotel"], ...)`,
+    /// When set to true and multiple categories are requested, e.g. `CategorySearchEngine.search(categoryNames:
+    /// ["coffee_shop", "hotel"], ...)`,
     /// results will include at least one POI for each category, provided a POI is available in a nearby location.
     ///
     /// A comma-separated list of multiple category values in the request determines the sort order of the POI result.
     /// For example, for request `CategorySearchEngine.search(categoryNames: ["coffee_shop", "hotel"], ...)`,
     /// `coffee_shop` POI will be listed first in the results.
     ///
-    /// If there is more than one POI for categories, the number of search results will include multiple features for each category.
+    /// If there is more than one POI for categories, the number of search results will include multiple features for
+    /// each category.
     ///
     /// For example, assuming that `restaurant`, `coffee`, `parking_lot` categories are requested and limit parameter is
     /// 10, the result will be ranked as follows:
@@ -229,9 +302,9 @@ public struct SearchOptions {
             longitude: $0.value.longitude
         ) }
 
-        let filterTypes: [SearchQueryType]? = options.types?.compactMap {
+        let filterQueryTypes: [QueryType]? = options.types?.compactMap {
             CoreQueryType(rawValue: $0.intValue)
-                .flatMap { SearchQueryType.fromCoreValue($0) }
+                .flatMap { QueryType.fromCoreValue($0) }
         }
 
         var routeOptions: RouteOptions?
@@ -265,7 +338,7 @@ public struct SearchOptions {
             origin: origin,
             navigationOptions: profile,
             routeOptions: routeOptions,
-            filterTypes: filterTypes,
+            filterQueryTypes: filterQueryTypes,
             ignoreIndexableRecords: options.ignoreUR,
             indexableRecordsDistanceThreshold: options.urDistanceThreshold?.doubleValue,
             unsafeParameters: options.addonAPI,
@@ -298,7 +371,7 @@ public struct SearchOptions {
             fuzzyMatch: fuzzyMatch.map(NSNumber.init(value:)),
             language: searchLanguages,
             limit: limit.map(NSNumber.init(value:)),
-            types: filterTypes.map { $0.map { NSNumber(value: $0.coreValue.rawValue) } },
+            types: filterQueryTypes?.compactMap { $0.coreValue.map { NSNumber(value: $0.rawValue) } },
             ignoreUR: ignoreIndexableRecords,
             urDistanceThreshold: indexableRecordsDistanceThreshold.map(NSNumber.init(value:)),
             requestDebounce: NSNumber(value: defaultDebounce),
@@ -330,11 +403,11 @@ public struct SearchOptions {
 
         switch apiType {
         case .geocoding:
-            let unsupportedFilterTypes: [SearchQueryType] = [.street, .category]
+            let unsupportedFilterTypes: [QueryType] = [.street, .category]
             let topLimit = 10
 
-            validSearchOptions.filterTypes = filterTypes?.filter { !unsupportedFilterTypes.contains($0) }
-            if validSearchOptions.filterTypes?.count != filterTypes?.count {
+            validSearchOptions.filterQueryTypes = filterQueryTypes?.filter { !unsupportedFilterTypes.contains($0) }
+            if validSearchOptions.filterQueryTypes?.count != filterQueryTypes?.count {
                 info("Geocoding API doesn't support following filter types: \(unsupportedFilterTypes)")
             }
 
@@ -382,10 +455,10 @@ public struct SearchOptions {
             }
 
         case .autofill:
-            let unsupportedFilterTypes: [SearchQueryType] = [.category]
+            let unsupportedFilterTypes: [QueryType] = [.category]
 
-            validSearchOptions.filterTypes = filterTypes?.filter { !unsupportedFilterTypes.contains($0) }
-            if validSearchOptions.filterTypes?.count != filterTypes?.count {
+            validSearchOptions.filterQueryTypes = filterQueryTypes?.filter { !unsupportedFilterTypes.contains($0) }
+            if validSearchOptions.filterQueryTypes?.count != filterQueryTypes?.count {
                 info("Autofill API doesn't support following filter types: \(unsupportedFilterTypes)")
             }
 
@@ -450,7 +523,7 @@ public struct SearchOptions {
             origin: origin ?? with.origin,
             navigationOptions: navigationOptions ?? with.navigationOptions,
             routeOptions: routeOptions ?? with.routeOptions,
-            filterTypes: filterTypes ?? with.filterTypes,
+            filterQueryTypes: filterQueryTypes ?? with.filterQueryTypes,
             ignoreIndexableRecords: ignoreIndexableRecords,
             indexableRecordsDistanceThreshold: indexableRecordsDistanceThreshold ??
                 with.indexableRecordsDistanceThreshold,

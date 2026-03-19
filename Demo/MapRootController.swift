@@ -31,6 +31,12 @@ class MapRootController: UIViewController {
         let panelController = MapboxPanelController(rootViewController: searchController)
         addChild(panelController)
 
+        // Specify the search options to test the search result with additional filters.
+        searchController.searchOptions = SearchOptions()
+        searchController.searchOptions?.filterQueryTypes = [
+            .address, .brand, .category, .poi, .place, .country, .region, .district, .postcode
+        ]
+
         // Enabling jp/ja search options for testing Japanese Address Search.
         // Setting Japanese into the list of preferred languages is a way to activate it.
         if Locale.preferredLanguages.contains(where: { $0.contains("ja") }) {
