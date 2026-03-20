@@ -153,6 +153,21 @@ extension CoreSearchResultStub {
         return result
     }
 
+    static func makeBrand() -> CoreSearchResultStub {
+        CoreSearchResultStub(
+            id: UUID().uuidString,
+            mapboxId: "aaaqqqww",
+            type: .brand,
+            names: ["SampleBrand"],
+            languages: ["en"],
+            centerLocation: .sample1,
+            categories: ["address", "location"],
+            brand: ["Sample Brand"],
+            brandId: "sample-brand-id",
+            externalIds: ["external-id-key": "external-id-value"]
+        )
+    }
+
     static func makeFavorite() -> CoreSearchResultStub {
         let center = CLLocation(latitude: 12.0000, longitude: 10.0000)
         let address = CoreAddress(

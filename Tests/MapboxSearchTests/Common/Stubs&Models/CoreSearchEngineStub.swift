@@ -13,8 +13,10 @@ class CoreSearchEngineStub {
     var reverseGeocodingOptions: CoreReverseGeoOptions?
     var query: String?
     var categories: [String]?
+    var userLayers: [CoreUserRecordsLayerProtocol] = []
 
     var nextSearchCalled = false
+    var passedCoreRetrieveOptions: CoreRetrieveOptions?
 
     var eventTemplate = """
     {
@@ -26,6 +28,7 @@ class CoreSearchEngineStub {
     """
 
     var callbackWrapper: (@escaping () -> Void) -> Void = { $0() }
+    var passedTileStore: MapboxCommon.TileStore?
 
     init(accessToken: String, location: CoreLocationProvider?) {
         self.accessToken = accessToken
@@ -73,11 +76,11 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
     }
 
     func setTileStore(_ tileStore: MapboxCommon.TileStore) {
-        assertionFailure("Not Implemented")
+        passedTileStore = tileStore
     }
 
     func setTileStore(_ tileStore: MapboxCommon.TileStore, completion: (() -> Void)?) {
-        assertionFailure("Not Implemented")
+        passedTileStore = tileStore
         completion?()
     }
 
@@ -93,10 +96,12 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
         CoreUserRecordsLayerStub(name: layer)
     }
 
-    func addUserLayer(_ layer: CoreUserRecordsLayerProtocol) {}
+    func addUserLayer(_ layer: CoreUserRecordsLayerProtocol) {
+        userLayers.append(layer)
+    }
 
     func removeUserLayer(_ layer: CoreUserRecordsLayerProtocol) {
-        assertionFailure("Not Implemented")
+        userLayers.removeAll { $0.name == layer.name }
     }
 
     func search(
@@ -123,6 +128,7 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
         callback: @escaping (CoreSearchResponseProtocol?) -> Void
     ) {
         nextSearchCalled = true
+        passedCoreRetrieveOptions = options
         DispatchQueue.main.async {
             self.callbackWrapper {
                 callback(self.nextSearchResponse ?? self.searchResponse)

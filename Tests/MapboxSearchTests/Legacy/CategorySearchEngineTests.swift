@@ -4,26 +4,33 @@ import CwlPreconditionTesting
 import XCTest
 
 class CategorySearchEngineTests: XCTestCase {
-    var delegate: SearchEngineDelegateStub!
     var provider: ServiceProviderStub!
+    let timeout: TimeInterval = 0.5
+
+    private var categorySearchEngine: CategorySearchEngine!
 
     override func setUp() {
         super.setUp()
 
-        delegate = SearchEngineDelegateStub()
         provider = ServiceProviderStub()
         provider.localHistoryProvider.clearData()
         provider.localFavoritesProvider.clearData()
-    }
-
-    func testEmptySearch() throws {
-        let categorySearchEngine = CategorySearchEngine(
+        categorySearchEngine = CategorySearchEngine(
             accessToken: "mapbox-access-token",
             serviceProvider: provider,
             locationProvider: DefaultLocationProvider(),
             apiType: .searchBox
         )
-        let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
+    }
+
+    private var engine: CoreSearchEngineStub {
+        get throws {
+            try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
+        }
+    }
+
+    func testEmptySearch() throws {
+        let engine = try engine
         let expectedResults = [CoreSearchResultStub]()
         let response = CoreSearchResponseStub.successSample(results: expectedResults)
         engine.searchResponse = response
@@ -39,18 +46,12 @@ class CategorySearchEngineTests: XCTestCase {
                 assertionFailure("Error not expected")
             }
         }
-        wait(for: [expectation], timeout: 10)
+        wait(for: [expectation], timeout: timeout)
         XCTAssertEqual(results.map(\.id), expectedResults.map(\.id))
     }
 
     func testCategorySearch() throws {
-        let categorySearchEngine = CategorySearchEngine(
-            accessToken: "mapbox-access-token",
-            serviceProvider: provider,
-            locationProvider: DefaultLocationProvider(),
-            apiType: .searchBox
-        )
-        let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
+        let engine = try engine
         let expectedResults = CoreSearchResultStub.makeCategoryResultsSet()
         let response = CoreSearchResponseStub.successSample(results: expectedResults)
         engine.searchResponse = response
@@ -72,13 +73,7 @@ class CategorySearchEngineTests: XCTestCase {
     }
 
     func testErrorSearch() throws {
-        let categorySearchEngine = CategorySearchEngine(
-            accessToken: "mapbox-access-token",
-            serviceProvider: provider,
-            locationProvider: DefaultLocationProvider(),
-            apiType: .searchBox
-        )
-        let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
+        let engine = try engine
         let response = CoreSearchResponseStub.failureSample
         engine.searchResponse = response
         let expectation = XCTestExpectation(description: "Expecting error")
@@ -92,7 +87,7 @@ class CategorySearchEngineTests: XCTestCase {
                 expectation.fulfill()
             }
         }
-        wait(for: [expectation], timeout: 10)
+        wait(for: [expectation], timeout: timeout)
         switch error! {
         case .generic:
             XCTAssert(true)
@@ -102,14 +97,7 @@ class CategorySearchEngineTests: XCTestCase {
     }
 
     func testCategorySearchFailedNoResponse() throws {
-        let categorySearchEngine = CategorySearchEngine(
-            accessToken: "mapbox-access-token",
-            serviceProvider: provider,
-            locationProvider: DefaultLocationProvider(),
-            apiType: .searchBox
-        )
-
-        let engine = try XCTUnwrap(categorySearchEngine.engine as? CoreSearchEngineStub)
+        let engine = try engine
         engine.callbackWrapper = { [weak self] callback in
             let assertionError = catchBadInstruction {
                 callback()
@@ -119,7 +107,7 @@ class CategorySearchEngineTests: XCTestCase {
             var error: SearchError?
             let expectation = XCTestExpectation(description: "Expecting results")
 
-            categorySearchEngine.search(categoryName: "ATM") { result in
+            self?.categorySearchEngine.search(categoryName: "ATM") { result in
                 switch result {
                 case .success:
                     assertionFailure("Error expected")

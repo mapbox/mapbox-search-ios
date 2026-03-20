@@ -25,7 +25,10 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         distance: NSNumber? = nil,
         metadata: CoreResultMetadata? = nil,
         estimatedTime: Measurement<UnitDuration>? = nil,
-        boundingBox: CoreBoundingBox? = nil
+        boundingBox: CoreBoundingBox? = nil,
+        brand: [String]? = nil,
+        brandId: String? = nil,
+        externalIds: [String: String]? = nil
     ) {
         self.id = id
         self.mapboxId = mapboxId
@@ -49,6 +52,9 @@ class CoreSearchResultStub: CoreSearchResultProtocol {
         self.metadata = metadata
         self.estimatedTime = estimatedTime
         self.boundingBox = boundingBox
+        self.brand = brand
+        self.brandID = brandId
+        self.externalIds = externalIds
     }
 
     convenience init(dataProviderRecord: TestDataProviderRecord) {
@@ -129,6 +135,8 @@ extension CoreSearchResultStub: Equatable {
             && lhs.brand == rhs.brand
             && lhs.brandID == rhs.brandID
             && lhs.boundingBox == rhs.boundingBox
+            && lhs.metadata ==  rhs.metadata
+            && lhs.externalIds == rhs.externalIds
     }
 }
 
@@ -152,11 +160,11 @@ extension CoreSearchResultProtocol {
             routablePoints: routablePoints,
             categories: categories,
             categoryIDs: [],
-            brand: [],
-            brandID: nil,
+            brand: brand,
+            brandID: brandID,
             icon: icon,
-            metadata: nil,
-            externalIDs: nil,
+            metadata: metadata,
+            externalIDs: externalIds,
             layer: layer,
             userRecordID: userRecordID,
             userRecordPriority: 100,
