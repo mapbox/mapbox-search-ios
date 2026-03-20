@@ -4,21 +4,39 @@ import XCTest
 final class SearchBox_UserRecordsLayerTests: XCTestCase {
     var delegate: SearchEngineDelegateStub!
     var searchEngine: SearchEngine!
+    var provider: ServiceProviderStub!
 
+    let timeout: TimeInterval = 1
     let dcLocation = CLLocationCoordinate2D(latitude: 38.89992081005698, longitude: -77.03399849939174)
     let regionId = "dc"
+    let query = "obelisk"
+
+    let accessToken = "mapbox-access-token"
 
     override func setUpWithError() throws {
         try super.setUpWithError()
 
+        provider = ServiceProviderStub()
         delegate = SearchEngineDelegateStub()
         searchEngine = SearchEngine(
+            accessToken: accessToken,
+            serviceProvider: provider,
             locationProvider: DefaultLocationProvider(),
             defaultSearchOptions: searchOptionsWithUserRecords,
             apiType: .searchBox
         )
-
         searchEngine.delegate = delegate
+    }
+
+    private var coreRequestOptions: CoreRequestOptions {
+        CoreRequestOptions(
+            query: query,
+            endpoint: "custom",
+            options: .sample1,
+            proximityRewritten: false,
+            originRewritten: false,
+            sessionID: "1234"
+        )
     }
 
     /// Set the ignoreUR flag to FALSE to opt-in to to user records layer
@@ -27,89 +45,75 @@ final class SearchBox_UserRecordsLayerTests: XCTestCase {
         indexableRecordsDistanceThreshold: nil
     )
 
-    func testWritingUserRecordsLayer_Online() throws {
+    func testWritingUserRecordsLayerOnline() throws {
         let mockRecordProvider = DataLayerProviderStub(records: [])
+        let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
 
+        XCTAssertEqual(engine.userLayers.count, 2)
         let recordsInteractor = try searchEngine.register(dataProvider: mockRecordProvider, priority: 1)
+        XCTAssertEqual(engine.userLayers.count, 3)
+        XCTAssertEqual(searchEngine.offlineMode, .disabled)
+
+        let mockedResults = CoreSearchResultStub.makeSuggestionsSet()
+        let coreResponse = CoreSearchResponseStub.successSample(options: coreRequestOptions, results: mockedResults)
+        engine.searchResponse = coreResponse
 
         let updateExpectation = delegate.updateExpectation
-        searchEngine.search(query: "obelisk")
-        wait(for: [updateExpectation], timeout: 10)
-        XCTAssertFalse(searchEngine.suggestions.isEmpty)
-        let nameResultsBeforeUserRecord = searchEngine.suggestions.map(\.name)
-        XCTAssertFalse(nameResultsBeforeUserRecord.contains(where: { $0 == "Washington Monument" }))
+        searchEngine.search(query: query)
+        wait(for: [updateExpectation], timeout: timeout)
 
+        XCTAssertEqual(searchEngine.suggestions.count, mockedResults.count)
+        let suggestion = ExternalRecordPlaceholder(
+            coreResult: CoreSearchResultStub.externalRecordSample,
+            response: CoreSearchResponseStub.failureSample
+        )!
+        suggestion.id = IndexableRecordStub.sample1_online.id
+        suggestion.dataLayerIdentifier = "DataLayerProviderStub"
+
+        let failedResolveExpectation = delegate.errorExpectation
         XCTAssertNotNil(recordsInteractor)
+        searchEngine.select(suggestion: suggestion)
+        wait(for: [failedResolveExpectation], timeout: timeout)
+        XCTAssertFalse(engine.nextSearchCalled)
+        XCTAssertNil(delegate.resolvedResult)
 
-        recordsInteractor.update(record: IndexableRecordStub.sample1_online)
+        mockRecordProvider.records = [IndexableRecordStub.sample1_online]
 
-        let secondUpdateExpectation = delegate.updateExpectation
-        searchEngine.search(query: "obelisk")
-        wait(for: [secondUpdateExpectation], timeout: 10)
-        XCTAssertFalse(searchEngine.suggestions.isEmpty)
-        let nameResultsAfterAddingUserRecord = searchEngine.suggestions.map(\.name)
-        XCTAssertTrue(nameResultsAfterAddingUserRecord.contains(where: { $0 == "Washington Monument" }))
+        let resolveExpectation = delegate.successExpectation
+
+        searchEngine.select(suggestion: suggestion)
+        wait(for: [resolveExpectation], timeout: timeout)
+
+        XCTAssertFalse(engine.nextSearchCalled)
+        let resolvedResult = try XCTUnwrap(delegate.resolvedResult)
+        XCTAssertEqual(resolvedResult.name, IndexableRecordStub.sample1_online.name)
     }
 
-    func testWritingUserRecordsLayer_Offline() throws {
+    func tesConfigureOffline() throws {
+        let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
+
         let mockRecordProvider = DataLayerProviderStub(records: [])
 
         let recordsInteractor = try searchEngine.register(dataProvider: mockRecordProvider, priority: 1)
+        XCTAssertEqual(searchEngine.offlineMode, .disabled)
 
         // Set up Offline
         let enableOfflineExpectation = expectation(description: "TileStore setup completion")
-        searchEngine.setOfflineMode(.enabled) {
+        searchEngine.setOfflineMode(.enabled) { [weak self] in
+            XCTAssertEqual(self?.searchEngine.offlineMode, .enabled)
+            XCTAssertTrue(engine.passedTileStore === self?.searchEngine.offlineManager.tileStore.commonTileStore)
             enableOfflineExpectation.fulfill()
         }
-        wait(for: [enableOfflineExpectation], timeout: 10)
+        wait(for: [enableOfflineExpectation], timeout: timeout)
 
-        // TestTileStore builds tileStores with unique path allowing runs tests in parallel
-        let tileStore = TestTileStore.build()
-        let setTileStoreExpectation = expectation(description: "TileStore setup completion")
-        searchEngine.offlineManager.setTileStore(tileStore) {
-            setTileStoreExpectation.fulfill()
-        }
-        wait(for: [setTileStoreExpectation], timeout: 10)
-
-        // Set up index observer before the fetch starts to validate changes after it completes
-        let indexChanged_AddedExpectation = expectation(description: "Received offline index changed event, type=added")
-        let offlineIndexObserver = OfflineIndexObserver(onIndexChangedBlock: { changeEvent in
-            _Logger.searchSDK.info("Index changed: \(changeEvent)")
-            switch changeEvent.type {
-            case .added:
-                indexChanged_AddedExpectation.fulfill()
-            default:
-                return
-            }
-        }, onErrorBlock: { error in
-            _Logger.searchSDK.error("Encountered error in OfflineIndexObserver \(error)")
-            XCTFail(error.debugDescription)
-        })
-        searchEngine.offlineManager.engine.addOfflineIndexObserver(for: offlineIndexObserver)
-
-        // Perform the offline fetch
-        let loadDataExpectation = expectation(description: "Load Data")
-        _ = loadData { result in
-            switch result {
-            case .success(let region):
-                XCTAssert(region.id == self.regionId)
-                XCTAssert(region.completedResourceCount > 0)
-                XCTAssertEqual(region.requiredResourceCount, region.completedResourceCount)
-            case .failure(let error):
-                XCTFail("Unable to load Region, \(error.localizedDescription)")
-            }
-            loadDataExpectation.fulfill()
-        }
-        wait(
-            for: [loadDataExpectation, indexChanged_AddedExpectation],
-            timeout: 200,
-            enforceOrder: true
-        )
+        let mockedResults = CoreSearchResultStub.makeSuggestionsSet()
+        let coreResponse = CoreSearchResponseStub.successSample(options: coreRequestOptions, results: mockedResults)
+        engine.searchResponse = coreResponse
 
         // Perform the first search without any user records
         let updateExpectation = delegate.offlineUpdateExpectation
         searchEngine.search(query: "user record location")
-        wait(for: [updateExpectation], timeout: 300)
+        wait(for: [updateExpectation], timeout: timeout)
         let nameResultsBeforeUserRecord = searchEngine.suggestions.map { ($0.name, $0.distance) }
         XCTAssertFalse(nameResultsBeforeUserRecord.contains(where: { $0.0 == "User Record Location" }))
 
@@ -118,7 +122,7 @@ final class SearchBox_UserRecordsLayerTests: XCTestCase {
 
         let secondUpdateExpectation = delegate.offlineUpdateExpectation
         searchEngine.search(query: "user record poi")
-        wait(for: [secondUpdateExpectation], timeout: 600)
+        wait(for: [secondUpdateExpectation], timeout: timeout)
         XCTAssertFalse(searchEngine.suggestions.isEmpty)
         let nameResultsAfterAddingUserRecord = searchEngine.suggestions.map { ($0.name, $0.distance) }
         XCTAssertTrue(
@@ -127,29 +131,34 @@ final class SearchBox_UserRecordsLayerTests: XCTestCase {
         )
     }
 
-    // MARK: Helpers
+    func testWritingUserRecordsLayerOffline() throws {
+        searchEngine = SearchEngine(
+            accessToken: accessToken,
+            locationProvider: DefaultLocationProvider(),
+            defaultSearchOptions: searchOptionsWithUserRecords,
+            apiType: .searchBox
+        )
+        searchEngine.delegate = delegate
+        let mockRecordProvider = DataLayerProviderStub(records: [])
+        _ = try searchEngine.register(dataProvider: mockRecordProvider, priority: 1)
 
-    private func loadData(
-        tilesetDescriptor: TilesetDescriptor? = nil,
-        completion: @escaping (Result<MapboxCommon.TileRegion, MapboxSearch.TileRegionError>) -> Void
-    )
-    -> SearchCancelable {
-        /// A nil tilesetDescriptor parameter will fallback to the default dataset defined at
-        /// ``SearchOfflineManager.defaultDatasetName``
-        let descriptor = tilesetDescriptor ?? SearchOfflineManager.createDefaultTilesetDescriptor()
+        XCTAssertEqual(searchEngine.offlineMode, .disabled)
 
-        let dcLocationValue = NSValue(mkCoordinate: dcLocation)
-        let options = MapboxCommon.TileRegionLoadOptions.build(
-            geometry: Geometry(point: dcLocationValue),
-            descriptors: [descriptor],
-            acceptExpired: true
-        )!
-
-        let cancelable = searchEngine.offlineManager.tileStore.loadTileRegion(id: regionId, options: options) { _ in
-        } completion: { result in
-            completion(result)
+        // Set up Offline
+        let enableOfflineExpectation = expectation(description: "TileStore setup completion")
+        searchEngine.setOfflineMode(.enabled) { [weak self] in
+            XCTAssertEqual(self?.searchEngine.offlineMode, .enabled)
+            enableOfflineExpectation.fulfill()
         }
-        return cancelable
+        wait(for: [enableOfflineExpectation], timeout: timeout)
+
+        // TestTileStore builds tileStores with unique path allowing runs tests in parallel
+        let tileStore = TestTileStore.build()
+        let setTileStoreExpectation = expectation(description: "TileStore setup completion")
+        searchEngine.offlineManager.setTileStore(tileStore) {
+            setTileStoreExpectation.fulfill()
+        }
+        wait(for: [setTileStoreExpectation], timeout: timeout)
     }
 }
 

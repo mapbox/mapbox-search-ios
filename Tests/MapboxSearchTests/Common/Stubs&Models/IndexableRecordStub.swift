@@ -1,7 +1,7 @@
 import CoreLocation
 @testable import MapboxSearch
 
-struct IndexableRecordStub: IndexableRecord {
+struct IndexableRecordStub: IndexableRecord, Equatable {
     var id: String
     var name: String
     var coordinate: CLLocationCoordinate2D {

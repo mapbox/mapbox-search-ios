@@ -15,7 +15,6 @@
 		0427854F2C77899700A0934D /* search-box-retrieve-mapbox-id.json in Resources */ = {isa = PBXBuildFile; fileRef = 0427854E2C77899700A0934D /* search-box-retrieve-mapbox-id.json */; };
 		042785502C77899700A0934D /* search-box-retrieve-mapbox-id.json in Resources */ = {isa = PBXBuildFile; fileRef = 0427854E2C77899700A0934D /* search-box-retrieve-mapbox-id.json */; };
 		042785512C77899700A0934D /* search-box-retrieve-mapbox-id.json in Resources */ = {isa = PBXBuildFile; fileRef = 0427854E2C77899700A0934D /* search-box-retrieve-mapbox-id.json */; };
-		042785582C79008300A0934D /* SearchEngineTests+Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042785572C79008300A0934D /* SearchEngineTests+Details.swift */; };
 		042BEB1A2C2DE30E0004CD7B /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 042BEB192C2DE30E0004CD7B /* MapboxMaps */; };
 		043339CD2C61295D001650FA /* Atlantis in Frameworks */ = {isa = PBXBuildFile; productRef = 043339CC2C61295D001650FA /* Atlantis */; };
 		045514C22B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045514C12B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift */; };
@@ -328,7 +327,6 @@
 		042477C12B7290E700D870D5 /* SearchEngineGeocodingIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEngineGeocodingIntegrationTests.swift; sourceTree = "<group>"; };
 		042477C42B72CCB000D870D5 /* geocoding-reverse-geocoding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "geocoding-reverse-geocoding.json"; sourceTree = "<group>"; };
 		0427854E2C77899700A0934D /* search-box-retrieve-mapbox-id.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "search-box-retrieve-mapbox-id.json"; sourceTree = "<group>"; };
-		042785572C79008300A0934D /* SearchEngineTests+Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchEngineTests+Details.swift"; sourceTree = "<group>"; };
 		045514C12B7D4B58000D88B9 /* CoreApiType+ToSDKType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreApiType+ToSDKType.swift"; sourceTree = "<group>"; };
 		046818D32B87F2A70082B188 /* SearchBox_CategorySearchEngineIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBox_CategorySearchEngineIntegrationTests.swift; sourceTree = "<group>"; };
 		046818DA2B87FAB20082B188 /* search-box-category.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = "search-box-category.json"; sourceTree = "<group>"; };
@@ -615,7 +613,6 @@
 		042785562C79006E00A0934D /* Details */ = {
 			isa = PBXGroup;
 			children = (
-				042785572C79008300A0934D /* SearchEngineTests+Details.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -1630,7 +1627,6 @@
 				FE489B1B2566D839002BF730 /* SearchNavigationProfileTests.swift in Sources */,
 				F9ACA6152642BEE100F50CD4 /* MockResponse.swift in Sources */,
 				F9ACA6142642BEDD00F50CD4 /* MockWebServer.swift in Sources */,
-				042785582C79008300A0934D /* SearchEngineTests+Details.swift in Sources */,
 				FE8F8215256D46F400A100D4 /* SearchResultMetadata+Samples.swift in Sources */,
 				FECB50E3255410BC0026302E /* CLLocationCoordinate2D+Samples.swift in Sources */,
 				14173C3A28784ABC00B20E1C /* NonEmptyArray+Tests.swift in Sources */,

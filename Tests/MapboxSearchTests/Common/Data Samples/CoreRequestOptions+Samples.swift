@@ -2,8 +2,11 @@ import Foundation
 @testable import MapboxSearch
 
 extension CoreRequestOptions {
+    static let sampleQuery1 = "sample-1"
+    static let sampleQuery2 = "sample-2"
+
     static let sample1 = CoreRequestOptions(
-        query: "sample-1",
+        query: sampleQuery1,
         endpoint: "suggest",
         options: .sample1,
         proximityRewritten: false,
@@ -11,7 +14,7 @@ extension CoreRequestOptions {
         sessionID: UUID().uuidString
     )
     static let sample2 = CoreRequestOptions(
-        query: "sample-2",
+        query: sampleQuery2,
         endpoint: "retrieve",
         options: .sample2,
         proximityRewritten: true,

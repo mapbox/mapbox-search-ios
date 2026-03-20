@@ -7,6 +7,8 @@ class SearchEngineTests: XCTestCase {
     var delegate: SearchEngineDelegateStub!
     var provider: ServiceProviderStub!
     var locationProvider: DefaultLocationProvider!
+    let accessToken = "mapbox-access-token"
+    let timeout: TimeInterval = 0.5
 
     override func setUp() {
         super.setUp()
@@ -26,7 +28,7 @@ class SearchEngineTests: XCTestCase {
 
     func makeSearchEngine(with apiType: ApiType = .searchBox) -> SearchEngine {
         let searchEngine = SearchEngine(
-            accessToken: "mapbox-access-token",
+            accessToken: accessToken,
             serviceProvider: provider,
             locationProvider: locationProvider,
             apiType: apiType
@@ -38,19 +40,21 @@ class SearchEngineTests: XCTestCase {
     func testEmptySearch() throws {
         let searchEngine = makeSearchEngine()
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
-        let results = [CoreSearchResultStub]()
 
-        let coreResponse = CoreSearchResponseStub.successSample(results: results)
+        let coreResponse = CoreSearchResponseStub.successSample(results: [])
         engine.searchResponse = coreResponse
         let response = SearchResponse(coreResponse: coreResponse)
         let expectation = delegate.updateExpectation
-        searchEngine.search(query: "sample-1")
-        wait(for: [expectation], timeout: 10)
-        if case .success(let results) = response.process() {
-            XCTAssertEqual(results.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
-        } else {
+        searchEngine.search(query: CoreRequestOptions.sampleQuery1)
+        wait(for: [expectation], timeout: timeout)
+
+        guard case .success(let result) = response.process() else {
             XCTFail("impossible")
+            return
         }
+        XCTAssertTrue(result.suggestions.isEmpty)
+        XCTAssertTrue(result.results.isEmpty)
+        XCTAssertTrue(searchEngine.suggestions.isEmpty)
     }
 
     func testMixedSearch() throws {
@@ -61,13 +65,15 @@ class SearchEngineTests: XCTestCase {
         engine.searchResponse = coreResponse
         let response = SearchResponse(coreResponse: coreResponse)
         let expectation = delegate.updateExpectation
-        searchEngine.search(query: "sample-1")
-        wait(for: [expectation], timeout: 10)
-        if case .success(let results) = response.process() {
-            XCTAssertEqual(results.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
-        } else {
+        searchEngine.search(query: CoreRequestOptions.sampleQuery1)
+        wait(for: [expectation], timeout: timeout)
+
+        guard case .success(let result) = response.process() else {
             XCTFail("impossible")
+            return
         }
+        XCTAssertEqual(result.suggestions.map(\.id), results.map(\.id))
+        XCTAssertEqual(result.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
     }
 
     func testReverseGeocodingSearch() throws {
@@ -78,15 +84,16 @@ class SearchEngineTests: XCTestCase {
         engine.searchResponse = coreResponse
         let expectation = XCTestExpectation()
         let point = CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0)
+
         searchEngine.reverse(options: .init(point: point)) { result in
             if case .success(let reverseGeocodingResults) = result {
-                XCTAssertEqual(results.map(\.id), reverseGeocodingResults.map(\.id))
+                XCTAssertEqual(reverseGeocodingResults.map(\.id), results.map(\.id))
             } else {
                 XCTFail("impossible")
             }
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 10)
+        wait(for: [expectation], timeout: timeout)
     }
 
     func testErrorSearch() throws {
@@ -96,85 +103,70 @@ class SearchEngineTests: XCTestCase {
         engine.searchResponse = coreResponse
         let expectation = delegate.errorExpectation
         searchEngine.search(query: coreResponse.request.query)
-        wait(for: [expectation], timeout: 10)
+        wait(for: [expectation], timeout: timeout)
 
-        XCTAssertEqual([], searchEngine.suggestions.map(\.id))
+        XCTAssertTrue(searchEngine.suggestions.isEmpty)
     }
 
     func testIgnoreResultsForOutdatedSearchQuery() throws {
         let searchEngine = makeSearchEngine()
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
-        let results = CoreSearchResultStub.makeMixedResultsSet()
-        let coreResponse = CoreSearchResponseStub.successSample(options: .sample1, results: results)
+        let mockedResults = CoreSearchResultStub.makeMixedResultsSet()
+        let coreResponse = CoreSearchResponseStub.successSample(options: .sample1, results: mockedResults)
         engine.searchResponse = coreResponse
-        let response = SearchResponse(coreResponse: coreResponse)
         let updateExpectation = delegate.updateExpectation
-        searchEngine.search(query: "sample-1")
-        wait(for: [updateExpectation], timeout: 10)
-        if case .success(let results) = response.process() {
-            XCTAssertEqual(results.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
-        } else {
-            XCTFail("impossible")
-        }
+        searchEngine.search(query: CoreRequestOptions.sampleQuery1)
+        wait(for: [updateExpectation], timeout: timeout)
+
+        XCTAssertEqual(searchEngine.suggestions.map(\.id), mockedResults.map(\.id))
 
         engine.searchResponse = CoreSearchResponseStub.successSample(options: .sample2, results: [])
 
-        let expetations = [delegate.updateExpectation, delegate.successExpectation, delegate.errorExpectation]
-        expetations.forEach { $0.isInverted = true }
-        searchEngine.search(query: "sample-2")
-        wait(for: expetations, timeout: 1)
-        if case .success(let results) = response.process() {
-            XCTAssertEqual(results.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
-        } else {
-            XCTFail("impossible")
-        }
+        let expectations = [delegate.updateExpectation, delegate.successExpectation, delegate.errorExpectation]
+        expectations.forEach { $0.isInverted = true }
+        searchEngine.search(query: "new_query")
+        wait(for: expectations, timeout: timeout)
+
+        XCTAssertEqual(searchEngine.suggestions.map(\.id), mockedResults.map(\.id))
     }
 
     func testIgnoreErrorForOutdatedSearchQuery() throws {
         let searchEngine = makeSearchEngine()
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
-        let results = CoreSearchResultStub.makeMixedResultsSet()
-        let coreResponse = CoreSearchResponseStub.successSample(results: results)
+        let mockedResults = CoreSearchResultStub.makeMixedResultsSet()
+        let coreResponse = CoreSearchResponseStub.successSample(results: mockedResults)
         engine.searchResponse = coreResponse
-        let response = SearchResponse(coreResponse: coreResponse)
         let updateExpectation = delegate.updateExpectation
-        searchEngine.search(query: "sample-1")
-        wait(for: [updateExpectation], timeout: 10)
+        searchEngine.search(query: CoreRequestOptions.sampleQuery1)
+        wait(for: [updateExpectation], timeout: timeout)
 
-        if case .success(let results) = response.process() {
-            XCTAssertEqual(results.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
-        } else {
-            XCTFail("impossible")
-        }
+        XCTAssertEqual(searchEngine.suggestions.map(\.id), mockedResults.map(\.id))
 
         engine.searchResponse = CoreSearchResponseStub.failureSample
         let expectations = [delegate.updateExpectation, delegate.successExpectation, delegate.errorExpectation]
         expectations.forEach { $0.isInverted = true }
         searchEngine.search(query: "new_query")
-        wait(for: expectations, timeout: 1)
-        XCTAssertEqual(results.map(\.id), searchEngine.suggestions.map(\.id))
+        wait(for: expectations, timeout: timeout)
+
+        XCTAssertEqual(searchEngine.suggestions.map(\.id), mockedResults.map(\.id))
     }
 
     func testResolvedSearchResult() throws {
         let searchEngine = makeSearchEngine()
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
-        let results = CoreSearchResultStub.makeMixedResultsSet()
-        let coreResponse = CoreSearchResponseStub.successSample(results: results)
+        let mockedResults = CoreSearchResultStub.makeMixedResultsSet()
+        let coreResponse = CoreSearchResponseStub.successSample(results: mockedResults)
         engine.searchResponse = coreResponse
-        let response = SearchResponse(coreResponse: coreResponse)
+
         let updateExpectation = delegate.updateExpectation
-        searchEngine.search(query: "sample-1")
-        wait(for: [updateExpectation], timeout: 10)
-        if case .success(let results) = response.process() {
-            XCTAssertEqual(results.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
-        } else {
-            XCTFail("impossible")
-        }
+        searchEngine.search(query: CoreRequestOptions.sampleQuery1)
+        wait(for: [updateExpectation], timeout: timeout)
+        XCTAssertEqual(searchEngine.suggestions.map(\.id), mockedResults.map(\.id))
 
         let successExpectation = delegate.successExpectation
         let selectedResult = searchEngine.suggestions.first!
         searchEngine.select(suggestion: selectedResult)
-        wait(for: [successExpectation], timeout: 10)
+        wait(for: [successExpectation], timeout: timeout)
         let resolvedResult = try XCTUnwrap(delegate.resolvedResult)
 
         XCTAssertEqual(resolvedResult.id, selectedResult.id)
@@ -182,8 +174,8 @@ class SearchEngineTests: XCTestCase {
 
     func testDataLayerProvider() throws {
         let searchEngine = makeSearchEngine()
-        let results = CoreSearchResultStub.makeMixedResultsSet()
-        results.forEach { $0.customDataLayerIdentifier = DataLayerProviderStub.providerIdentifier }
+        let mockedResults = CoreSearchResultStub.makeMixedResultsSet()
+        mockedResults.forEach { $0.customDataLayerIdentifier = DataLayerProviderStub.providerIdentifier }
         let records = [IndexableRecordStub(), IndexableRecordStub(), IndexableRecordStub()]
         let dataLayerProvider = DataLayerProviderStub(records: records)
 
@@ -191,14 +183,15 @@ class SearchEngineTests: XCTestCase {
         serviceProvider.dataLayerProviders.append(dataLayerProvider)
 
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
-        let coreResponse = CoreSearchResponseStub.successSample(results: results)
+        let coreResponse = CoreSearchResponseStub.successSample(results: mockedResults)
         engine.searchResponse = coreResponse
         let response = SearchResponse(coreResponse: coreResponse)
         let updateExpectation = delegate.updateExpectation
-        searchEngine.search(query: "sample-1")
-        wait(for: [updateExpectation], timeout: 10)
-        if case .success(let results) = response.process() {
-            XCTAssertEqual(results.suggestions.map(\.id), searchEngine.suggestions.map(\.id))
+        searchEngine.search(query: CoreRequestOptions.sampleQuery1)
+        wait(for: [updateExpectation], timeout: timeout)
+        if case .success(let result) = response.process() {
+            XCTAssertEqual(result.suggestions.map(\.id), mockedResults.map(\.id))
+            XCTAssertEqual(searchEngine.suggestions.map(\.id), mockedResults.map(\.id))
         } else {
             XCTFail("impossible")
         }
@@ -206,7 +199,7 @@ class SearchEngineTests: XCTestCase {
         let successExpectation = delegate.successExpectation
         let selectedResult = searchEngine.suggestions.first!
         searchEngine.select(suggestion: selectedResult)
-        wait(for: [successExpectation], timeout: 10)
+        wait(for: [successExpectation], timeout: timeout)
         let resolvedResult = try XCTUnwrap(delegate.resolvedResult)
 
         XCTAssertEqual(resolvedResult.id, selectedResult.id)
@@ -216,8 +209,8 @@ class SearchEngineTests: XCTestCase {
         let searchEngine = makeSearchEngine(with: .geocoding)
 
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
-        let results = CoreSearchResultStub.makeMixedResultsSet()
-        let coreResponse = CoreSearchResponseStub.successSample(results: results)
+        let mockedResults = CoreSearchResultStub.makeMixedResultsSet()
+        let coreResponse = CoreSearchResponseStub.successSample(results: mockedResults)
         engine.searchResponse = coreResponse
         let expectation = delegate.batchUpdateExpectation
 
@@ -227,22 +220,22 @@ class SearchEngineTests: XCTestCase {
 
         searchEngine.select(suggestions: suggestions)
 
-        wait(for: [expectation], timeout: 10)
-        XCTAssertEqual(results.map(\.id), delegate.resolvedResults.map(\.id))
+        wait(for: [expectation], timeout: timeout)
+        XCTAssertEqual(delegate.resolvedResults.map(\.id), mockedResults.map(\.id))
     }
 
     func testEmptyBatchResolve() throws {
         let searchEngine = makeSearchEngine(with: .geocoding)
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
-        let results = CoreSearchResultStub.makeMixedResultsSet()
-        let coreResponse = CoreSearchResponseStub.successSample(results: results)
+        let mockedResults = CoreSearchResultStub.makeMixedResultsSet()
+        let coreResponse = CoreSearchResponseStub.successSample(results: mockedResults)
         engine.searchResponse = coreResponse
         let expectation = delegate.batchUpdateExpectation
         expectation.isInverted = true
         let suggestions: [SearchSuggestion] = []
 
         searchEngine.select(suggestions: suggestions)
-        wait(for: [expectation], timeout: 0.5)
+        wait(for: [expectation], timeout: timeout)
         XCTAssertTrue(delegate.resolvedResults.isEmpty)
     }
 
@@ -258,13 +251,13 @@ class SearchEngineTests: XCTestCase {
         let coreSuggestion = CoreSearchResultStub.makeSuggestionTypeQuery()
         coreSuggestion.centerLocation = nil
         let suggestion = try XCTUnwrap(SearchResultSuggestionImpl(coreResult: coreSuggestion, response: coreResponse))
-        searchEngine.query = "sample-1"
+        searchEngine.query = CoreRequestOptions.sampleQuery1
         searchEngine.select(suggestion: suggestion)
 
-        wait(for: [updateExpectation], timeout: 10)
+        wait(for: [updateExpectation], timeout: timeout)
         let results = searchEngine.suggestions
 
-        XCTAssertEqual(expectedResults.map(\.id), results.map(\.id))
+        XCTAssertEqual(results.map(\.id), expectedResults.map(\.id))
     }
 
     func testBatchResolveFailedResponse() throws {
@@ -286,15 +279,15 @@ class SearchEngineTests: XCTestCase {
 
         searchEngine.select(suggestions: suggestions)
 
-        wait(for: [expectation], timeout: 10)
+        wait(for: [expectation], timeout: timeout)
 
         guard case .generic(let code, let domain, let message) = delegate.error else {
             XCTFail("Generic error expected")
             return
         }
-        XCTAssertEqual(expectedError.code, code)
-        XCTAssertEqual(expectedError.domain, domain)
-        XCTAssertEqual(expectedError.localizedDescription, message)
+        XCTAssertEqual(code, expectedError.code)
+        XCTAssertEqual(domain, expectedError.domain)
+        XCTAssertEqual(message, expectedError.localizedDescription)
     }
 
     func testBatchResolveNoResponse() throws {
@@ -308,6 +301,7 @@ class SearchEngineTests: XCTestCase {
         }
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         engine.callbackWrapper = { [weak self] callback in
+            guard let self else { return }
             let assertionError = catchBadInstruction {
                 callback()
             }
@@ -326,10 +320,10 @@ class SearchEngineTests: XCTestCase {
             }
             searchEngine.select(suggestions: suggestions)
 
-            self?.wait(for: [expectation], timeout: 10)
+            wait(for: [expectation], timeout: timeout)
 
             let expectedError = SearchError.responseProcessingFailed
-            XCTAssertEqual(expectedError, self?.delegate.error)
+            XCTAssertEqual(delegate.error, expectedError)
         }
     }
 
@@ -337,6 +331,7 @@ class SearchEngineTests: XCTestCase {
         let searchEngine = makeSearchEngine()
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         engine.callbackWrapper = { [weak self] callback in
+            guard let self else { return }
             let assertionError = catchBadInstruction {
                 callback()
             }
@@ -354,7 +349,7 @@ class SearchEngineTests: XCTestCase {
                 expectation.fulfill()
             }
 
-            self?.wait(for: [expectation], timeout: 10)
+            wait(for: [expectation], timeout: timeout)
 
             XCTAssertEqual(error, SearchError.responseProcessingFailed)
         }
@@ -383,7 +378,7 @@ class SearchEngineTests: XCTestCase {
             expectation.fulfill()
         }
 
-        wait(for: [expectation], timeout: 10)
+        wait(for: [expectation], timeout: timeout)
 
         guard case .reverseGeocodingFailed(let reason, let options) = error else {
             XCTFail("reverseGeocodingFailed error expected")
@@ -395,9 +390,9 @@ class SearchEngineTests: XCTestCase {
             return
         }
 
-        XCTAssertEqual(expectedError.code, code)
-        XCTAssertEqual(expectedError.domain, domain)
-        XCTAssertEqual(expectedError.localizedDescription, message)
+        XCTAssertEqual(code, expectedError.code)
+        XCTAssertEqual(domain, expectedError.domain)
+        XCTAssertEqual(message, expectedError.localizedDescription)
 
         XCTAssertEqual(options.point, CLLocationCoordinate2D(latitude: 12.0, longitude: 12.0))
     }
@@ -408,113 +403,74 @@ class SearchEngineTests: XCTestCase {
 
         searchEngine.query = "random-query"
         XCTAssertEqual(searchEngine.query, "random-query")
+
+        searchEngine.search(query: "another-query")
+        XCTAssertEqual(searchEngine.query, "another-query")
     }
 
-    /// NOTE: Although this test uses separate fetches for each attribute set this is purely for testing coverage
-    /// purposes. It is recommended to request as many attribute sets as desired in one RequestOptions array.
-    /// Ex: You should use RetrieveOptions(attributeSets: [.visit, .photos]) in one select() call rather than two calls.
-    func d_testRetrieveDetailsFunction() throws {
+    func testSelectSuggestionWithRetrieveOptions() throws {
         let searchEngine = makeSearchEngine()
-        let updateExpectation = delegate.updateExpectation
+        let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
+
+        let mockedResults = CoreSearchResultStub.makeSuggestionsSet()
+        let coreResponse = CoreSearchResponseStub.successSample(options: .sample1, results: mockedResults)
+        engine.searchResponse = coreResponse
 
         let searchOptions = SearchOptions(
             limit: 100,
             origin: CLLocationCoordinate2D(latitude: 38.902309, longitude: -77.029129),
             filterQueryTypes: [.poi]
         )
+        searchEngine.search(query: CoreRequestOptions.sampleQuery1, options: searchOptions)
+        wait(for: [delegate.updateExpectation], timeout: timeout)
 
-        searchEngine.search(query: "planet word", options: searchOptions)
-        wait(for: [updateExpectation], timeout: 200)
-        let suggestion = try XCTUnwrap(delegate.resolvedSuggestions?.first)
-
-        func fetchResult(for: SearchSuggestion, options: RetrieveOptions) throws -> SearchResult {
-            let successExpectation = delegate.successExpectation
-            searchEngine.select(suggestion: suggestion, options: options)
-            wait(for: [successExpectation], timeout: 200)
-            return try XCTUnwrap(delegate.resolvedResult)
+        guard let suggestion = searchEngine.suggestions.first else {
+            XCTFail("No suggestions found")
+            return
         }
 
-        let attributes = [
-            AttributeSet.basic,
-            .photos,
-            .venue,
-            .visit,
-        ]
+        let mockedResult = CoreSearchResultStub.makeAddress()
+        mockedResult.metadata = CoreResultMetadata.make(data: ["a": "b"])
+        let retrieveCoreResponse = CoreSearchResponseStub.successSample(
+            options: .sample1, results: [mockedResult]
+        )
+        engine.nextSearchResponse = retrieveCoreResponse
 
-        let resultsByAttribute = try attributes.map { attributeSet in
-            let result = try fetchResult(for: suggestion, options: RetrieveOptions(attributeSets: [attributeSet]))
+        let retrieveOptions = RetrieveOptions(attributeSets: [.basic, .venue])
+        searchEngine.select(suggestion: suggestion, options: retrieveOptions)
+        wait(for: [delegate.successExpectation], timeout: timeout)
 
-            XCTAssertNotNil(result.metadata, "\(attributeSet) metadata should not be nil")
-
-            return (attributeSet, result)
-        }
-
-        XCTAssertNotNil(resultsByAttribute)
-        for (attribute, result) in resultsByAttribute {
-            let metadata = try XCTUnwrap(result.metadata)
-            switch attribute {
-            case .basic:
-                XCTAssertNil(metadata.primaryImage)
-                XCTAssertNil(metadata.otherImages)
-                XCTAssertNil(metadata.phone)
-                XCTAssertNil(metadata.website)
-                XCTAssertNil(metadata.reviewCount)
-                XCTAssertNil(metadata.averageRating)
-                XCTAssertNil(metadata.openHours)
-            case .photos:
-                XCTAssertNotNil(metadata.primaryImage)
-                XCTAssertNotNil(metadata.otherImages)
-                XCTAssertNil(metadata.phone)
-                XCTAssertNil(metadata.website)
-                XCTAssertNil(metadata.reviewCount)
-                XCTAssertNil(metadata.averageRating)
-                XCTAssertNil(metadata.openHours)
-            case .venue:
-                XCTAssertNil(metadata.primaryImage)
-                XCTAssertNil(metadata.otherImages)
-                XCTAssertNil(metadata.phone)
-                XCTAssertNil(metadata.website)
-                XCTAssertNotNil(metadata.reviewCount, "Review count failed for \(String(describing: result.mapboxId))")
-                XCTAssertEqual(5.0, metadata.averageRating)
-                XCTAssertNil(metadata.openHours)
-            case .visit:
-                XCTAssertNil(metadata.primaryImage)
-                XCTAssertNil(metadata.otherImages)
-                XCTAssertNotNil(metadata.phone)
-                XCTAssertNotNil(metadata.website)
-                XCTAssertNil(metadata.reviewCount)
-                XCTAssertNil(metadata.averageRating)
-                XCTAssertNotNil(metadata.openHours)
-            }
-        }
-
-        XCTAssertNil(delegate.error)
+        let expectedOptions = retrieveOptions.toCore()
+        XCTAssertTrue(engine.nextSearchCalled)
+        XCTAssertEqual(engine.passedCoreRetrieveOptions?.attributeSets, expectedOptions.attributeSets)
+        let resolvedResult = delegate.resolvedResult
+        XCTAssertEqual(resolvedResult?.id, mockedResult.id)
+        XCTAssertEqual(resolvedResult?.metadata?.data, mockedResult.metadata?.data)
     }
 
     func testServerSearchResultByBrandType() throws {
-        let searchEngine = SearchEngine(
-            locationProvider: DefaultLocationProvider(),
-            apiType: .searchBox
-        )
-        searchEngine.delegate = delegate
+        let searchEngine = makeSearchEngine()
+        let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         let updateExpectation = delegate.updateExpectation
 
+        let expectedBrand = CoreSearchResultStub.makeBrand()
+        let mockedResults = [expectedBrand, CoreSearchResultStub.makePlace()]
+        let coreResponse = CoreSearchResponseStub.successSample(options: .sample1, results: mockedResults)
+        engine.searchResponse = coreResponse
+
         let brandFilterOptions = SearchOptions()
+        searchEngine.search(query: CoreRequestOptions.sampleQuery1, options: brandFilterOptions)
+        wait(for: [updateExpectation], timeout: timeout)
 
-        searchEngine.search(query: "nike", options: brandFilterOptions)
-        wait(for: [updateExpectation], timeout: 10)
-        let results = searchEngine.suggestions
+        let suggestions = searchEngine.suggestions
+        XCTAssertEqual(suggestions.count, 2)
+        let suggestionWithBrandID = suggestions.first!
+        XCTAssertEqual(suggestionWithBrandID.brand, expectedBrand.brand)
+        XCTAssertEqual(suggestionWithBrandID.brandID, expectedBrand.brandID)
+        XCTAssertEqual(suggestionWithBrandID.id, expectedBrand.id)
+        XCTAssertEqual(suggestionWithBrandID.mapboxId, expectedBrand.mapboxId)
+        XCTAssertEqual(suggestionWithBrandID.suggestionType, .brand)
 
-        let resultWithBrandID = results.first(where: { result in
-            return result.brandID != nil || result.brand != nil
-        })
-
-        XCTAssertNotNil(
-            resultWithBrandID,
-            "Result \(String(describing: resultWithBrandID?.name)) \(String(describing: resultWithBrandID?.mapboxId)) should contain a brand value"
-        )
-
-        XCTAssertFalse(results.isEmpty)
-        XCTAssertGreaterThan(results.count, 0)
+        XCTAssertEqual(suggestions[1].suggestionType, .address(subtypes: [.place]))
     }
 }
