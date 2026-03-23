@@ -4,7 +4,11 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
-## Unreleased
+## 2.21.0-rc.1
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.21.0-rc.1
+**MapboxSearch**: v2.21.0-rc.1
 
 - [Core] Added support for `QueryType.brand` search filter.
 - [SearchOptions] `SearchOptions.filterTypes` is deprecated. Use `SearchOptions.filterQueryTypes` instead.
