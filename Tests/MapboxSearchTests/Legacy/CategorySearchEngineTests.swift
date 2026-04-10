@@ -1,5 +1,4 @@
 import CoreLocation
-import CwlPreconditionTesting
 @testable import MapboxSearch
 import XCTest
 
@@ -99,10 +98,7 @@ class CategorySearchEngineTests: XCTestCase {
     func testCategorySearchFailedNoResponse() throws {
         let engine = try engine
         engine.callbackWrapper = { [weak self] callback in
-            let assertionError = catchBadInstruction {
-                callback()
-            }
-            XCTAssertNil(assertionError)
+            callback()
 
             var error: SearchError?
             let expectation = XCTestExpectation(description: "Expecting results")

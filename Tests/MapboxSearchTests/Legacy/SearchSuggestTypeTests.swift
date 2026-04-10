@@ -1,4 +1,3 @@
-import CwlPreconditionTesting
 @testable import MapboxSearch
 import XCTest
 
@@ -80,12 +79,12 @@ extension SearchSuggestTypeTests {
 
     func testDecodableWithCorruptedData() throws {
         let data = try XCTUnwrap(String("{}").data(using: .utf8))
-
-        let assertionError = catchBadInstruction {
-            let decoder = JSONDecoder()
-            // swiftlint:disable:next force_try
-            _ = try! decoder.decode(SearchSuggestType.self, from: data)
+        let decoder = JSONDecoder()
+        do {
+            let response = try decoder.decode(SearchSuggestType.self, from: data)
+            XCTFail("Should not decode successfully, got: \(response)")
+        } catch {
+            XCTAssertNotNil(error)
         }
-        XCTAssertNotNil(assertionError)
     }
 }

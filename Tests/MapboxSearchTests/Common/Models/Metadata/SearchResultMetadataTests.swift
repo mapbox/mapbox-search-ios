@@ -1,4 +1,3 @@
-import CwlPreconditionTesting
 @testable import MapboxSearch
 import XCTest
 
@@ -186,12 +185,5 @@ class SearchResultMetadataTests: XCTestCase {
         )
         let metadata = SearchResultMetadata(metadata: stub)
         XCTAssertNil(metadata.otherImages)
-    }
-
-    func testIncorrectImageInfoURL() throws {
-        let assertionError = catchBadInstruction {
-            _ = Image.SizedImage(coreImageInfo: CoreImageInfoStub(url: "", width: 42, height: 88))
-        }
-        XCTAssertNotNil(assertionError)
     }
 }

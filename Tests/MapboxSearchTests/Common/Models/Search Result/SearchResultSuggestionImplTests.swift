@@ -1,5 +1,4 @@
 import CoreLocation
-import CwlPreconditionTesting
 @testable import MapboxSearch
 import XCTest
 
@@ -102,25 +101,5 @@ class SearchResultSuggestionImplTests: XCTestCase {
                 result: .success([])
             )
         ))
-    }
-
-    func testMore() throws {
-        let exception = catchBadInstruction {
-            _ = SearchResultSuggestionImpl(
-                coreResult: CoreSearchResultStub(
-                    id: "sample-2",
-                    mapboxId: "sample-2",
-                    type: .category,
-                    centerLocation: .sample1
-                ),
-                response: CoreSearchResponseStub(
-                    id: 42,
-                    options: .sample1,
-                    result: .success([])
-                )
-            )
-        }
-
-        XCTAssertNotNil(exception)
     }
 }

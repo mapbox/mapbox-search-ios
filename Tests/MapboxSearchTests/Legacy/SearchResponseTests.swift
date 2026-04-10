@@ -1,4 +1,3 @@
-import CwlPreconditionTesting
 @testable import MapboxSearch
 import XCTest
 

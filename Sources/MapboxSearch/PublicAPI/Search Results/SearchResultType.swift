@@ -31,19 +31,22 @@ public enum SearchResultType: Codable, Hashable {
     }
 
     init?(coreResultTypes: [CoreResultType]) {
+        let logger = _Logger.searchSDK
         switch coreResultTypes {
         case [.poi]:
             self = .POI
         case _ where coreResultTypes.contains(.poi):
-            assertionFailure("Unsupported configuration. POI type should not be mixed")
+            logger.warning("Unsupported configuration in SearchResult.types. POI type should not be mixed")
             return nil
         case _ where CoreResultType.hasOnlyAddressSubtypes(types: coreResultTypes):
             // We do not expect multiple types to contain something rather than addresses
             self = .address(subtypes: coreResultTypes.compactMap(SearchAddressType.init))
 
-            assert(coreResultTypes.compactMap(SearchAddressType.init).count == coreResultTypes.count)
+            if coreResultTypes.compactMap(SearchAddressType.init).count != coreResultTypes.count {
+                logger.warning("Unsupported configuration in SearchResult.types. POI type should not be mixed")
+            }
         case _ where coreResultTypes.count > 1:
-            assertionFailure("All multiple types should be Address subtypes")
+            logger.warning("All multiple SearchResult.types should be Address subtypes")
             return nil
         default:
             return nil

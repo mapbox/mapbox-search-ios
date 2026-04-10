@@ -1,4 +1,3 @@
-import CwlPreconditionTesting
 @testable import MapboxSearch
 import XCTest
 
@@ -19,10 +18,8 @@ class SearchResultTypeTests: XCTestCase {
     }
 
     func testMixedPOIInit() throws {
-        let assertionError = catchBadInstruction {
-            _ = SearchResultType(coreResultTypes: [.poi, .place])
-        }
-        XCTAssertNotNil(assertionError)
+        let type = SearchResultType(coreResultTypes: [.poi, .place])
+        XCTAssertNil(type)
     }
 
     func testAddressInit() {
@@ -33,10 +30,8 @@ class SearchResultTypeTests: XCTestCase {
     }
 
     func testAddressWithPOIInit() throws {
-        let assertionError = catchBadInstruction {
-            _ = SearchResultType(coreResultTypes: [.place, .unknown])
-        }
-        XCTAssertNotNil(assertionError)
+        let type = SearchResultType(coreResultTypes: [.place, .unknown])
+        XCTAssertNil(type)
     }
 
     func testInappropriateTypesInInit() {
@@ -78,12 +73,12 @@ extension SearchResultTypeTests {
 
         let encoder = JSONEncoder()
         let data = try encoder.encode(fakeObject)
-
-        let assertionError = catchBadInstruction {
-            let decoder = JSONDecoder()
-            // swiftlint:disable:next force_try
-            _ = try! decoder.decode(SearchResultType.self, from: data)
+        let decoder = JSONDecoder()
+        do {
+            let response = try decoder.decode(SearchResultType.self, from: data)
+            XCTFail("Should not decode successfully, got: \(response)")
+        } catch {
+            XCTAssertNotNil(error)
         }
-        XCTAssertNotNil(assertionError)
     }
 }

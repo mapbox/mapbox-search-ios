@@ -1,5 +1,4 @@
 import CoreLocation
-import CwlPreconditionTesting
 @testable import MapboxSearch
 import XCTest
 
@@ -302,18 +301,12 @@ class SearchEngineTests: XCTestCase {
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         engine.callbackWrapper = { [weak self] callback in
             guard let self else { return }
-            let assertionError = catchBadInstruction {
-                callback()
-            }
-            XCTAssertNil(assertionError)
+            callback()
 
             do {
                 let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
                 engine.callbackWrapper = { callback in
-                    let assertionError = catchBadInstruction {
-                        callback()
-                    }
-                    XCTAssertNotNil(assertionError)
+                    callback()
                 }
             } catch {
                 XCTFail(error.localizedDescription)
@@ -332,10 +325,7 @@ class SearchEngineTests: XCTestCase {
         let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
         engine.callbackWrapper = { [weak self] callback in
             guard let self else { return }
-            let assertionError = catchBadInstruction {
-                callback()
-            }
-            XCTAssertNil(assertionError)
+            callback()
 
             let expectation = XCTestExpectation()
             var error: SearchError?

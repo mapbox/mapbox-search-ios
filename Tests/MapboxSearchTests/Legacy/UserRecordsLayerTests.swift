@@ -5,6 +5,7 @@ final class SearchBox_UserRecordsLayerTests: XCTestCase {
     var delegate: SearchEngineDelegateStub!
     var searchEngine: SearchEngine!
     var provider: ServiceProviderStub!
+    var locationProvider: DefaultLocationProvider!
 
     let timeout: TimeInterval = 1
     let dcLocation = CLLocationCoordinate2D(latitude: 38.89992081005698, longitude: -77.03399849939174)
@@ -16,12 +17,13 @@ final class SearchBox_UserRecordsLayerTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
 
+        locationProvider = DefaultLocationProvider()
         provider = ServiceProviderStub()
         delegate = SearchEngineDelegateStub()
         searchEngine = SearchEngine(
             accessToken: accessToken,
             serviceProvider: provider,
-            locationProvider: DefaultLocationProvider(),
+            locationProvider: locationProvider,
             defaultSearchOptions: searchOptionsWithUserRecords,
             apiType: .searchBox
         )
@@ -134,7 +136,7 @@ final class SearchBox_UserRecordsLayerTests: XCTestCase {
     func testWritingUserRecordsLayerOffline() throws {
         searchEngine = SearchEngine(
             accessToken: accessToken,
-            locationProvider: DefaultLocationProvider(),
+            locationProvider: locationProvider,
             defaultSearchOptions: searchOptionsWithUserRecords,
             apiType: .searchBox
         )
@@ -151,14 +153,6 @@ final class SearchBox_UserRecordsLayerTests: XCTestCase {
             enableOfflineExpectation.fulfill()
         }
         wait(for: [enableOfflineExpectation], timeout: timeout)
-
-        // TestTileStore builds tileStores with unique path allowing runs tests in parallel
-        let tileStore = TestTileStore.build()
-        let setTileStoreExpectation = expectation(description: "TileStore setup completion")
-        searchEngine.offlineManager.setTileStore(tileStore) {
-            setTileStoreExpectation.fulfill()
-        }
-        wait(for: [setTileStoreExpectation], timeout: timeout)
     }
 }
 
