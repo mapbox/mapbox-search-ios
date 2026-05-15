@@ -41,7 +41,7 @@ generate-docs: generate-xcodeproj
 	VERSION="${VERSION}" $(CURRENT_DIR)/scripts/generate_docs.sh
 
 release-docs: generate-docs
-	git worktree add documentation-production publisher-production
+	git worktree add documentation-production production
 	cp -r docs/MapboxSearch/ "documentation-production/core/${VERSION_STRIPPED}"
 	cp -r docs/MapboxSearchUI/ "documentation-production/ui/${VERSION_STRIPPED}"
 	git -C documentation-production add "core/${VERSION_STRIPPED}" "ui/${VERSION_STRIPPED}"
