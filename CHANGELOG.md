@@ -4,6 +4,12 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
+## 2.21.6
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.21.6
+**MapboxSearch**: v2.21.6
+
 ## 2.21.5
 
 - [Core] Update dependencies.
