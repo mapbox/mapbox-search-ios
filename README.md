@@ -61,7 +61,7 @@ You can find more documentation at docs.mapbox.com:
 
 ## Getting Started
 
-You can install MapboxSearch and/or MapboxSearchUI packages with Swift Package Manager and Cocoapods. Swift Package Manage is our preferred distribution system.
+You can install MapboxSearch and/or MapboxSearchUI packages with Swift Package Manager or CocoaPods. Swift Package Manager is our preferred distribution system, and CocoaPods support will be sunset by **December 2026**.
 
 ## Installation
 
@@ -87,7 +87,14 @@ dependencies: [
 ]
 ```
 
-### Cocoapods
+### CocoaPods
+
+> [!IMPORTANT]
+> **CocoaPods support is being sunset by December 2026.**
+>
+> Mapbox plans to discontinue distributing the Search SDK for iOS via CocoaPods by **December 2026**. After that date, no new releases will be published to CocoaPods and the existing podspecs (`MapboxSearch`, `MapboxSearchUI`) will no longer be maintained.
+>
+> We strongly recommend migrating to [Swift Package Manager (SPM)](https://www.swift.org/documentation/package-manager/), which is Mapbox's preferred and actively supported distribution channel for iOS. Please plan your migration ahead of the December 2026 deadline. See the [Swift Package Manager](#swift-package-manager) section above for installation instructions.
 
 #### MapboxSearch
 To integrate latest pre-release version of `MapboxSearch` into your Xcode project using CocoaPods, specify it in your `Podfile`:
