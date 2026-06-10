@@ -84,7 +84,7 @@ workflows:
 executors:
   xcode-default:
     macos:
-      xcode: 16.4.0
+      xcode: 26.5
     resource_class: m4pro.medium
     working_directory: ~/mapbox-search-ios
 
