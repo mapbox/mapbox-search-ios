@@ -2187,7 +2187,7 @@
 			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios-binary.git";
 			requirement = {
 				kind = exactVersion;
-				version = 11.25.0-SNAPSHOT-06-24--09-50.git-4a77424;
+				version = 11.25.1;
 			};
 		};
 		043339CB2C61295D001650FA /* XCRemoteSwiftPackageReference "atlantis" */ = {
@@ -2211,7 +2211,7 @@
 			repositoryURL = "https://github.com/mapbox/mapbox-common-ios";
 			requirement = {
 				kind = exactVersion;
-				version = 24.25.0-SNAPSHOT-06-24--09-50.git-4a77424;
+				version = 24.25.1;
 			};
 		};
 		F9C5573E2670CB0400BE8B94 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */ = {
