@@ -11,7 +11,8 @@ class SearchCategorySuggestionImplTests: XCTestCase {
             namePreferred: "Preferred name",
             centerLocation: nil,
             categories: ["cat-1"],
-            categoryIDs: ["cat-ID-1"]
+            categoryIDs: ["cat-ID-1"],
+            icon: Maki.soccer.name
         )
         let suggestionImpl = try XCTUnwrap(SearchCategorySuggestionImpl(
             coreResult: coreResult,
@@ -26,6 +27,7 @@ class SearchCategorySuggestionImplTests: XCTestCase {
         XCTAssertEqual(suggestionImpl.namePreferred, "Preferred name")
         XCTAssertEqual(suggestionImpl.categories, ["cat-1"])
         XCTAssertEqual(suggestionImpl.categoryIds, ["cat-ID-1"])
+        XCTAssertEqual(suggestionImpl.iconName, Maki.soccer.name)
     }
 
     func testFailedInitForPOI() throws {
