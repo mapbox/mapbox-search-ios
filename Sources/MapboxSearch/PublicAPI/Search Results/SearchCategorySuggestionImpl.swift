@@ -42,14 +42,13 @@ class SearchCategorySuggestionImpl: SearchCategorySuggestion, CoreResponseProvid
         assert(coreResult.centerLocation == nil)
 
         guard coreResult.resultTypes == [.category] else { return nil }
-
         self.id = coreResult.id
         self.mapboxId = coreResult.mapboxId
         self.suggestionType = .category
         self.name = coreResult.names.first ?? ""
         self.namePreferred = coreResult.namePreferred
         self.address = coreResult.addresses?.first.map(Address.init)
-        self.iconName = nil // Categories should use it's special icon
+        self.iconName = coreResult.icon
         self.serverIndex = coreResult.serverIndex?.intValue
         self.originalResponse = CoreSearchResultResponse(coreResult: coreResult, response: response)
         self.distance = coreResult.distanceToProximity

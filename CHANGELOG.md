@@ -4,6 +4,12 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
+## Unreleased
+
+- [Core] Fix `SearchSuggestion.iconName` always returning `nil` for category suggestions. Category
+  suggestions now expose the Maki icon name returned by the Search Box API, matching the behavior
+  of other suggestion types.
+
 ## 2.26.0-rc.1
 
 - [Core] Update dependencies.
