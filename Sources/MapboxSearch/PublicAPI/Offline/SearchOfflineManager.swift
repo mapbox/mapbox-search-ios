@@ -118,7 +118,7 @@ public class SearchOfflineManager {
     public static func createPlacesTilesetDescriptor(
         tilesetParameters: TilesetParameters
     ) -> MapboxCommon.TilesetDescriptor {
-        CoreSearchEngineStatics.createTilesetDescriptor(
+        CoreSearchEngineStatics.createPlacesTilesetDescriptor(
             tilesetParameters: tilesetParameters
         )
     }
