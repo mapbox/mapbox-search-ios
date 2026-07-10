@@ -4,7 +4,11 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
-## Unreleased
+## 2.26.0
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.26.0
+**MapboxSearch**: v2.26.0
 
 - [Core] Fix `SearchSuggestion.iconName` always returning `nil` for category suggestions. Category
   suggestions now expose the Maki icon name returned by the Search Box API, matching the behavior
