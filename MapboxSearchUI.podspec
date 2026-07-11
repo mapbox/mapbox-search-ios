@@ -1,6 +1,6 @@
 Pod::Spec.new do |m|
   m.name = 'MapboxSearchUI'
-  m.version = '2.27.0-SNAPSHOT-07-09--20-09.git-e8cd0fb'
+  m.version = '2.27.0-SNAPSHOT-07-11--02-03.git-f207f96'
   m.summary = 'Search UI for Mapbox Search API'
 
 # This description is used to generate tags and improve search results.
@@ -23,5 +23,5 @@ Card style custom UI with full search functionality powered by Mapbox Search API
 
   m.vendored_frameworks = "**/#{m.name}.xcframework"
 
-  m.dependency 'MapboxSearch', '2.27.0-SNAPSHOT-07-09--20-09.git-e8cd0fb'
+  m.dependency 'MapboxSearch', '2.27.0-SNAPSHOT-07-11--02-03.git-f207f96'
 end
