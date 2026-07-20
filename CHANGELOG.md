@@ -4,19 +4,6 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
-## 2.28.0-rc.1
-
-- [Core] Update dependencies.
-**MapboxCommon**: v24.28.0-rc.1
-**MapboxSearch**: v2.28.0-rc.1
-
-- [Core] Fix `SearchEngine.retrieve(mapboxID:options:)` not invoking
-  `SearchEngineDelegate.resultResolved(result:searchEngine:)` or
-  `searchErrorHappened(searchError:searchEngine:)` when the same engine instance
-  had previously run a search. Details responses use an empty request query and
-  were incorrectly filtered against the leftover search query, so the app could
-  hang waiting for a callback.
-
 ## 2.27.0-rc.1
 
 - [Core] Update dependencies.
@@ -1402,4 +1389,3 @@ Use `PlaceAutocomplete.select(PlaceAutocomplete.Suggestion)` instead. Note that 
 
 - `BoundingBox` in requestOptions for `SearchEngine` and `CategorySearchEngine`
 This functionality enables overriding of bounding box passed in configuration on engine init stage. Overrides if presented.
-

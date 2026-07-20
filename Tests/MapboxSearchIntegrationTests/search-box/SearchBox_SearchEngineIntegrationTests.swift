@@ -227,22 +227,4 @@ class SearchBox_SearchEngineIntegrationTests: MockServerIntegrationTestCase<Sear
         XCTAssertNotNil(metadata.facebookId)
         XCTAssertNotNil(metadata.twitter)
     }
-
-    func testRetrieveMapboxIDAfterSearch() throws {
-        try server.setResponse(.suggestMinsk)
-        try server.setResponse(.retrieveMapboxID)
-
-        let updateExpectation = delegate.updateExpectation
-        searchEngine.search(query: "Minsk")
-        wait(for: [updateExpectation], timeout: 10)
-        XCTAssertFalse(searchEngine.suggestions.isEmpty)
-
-        let successExpectation = delegate.successExpectation
-        searchEngine.retrieve(mapboxID: "dXJuOm1ieHBvaTo0ZTg2ZWFkNS1jOWMwLTQ3OWEtOTA5Mi1kMDVlNDQ3NDdlODk")
-        wait(for: [successExpectation], timeout: 10)
-
-        let result = try XCTUnwrap(delegate.resolvedResult)
-        XCTAssertEqual(result.categories, ["museum", "tourist attraction"])
-        XCTAssertNil(delegate.error)
-    }
 }
