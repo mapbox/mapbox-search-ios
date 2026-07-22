@@ -358,7 +358,7 @@ public class SearchEngine: AbstractSearchEngine {
     ///   - mapboxID: The ID used to create the original request.
     private func processDetailsResponse(_ coreResponse: CoreSearchResponseProtocol?, mapboxID: String) {
         assert(offlineMode == .disabled)
-        guard let response = preProcessResponse(coreResponse) else {
+        guard let response = preProcessRetrieveResponse(coreResponse) else {
             return
         }
 

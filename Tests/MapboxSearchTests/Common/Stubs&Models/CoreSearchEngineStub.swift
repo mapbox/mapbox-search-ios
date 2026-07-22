@@ -9,6 +9,7 @@ class CoreSearchEngineStub {
 
     var searchResponse: CoreSearchResponseProtocol?
     var nextSearchResponse: CoreSearchResponseProtocol?
+    var detailsResponse: CoreSearchResponseProtocol?
     var searchOptions: CoreSearchOptions?
     var reverseGeocodingOptions: CoreReverseGeoOptions?
     var query: String?
@@ -16,7 +17,10 @@ class CoreSearchEngineStub {
     var userLayers: [CoreUserRecordsLayerProtocol] = []
 
     var nextSearchCalled = false
+    var retrieveDetailsCalled = false
+    var passedDetailsMapboxId: String?
     var passedCoreRetrieveOptions: CoreRetrieveOptions?
+    var passedCoreDetailsOptions: CoreDetailsOptions?
 
     var eventTemplate = """
     {
@@ -41,7 +45,16 @@ extension CoreSearchEngineStub: CoreSearchEngineProtocol {
         for mapboxId: String,
         options: MapboxSearch.CoreDetailsOptions,
         completion: @escaping MapboxSearch.CoreSearchResponseCompletion
-    ) {}
+    ) {
+        retrieveDetailsCalled = true
+        passedDetailsMapboxId = mapboxId
+        passedCoreDetailsOptions = options
+        DispatchQueue.main.async {
+            self.callbackWrapper {
+                completion(self.detailsResponse ?? self.searchResponse)
+            }
+        }
+    }
 
     func addOfflineIndexObserver(for observer: MapboxSearch.CoreOfflineIndexObserver) {}
 
