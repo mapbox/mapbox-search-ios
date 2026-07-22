@@ -463,4 +463,34 @@ class SearchEngineTests: XCTestCase {
 
         XCTAssertEqual(suggestions[1].suggestionType, .address(subtypes: [.place]))
     }
+
+    func testRetrieveMapboxIDAfterSearchInvokesResultResolved() throws {
+        let searchEngine = makeSearchEngine()
+        let engine = try XCTUnwrap(searchEngine.engine as? CoreSearchEngineStub)
+
+        let searchResults = CoreSearchResultStub.makeMixedResultsSet()
+        engine.searchResponse = CoreSearchResponseStub.successSample(
+            options: .sample1,
+            results: searchResults
+        )
+        searchEngine.search(query: CoreRequestOptions.sampleQuery1)
+        wait(for: [delegate.updateExpectation], timeout: timeout)
+        XCTAssertFalse(searchEngine.suggestions.isEmpty)
+
+        let detailsResult = CoreSearchResultStub.makePOI()
+        detailsResult.mapboxId = "dXJuOm1ieHBsYzpDRWlv"
+        engine.detailsResponse = CoreSearchResponseStub.successSample(
+            options: .detailsEmptyQuery,
+            results: [detailsResult]
+        )
+
+        let mapboxID = try XCTUnwrap(detailsResult.mapboxId)
+        searchEngine.retrieve(mapboxID: mapboxID)
+        wait(for: [delegate.successExpectation], timeout: timeout)
+
+        XCTAssertTrue(engine.retrieveDetailsCalled)
+        XCTAssertEqual(engine.passedDetailsMapboxId, mapboxID)
+        XCTAssertEqual(delegate.resolvedResult?.id, detailsResult.id)
+        XCTAssertNil(delegate.error)
+    }
 }

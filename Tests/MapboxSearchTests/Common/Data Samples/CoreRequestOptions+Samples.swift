@@ -21,4 +21,13 @@ extension CoreRequestOptions {
         originRewritten: false,
         sessionID: UUID().uuidString
     )
+
+    static let detailsEmptyQuery = CoreRequestOptions(
+        query: "",
+        endpoint: "retrieve",
+        options: .sample1,
+        proximityRewritten: false,
+        originRewritten: false,
+        sessionID: UUID().uuidString
+    )
 }
