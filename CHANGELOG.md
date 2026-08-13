@@ -10,6 +10,18 @@ Guide: https://keepachangelog.com/en/1.0.0/
 **MapboxCommon**: v24.29.0-rc.1
 **MapboxSearch**: v2.29.0-rc.1
 
+## 2.28.2
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.28.2
+**MapboxSearch**: v2.28.2
+
+## 2.28.1
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.28.1
+**MapboxSearch**: v2.28.1
+
 ## 2.28.0
 
 - [Core] Update dependencies.
