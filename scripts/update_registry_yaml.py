@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import re
 import yaml
 import os
 import sys
@@ -10,15 +9,6 @@ if len(sys.argv) != 2:
     sys.exit(1)
 
 file_path = sys.argv[1]
-
-# Prevent path traversal: reject absolute paths, '..' components, and non-YAML files.
-if (
-    file_path.startswith("/")
-    or ".." in file_path.split(os.sep)
-    or not re.match(r"^[A-Za-z0-9._\-/]+\.ya?ml$", file_path)
-):
-    print("Invalid file path: only safe relative YAML file paths are allowed.")
-    sys.exit(1)
 
 yaml_content = None
 
