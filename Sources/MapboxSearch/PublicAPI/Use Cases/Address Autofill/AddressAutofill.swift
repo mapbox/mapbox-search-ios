@@ -119,7 +119,7 @@ extension AddressAutofill {
 
         switch suggestion.underlying {
         case .suggestion(let coreSearch, let coreOptions):
-            let retrieveOptions = CoreRetrieveOptions(attributeSets: nil)
+            let retrieveOptions = CoreRetrieveOptions(attributeSets: nil, addonAPI: nil)
             searchEngine
                 .nextSearch(for: coreSearch, with: coreOptions, options: retrieveOptions) { [weak self] coreResponse in
                     guard let self else {
