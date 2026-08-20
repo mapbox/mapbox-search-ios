@@ -250,7 +250,7 @@ extension PlaceAutocomplete {
         with options: CoreRequestOptions,
         completion: @escaping (Swift.Result<Suggestion, Error>) -> Void
     ) {
-        let retrieveOptions = CoreRetrieveOptions(attributeSets: nil)
+        let retrieveOptions = CoreRetrieveOptions(attributeSets: nil, addonAPI: nil)
         searchEngine.nextSearch(for: suggestion, with: options, options: retrieveOptions) { response in
             guard let coreResponse = response else {
                 assertionFailure("Response should never be nil")

@@ -16,7 +16,8 @@ public struct RetrieveOptions: Sendable {
     func toCore() -> CoreRetrieveOptions {
         CoreRetrieveOptions(
             attributeSets:
-            attributeSets?.map { NSNumber(value: $0.coreValue.rawValue) }
+            attributeSets?.map { NSNumber(value: $0.coreValue.rawValue) },
+            addonAPI: nil
         )
     }
 }
