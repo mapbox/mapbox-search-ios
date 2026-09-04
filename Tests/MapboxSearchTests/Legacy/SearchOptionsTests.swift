@@ -12,6 +12,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertEqual(searchOptions.proximity, .sample1)
         XCTAssertEqual(searchOptions.boundingBox?.southWest, .sample1)
         XCTAssertEqual(searchOptions.boundingBox?.northEast, .sample2)
+        XCTAssertEqual(searchOptions.viewport, .sample2)
         XCTAssertEqual(searchOptions.origin, .sample2)
         XCTAssertEqual(searchOptions.navigationOptions?.profile, .driving)
         XCTAssertEqual(searchOptions.navigationOptions?.etaType, .navigation)
@@ -51,6 +52,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertNil(bbOptions.proximity)
         XCTAssertEqual(bbOptions.boundingBox?.southWest, .sample1)
         XCTAssertEqual(bbOptions.boundingBox?.northEast, .sample2)
+        XCTAssertNil(bbOptions.viewport)
         XCTAssertEqual(bbOptions.origin, .sample1)
         XCTAssertNil(bbOptions.navigationOptions)
         XCTAssertNil(bbOptions.routeOptions)
@@ -71,6 +73,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertNil(proximityOptions.fuzzyMatch)
         XCTAssertEqual(proximityOptions.proximity, .sample1)
         XCTAssertNil(proximityOptions.boundingBox)
+        XCTAssertNil(proximityOptions.viewport)
         XCTAssertEqual(proximityOptions.origin, .sample1)
         XCTAssertNil(proximityOptions.navigationOptions)
         XCTAssertNil(proximityOptions.routeOptions)
@@ -95,6 +98,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertNil(navigationOptions.proximity)
         XCTAssertNil(navigationOptions.boundingBox)
         XCTAssertFalse(navigationOptions.offlineSearchPlacesOutsideBbox)
+        XCTAssertNil(navigationOptions.viewport)
         XCTAssertEqual(navigationOptions.origin, .sample2)
         XCTAssertEqual(navigationOptions.navigationOptions?.profile, .driving)
         XCTAssertEqual(navigationOptions.navigationOptions?.etaType, .navigation)
@@ -118,6 +122,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertNil(routeOptions.proximity)
         XCTAssertNil(routeOptions.boundingBox)
         XCTAssertFalse(routeOptions.offlineSearchPlacesOutsideBbox)
+        XCTAssertNil(routeOptions.viewport)
         XCTAssertNil(routeOptions.origin)
         XCTAssertNil(routeOptions.navigationOptions)
         XCTAssertEqual(routeOptions.routeOptions?.route, .sample1)
@@ -143,6 +148,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertEqual(fromCoreSearchOptions.proximity, searchOptions.proximity)
         XCTAssertEqual(fromCoreSearchOptions.boundingBox?.southWest, searchOptions.boundingBox?.southWest)
         XCTAssertEqual(fromCoreSearchOptions.boundingBox?.northEast, searchOptions.boundingBox?.northEast)
+        XCTAssertEqual(fromCoreSearchOptions.viewport, searchOptions.viewport)
         XCTAssertNil(fromCoreSearchOptions.origin)
         XCTAssertNil(fromCoreSearchOptions.navigationOptions)
         XCTAssertNil(fromCoreSearchOptions.routeOptions)
@@ -168,6 +174,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertEqual(fromCoreSearchOptions.proximity, searchOptions.proximity)
         XCTAssertEqual(fromCoreSearchOptions.boundingBox?.southWest, searchOptions.boundingBox?.southWest)
         XCTAssertEqual(fromCoreSearchOptions.boundingBox?.northEast, searchOptions.boundingBox?.northEast)
+        XCTAssertEqual(fromCoreSearchOptions.viewport, searchOptions.viewport)
         XCTAssertEqual(fromCoreSearchOptions.origin, searchOptions.origin)
         XCTAssertEqual(fromCoreSearchOptions.navigationOptions?.profile, searchOptions.navigationOptions?.profile)
         XCTAssertEqual(fromCoreSearchOptions.navigationOptions?.etaType, searchOptions.navigationOptions?.etaType)
@@ -185,6 +192,15 @@ class SearchOptionsTests: XCTestCase {
             searchOptions.indexableRecordsDistanceThreshold
         )
         XCTAssertEqual(fromCoreSearchOptions.attributeSets, searchOptions.attributeSets)
+    }
+
+    func testSearchOptionsBoundingBoxAndViewportConversionForSearchBoxAPI() {
+        let coreOptions = SearchOptions.sample1.toCore(apiType: .searchBox)
+
+        XCTAssertEqual(coreOptions.bbox?.min, BoundingBox.sample1.southWest)
+        XCTAssertEqual(coreOptions.bbox?.max, BoundingBox.sample1.northEast)
+        XCTAssertEqual(coreOptions.viewport?.min, BoundingBox.sample2.southWest)
+        XCTAssertEqual(coreOptions.viewport?.max, BoundingBox.sample2.northEast)
     }
 
     func testSearchOptionsUsesLocale() {
@@ -208,6 +224,7 @@ class SearchOptionsTests: XCTestCase {
         XCTAssertNil(searchOptions.fuzzyMatch)
         XCTAssertNil(searchOptions.proximity)
         XCTAssertNil(searchOptions.boundingBox)
+        XCTAssertNil(searchOptions.viewport)
         XCTAssertNil(searchOptions.origin)
         XCTAssertNil(searchOptions.navigationOptions)
         XCTAssertNil(searchOptions.unsafeParameters)
@@ -226,6 +243,8 @@ class SearchOptionsTests: XCTestCase {
         let mergedOptions = emptyOptions.merged(fullOptions)
 
         XCTAssertEqual(mergedOptions.proximity, fullOptions.proximity)
+        XCTAssertEqual(mergedOptions.boundingBox, fullOptions.boundingBox)
+        XCTAssertEqual(mergedOptions.viewport, fullOptions.viewport)
         XCTAssertEqual(mergedOptions.origin, fullOptions.origin)
         XCTAssertEqual(mergedOptions.countries, fullOptions.countries)
         XCTAssertNotEqual(mergedOptions.languages, fullOptions.languages)
@@ -254,6 +273,7 @@ extension SearchOptions {
         proximity: .sample1,
         boundingBox: .sample1,
         offlineSearchPlacesOutsideBbox: true,
+        viewport: .sample2,
         origin: .sample2,
         navigationOptions: SearchNavigationOptions(
             profile: .driving,

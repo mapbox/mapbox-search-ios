@@ -43,6 +43,11 @@ public struct SearchOptions {
     /// In case ``SearchOptions/boundingBox`` was not applied - this param will not be used.
     public var offlineSearchPlacesOutsideBbox: Bool
 
+    /// Map area currently visible to the user.
+    /// Unlike ``SearchOptions/boundingBox`` this option doesn't filter results, it only improves their ranking.
+    /// - Note: ``ApiType/searchBox`` only. Other API types and offline search ignore this option.
+    public var viewport: BoundingBox?
+
     /// Search origin point. This point is used for calculation of SearchResult ETA and distance fields.
     /// Set appropriate navigationProfile  for better calculation of ETA.
     /// If no origin location specified, distance will be calculated based on proximity point.
@@ -107,6 +112,7 @@ public struct SearchOptions {
     /// - Parameter boundingBox: Limit search result to a region
     /// - Parameter offlineSearchPlacesOutsideBbox: Configures if places can be looked through all available files
     /// ignoring the bounding box
+    /// - Parameter viewport: Map area currently visible to the user, used to improve result ranking
     /// - Parameter origin: Search origin point. This point is used for calculation of SearchResult ETA and distance
     /// fields
     /// - Parameter navigationOptions: Navigation options used for proper calculation of ETA and results ranking
@@ -127,6 +133,7 @@ public struct SearchOptions {
         proximity: CLLocationCoordinate2D? = nil,
         boundingBox: BoundingBox? = nil,
         offlineSearchPlacesOutsideBbox: Bool = false,
+        viewport: BoundingBox? = nil,
         origin: CLLocationCoordinate2D? = nil,
         navigationOptions: SearchNavigationOptions? = nil,
         routeOptions: RouteOptions? = nil,
@@ -144,6 +151,7 @@ public struct SearchOptions {
         self.proximity = proximity
         self.boundingBox = boundingBox
         self.offlineSearchPlacesOutsideBbox = offlineSearchPlacesOutsideBbox
+        self.viewport = viewport
         self.origin = origin
         self.navigationOptions = navigationOptions
         self.routeOptions = routeOptions
@@ -166,6 +174,7 @@ public struct SearchOptions {
     /// - Parameter boundingBox: Limit search result to a region
     /// - Parameter offlineSearchPlacesOutsideBbox: Configures if places can be looked through all available files
     /// ignoring the bounding box
+    /// - Parameter viewport: Map area currently visible to the user, used to improve result ranking
     /// - Parameter origin: Search origin point. This point is used for calculation of SearchResult ETA and distance
     /// fields
     /// - Parameter navigationOptions: Navigation options used for proper calculation of ETA and results ranking
@@ -187,6 +196,7 @@ public struct SearchOptions {
         proximity: CLLocationCoordinate2D? = nil,
         boundingBox: BoundingBox? = nil,
         offlineSearchPlacesOutsideBbox: Bool = false,
+        viewport: BoundingBox? = nil,
         origin: CLLocationCoordinate2D? = nil,
         navigationOptions: SearchNavigationOptions? = nil,
         routeOptions: RouteOptions? = nil,
@@ -205,6 +215,7 @@ public struct SearchOptions {
             proximity: proximity,
             boundingBox: boundingBox,
             offlineSearchPlacesOutsideBbox: offlineSearchPlacesOutsideBbox,
+            viewport: viewport,
             origin: origin,
             navigationOptions: navigationOptions,
             routeOptions: routeOptions,
@@ -335,6 +346,7 @@ public struct SearchOptions {
             proximity: proximity,
             boundingBox: options.bbox.map { BoundingBox($0.min, $0.max) },
             offlineSearchPlacesOutsideBbox: options.offlineSearchPlacesOutsideBbox,
+            viewport: options.viewport.map { BoundingBox($0.min, $0.max) },
             origin: origin,
             navigationOptions: profile,
             routeOptions: routeOptions,
@@ -365,8 +377,7 @@ public struct SearchOptions {
             navProfile: navigationOptions?.profile.string,
             etaType: navigationOptions?.etaType.toCore(),
             bbox: boundingBox.map(CoreBoundingBox.init),
-            // TODO: add support for viewport
-            viewport: nil,
+            viewport: viewport.map(CoreBoundingBox.init),
             countries: countries,
             fuzzyMatch: fuzzyMatch.map(NSNumber.init(value:)),
             language: searchLanguages,
@@ -520,6 +531,7 @@ public struct SearchOptions {
             proximity: proximity ?? with.proximity,
             boundingBox: boundingBox ?? with.boundingBox,
             offlineSearchPlacesOutsideBbox: offlineSearchPlacesOutsideBbox,
+            viewport: viewport ?? with.viewport,
             origin: origin ?? with.origin,
             navigationOptions: navigationOptions ?? with.navigationOptions,
             routeOptions: routeOptions ?? with.routeOptions,

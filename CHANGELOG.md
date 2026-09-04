@@ -4,6 +4,12 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
+## Unreleased
+
+- [SearchOptions] The new option `SearchOptions.viewport` is available. It passes the map area currently
+  visible to the user to the search-box API, which uses it to improve result ranking. Unlike
+  `SearchOptions.boundingBox` it does not filter results.
+
 ## 2.30.0
 
 - [Core] Update dependencies.

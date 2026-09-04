@@ -7,6 +7,9 @@ extension CLLocationCoordinate2D {
 
     /// Mapbox DC Office
     static let sample2 = CLLocationCoordinate2D(latitude: 38.8996104, longitude: -77.0341996)
+
+    /// Mapbox Berlin Office
+    static let sample3 = CLLocationCoordinate2D(latitude: 52.5023494, longitude: 13.4223088)
 }
 
 extension CLLocation {
