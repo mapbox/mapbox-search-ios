@@ -1472,4 +1472,3 @@ Use `PlaceAutocomplete.select(PlaceAutocomplete.Suggestion)` instead. Note that 
 
 - `BoundingBox` in requestOptions for `SearchEngine` and `CategorySearchEngine`
 This functionality enables overriding of bounding box passed in configuration on engine init stage. Overrides if presented.
-
