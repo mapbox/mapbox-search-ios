@@ -4,21 +4,11 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
-## 2.31.0-rc.1
-
-- [Core] Update dependencies.
-**MapboxCommon**: v24.31.0-rc.1
-**MapboxSearch**: v2.31.0-rc.1
+## Unreleased
 
 - [SearchOptions] The new option `SearchOptions.viewport` is available. It passes the map area currently
   visible to the user to the search-box API, which uses it to improve result ranking. Unlike
   `SearchOptions.boundingBox` it does not filter results.
-
-## 2.30.1
-
-- [Core] Update dependencies.
-**MapboxCommon**: v24.30.1
-**MapboxSearch**: v2.30.1
 
 ## 2.30.0
 
@@ -31,17 +21,6 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [Core] Update dependencies.
 **MapboxCommon**: v24.30.0-rc.1
 **MapboxSearch**: v2.30.0-rc.1
-
-## 2.29.3
-
-- [Core] Update dependencies.
-**MapboxCommon**: v24.29.3
-**MapboxSearch**: v2.29.3
-
-## 2.29.2
-- [Core] Update dependencies.
-**MapboxCommon**: v24.29.2
-**MapboxSearch**: v2.29.2
 
 ## 2.29.1
 
