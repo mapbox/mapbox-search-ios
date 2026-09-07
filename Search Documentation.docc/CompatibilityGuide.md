@@ -12,7 +12,9 @@ Mapbox Search SDK works with:
 - Swift 5.9 or newer.
 - Xcode 15.0 or newer is recommended for [Swift Package Manager](https://developer.apple.com/documentation/swift_packages) integration.
     For non-SPM integration Xcode 15.0 is a minimal requirement.
-- A public Mapbox access token is required at runtime (`MBXAccessToken` in `Info.plist`). Stable releases do not require a download token. Snapshot builds still need a `Downloads:Read` token in `~/.netrc` for `api.mapbox.com`.
+- Mapbox Account token with `DOWNLOADS:READ` permission in user NetRC file is required for dependency managers functionality.
+
+> Important: Token should be populated in password field inside `~/.netrc` file for `api.mapbox.com` host.
 
 ## Integration with the other Mapbox SDKs
 
