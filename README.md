@@ -65,18 +65,7 @@ You can install MapboxSearch and/or MapboxSearchUI packages with Swift Package M
 
 ## Installation
 
-### Private token configuration
-
-To download the SDK you will need to configure a [private token](https://docs.mapbox.com/help/dive-deeper/access-tokens/#secret-tokens). This token is required for every supported distribution system.
-
-1. Go to your [Mapbox account dashboard](https://account.mapbox.com/) and create an access token that has the `DOWNLOADS:READ` scope. **PLEASE NOTE: This is not the same as your production Mapbox API token. Make sure to keep it private and do not insert it into any Info.plist file.**
-1. Create a file named `.netrc` in your home directory (`$HOME/.netrc`, e.g. `/Users/username/.netrc`) if it doesn’t already exist, then add the following lines to the end of the file:
-   ```
-   machine api.mapbox.com
-     login mapbox
-     password PRIVATE_MAPBOX_API_TOKEN
-   ```
-   where _PRIVATE_MAPBOX_API_TOKEN_ is your Mapbox API token with the `DOWNLOADS:READ` scope.
+Stable releases of the Search SDK do **not** require a secret download token. You only need a [public access token](https://account.mapbox.com/access-tokens/) in your app’s `Info.plist` (`MBXAccessToken`). Snapshot builds still require a token with the `Downloads:Read` scope in `~/.netrc`.
 
 ### Swift Package Manager
 
