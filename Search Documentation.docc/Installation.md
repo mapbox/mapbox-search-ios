@@ -44,7 +44,7 @@ CocoaPods support is being sunset by December 2026. Prefer Swift Package Manager
     ```ruby
     use_frameworks!
     target "TargetNameForYourApp" do
-      pod 'MapboxSearchUI', ">= 2.31.0-rc.1", "< 3.0"
+      pod 'MapboxSearchUI', ">= 2.31.0", "< 3.0"
     end
     ```
 
@@ -53,7 +53,7 @@ CocoaPods support is being sunset by December 2026. Prefer Swift Package Manager
     ```ruby
     use_frameworks!
     target "TargetNameForYourApp" do
-      pod 'MapboxSearch', ">= 2.31.0-rc.1", "< 3.0"
+      pod 'MapboxSearch', ">= 2.31.0", "< 3.0"
     end
     ```
 
