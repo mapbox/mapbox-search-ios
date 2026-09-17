@@ -1,2 +1,2 @@
 /// Mapbox Search SDK version variable
-public let mapboxSearchSDKVersion = "2.32.0-SNAPSHOT-09-16--14-42.git-7f0a22a"
+public let mapboxSearchSDKVersion = "2.32.0-SNAPSHOT-09-17--08-34.git-58c28b2"
