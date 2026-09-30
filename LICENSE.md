@@ -1,6 +1,6 @@
 ## License
 
-Mapbox Search for iOS version 2.33.0-SNAPSHOT-09-30--07-48.git-797baf0
+Mapbox Search for iOS version 2.33.0-SNAPSHOT-09-30--11-12.git-029d8f9
 Mapbox Search iOS SDK
 
 Copyright © 2021 - 2026 Mapbox, Inc. All rights reserved.
