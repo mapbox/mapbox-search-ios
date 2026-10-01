@@ -32,6 +32,12 @@ Guide: https://keepachangelog.com/en/1.0.0/
   visible to the user to the search-box API, which uses it to improve result ranking. Unlike
   `SearchOptions.boundingBox` it does not filter results.
 
+## 2.30.4
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.30.4
+**MapboxSearch**: v2.30.4
+
 ## 2.30.3
 
 - [Core] Update dependencies.
