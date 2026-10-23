@@ -4,8 +4,8 @@
 import PackageDescription
 import Foundation
 
-let coreSearchVersion: Version = "2.31.1-SNAPSHOT-10-23--13-28.git-ae86545"
-let mapboxCommonSDKVersion: Version = "24.31.1-SNAPSHOT-10-23--13-28.git-ae86545"
+let coreSearchVersion: Version = "2.31.1-SNAPSHOT-10-23--15-18.git-87e588e"
+let mapboxCommonSDKVersion: Version = "24.31.1-SNAPSHOT-10-23--15-18.git-87e588e"
 
 let package = Package(
     name: "MapboxSearch",
