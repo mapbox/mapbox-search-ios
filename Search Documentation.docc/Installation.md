@@ -18,7 +18,7 @@ If you ever need to [rotate your access token](https://docs.mapbox.com/help/how-
 
 ### Add dependency
 
-Mapbox provides the Search SDK via Swift Package Manager and CocoaPods. Swift Package Manager is the preferred distribution system.
+Mapbox provides the Search SDK via Swift Package Manager. CocoaPods is not supported: previously released versions remain available on CocoaPods, but new versions are not published there.
 
 #### Swift Package Manager
 Mapbox Search can be consumed via Swift Package Manager (SPM).
@@ -33,28 +33,3 @@ Mapbox Search can be consumed via Swift Package Manager (SPM).
 - If you need to update your packages, you can click on **File** > **Swift Packages** > **Update To Latest Package Versions**
 - Sometimes, artifacts cannot be resolved or errors can occur, in this case select **File** > **Swift Packages** > **Reset Package Cache**
 - If your Xcode crashes, delete your derived data folder
-
-
-#### CocoaPods
-CocoaPods support is being sunset by December 2026. Prefer Swift Package Manager for new projects.
-
-1. Add the dependency to your `Podfile`. There are two options:
-    - **Option 1:** To use the Search SDK with pre-built UI components, add the `MapboxSearchUI` dependency. This will also include `MapboxSearch` automatically.
-
-    ```ruby
-    use_frameworks!
-    target "TargetNameForYourApp" do
-      pod 'MapboxSearchUI', ">= 2.34.1", "< 3.0"
-    end
-    ```
-
-    - **Option 2:** To use the Search SDK without pre-built UI components, add the `MapboxSearch` dependency.
-
-    ```ruby
-    use_frameworks!
-    target "TargetNameForYourApp" do
-      pod 'MapboxSearch', ">= 2.34.1", "< 3.0"
-    end
-    ```
-
-2. Run `pod install` to install the dependency.
