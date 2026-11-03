@@ -66,15 +66,6 @@ clean:
 pristine:
 	git reset --hard && git clean -dfx && git submodule foreach "git reset --hard && git clean -dfx"
 
-lint:
-	pod lib lint MapboxSearch.podspec
-	pod lib lint MapboxSearchUI.podspec --include-podspecs=MapboxSearch.podspec
-
-# This target send local podspecs to the official CocoaPods repository
-push-trunk:
-	pod trunk push MapboxSearch.podspec
-	pod trunk push MapboxSearchUI.podspec --synchronous
-
 update-registry: check-aws
 	aws s3 cp $(CURRENT_DIR)/Products/MapboxSearch.zip   s3://mapbox-api-downloads-production/v2/search-sdk/releases/ios/$(VERSION:v%=%)/packages/MapboxSearch.zip
 	aws s3 cp $(CURRENT_DIR)/Products/MapboxSearchUI.zip s3://mapbox-api-downloads-production/v2/search-sdk/releases/ios/$(VERSION:v%=%)/packages/MapboxSearchUI.zip
