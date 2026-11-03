@@ -33,7 +33,7 @@ If you ever need to [rotate your access token](https://docs.mapbox.com/help/how-
 
 ### Add dependency
 
-Mapbox provides the Search SDK via Swift Package Manager and CocoaPods.
+Mapbox provides the Search SDK via Swift Package Manager. CocoaPods is not supported: previously released versions remain available on CocoaPods, but new versions are not published there.
 
 #### Swift Package Manager
 Mapbox Search can be consumed via Swift Package Manager (SPM). To add the Mapbox Search SDK with SPM, you will need to configure your environment to download it from Mapbox. This requires a Mapbox access token with the `Downloads:Read` scope. In a previous step, you added this token to your `.netrc` file.
@@ -48,28 +48,3 @@ Mapbox Search can be consumed via Swift Package Manager (SPM). To add the Mapbox
 - If you need to update your packages, you can click on **File** > **Swift Packages** > **Update To Latest Package Versions**
 - Sometimes, artifacts cannot be resolved or errors can occur, in this case select **File** > **Swift Packages** > **Reset Package Cache**
 - If your Xcode crashes, delete your derived data folder
-
-
-#### CocoaPods
-To add the Mapbox Search SDK dependency with CocoaPods, you will need to configure your build to download the Search SDK from Mapbox directly. This requires a valid username and an access token with the `Downloads: Read` scope. In a previous step, you added these items to your `.netrc` file.
-
-1. Add the dependency to your `Podfile`. There are two options:
-    - **Option 1:** To use the Search SDK with pre-built UI components, add the `MapboxSearchUI` dependency. This will also include `MapboxSearch` automatically.
-
-    ```ruby
-    use_frameworks!
-    target "TargetNameForYourApp" do
-      pod 'MapboxSearchUI', ">= 2.31.1", "< 3.0"
-    end
-    ```
-
-    - **Option 2:** To use the Search SDK without pre-built UI components, add the `MapboxSearch` dependency.
-
-    ```ruby
-    use_frameworks!
-    target "TargetNameForYourApp" do
-      pod 'MapboxSearch', ">= 2.31.1", "< 3.0"
-    end
-    ```
-
-2. Run `pod install` to install the dependency.
