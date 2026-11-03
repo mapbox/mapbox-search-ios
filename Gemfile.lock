@@ -327,7 +327,6 @@ PLATFORMS
 
 DEPENDENCIES
   addressable (>= 2.9.0)
-  cocoapods
   faraday (~> 1.10.5)
   fastlane (>= 2.232.1)
   fastlane-plugin-versioning
