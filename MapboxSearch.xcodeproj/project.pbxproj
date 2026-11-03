@@ -459,8 +459,6 @@
 		FE114D8824C1A86A001B2CE8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		FE114D8924C1A86A001B2CE8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FE114D8A24C1A86A001B2CE8 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
-		FE114D8C24C1A873001B2CE8 /* MapboxSearchUI.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = MapboxSearchUI.podspec; sourceTree = "<group>"; };
-		FE114D8D24C1A873001B2CE8 /* MapboxSearch.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = MapboxSearch.podspec; sourceTree = "<group>"; };
 		FE114D8E24C1A880001B2CE8 /* Gemfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Gemfile; sourceTree = "<group>"; };
 		FE114D8F24C1A880001B2CE8 /* CODEOWNERS */ = {isa = PBXFileReference; lastKnownFileType = text; path = CODEOWNERS; sourceTree = "<group>"; };
 		FE114D9024C1A880001B2CE8 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
@@ -1073,8 +1071,6 @@
 				FE114D8E24C1A880001B2CE8 /* Gemfile */,
 				FE114D9024C1A880001B2CE8 /* LICENSE.md */,
 				FE3D214C25262DC000EF6662 /* Makefile */,
-				FE114D8D24C1A873001B2CE8 /* MapboxSearch.podspec */,
-				FE114D8C24C1A873001B2CE8 /* MapboxSearchUI.podspec */,
 				FE3D214D25262DC000EF6662 /* Package.swift */,
 				FE114D9124C1A880001B2CE8 /* README.md */,
 			);
