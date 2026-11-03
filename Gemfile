@@ -1,6 +1,5 @@
 source "https://rubygems.org"
 
-gem "cocoapods"
 gem "fastlane", ">= 2.232.1"
 gem "jazzy", "~> 0.14.4"
 gem 'faraday', '~> 1.10.5' # Fix https://nvd.nist.gov/vuln/detail/CVE-2026-25765
