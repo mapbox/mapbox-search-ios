@@ -26,6 +26,12 @@ Guide: https://keepachangelog.com/en/1.0.0/
 
 - [Core] CocoaPods distribution of `MapboxSearch` and `MapboxSearchUI` is no longer supported. New versions are available through Swift Package Manager; previously released versions remain available on CocoaPods.
 
+## 2.34.3
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.34.3
+**MapboxSearch**: v2.34.3
+
 ## 2.34.2
 
 - [Core] Update dependencies.
