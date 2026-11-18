@@ -38,6 +38,16 @@ Guide: https://keepachangelog.com/en/1.0.0/
 **MapboxCommon**: v24.34.0-rc.1
 **MapboxSearch**: v2.34.0-rc.1
 
+## 2.33.2
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.33.2
+**MapboxSearch**: v2.33.2
+
+### Breaking changes
+
+- [Core] CocoaPods distribution of `MapboxSearch` and `MapboxSearchUI` is no longer supported. New versions are available through Swift Package Manager; previously released versions remain available on CocoaPods.
+
 ## 2.33.1
 
 - [Core] Update dependencies.
