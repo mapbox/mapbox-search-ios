@@ -4,8 +4,6 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
-
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -17,20 +15,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ServiceProvider.shared.localHistoryProvider.deleteAll()
         }
 
-        setUpProgrammaticUI(application: application)
-
         return true
+    }
+}
+
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    var window: UIWindow?
+
+    func scene(
+        _ scene: UIScene,
+        willConnectTo session: UISceneSession,
+        options connectionOptions: UIScene.ConnectionOptions
+    ) {
+        window?.backgroundColor = UIColor.systemBackground
+        if let tabBarController = window?.rootViewController as? UITabBarController {
+            setUpProgrammaticUI(tabBarController: tabBarController)
+        }
     }
 
     /// Set up the fifth tab 'Offline' programmatically.
-    private func setUpProgrammaticUI(application: UIApplication) {
-        let tabBarControllers = application.connectedScenes
-            .compactMap { $0 as? UIWindowScene }
-            .flatMap(\.windows)
-            .compactMap { window in
-                window.backgroundColor = UIColor.systemBackground
-                return window.rootViewController as? UITabBarController
-            }
+    private func setUpProgrammaticUI(tabBarController: UITabBarController) {
+        guard var viewControllers = tabBarController.viewControllers else {
+            return
+        }
 
         let offlineDemoViewController = OfflineDemoViewController()
         offlineDemoViewController.tabBarItem = UITabBarItem(
@@ -39,16 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tag: 0
         )
 
-        let moreExamples = ExamplesListing().allExamples()
+        viewControllers.append(offlineDemoViewController)
+        viewControllers.append(contentsOf: ExamplesListing().allExamples())
 
-        for tabBarController in tabBarControllers {
-            guard var viewControllers = tabBarController.viewControllers else {
-                break
-            }
-            viewControllers.append(offlineDemoViewController)
-            viewControllers.append(contentsOf: moreExamples)
-
-            tabBarController.setViewControllers(viewControllers, animated: false)
-        }
+        tabBarController.setViewControllers(viewControllers, animated: false)
     }
 }
