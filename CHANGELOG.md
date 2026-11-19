@@ -4,7 +4,11 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
-## Unreleased
+## 2.30.8
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.30.8
+**MapboxSearch**: v2.30.8
 
 ### Breaking changes
 
@@ -1498,3 +1502,4 @@ Use `PlaceAutocomplete.select(PlaceAutocomplete.Suggestion)` instead. Note that 
 
 - `BoundingBox` in requestOptions for `SearchEngine` and `CategorySearchEngine`
 This functionality enables overriding of bounding box passed in configuration on engine init stage. Overrides if presented.
+
