@@ -4,25 +4,155 @@
 Guide: https://keepachangelog.com/en/1.0.0/
 -->
 
-## 2.34.5
+## 2.36.0-rc.1
 
 - [Core] Update dependencies.
-**MapboxCommon**: v24.34.5
-**MapboxSearch**: v2.34.5
+**MapboxCommon**: v24.36.0-rc.1
+**MapboxSearch**: v2.36.0-rc.1
+
+## 2.35.2
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.35.2
+**MapboxSearch**: v2.35.2
+
+## 2.35.1
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.35.1
+**MapboxSearch**: v2.35.1
+
+## 2.35.0
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.35.0
+**MapboxSearch**: v2.35.0
+
+## 2.35.0-rc.1
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.35.0-rc.1
+**MapboxSearch**: v2.35.0-rc.1
+
+### Breaking changes
+
+- [Core] CocoaPods distribution of `MapboxSearch` and `MapboxSearchUI` is no longer supported. New versions are available through Swift Package Manager; previously released versions remain available on CocoaPods.
 
 ## 2.34.4
 
 - [Core] Update dependencies.
-**MapboxCommon**: v24.33.4
-**MapboxSearch**: v2.33.4
+**MapboxCommon**: v24.34.4
+**MapboxSearch**: v2.34.4
+
+## 2.34.3
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.34.3
+**MapboxSearch**: v2.34.3
+
+## 2.34.2
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.34.2
+**MapboxSearch**: v2.34.2
+
+### Breaking changes
+
+- [Core] CocoaPods distribution of `MapboxSearch` and `MapboxSearchUI` is no longer supported. New versions are available through Swift Package Manager; previously released versions remain available on CocoaPods.
+
+## 2.34.1
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.34.1
+**MapboxSearch**: v2.34.1
+
+## 2.34.0-rc.1
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.34.0-rc.1
+**MapboxSearch**: v2.34.0-rc.1
 
 ## 2.33.3
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.33.3
+**MapboxSearch**: v2.33.3
+
+## 2.33.2
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.33.2
+**MapboxSearch**: v2.33.2
+
+### Breaking changes
+
+- [Core] CocoaPods distribution of `MapboxSearch` and `MapboxSearchUI` is no longer supported. New versions are available through Swift Package Manager; previously released versions remain available on CocoaPods.
+
+## 2.33.1
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.33.1
+**MapboxSearch**: v2.33.1
+
+## 2.33.0
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.33.0
+**MapboxSearch**: v2.33.0
+
+## 2.33.0-rc.1
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.33.0-rc.1
+**MapboxSearch**: v2.33.0-rc.1
+
+## 2.32.5
 
 - [Core] Update dependencies.
 **MapboxCommon**: v24.32.5
 **MapboxSearch**: v2.32.5
 
 ## 2.32.4
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.32.4
+**MapboxSearch**: v2.32.4
+
+### Breaking changes
+
+- [Core] CocoaPods distribution of `MapboxSearch` and `MapboxSearchUI` is no longer supported. New versions are available through Swift Package Manager; previously released versions remain available on CocoaPods.
+
+## 2.32.3
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.32.3
+**MapboxSearch**: v2.32.3
+
+## 2.32.2
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.32.2
+**MapboxSearch**: v2.32.2
+
+## 2.32.1
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.32.1
+**MapboxSearch**: v2.32.1
+
+## 2.32.0
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.32.0
+**MapboxSearch**: v2.32.0
+
+## 2.32.0-rc.1
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.32.0-rc.1
+**MapboxSearch**: v2.32.0-rc.1
+
+## 2.31.3
 
 - [Core] Update dependencies.
 **MapboxCommon**: v24.31.3
@@ -59,6 +189,16 @@ Guide: https://keepachangelog.com/en/1.0.0/
 - [SearchOptions] The new option `SearchOptions.viewport` is available. It passes the map area currently
   visible to the user to the search-box API, which uses it to improve result ranking. Unlike
   `SearchOptions.boundingBox` it does not filter results.
+
+## 2.30.8
+
+- [Core] Update dependencies.
+**MapboxCommon**: v24.30.8
+**MapboxSearch**: v2.30.8
+
+### Breaking changes
+
+- [Core] CocoaPods distribution of `MapboxSearch` and `MapboxSearchUI` is no longer supported. New versions are available through Swift Package Manager; previously released versions remain available on CocoaPods.
 
 ## 2.30.4
 
